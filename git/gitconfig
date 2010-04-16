@@ -18,5 +18,5 @@
 	whitespace = nowarn
 [github]
 	user = holman
-[merge]
+[mergetool]
 	keepBackup = false
