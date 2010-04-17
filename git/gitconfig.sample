@@ -1,0 +1,30 @@
+# Sample gitconfig
+#
+# I've pulled this out of version control because 1) I don't want my email
+# and GitHub token on my public repo, and 2) I tried using the system-wide
+# etc/gitconfig and it seems other clients don't always respect it (not to
+# mention dealing with it in homebrew sucks). Don't let that stop you; you
+# can symlink ~/.gitconfig to this file and go rock out with your git out!
+
+[user]
+        name = Zach Holman
+        email = your@example.com
+[alias]
+        co = checkout
+        promote = !$ZSH/bin/git-promote
+        wtf     = !$ZSH/bin/git-wtf
+        rank-contributers = !$ZSH/bin/git-rank-contributers
+        count   = !git shortlog -sn
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+[core]
+        excludesfile = ~/.gitignore
+        editor = mate -w
+[apply]
+        whitespace = nowarn
+[github]
+        user = holman
+[mergetool]
+        keepBackup = false
