@@ -3,7 +3,6 @@ require 'rake'
 desc "Let's hook this motherfucker into your system"
 task :install do
   linkables = %w(
-    git/gitconfig
     git/gitignore
     ruby/gemrc
     ruby/irbrc
