@@ -1,6 +1,5 @@
 [user]
 	name = Zach Holman
-	email = email
 [alias]
 	co = checkout
 	promote = !$ZSH/bin/git-promote
