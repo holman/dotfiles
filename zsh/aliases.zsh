@@ -1,4 +1,4 @@
-alias dotmate='mate ~/.dotfiles'
-alias dotcd='cd ~/.dotfiles'
+alias dotmate='mate $ZSH'
+alias dotcd='cd $ZSH'
 
 alias reload!='. ~/.zshrc'
