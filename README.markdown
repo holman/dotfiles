@@ -22,9 +22,15 @@ The install rake task will symlink the appropriate files in `.dotfiles` to your 
 
 ## what's inside
 
-I don't know. Quit asking questions.
+A bunch of stuff. Here's a tiny snapshot of a simple git session:
 
-Really though, I'll write up an overview in a bit. CHILL ALREADY JEEZ.
+<img src="http://cl.ly/WNz/content" />
+
+Notice the simple directory display, the branch set on the right, the color and plus sign depicting the dirty status and the push status of your code, and the touching of Kevin Bacon.
+
+Beyond that, some Ruby aliases, some git helper scripts, some system helper scripts.
+
+If you're adding a new area to your forked repo — say, "Java" — you can simply add a `java` directory and put files in there. Anything with an extension of `.zsh` will get automatically included into your shell profile. If you want to add a file that gets symlinked into `$HOME`, look at `Rakefile` and see how I do it for things like `ruby/irbrc`, for example.
 
 ## thanks
 
