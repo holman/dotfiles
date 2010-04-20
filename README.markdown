@@ -30,7 +30,7 @@ Notice the simple directory display, the branch set on the right, the color and 
 
 Beyond that, some Ruby aliases, some git helper scripts, some system helper scripts.
 
-If you're adding a new area to your forked repo — say, "Java" — you can simply add a `java` directory and put files in there. Anything with an extension of `.zsh` will get automatically included into your shell profile. If you want to add a file that gets symlinked into `$HOME`, look at `Rakefile` and see how I do it for things like `ruby/irbrc`, for example.
+If you're adding a new area to your forked repo — say, "Java" — you can simply add a `java` directory and put files in there. Anything with an extension of `.zsh` will get automatically included into your shell profile. Anything with an extension of `.symlink` will get symlinked without extension into `$HOME` when you run `rake install`.
 
 ## thanks
 
