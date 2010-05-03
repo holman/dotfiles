@@ -18,7 +18,7 @@ I was a little tired of having long alias files and everything strewn about (whi
 - `cd ~/.dotfiles`
 - `rake install`
 
-The install rake task will symlink the appropriate files in `.dotfiles` to your home directory. Everything in configured and tweaked within `~/.dotfiles`, though.
+The install rake task will symlink the appropriate files in `.dotfiles` to your home directory. Everything is configured and tweaked within `~/.dotfiles`, though.
 
 ## what's inside
 
