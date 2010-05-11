@@ -1,0 +1,1 @@
+alias pubkey="more ~/.ssh/holman.public | pbcopy | echo '=> Public key copied to pasteboard.'"
