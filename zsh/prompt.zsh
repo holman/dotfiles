@@ -48,8 +48,12 @@ need_push () {
     echo "%{\e[0;32m%}+%{\e[0m%}"
   fi
 }
- 
-export PROMPT=$'%{\e[0;36m%}%1/%{\e[0m%}/ '
+
+rvm_prompt(){
+	echo "\e[1;33m$(~/.rvm/bin/rvm-prompt i)\e[0m ·"
+}
+
+export PROMPT=$'$(rvm_prompt) %{\e[0;36m%}%1/%{\e[0m%} › '
 set_prompt () {
   export RPROMPT="$(project_name_color)$(git_dirty)$(need_push)"
 }
