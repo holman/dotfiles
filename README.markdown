@@ -10,7 +10,6 @@ I was a little tired of having long alias files and everything strewn about (whi
 
 - [Homebrew](http://github.com/mxcl/homebrew)
 - grc (`brew install grc`, for pretty colors)
-- hub (`brew install hub`, for github git sexing)
 
 ## install
 
