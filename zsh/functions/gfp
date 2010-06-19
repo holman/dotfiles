@@ -1,1 +1,0 @@
-git format-patch master --stdout > $1
