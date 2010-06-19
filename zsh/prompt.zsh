@@ -15,7 +15,7 @@ git_dirty() {
     then
       echo "%{\033[1;38m%}$(git_prompt_info)%{\033[0m%}"
     else
-      echo "%{\033[1;31m%}$(git_prompt_info)%{\033[0m%}"
+      echo "%{\033[1;34m%}$(git_prompt_info)%{\033[0m%}"
     fi
   fi
 }
@@ -45,7 +45,7 @@ need_push () {
   then
     echo " "
   else
-    echo "%{\e[0;32m%}+%{\e[0m%}"
+    echo "%{\e[0;34m%} + %{\e[0m%}"
   fi
 }
 
