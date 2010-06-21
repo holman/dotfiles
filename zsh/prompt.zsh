@@ -50,7 +50,7 @@ need_push () {
 }
 
 rvm_prompt(){
-	echo "\e[1;33m$(~/.rvm/bin/rvm-prompt i)\e[0m ·"
+	echo "%{\e[1;33m%}$(~/.rvm/bin/rvm-prompt i)%{\e[0m%} ·"
 }
 
 export PROMPT=$'$(rvm_prompt) %{\e[0;36m%}%1/%{\e[0m%} › '
