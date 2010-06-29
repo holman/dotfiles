@@ -16,8 +16,11 @@ backup_location="/Volumes/backup"
 
 # Directories to backup. Recursive, implied home (~) location.
 directories=(
-	Pictures
+	Development
 	Documents
+	Movies
+	Music
+	Pictures
 )
 
 
