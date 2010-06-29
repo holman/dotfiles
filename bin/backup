@@ -26,7 +26,7 @@ hdiutil attach -noverify $sparsebundle
 	
 for directory in ${directories[@]}
 	do
-	rsync -avh --progress --delete --dry-run ~/$directory $backup_location
+	rsync -avh --progress --delete ~/$directory $backup_location
 done
 
 hdiutil detach $backup_location
