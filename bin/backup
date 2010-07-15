@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Copies a few key files to a mounted partition.
 #
 # I use Time Machine for backups, but I also wanted to build out an
@@ -16,20 +17,20 @@ backup_location="/Volumes/backup"
 
 # Directories to backup. Recursive, implied home (~) location.
 directories=(
-	Development
-	Documents
-	Movies
-	Music
-	Pictures
+  Development
+  Documents
+  Movies
+  Music
+  Pictures
 )
 
 
 
 hdiutil attach -noverify $sparsebundle
-	
+
 for directory in ${directories[@]}
-	do
-	rsync -avh --progress --delete ~/$directory $backup_location
+  do
+    rsync -avh --progress --delete ~/$directory $backup_location
 done
 
 hdiutil detach $backup_location
