@@ -1,4 +1,5 @@
 #!/bin/sh
+IFS=$'\n'
 
 # Copies a few key files to a mounted partition.
 #
@@ -19,6 +20,7 @@ backup_location="/Volumes/backup"
 directories=(
   Development
   Documents
+  "Library/Application Support/Adium 2.0"
   Movies
   Music
   Pictures
