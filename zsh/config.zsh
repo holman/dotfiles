@@ -5,7 +5,7 @@ else
 fi
 
 export EDITOR='mate -w'
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:$ZSH/bin:$PATH"
+export PATH=".:/usr/local/bin:/usr/local/sbin:$ZSH/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
@@ -44,4 +44,4 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
-bindkey '^?' backward-delete-char 
+bindkey '^?' backward-delete-char
