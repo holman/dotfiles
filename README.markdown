@@ -8,8 +8,6 @@ I was a little tired of having long alias files and everything strewn about (whi
 
 ## dependencies
 
-- [Homebrew](http://github.com/mxcl/homebrew)
-- grc (`brew install grc`, for pretty colors)
 - [rvm](http://rvm.beginrescueend.com)
 
 ## install
@@ -43,6 +41,11 @@ A lot of what's inside is just aliases: `gs` for `git status`, `gl` for `git pul
 - `c` is an autocomplete shortcut to your projects directory. For example, `c git` and then hitting tab will autocomplete to `github`, and then it simply changes to my `github` directory.
 - `check [filename]` is a quick script that tells you whether a domain is available to register.
 - `smartextract [filename]` will extract about a billion different compressed/uncompressed/whatever files.
+
+##moar custom
+There are a few things I use to make my life awesome. They're not a required dependency, but if you make it happen, THEY'LL MAKE **YOU** HAPPEN.
+
+- If you want some more colors for things like `ls`, install grc: `brew install grc`.
 
 ## thanks
 
