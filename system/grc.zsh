@@ -1,3 +1,5 @@
 # GRC colorizes nifty unix tools all over the place
-
-source `brew --prefix`/etc/grc.bashrc
+if $(gls &>/dev/null)
+then
+  source `brew --prefix`/etc/grc.bashrc
+fi
