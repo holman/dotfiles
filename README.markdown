@@ -16,12 +16,6 @@ The install rake task will symlink the appropriate files in `.dotfiles` to your 
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`, which sets up a few paths that'll be different on your particular machine.
 
-## show me
-
-<img src="http://cl.ly/1Q39/content" />
-
-This shows a simple session. I keep my prompts pretty simple: the current Ruby I'm running, the current directory I'm in, and the branch and status of git if the directory I'm in is a git repo.
-
 ## topical
 
 Everything's built around topic areas. If you're adding a new area to your forked dotfiles — say, "Java" — you can simply add a `java` directory and put files in there. Anything with an extension of `.zsh` will get automatically included into your shell. Anything with an extension of `.symlink` will get symlinked without extension into `$HOME` when you run `rake install`.
