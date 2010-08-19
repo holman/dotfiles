@@ -9,7 +9,10 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
-source ~/.localrc
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
 
 # initialize autocomplete just in case
 compinit
