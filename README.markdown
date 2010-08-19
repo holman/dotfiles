@@ -6,10 +6,6 @@ Your dotfiles are how you personalize your system. These are mine. The very prej
 
 I was a little tired of having long alias files and everything strewn about (which is extremely common on other dotfiles projects, too). That led to this project being much more topic-centric. I realized I could split a lot of things up into the main areas I used (Ruby, git, system libraries, and so on), so I structured the project accordingly.
 
-## dependencies
-
-- [rvm](http://rvm.beginrescueend.com)
-
 ## install
 
 - `git clone git://github.com/holman/dotfiles ~/.dotfiles`
@@ -46,6 +42,7 @@ A lot of what's inside is just aliases: `gs` for `git status`, `gl` for `git pul
 There are a few things I use to make my life awesome. They're not a required dependency, but if you make it happen, THEY'LL MAKE **YOU** HAPPEN.
 
 - If you want some more colors for things like `ls`, install grc: `brew install grc`.
+- If you install the excellent [rvm](http://rvm.beginrescueend.com) to manage multiple rubies, your current branch will show up in the prompt. Bonus.
 
 ## thanks
 
