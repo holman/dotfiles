@@ -2,7 +2,7 @@
 
 ### A tidy little theme for NetNewsWire
 
-<img src="http://cl.ly/24QJ/content" width="500" />
+<a href="http://cl.ly/24QJ"><img src="http://cl.ly/24QJ/content" width="500" /></a>
 
 ### Installation
 
