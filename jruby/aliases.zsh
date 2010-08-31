@@ -1,3 +1,2 @@
-# We're always `ruby` in rvm, so alias this to play nice
+# Quick switch to 1.4.0
 alias j='rvm use jruby-1.4.0'
-alias jruby='ruby'
