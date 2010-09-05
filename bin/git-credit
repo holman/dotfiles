@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# A very slightly quicker way to credit an author on the latest commit.
+#
+# $1 - The full name of the author.
+# $2 - The email address of the author.
+#
+# Examples
+#
+#   git credit "Zach Holman" zach@example.com
+#
+
+git commit --amend --author "$1 <$2>" -C HEAD
