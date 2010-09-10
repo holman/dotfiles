@@ -1,0 +1,43 @@
+# [link][]
+snippet []
+	[${1:link_id}][]${2}
+# [link][id]
+snippet [[
+	[${1:link}][${2:id}]${3}
+# [link](url)
+snippet [(
+	[${1:link}](http://${2:url})${3}
+# [link](email)
+snippet [@
+	[${1:link}(mailto:${2:email})${3}
+# [link](url "title")
+snippet [("
+	[${1:link}](${2:url} "${3:title}")${4}
+# [id]: url "title"
+snippet [:
+	[${1:id}]: http://${2:url} "${3:title}"
+# [id]: email "title"
+snippet [:@
+	[${1:id}]: mailto:${2:url} "${3:title}"
+# ![alt][id]
+snippet ![
+	![${1:alt}][${2:id}]${3}
+# ![alt](url)
+snippet !(
+	![${1:alt}](${2:url})${3}
+# ![alt](url "title")
+snippet !("
+	![${1:alt}](${2:url} "${3:title}")${4}
+# *emphasis* or _emphasis_
+snippet *
+	*${1}*${2}
+snippet _
+	_${1}_${2}
+# **strong** or __strong__
+snippet **
+	**${1}**${2}
+snippet __
+	__${1}__${2}
+# `code`
+snippet `
+	`${1}`${2}

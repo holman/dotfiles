@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/zach/.dotfiles/vim'
+let g:netrw_dirhist_2='/Users/zach/Development/enterprise'
+let g:netrw_dirhist_3='/Users/zach/Development/good-tutorials'
+let g:netrw_dirhist_4='/Users/zach/.dotfiles'
+let g:netrw_dirhist_5='/Users/zach/Development/holman.github.com/_drafts'
+let g:netrw_dirhist_6='/Users/zach/.dotfiles'
