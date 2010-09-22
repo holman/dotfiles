@@ -1,3 +1,4 @@
+autoload colors && colors
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
@@ -13,9 +14,9 @@ git_dirty() {
   else
     if [[ $st == "nothing to commit (working directory clean)" ]]
     then
-      echo "%{\033[m%}$(git_prompt_info)%{\033[0m%}"
+      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "%{\033[31m%}$(git_prompt_info)%{\033[0m%}"
+      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -45,22 +46,26 @@ need_push () {
   then
     echo " "
   else
-    echo "%{\e[1;36m%} + %{\e[0m%}"
+    echo "with %{$fg_bold[magenta]%}unpushed%{$reset_color%}"
   fi
 }
 
 rvm_prompt(){
   if $(which rvm &> /dev/null)
   then
-	  echo "%{\e[1;33m%}$(~/.rvm/bin/rvm-prompt i)%{\e[0m%} · "
+	  echo "%{$fg_bold[yellow]%}$(~/.rvm/bin/rvm-prompt i v)%{$reset_color%}"
 	else
 	  echo ""
   fi
 }
 
-export PROMPT=$'$(rvm_prompt)%{\e[0;36m%}%1/%{\e[0m%} › '
+directory_name(){
+  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+}
+
+export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(project_name_color)$(git_dirty) $(need_push)\n› '
 set_prompt () {
-  export RPROMPT="$(need_push)$(project_name_color)$(git_dirty)"
+  export RPROMPT=""
 }
 
 precmd() {
