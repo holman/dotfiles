@@ -5,7 +5,6 @@ else
 fi
 
 export EDITOR='mate -w'
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
