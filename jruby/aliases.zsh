@@ -1,2 +1,2 @@
-# Quick switch to 1.4.0
-alias j='rvm use jruby-1.4.0'
+# Quick switch to 1.5.2
+alias j='rvm jruby-1.5.2'
