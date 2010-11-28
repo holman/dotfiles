@@ -4,7 +4,6 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
-export EDITOR='mate -w'
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
