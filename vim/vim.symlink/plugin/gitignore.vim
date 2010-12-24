@@ -16,6 +16,7 @@ if filereadable(filename)
         if line =~ '/$' | let igstring .= "," . line . "*" | con | endif
         let igstring .= "," . line
     endfor
+    let igstring = substitute(igstring, "^,\/", '', "g")
     let execstring = "set wildignore=".substitute(igstring, '^,', '', "g")
     execute execstring
 endif
