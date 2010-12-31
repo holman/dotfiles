@@ -46,14 +46,11 @@ end
 CloudApp.authenticate(email,password)
 url = CloudApp::Item.create(:upload, {:file => ARGV[0]}).url
 
-# Give me the embedded URL instead. Comment this out if you want the page URL.
-url = "#{url}/content"
-
 # Say it for good measure.
 puts "Uploaded to #{url}."
 
-# Also add the #.gif trick to ensure full Campfireability
-url = "#{url}#.gif"
+# Get the embed link.
+url = "#{url}/#{ARGV[0].split('/').last}"
 
 # Copy it to your (Mac's) clipboard.
 `echo '#{url}' | tr -d "\n" | pbcopy`
