@@ -8,3 +8,6 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+# github propane hax
+alias propane=`sh ~/Dropbox/GitHub/propane/install.sh`
