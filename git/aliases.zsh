@@ -9,7 +9,7 @@
 # syntax is way too slow). It should work fine for those without rvm, though.
 if [[ -s $HOME/.rvm/scripts/rvm ]] 
 then
-  alias git='$HOME/.rvm/rubies/ruby-1.8.7-p302/bin/ruby `which hub`'
+  alias git='$HOME/.rvm/rubies/ruby-1.8.7-p334/bin/ruby `which hub`'
 fi
 
 # The rest of my fun git aliases
