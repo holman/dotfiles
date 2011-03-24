@@ -46,7 +46,7 @@ need_push () {
   then
     echo " "
   else
-    echo "with %{$fg_bold[magenta]%}unpushed%{$reset_color%}"
+    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
   fi
 }
 
@@ -59,13 +59,24 @@ rvm_prompt(){
   fi
 }
 
+todo(){
+  if $(which todo.sh &> /dev/null)
+  then
+    num=$(echo $(todo.sh ls | wc -l))
+    let todos=num-2
+    echo "$todos"
+  else
+    echo ""
+  fi
+}
+
 directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(project_name_color)$(git_dirty) $(need_push)\n› '
+export PROMPT=$'\n$(rvm_prompt) in $(directory_name) $(project_name_color)$(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT=""
+  export RPROMPT="%{$fg_bold[grey]%}$(todo)%{$reset_color%}"
 }
 
 precmd() {
