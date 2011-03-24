@@ -9,5 +9,8 @@ then
   alias la='gls -A --color'
 fi
 
+# todo.sh: https://github.com/ginatrapani/todo.txt-cli
+alias t="todo.sh"
+
 # github propane hax
 alias propane=`sh ~/Dropbox/GitHub/propane/install.sh`
