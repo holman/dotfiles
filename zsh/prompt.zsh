@@ -64,7 +64,12 @@ todo(){
   then
     num=$(echo $(todo.sh ls | wc -l))
     let todos=num-2
-    echo "$todos"
+    if [ $todos != 0 ]
+    then
+      echo "$todos"
+    else
+      echo ""
+    fi
   else
     echo ""
   fi
