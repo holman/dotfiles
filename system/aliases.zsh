@@ -10,7 +10,13 @@ then
 fi
 
 # todo.sh: https://github.com/ginatrapani/todo.txt-cli
-alias t="todo.sh"
+function t() { 
+  if [ $# -eq 0 ]; then
+    todo.sh ls
+  else
+    todo.sh $*
+  fi
+}
 
 # github propane hax
 alias propane=`sh ~/Dropbox/GitHub/propane/install.sh`
