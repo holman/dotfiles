@@ -1,4 +1,4 @@
-# Direct from http://dotfiles.org/~_why/.zshrc
+# From http://dotfiles.org/~_why/.zshrc
 # Sets the window title nicely no matter where you are
 function title() {
   # escape '%' chars in $1, make nonprintables visible
@@ -9,10 +9,10 @@ function title() {
 
   case $TERM in
   screen)
-    print -Pn "\ek$a:$3\e\\"      # screen title (in ^A")
+    print -Pn "\ek$a:$3\e\\" # screen title (in ^A")
     ;;
   xterm*|rxvt)
-    print -Pn "\e]2;$2 | $a:$3\a" # plain xterm title
+    print -Pn "\e]2;$2\a" # plain xterm title ($3 for pwd)
     ;;
   esac
 }
