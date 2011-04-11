@@ -88,5 +88,6 @@ set_prompt () {
 }
 
 precmd() {
+  title "zsh" "$USER@%m" "%55<...<%~"
   set_prompt
 }
