@@ -6,3 +6,5 @@ function t() {
     todo.sh $*
   fi
 }
+
+alias n="t ls +next"
