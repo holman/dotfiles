@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-#
-# deathss
-#   Betrays and murders all running script/servers.
-#   Now the Jedi are all but extinct.
-
-`ps aux | grep [r]uby | grep script/server`.split("\n").each do |line|
-  `kill -9 #{line.split(' ')[1]}`
-end

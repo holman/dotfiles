@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-
-DEFAULT_PORT = 3000
-
-puts (`ps aux | grep [r]uby | grep script/server`.split("\n").map { |l| 
-  server = l.split(/\s+/)[11..-1]
-  (port = server.index('-p')) ? server[port.next].to_i : DEFAULT_PORT
-}.max || DEFAULT_PORT - 1).next
