@@ -9,14 +9,5 @@ then
   alias la='gls -A --color'
 fi
 
-# todo.sh: https://github.com/ginatrapani/todo.txt-cli
-function t() { 
-  if [ $# -eq 0 ]; then
-    todo.sh ls
-  else
-    todo.sh $*
-  fi
-}
-
 # github propane hax
 alias propane=`sh ~/Dropbox/GitHub/propane/install.sh`
