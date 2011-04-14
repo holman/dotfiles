@@ -12,7 +12,10 @@
 
 output="$HOME/Desktop/animated.gif"
 
-convert -verbose -delay 20 -loop 0 -resize 500 -layers OptimizeTransparency \
+# Set delay to be 20 unless we set $DELAY
+delay=${DELAY-20}
+
+convert -verbose -delay $delay -loop 0 -resize 500 -layers OptimizeTransparency \
   $* $output
 
 # comment out if you don't need CloudApp.
