@@ -7,9 +7,13 @@
 #
 # I'm hardcoding it to an installed rvm (using rvm's `rvm 1.8.7,ruby /hub/path`
 # syntax is way too slow). It should work fine for those without rvm, though.
-if [[ -s $HOME/.rvm/scripts/rvm ]] 
+if [[ -s $HOME/.rvm/scripts/rvm ]]
 then
-  alias git='$HOME/.rvm/rubies/ruby-1.8.7-p334/bin/ruby `which hub`'
+  if $(which hub &> /dev/null)
+  then
+    alias git='$HOME/.rvm/rubies/ruby-1.8.7-p334/bin/ruby `which hub`'
+  else
+  fi
 fi
 
 # The rest of my fun git aliases
