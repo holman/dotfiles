@@ -48,7 +48,7 @@ browse. A few notable ones:
 - `c` is an autocomplete shortcut to your projects directory. For example, `c
   git` and then hitting tab will autocomplete to `github`, and then it simply
   changes to my `github` directory. The projects directory is defined in
-  `[zsh/zshrc.symlink](https://github.com/holman/dotfiles/blob/master/zsh/zshrc.symlink)`
+  [`zsh/zshrc.symlink`](https://github.com/holman/dotfiles/blob/master/zsh/zshrc.symlink).
 - `check [filename]` is a quick script that tells you whether a domain is
   available to register.
 - `smartextract [filename]` will extract about a billion different
