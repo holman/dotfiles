@@ -1,11 +1,12 @@
 # Sample gitconfig
 #
-# I've pulled this out of version control because 1) I don't want my email
-# and GitHub token on my public repo, and 2) I tried using the system-wide
-# etc/gitconfig and it seems other clients don't always respect it (not to
-# mention dealing with it in homebrew sucks). Don't let that stop you; you
-# can symlink ~/.gitconfig to this file and go rock out with your git out!
-
+# This is a sample gitconfig. Usually we keep a lot of sensitive information
+# here (things like authentication tokens, email addresses, and so on), so this
+# file is ignored in this project's .gitignore.
+#
+# To set this up, rename this file to `gitconfig.symlink` and you'll be able to
+# install this to the correct location by running the project's main `rake`
+# task.
 [user]
         name = Zach Holman
         email = your@example.com
