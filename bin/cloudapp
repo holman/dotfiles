@@ -27,7 +27,6 @@ rescue LoadError
   exit!(1)
 end
 
-
 config_file = "#{ENV['HOME']}/.cloudapp"
 unless File.exist?(config_file)
   puts "You need to type your email and password (one per line) into "+
@@ -43,6 +42,11 @@ class HTTParty::Response
   def ok? ; true end
 end
 
+if ARGV[0].nil?
+   puts "You need to specify a file to upload."
+   exit!(1)
+end
+
 CloudApp.authenticate(email,password)
 url = CloudApp::Item.create(:upload, {:file => ARGV[0]}).url
 
@@ -53,4 +57,4 @@ puts "Uploaded to #{url}."
 url = "#{url}/#{ARGV[0].split('/').last}"
 
 # Copy it to your (Mac's) clipboard.
-`echo '#{url}' | tr -d "\n" | pbcopy`
+`echo -n '#{url}' | pbcopy`
