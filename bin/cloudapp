@@ -57,4 +57,4 @@ puts "Uploaded to #{url}."
 url = "#{url}/#{ARGV[0].split('/').last}"
 
 # Copy it to your (Mac's) clipboard.
-`echo -n '#{url}' | pbcopy`
+`echo '#{url}' | tr -d "\n" | pbcopy`
