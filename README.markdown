@@ -44,15 +44,11 @@ pull --rebase --prune`, for example. You can browse the `aliases.zsh` files in
 each topic directory. There's also a collection of scripts in `bin` you can
 browse. A few notable ones:
 
-###rails
-- `s` pings your system for any running Rails apps, and `deathss` will then
-  kill all of them indiscriminately. `ss` starts up a new Rails server on the
-  next available port- if 3000 is taken, it'll spin up your server on 3001.
-
 ###system
 - `c` is an autocomplete shortcut to your projects directory. For example, `c
   git` and then hitting tab will autocomplete to `github`, and then it simply
-  changes to my `github` directory.
+  changes to my `github` directory. The projects directory is defined in
+  `[zsh/zshrc.symlink](https://github.com/holman/dotfiles/blob/master/zsh/zshrc.symlink)`
 - `check [filename]` is a quick script that tells you whether a domain is
   available to register.
 - `smartextract [filename]` will extract about a billion different
