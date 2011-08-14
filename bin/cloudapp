@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 #
 # cloudapp
-# Zach Holman / @holman
+# Hacked together with duct tape, hopes, and dreams by Aashay Desai / @aashay
+# Original by Zach Holman / @holman
 #
-# Uploads a file from the command line to CloudApp, drops it into your 
-# clipboard (on a Mac, at least).
+# Uploads a file from the command line to CloudApp, drops it into your clipboard
 #
 # Example:
 #
@@ -46,15 +46,61 @@ if ARGV[0].nil?
    puts "You need to specify a file to upload."
    exit!(1)
 end
+  
+class Copier
+    class << self
+      # Public: tests if currently running on darwin.
+      #
+      # Returns true if running on darwin (MacOS X), else false
+      def darwin?
+        !!(RUBY_PLATFORM =~ /darwin/)
+      end
+
+      # Public: tests if currently running on windows.
+      #
+      # Apparently Windows RUBY_PLATFORM can be 'win32' or 'mingw32'
+      #
+      # Returns true if running on windows (win32/mingw32), else false
+      def windows?
+        !!(RUBY_PLATFORM =~ /win|mingw/)
+      end
+
+      # Public: returns the command used to copy a url to the
+      # clipboard for the current platform.
+      #
+      # Returns a String with the bin
+      def copy_command
+        if darwin?
+          'pbcopy'
+        elsif windows?
+          'clip'
+        else
+          'xclip -selection clipboard'
+        end
+      end
+          
+      # Public: copies a given url to the clipboard. 
+      # This _should_ work in any POSIX environment and also windows,
+      # since they both have echo commands.  I think.  Maybe? I dunno.
+      #
+      # Returns nothing.
+      def copy(url)    
+          system("echo #{url} | #{copy_command}")
+      end
+    end
+end
+
+puts "Connecting to CloudApp..."
 
 CloudApp.authenticate(email,password)
 url = CloudApp::Item.create(:upload, {:file => ARGV[0]}).url
 
 # Say it for good measure.
-puts "Uploaded to #{url}."
+puts "Uploaded to #{url}..."
 
 # Get the embed link.
 url = "#{url}/#{ARGV[0].split('/').last}"
 
-# Copy it to your (Mac's) clipboard.
-`echo '#{url}' | tr -d "\n" | pbcopy`
+# Copy it to your clipboard.
+Copier::copy(url)
+puts "Copied #{url} to clipboard! ENJOY!"
