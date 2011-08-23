@@ -6,6 +6,9 @@
 # Takes a .gif, splits it into constituent frames, mustaches each, restitches
 # the gif, and uploads to cloudapp.
 #
+# This leverages the nifty service mustachify.me, which will analyze your photo,
+# identify faces, and add a mustache to your image.
+#
 # If the .gif is a remote file, we'll download it and blow it up locally.
 #
 #   $1 - the path of the gif
