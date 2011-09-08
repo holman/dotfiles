@@ -39,30 +39,30 @@ symlinked without extension into `$HOME` when you run `rake install`.
 
 ## what's inside
 
-A lot of what's inside is just aliases: `gs` for `git status`, `gl` for `git
-pull --rebase --prune`, for example. You can browse the `aliases.zsh` files in
-each topic directory. There's also a collection of scripts in `bin` you can
-browse. A few notable ones:
+A lot of stuff. Seriously, a lot of stuff. Check them out in the file browser
+above and see what components may mesh up with you. Fork it, remove what you
+don't use, and build on what you do use.
 
-###system
-- `c` is an autocomplete shortcut to your projects directory. For example, `c
-  git` and then hitting tab will autocomplete to `github`, and then it simply
-  changes to my `github` directory. The projects directory is defined in
-  [`zsh/zshrc.symlink`](https://github.com/holman/dotfiles/blob/master/zsh/zshrc.symlink).
-- `check [filename]` is a quick script that tells you whether a domain is
-  available to register.
-- `smartextract [filename]` will extract about a billion different
-  compressed/uncompressed/whatever files and you'll never have to remember the
-  syntax.
-- `backup` is a quick hook into `rsync` to backup a selection of files. Check
-  out the comments for more details.
+## components
 
-###fun
-- `cloudapp` uploads any file to [CloudApp](http://getcloudapp.com).
+There's a few special files in the hierarchy.
 
-##moar custom
+- **bin/\* **: Anything in `bin/` will get added to your `$PATH` and be made
+  available everywhere.
+- **topic/\*.zsh**: Any files ending in `.zsh` get loaded into your
+  environment.
+- **topic/\*.symlink**: Any files ending in `*.symlink` get symlinked into
+  your `$HOME`. This is so you can keep all of those versioned in your dotfiles
+  but still keep those autoloaded files in your home directory. These get
+  symlinked in when you run `rake install`.
+- **topic/\*.completion.sh**: Any files ending in `completion.sh` get loaded
+  last so that they get loaded after we set up zsh autocomplete functions.
+
+## add-ons
+
 There are a few things I use to make my life awesome. They're not a required
-dependency, but if you make it happen, THEY'LL MAKE **YOU** HAPPEN.
+dependency, but if you install them they'll make your life a bit more like a
+bubble bath.
 
 - If you want some more colors for things like `ls`, install grc: `brew install
   grc`.
