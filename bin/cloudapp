@@ -50,14 +50,19 @@ if ARGV[0].nil?
    exit!(1)
 end
 
-CloudApp.authenticate(email,password)
-url = CloudApp::Item.create(:upload, {:file => ARGV[0]}).url
+urls = []
+ARGV.each do |x|
+  CloudApp.authenticate(email,password)
+  puts "Attempting to upload #{x}"
+  url = CloudApp::Item.create(:upload, {:file => x}).url
 
-# Say it for good measure.
-puts "Uploaded to #{url}"
+  # Say it for good measure.
+  puts "Uploaded #{x} to #{url}"
 
-# Get the embed link.
-url = "#{url}/#{ARGV[0].split('/').last}"
+  # Get the embed link.
+  url = "#{url}/#{ARGV[0].split('/').last}"
+  urls << url
+end
 
 # Copy it to your (Mac's) clipboard.
-`echo '#{url}' | tr -d "\n" | pbcopy`
+`echo '#{urls.join(',')}' | tr -d "\n" | pbcopy`
