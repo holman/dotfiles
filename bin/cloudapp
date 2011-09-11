@@ -20,11 +20,14 @@
 #   password
 
 require 'rubygems'
-begin
-  require 'cloudapp_api'
-rescue LoadError
-  puts "You need to install cloudapp_api: gem install cloudapp_api"
-  exit!(1)
+
+['json', 'cloudapp_api'].each do |gem|
+  begin
+    require gem
+  rescue LoadError
+    puts "You need to install #{gem}: gem install #{gem}"
+    exit!(1)
+  end
 end
 
 config_file = "#{ENV['HOME']}/.cloudapp"
