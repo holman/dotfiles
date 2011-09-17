@@ -36,4 +36,4 @@ for directory in ${directories[@]}
 done
 
 hdiutil detach $backup_location
-disutil eject fuckplanets
+diskutil eject fuckplanets
