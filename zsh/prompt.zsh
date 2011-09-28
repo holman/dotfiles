@@ -49,6 +49,8 @@ function battery_charge {
   if [[ `uname` == "Darwin" ]]
   then
     echo `$BAT_CHARGE` 2>/dev/null
+  else
+    echo ""
   fi
 }
 
