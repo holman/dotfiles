@@ -46,7 +46,10 @@ directory_name(){
 
 BAT_CHARGE="$ZSH/bin/batterycapacity"
 function battery_charge {
-  echo `$BAT_CHARGE` 2>/dev/null
+  if [[ `uname` == "Darwin" ]]
+  then
+    echo `$BAT_CHARGE` 2>/dev/null
+  fi
 }
 
 export PROMPT=$'\n%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[cyan]%}${PWD/#$HOME/~}${%reset_color%} $(git_dirty)$(need_push)\n%{$reset_color%}› '
