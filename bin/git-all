@@ -3,3 +3,4 @@
 # Stage all unstaged.
 
 git add -A
+git status
