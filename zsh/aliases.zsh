@@ -1,7 +1,7 @@
 alias reload!='. ~/.zshrc'
 
 # LS
-LS_COMMON="-hBG"
+LS_COMMON="-hBF"
 test -n "$LS_COMMON" &&
 alias ls="command ls $LS_COMMON"
 
