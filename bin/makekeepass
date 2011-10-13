@@ -1,0 +1,10 @@
+#!/bin/zsh
+# Running KeePass 2.x on OSX using macpack
+# Install Mono Framework (http://www.go-mono.com/mono-downloads/download.html)
+# Download the latest *Portable* version of KeePass 2.x and unpack it.
+# In the unpacked directory, run this.
+
+macpack -o:. -m:winforms -r:/Library/Frameworks/Mono.framework/Versions/Current/lib/ libCocoaSharpGlue.dylib -r:KeePass.chm -r:KeePass.XmlSerializers.dll -r:KeePassLibC32.dll -r:KeePassLibC64.dll -r:License.txt -r:ShinstUtil.exe -r:./XSL -n:KeePass -a:KeePass.exe
+
+# This will create a KeePass.app file that you can drag into your \Applications folder, and you should be all set.
+
