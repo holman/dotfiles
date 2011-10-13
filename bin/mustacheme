@@ -47,7 +47,7 @@ convert $1 -coalesce $output/frame_%03d.gif
 # Mustache each frame
 for frame in $output/*.gif
 do
-  url=$(cloudapp $frame | grep Uploaded | awk '{print substr($0,13)}')
+  url=$(cloudapp $frame | grep Uploaded | awk '{print substr($0, index($0, "http://"))}')
   url="$url/$(basename $frame)"
   wget "http://mustachify.me/?src=$url" -O "$frame-stache"
 done
