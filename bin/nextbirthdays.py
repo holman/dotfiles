@@ -5,6 +5,9 @@ import argparse
 
 today = datetime.date.today()
 kReportingWindows = datetime.timedelta(days=7)
+newThreadTF2 = 'http://bit.ly/qVz0Cl'
+newThreadHL2 = 'http://bit.ly/pOwSba'
+newThreadSuggestionThreshold = 1
 
 class Birthday:
   def __init__(self, name, month, date):
@@ -38,8 +41,11 @@ if __name__ == '__main__':
   args = parser.parse_args()
   birthdays = load(args.birthdays)
   upcoming = getNext(birthdays)
+  suggestNewThread = False
   for b in upcoming:
     daysDiff = (b.birthday - today).days
+    if daysDiff <= newThreadSuggestionThreshold:
+      suggestNewThread = True
     daysPluralized = 'days' if isPlural(daysDiff) else 'day'
     if daysDiff > 0:
       daysCountdownText = 'in ' + str(daysDiff) + ' ' + daysPluralized
@@ -47,3 +53,6 @@ if __name__ == '__main__':
       daysCountdownText = 'today!'
 
     print b.name, 'has a birthday', daysCountdownText 
+  if suggestNewThread:
+    print 'TF2?', newThreadTF2
+    print 'HL2?', newThreadHL2
