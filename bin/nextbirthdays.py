@@ -22,6 +22,9 @@ def load(filepath):
     results.append(b)
   return results
 
+def isPlural(number):
+  return number != 1
+
 def getNext(birthdays):
   results = []
   for birthday in birthdays:
@@ -36,4 +39,11 @@ if __name__ == '__main__':
   birthdays = load(args.birthdays)
   upcoming = getNext(birthdays)
   for b in upcoming:
-    print b.name, 'has a birthday on', b.birthday.isoformat()
+    daysDiff = (b.birthday - today).days
+    daysPluralized = 'days' if isPlural(daysDiff) else 'day'
+    if daysDiff > 0:
+      daysCountdownText = 'in ' + str(daysDiff) + ' ' + daysPluralized
+    else:
+      daysCountdownText = 'today!'
+
+    print b.name, 'has a birthday', daysCountdownText 
