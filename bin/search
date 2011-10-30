@@ -4,4 +4,5 @@
 #
 set -e
 
-grep -ir $1 *
+# use -iru to search directories ack usually ignores (like .git)
+ack -ir $1 *
