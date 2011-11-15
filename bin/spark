@@ -135,6 +135,13 @@ then
   data="$1"
 else
   data=''
+
+  # check to see if stdin's a tty
+  if [ -t 0 ]; then
+    help
+    exit
+  fi
+
   while read data; do
     data=$data
     break
