@@ -2,6 +2,15 @@
 // are overridden in turn by file type specific settings. Place your settings
 // here, to ensure they're preserved when upgrading.
 {
+  "theme": "Soda Dark.sublime-theme",
   "tab_size": 2,
-  "translate_tabs_to_spaces": true
+  "translate_tabs_to_spaces": true,
+  "drawWhiteSpace": true,
+  "matchBracketsAngle": true,
+  "matchBracketsBraces": true,
+  "matchBracketsSquare": true,
+  "rulers": [ 80 ],
+  "show_minimap": false,
+  "trimTrailingWhiteSpaceOnSave": true,
+  "highlight_modified_tabs": true
 }
