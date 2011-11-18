@@ -1,0 +1,7 @@
+// Settings in here override those in "Default/Base File.sublime-settings", and
+// are overridden in turn by file type specific settings. Place your settings
+// here, to ensure they're preserved when upgrading.
+{
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true
+}
