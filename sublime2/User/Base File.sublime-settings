@@ -3,6 +3,7 @@
 // here, to ensure they're preserved when upgrading.
 {
   "theme": "Soda Dark.sublime-theme",
+  "vintage_start_in_command_mode": true,
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
   "drawWhiteSpace": true,
