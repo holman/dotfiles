@@ -1,0 +1,1 @@
+alias sub=$ZSH/bin/subl .
