@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# https://github.com/rtomayko/dotfiles/blob/rtomayko/bin/headers
+
+curl -sv "$@" 2>&1 >/dev/null |
+  grep -v "^\*" |
+  grep -v "^}" |
+  cut -c3-
