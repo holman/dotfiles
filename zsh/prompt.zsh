@@ -43,9 +43,9 @@ need_push () {
 rvm_prompt(){
   if $(which rvm &> /dev/null)
   then
-	  echo "%{$fg_bold[yellow]%}$(rvm tools identifier)%{$reset_color%}"
-	else
-	  echo ""
+    echo "%{$fg_bold[yellow]%}$(rvm tools identifier)%{$reset_color%}"
+  else
+    echo ""
   fi
 }
 
