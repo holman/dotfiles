@@ -50,7 +50,7 @@ function battery_charge {
   then
     echo `$BAT_CHARGE` 2>/dev/null
   else
-    echo ""
+    echo " "
   fi
 }
 
