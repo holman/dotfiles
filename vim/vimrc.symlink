@@ -1,4 +1,6 @@
 set noswapfile
+call pathogen#infect()
+set autoread
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
