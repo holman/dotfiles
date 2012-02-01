@@ -1,7 +1,64 @@
+set noswapfile
+call pathogen#infect()
+set autoread
+
+" Text Formatting
+
+set autoindent      " auto indent new lines
+set smartindent     " be smart about it
+set nowrap          " don't wrap lines
+set softtabstop=2   " two space tabs
+set shiftwidth=2    " ..
+set expandtab
+set nosmarttab
+
+
+
+" Key mapping
+
+let mapleader = ","
+
+
+
+" UI
+
+set ruler         " show cursor position always
+set nolazyredraw
+set number
+set wildmenu
+set ch=2          " command line height
+set backspace=2   " backspace over everything in insert mode
+set report=0      " tell us about changes
+set nostartofline " don't jump to the start of line when scrolling
+
+
+
+" Visual Cues
+
+set showmatch     " brackets/braces
+set mat=5         " duration of match show
+set incsearch     " incremental search
+set ignorecase    " ignore case when searching
+set hlsearch      " highlight searches
+set visualbell    " NO SOUND
+
+
+
+" Strip trailing whitespace
+
+function! StripWhitespace ()
+  exec ':%s/ \+$//gc'
+endfunction
+map ,s :call StripWhitespace ()<CR>
+
+
 colorscheme desert
+syntax on
+filetype plugin indent on
 set anti
-set lines=999 columns=84
 set guioptions=egmrt
+
+
 
 " Command + t to :CommandT
 if has("gui_macvim")

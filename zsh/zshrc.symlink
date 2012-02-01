@@ -1,8 +1,10 @@
+# MY TOTALLY SWEET PATH VARIABLE
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Development
+export PROJECTS=~/dev
 
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
