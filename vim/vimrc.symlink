@@ -73,7 +73,7 @@ set mat=5                  " duration to show matching brace (1/10 sec)
 set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
 set ignorecase             " ignore case when searching
-set nohlsearch             " don't highlight searches
+set hlsearch               " highlight searches
 set visualbell             " shut the fuck up
 
 
