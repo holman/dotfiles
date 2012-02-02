@@ -1,6 +1,11 @@
 set noswapfile
 call pathogen#infect()
 set autoread
+colorscheme zenburn
+syntax on
+set nocompatible
+filetype indent plugin on
+autocmd vimenter * NERDTree
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
@@ -26,9 +31,20 @@ set virtualedit=block      " allow virtual edit in visual block ..
 " lead with ,
 let mapleader = ","
 
+" ; same as :
+nnoremap ; :
+
 " exit to normal mode with 'jj'
 inoremap jj <ESC>
 
+" NERDTree Shortcuts
+nnoremap <leader>f :NERDTreeToggle<CR>
+
+" Window Switching
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-l>l
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
@@ -53,7 +69,7 @@ inoremap <Up> <C-o>gk
 set ruler                  " show the cursor position all the time
 set noshowcmd              " don't display incomplete commands
 set nolazyredraw           " turn off lazy redraw
-set number                 " line numbers
+set relativenumber         " line numbers
 set wildmenu               " turn on wild menu
 set wildmode=list:longest,full
 set ch=2                   " command line height
@@ -78,6 +94,13 @@ set visualbell             " shut the fuck up
 
 
 " ---------------------------------------------------------------------------
+"  Cursor Settings
+" ---------------------------------------------------------------------------
+
+set cursorline
+set guicursor=n-v-c:block-Cursor
+
+" ---------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
 " ---------------------------------------------------------------------------
 
@@ -85,3 +108,5 @@ function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
 map ,s :call StripWhitespace ()<CR>
+
+au FocusLost * :wa
