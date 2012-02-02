@@ -5,7 +5,6 @@ colorscheme zenburn
 syntax on
 set nocompatible
 filetype indent plugin on
-autocmd vimenter * NERDTree
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
