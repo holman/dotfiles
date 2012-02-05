@@ -43,7 +43,7 @@ nnoremap <leader>f :NERDTreeToggle<CR>
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-l>l
+nnoremap <leader>l <C-w>l
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
