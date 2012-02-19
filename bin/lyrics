@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# lyrics.sh
+#
+# A fine piece of work by @febuiles
+#   https://gist.github.com/1549979
+
+artist_name=`arch -i386 osascript -e'tell application "iTunes"' -e'get artist of current track' -e'end tell'`
+song_title=`arch -i386 osascript -e'tell application "iTunes"' -e'get name of current track' -e'end tell'`
+
+artist=`echo $artist_name | sed "s/[[:space:]]/%20/g"`
+title=`echo $song_title | sed "s/[[:space:]]/%20/g"`
+song=`curl -s "http://makeitpersonal.co/lyrics?artist=$artist&title=$title"`
+
+echo -e "$artist_name - $song_title\n$song" | less
