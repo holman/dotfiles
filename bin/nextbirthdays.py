@@ -4,7 +4,8 @@ import datetime
 import argparse
 
 today = datetime.date.today()
-kReportingWindows = datetime.timedelta(days=7)
+kReportingWindowsDays = 7
+kReportingWindowsTimeDelta = datetime.timedelta(days=kReportingWindowsDays)
 newThreadTF2 = 'http://bit.ly/qVz0Cl'
 newThreadHL2 = 'http://bit.ly/pOwSba'
 newThreadSuggestionThreshold = 1
@@ -31,7 +32,7 @@ def isPlural(number):
 def getNext(birthdays):
   results = []
   for birthday in birthdays:
-    if birthday.birthday - today < kReportingWindows:
+    if birthday.birthday - today < kReportingWindowsTimeDelta:
       results.append(birthday)
   return results
 
@@ -56,3 +57,10 @@ if __name__ == '__main__':
   if suggestNewThread:
     print 'TF2?', newThreadTF2
     print 'HL2?', newThreadHL2
+  if len(upcoming) == 0:
+	print 'No birthdays in the next %i' % kReportingWindowsDays,
+	if isPlural(kReportingWindowsDays):
+		print 'days'
+	else:
+		print 'day'
+
