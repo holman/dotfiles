@@ -43,6 +43,7 @@ if __name__ == '__main__':
   birthdays = load(args.birthdays)
   upcoming = getNext(birthdays)
   suggestNewThread = False
+  print "Birthdays:"
   for b in upcoming:
     daysDiff = (b.birthday - today).days
     if daysDiff <= newThreadSuggestionThreshold:
