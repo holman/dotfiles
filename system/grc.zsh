@@ -7,7 +7,6 @@ for prog in grc identify; do
   break
 done
 (( $+touse )) || { return 1 }
-echo "Found grc"
 
 unset touse
 for prog in brew identify; do
@@ -16,6 +15,5 @@ for prog in brew identify; do
   break
 done
 (( $+touse )) || { return 1 }
-echo "Found brew"
 
 source `brew --prefix`/etc/grc.bashrc
