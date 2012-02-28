@@ -4,7 +4,7 @@ import datetime
 import argparse
 
 today = datetime.date.today()
-kReportingWindowsDays = 7
+kReportingWindowsDays = 4
 kReportingWindowsTimeDelta = datetime.timedelta(days=kReportingWindowsDays)
 newThreadTF2 = 'http://bit.ly/qVz0Cl'
 newThreadHL2 = 'http://bit.ly/pOwSba'
