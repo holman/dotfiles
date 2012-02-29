@@ -48,7 +48,10 @@ if __name__ == '__main__':
     daysDiff = (b.birthday - today).days
     if daysDiff <= newThreadSuggestionThreshold:
       suggestNewThread = True
-    daysPluralized = 'days' if isPlural(daysDiff) else 'day'
+	if isPlural(daysDiff):
+		daysPluralized = 'days'
+	else:
+		daysPluralized = 'day'
     if daysDiff > 0:
       daysCountdownText = 'in ' + str(daysDiff) + ' ' + daysPluralized
     else:
