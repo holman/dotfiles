@@ -20,7 +20,7 @@ set tabstop=4
 set expandtab              " expand tabs to spaces
 set nosmarttab             " fuck tabs
 set formatoptions+=n       " support for numbered/bullet lists
-"set textwidth=80           " wrap at 80 chars by default
+set textwidth=80           " wrap at 80 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
 
 " ----------------------------------------------------------------------------
@@ -65,6 +65,7 @@ inoremap <Up> <C-o>gk
 "  UI
 " ----------------------------------------------------------------------------
 
+set lines=54 columns=82
 set ruler                  " show the cursor position all the time
 set noshowcmd              " don't display incomplete commands
 set nolazyredraw           " turn off lazy redraw
@@ -88,7 +89,7 @@ set mat=5                  " duration to show matching brace (1/10 sec)
 set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
 set ignorecase             " ignore case when searching
-set hlsearch               " highlight searches
+set nohlsearch               " highlight searches
 set visualbell             " shut the fuck up
 
 
@@ -108,4 +109,3 @@ function! StripWhitespace ()
 endfunction
 map ,s :call StripWhitespace ()<CR>
 
-au FocusLost * :wa
