@@ -34,6 +34,7 @@ task :install do
   end
 end
 
+desc "Remove symlinks created during installation and attempt to restore backups"
 task :uninstall do
 
   Dir.glob('**/*.symlink').each do |linkable|
