@@ -32,6 +32,12 @@ task :install do
 		end
 		`ln -s "$PWD/#{linkable}" "#{target}"`
 	end
+
+	# Set up the default gitconfig if none exists
+	gitconfig = 'git/gitconfig.symlink'
+	unless File.exists?(gitconfig) || File.symlink?(gitconfig)
+		FileUtils.cp "#{gitconfig}.example", gitconfig, :verbose => true
+	end
 end
 
 task :uninstall do

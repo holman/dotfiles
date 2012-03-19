@@ -8,24 +8,40 @@
 # install this to the correct location by running the project's main `rake`
 # task.
 [user]
-        name = Zach Holman
-        email = your@example.com
+		name = Mike Kenyon
+#		email = 
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
+		br					= branch
+		ci					= commit
+		co					= checkout
+		count				= !git shortlog -sn
+		d					= diff
+		hist				= log -- pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+		incoming			= log ..origin/master
+		lg					= log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+		m					= merge --no-ff
+		outgoing			= log origin/master ..
+		promote				= !$ZSH/bin/git-promote
+		rank-contributers	= !$ZSH/bin/git-rank-contributers
+		st					= status
+		wtf					= !$ZSH/bin/git-wtf
 [color]
-        diff = auto
-        status = auto
-        branch = auto
+		ui = true
+		diff = auto
+		status = auto
+		branch = auto
 [core]
-        excludesfile = ~/.gitignore
-        editor = mate -w
+		excludesfile = ~/.gitignore
+		editor = vim
 [apply]
-        whitespace = nowarn
+		whitespace = nowarn
 [github]
-        user = holman
+		user = mkenyon
 [mergetool]
-        keepBackup = false
+		keepBackup = false
+[merge]
+		conflictstyle = diff3
+[push]
+		default = upstream
+
+# Stuff
