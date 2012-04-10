@@ -20,6 +20,3 @@ compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
-
-# I guess we need to load rbenv last. Meh.
-eval "$(rbenv init -)"
