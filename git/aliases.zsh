@@ -11,7 +11,7 @@ if [[ -s $HOME/.rvm/scripts/rvm ]]
 then
   if $(which hub &> /dev/null) && [[ -s $HOME/.rvm/rubies/ruby-1.8.7-p334 ]]
   then
-    alias git='$HOME/.rvm/rubies/ruby-1.8.7-p334/bin/ruby `which hub`'
+    alias git='$HOME/.rvm/rubies/ruby-1.8.7-p358/bin/ruby `which hub`'
   else
   fi
 fi
