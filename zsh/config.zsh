@@ -47,4 +47,4 @@ bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 
-nextbirthdays.py $ZSH/bin/birthdays.scsv
+$ZSH/bin/nextbirthdays.py $ZSH/bin/birthdays.scsv
