@@ -1,0 +1,2 @@
+RUBYOPT="rubygems"
+export RUBYOPT
