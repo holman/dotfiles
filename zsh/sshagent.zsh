@@ -43,3 +43,9 @@ else
         start_agent
     fi
 fi
+
+# if stdin is a terminal (unnecessary in .zshrc)
+if [[ -t 0 ]] ; then
+	# kill the ssh-agent on exit
+	trap '[[ -n "$SSH_AGENT_PID" ]] && eval `ssh-agent -k `' 0
+fi
