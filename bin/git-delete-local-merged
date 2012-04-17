@@ -5,4 +5,4 @@
 #
 #   https://plus.google.com/115587336092124934674/posts/dXsagsvLakJ
 
-git branch -d `git branch --merged | grep -v '^*' | tr -d '\n'`
+git branch -d `git branch --merged | grep -v '^*' | grep -v 'master' | tr -d '\n'`
