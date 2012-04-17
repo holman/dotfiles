@@ -10,5 +10,3 @@ alias la="ls -A"
 alias lla="ls -lA"
 alias l.="ls -d .*"
 
-# HUB
-eval "$(hub alias -s)"
