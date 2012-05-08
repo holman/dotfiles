@@ -1,0 +1,44 @@
+set autoindent
+set brackets ""')>]}"
+set matchbrackets "(]}"
+set morespace
+set multibuffer
+set tabsize 2
+set tabstospaces
+
+## Nanorc files
+# include “/usr/share/nano/nanorc.nanorc”
+
+## C/C++
+# include “/usr/share/nano/c.nanorc”
+
+## HTML
+# include “/usr/share/nano/html.nanorc”
+
+## Patch files
+# include “/usr/share/nano/patch.nanorc”
+
+## Manpages
+# include “/usr/share/nano/man.nanorc”
+
+## Groff
+# include “/usr/share/nano/groff.nanorc”
+
+## Perl
+# include “/usr/share/nano/perl.nanorc”
+
+## Python
+# include “/usr/share/nano/python.nanorc”
+
+## Bourne shell scripts
+# include “/usr/share/nano/sh.nanorc”
+
+## Syntax Highlight Pack
+## CSS
+# include “/usr/share/nano/css.nanorc”
+
+## php
+# include “/usr/share/nano/php.nanorc”
+
+## makefile .am
+# include “/usr/share/nano/gentoo.nanorc”
