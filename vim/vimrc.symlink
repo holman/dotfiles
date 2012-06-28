@@ -63,6 +63,12 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 						   " whitespace chars to explicitly show
 						   " with :set list
 
+" relative line numbers
+set rnu
+au InsertEnter * :set nu
+au InsertLeave * :set rnu
+au FocusLost * :set nu
+au FocusGained * :set rnu
 
 " ----------------------------------------------------------------------------
 " Visual Cues
