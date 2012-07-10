@@ -1,0 +1,33 @@
+# Sample gitconfig
+#
+# You probably want to change the [user] section here since you are not me.
+
+[hub]
+        protocol = https
+[user]
+        name = Zach Holman
+        email = zach@zachholman.com
+[credential]
+        helper = osxkeychain
+[alias]
+        co = checkout
+        promote = !$ZSH/bin/git-promote
+        wtf     = !$ZSH/bin/git-wtf
+        rank-contributers = !$ZSH/bin/git-rank-contributers
+        count   = !git shortlog -sn
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[apply]
+        whitespace = nowarn
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[help]
+        autocorrect = 1
