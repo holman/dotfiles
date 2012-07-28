@@ -11,9 +11,9 @@
         helper = osxkeychain
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
+        promote = !$DOTFILES/bin/git-promote
+        wtf     = !$DOTFILES/bin/git-wtf
+        rank-contributers = !$DOTFILES/bin/git-rank-contributers
         count   = !git shortlog -sn
 [color]
         diff = auto
