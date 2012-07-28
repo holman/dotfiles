@@ -5,7 +5,7 @@ set -x
 # symlink settings in
 sublime_dir=~/Library/Application\ Support/Sublime\ Text\ 2/Packages
 mv "$sublime_dir/User" "$sublime_dir/User.backup"
-ln -s "$ZSH/sublime2/User" "$sublime_dir"
+ln -s "$DOTFILES/sublime2/User" "$sublime_dir"
 
 # Grab the Soda theme
 cd "$sublime_dir"
