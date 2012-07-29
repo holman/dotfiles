@@ -5,8 +5,8 @@
 [hub]
         protocol = https
 [user]
-        name = Zach Holman
-        email = zach@zachholman.com
+        name = ogoid
+        email = somar.ogoid@hotmail.com
 [credential]
         helper = osxkeychain
 [alias]
