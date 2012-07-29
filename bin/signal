@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# a simple osx wireless signal quality monitor
+
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+
+while sleep 1
+do
+	  data=$(airport -I | grep Ctl)
+	 noise=$(echo $data | cut -d' ' -f4)
+  signal=$(echo $data | cut -d' ' -f2)
+
+  dif=$(expr $signal - $noise)
+	hist=($dif ${hist[@]:0:59})
+  
+  clear
+	echo "signal: $signal\tnoise: $noise"
+	spark ${hist[@]}
+done
