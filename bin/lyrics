@@ -11,4 +11,4 @@ title=`osascript -e'tell application "iTunes"' -e'get name of current track' -e'
 song=`curl -G --data-urlencode "artist=$artist" \
  	--data-urlencode "title=$title" -s http://makeitpersonal.co/lyrics`
 
-echo -e "$artist - $title\n$song" | less
+echo -e "$artist - $title\n$song"
