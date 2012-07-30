@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# bootstrap installs things.
+
+# Assume everyone's on OS X and run Homebrew (*nix-ers beware)
+. script/homebrew
+
+# Run the install (I'd like to pull this out of rake, eventually)
+rake install
