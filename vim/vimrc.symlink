@@ -1,4 +1,5 @@
 set noswapfile
+set modelines=1		" CVE-2007-2438
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
@@ -105,3 +106,10 @@ syntax on
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_WinWidth = 50
 map <F4> :TlistToggle<cr>
+
+" ---------------------------------------------------------------------------
+"  Filetypes
+" ---------------------------------------------------------------------------
+
+filetype plugin indent on
+au Bufread,BufNewFile *.as set filetype=actionscript
