@@ -1,0 +1,9 @@
+Changelog:
+
+Please be sure to restart Sublime Text 2 to start using this new version. For more information or how to use this plugin visit https://github.com/dz0ny/LiveReload-sublimetext2/blob/master/README.md 
+
+New Features
+ - Support v2 of protocol
+
+Bugs:
+ - Potential security vulnerability with plugin https://github.com/dz0ny/LiveReload-sublimetext2/issues/7

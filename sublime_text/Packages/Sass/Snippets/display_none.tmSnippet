@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>display: ${TM_CSS_SPACE}none$0</string>
+	<key>name</key>
+	<string>display:none</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>tabTrigger</key>
+	<string>d:n</string>
+	<key>uuid</key>
+	<string>0887DAB2-1507-4B64-A1DB-D62F4E549EED
+</string>
+</dict>
+</plist>
