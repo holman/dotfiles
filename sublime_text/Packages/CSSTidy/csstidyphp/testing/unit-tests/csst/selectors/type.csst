@@ -1,0 +1,11 @@
+--TEST--
+Type selector
+--CSS--
+a {display: inherit;}
+--EXPECT--
+array (
+  'a' => 
+  array (
+    'display' => 'inherit',
+  ),
+)

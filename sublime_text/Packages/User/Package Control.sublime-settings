@@ -2,10 +2,18 @@
 	"auto_upgrade_last_run": 1347217917,
 	"installed_packages":
 	[
+		"CoffeeCompile",
+		"CoffeeScript",
+		"CSSLint",
+		"CSSTidy",
+		"JS2Coffee",
 		"LiveReload",
 		"Markdown Preview",
+		"Package Control",
+		"PhpTidy",
 		"Ruby Slim",
 		"Sass",
-		"Solarized Color Scheme (TextMate)"
+		"Solarized Color Scheme (TextMate)",
+		"SortTabs"
 	]
 }

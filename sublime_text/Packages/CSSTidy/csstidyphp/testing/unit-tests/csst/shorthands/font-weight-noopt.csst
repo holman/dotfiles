@@ -1,0 +1,22 @@
+--TEST--
+Test font-weight optimization (no optimization)
+--CSS--
+a { 
+    font-weight: bold;
+}
+b { 
+    font-weight: normal;
+}
+--EXPECT--
+array (
+  'a' => 
+  array (
+    'font-weight' => 'bold',
+  ),
+  'b' => 
+  array (
+    'font-weight' => 'normal',
+  ),
+)
+--SETTINGS--
+compress_font-weight=false

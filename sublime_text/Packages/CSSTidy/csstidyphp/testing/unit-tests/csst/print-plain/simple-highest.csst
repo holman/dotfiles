@@ -1,0 +1,47 @@
+--TEST--
+Test simple CSS print
+--CSS--
+/* Based on the original Style Sheet for the fisubsilver v2 Theme for phpBB version 2+
+Edited by Daz  - http://www.forumimages.com - last updated 26-06-03 */
+/* The content of the posts (body of text) */
+/* General page style */
+
+    /* begin suggest post */
+    .float-l {
+    	float : left ;
+    }
+
+	 .form-suggest {
+	 	height : 200px ;
+		background : #DEE2D0 ;
+		vertical-align : top;
+	 }
+
+    .form-input input{
+    	font-size: 10px;
+    }
+
+    .form-input textarea{
+    	font-size: 11px;
+    	width: 350px;
+    }
+
+    .form-label{
+    	font-size: 10px;
+    	font-weight: bold;
+    	line-height: 25px;
+    	padding-right: 10px;
+    	text-align: right;
+    	width: 100px;
+    	color: #39738F;
+    }
+
+    .font-9{
+    	font-size: 9px;
+    }
+--PRINT--
+.float-l{float:left}.form-suggest{height:200px;background:#DEE2D0;vertical-align:top}.form-input input{font-size:10px}.form-input textarea{font-size:11px;width:350px}.form-label{font-size:10px;font-weight:700;line-height:25px;padding-right:10px;text-align:right;width:100px;color:#39738F}.font-9{font-size:9px}
+--SETTINGS--
+template='highest'
+sort_properties=false
+sort_selectors=false

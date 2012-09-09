@@ -1,0 +1,52 @@
+{
+	/*
+		The directory containing your coffee binary. Usually
+		/usr/local/bin.
+	*/
+	"binDir": "/usr/local/bin"
+
+	/*
+		Directories where the watcher will look for .js (lib)
+		and .coffee (src) files.
+	*/
+,	"libDir": ""
+,	"srcDir": ""
+
+	/*
+		Compile without the top-level function wrapper (coffee -b).
+	*/
+
+,	"noWrapper": true
+
+	/*
+		Globally enable/disable watch mode.
+	*/
+,	"watchEnabled": true
+
+	/*
+		Where output from the watcher (coffee -w) will be sent to.
+
+		panel   - a custom, toggleable (alt+shift+z) panel
+		status  - to the status bar
+		console - to the python console
+
+		log file? probably
+		growl? maybe
+	*/
+,	"watchOutputMode": "panel"
+
+,	"watchAutoStart": false
+
+	/*
+	Output success (compiled) or failure (error) messages, or both, or neither...
+	*/
+,	"watchOutputOnSuccess": true
+,	"watchOutputOnFailure": true
+
+	/*
+		Watched files containing errors will have their view focused
+		and the error highlighted, regardless of watchOutputOnFailure
+		setting above.
+	*/
+,	"watchHighlightErrors": true
+}

@@ -1,0 +1,17 @@
+--TEST--
+@font-face rules with woff https://github.com/Cerdic/CSSTidy/issues/issue/1
+--CSS--
+@font-face {
+	font-family: "Unibody8SmallCaps Regular";
+	src:url('fonts/unibody_8-smallcaps-webfont.woff') format('woff');
+}
+--FULLEXPECT--
+array (
+	' ' => array(
+  '@font-face' => 
+  array (
+    'font-family' => '"Unibody8SmallCaps Regular"',
+    'src' => 'url(fonts/unibody_8-smallcaps-webfont.woff) format("woff")',
+  ),
+  )
+)

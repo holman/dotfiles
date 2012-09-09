@@ -1,0 +1,20 @@
+[
+    {
+        "caption": "CSSLint: Run CSSLint",
+        "command": "csslint"
+    },
+    {
+        "caption": "Preferences: CSSLint Settings – Default",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/CSSLint/CSSLint.sublime-settings"
+        }
+    },
+    {
+        "caption": "Preferences: CSSLint Settings – User",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/User/CSSLint.sublime-settings"
+        }
+    }
+]

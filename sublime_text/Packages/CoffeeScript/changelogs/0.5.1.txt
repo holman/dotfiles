@@ -1,0 +1,10 @@
+CoffeeScript-Sublime-Plugin 0.5.1 Changelog
+
+Features
+
+- Added the missing Compile File command (alt+shift+c). This is useful if you
+just want to quickly compile a .coffee file to a .js file in the same directory.
+
+Enhancements
+
+- Added support for showing upgrade and installation messages, like this one.

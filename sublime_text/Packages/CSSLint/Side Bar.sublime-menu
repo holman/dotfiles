@@ -1,0 +1,8 @@
+[
+	{
+		"caption": "CSSLint Selection",
+		"id": "csslint-selection",
+		"command": "csslint_selection",
+		"args": {"paths": []} 
+	}
+]
