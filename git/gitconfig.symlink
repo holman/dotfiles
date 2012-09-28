@@ -1,5 +1,5 @@
 [core]
-        quotepath = false
+	quotepath = false
         excludesfile = /Users/Steven/.gitignore
 [user]
         name = Steven Bone
