@@ -1,33 +1,24 @@
-# Sample gitconfig
-#
-# You probably want to change the [user] section here since you are not me.
-
-[hub]
-        protocol = https
-[user]
-        name = Zach Holman
-        email = zach@zachholman.com
-[credential]
-        helper = osxkeychain
-[alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
+        quotepath = false
+        excludesfile = /Users/Steven/.gitignore
+[user]
+        name = Steven Bone
+        email = sbone@canvas.is
+[color]
+        ui = true
+[difftool "Kaleidoscope"]
+        cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
         prompt = false
-[help]
-        autocorrect = 1
+[diff]
+        tool = Kaleidoscope
+[alias]
+    mylog = log --author=Steven
+    l = "!source ~/.githelpers && pretty_git_log"
+    st = status
+    co = checkout
+    sp = stash pop
+    di = diff
+    dc = diff --cached
+    dt = difftool
+

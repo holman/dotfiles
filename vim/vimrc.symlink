@@ -1,85 +1,79 @@
-set noswapfile
+call pathogen#infect()
+syntax on
+filetype plugin indent on
 
-" ----------------------------------------------------------------------------
-"  Text Formatting
-" ----------------------------------------------------------------------------
+syntax enable
+set background=dark
+colorscheme solarized
 
-set autoindent             " automatic indent new lines
-set smartindent            " be smart about it
-inoremap # X<BS>#
-set nowrap                 " do not wrap lines
-set softtabstop=2          " yep, two
-set shiftwidth=2           " ..
-set tabstop=4
-set expandtab              " expand tabs to spaces
-set nosmarttab             " fuck tabs
-set formatoptions+=n       " support for numbered/bullet lists
-"set textwidth=80           " wrap at 80 chars by default
-set virtualedit=block      " allow virtual edit in visual block ..
+let mapleader=","       " remap leader key
+set nocompatible
+let g:Powerline_symbols='fancy'
+set encoding=utf-8
+set backspace=start,eol,indent " fix issue where Delete wasn't being recognized
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
-" ----------------------------------------------------------------------------
-"  Remapping
-" ----------------------------------------------------------------------------
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
-" lead with ,
-let mapleader = ","
+" -
+"
+" -
+set go-=T                 " hide MacVim toolbar
+" -
+"
+" -
+set showtabline=2         " show tabs
+set autoindent            " automatic indent new lines
+set smartindent           " be smart about it
+set nowrap                " do not wrap lines
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set expandtab
+" -
+"
+" -
+set ruler                 " show the cursor position at all times
+set number                " show line numbers
+set ch=2                  " set command area height
+set whichwrap+=<,>,h,l,[,]  " backspace and cursor keys wrap lines
+set scrolloff=8     " keep 8 lines above and below cursor
 
-" exit to normal mode with 'jj'
-inoremap jj <ESC>
+" -
+"
+" -
+set showmatch       " bracket/brace highlighting
+set hlsearch      " highlight searches
 
-
-" reflow paragraph with Q in normal and visual mode
-nnoremap Q gqap
-vnoremap Q gq
-
-" sane movement with wrap turned on
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
-" ----------------------------------------------------------------------------
-"  UI
-" ----------------------------------------------------------------------------
-
-set ruler                  " show the cursor position all the time
-set noshowcmd              " don't display incomplete commands
 set nolazyredraw           " turn off lazy redraw
-set number                 " line numbers
-set wildmenu               " turn on wild menu
-set wildmode=list:longest,full
-set ch=2                   " command line height
-set backspace=2            " allow backspacing over everything in insert mode
-set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
-set shortmess=filtIoOA     " shorten messages
-set report=0               " tell us about changes
-set nostartofline          " don't jump to the start of line when scrolling
+set ttyfast                " always assume a fast connection
 
+" Indent if we're at the beginning of a line. Else, do completion.
+" (from Destroy All Software)
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+
+map <S-b> ^
+map <S-w> $
 
 " ----------------------------------------------------------------------------
-" Visual Cues
-" ----------------------------------------------------------------------------
-
-set showmatch              " brackets/braces that is
-set mat=5                  " duration to show matching brace (1/10 sec)
-set incsearch              " do incremental searching
-set laststatus=2           " always show the status line
-set ignorecase             " ignore case when searching
-set nohlsearch             " don't highlight searches
-set visualbell             " shut the fuck up
-
-
-" ---------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
-map ,s :call StripWhitespace ()<CR>
+" map <leader>s :call StripWhitespace ()<CR>
+
