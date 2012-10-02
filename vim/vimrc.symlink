@@ -6,6 +6,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" Show Powerline in single windows
+set laststatus=2
+
 let mapleader=","       " remap leader key
 set nocompatible
 let g:Powerline_symbols='fancy'
