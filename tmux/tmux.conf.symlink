@@ -1,0 +1,17 @@
+# Colors
+set -g default-terminal "screen-256color"
+
+# Remap prefix to Control + a
+set -g prefix C-a
+unbind C-b
+
+# Easier window splitting
+unbind %
+bind | split-window -h
+bind - split-window -v
+
+# Pane movement
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
