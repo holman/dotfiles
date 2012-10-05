@@ -4,6 +4,7 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
+" set background=light
 colorscheme solarized
 
 " Show Powerline in single windows
