@@ -1,0 +1,28 @@
+--TEST--
+Preserve merging of properties issue/2
+--CSS--
+div {
+	display:block;
+	display:inline-block;
+}
+.gradient {
+	background-image:-webkit-gradient(linear, left bottom, left top, color-stop(0.15, rgba(215,240,240,0.9)), color-stop(0.5, rgba(235,250,250,0)));
+	background-image: -moz-linear-gradient(bottom,rgba(215,240,240,0.9),rgba(235,250,250,0)) #ebf7f9;
+}
+--EXPECT--
+array (
+  'div' => 
+  array (
+    'display' => 'block',
+    'display ' => 'inline-block',
+  ),
+  '.gradient' => 
+  array (
+    'background-image' => '-webkit-gradient(linear,left bottom,left top,color-stop(0.15,rgba(215,240,240,0.9)),color-stop(0.5,rgba(235,250,250,0)))',
+    'background-image ' => '-moz-linear-gradient(bottom,rgba(215,240,240,0.9),rgba(235,250,250,0)) #ebf7f9',
+  ),
+)
+--SETTINGS--
+discard_invalid_properties=false
+optimise_shorthands=0
+css_level='CSS21'

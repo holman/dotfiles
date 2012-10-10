@@ -1,0 +1,21 @@
+[
+    {
+        "caption": "Markdown Preview: preview in Browser",
+        "command": "markdown_preview",
+        "args": {
+            "target": "browser"
+        }
+    },
+    {
+        "caption": "Markdown Preview: preview in Sublime Text",
+        "command": "markdown_preview",
+        "args": {
+            "target": "sublime"
+        }
+    },
+    {
+        "caption": "Markdown Preview: open Markdown Cheat sheet",
+        "command": "markdown_cheatsheet",
+        "args": {}
+    }
+]

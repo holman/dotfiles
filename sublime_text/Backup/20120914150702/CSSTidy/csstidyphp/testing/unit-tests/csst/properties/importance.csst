@@ -1,0 +1,81 @@
+--TEST--
+Testing proper parsing of importance.
+--CSS--
+a {
+	width: 100px;
+	height: 200px;
+}
+
+a {
+	width: 400px !important;
+	height: 300px;
+}
+
+b {
+	width: 100px !important;
+	height: 200px;
+}
+
+b {
+	width: 400px;
+	height: 300px !important;
+}
+
+c {
+	width: 100px!important;
+}
+
+d {
+	width: 100px;
+}
+
+d {
+	width: 200px !IMPORTANT;
+}
+
+d {
+	width: 300px ! important;
+}
+
+e {
+	background-image: url(http://example.com/test.png) !importANT;
+}
+
+f {
+	background-image: url(http://example.com/test.png)!imPORTant;
+}
+--EXPECT--
+array (
+  'a' => 
+  array (
+    'width' => '100px',
+    'height' => '200px',
+    'width ' => '400px!important',
+    'height ' => '300px',
+  ),
+  'b' => 
+  array (
+    'width' => '100px!important',
+    'height' => '200px',
+    'width ' => '400px',
+    'height ' => '300px!important',
+  ),
+  'c' => 
+  array (
+    'width' => '100px!important',
+  ),
+  'd' => 
+  array (
+    'width' => '100px',
+    'width ' => '200px!important',
+    'width  ' => '300px!important',
+  ),
+  'e' => 
+  array (
+    'background-image' => 'url(http://example.com/test.png)!important',
+  ),
+  'f' => 
+  array (
+    'background-image' => 'url(http://example.com/test.png)!important',
+  ),
+)

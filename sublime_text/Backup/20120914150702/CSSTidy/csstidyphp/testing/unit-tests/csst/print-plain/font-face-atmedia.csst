@@ -1,0 +1,56 @@
+--TEST--
+Test simple CSS print
+--CSS--
+/* Based on the original Style Sheet for the fisubsilver v2 Theme for phpBB version 2+
+Edited by Daz  - http://www.forumimages.com - last updated 26-06-03 */
+/* The content of the posts (body of text) */
+/* General page style */
+
+/* begin suggest post */
+.float-l {
+	float : left ;
+}
+
+@font-face {
+font-family: GillSans;
+src:url("/generic/fonts/GillSansC.otf") format('opentype');
+font-style: normal;
+font-weight: bold;
+}
+
+.font-9{
+    	font-size: 11px;
+    }
+
+@media print {
+.font-9{
+    	font-size: 9px;
+    }
+}
+
+.form-suggest {
+height : 200px ;
+background : #DEE2D0 ;
+vertical-align : top;
+}
+
+
+--PRINT--
+@media screen {
+.float-l{float:left}
+}
+@font-face{font-family:GillSans;src:url(/generic/fonts/GillSansC.otf) format("opentype");font-style:normal;font-weight:700}
+@media screen {
+.font-9{font-size:11px}
+}
+@media print {
+.font-9{font-size:9px}
+}
+@media screen {
+.form-suggest{height:200px;background:#DEE2D0;vertical-align:top}
+}
+--SETTINGS--
+template='high'
+sort_properties=false
+sort_selectors=false
+default_media="@media screen"

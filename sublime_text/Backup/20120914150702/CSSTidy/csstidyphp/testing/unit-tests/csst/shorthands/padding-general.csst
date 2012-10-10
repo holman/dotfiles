@@ -1,0 +1,46 @@
+--TEST--
+Test padding optimization
+--CSS--
+a { 
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+b { 
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+c { 
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+d { 
+    padding-left: 1px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+--EXPECT--
+array (
+  'a' => 
+  array (
+    'padding' => '10px',
+  ),
+  'b' => 
+  array (
+    'padding' => '2px 10px',
+  ),
+  'c' => 
+  array (
+    'padding' => '2px 10px 3px',
+  ),
+  'd' => 
+  array (
+    'padding' => '2px 10px 3px 1px',
+  ),
+)

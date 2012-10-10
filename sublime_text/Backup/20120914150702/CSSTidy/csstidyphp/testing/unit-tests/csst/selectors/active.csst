@@ -1,0 +1,11 @@
+--TEST--
+Dynamic active selector
+--CSS--
+a:active {display: inherit;}
+--EXPECT--
+array (
+  'a:active' => 
+  array (
+    'display' => 'inherit',
+  ),
+)

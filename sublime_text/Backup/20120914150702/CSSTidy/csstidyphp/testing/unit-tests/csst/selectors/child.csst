@@ -1,0 +1,11 @@
+--TEST--
+Child selector
+--CSS--
+table > tr {display: inherit;}
+--EXPECT--
+array (
+  'table > tr' => 
+  array (
+    'display' => 'inherit',
+  ),
+)

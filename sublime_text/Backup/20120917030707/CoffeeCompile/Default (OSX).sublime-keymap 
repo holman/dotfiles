@@ -1,0 +1,5 @@
+[
+    {
+        "keys": ["ctrl+shift+c"], "command": "coffee_compile"
+    }
+]

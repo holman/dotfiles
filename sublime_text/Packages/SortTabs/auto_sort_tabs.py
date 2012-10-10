@@ -1,5 +1,6 @@
 import sublime, sublime_plugin
-
+import time
+import sort_tabs
 
 settings = sublime.load_settings('SortTabs.sublime-settings')
 
@@ -15,6 +16,7 @@ class AutoSortTabsListener(sublime_plugin.EventListener):
 			self._run_sort(view)
 
 	def on_activated(self, view):
+		view.settings().set('sorttabs_lastactivated', time.time())
 		if settings.get('sort_on_load_save'):
 			if view.settings().get('sorttabs_tosort'):
 				if self._run_sort(view):
@@ -23,6 +25,9 @@ class AutoSortTabsListener(sublime_plugin.EventListener):
 	def _run_sort(self, view):
 		if view.window() and view.window().get_view_index(view)[1] != -1:
 			cmd = settings.get('sort_on_load_save_command')
+			if not cmd:
+				# Last used sort
+				cmd = sort_tabs.INTERNAL_SETTINGS.get('last_cmd')
 			if cmd:
 				view.window().run_command(cmd)
 			return True

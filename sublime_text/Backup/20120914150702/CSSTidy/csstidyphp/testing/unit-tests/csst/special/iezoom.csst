@@ -1,0 +1,13 @@
+--TEST--
+IE Zoom
+--CSS--
+#content {
+zoom: 1;
+}
+--EXPECT--
+array (
+  '#content' => 
+  array (
+    'zoom' => '1',
+  ),
+)

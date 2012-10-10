@@ -1,0 +1,11 @@
+--TEST--
+Contained in space-separated attribute list selector
+--CSS--
+a[foo~="warning"] {display: inherit;}
+--EXPECT--
+array (
+  'a[foo~="warning"]' => 
+  array (
+    'display' => 'inherit',
+  ),
+)

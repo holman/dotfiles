@@ -1,0 +1,12 @@
+--TEST--
+Dangling combinator selector
+--CSS--
++ b {display: inherit;}
+b > {font-family: inherit;}
+<b>asdf</b> {font-size: inherit;}
+--EXPECT--
+array (
+)
+--SETTINGS--
+optimise_shorthands=0
+discard_invalid_selectors=1

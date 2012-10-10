@@ -1,0 +1,11 @@
+--TEST--
+Grouped selectors
+--CSS--
+h1,h2,h3 {display: inherit;}
+--EXPECT--
+array (
+  'h1,h2,h3' => 
+  array (
+    'display' => 'inherit',
+  ),
+)
