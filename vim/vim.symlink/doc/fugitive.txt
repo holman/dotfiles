@@ -1,0 +1,220 @@
+*fugitive.txt*  A Git wrapper so awesome, it should be illegal
+
+Author:  Tim Pope <vimNOSPAM@tpope.info>        *fugitive-author*
+License: Same terms as Vim itself (see |license|)
+
+This plugin is only available if 'compatible' is not set.
+
+INTRODUCTION                                    *fugitive*
+
+Install in ~/.vim, or in ~\vimfiles if you're on Windows and feeling lucky.
+Vim 7.2 is recommended as it ships with syntax highlighting for many Git file
+types.
+
+If you're in a hurry to get started, here are some things to try:
+
+In any file in your repository, run |:Gedit| HEAD.  Press <CR> to jump to the
+current branch.  Press <CR> again to jump to the top most commit.  Keep using
+<CR> to explore parent commits, trees, and blobs.  Use C in a tree or blob to
+get back to the commit.
+
+Edit a file in the work tree and make some changes.  Use |:Gdiff| to open up
+the indexed version.  Use |do| and |dp| on various hunks to bring the files in
+sync, or use |:Gread| to pull in all changes.  Write the indexed version to
+stage the file.
+
+Run |:Gstatus| to check your repository's status.  Use "-" to stage and reset
+files and "p" to add/reset --patch them.  Invoke |:Gcommit| to commit your
+changes.
+
+Run |:Gblame| in a work tree file to see a blame in a vertical split.  Press
+<CR> on any line to reopen and reblame that file as it stood in that commit.
+Press o or O on any line to inspect that commit in a split or a tab.
+
+Run |:Ggrep| to search the work tree or history.  Run |:Gmove| to rename a
+file.  Run |:Gremove| to delete a file.
+
+COMMANDS                                        *fugitive-commands*
+
+These commands are local to the buffers in which they work (generally, buffers
+that are part of Git repositories).
+
+                                                *fugitive-:Git*
+:Git [args]             Run an arbitrary git command. Similar to :!git [args]
+                        but chdir to the repository tree first.
+
+                                                *fugitive-:Gcd*
+:Gcd [directory]        |:cd| relative to the repository.
+
+                                                *fugitive-:Glcd*
+:Glcd [directory]       |:lcd| relative to the repository.
+
+                                                *fugitive-:Gstatus*
+:Gstatus                Bring up the output of git-status in the preview
+                        window.  Press D to |:Gdiff| the file on the cursor
+                        line.  Press - to stage or unstage the file on the
+                        cursor line.  Press p to do so on a per hunk basis
+                        (--patch).  Press C to invoke |:Gcommit|.
+
+                                                *fugitive-:Gcommit*
+:Gcommit [args]         A wrapper around git-commit.  If there is nothing
+                        to commit, |:Gstatus| is called instead.  Unless the
+                        arguments given would skip the invocation of an editor
+                        (e.g., -m), a split window will be used to obtain a
+                        commit message.  Write and close that window (:wq or
+                        |:Gwrite|) to finish the commit.  Unlike when running
+                        the actual git-commit command, it is possible (but
+                        unadvisable) to muck with the index with commands like
+                        git-add and git-reset while a commit message is
+                        pending.
+
+                                                *fugitive-:Ggrep*
+:Ggrep [args]           |:grep| with git-grep as 'grepprg'.
+
+                                                *fugitive-:Glog*
+:Glog [args]            Load all previous revisions of the current file into
+                        the quickfix list.  Additional git-log arguments can
+                        be given (for example, --reverse).  If "--" appears as
+                        an argument, no file specific filtering is done, and
+                        commits are loaded into the quickfix list.
+
+                                        *fugitive-:Gedit* *fugitive-:Ge*
+:Gedit [revision]       |:edit| a |fugitive-revision|.
+
+                                                *fugitive-:Gsplit*
+:Gsplit [revision]      |:split| a |fugitive-revision|.
+
+                                                *fugitive-:Gvsplit*
+:Gvsplit [revision]     |:vsplit| a |fugitive-revision|.
+
+                                                *fugitive-:Gtabedit*
+:Gtabedit [revision]    |:tabedit| a |fugitive-revision|
+
+                                                *fugitive-:Gpedit*
+:Gpedit [revision]      |:pedit| a |fugitive-revision|
+
+                                                *fugitive-:Gread*
+:Gread [revision]       Empty the buffer and |:read| a |fugitive-revision|.
+                        When the argument is omitted, this is similar to
+                        git-checkout on a work tree file or git-add on a stage
+                        file, but without writing anything to disk.
+
+:{range}Gread [revision]
+                        |:read| in a |fugitive-revision| after {range}.
+
+                                                *fugitive-:Gread!*
+:Gread! [revision]      Deprecated synonym for |:Gread|.
+
+                                                *fugitive-:Gwrite*
+:Gwrite                 Write to the current file's path and stage the results.
+                        When run in a work tree file, it is effectively git
+                        add.  Elsewhere, it is effectively git-checkout.  A
+                        great deal of effort is expended to behave sensibly
+                        when the work tree or index version of the file is
+                        open in another buffer.
+
+:Gwrite {path}          You can give |:Gwrite| an explicit path of where in
+                        the work tree to write.  You can also give a path like
+                        :0:foo.txt or even :0 to write to just that stage in
+                        the index.
+
+                                                *fugitive-:Gdiff*
+:Gdiff [revision]       Perform a |vimdiff| against the current file in the
+                        given revision.  With no argument, the version in the
+                        index is used (which means a three-way diff during a
+                        merge conflict, making it a git-mergetool
+                        alternative).  The newer of the two files is placed
+                        to the right.  Use |do| and |dp| and write to the
+                        index file to simulate "git add --patch".
+
+                                                *fugitive-:Gmove*
+:Gmove {destination}    Wrapper around git-mv that renames the buffer
+                        afterward.  The destination is relative to the current
+                        directory except when started with a /, in which case
+                        it is relative to the work tree.  Add a ! to pass -f.
+
+                                                *fugitive-:Gremove*
+:Gremove                Wrapper around git-rm that deletes the buffer
+                        afterward.  When invoked in an index file, --cached is
+                        passed.  Add a ! to pass -f and forcefully discard the
+                        buffer.
+
+                                                *fugitive-:Gblame*
+:Gblame [flags]         Run git-blame on the file and open the results in a
+                        scroll bound vertical split.  Press enter on a line to
+                        reblame the file as it was in that commit.  You can
+                        give any of ltwfsMC as flags and they will be passed
+                        along to git-blame.
+
+:[range]Gblame [flags]  Run git-blame on the given range.
+
+MAPPINGS                                        *fugitive-mappings*
+
+These maps are available in Git objects.
+
+                                                *fugitive-<CR>*
+<CR>                    Jump to the revision under the cursor.
+
+                                                *fugitive-o*
+o                       Jump to the revision under the cursor in a new split.
+
+                                                *fugitive-O*
+O                       Jump to the revision under the cursor in a new tab.
+
+                                                *fugitive-~*
+~                       Go to the current file in the [count]th first
+                        ancestor.
+
+                                                *fugitive-P*
+P                       Go to the current file in the [count]th parent.
+
+                                                *fugitive-C*
+C                       Go to the commit containing the current file.
+
+                                                *fugitive-a*
+a                       Show the current tag, commit, or tree in an alternate
+                        format.
+
+SPECIFYING REVISIONS                            *fugitive-revision*
+
+Fugitive revisions are similar to Git revisions as defined in the "SPECIFYING
+REVISIONS" section in the git-rev-parse man page.  For commands that accept an
+optional revision, the default is the file in the index for work tree files
+and the work tree file for everything else.  Example revisions follow.
+
+Revision        Meaning ~
+HEAD            .git/HEAD
+master          .git/refs/heads/master
+HEAD^{}         The commit referenced by HEAD
+HEAD^           The parent of the commit referenced by HEAD
+HEAD:           The tree referenced by HEAD
+/HEAD           The file named HEAD in the work tree
+Makefile        The file named Makefile in the work tree
+HEAD^:Makefile  The file named Makefile in the parent of HEAD
+:Makefile       The file named Makefile in the index (writable)
+-               The current file in HEAD
+^               The current file in the previous commit
+~3              The current file 3 commits ago
+:               .git/index (Same as |:Gstatus|)
+:0              The current file in the index
+:1              The current file's common ancestor during a conflict
+:2              The current file in the target branch during a conflict
+:3              The current file in the merged branch during a conflict
+:/foo           The most recent commit with "foo" in the message
+
+STATUSLINE                                      *fugitive-statusline*
+
+                                                *fugitive#statusline()*
+Add %{fugitive#statusline()} to your statusline to get an indicator including
+the current branch and the currently edited file's commit.  If you don't have
+a statusline, this one matches the default when 'ruler' is set:
+>
+    set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+<
+ABOUT                                           *fugitive-about*
+
+Grab the latest version or report a bug on GitHub:
+
+http://github.com/tpope/vim-fugitive
+
+ vim:tw=78:et:ft=help:norl:

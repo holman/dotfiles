@@ -1,13 +1,15 @@
-" Vim syntax file
+" Mustache syntax
 " Language:	Mustache
 " Maintainer:	Juvenn Woo <machese@gmail.com>
 " Screenshot:   http://imgur.com/6F408
-" Version:	1
-" Last Change:  2009 Oct 15
-" Remark:
-"   It lexically hilights embedded mustaches (exclusively) in html file.
-"   While it was written for Ruby-based Mustache template system, it should work for Google's C-based *ctemplate* as well as Erlang-based *et*. All of them are, AFAIK, based on the idea of ctemplate.
-" References:
+" Version:	2
+" Last Change:  Jan 16th 2011
+" Remark:       
+"   It lexically hilights embedded mustaches (exclusively) in html file. 
+"   While it was written for Ruby-based Mustache template system, it should
+"   work for Google's C-based *ctemplate* as well as Erlang-based *et*. All
+"   of them are, AFAIK, based on the idea of ctemplate.
+" References:	
 "   [Mustache](http://github.com/defunkt/mustache)
 "   [ctemplate](http://code.google.com/p/google-ctemplate/)
 "   [ctemplate doc](http://google-ctemplate.googlecode.com/svn/trunk/doc/howto.html)
@@ -37,10 +39,10 @@ else
 endif
 
 syntax match mustacheError '}}}\?'
-syntax match mustacheInsideError '{{[{#^<>=!\/]\?' containedin=@mustacheInside
-syntax region mustacheVariable matchgroup=mustacheMarker start=/{{/ end=/}}/ containedin=@htmlMustacheContainer
+syntax match mustacheInsideError '{{[{#<>=!\/]\?' containedin=@mustacheInside
+syntax region mustacheVariable matchgroup=mustacheMarker start=/{{/ end=/}}/ containedin=@htmlMustacheContainer 
 syntax region mustacheVariableUnescape matchgroup=mustacheMarker start=/{{{/ end=/}}}/ containedin=@htmlMustacheContainer
-syntax region mustacheSection matchgroup=mustacheMarker start='{{[#^/]' end=/}}/ containedin=@htmlMustacheContainer
+syntax region mustacheSection matchgroup=mustacheMarker start='{{[#/]' end=/}}/ containedin=@htmlMustacheContainer
 syntax region mustachePartial matchgroup=mustacheMarker start=/{{[<>]/ end=/}}/
 syntax region mustacheMarkerSet matchgroup=mustacheMarker start=/{{=/ end=/=}}/
 syntax region mustacheComment start=/{{!/ end=/}}/ contains=Todo containedin=htmlHead

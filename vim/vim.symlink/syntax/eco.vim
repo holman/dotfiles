@@ -15,6 +15,8 @@ if !exists("b:eco_subtype")
   endif
   if b:eco_subtype == 'rhtml'
     let b:eco_subtype = 'html'
+  elseif b:eco_subtype == 'jst'
+    let b:eco_subtype = 'html'
   elseif b:eco_subtype == 'rb'
     let b:eco_subtype = 'ruby'
   elseif b:eco_subtype == 'yml'

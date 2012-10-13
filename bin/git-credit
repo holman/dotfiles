@@ -7,7 +7,7 @@
 #
 # Examples
 #
-#   git credit "Zach Holman" zach@example.com
+#   git credit "Julio Santos" julio@internets.com
 #
 
 git commit --amend --author "$1 <$2>" -C HEAD

@@ -1,0 +1,9 @@
+var vows = require('vows');
+var assert = require('assert');
+
+vows.describe('${1:something}').addBatch({
+  '${2:firstthing}':{
+    topic:function(){
+    }
+  }
+}).export(module);

@@ -45,7 +45,7 @@ module CommandT
       @focus          = @prompt
       @prompt.focus
       register_for_key_presses
-      clear # clears prompt and list matches
+      clear # clears prompt and lists matches
     rescue Errno::ENOENT
       # probably a problem with the optional parameter
       @match_window.print_no_such_file_or_directory
@@ -54,7 +54,13 @@ module CommandT
     def hide
       @match_window.close
       if VIM::Window.select @initial_window
-        ::VIM::command "silent b #{@initial_buffer.number}"
+        if @initial_buffer.number == 0
+          # upstream bug: buffer number misreported as 0
+          # see: https://wincent.com/issues/1617
+          ::VIM::command "silent b #{@initial_buffer.name}"
+        else
+          ::VIM::command "silent b #{@initial_buffer.number}"
+        end
       end
     end
 
@@ -95,11 +101,7 @@ module CommandT
 
     def toggle_focus
       @focus.unfocus # old focus
-      if @focus == @prompt
-        @focus = @match_window
-      else
-        @focus = @prompt
-      end
+      @focus = @focus == @prompt ? @match_window : @prompt
       @focus.focus # new focus
     end
 
@@ -178,6 +180,13 @@ module CommandT
       end
     end
 
+    def relative_path_under_working_directory path
+      # any path under the working directory will be specified as a relative
+      # path to improve the readability of the buffer list etc
+      pwd = File.expand_path(VIM::pwd) + '/'
+      path.index(pwd) == 0 ? path[pwd.length..-1] : path
+    end
+
     # Backslash-escape space, \, |, %, #, "
     def sanitize_path_string str
       # for details on escaping command-line mode arguments see: :h :
@@ -216,6 +225,7 @@ module CommandT
     def open_selection selection, options = {}
       command = options[:command] || default_open_command
       selection = File.expand_path selection, @path
+      selection = relative_path_under_working_directory selection
       selection = sanitize_path_string selection
       ensure_appropriate_window_selection
       ::VIM::command "silent #{command} #{selection}"

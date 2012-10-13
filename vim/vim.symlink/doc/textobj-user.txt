@@ -1,0 +1,405 @@
+*textobj-user.txt*	Support for user-defined text objects
+
+Version 0.3.10
+Script ID: 2100
+Copyright (C) 2007-2010 kana <http://whileimautomaton.net/>
+License: So-called MIT/X license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+CONTENTS					*textobj-user-contents*
+
+Introduction		|textobj-user-introduction|
+Interface		|textobj-user-interface|
+  Functions		  |textobj-user-functions|
+Bugs			|textobj-user-bugs|
+Changelog		|textobj-user-changelog|
+
+
+
+
+==============================================================================
+INTRODUCTION					*textobj-user-introduction*
+
+*textobj-user* is a Vim plugin to SUPPORT writing user-defined text objects,
+especially, simple text objects which can be defined by regular expression.
+
+Note that this plugin only provides functions to support writing user-defined
+text objects, and this plugin does not provide any useful text objects.  That
+is your work.
+
+
+Requirements:
+- Vim 7.0 or later
+
+Latest version:
+http://github.com/kana/vim-textobj-user
+
+Document in HTML format:
+http://kana.github.com/config/vim/textobj-user.html
+
+
+
+
+==============================================================================
+INTERFACE					*textobj-user-interface*
+
+------------------------------------------------------------------------------
+FUNCTIONS					*textobj-user-function*
+
+						*textobj#user#move()*
+textobj#user#move({pattern}, {flags}, {previous-mode})
+	Move the cursor to the appropriate object defined by {pattern}.
+
+	{flags} is a string, which can contain the following character flags:
+		char	meaning ~
+		----	------- ~
+		'b'     search backward instead of forward.
+		'e'     move to the end of the match.
+
+	{previous-mode} is a string representing the "previous" mode,
+	that is, which mode of mapping causes the calling of this function.
+	For example, if this function is called via a mapping for
+	Operator-pending mode, {previous-mode} must be 'o'.
+		char	meaning ~
+		----	------- ~
+		'n'     Normal mode
+		'o'     Operator-pending mode
+		'v'     Visual mode
+
+	Return value is same as |searchpos()|.
+
+						*textobj#user#select()*
+textobj#user#select({pattern}, {flags}, {prevous-mode})
+	Select the appropriate object defined by {pattern}.
+	If the cursor is already in the range of an object, select it.
+	If the cursor is not in the range of an object, select the nearest
+	object after the cursor.
+
+	{flags} is a string, which can contain the following character flags:
+		char	meaning ~
+		----	------- ~
+		'b'     select the nearest object BEFORE the cursor if the
+		        cursor is not in the range of an object.
+
+	For the detail of {previous-mode}, see |textobj#user#move()|.
+
+	Return value is not defined.
+
+						*textobj#user#select_pair()*
+textobj#user#select_pair({pattern1}, {pattern2}, {flags}, {previous-mode})
+	Select the appropriate object which starts with {pattern1} and ends
+	with {pattern2}.
+
+	{flags} is a string, which can contain the following character flags:
+		char	meaning ~
+		----	------- ~
+		'a'     select the range including {pattern1} and {pattern2},
+			like |at|.
+		'i'     select the range excluding {pattern1} and {pattern2},
+			like |it|.  This is the default behavior unless 'a' is
+			explicitly specified.  If the cursor is not in a text
+			between {pattern1} and {pattern2}, this function does
+			nothing.
+
+	For the detail of {previous-mode}, see |textobj#user#move()|.
+
+	Return value is not defined.
+
+						*textobj#user#define()*
+textobj#user#define({pattern}, {pattern1}, {pattern2}, {guideline})
+	Support function to define key mappings for the text object defined by
+	{pattern}, or {pattern1} and {pattern2}.  {guideline} is a dictionary
+	consists of key-value pairs where key is a string to represent the
+	name of function and value is a list of strings (each string
+	represents {lhs} for corresponding key).
+
+	function name		meaning ~
+	-------------		------- ~
+	'move-to-next'		textobj#user#move({pattern}, '')
+	'move-to-prev'		textobj#user#move({pattern}, 'b')
+	'move-to-next-end'	textobj#user#move({pattern}, 'e')
+	'move-to-prev-end'	textobj#user#move({pattern}, 'be')
+	'select'		synonym for 'select-next'
+	'select-next'		textobj#user#select({pattern}, '',
+				                    {previous-mode})
+	'select-prev'		textobj#user#select({pattern}, 'b',
+				                    {previous-mode})
+	'select-pair-all'	textobj#user#select_pair({pattern1},
+				                         {pattern2},
+				                         'a', {previous-mode})
+	'select-pair-inner'	textobj#user#select_pair({pattern1},
+				                         {pattern2},
+				                         'i', {previous-mode})
+
+	Example: >
+		call textobj#user#define('foo', '', '',
+		                 \ {'move-to-next': 'gj',
+		                 \  'move-to-prev': 'gk',
+		                 \  'select': ['ig', 'ag']})
+<
+						*textobj#user#plugin()*
+textobj#user#plugin({plugin}, {obj-specs})
+	Define key mappings and a command to support writing a plugin which
+	provides various user-defined text objects.
+	
+	Example: If textobj#user#plugin() is called like the following: >
+
+		call textobj#user#plugin('foo', {
+		\   'cdata': {
+		\     '*pattern*': ['<!\[CDATA\[', '\]\]>'],
+		\     'select-a': 'aC',
+		\     'select-i': 'iC',
+		\   },
+		\   'date': {
+		\     '*pattern*': '\<\d\{4}-\d\{2}-\d\{2}\>',
+		\     'select': ['ad', 'id'],
+		\   },
+		\   'helptag': {
+		\     '*pattern*': '\*[^*]\+\*',
+		\     'move-n': ',j',
+		\     'move-p': ',k',
+		\     'move-N': ',J',
+		\     'move-P': ',K',
+		\   },
+		\   '-': {
+		\     '*select-function*': 'SelectFoo',
+		\     'select': ['ax', 'ix'],
+		\   },
+		\ })
+<
+		(1) New command :TextobjFooDefaultKeyMappings will be defined.
+		This command defines the following key mappings as the default
+		ones for the new text objects (this command doesn't override
+		existing {lhs}s unless "!" is given): >
+
+			omap aC  <Plug>(textobj-foo-cdata-a)
+			vmap aC  <Plug>(textobj-foo-cdata-a)
+			omap iC  <Plug>(textobj-foo-cdata-i)
+			vmap iC  <Plug>(textobj-foo-cdata-i)
+			omap ad  <Plug>(textobj-foo-date)
+			vmap ad  <Plug>(textobj-foo-date)
+			omap id  <Plug>(textobj-foo-date)
+			vmap id  <Plug>(textobj-foo-date)
+			omap ax  <Plug>(textobj-foo)
+			vmap ax  <Plug>(textobj-foo)
+			omap ix  <Plug>(textobj-foo)
+			vmap ix  <Plug>(textobj-foo)
+			map ,j  <Plug>(textobj-foo-helptag-n)
+			map ,k  <Plug>(textobj-foo-helptag-p)
+			map ,J  <Plug>(textobj-foo-helptag-N)
+			map ,K  <Plug>(textobj-foo-helptag-P)
+<
+		(2) New variable g:__textobj_foo will be defined.  This is
+		a dictionary which contains various functions and values.
+
+		(3) Key mappings <Plug>(textobj-foo-...) which execute
+		appropriate actions will be defined if "*pattern*" or
+		"*{spec}-function*" is given for a {spec}.  Otherwise,
+		<Plug>(textobj-foo-...) will not be defined.
+
+		(4) :TextobjFooDefaultKeyMappings will be executed unless
+		{specs} contains the key "*no-default-key-mappings" or the
+		variable g:textobj_foo_no_default_key_mappings is defined.
+
+	{plugin} is the name of a plugin.  It must be a string which consits
+	of only lowercase alphabets.
+
+	{obj-specs} is a dictionary (and given value is cached by this
+	plugin, so you have to pass copied one if necessary).  In this
+	dictionary, each key/value pair expresses one text object:
+	- each key is a string of the name of the text object, and
+	- each value (called as "specs") is a dictionary which denotes some
+	  details of the text object.
+
+	The following specs are available:
+
+	"move-n"	{lhs} or [{lhs}, ...]
+		A string which is a key sequence to move the cursor to the
+		next text object.  If the value is a list of strings, each
+		string is mapped to move the cursor.
+
+	"move-p"	{lhs} or [{lhs}, ...]
+	"move-N"	{lhs} or [{lhs}, ...]
+	"move-P"	{lhs} or [{lhs}, ...]
+		Like "move-n", but each string is treated as a key sequence to
+		move the cursor to the previous text object, the end of the
+		next text object, or the end of the previous text object.
+
+	"select"	{lhs} or [{lhs}, ...]
+		Like "move-n", but each string is treated as a key sequence to
+		select the text object.
+
+	"select-a"	{lhs} or [{lhs}, ...]
+	"select-i"	{lhs} or [{lhs}, ...]
+		Like "select", but each string is treated as a key sequence
+		to select "a" text object or "inner" text object.
+
+	"*pattern*"	{regexp} or [{regexp}, {regexp}]
+		A regular expression which matches to a text object.  If the
+		value is a list of two regular expressions, it denotes that
+		the text object starts with the first regular expression and
+		ends with the second regular expression.
+
+	"*no-default-key-mappings*"	anything
+		If this key exists, :Textobj{Plugin}DefaultKeyMappings will
+		not be executed when textobj#user#plugin() is called.  The
+		corresponding value doesn't matter.
+
+	"*{spec}-function*"	{fname}
+		If this key exists, use the function named {fname} instead of
+		the default algorithm based on regular expression to select
+		a text for {spec}.
+
+		The function must take no argument and it must return a list
+		to denote the area to be selected or 0 to denote that there is
+		nothing to select.  The detail of a list is as follows:
+			[motion_type, start_position, end_position]
+		- "motion_type" denotes the default type of motion.  Valid
+		  values are "v", "V" or "\<C-v>".  The meaning of the values
+		  are characterwise, linewise or blockwise.
+		- "start_position" denotes the start position of the area to
+		  be selected.  The detail of this value is the same as
+		  |getpos()|.
+		- "end_position" is like "start_position", but it denotes the
+		  end position of the area to be selected.
+
+		Example definition: >
+			funcion! SelectSomething()
+			  if SomethinWrong()
+			    return 0
+			  endif
+
+			  return ['v', getpos("'["), getpos("']")]
+			endfunction
+<
+	"*sfile*"	{string}
+		Value must be expand('<sfile>').  This value is used to
+		calculate <SNR> prefix for script-local functions which are
+		specified "*{spec}-function*".
+
+
+
+
+==============================================================================
+BUGS						*textobj-user-bugs*
+
+- textobj#user#select() and textobj#user#select_pair() override the current
+  {Visual}, unlike built-in text objects such as iw/aw, is/as, and so forth.
+
+- textobj#user#select() and textobj#user#select_pair() cannot be used with
+  [count].
+
+- textobj#user#select_pair() with |o_CTRL-V| may not work properly.
+
+
+
+
+==============================================================================
+CHANGELOG					*textobj-user-changelog*
+
+0.3.10	2011-07-20T22:24:42+09:00		*textobj-user-changelog-0.3.10*
+	- Update for Vim 7.3.233 or later.
+	  (Thank cehoffman and thinca for reporting this problem.)
+
+0.3.9	2010-04-19T22:02:03+09:00		*textobj-user-changelog-0.3.9*
+	- |textobj#user#plugin()|: Fix not to define key mappings in Select
+	  mode if appropriate.  Now it works smoothly with plugins which
+	  utilize and depend on the default behavior in Select mode.
+
+0.3.8	2009-07-18T10:02:40+09:00		*textobj-user-changelog-0.3.8*
+	- Fix a bug that it was not possible to select any range which starts
+	  with the end of a line.
+	- |textobj#user#plugin()|: Fix a bug that it did not accept
+	  any function which is not script-local as a value for
+	  "*{spec}-function*".
+
+0.3.7	2008-10-24T02:25:59+09:00		*textobj-user-changelog-0.3.7*
+	- |textobj#user#select()|: Fix a bug that it didn't select an object
+	  which: (1) matches to multiple lines and (2) contains the cursor.
+	- |textobj#user#select()|, |textobj#user#select_pair()|,
+	  |textobj#user#plugin()| with "*{spec}-function*":
+	  Support |o_v| and others.  To use this feature, you have to apply
+	  the following patch to Vim:
+	  http://github.com/kana/vim/commits/hack/vimvar-motion_force
+
+0.3.6	2008-08-31T03:17:55+09:00		*textobj-user-changelog-0.3.6*
+	- Remove unnecessary messages for some cases.  They were just for
+	  debugging.
+
+0.3.5	2008-08-24T23:01:45+09:00		*textobj-user-changelog-0.3.5*
+	Incompatible changes with 0.3.4 or ealier:
+	- |textobj#user#plugin()|: Change the specification of functions for
+	  "*{spec}-function*".
+
+	Other changes:
+	- |textobj#user#plugin()|: Add missing description of functions for
+	  "*{spec}-function*".
+
+0.3.4	2008-06-26T14:13:33+09:00		*textobj-user-changelog-0.3.4*
+	- |textobj#user#plugin()|:
+	  - Add "*{spec}-function*" to customize the way to move the cursor or
+	    to select a text by the given function instead of regular
+	    expression based selection.
+
+0.3.3	2008-06-11T21:16:53+09:00		*textobj-user-changelog-0.3.3*
+	- |textobj#user#plugin()|:
+	  - Rename the spec "*pattern*" instead of "pattern".
+	  - Fix incorrect processing on "*no-default-key-mappings*".
+
+0.3.2	2008-06-11T02:53:41+09:00		*textobj-user-changelog-0.3.2*
+	- |textobj#user#plugin()|: Change the names of interface mappings for
+	  the text object of which name is '-'.
+	  Old: <Plug>(textobj-{plugin}---a)
+	  New: <Plug>(textobj-{plugin}-a)
+
+0.3.1	2008-06-08T22:05:02+09:00		*textobj-user-changelog-0.3.1*
+	- |textobj#user#plugin()|: Execute :Textobj{Plugin}DefaultKeyMappings
+	  if necessary.
+
+0.3	2008-06-04T21:16:02+09:00		*textobj-user-changelog-0.3*
+	- |textobj#user#plugin()|: New.
+	- |textobj#user#define()|: Now obsolete.  Use textobj#user#define().
+
+0.2.2	2008-06-02T06:26:12+09:00		*textobj-user-changelog-0.2.2*
+	- Fix wrong sentences in the document.
+
+0.2.1	2008-05-22T00:17:24+09:00		*textobj-user-changelog-0.2.1*
+	- textobj#user#select_pair(): Fix the bug that it selects wrong text
+	  in Operator-pending mode.
+
+0.2	2008-01-07T08:44:14+09:00		*textobj-user-changelog-0.2*
+	- textobj#user#select(): Fix the wrong selecting in Operator-pending
+	  mode.
+	- textobj#user#move(): Modify to be able to use in Visual and
+	  Operator-pending mode.
+
+0.1	2007-11-16T01:17:45+09:00		*textobj-user-changelog-0.1*
+	- Modify to be autoloaded.
+	- Change the names of all API.
+
+0.0	2007-10-15T20:41:34+09:00		*textobj-user-changelog-0.0*
+	- First release.
+
+
+
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:fen:fdl=0:fdm=marker:

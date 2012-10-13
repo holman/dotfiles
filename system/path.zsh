@@ -1,3 +1,1 @@
-export PATH="./bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:$HOME/.sfs:$ZSH/bin:$PATH"
-
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+export PATH="/usr/local/mysql/bin:/opt/local/bin:/opt/local/sbin:$HOME/bin:$HOME/.rvm/gems/ruby-1.8.7-p371/bin:$HOME/.rvm/gems/ruby-1.8.7-p371@global/bin:$HOME/.rvm/rubies/ruby-1.8.7-p371/bin:$HOME/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"

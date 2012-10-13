@@ -275,6 +275,12 @@ function! s:GetCoffeeIndent(curlinenum)
   " Indent after a continuation if it's the first.
   if prevline =~ s:CONTINUATION
     let prevprevlinenum = s:GetPrevNormalLine(prevlinenum)
+
+    " If the continuation is the first in the file, don't run the other checks.
+    if !prevprevlinenum
+      return previndent + &shiftwidth
+    endif
+
     let prevprevline = s:GetTrimmedLine(prevprevlinenum)
 
     if prevprevline !~ s:CONTINUATION && prevprevline !~ s:CONTINUATION_BLOCK

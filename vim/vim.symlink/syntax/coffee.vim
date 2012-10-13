@@ -8,10 +8,6 @@ if exists('b:current_syntax') && b:current_syntax == 'coffee'
   finish
 endif
 
-if version < 600
-  syn clear
-endif
-
 " Include JavaScript for coffeeEmbed.
 syn include @coffeeJS syntax/javascript.vim
 
@@ -38,7 +34,10 @@ hi def link coffeeConditional Conditional
 syn match coffeeException /\<\%(try\|catch\|finally\)\>/ display
 hi def link coffeeException Exception
 
-syn match coffeeKeyword /\<\%(new\|in\|of\|by\|and\|or\|not\|is\|isnt\|class\|extends\|super\|own\|do\)\>/
+syn match coffeeKeyword /\<\%(new\|in\|of\|by\|and\|or\|not\|is\|isnt\|class\|extends\|super\|do\)\>/
+\                       display
+" The `own` keyword is only a keyword after `for`.
+syn match coffeeKeyword /\<for\s\+own\>/ contained containedin=coffeeRepeat
 \                       display
 hi def link coffeeKeyword Keyword
 
@@ -46,7 +45,7 @@ syn match coffeeOperator /\<\%(instanceof\|typeof\|delete\)\>/ display
 hi def link coffeeOperator Operator
 
 " The first case matches symbol operators only if they have an operand before.
-syn match coffeeExtendedOp /\%(\S\s*\)\@<=[+\-*/%&|\^=!<>?]\+\|--\|++\|\.\|::/
+syn match coffeeExtendedOp /\%(\S\s*\)\@<=[+\-*/%&|\^=!<>?.]\+\|[-=]>\|--\|++\|::/
 \                          display
 syn match coffeeExtendedOp /\%(and\|or\)=/ display
 hi def link coffeeExtendedOp coffeeOperator
@@ -164,7 +163,7 @@ hi def link coffeeEscape SpecialChar
 
 " A regex -- must not follow a parenthesis, number, or identifier, and must not
 " be followed by a number
-syn region coffeeRegex start=/\%(\%()\|\i\@<!\d\)\s*\|\i\)\@<!\/\s\@!/
+syn region coffeeRegex start=/\%(\%()\|\i\@<!\d\)\s*\|\i\)\@<!\/=\@!\s\@!/
 \                      skip=/\[[^\]]\{-}\/[^\]]\{-}\]/
 \                      end=/\/[gimy]\{,4}\d\@!/
 \                      oneline contains=@coffeeBasicString

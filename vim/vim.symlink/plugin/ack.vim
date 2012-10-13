@@ -17,13 +17,6 @@ function! s:Ack(cmd, args)
     redraw
     echo "Searching ..."
 
-    " If no pattern is provided, search for the word under the cursor
-    if empty(a:args)
-        let l:grepargs = expand("<cword>")
-    else
-        let l:grepargs = a:args
-    end
-
     " Format, used to manage column jump
     if a:cmd =~# '-g$'
         let g:ackformat="%f"
@@ -36,7 +29,7 @@ function! s:Ack(cmd, args)
     try
         let &grepprg=g:ackprg
         let &grepformat=g:ackformat
-        silent execute a:cmd . " " . l:grepargs
+        silent execute a:cmd . " " . a:args
     finally
         let &grepprg=grepprg_bak
         let &grepformat=grepformat_bak
@@ -48,19 +41,7 @@ function! s:Ack(cmd, args)
         botright copen
     endif
 
-    exec "nnoremap <silent> <buffer> q :ccl<CR>"
-    exec "nnoremap <silent> <buffer> t <C-W><CR><C-W>T"
-    exec "nnoremap <silent> <buffer> T <C-W><CR><C-W>TgT<C-W><C-W>"
-    exec "nnoremap <silent> <buffer> o <CR>"
-    exec "nnoremap <silent> <buffer> go <CR><C-W><C-W>"
-    exec "nnoremap <silent> <buffer> v <C-W><C-W><C-W>v<C-L><C-W><C-J><CR>"
-    exec "nnoremap <silent> <buffer> gv <C-W><C-W><C-W>v<C-L><C-W><C-J><CR><C-W><C-J>"
-
-    " If highlighting is on, highlight the search keyword.
-    if exists("g:ackhighlight")
-        let @/=a:args
-        set hlsearch
-    end
+    exec "nnoremap <silent> <buffer> q :ccl<CR>" 
 
     redraw!
 endfunction

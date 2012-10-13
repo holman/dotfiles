@@ -37,12 +37,14 @@ syntax sync linebreaks=1
 
 " Additions to HTML groups
 syntax region htmlBold    start=/\\\@<!\(^\|\A\)\@=\*\@<!\*\*\*\@!/  end=/\\\@<!\*\@<!\*\*\*\@!\($\|\A\)\@=/  contains=htmlItalic,@Spell
+
+
 syntax region htmlItalic  start=/\\\@<!\(^\|\A\)\@=\*\@<!\*\*\@!/    end=/\\\@<!\*\@<!\*\*\@!\($\|\A\)\@=/    contains=htmlBold,@Spell
-syntax region htmlBold    start=/\\\@<!\(^\|\A\)\@=_\@<!___\@!/      end=/\\\@<!_\@<!___\@!\($\|\A\)\@=/      contains=htmlItalic,@Spell
-syntax region htmlItalic  start=/\\\@<!\(^\|\A\)\@=_\@<!__\@!/       end=/\\\@<!_\@<!__\@!\($\|\A\)\@=/       contains=htmlBold,@Spell
+syntax region htmlItalic  start=/\\\@<!\(^\|\A\)\@=\<_\@<!___\@!/      end=/\\\@<!_\@<!___\@!\($\|\A\)\@=/       contains=htmlBold,@Spell
+syntax region htmlItalic  start=/\\\@<!\(^\|\A\)\@=\<_\@<!__\@!/       end=/\\\@<!_\@<!__\@!\($\|\A\)\@=/       contains=htmlBold,@Spell
 
 " [link](URL) | [link][id] | [link][]
-syntax region mkdLink matchgroup=mkdDelimiter start="\!\?\["  end="\]\ze\s*[[(]" contains=@Spell nextgroup=mkdURL,mkdID skipwhite oneline
+syntax region mkdLink matchgroup=mkdDelimiter start="\!\?\["  end="\]\ze\s*[[(]" contains=@Spell nextgroup=mkdURL,mkdID skipwhite
 syntax region mkdID   matchgroup=mkdDelimiter start="\["      end="\]" contained
 syntax region mkdURL  matchgroup=mkdDelimiter start="("       end=")"  contained
 
@@ -67,7 +69,6 @@ syntax match  mkdCode      /^\s*\n\(\(\s\{4,}[^ ]\|\t\+[^\t]\).*\n\)\+/
 syntax match  mkdLineBreak /  \+$/
 syntax region mkdCode       start=/\\\@<!`/     end=/\\\@<!`/
 syntax region mkdCode       start=/\s*``[^`]*/  end=/[^`]*``\s*/
-syntax region mkdCode       start=/\s*```[^`]*/ end=/[^`]*```\s*/
 syntax region mkdBlockquote start=/^\s*>/       end=/$/           contains=mkdLineBreak,mkdLineContinue,@Spell
 syntax region mkdCode       start="<pre[^>]*>"  end="</pre>"
 syntax region mkdCode       start="<code[^>]*>" end="</code>"
