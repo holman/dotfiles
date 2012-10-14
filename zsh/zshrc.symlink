@@ -31,10 +31,10 @@ ZSH_THEME="crunch"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
 # source every .zsh file in this rep
 # for config_file ($ZSH/**/*.zsh) source $config_file
 for config_file ($HOME/.dotfiles/**/*.zsh) source $config_file
-
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...

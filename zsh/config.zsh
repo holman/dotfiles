@@ -9,7 +9,7 @@ export CLICOLOR=true
 
 fpath=($ZSH/zsh/functions $fpath)
 
-autoload -U $ZSH/zsh/functions/*(:t)
+# autoload -U $ZSH/zsh/functions/*(:t)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
