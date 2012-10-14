@@ -28,6 +28,7 @@ class Object
       method = [klass, method].compact.join('#')
     end
     puts `ri '#{method}'`
+
   end
 end
 
@@ -38,3 +39,13 @@ end
 def r
   reload!
 end
+
+require "wirble"
+
+Wirble.init
+Wirble.colorize
+colors = Wirble::Colorize.colors.merge({
+     :comma  => :green,
+        :refers => :green,
+})
+Wirble::Colorize.colors = colors
