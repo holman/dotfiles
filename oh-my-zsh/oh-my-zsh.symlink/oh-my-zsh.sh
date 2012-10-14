@@ -40,7 +40,6 @@ done
 autoload -U compinit
 compinit -i
 
-
 # Load all of the plugins that were defined in ~/.zshrc
 for plugin ($plugins); do
   if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then

@@ -15,7 +15,7 @@ ZSH_THEME="crunch"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -29,10 +29,11 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ruby git)
+plugins=(git)
 
 # source every .zsh file in this rep
-for config_file ($ZSH/**/*.zsh) source $config_file
+# for config_file ($ZSH/**/*.zsh) source $config_file
+for config_file ($HOME/.dotfiles/**/*.zsh) source $config_file
 
 source $ZSH/oh-my-zsh.sh
 
