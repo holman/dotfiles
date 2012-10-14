@@ -9,4 +9,3 @@ alias gpom='git pull origin master'
 alias godw='cd ~/src/work/warehouse'
 
 alias clean='find ./**/*.orig | xargs rm'
-

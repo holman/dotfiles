@@ -1,4 +1,4 @@
-colorscheme desert
+colorscheme Tomorrow-Night
 set anti
 set lines=999 columns=84
 set guioptions=egmrt
