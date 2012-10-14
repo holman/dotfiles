@@ -3,41 +3,39 @@
 # You probably want to change the [user] section here since you are not me.
 
 [hub]
-        protocol = https
+  protocol = https
 [user]
-        name = Julio Santos
-        email = julio@morgane.com
+	name = Julio Santos
+  email = julio@morgane.com
 [credential]
-	helper = osxkeychain
+  # helper = osxkeychain
 [alias]
-        co = checkout 
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  co = checkout 
+  promote = !$ZSH/bin/git-promote
+  wtf     = !$ZSH/bin/git-wtf
+  rank-contributers = !$ZSH/bin/git-rank-contributers
+  count   = !git shortlog -sn
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [color]
-        diff = auto 
-        status = auto
-        branch = auto
-        ui = true
+  diff = auto 
+  status = auto
+  branch = auto
+  ui = true
 [core]
-        excludesfile  = ~/.gitignore
-        editor = vim
+  excludesfile  = ~/.gitignore
+  editor = vim
 [apply]
-        whitespace = nowarn
+  whitespace = nowarn
 [mergetool]
-        keepBackup = false
-        cmd = /Applications/Xcode.app/Contents/Applications/FileMerge.app
+  keepBackup = false
+  cmd = /Applications/Xcode.app/Contents/Applications/FileMerge.app
 [difftool]
-        prompt = false
+  prompt = false
 [help]
-        autocorrect = 1
+  autocorrect = 1
 [init]
   templatedir = ~/.git_template
-
 [diff]
   tool = opendiff
 [merge]
   tool = opendiff
-
