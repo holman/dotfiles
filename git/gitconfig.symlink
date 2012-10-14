@@ -8,7 +8,7 @@
 	name = Julio Santos
   email = julio@morgane.com
 [credential]
-  # helper = osxkeychain
+  helper = osxkeychain
 [alias]
   co = checkout 
   promote = !$ZSH/bin/git-promote

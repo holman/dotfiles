@@ -27,9 +27,6 @@ colorscheme Tomorrow-Night
 if !has("gui_running")
   autocmd VimEnter * GuiColorScheme Tomorrow-Night
   " let g:solarized_termcolors=256
-else
-  colorscheme codeschool
-"  set background=dark
 endif
 
 " Don't use Ex mode, use Q for formatting
@@ -43,8 +40,6 @@ map Q gq
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
-"  colorscheme solarized
-"  set background=dark
   syntax on
 endif
 
@@ -97,11 +92,8 @@ if has("autocmd")
     autocmd BufWritePost .vimrc source $MYVIMRC
 
   augroup END
-
 else
-
   set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Softtabs, 2 spaces
