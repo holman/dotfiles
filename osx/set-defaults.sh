@@ -7,6 +7,9 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+# Show all files, including hidden files
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false
 
