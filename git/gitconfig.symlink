@@ -1,17 +1,11 @@
 [core]
-	quotepath = false
-        excludesfile = /Users/Steven/.gitignore
+    quotepath = false
+    excludesfile = /Users/Steven/.gitignore
 [user]
-        name = Steven Bone
-        email = sbone@canvas.is
+    name = Steven Bone
+    email = stevenmbone@gmail.com
 [color]
-        ui = true
-[difftool "Kaleidoscope"]
-        cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[difftool]
-        prompt = false
-[diff]
-        tool = Kaleidoscope
+    ui = true
 [alias]
     mylog = log --author=Steven
     l = "!source ~/.githelpers && pretty_git_log"
@@ -21,4 +15,9 @@
     di = diff
     dc = diff --cached
     dt = difftool
-
+[difftool "Kaleidoscope"]
+    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+    prompt = false
+[diff]
+    tool = Kaleidoscope
