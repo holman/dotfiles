@@ -2,8 +2,14 @@
 #
 # bootstrap installs things.
 
-# Assume everyone's on OS X and run Homebrew (*nix-ers beware)
-. script/homebrew
+# Run Homebrew for those on OS X
+if test $(uname | grep 'Darwin' 2>/dev/null)
+then
+  . script/homebrew
+else
+  echo "Your operating system, ($(uname 2>/dev/null)), is unsupported."
+  exit
+fi
 
 # Run the install (I'd like to pull this out of rake, eventually)
 rake install
