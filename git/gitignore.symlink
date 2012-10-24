@@ -1,5 +1,18 @@
-.DS_Store
-.svn
+# Vim #
+# http://stackoverflow.com/a/4824199
+#######
 *~
 *.swp
-*.rbc
+*.swo
+
+# OS generated files #
+# https://help.github.com/articles/ignoring-files
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
