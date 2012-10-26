@@ -11,6 +11,6 @@
   "matchBracketsSquare": true,
   "rulers": [ 80 ],
   "show_minimap": false,
-  "trimTrailingWhiteSpaceOnSave": true,
+  "trim_trailing_white_space_on_save": true,
   "highlight_modified_tabs": true
 }
