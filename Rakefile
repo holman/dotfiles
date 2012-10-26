@@ -54,4 +54,8 @@ task :uninstall do
   end
 end
 
+task :init do
+    `git submodule init && git submodule update`
+end
+
 task :default => 'install'
