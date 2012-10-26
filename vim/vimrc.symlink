@@ -2,9 +2,15 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set noswapfile
+
+" CtrlP 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 syntax enable
 set background=dark
-" set background=light
 colorscheme solarized
 
 " Show Powerline in single windows
@@ -23,10 +29,6 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-" -
-"
-" -
-set go-=T                 " hide MacVim toolbar
 " -
 "
 " -
@@ -50,11 +52,11 @@ set scrolloff=8     " keep 8 lines above and below cursor
 " -
 "
 " -
-set showmatch       " bracket/brace highlighting
-set hlsearch      " highlight searches
+set showmatch             " bracket/brace highlighting
+set hlsearch              " highlight searches
 
-set nolazyredraw           " turn off lazy redraw
-set ttyfast                " always assume a fast connection
+set nolazyredraw          " turn off lazy redraw
+set ttyfast               " always assume a fast connection
 
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
@@ -69,8 +71,8 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-map <S-b> ^
-map <S-w> $
+" map <S-b> ^
+" map <S-w> $
 
 " ----------------------------------------------------------------------------
 "  Strip all trailing whitespace in file

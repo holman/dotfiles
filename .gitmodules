@@ -1,0 +1,18 @@
+[submodule "vim/bundle"]
+	path = vim/bundle
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim.symlink/bundle/ctrlp.vim"]
+	path = vim/vim.symlink/bundle/ctrlp.vim
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim.symlink/bundle/vim-powerline.git"]
+	path = vim/vim.symlink/bundle/vim-powerline.git
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/vim.symlink/bundle/vim-powerline"]
+	path = vim/vim.symlink/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/vim.symlink/bundle/solarized"]
+	path = vim/vim.symlink/bundle/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/vim.symlink/bundle/commentary"]
+	path = vim/vim.symlink/bundle/commentary
+	url = git://github.com/tpope/vim-commentary.git
