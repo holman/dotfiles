@@ -1,0 +1,16 @@
+[user]
+        name = Adam Krawiec
+        email = adamkrawiec@gmail.com
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+[core]
+        excludesfile = ~/.gitignore
+        editor = mate -w
+        quotepath = false
+
+[apply]
+        whitespace = nowarn
+[github]
+        user = holman
