@@ -1,0 +1,4 @@
+[
+	{ "caption": "JS2Coffee: Convert & Make New File", "command": "js_coffee", "args":{"new_file": true}},
+	{ "caption": "JS2Coffee: Convert & Overwrite Current File", "command": "js_coffee", "args":{"new_file": false}}
+]

@@ -1,0 +1,11 @@
+--TEST--
+Universal selector shorthand
+--CSS--
+.foo {display: inherit;}
+--EXPECT--
+array (
+  '.foo' => 
+  array (
+    'display' => 'inherit',
+  ),
+)

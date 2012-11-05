@@ -1,0 +1,16 @@
+--TEST--
+Tests numeric values: Signed
+--CSS--
+a { font-size:-1em }
+b { font-size:+1em }
+--EXPECT--
+array (
+  'a' => 
+  array (
+    'font-size' => '-1em',
+  ),
+  'b' => 
+  array (
+    'font-size' => '1em',
+  ),
+)

@@ -1,11 +1,17 @@
+html {
+    border: 3px solid #EEEEEE;
+    margin: 2em auto;
+    padding: 0;
+    width: 975px; }
+
 body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px; }
+    background-color: white;
+    border: 1px solid #CACACA;
+    font-family: Helvetica,arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 30px;
+    margin: 0; }
 
 body > *:first-child {
   margin-top: 0 !important; }
@@ -13,7 +19,10 @@ body > *:last-child {
   margin-bottom: 0 !important; }
 
 a {
-  color: #4183C4; }
+  color: #4183C4;
+  text-decoration: none; }
+a:hover {
+  text-decoration: underline; }
 a.absent {
   color: #cc0000; }
 a.anchor {
@@ -82,9 +91,9 @@ p, blockquote, ul, ol, dl, li, table, pre {
   margin: 15px 0; }
 
 hr {
-  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  background: transparent url("https://a248.e.akamai.net/assets.github.com/assets/primer/markdown/dirty-shade-0e7d81b119cc9beae17b0c98093d121fa0050a74.png") repeat-x 0 0;
   border: 0 none;
-  color: #cccccc;
+  color: #ccc;
   height: 4px;
   padding: 0; }
 
@@ -152,7 +161,7 @@ blockquote {
     margin-bottom: 0; }
 
 table {
-  padding: 0; }
+  border-collapse: collapse; border-spacing: 0; padding: 0; }
   table tr {
     border-top: 1px solid #cccccc;
     background-color: white;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>text-justify: ${TM_CSS_SPACE}tibetan$0</string>
+	<key>name</key>
+	<string>text-justify:tibetan</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>tabTrigger</key>
+	<string>tj:t</string>
+	<key>uuid</key>
+	<string>7DD53491-34CE-49BB-9135-9A8E84E8B4E4
+</string>
+</dict>
+</plist>

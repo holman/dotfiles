@@ -108,8 +108,9 @@ class CssTidyCommand(sublime_plugin.TextCommand):
 
         # Tidy each selection.
         for sel in self.view.sel():
+            #print 'CSSTIdy: Sending this to Tidy:\n', self.view.substr(sel)
             tidied, err, retval = tidy_string(self.view.substr(sel), csstidy, csstidy_args, shell)
-            #print 'CSSTIdy: Got these tidied styles back:\n' + tidied
+            #print 'CSSTIdy: Got these tidied styles back:\n', tidied
 
             if err or retval != 0:
                 print 'CSSTidy returned {0}'.format(retval)

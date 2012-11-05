@@ -25,7 +25,6 @@ NOTE: If you choose the GitHub API for conversion, your code will be sent throug
 ## Uses :
 
  - [python-markdown2][0] for markdown parsing **OR** the GitHub markdown API.
- - [clownfart markown.css][1] for markdown styling
 
 
 ## Licence :
@@ -33,7 +32,6 @@ NOTE: If you choose the GitHub API for conversion, your code will be sent throug
 The code is available at github [https://github.com/revolunet/sublimetext-markdown-preview][2] under MIT licence : [http://revolunet.mit-license.org][4]
 
  [0]: https://github.com/trentm/python-markdown2
- [1]: https://github.com/clownfart/Markdown-CSS
  [2]: https://github.com/revolunet/sublimetext-markdown-preview
  [3]: http://wbond.net/sublime_packages/package_control
  [4]: http://revolunet.mit-license.org

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>font-family: ${TM_CSS_SPACE}${1:'Monotype Corsiva','Comic Sans MS'},cursive$0</string>
+	<key>name</key>
+	<string>font-family:cursive</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>tabTrigger</key>
+	<string>ff:c</string>
+	<key>uuid</key>
+	<string>9C2DD8C4-47E6-419B-B53C-E53FC13866AF
+</string>
+</dict>
+</plist>

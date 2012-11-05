@@ -1,0 +1,26 @@
+--TEST--
+Pseudo elements selectors
+--CSS--
+P:first-line { display: inherit; }
+P:first-letter { font-size: inherit; }
+H1:before { font-family: inherit; }
+H1:after { font-weight: inherit; }
+--EXPECT--
+array (
+  'P:first-line' => 
+  array (
+    'display' => 'inherit',
+  ),
+  'P:first-letter' => 
+  array (
+    'font-size' => 'inherit',
+  ),
+  'H1:before' => 
+  array (
+    'font-family' => 'inherit',
+  ),
+  'H1:after' => 
+  array (
+    'font-weight' => 'inherit',
+  ),
+)

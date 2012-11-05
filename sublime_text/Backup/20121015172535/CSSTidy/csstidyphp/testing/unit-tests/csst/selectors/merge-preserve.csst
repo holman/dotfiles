@@ -1,0 +1,23 @@
+--TEST--
+Merge selectors optimization off
+--SETTINGS--
+merge_selectors = 0
+--CSS--
+h1 {display: inherit;}
+h2 {display: inherit;}
+h3 {display: inherit;}
+--EXPECT--
+array (
+  'h1' => 
+  array (
+    'display' => 'inherit',
+  ),
+  'h2' => 
+  array (
+    'display' => 'inherit',
+  ),
+  'h3' => 
+  array (
+    'display' => 'inherit',
+  ),
+)

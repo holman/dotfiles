@@ -1,0 +1,1550 @@
+<html>
+<head>
+<title>Docs For Class csstidy</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">csstidy</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_csstidy.html" class="menu">class tree: csstidy</a> ]
+		  [ <a href="../elementindex_csstidy.html" class="menu">index: csstidy</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+	<div id="todolist">
+			<p><a href="../todolist.html">Todo List</a></p>
+	</div>
+      <b>Packages:</b><br />
+              <a href="../li_csstidy.html">csstidy</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../csstidy/_class_csstidy_php.html">		class.csstidy.php
+		</a><br>
+			<a href="../csstidy/_class_csstidy_optimise_php.html">		class.csstidy_optimise.php
+		</a><br>
+			<a href="../csstidy/_class_csstidy_print_php.html">		class.csstidy_print.php
+		</a><br>
+			<a href="../csstidy/_data_inc_php.html">		data.inc.php
+		</a><br>
+	  </div><br />
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../csstidy/csstidy.html">csstidy</a><br />
+	    		<a href="../csstidy/csstidy_optimise.html">csstidy_optimise</a><br />
+	    		<a href="../csstidy/csstidy_print.html">csstidy_print</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: csstidy</h1>
+Source Location: /class.csstidy.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">CSS Parser class</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+                <li>Florian Schmitz (floele at gmail dot com) 2005-2006</li>
+      </ul>
+
+
+
+
+    
+        
+<h4>Version:</h4>
+<ul>
+  <li>1.2</li>
+</ul>
+
+
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../csstidy/csstidy.html#var$added">$added</a></li>
+    <li><a href="../csstidy/csstidy.html#var$at">$at</a></li>
+    <li><a href="../csstidy/csstidy.html#var$charset">$charset</a></li>
+    <li><a href="../csstidy/csstidy.html#var$css">$css</a></li>
+    <li><a href="../csstidy/csstidy.html#var$from">$from</a></li>
+    <li><a href="../csstidy/csstidy.html#var$import">$import</a></li>
+    <li><a href="../csstidy/csstidy.html#var$invalid_at">$invalid_at</a></li>
+    <li><a href="../csstidy/csstidy.html#var$line">$line</a></li>
+    <li><a href="../csstidy/csstidy.html#var$log">$log</a></li>
+    <li><a href="../csstidy/csstidy.html#var$namespace">$namespace</a></li>
+    <li><a href="../csstidy/csstidy.html#var$optimise">$optimise</a></li>
+    <li><a href="../csstidy/csstidy.html#var$print">$print</a></li>
+    <li><a href="../csstidy/csstidy.html#var$property">$property</a></li>
+    <li><a href="../csstidy/csstidy.html#var$selector">$selector</a></li>
+    <li><a href="../csstidy/csstidy.html#var$sel_separate">$sel_separate</a></li>
+    <li><a href="../csstidy/csstidy.html#var$settings">$settings</a></li>
+    <li><a href="../csstidy/csstidy.html#var$status">$status</a></li>
+    <li><a href="../csstidy/csstidy.html#var$str_char">$str_char</a></li>
+    <li><a href="../csstidy/csstidy.html#var$str_in_str">$str_in_str</a></li>
+    <li><a href="../csstidy/csstidy.html#var$sub_value">$sub_value</a></li>
+    <li><a href="../csstidy/csstidy.html#var$sub_value_arr">$sub_value_arr</a></li>
+    <li><a href="../csstidy/csstidy.html#var$tokens">$tokens</a></li>
+    <li><a href="../csstidy/csstidy.html#var$value">$value</a></li>
+    <li><a href="../csstidy/csstidy.html#var$version">$version</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../csstidy/csstidy.html#methodcsstidy">csstidy</a></li>
+    <li><a href="../csstidy/csstidy.html#methodcss_add_property">css_add_property</a></li>
+    <li><a href="../csstidy/csstidy.html#methodescaped">escaped</a></li>
+    <li><a href="../csstidy/csstidy.html#methodexplode_selectors">explode_selectors</a></li>
+    <li><a href="../csstidy/csstidy.html#methodget_cfg">get_cfg</a></li>
+    <li><a href="../csstidy/csstidy.html#methodgvw_important">gvw_important</a></li>
+    <li><a href="../csstidy/csstidy.html#methodis_important">is_important</a></li>
+    <li><a href="../csstidy/csstidy.html#methodis_token">is_token</a></li>
+    <li><a href="../csstidy/csstidy.html#methodload_template">load_template</a></li>
+    <li><a href="../csstidy/csstidy.html#methodlog">log</a></li>
+    <li><a href="../csstidy/csstidy.html#methodmerge_css_blocks">merge_css_blocks</a></li>
+    <li><a href="../csstidy/csstidy.html#methodparse">parse</a></li>
+    <li><a href="../csstidy/csstidy.html#methodparse_from_url">parse_from_url</a></li>
+    <li><a href="../csstidy/csstidy.html#methodproperty_is_next">property_is_next</a></li>
+    <li><a href="../csstidy/csstidy.html#methodproperty_is_valid">property_is_valid</a></li>
+    <li><a href="../csstidy/csstidy.html#methodset_cfg">set_cfg</a></li>
+    <li><a href="../csstidy/csstidy.html#method_add_token">_add_token</a></li>
+    <li><a href="../csstidy/csstidy.html#method_unicode">_unicode</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a61">61</a>]<br />
+CSS Parser class<br /><br /><p>This class represents a CSS parser which reads CSS code and saves it in an array.  In opposite to most other CSS parsers, it does not use regular expressions and  thus has full CSS2 support and a higher reliability.  Additional to that it applies some optimisations and fixes to the CSS code.  An online version should be available here: http://cdburnerxp.se/cssparse/css_optimiser.php</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.2</td>
+  </tr>
+  <tr>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Florian Schmitz (floele at gmail dot com) 2005-2006</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$added"></a>
+	<p></p>
+	<h4>$added = <span class="value">&nbsp;false</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a233">233</a>]</p>
+  =true if something has been added to the current selector<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>bool</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$at"></a>
+	<p></p>
+	<h4>$at = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a150">150</a>]</p>
+  Saves the current at rule (@media)<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$charset"></a>
+	<p></p>
+	<h4>$charset = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a98">98</a>]</p>
+  Saves the CSS charset (@charset)<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$css"></a>
+	<p></p>
+	<h4>$css = <span class="value">array()</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a68">68</a>]</p>
+  Saves the parsed CSS<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$from"></a>
+	<p></p>
+	<h4>$from = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a212">212</a>]</p>
+  Status from which the parser switched to ic or instr<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$import"></a>
+	<p></p>
+	<h4>$import = <span class="value">array()</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a105">105</a>]</p>
+  Saves all @import URLs<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$invalid_at"></a>
+	<p></p>
+	<h4>$invalid_at = <span class="value">&nbsp;false</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a226">226</a>]</p>
+  =true if in invalid at-rule<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>bool</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$line"></a>
+	<p></p>
+	<h4>$line = <span class="value">&nbsp;1</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a247">247</a>]</p>
+  Saves the line number<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>integer</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$log"></a>
+	<p></p>
+	<h4>$log = <span class="value">array()</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a240">240</a>]</p>
+  Array which saves the message log<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$namespace"></a>
+	<p></p>
+	<h4>$namespace = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a112">112</a>]</p>
+  Saves the namespace<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$optimise"></a>
+	<p></p>
+	<h4>$optimise = <span class="value"></span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a91">91</a>]</p>
+  Optimiser class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../csstidy/csstidy_optimise.html">csstidy_optimise</a></td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>object</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$print"></a>
+	<p></p>
+	<h4>$print = <span class="value"></span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a83">83</a>]</p>
+  Printer class<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../csstidy/csstidy_print.html">csstidy_print</a></td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>object</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$property"></a>
+	<p></p>
+	<h4>$property = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a164">164</a>]</p>
+  Saves the current property<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$selector"></a>
+	<p></p>
+	<h4>$selector = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a157">157</a>]</p>
+  Saves the current selector<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$sel_separate"></a>
+	<p></p>
+	<h4>$sel_separate = <span class="value">array()</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a171">171</a>]</p>
+  Saves the position of , in selectors<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$settings"></a>
+	<p></p>
+	<h4>$settings = <span class="value">array()</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a126">126</a>]</p>
+  Stores the settings<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$status"></a>
+	<p></p>
+	<h4>$status = <span class="value">&nbsp;'is'</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a142">142</a>]</p>
+  Saves the parser-status.<br /><br /><p>Possible values: <ul><li>is = in selector</li><li>ip = in property</li><li>iv = in value</li><li>instr = in string (started at &quot; or ' or ( )</li><li>ic = in comment (ignore everything)</li><li>at = in @-block</li></ul></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$str_char"></a>
+	<p></p>
+	<h4>$str_char = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a205">205</a>]</p>
+  Saves the char which opened the last string<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$str_in_str"></a>
+	<p></p>
+	<h4>$str_in_str = <span class="value">&nbsp;false</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a219">219</a>]</p>
+  Variable needed to manage string-in-strings, for example url(&quot;foo.png&quot;)<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$sub_value"></a>
+	<p></p>
+	<h4>$sub_value = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a190">190</a>]</p>
+  Saves the current sub-value<br /><br /><p>Example for a subvalue:  background:url(foo.png) red no-repeat;  &quot;url(foo.png)&quot;, &quot;red&quot;, and  &quot;no-repeat&quot; are subvalues,  seperated by whitespace</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$sub_value_arr"></a>
+	<p></p>
+	<h4>$sub_value_arr = <span class="value">array()</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a198">198</a>]</p>
+  Array which saves all subvalues for a property.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="../csstidy/csstidy.html#var$sub_value">csstidy::$sub_value</a></td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$tokens"></a>
+	<p></p>
+	<h4>$tokens = <span class="value">array()</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a75">75</a>]</p>
+  Saves the parsed CSS (raw)<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$value"></a>
+	<p></p>
+	<h4>$value = <span class="value">&nbsp;''</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a178">178</a>]</p>
+  Saves the current value<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$version"></a>
+	<p></p>
+	<h4>$version = <span class="value">&nbsp;'1.2'</span></h4>
+	<p>[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a119">119</a>]</p>
+  Contains the version of csstidy<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>string</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+  <hr />
+	<a name="methodcsstidy"></a>
+	<h3>constructor csstidy <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a254">254</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>csstidy csstidy(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Loads standard template and sets default settings<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.2</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodcss_add_property"></a>
+	<h3>method css_add_property <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a877">877</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void css_add_property(
+string
+$media, string
+$selector, string
+$property, string
+$new_val)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a property with value to the existing CSS code<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.2</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$media</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$selector</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$property</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$new_val</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodescaped"></a>
+	<h3>method escaped <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a863">863</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>bool escaped(
+string
+&$string, integer
+$pos)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Checks if a character is escaped (and returns true if it is)<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.02</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$string</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$pos</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodexplode_selectors"></a>
+	<h3>method explode_selectors <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a825">825</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void explode_selectors(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Explodes selectors<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodget_cfg"></a>
+	<h3>method get_cfg <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a283">283</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed get_cfg(
+string
+$setting)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get the value of a setting.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$setting</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgvw_important"></a>
+	<h3>method gvw_important <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a933">933</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string gvw_important(
+string
+$value)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns a value without !important<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$value</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodis_important"></a>
+	<h3>method is_important <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a921">921</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>bool is_important(
+string
+&$value)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Checks if $value is !important.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$value</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodis_token"></a>
+	<h3>method is_token <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a444">444</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void is_token(
+string
+&$string, integer
+$i)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Checks if there is a token at the current position<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.11</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$string</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$i</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodload_template"></a>
+	<h3>method load_template <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a404">404</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void load_template(
+string
+$content, [bool
+$from_file = true])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Loads a new template<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td><a href="http://csstidy.sourceforge.net/templates.php">http://csstidy.sourceforge.net/templates.php</a></td>
+  </tr>
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.1</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$content</b>&nbsp;&nbsp;</td>
+        <td>either filename (if $from_file == true), content of a template file, &quot;high_compression&quot;, &quot;highest_compression&quot;, &quot;low_compression&quot;, or &quot;default&quot;</td>
+      </tr>
+          <tr>
+        <td class="type">bool&nbsp;&nbsp;</td>
+        <td><b>$from_file</b>&nbsp;&nbsp;</td>
+        <td>uses $content as filename if true</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodlog"></a>
+	<h3>method log <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a332">332</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void log(
+string
+$message, string
+$type, [integer
+$line = -1])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Add a message to the message log<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$message</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$type</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$line</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodmerge_css_blocks"></a>
+	<h3>method merge_css_blocks <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a906">906</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void merge_css_blocks(
+string
+$media, string
+$selector, array
+$css_add)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds CSS to an existing media/selector<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.1</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$media</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$selector</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$css_add</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodparse"></a>
+	<h3>method parse <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a458">458</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>bool parse(
+string
+$string)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Parses CSS in $string. The code is saved as array in $this-&gt;css<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.1</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$string</b>&nbsp;&nbsp;</td>
+        <td>the CSS code</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodparse_from_url"></a>
+	<h3>method parse_from_url <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a432">432</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void parse_from_url(
+string
+$url)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Starts parsing from URL<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$url</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodproperty_is_next"></a>
+	<h3>method property_is_next <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a955">955</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>bool property_is_next(
+string
+$istring, integer
+$pos)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Checks if the next word in a string from pos is a CSS property<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.2</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$istring</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$pos</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodproperty_is_valid"></a>
+	<h3>method property_is_valid <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a980">980</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>bool; property_is_valid(
+string
+$property)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Checks if a property is valid<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$property</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodset_cfg"></a>
+	<h3>method set_cfg <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a300">300</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>bool set_cfg(
+string
+$setting, mixed
+$value)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set the value of a setting.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$setting</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$value</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_add_token"></a>
+	<h3>method _add_token <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a318">318</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void _add_token(
+mixed
+$type, string
+$data, [bool
+$do = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Adds a token to $this-&gt;tokens<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">mixed&nbsp;&nbsp;</td>
+        <td><b>$type</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$data</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">bool&nbsp;&nbsp;</td>
+        <td><b>$do</b>&nbsp;&nbsp;</td>
+        <td>add a token even if preserve_css is off</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="method_unicode"></a>
+	<h3>method _unicode <span class="smalllinenumber">[line <a href="..//__filesource/fsource_csstidy__class.csstidy.php.html#a354">354</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>string _unicode(
+string
+&$string, integer
+&$i)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Parse unicode notations and find a replacement character<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>1.2</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>private</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$string</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">integer&nbsp;&nbsp;</td>
+        <td><b>$i</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Mon, 15 May 2006 22:55:14 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

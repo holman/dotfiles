@@ -1,0 +1,56 @@
+--TEST--
+Don't merge multiples occurences of same @media
+--SETTINGS--
+merge_selectors = 0
+--CSS--
+@media screen, tv, projection {
+BODY {
+background-color: red;
+}
+}
+
+BODY {
+color: black;
+}
+
+@media screen, tv, projection {
+BODY {
+color: green;
+}
+}
+
+BODY {
+background-color: white;
+}
+
+--FULLEXPECT--
+array (
+  '@media screen,tv,projection ' => 
+  array (
+    'BODY' => 
+    array (
+      'background-color' => 'red',
+    ),
+  ),
+  41 => 
+  array (
+    'BODY' => 
+    array (
+      'color' => '#000',
+    ),
+  ),
+  '@media screen,tv,projection  ' => 
+  array (
+    'BODY' => 
+    array (
+      'color' => 'green',
+    ),
+  ),
+  42 => 
+  array (
+    'BODY' => 
+    array (
+      'background-color' => '#fff',
+    ),
+  ),
+)

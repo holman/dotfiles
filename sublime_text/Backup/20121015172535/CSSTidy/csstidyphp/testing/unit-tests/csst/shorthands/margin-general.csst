@@ -1,0 +1,46 @@
+--TEST--
+Test margin optimization
+--CSS--
+a { 
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+b {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+c {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+}
+d {
+    margin-left: 1px;
+    margin-right: 6px;
+    margin-top: 10px;
+    margin-bottom: 3px;
+}
+--EXPECT--
+array (
+  'a' => 
+  array (
+    'margin' => '10px',
+  ),
+  'b' => 
+  array (
+    'margin' => '10px 6px',
+  ),
+  'c' => 
+  array (
+    'margin' => '10px 6px 1px',
+  ),
+  'd' => 
+  array (
+    'margin' => '10px 6px 3px 1px',
+  ),
+)

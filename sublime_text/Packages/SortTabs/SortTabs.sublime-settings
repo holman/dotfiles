@@ -1,6 +1,6 @@
 {
 	// Automatically sort tabs when loading or saving a file.
-	"sort_on_load_save" : true,
+	"sort_on_load_save" : false,
 	// Command to use for automatic sort.
 	// If not specified, it use the last used sorting command
 	// Available defaults command are:

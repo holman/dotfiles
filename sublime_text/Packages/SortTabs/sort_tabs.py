@@ -25,7 +25,6 @@ INTERNAL_SETTINGS = InternalSettings('SortTabsInternal.sublime-settings')
 
 
 class SortTabs(object):
-
 	sorting_indexes = (1,)
 
 	def __init__(self, *args, **kwargs):
@@ -105,9 +104,9 @@ class SortTabsByNameCommand(SortTabs, sublime_plugin.WindowCommand):
 			item.append(filename.lower())
 
 
-class SortTabsByFilePathCommand(SortTabs, sublime_plugin.WindowCommand):
+class SortTabsByFilePathCommand(SortTabsByNameCommand, sublime_plugin.WindowCommand):
 	'''Sort Tabs by file path'''
-	sorting_indexes = (1, 2)
+	sorting_indexes = (1, 3, 2)
 
 	def fill_list_views(self, list_views):
 		super(SortTabsByFilePathCommand, self).fill_list_views(list_views)

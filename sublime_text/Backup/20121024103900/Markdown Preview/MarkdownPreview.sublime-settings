@@ -1,0 +1,29 @@
+/*
+    Markdown Preview default settings
+*/
+{
+    /*
+        Sets the default opener for html files
+
+        default - Use the system default HTML viewer
+        other - Set a full path to any executable. ex: /Applications/Google Chrome Canary.app or /Applications/Firefox.app
+    */
+    "browser": "default",
+    /*
+        Sets the default parser for converting markdown to html.
+        Warning for github API : if you have a ST2 linux build, Python is not built with SSL o it may not work
+
+        default - Use the builtin python-markdown2 parser
+        github - User github API to convert markdown, so you can use GitHub flavored Markdown, see http://github.github.com/github-flavored-markdown/
+    */
+    "parser": "default",
+    /*
+        Sets the default css file to embed in the HTML
+
+        default - Use the builtin CSS or github CSS, depending on parser config (markdown.css or github.css)
+        other - Set an absolute path or url to any css file
+    */
+    "css": "default"
+}
+
+

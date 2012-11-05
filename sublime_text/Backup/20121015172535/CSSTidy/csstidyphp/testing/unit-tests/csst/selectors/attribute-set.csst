@@ -1,0 +1,11 @@
+--TEST--
+Attribute selector
+--CSS--
+a[foo] {display: inherit;}
+--EXPECT--
+array (
+  'a[foo]' => 
+  array (
+    'display' => 'inherit',
+  ),
+)

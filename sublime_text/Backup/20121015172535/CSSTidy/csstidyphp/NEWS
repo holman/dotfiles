@@ -1,0 +1,28 @@
+Changelog
+
+Key: # = backwards incompatible change, ! = new feature, - = bugfix.
+
+1.4, unknown release date
+# CSSTidy is now licensed under LGPL!
+! csstidy->set_cfg now accept a single parameter, an associative array, to
+  set all configuration options
+! Templates can now be loaded via set_cfg using the 'template' config
+  parameter
+! csstidy_print->formatted_page added, returns a full XHTML page based
+  off of csstidy_print->formatted
+! cssparsed.css created, contains just the CSS for formatted CSS output
+! New CSS 3 units "ch" and "turn" added
+! Unit tests added, requires Text_Diff (PEAR) and SimpleTest
+! Some invalid selectors are now removed during optimization, this can
+  be turned off by setting 'discard_invalid_selectors' to false
+- Added localizations for css_optimiser.php
+- Fixed bug with cookie setting for custom templates
+- Minor security problem in css_optimiser.php fixed
+- Fixed bug with float handling in exotic locales
+- Fixed bug with non-functioning getenv in ASAPI
+- Fixed bug with bad hexadecimal syntax recovery
+- At-selectors optimized by removing unnecessary url()
+- Fixed optimisation: 1.0 was not optimised to 1
+- Fixed incorrect parsing of !imporant close to numbers
+- Allowed Copy to Clipboard for Firefox if preference set (if not, gives 
+  instructions on how to add and warning re: security)

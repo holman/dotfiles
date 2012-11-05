@@ -1,0 +1,19 @@
+--TEST--
+Test general background optimization
+--CSS--
+a { 
+    background-color: white;
+    background-image: url(123);
+    background-repeat: no-repeat;
+    background-position: 1px 1px;
+    background-attachment: scroll;
+}
+--EXPECT--
+array (
+  'a' => 
+  array (
+    'background' => 'url(123) no-repeat 1px 1px #fff',
+  ),
+)
+--SETTINGS--
+optimise_shorthands=3

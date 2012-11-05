@@ -2,20 +2,27 @@
 	"folder_history":
 	[
 		"/Users/adam/Code/cws_chef_repo",
-		"/Users/adam/Code/etc_apache2",
 		"/Users/adam/Code/etc_drush",
-		"/Users/adam/Code/untskin",
+		"/Users/adam/Code/etc_apache2",
+		"/Users/adam/Code/cws_service",
+		"/Users/adam/Code/cws_selfadmin",
+		"/Users/adam/Code/nagios",
+		"/Users/adam/Code/sites_unt_edu",
+		"/Users/adam/Code/webadmin_dashboard",
+		"/Users/adam/Code/cws_status_page",
+		"/Users/adam/Downloads/foundation-download-2.2.1 2",
 		"/Users/adam/Code/adminscripts",
+		"/Users/adam/Code/webadmin-dev.unt.edu/sites",
+		"/Users/adam/Code/untskin",
 		"/Users/adam/Code/etc_apache2/sites-available",
 		"/Users/adam/Code/urcm/modules/wdc_utilities/stable",
 		"/Users/adam/Code/cws_workers",
 		"/Users/adam/Code/urcm/modules/wdc_google_search/trunk",
 		"/Users/adam/Code/cws_d6",
-		"/Users/adam/Code/sites_unt_edu",
 		"/Users/adam/.dotfiles",
 		"/Users/adam/Code/nikeplus"
 	],
-	"last_window_id": 120,
+	"last_window_id": 198,
 	"settings":
 	{
 		"new_window_height": 846.0,
@@ -34,7 +41,7 @@
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 392.0,
+				"height": 227.0,
 				"selected_items":
 				[
 					[
@@ -123,134 +130,134 @@
 			},
 			"file_history":
 			[
-				"/Users/adam/Code/etc_apache2/sites-available/housing-dev_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/infosciencephd-dev_unt_edu.conf",
-				"/Users/adam/Code/cws_chef_repo/docs/nas1_firewall.md",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v4.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v3.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v2.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v1.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/etc_apache2/sites-available/www_ah_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ucddowntown_org.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/cms_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ucddowntown_org_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-enabled/cms_unt_edu.conf",
-				"/Users/adam/Code/cws_chef_repo/data_bags/git/repositories.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/webadmin-dev_unt_edu.json",
-				"/Users/adam/Code/etc_apache2/sites-available/untsystem_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/untsystem_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/txcdk_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/www_txcdk_org_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/inhouse_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_music_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_music_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/inhouse_unt_edu.conf",
-				"/Users/adam/Code/available_vs_enabled.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dehost.rb",
-				"/Users/adam/Code/cws_chef_repo/cookbooks/staticnode/recipes/default.rb",
-				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-development.rb",
-				"/Users/adam/Code/cws_chef_repo/DP DCN request.md",
-				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-production.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/dyno1v1.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/cookbooks/staticnode/attributes/default.rb",
-				"/Users/adam/Code/cws_chef_repo/environments/private-production.rb",
-				"/Users/adam/Code/cws_chef_repo/environments/private-development.rb",
-				"/Users/adam/Code/cws_chef_repo/roles/staticcache1.rb",
+				"/Users/adam/Library/Caches/Cleanup At Startup/Transmit/4F14F7BD-2031-40C2-915B-94C92E6D061B/index_121101.html",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/security_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/security_untsystemsystem_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/security_untsystem_edu.json",
+				"/Users/adam/Code/cws_chef_repo/roles/firewall_webdav.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/firewall_http.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/ips.rb",
+				"/Users/adam/Code/cws_chef_repo/docs/dev_sites.rb",
+				"/Users/adam/Code/cws_chef_repo/docs/infoblox-dyno-aliases.txt",
+				"/Users/adam/Code/etc_apache2/sites-available/bscs_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/facilities-dev_unt_edu.conf",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/dynocache2.rb",
 				"/Users/adam/Code/cws_chef_repo/roles/dynocache1.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/faculty-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/nodes/staticcache1v1.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/staticcache1v2.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www6.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www7.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www8.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www9.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/tabussco-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/tasscubo-dev_unt_edu.json",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_smhm_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/smhm_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_smhm_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/www_smhm_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_zope_unt_edu.conf",
+				"/Users/adam/Code/cws_chef_repo/roles/dynonode.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v6.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_teo_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_gartner_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/www_gartner_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v5.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/cmht-dev_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/web3_untecampus_com.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/varnish/metadata.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/learningcommunities-dev_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/learningcommunities_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/recipes/sysadmins.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/git/repositories.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/publish.conf.erb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/webadmin_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/webadmin_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/roles/cache.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/base.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dynocache2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/files/default/users/mcm0245/ssh/readme.txt",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/recipes/publishing.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/dynonode_mysql_auth.erb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/dynonode_mysql_group.erb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/staffcouncil_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v2.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/splunk-cws_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/nodes/splunk0.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/splunk.cws.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/cws-misc/recipes/default.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/nagios/conf.d/cws/services.cfg",
+				"/Users/adam/Code/cws_chef_repo/roles/staticcache1.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/staticcache2.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static2v3.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static2v2.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/README.rdoc",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/varnish/templates/default/default.vcl.erb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v4.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v3.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/splunk/recipes/universal-forwarder.rb",
 				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/metadata.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/README.md",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno1v5.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/dpdcn-production.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-development.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/dpdcn-development.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/recipes/default.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/recipes/splunk.rb",
+				"/Users/adam/Code/cws_chef_repo/docs/GTM.md",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/lgbt_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/lgbt-dev.unt.edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/courses_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno1v1.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/files/default/users/splunk/ssh/README.txt",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/honors_unt_edu.redirects.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/eis_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/fachd_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/facilities_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/financialaid_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/dos_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/c3b_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/compact_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/deanofstudents_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/docstudents_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/deanofstudents_unt_edu_ssl.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/development_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/development_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/environments/private-production.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-production.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/thanks_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/faculty_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/faculty_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/untitled",
 				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/access.conf.erb",
-				"/Users/adam/Code/cws_chef_repo/nodes/web2priv2.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/sustainable_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/denullify.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_sustainability_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/workteams_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/ama_unt_edu.json",
-				"/Users/adam/Code/migrate_vhost_to_site_def.rb",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_inhouse_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_inhouse_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_gal_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webctsupport_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webct_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webct_courses_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webct_courses_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webctsupport_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webdev_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webdev_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_eis_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_eis_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/uit_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/uit_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/txcdk_org.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/txcdk_org_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/system_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/system_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/sustainability_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/security_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/www_securityid_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/recycling_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/recycling_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ored_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ngen_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ngen_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/nextgen_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/messaging_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/messaging_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mtse_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mtsc_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mtsc_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mcdu_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mcdu_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/map_unt_edu.conf",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/lead_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_leadonline_info.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/leadonline-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/larc_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/larc_csci_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/itss_untsystem_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/it_untsystem_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/ire_power-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/immigrantresearch_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/irpc_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/Gemfile.lock",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/interdisc_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/interdisciplinarystudies_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/interdis_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/iase_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dedupe.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/fachd-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/fachd_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/hd_facilities_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/facilities-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/hd-dev_facilities_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/tsgs_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/graduateschool_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/gradschool_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_gal_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/gacl_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/eaglemail_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/eagleconnect_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dev_facilities_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dev_eng_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/engineering_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dev_ctla_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/clear_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_data_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/ctla_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/crp_unt_edu.json"
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/announce_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/phpmyadmin_web3_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/helpdesk_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/migrate_redirects.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/afrotc_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/afrotc_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/deanofstudents_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/deanofstudents_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/fix_force_ssl.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_dls_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/www_dls_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/conduct_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/web3_untecampus_com.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/web3_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/helpdesk_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/music_unt_edu.json",
+				"/Users/adam/Code/etc_apache2/sites-available/helpdesk_unt_edu.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/inhouse_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/inhouse_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/urcm_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/nodes/staticcache2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dynocache2v2.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/staticcache1v1.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static1v3.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/staticcache2v2.cws.dpdcn.unt.edu.rb ",
+				"/Users/adam/Code/cws_chef_repo/nodes/static1v1.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static1v2.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/tcet_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/telecom_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/telecomm_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/iaa_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/iarta_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/mee_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/mentoring_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/moneymanagement_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/music_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/newstudentprograms_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/orgs_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/padm_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/parents_unt_edu.redirects.conf"
 			],
 			"find":
 			{
@@ -269,6 +276,29 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"firewall_http",
+					"unt",
+					"-dev",
+					"dynonode_mysql_auth",
+					"unt-certs",
+					"unt",
+					"129.120.172.80",
+					"swap",
+					"unt-certs",
+					"certs",
+					"shib",
+					"proxy",
+					"urcm/inandout/employees.cfm",
+					"pret",
+					"highli",
+					"Auth_MySQL",
+					"mod_auth_mysql",
+					"tasscubo-dev",
+					"untsystem",
+					"ldap",
+					"id.unt.edu",
+					"webadmin_dashboard",
+					"www6",
 					"#  www.ucddowntown.org",
 					"/export/web/virtual/www_txcdk_org",
 					"/export/web/virtual/web3_music_unt_edu",
@@ -308,6 +338,8 @@
 				"regex": false,
 				"replace_history":
 				[
+					"untsystem",
+					"",
 					"ombuds",
 					"firewall_http",
 					"private-development",
@@ -357,7 +389,7 @@
 			},
 			"replace":
 			{
-				"height": 0.0
+				"height": 64.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -366,516 +398,516 @@
 				"selected_items":
 				[
 					[
-						"infosch",
-						"sites-available/infosciencephd-dev_unt_edu.conf"
+						".rb",
+						"nodes/ips.rb"
 					],
 					[
-						"housing-dev",
-						"sites-available/housing-dev_unt_edu.conf"
+						"fi",
+						"roles/firewall_webdav.rb"
 					],
 					[
-						"www_ah",
-						"sites-available/www_ah_unt_edu_publish.conf"
+						"fire",
+						"roles/firewall_http.rb"
 					],
 					[
-						"ucdown",
-						"sites-available/ucddowntown_org_ssl.conf"
+						"secu",
+						"data_bags/sites/security_unt_edu.json"
 					],
 					[
-						"ucdo",
-						"sites-available/ucddowntown_org.conf"
+						"facili",
+						"sites-available/facilities-dev_unt_edu.conf"
 					],
 					[
-						"cms_un",
-						"sites-available/cms_unt_edu.conf"
+						"bscs",
+						"sites-available/bscs_unt_edu.conf"
 					],
 					[
-						"cms",
-						"sites-enabled/cms_unt_edu.conf"
+						"teo",
+						"data_bags/sites/www_teo_unt_edu.json"
 					],
 					[
-						"webadmin-dev",
-						"data_bags/sites/webadmin-dev_unt_edu.json"
+						"gartner",
+						"data_bags/sites/www_gartner_unt_edu.json"
 					],
 					[
-						"untsystem",
-						"sites-available/untsystem_edu_ssl.conf"
+						"dyno2v1",
+						"nodes/dyno2v1.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"untsys",
-						"sites-available/untsystem_edu.conf"
+						"gartn",
+						"cookbooks/dynonode/files/default/www_gartner_unt_edu.redirects.conf"
 					],
 					[
-						"txcdk",
-						"sites-available/txcdk_unt_edu_publish.conf"
+						"gart",
+						"data_bags/sites/www_gartner_unt_edu.json"
 					],
 					[
-						"www_txd",
-						"sites-available/www_txcdk_org_publish.conf"
+						"dyno2",
+						"nodes/dyno2v5.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"web3_musc",
-						"sites-available/web3_music_unt_edu_ssl.conf"
+						"cmht-de",
+						"data_bags/sites/cmht-dev_unt_edu.json"
 					],
 					[
-						"web3_music",
-						"sites-available/web3_music_unt_edu.conf"
-					],
-					[
-						"inhou",
-						"sites-available/inhouse_unt_edu_publish.conf"
-					],
-					[
-						"private-d",
-						"environments/private-development.rb"
-					],
-					[
-						"privat",
-						"environments/private-production.rb"
-					],
-					[
-						"dyn",
-						"roles/dynocache1.rb"
-					],
-					[
-						"static1v2",
-						"nodes/static1v2.cws.gabdcn.unt.edu.rb"
-					],
-					[
-						"static1v1",
-						"nodes/static1v1.cws.gabdcn.unt.edu.rb"
-					],
-					[
-						"web3_smhs",
-						"web3_smhm_unt_edu_ssl.conf"
-					],
-					[
-						"smhm",
-						"smhm_unt_edu.conf"
-					],
-					[
-						"www_smh",
-						"www_smhm_unt_edu_publish.conf"
-					],
-					[
-						"web3_smh",
-						"web3_smhm_unt_edu.conf"
-					],
-					[
-						"web3_mus",
-						"web3_music_unt_edu.conf"
-					],
-					[
-						"web3_zop",
-						"web3_zope_unt_edu.conf"
-					],
-					[
-						"web3_zo",
-						"data_bags/sites/web3_zope_unt_edu.json"
-					],
-					[
-						"susta",
-						"data_bags/sites/sustainable_unt_edu.json"
-					],
-					[
-						"www_stu",
-						"data_bags/sites/www_sustainability_unt_edu.json"
-					],
-					[
-						"work",
-						"data_bags/sites/workteams_unt_edu.json"
-					],
-					[
-						"ama",
-						"data_bags/sites/ama_unt_edu.json"
-					],
-					[
-						"web3_ga",
-						"web3_gal_unt_edu.conf"
-					],
-					[
-						"web3_inhou",
-						"web3_inhouse_unt_edu_ssl.conf"
-					],
-					[
-						"web3_in",
-						"web3_inhouse_unt_edu.conf"
-					],
-					[
-						"webct_cour",
-						"webct_courses_unt_edu_ssl.conf"
-					],
-					[
-						"webct_c",
-						"webct_courses_unt_edu.conf"
-					],
-					[
-						"webctsu",
-						"webctsupport_unt_edu_ssl.conf"
-					],
-					[
-						"webct",
-						"webct_unt_edu.conf"
-					],
-					[
-						"webcts",
-						"webctsupport_unt_edu.conf"
-					],
-					[
-						"webdev",
-						"webdev_unt_edu_ssl.conf"
-					],
-					[
-						"web3_eis",
-						"web3_eis_unt_edu_ssl.conf"
-					],
-					[
-						"uit",
-						"uit_unt_edu_ssl.conf"
-					],
-					[
-						"tx",
-						"txcdk_org_ssl.conf"
-					],
-					[
-						"syste",
-						"system_unt_edu_ssl.conf"
-					],
-					[
-						"unts",
-						"untsystem_edu.conf"
-					],
-					[
-						"syst",
-						"system_unt_edu.conf"
-					],
-					[
-						"secur",
-						"security_unt_edu.conf"
-					],
-					[
-						"recy",
-						"recycling_unt_edu_ssl.conf"
-					],
-					[
-						"ore",
-						"ored_unt_edu.conf"
-					],
-					[
-						"ngen",
-						"ngen_unt_edu_ssl.conf"
-					],
-					[
-						"nextg",
-						"nextgen_unt_edu.conf"
-					],
-					[
-						"messag",
-						"messaging_unt_edu_ssl.conf"
-					],
-					[
-						"mtsc",
-						"mtsc_unt_edu_ssl.conf"
-					],
-					[
-						"mtse",
-						"mtse_unt_edu.conf"
-					],
-					[
-						"mcdu",
-						"mcdu_unt_edu_ssl.conf"
-					],
-					[
-						"mcd",
-						"mcdu_unt_edu.conf"
-					],
-					[
-						"map_",
-						"map_unt_edu.conf"
-					],
-					[
-						"map_u",
-						"data_bags/sites/map_unt_edu.json"
-					],
-					[
-						"maps",
-						"data_bags/sites/maps_unt_edu.json"
-					],
-					[
-						"lead",
-						"data_bags/sites/www_leadonline_info.json"
-					],
-					[
-						"leadon",
-						"data_bags/sites/leadonline-dev_unt_edu.json"
-					],
-					[
-						"lar",
-						"data_bags/sites/larc_csci_unt_edu.json"
-					],
-					[
-						"larc",
-						"data_bags/sites/larc_unt_edu.json"
-					],
-					[
-						"itss",
-						"data_bags/sites/itss_untsystem_edu.json"
-					],
-					[
-						"it_untsys",
-						"data_bags/sites/it_untsystem_edu.json"
-					],
-					[
-						"irp",
-						"data_bags/sites/irpc_unt_edu.json"
-					],
-					[
-						"immig",
-						"data_bags/sites/immigrantresearch_unt_edu.json"
-					],
-					[
-						"power",
-						"data_bags/sites/ire_power-dev_unt_edu.json"
-					],
-					[
-						"",
-						"Gemfile.lock"
-					],
-					[
-						"ire_pow",
-						"data_bags/sites/ire_power-dev_unt_edu.json"
-					],
-					[
-						"interdis",
-						"data_bags/sites/interdisc_unt_edu.json"
-					],
-					[
-						"interdisc",
-						"data_bags/sites/interdisciplinarystudies_unt_edu.json"
-					],
-					[
-						"ias",
-						"data_bags/sites/iase_unt_edu.json"
-					],
-					[
-						"hd_fac",
-						"data_bags/sites/hd_facilities_unt_edu.json"
-					],
-					[
-						"fachd-d",
-						"data_bags/sites/fachd-dev_unt_edu.json"
-					],
-					[
-						"fach",
-						"data_bags/sites/fachd_unt_edu.json"
-					],
-					[
-						"fac",
-						"data_bags/sites/facilities-dev_unt_edu.json"
-					],
-					[
-						"hd-",
-						"data_bags/sites/hd-dev_facilities_unt_edu.json"
-					],
-					[
-						"fachd",
-						"data_bags/sites/fachd_unt_edu.json"
-					],
-					[
-						"grad",
-						"data_bags/sites/graduateschool_unt_edu.json"
-					],
-					[
-						"tsgs",
-						"data_bags/sites/tsgs_unt_edu.json"
-					],
-					[
-						"www_ga",
-						"data_bags/sites/www_gal_unt_edu.json"
-					],
-					[
-						"gacl",
-						"data_bags/sites/gacl_unt_edu.json"
-					],
-					[
-						"eagleconn",
-						"data_bags/sites/eagleconnect_unt_edu.json"
-					],
-					[
-						"eaglema",
-						"data_bags/sites/eaglemail_unt_edu.json"
-					],
-					[
-						"faci",
-						"data_bags/sites/facilities-dev_unt_edu.json"
-					],
-					[
-						"dev_fac",
-						"data_bags/sites/dev_facilities_unt_edu.json"
-					],
-					[
-						"engi",
-						"data_bags/sites/engineering_unt_edu.json"
-					],
-					[
-						"dev_eng",
-						"data_bags/sites/dev_eng_unt_edu.json"
-					],
-					[
-						"clear",
-						"data_bags/sites/clear_unt_edu.json"
-					],
-					[
-						"dev_ct",
-						"data_bags/sites/dev_ctla_unt_edu.json"
-					],
-					[
-						"data_un",
-						"data_bags/sites/www_data_unt_edu.json"
-					],
-					[
-						"ctla",
-						"data_bags/sites/ctla_unt_edu.json"
-					],
-					[
-						"crp",
-						"data_bags/sites/crp_unt_edu.json"
-					],
-					[
-						"interns",
-						"data_bags/sites/internships_unt_edu.json"
-					],
-					[
-						"coop",
-						"data_bags/sites/coop_unt_edu.json"
-					],
-					[
-						"out",
-						"data_bags/sites/outreach_unt_edu.json"
-					],
-					[
-						"coci",
-						"data_bags/sites/coci_unt_edu.json"
-					],
-					[
-						"cdl",
-						"data_bags/sites/cdl_unt_edu.json"
-					],
-					[
-						"bsc_unt",
-						"data_bags/sites/bsc_untsystem_edu.json"
-					],
-					[
-						"studentaffa",
-						"data_bags/sites/studentaffairs_unt_edu.json"
-					],
-					[
-						"eagle",
-						"data_bags/sites/eagleconnect_unt_edu.json"
-					],
-					[
-						"conn",
-						"data_bags/sites/connect_unt_edu.json"
-					],
-					[
-						"www_cps",
-						"data_bags/sites/www_cps_unt_edu.json"
-					],
-					[
-						"aay",
-						"data_bags/sites/aauweyh_org.json"
-					],
-					[
-						"www_wo",
-						"data_bags/sites/www_workteams_unt_edu.json"
-					],
-					[
-						"ama_unt",
-						"data_bags/sites/www_ama_unt_edu.json"
-					],
-					[
-						"www_ama",
-						"data_bags/sites/www_ama_unt_edu.json"
-					],
-					[
-						"www_untecampus_com.json",
-						"data_bags/sites/www_untecampus_com.json"
-					],
-					[
-						"www_dis",
-						"data_bags/sites/www_distanceeducation_com.json"
-					],
-					[
-						"web3",
+						"untec",
 						"data_bags/sites/web3_untecampus_com.json"
 					],
 					[
-						"unte",
-						"data_bags/sites/untecampus_com.json"
+						"sysa",
+						"cookbooks/accounts/recipes/sysadmins.rb"
 					],
 					[
-						"distanc",
-						"data_bags/sites/distanceeducation_com.json"
+						"learningcomm",
+						"data_bags/sites/learningcommunities-dev_unt_edu.json"
 					],
 					[
-						"cf2",
-						"data_bags/sites/cf2_cws_unt_edu.json"
+						"repo",
+						"data_bags/git/repositories.json"
 					],
 					[
-						"cf4",
-						"data_bags/sites/cf4_cws_unt_edu.json"
+						"webad",
+						"cookbooks/dynonode/files/default/webadmin_unt_edu.redirects.conf"
 					],
 					[
-						"cf3",
-						"data_bags/sites/cf3_cws_unt_edu.json"
+						"dynocache2",
+						"roles/dynocache2.rb"
 					],
 					[
-						"cf1",
-						"data_bags/sites/cf1_cws_unt_edu.json"
+						"dynonode_mysql_auth",
+						"cookbooks/dynonode/templates/default/dynonode_mysql_auth.erb"
 					],
 					[
-						"untpr",
-						"data_bags/sites/untpreview_unt_edu.json"
+						"dynonode_mysql_group",
+						"cookbooks/dynonode/templates/default/dynonode_mysql_group.erb"
 					],
 					[
-						"web3_hea",
-						"data_bags/sites/web3_healthcenter_unt_edu.json"
+						"webadm",
+						"data_bags/sites/webadmin_unt_edu.json"
 					],
 					[
-						"heal",
-						"data_bags/sites/healthcenter_unt_edu.json"
+						"staff",
+						"data_bags/sites/staffcouncil_unt_edu.json"
 					],
 					[
-						"iawm",
-						"data_bags/sites/www_iawm_org.json"
+						"dyno2v2",
+						"nodes/dyno2v2.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"iam",
-						"data_bags/sites/iawm_org.json"
+						"static2v1",
+						"nodes/static2v1.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"indi",
-						"data_bags/sites/indigenousenvirosummit10_unt_edu.json"
+						"splunk0",
+						"nodes/splunk0.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"indog",
-						"data_bags/sites/indigenousenvirosummit10_org.json"
+						"splunk.cws",
+						"nodes/splunk.cws.unt.edu.rb"
 					],
 					[
-						"jan",
-						"data_bags/sites/janacek.unt.edu.json"
+						"spl",
+						"data_bags/sites/splunk-cws_unt_edu.json"
 					],
 					[
-						"jane",
-						"data_bags/sites/janacek_unt_edu.json"
+						"2v5",
+						"nodes/dyno2v5.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"www_lib",
-						"data_bags/sites/www_library_hsc_unt_edu.json"
+						"dyno2v4",
+						"nodes/dyno2v4.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"libar",
-						"data_bags/sites/library_hsc_unt_edu.json"
+						"varnish.v",
+						"cookbooks/varnish/templates/default/default.vcl.erb"
+					],
+					[
+						"stat",
+						"roles/staticcache2.rb"
+					],
+					[
+						"static",
+						"roles/staticcache1.rb"
+					],
+					[
+						"static2v2",
+						"nodes/static2v2.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"dynocach",
+						"roles/dynocache2.rb"
+					],
+					[
+						"dyno2v3",
+						"nodes/dyno2v3.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"dyno2v5",
+						"nodes/dyno2v5.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"gabdcn",
+						"environments/gabdcn-development.rb"
+					],
+					[
+						"lgn",
+						"data_bags/sites/lgbt_unt_edu.json"
+					],
+					[
+						"gtm",
+						"docs/GTM.md"
+					],
+					[
+						"untecam",
+						"data_bags/sites/web3_untecampus_com.json"
+					],
+					[
+						"course",
+						"cookbooks/dynonode/files/default/courses_unt_edu.redirects.conf"
+					],
+					[
+						"honors_",
+						"cookbooks/dynonode/files/default/honors_unt_edu.redirects.conf"
+					],
+					[
+						"dean",
+						"sites-available/deanofstudents_unt_edu.conf"
+					],
+					[
+						"finan",
+						"sites-available/financialaid_unt_edu.conf"
+					],
+					[
+						"fachf",
+						"sites-available/fachd_unt_edu.conf"
+					],
+					[
+						"eis",
+						"sites-available/eis_unt_edu.conf"
+					],
+					[
+						"dos",
+						"sites-available/dos_unt_edu.conf"
+					],
+					[
+						"docstuden",
+						"sites-available/docstudents_unt_edu.conf"
+					],
+					[
+						"deans",
+						"sites-available/deanofstudents_unt_edu.conf"
+					],
+					[
+						"compa",
+						"sites-available/compact_unt_edu.conf"
+					],
+					[
+						"c3b",
+						"sites-available/c3b_unt_edu.conf"
+					],
+					[
+						"conf",
+						"data_bags/sites/confify.rb"
+					],
+					[
+						"hr_",
+						"data_bags/sites/hr_unt_edu.json"
+					],
+					[
+						"develpmen",
+						"cookbooks/dynonode/files/default/development_unt_edu.redirects.conf"
+					],
+					[
+						"devel",
+						"data_bags/sites/development_unt_edu.json"
+					],
+					[
+						"deve",
+						"data_bags/sites/development_unt_edu.json"
+					],
+					[
+						"faculty",
+						"data_bags/sites/faculty_unt_edu.json"
+					],
+					[
+						"facult",
+						"data_bags/sites/faculty_unt_edu.json"
+					],
+					[
+						"thanks",
+						"data_bags/sites/thanks_unt_edu.json"
+					],
+					[
+						"annouc",
+						"cookbooks/dynonode/files/default/announce_unt_edu.redirects.conf"
+					],
+					[
+						"phpmy",
+						"data_bags/sites/phpmyadmin_web3_unt_edu.json"
+					],
+					[
+						"thank",
+						"data_bags/sites/thanks_unt_edu.json"
+					],
+					[
+						"dls_",
+						"data_bags/sites/www_dls_unt_edu.json"
+					],
+					[
+						"conduc",
+						"data_bags/sites/conduct_unt_edu.json"
+					],
+					[
+						"fix",
+						"fix_force_ssl.rb"
+					],
+					[
+						"web3_unte",
+						"cookbooks/dynonode/files/default/web3_untecampus_com.redirects.conf"
+					],
+					[
+						"web3_unt",
+						"data_bags/sites/web3_untecampus_com.json"
+					],
+					[
+						"web3",
+						"cookbooks/dynonode/files/default/web3_unt_edu.redirects.conf"
+					],
+					[
+						"musi",
+						"data_bags/sites/music_unt_edu.json"
+					],
+					[
+						"helpd",
+						"cookbooks/dynonode/files/default/helpdesk_unt_edu.redirects.conf"
+					],
+					[
+						"helpdesk",
+						"data_bags/sites/helpdesk_unt_edu.json"
+					],
+					[
+						"inhous",
+						"data_bags/sites/inhouse_unt_edu.json"
+					],
+					[
+						"inhouse",
+						"cookbooks/dynonode/files/default/inhouse_unt_edu.redirects.conf"
+					],
+					[
+						"splunk-cws",
+						"data_bags/sites/splunk-cws_unt_edu.json"
+					],
+					[
+						"urcm",
+						"data_bags/sites/urcm_unt_edu.json"
+					],
+					[
+						"staticcac",
+						"nodes/staticcache2v1.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"static1v3",
+						"nodes/static1v3.cws.gabdcn.unt.edu.rb"
+					],
+					[
+						"tcet",
+						"cookbooks/dynonode/files/default/tcet_unt_edu.redirects.conf"
+					],
+					[
+						"telecomm",
+						"data_bags/sites/telecomm_unt_edu.json"
+					],
+					[
+						"telec",
+						"data_bags/sites/telecom_unt_edu.json"
+					],
+					[
+						"migrat",
+						"migrate_redirects.rb"
+					],
+					[
+						"sepiap",
+						"data_bags/sites/sepiaproject_unt_edu.json"
+					],
+					[
+						"registrar_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/registrar_unt_edu.redirects.conf"
+					],
+					[
+						"odd",
+						"docs/odd_sites.md"
+					],
+					[
+						"pmo_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/pmo_unt_edu.redirects.conf"
+					],
+					[
+						"photography_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/photography_unt_edu.redirects.conf"
+					],
+					[
+						"parents_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/parents_unt_edu.redirects.conf"
+					],
+					[
+						"padm_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/padm_unt_edu.redirects.conf"
+					],
+					[
+						"orgs_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/orgs_unt_edu.redirects.conf"
+					],
+					[
+						"newstudentprograms_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/newstudentprograms_unt_edu.redirects.conf"
+					],
+					[
+						"music_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/music_unt_edu.redirects.conf"
+					],
+					[
+						"moneymanagement_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/moneymanagement_unt_edu.redirects.conf"
+					],
+					[
+						"mentoring_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/mentoring_unt_edu.redirects.conf"
+					],
+					[
+						"mee_un",
+						"cookbooks/dynonode/files/default/mee_unt_edu.redirects.conf"
+					],
+					[
+						"inhouse_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/inhouse_unt_edu.redirects.conf"
+					],
+					[
+						"iarta_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/iarta_unt_edu.redirects.conf"
+					],
+					[
+						"iaa_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/iaa_unt_edu.redirects.conf"
+					],
+					[
+						"hr_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/hr_unt_edu.redirects.conf"
+					],
+					[
+						"www_hr",
+						"data_bags/sites/www_hr_unt_edu.json"
+					],
+					[
+						"honors_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/honors_unt_edu.redirects.conf"
+					],
+					[
+						"healthcenter_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/healthcenter_unt_edu.redirects.conf"
+					],
+					[
+						"financialaid_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/financialaid_unt_edu.redirects.conf"
+					],
+					[
+						"facsenate_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/facsenate_unt_edu.redirects.conf"
+					],
+					[
+						"facilities_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/facilities_unt_edu.redirects.conf"
+					],
+					[
+						"www_essc_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/www_essc_unt_edu.redirects.conf"
+					],
+					[
+						"emer",
+						"cookbooks/dynonode/files/default/emeraldball2012_unt_edu.redirects.conf"
+					],
+					[
+						"eis_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/eis_unt_edu.redirects.conf"
+					],
+					[
+						"ee_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/ee_unt_edu.redirects.conf"
+					],
+					[
+						"ecampussupport_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/ecampussupport_unt_edu.redirects.conf"
+					],
+					[
+						"dos_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/dos_unt_edu.redirects.conf"
+					],
+					[
+						"dcis_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/dcis_unt_edu.redirects.conf"
+					],
+					[
+						"cwst",
+						"data_bags/sites/cwstest3_unt_edu.json"
+					],
+					[
+						"art_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/art_unt_edu.redirects.conf"
+					],
+					[
+						"web3_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/web3_unt_edu.redirects.conf"
+					],
+					[
+						"migar",
+						"migrate_redirects.rb"
+					],
+					[
+						"itss_untsystem_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/itss_untsystem_edu.redirects.conf"
+					],
+					[
+						"complai",
+						"cookbooks/dynonode/files/default/compliance_unt_edu.redirects.conf"
+					],
+					[
+						"tra",
+						"cookbooks/dynonode/files/default/transfer_unt_edu.redirects.conf"
+					],
+					[
+						"transf",
+						"cookbooks/dynonode/files/default/transfercenter_unt_edu.redirects.conf"
+					],
+					[
+						"migra",
+						"migrate_redirects.rb"
+					],
+					[
+						"prq",
+						"data_bags/sites/prq_unt_edu.json"
+					],
+					[
+						"law",
+						"data_bags/sites/lawschool_unt_edu.json"
+					],
+					[
+						"compliance_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/compliance_unt_edu.redirects.conf"
+					],
+					[
+						"getmore_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/getmore_unt_edu.redirects.conf"
+					],
+					[
+						"eng_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/eng_unt_edu.redirects.conf"
+					],
+					[
+						"library_hsc_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/library_hsc_unt_edu.redirects.conf"
+					],
+					[
+						"engineering_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/engineering_unt_edu.redirects.conf"
 					]
 				],
 				"width": 0.0
@@ -895,7 +927,7 @@
 			"side_bar_width": 228.0,
 			"status_bar_visible": true
 		},
-		"new_window_width": 948.0
+		"new_window_width": 1187.0
 	},
 	"windows":
 	[
@@ -912,19 +944,11 @@
 			},
 			"buffers":
 			[
-				{
-					"file": "/Users/adam/Code/migrate_vhost_to_site_def.rb",
-					"settings":
-					{
-						"buffer_size": 5493,
-						"line_ending": "Unix"
-					}
-				}
 			],
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 392.0,
+				"height": 227.0,
 				"selected_items":
 				[
 					[
@@ -1013,134 +1037,134 @@
 			},
 			"file_history":
 			[
-				"/Users/adam/Code/etc_apache2/sites-available/housing-dev_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/infosciencephd-dev_unt_edu.conf",
-				"/Users/adam/Code/cws_chef_repo/docs/nas1_firewall.md",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v4.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v3.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v2.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/static1v1.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/etc_apache2/sites-available/www_ah_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ucddowntown_org.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/cms_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ucddowntown_org_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-enabled/cms_unt_edu.conf",
-				"/Users/adam/Code/cws_chef_repo/data_bags/git/repositories.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/webadmin-dev_unt_edu.json",
-				"/Users/adam/Code/etc_apache2/sites-available/untsystem_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/untsystem_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/txcdk_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/www_txcdk_org_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/inhouse_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_music_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_music_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/inhouse_unt_edu.conf",
-				"/Users/adam/Code/available_vs_enabled.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dehost.rb",
-				"/Users/adam/Code/cws_chef_repo/cookbooks/staticnode/recipes/default.rb",
-				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-development.rb",
-				"/Users/adam/Code/cws_chef_repo/DP DCN request.md",
-				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-production.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/dyno1v1.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/cookbooks/staticnode/attributes/default.rb",
-				"/Users/adam/Code/cws_chef_repo/environments/private-production.rb",
-				"/Users/adam/Code/cws_chef_repo/environments/private-development.rb",
-				"/Users/adam/Code/cws_chef_repo/roles/staticcache1.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/security_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/security_untsystemsystem_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/security_untsystem_edu.json",
+				"/Users/adam/Code/cws_chef_repo/roles/firewall_webdav.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/firewall_http.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/ips.rb",
+				"/Users/adam/Code/cws_chef_repo/docs/dev_sites.rb",
+				"/Users/adam/Code/cws_chef_repo/docs/infoblox-dyno-aliases.txt",
+				"/Users/adam/Code/etc_apache2/sites-available/bscs_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/facilities-dev_unt_edu.conf",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/dynocache2.rb",
 				"/Users/adam/Code/cws_chef_repo/roles/dynocache1.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/faculty-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/nodes/staticcache1v1.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/staticcache1v2.cws.gabdcn.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www6.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www7.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www8.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/nodes/www9.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/tabussco-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/tasscubo-dev_unt_edu.json",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_smhm_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/smhm_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_smhm_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/www_smhm_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_zope_unt_edu.conf",
+				"/Users/adam/Code/cws_chef_repo/roles/dynonode.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v6.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_teo_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_gartner_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/www_gartner_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v5.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/cmht-dev_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/web3_untecampus_com.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/varnish/metadata.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/learningcommunities-dev_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/learningcommunities_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/recipes/sysadmins.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/git/repositories.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/publish.conf.erb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/webadmin_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/webadmin_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/roles/cache.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/base.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dynocache2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/files/default/users/mcm0245/ssh/readme.txt",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/recipes/publishing.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/dynonode_mysql_auth.erb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/dynonode_mysql_group.erb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/staffcouncil_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v2.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/splunk-cws_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/nodes/splunk0.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/splunk.cws.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/cws-misc/recipes/default.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/nagios/conf.d/cws/services.cfg",
+				"/Users/adam/Code/cws_chef_repo/roles/staticcache1.rb",
+				"/Users/adam/Code/cws_chef_repo/roles/staticcache2.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static2v3.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static2v2.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/README.rdoc",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/varnish/templates/default/default.vcl.erb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v4.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno2v3.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/splunk/recipes/universal-forwarder.rb",
 				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/metadata.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/README.md",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno1v5.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/dpdcn-production.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-development.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/dpdcn-development.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/recipes/default.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/recipes/splunk.rb",
+				"/Users/adam/Code/cws_chef_repo/docs/GTM.md",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/lgbt_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/lgbt-dev.unt.edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/courses_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/nodes/dyno1v1.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/accounts/files/default/users/splunk/ssh/README.txt",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/honors_unt_edu.redirects.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/eis_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/fachd_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/facilities_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/financialaid_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/dos_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/c3b_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/compact_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/deanofstudents_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/docstudents_unt_edu.conf",
+				"/Users/adam/Code/etc_apache2/sites-available/deanofstudents_unt_edu_ssl.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/development_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/development_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/environments/private-production.rb",
+				"/Users/adam/Code/cws_chef_repo/environments/gabdcn-production.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/thanks_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/faculty_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/faculty_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/untitled",
 				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/templates/default/access.conf.erb",
-				"/Users/adam/Code/cws_chef_repo/nodes/web2priv2.cws.private.unt.edu.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/sustainable_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/denullify.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_sustainability_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/workteams_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/ama_unt_edu.json",
-				"/Users/adam/Code/migrate_vhost_to_site_def.rb",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_inhouse_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_inhouse_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_gal_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webctsupport_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webct_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webct_courses_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webct_courses_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webctsupport_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webdev_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/webdev_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_eis_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/web3_eis_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/uit_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/uit_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/txcdk_org.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/txcdk_org_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/system_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/system_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/sustainability_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/security_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/www_securityid_unt_edu_publish.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/recycling_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/recycling_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ored_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ngen_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/ngen_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/nextgen_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/messaging_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/messaging_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mtse_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mtsc_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mtsc_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mcdu_unt_edu_ssl.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/mcdu_unt_edu.conf",
-				"/Users/adam/Code/etc_apache2/sites-available/map_unt_edu.conf",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/lead_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_leadonline_info.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/leadonline-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/larc_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/larc_csci_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/itss_untsystem_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/it_untsystem_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/ire_power-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/immigrantresearch_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/irpc_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/Gemfile.lock",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/interdisc_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/interdisciplinarystudies_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/interdis_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/iase_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dedupe.rb",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/fachd-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/fachd_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/hd_facilities_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/facilities-dev_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/hd-dev_facilities_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/tsgs_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/graduateschool_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/gradschool_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_gal_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/gacl_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/eaglemail_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/eagleconnect_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dev_facilities_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dev_eng_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/engineering_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/dev_ctla_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/clear_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_data_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/ctla_unt_edu.json",
-				"/Users/adam/Code/cws_chef_repo/data_bags/sites/crp_unt_edu.json"
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/announce_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/phpmyadmin_web3_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/helpdesk_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/migrate_redirects.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/afrotc_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/afrotc_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/deanofstudents_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/deanofstudents_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/fix_force_ssl.rb",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/www_dls_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/www_dls_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/conduct_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/web3_untecampus_com.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/web3_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/helpdesk_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/music_unt_edu.json",
+				"/Users/adam/Code/etc_apache2/sites-available/helpdesk_unt_edu.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/inhouse_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/inhouse_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/urcm_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/nodes/staticcache2v1.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/dynocache2v2.cws.dpdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/staticcache1v1.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static1v3.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/staticcache2v2.cws.dpdcn.unt.edu.rb ",
+				"/Users/adam/Code/cws_chef_repo/nodes/static1v1.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/nodes/static1v2.cws.gabdcn.unt.edu.rb",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/tcet_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/telecom_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/data_bags/sites/telecomm_unt_edu.json",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/iaa_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/iarta_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/mee_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/mentoring_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/moneymanagement_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/music_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/newstudentprograms_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/orgs_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/padm_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/parents_unt_edu.redirects.conf",
+				"/Users/adam/Code/cws_chef_repo/cookbooks/dynonode/files/default/photography_unt_edu.redirects.conf"
 			],
 			"find":
 			{
@@ -1148,7 +1172,7 @@
 			},
 			"find_in_files":
 			{
-				"height": 0.0,
+				"height": 93.0,
 				"where_history":
 				[
 					""
@@ -1159,6 +1183,29 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"firewall_http",
+					"unt",
+					"-dev",
+					"dynonode_mysql_auth",
+					"unt-certs",
+					"unt",
+					"129.120.172.80",
+					"swap",
+					"unt-certs",
+					"certs",
+					"shib",
+					"proxy",
+					"urcm/inandout/employees.cfm",
+					"pret",
+					"highli",
+					"Auth_MySQL",
+					"mod_auth_mysql",
+					"tasscubo-dev",
+					"untsystem",
+					"ldap",
+					"id.unt.edu",
+					"webadmin_dashboard",
+					"www6",
 					"#  www.ucddowntown.org",
 					"/export/web/virtual/www_txcdk_org",
 					"/export/web/virtual/web3_music_unt_edu",
@@ -1198,6 +1245,8 @@
 				"regex": false,
 				"replace_history":
 				[
+					"untsystem",
+					"",
 					"ombuds",
 					"firewall_http",
 					"private-development",
@@ -1210,41 +1259,17 @@
 				"whole_word": false,
 				"wrap": true
 			},
+			"folders":
+			[
+				{
+					"path": "/Users/adam/Code/cws_chef_repo"
+				}
+			],
 			"groups":
 			[
 				{
-					"selected": 0,
 					"sheets":
 					[
-						{
-							"buffer": 0,
-							"file": "/Users/adam/Code/migrate_vhost_to_site_def.rb",
-							"settings":
-							{
-								"buffer_size": 5493,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										5007,
-										5007
-									]
-								],
-								"settings":
-								{
-									"sorttabs_lastactivated": 1349885462.97,
-									"syntax": "Packages/Ruby/Ruby.tmLanguage",
-									"tab_size": 2,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 2195.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						}
 					]
 				}
 			],
@@ -1283,10 +1308,10 @@
 			{
 				"height": 100.0
 			},
-			"position": "244 5 948 868 0 0 1440 878 ",
+			"position": "364 166 1187 868 0 0 1920 1178 ",
 			"replace":
 			{
-				"height": 0.0
+				"height": 64.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -1295,516 +1320,516 @@
 				"selected_items":
 				[
 					[
-						"infosch",
-						"sites-available/infosciencephd-dev_unt_edu.conf"
+						".rb",
+						"nodes/ips.rb"
 					],
 					[
-						"housing-dev",
-						"sites-available/housing-dev_unt_edu.conf"
+						"fi",
+						"roles/firewall_webdav.rb"
 					],
 					[
-						"www_ah",
-						"sites-available/www_ah_unt_edu_publish.conf"
+						"fire",
+						"roles/firewall_http.rb"
 					],
 					[
-						"ucdown",
-						"sites-available/ucddowntown_org_ssl.conf"
+						"secu",
+						"data_bags/sites/security_unt_edu.json"
 					],
 					[
-						"ucdo",
-						"sites-available/ucddowntown_org.conf"
+						"facili",
+						"sites-available/facilities-dev_unt_edu.conf"
 					],
 					[
-						"cms_un",
-						"sites-available/cms_unt_edu.conf"
+						"bscs",
+						"sites-available/bscs_unt_edu.conf"
 					],
 					[
-						"cms",
-						"sites-enabled/cms_unt_edu.conf"
+						"teo",
+						"data_bags/sites/www_teo_unt_edu.json"
 					],
 					[
-						"webadmin-dev",
-						"data_bags/sites/webadmin-dev_unt_edu.json"
+						"gartner",
+						"data_bags/sites/www_gartner_unt_edu.json"
 					],
 					[
-						"untsystem",
-						"sites-available/untsystem_edu_ssl.conf"
+						"dyno2v1",
+						"nodes/dyno2v1.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"untsys",
-						"sites-available/untsystem_edu.conf"
+						"gartn",
+						"cookbooks/dynonode/files/default/www_gartner_unt_edu.redirects.conf"
 					],
 					[
-						"txcdk",
-						"sites-available/txcdk_unt_edu_publish.conf"
+						"gart",
+						"data_bags/sites/www_gartner_unt_edu.json"
 					],
 					[
-						"www_txd",
-						"sites-available/www_txcdk_org_publish.conf"
+						"dyno2",
+						"nodes/dyno2v5.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"web3_musc",
-						"sites-available/web3_music_unt_edu_ssl.conf"
+						"cmht-de",
+						"data_bags/sites/cmht-dev_unt_edu.json"
 					],
 					[
-						"web3_music",
-						"sites-available/web3_music_unt_edu.conf"
-					],
-					[
-						"inhou",
-						"sites-available/inhouse_unt_edu_publish.conf"
-					],
-					[
-						"private-d",
-						"environments/private-development.rb"
-					],
-					[
-						"privat",
-						"environments/private-production.rb"
-					],
-					[
-						"dyn",
-						"roles/dynocache1.rb"
-					],
-					[
-						"static1v2",
-						"nodes/static1v2.cws.gabdcn.unt.edu.rb"
-					],
-					[
-						"static1v1",
-						"nodes/static1v1.cws.gabdcn.unt.edu.rb"
-					],
-					[
-						"web3_smhs",
-						"web3_smhm_unt_edu_ssl.conf"
-					],
-					[
-						"smhm",
-						"smhm_unt_edu.conf"
-					],
-					[
-						"www_smh",
-						"www_smhm_unt_edu_publish.conf"
-					],
-					[
-						"web3_smh",
-						"web3_smhm_unt_edu.conf"
-					],
-					[
-						"web3_mus",
-						"web3_music_unt_edu.conf"
-					],
-					[
-						"web3_zop",
-						"web3_zope_unt_edu.conf"
-					],
-					[
-						"web3_zo",
-						"data_bags/sites/web3_zope_unt_edu.json"
-					],
-					[
-						"susta",
-						"data_bags/sites/sustainable_unt_edu.json"
-					],
-					[
-						"www_stu",
-						"data_bags/sites/www_sustainability_unt_edu.json"
-					],
-					[
-						"work",
-						"data_bags/sites/workteams_unt_edu.json"
-					],
-					[
-						"ama",
-						"data_bags/sites/ama_unt_edu.json"
-					],
-					[
-						"web3_ga",
-						"web3_gal_unt_edu.conf"
-					],
-					[
-						"web3_inhou",
-						"web3_inhouse_unt_edu_ssl.conf"
-					],
-					[
-						"web3_in",
-						"web3_inhouse_unt_edu.conf"
-					],
-					[
-						"webct_cour",
-						"webct_courses_unt_edu_ssl.conf"
-					],
-					[
-						"webct_c",
-						"webct_courses_unt_edu.conf"
-					],
-					[
-						"webctsu",
-						"webctsupport_unt_edu_ssl.conf"
-					],
-					[
-						"webct",
-						"webct_unt_edu.conf"
-					],
-					[
-						"webcts",
-						"webctsupport_unt_edu.conf"
-					],
-					[
-						"webdev",
-						"webdev_unt_edu_ssl.conf"
-					],
-					[
-						"web3_eis",
-						"web3_eis_unt_edu_ssl.conf"
-					],
-					[
-						"uit",
-						"uit_unt_edu_ssl.conf"
-					],
-					[
-						"tx",
-						"txcdk_org_ssl.conf"
-					],
-					[
-						"syste",
-						"system_unt_edu_ssl.conf"
-					],
-					[
-						"unts",
-						"untsystem_edu.conf"
-					],
-					[
-						"syst",
-						"system_unt_edu.conf"
-					],
-					[
-						"secur",
-						"security_unt_edu.conf"
-					],
-					[
-						"recy",
-						"recycling_unt_edu_ssl.conf"
-					],
-					[
-						"ore",
-						"ored_unt_edu.conf"
-					],
-					[
-						"ngen",
-						"ngen_unt_edu_ssl.conf"
-					],
-					[
-						"nextg",
-						"nextgen_unt_edu.conf"
-					],
-					[
-						"messag",
-						"messaging_unt_edu_ssl.conf"
-					],
-					[
-						"mtsc",
-						"mtsc_unt_edu_ssl.conf"
-					],
-					[
-						"mtse",
-						"mtse_unt_edu.conf"
-					],
-					[
-						"mcdu",
-						"mcdu_unt_edu_ssl.conf"
-					],
-					[
-						"mcd",
-						"mcdu_unt_edu.conf"
-					],
-					[
-						"map_",
-						"map_unt_edu.conf"
-					],
-					[
-						"map_u",
-						"data_bags/sites/map_unt_edu.json"
-					],
-					[
-						"maps",
-						"data_bags/sites/maps_unt_edu.json"
-					],
-					[
-						"lead",
-						"data_bags/sites/www_leadonline_info.json"
-					],
-					[
-						"leadon",
-						"data_bags/sites/leadonline-dev_unt_edu.json"
-					],
-					[
-						"lar",
-						"data_bags/sites/larc_csci_unt_edu.json"
-					],
-					[
-						"larc",
-						"data_bags/sites/larc_unt_edu.json"
-					],
-					[
-						"itss",
-						"data_bags/sites/itss_untsystem_edu.json"
-					],
-					[
-						"it_untsys",
-						"data_bags/sites/it_untsystem_edu.json"
-					],
-					[
-						"irp",
-						"data_bags/sites/irpc_unt_edu.json"
-					],
-					[
-						"immig",
-						"data_bags/sites/immigrantresearch_unt_edu.json"
-					],
-					[
-						"power",
-						"data_bags/sites/ire_power-dev_unt_edu.json"
-					],
-					[
-						"",
-						"Gemfile.lock"
-					],
-					[
-						"ire_pow",
-						"data_bags/sites/ire_power-dev_unt_edu.json"
-					],
-					[
-						"interdis",
-						"data_bags/sites/interdisc_unt_edu.json"
-					],
-					[
-						"interdisc",
-						"data_bags/sites/interdisciplinarystudies_unt_edu.json"
-					],
-					[
-						"ias",
-						"data_bags/sites/iase_unt_edu.json"
-					],
-					[
-						"hd_fac",
-						"data_bags/sites/hd_facilities_unt_edu.json"
-					],
-					[
-						"fachd-d",
-						"data_bags/sites/fachd-dev_unt_edu.json"
-					],
-					[
-						"fach",
-						"data_bags/sites/fachd_unt_edu.json"
-					],
-					[
-						"fac",
-						"data_bags/sites/facilities-dev_unt_edu.json"
-					],
-					[
-						"hd-",
-						"data_bags/sites/hd-dev_facilities_unt_edu.json"
-					],
-					[
-						"fachd",
-						"data_bags/sites/fachd_unt_edu.json"
-					],
-					[
-						"grad",
-						"data_bags/sites/graduateschool_unt_edu.json"
-					],
-					[
-						"tsgs",
-						"data_bags/sites/tsgs_unt_edu.json"
-					],
-					[
-						"www_ga",
-						"data_bags/sites/www_gal_unt_edu.json"
-					],
-					[
-						"gacl",
-						"data_bags/sites/gacl_unt_edu.json"
-					],
-					[
-						"eagleconn",
-						"data_bags/sites/eagleconnect_unt_edu.json"
-					],
-					[
-						"eaglema",
-						"data_bags/sites/eaglemail_unt_edu.json"
-					],
-					[
-						"faci",
-						"data_bags/sites/facilities-dev_unt_edu.json"
-					],
-					[
-						"dev_fac",
-						"data_bags/sites/dev_facilities_unt_edu.json"
-					],
-					[
-						"engi",
-						"data_bags/sites/engineering_unt_edu.json"
-					],
-					[
-						"dev_eng",
-						"data_bags/sites/dev_eng_unt_edu.json"
-					],
-					[
-						"clear",
-						"data_bags/sites/clear_unt_edu.json"
-					],
-					[
-						"dev_ct",
-						"data_bags/sites/dev_ctla_unt_edu.json"
-					],
-					[
-						"data_un",
-						"data_bags/sites/www_data_unt_edu.json"
-					],
-					[
-						"ctla",
-						"data_bags/sites/ctla_unt_edu.json"
-					],
-					[
-						"crp",
-						"data_bags/sites/crp_unt_edu.json"
-					],
-					[
-						"interns",
-						"data_bags/sites/internships_unt_edu.json"
-					],
-					[
-						"coop",
-						"data_bags/sites/coop_unt_edu.json"
-					],
-					[
-						"out",
-						"data_bags/sites/outreach_unt_edu.json"
-					],
-					[
-						"coci",
-						"data_bags/sites/coci_unt_edu.json"
-					],
-					[
-						"cdl",
-						"data_bags/sites/cdl_unt_edu.json"
-					],
-					[
-						"bsc_unt",
-						"data_bags/sites/bsc_untsystem_edu.json"
-					],
-					[
-						"studentaffa",
-						"data_bags/sites/studentaffairs_unt_edu.json"
-					],
-					[
-						"eagle",
-						"data_bags/sites/eagleconnect_unt_edu.json"
-					],
-					[
-						"conn",
-						"data_bags/sites/connect_unt_edu.json"
-					],
-					[
-						"www_cps",
-						"data_bags/sites/www_cps_unt_edu.json"
-					],
-					[
-						"aay",
-						"data_bags/sites/aauweyh_org.json"
-					],
-					[
-						"www_wo",
-						"data_bags/sites/www_workteams_unt_edu.json"
-					],
-					[
-						"ama_unt",
-						"data_bags/sites/www_ama_unt_edu.json"
-					],
-					[
-						"www_ama",
-						"data_bags/sites/www_ama_unt_edu.json"
-					],
-					[
-						"www_untecampus_com.json",
-						"data_bags/sites/www_untecampus_com.json"
-					],
-					[
-						"www_dis",
-						"data_bags/sites/www_distanceeducation_com.json"
-					],
-					[
-						"web3",
+						"untec",
 						"data_bags/sites/web3_untecampus_com.json"
 					],
 					[
-						"unte",
-						"data_bags/sites/untecampus_com.json"
+						"sysa",
+						"cookbooks/accounts/recipes/sysadmins.rb"
 					],
 					[
-						"distanc",
-						"data_bags/sites/distanceeducation_com.json"
+						"learningcomm",
+						"data_bags/sites/learningcommunities-dev_unt_edu.json"
 					],
 					[
-						"cf2",
-						"data_bags/sites/cf2_cws_unt_edu.json"
+						"repo",
+						"data_bags/git/repositories.json"
 					],
 					[
-						"cf4",
-						"data_bags/sites/cf4_cws_unt_edu.json"
+						"webad",
+						"cookbooks/dynonode/files/default/webadmin_unt_edu.redirects.conf"
 					],
 					[
-						"cf3",
-						"data_bags/sites/cf3_cws_unt_edu.json"
+						"dynocache2",
+						"roles/dynocache2.rb"
 					],
 					[
-						"cf1",
-						"data_bags/sites/cf1_cws_unt_edu.json"
+						"dynonode_mysql_auth",
+						"cookbooks/dynonode/templates/default/dynonode_mysql_auth.erb"
 					],
 					[
-						"untpr",
-						"data_bags/sites/untpreview_unt_edu.json"
+						"dynonode_mysql_group",
+						"cookbooks/dynonode/templates/default/dynonode_mysql_group.erb"
 					],
 					[
-						"web3_hea",
-						"data_bags/sites/web3_healthcenter_unt_edu.json"
+						"webadm",
+						"data_bags/sites/webadmin_unt_edu.json"
 					],
 					[
-						"heal",
-						"data_bags/sites/healthcenter_unt_edu.json"
+						"staff",
+						"data_bags/sites/staffcouncil_unt_edu.json"
 					],
 					[
-						"iawm",
-						"data_bags/sites/www_iawm_org.json"
+						"dyno2v2",
+						"nodes/dyno2v2.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"iam",
-						"data_bags/sites/iawm_org.json"
+						"static2v1",
+						"nodes/static2v1.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"indi",
-						"data_bags/sites/indigenousenvirosummit10_unt_edu.json"
+						"splunk0",
+						"nodes/splunk0.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"indog",
-						"data_bags/sites/indigenousenvirosummit10_org.json"
+						"splunk.cws",
+						"nodes/splunk.cws.unt.edu.rb"
 					],
 					[
-						"jan",
-						"data_bags/sites/janacek.unt.edu.json"
+						"spl",
+						"data_bags/sites/splunk-cws_unt_edu.json"
 					],
 					[
-						"jane",
-						"data_bags/sites/janacek_unt_edu.json"
+						"2v5",
+						"nodes/dyno2v5.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"www_lib",
-						"data_bags/sites/www_library_hsc_unt_edu.json"
+						"dyno2v4",
+						"nodes/dyno2v4.cws.dpdcn.unt.edu.rb"
 					],
 					[
-						"libar",
-						"data_bags/sites/library_hsc_unt_edu.json"
+						"varnish.v",
+						"cookbooks/varnish/templates/default/default.vcl.erb"
+					],
+					[
+						"stat",
+						"roles/staticcache2.rb"
+					],
+					[
+						"static",
+						"roles/staticcache1.rb"
+					],
+					[
+						"static2v2",
+						"nodes/static2v2.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"dynocach",
+						"roles/dynocache2.rb"
+					],
+					[
+						"dyno2v3",
+						"nodes/dyno2v3.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"dyno2v5",
+						"nodes/dyno2v5.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"gabdcn",
+						"environments/gabdcn-development.rb"
+					],
+					[
+						"lgn",
+						"data_bags/sites/lgbt_unt_edu.json"
+					],
+					[
+						"gtm",
+						"docs/GTM.md"
+					],
+					[
+						"untecam",
+						"data_bags/sites/web3_untecampus_com.json"
+					],
+					[
+						"course",
+						"cookbooks/dynonode/files/default/courses_unt_edu.redirects.conf"
+					],
+					[
+						"honors_",
+						"cookbooks/dynonode/files/default/honors_unt_edu.redirects.conf"
+					],
+					[
+						"dean",
+						"sites-available/deanofstudents_unt_edu.conf"
+					],
+					[
+						"finan",
+						"sites-available/financialaid_unt_edu.conf"
+					],
+					[
+						"fachf",
+						"sites-available/fachd_unt_edu.conf"
+					],
+					[
+						"eis",
+						"sites-available/eis_unt_edu.conf"
+					],
+					[
+						"dos",
+						"sites-available/dos_unt_edu.conf"
+					],
+					[
+						"docstuden",
+						"sites-available/docstudents_unt_edu.conf"
+					],
+					[
+						"deans",
+						"sites-available/deanofstudents_unt_edu.conf"
+					],
+					[
+						"compa",
+						"sites-available/compact_unt_edu.conf"
+					],
+					[
+						"c3b",
+						"sites-available/c3b_unt_edu.conf"
+					],
+					[
+						"conf",
+						"data_bags/sites/confify.rb"
+					],
+					[
+						"hr_",
+						"data_bags/sites/hr_unt_edu.json"
+					],
+					[
+						"develpmen",
+						"cookbooks/dynonode/files/default/development_unt_edu.redirects.conf"
+					],
+					[
+						"devel",
+						"data_bags/sites/development_unt_edu.json"
+					],
+					[
+						"deve",
+						"data_bags/sites/development_unt_edu.json"
+					],
+					[
+						"faculty",
+						"data_bags/sites/faculty_unt_edu.json"
+					],
+					[
+						"facult",
+						"data_bags/sites/faculty_unt_edu.json"
+					],
+					[
+						"thanks",
+						"data_bags/sites/thanks_unt_edu.json"
+					],
+					[
+						"annouc",
+						"cookbooks/dynonode/files/default/announce_unt_edu.redirects.conf"
+					],
+					[
+						"phpmy",
+						"data_bags/sites/phpmyadmin_web3_unt_edu.json"
+					],
+					[
+						"thank",
+						"data_bags/sites/thanks_unt_edu.json"
+					],
+					[
+						"dls_",
+						"data_bags/sites/www_dls_unt_edu.json"
+					],
+					[
+						"conduc",
+						"data_bags/sites/conduct_unt_edu.json"
+					],
+					[
+						"fix",
+						"fix_force_ssl.rb"
+					],
+					[
+						"web3_unte",
+						"cookbooks/dynonode/files/default/web3_untecampus_com.redirects.conf"
+					],
+					[
+						"web3_unt",
+						"data_bags/sites/web3_untecampus_com.json"
+					],
+					[
+						"web3",
+						"cookbooks/dynonode/files/default/web3_unt_edu.redirects.conf"
+					],
+					[
+						"musi",
+						"data_bags/sites/music_unt_edu.json"
+					],
+					[
+						"helpd",
+						"cookbooks/dynonode/files/default/helpdesk_unt_edu.redirects.conf"
+					],
+					[
+						"helpdesk",
+						"data_bags/sites/helpdesk_unt_edu.json"
+					],
+					[
+						"inhous",
+						"data_bags/sites/inhouse_unt_edu.json"
+					],
+					[
+						"inhouse",
+						"cookbooks/dynonode/files/default/inhouse_unt_edu.redirects.conf"
+					],
+					[
+						"splunk-cws",
+						"data_bags/sites/splunk-cws_unt_edu.json"
+					],
+					[
+						"urcm",
+						"data_bags/sites/urcm_unt_edu.json"
+					],
+					[
+						"staticcac",
+						"nodes/staticcache2v1.cws.dpdcn.unt.edu.rb"
+					],
+					[
+						"static1v3",
+						"nodes/static1v3.cws.gabdcn.unt.edu.rb"
+					],
+					[
+						"tcet",
+						"cookbooks/dynonode/files/default/tcet_unt_edu.redirects.conf"
+					],
+					[
+						"telecomm",
+						"data_bags/sites/telecomm_unt_edu.json"
+					],
+					[
+						"telec",
+						"data_bags/sites/telecom_unt_edu.json"
+					],
+					[
+						"migrat",
+						"migrate_redirects.rb"
+					],
+					[
+						"sepiap",
+						"data_bags/sites/sepiaproject_unt_edu.json"
+					],
+					[
+						"registrar_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/registrar_unt_edu.redirects.conf"
+					],
+					[
+						"odd",
+						"docs/odd_sites.md"
+					],
+					[
+						"pmo_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/pmo_unt_edu.redirects.conf"
+					],
+					[
+						"photography_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/photography_unt_edu.redirects.conf"
+					],
+					[
+						"parents_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/parents_unt_edu.redirects.conf"
+					],
+					[
+						"padm_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/padm_unt_edu.redirects.conf"
+					],
+					[
+						"orgs_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/orgs_unt_edu.redirects.conf"
+					],
+					[
+						"newstudentprograms_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/newstudentprograms_unt_edu.redirects.conf"
+					],
+					[
+						"music_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/music_unt_edu.redirects.conf"
+					],
+					[
+						"moneymanagement_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/moneymanagement_unt_edu.redirects.conf"
+					],
+					[
+						"mentoring_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/mentoring_unt_edu.redirects.conf"
+					],
+					[
+						"mee_un",
+						"cookbooks/dynonode/files/default/mee_unt_edu.redirects.conf"
+					],
+					[
+						"inhouse_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/inhouse_unt_edu.redirects.conf"
+					],
+					[
+						"iarta_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/iarta_unt_edu.redirects.conf"
+					],
+					[
+						"iaa_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/iaa_unt_edu.redirects.conf"
+					],
+					[
+						"hr_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/hr_unt_edu.redirects.conf"
+					],
+					[
+						"www_hr",
+						"data_bags/sites/www_hr_unt_edu.json"
+					],
+					[
+						"honors_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/honors_unt_edu.redirects.conf"
+					],
+					[
+						"healthcenter_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/healthcenter_unt_edu.redirects.conf"
+					],
+					[
+						"financialaid_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/financialaid_unt_edu.redirects.conf"
+					],
+					[
+						"facsenate_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/facsenate_unt_edu.redirects.conf"
+					],
+					[
+						"facilities_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/facilities_unt_edu.redirects.conf"
+					],
+					[
+						"www_essc_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/www_essc_unt_edu.redirects.conf"
+					],
+					[
+						"emer",
+						"cookbooks/dynonode/files/default/emeraldball2012_unt_edu.redirects.conf"
+					],
+					[
+						"eis_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/eis_unt_edu.redirects.conf"
+					],
+					[
+						"ee_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/ee_unt_edu.redirects.conf"
+					],
+					[
+						"ecampussupport_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/ecampussupport_unt_edu.redirects.conf"
+					],
+					[
+						"dos_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/dos_unt_edu.redirects.conf"
+					],
+					[
+						"dcis_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/dcis_unt_edu.redirects.conf"
+					],
+					[
+						"cwst",
+						"data_bags/sites/cwstest3_unt_edu.json"
+					],
+					[
+						"art_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/art_unt_edu.redirects.conf"
+					],
+					[
+						"web3_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/web3_unt_edu.redirects.conf"
+					],
+					[
+						"migar",
+						"migrate_redirects.rb"
+					],
+					[
+						"itss_untsystem_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/itss_untsystem_edu.redirects.conf"
+					],
+					[
+						"complai",
+						"cookbooks/dynonode/files/default/compliance_unt_edu.redirects.conf"
+					],
+					[
+						"tra",
+						"cookbooks/dynonode/files/default/transfer_unt_edu.redirects.conf"
+					],
+					[
+						"transf",
+						"cookbooks/dynonode/files/default/transfercenter_unt_edu.redirects.conf"
+					],
+					[
+						"migra",
+						"migrate_redirects.rb"
+					],
+					[
+						"prq",
+						"data_bags/sites/prq_unt_edu.json"
+					],
+					[
+						"law",
+						"data_bags/sites/lawschool_unt_edu.json"
+					],
+					[
+						"compliance_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/compliance_unt_edu.redirects.conf"
+					],
+					[
+						"getmore_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/getmore_unt_edu.redirects.conf"
+					],
+					[
+						"eng_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/eng_unt_edu.redirects.conf"
+					],
+					[
+						"library_hsc_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/library_hsc_unt_edu.redirects.conf"
+					],
+					[
+						"engineering_unt_edu.redirects.conf",
+						"cookbooks/dynonode/files/default/engineering_unt_edu.redirects.conf"
 					]
 				],
 				"width": 0.0
@@ -1823,7 +1848,7 @@
 			"side_bar_visible": true,
 			"side_bar_width": 228.0,
 			"status_bar_visible": true,
-			"window_id": 118,
+			"window_id": 197,
 			"workspace_name": ""
 		}
 	],

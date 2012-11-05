@@ -1,0 +1,14 @@
+--TEST--
+Tests numeric values: Missing zero
+--CSS--
+a { font-size:0.1em }
+b { font-size:.1em }
+--EXPECT--
+array (
+  'a,b' => 
+  array (
+    'font-size' => '.1em',
+  ),
+)
+--SETTINGS--
+merge_selectors=2
