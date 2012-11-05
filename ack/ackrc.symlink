@@ -3,4 +3,7 @@ html=.haml
 --type-add
 css=.sass,.scss
 --type-add
-js=.ejs
+js=.ejs,.coffee
+--type-add
+yaml=.yml,.yaml
+

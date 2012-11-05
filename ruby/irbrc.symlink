@@ -40,6 +40,16 @@ def r
   reload!
 end
 
+def time
+  t0 = Time.now
+  r = yield
+  t1 = Time.now
+
+  puts "It took #{(t1-t0)/60} minutes to run."
+
+  r
+end
+
 require "wirble"
 
 Wirble.init
