@@ -1,6 +1,6 @@
 [core]
     quotepath = false
-    excludesfile = /Users/Steven/.gitignore
+    excludesfile = ~/.gitignore
 [user]
     name = Steven Bone
     email = stevenmbone@gmail.com
