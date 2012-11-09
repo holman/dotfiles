@@ -34,7 +34,7 @@
 [help]
   autocorrect = 1
 [init]
-  templatedir = ~/.git_template
+	templatedir = ~/.git_template
 [diff]
   tool = opendiff
 [merge]
