@@ -1,0 +1,45 @@
+# Git command and branch name tab-completion
+source ~/.dotfiles/git/git-completion.bash
+
+# Check if directory is a Git repo
+# Customized from http://vvv.tobiassjosten.net/git/add-current-git-branch-to-your-bash-prompt
+git_prompt ()
+{
+    if ! git rev-parse --git-dir > /dev/null 2>&1; then
+        return 0
+    fi
+
+    git_branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+
+    if git diff --quiet 2>/dev/null >&2; then
+        git_color="${c_git_clean}"
+    else
+        git_color=${c_git_dirty}
+    fi
+
+    echo " [$git_color$git_branch${c_reset}]"
+}
+
+# The prompt [Show Git branch if applicable]
+PS1='\e[0;34m\w\e[m\e[0;36m$(git_prompt)\e[m
+==> '
+
+# Aliases
+
+# Directory Shortcuts
+alias tmux="tmux -2"
+
+# System
+alias ..="cd .."
+alias ls="ls -la"
+
+# Flush DNS Cache
+alias flushdns="dscacheutil -flushcache"
+
+# Recursively delete .DS_Store files
+# http://alex.tsd.net.au/2010/09/14/recursively-remove-ds_store-files/
+alias cleanup="find . -name '*.DS_Store' -type f -delete"
+
+# instant simple server
+# https://gist.github.com/1525217
+alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
