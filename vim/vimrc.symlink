@@ -28,29 +28,20 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-" -
-"
-" -
 set showtabline=2         " show tabs
 set autoindent            " automatic indent new lines
 set smartindent           " be smart about it
 set nowrap                " do not wrap lines
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
-set expandtab
-" -
-"
-" -
+set softtabstop=2         " # of columns used Tabbing in insert
+set shiftwidth=2          " # of columns used when using << or >>
+set tabstop=2             " # of columns a tab counts as
+" set expandtab           " tab in insert mode uses spaces
 set ruler                 " show the cursor position at all times
 set number                " show line numbers
 set ch=2                  " set command area height
 set whichwrap+=<,>,h,l,[,]  " backspace and cursor keys wrap lines
-set scrolloff=8     " keep 8 lines above and below cursor
+set scrolloff=8           " keep 8 lines above and below cursor
 
-" -
-"
-" -
 set showmatch             " bracket/brace highlighting
 set hlsearch              " highlight searches
 
