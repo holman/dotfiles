@@ -1,0 +1,1 @@
+alias krsl='knife rackspace server list'
