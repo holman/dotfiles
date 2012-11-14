@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[package ]]></content>
-    <tabTrigger>pa</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>package</description>
-</snippet>

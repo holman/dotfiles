@@ -1,5 +1,0 @@
-{
-	"cmd": ["dmd", "$file"],
-	"file_regex": "^(.*?)\\(([0-9]+)\\)",
-	"selector": "source.d"
-}

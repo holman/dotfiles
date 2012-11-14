@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[java.beans.]]></content>
-    <tabTrigger>j.b</tabTrigger>
-    <scope>source.java</scope>
-    <description>java.beans.</description>
-</snippet>

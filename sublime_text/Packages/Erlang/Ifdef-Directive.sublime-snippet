@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[-ifdef (${1:macro}).]]></content>
-    <tabTrigger>ifdef</tabTrigger>
-    <scope>source.erlang</scope>
-    <description>Ifdef Directive</description>
-</snippet>

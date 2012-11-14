@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[table.sort( ${1:tablename}${2:, sortfunction} )]]></content>
-    <tabTrigger>table.sort</tabTrigger>
-    <scope>source.lua</scope>
-    <description>table.sort</description>
-</snippet>

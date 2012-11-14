@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[java.net.]]></content>
-    <tabTrigger>j.n</tabTrigger>
-    <scope>source.java</scope>
-    <description>java.net.</description>
-</snippet>

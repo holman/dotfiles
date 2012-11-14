@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[toBigDecimal()]]></content>
-    <tabTrigger>to</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>to BigDecimal</description>
-</snippet>

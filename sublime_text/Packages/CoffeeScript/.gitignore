@@ -1,9 +1,0 @@
-*.pyc
-*.cache
-*.sublime-project
-*.sublime-workspace
-Test.*
-code
-spec
-src
-lib

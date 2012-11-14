@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[(** [$1] $0 *)]]></content>
-    <tabTrigger>doc</tabTrigger>
-    <scope>source.ocaml</scope>
-    <description>Document</description>
-</snippet>

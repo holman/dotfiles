@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>]]></content>
-    <tabTrigger>xml</tabTrigger>
-    <scope>text.xml</scope>
-    <description>XML Processing Instruction</description>
-</snippet>

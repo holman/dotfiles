@@ -1,5 +1,0 @@
-{
-	"cmd": ["runhaskell", "$file"],
-	"file_regex": "^(...*?):([0-9]*):?([0-9]*)",
-	"selector": "source.haskell"
-}

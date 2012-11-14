@@ -1,8 +1,0 @@
-<snippet>
-    <content><![CDATA[sleep(${1:secs}) {
-	${2:// on interrupt do}
-}]]></content>
-    <tabTrigger>sleep</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>sleep(secs) { … // on interrupt do }</description>
-</snippet>

@@ -1,7 +1,0 @@
-<snippet>
-	
-    <description>Comment</description>
-    <content><![CDATA[${0:<!-- ${1:$SELECTION} -->}]]></content>
-    <tabTrigger>c</tabTrigger>
-    <scope>text.xml</scope>	
-</snippet>

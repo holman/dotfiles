@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[assert_nil(${0:instance})]]></content>
-    <tabTrigger>asn</tabTrigger>
-    <scope>source.ruby</scope>
-    <description>assert_nil(..)</description>
-</snippet>

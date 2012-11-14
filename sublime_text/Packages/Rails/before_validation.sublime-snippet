@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[before_validation ]]></content>
-    <tabTrigger>befv</tabTrigger>
-    <scope>source.ruby.rails</scope>
-    <description>before_validation</description>
-</snippet>

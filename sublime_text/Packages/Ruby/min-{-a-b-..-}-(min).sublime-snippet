@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[min { |a, b| $0 }]]></content>
-    <tabTrigger>min</tabTrigger>
-    <scope>source.ruby</scope>
-    <description>min { |a, b| .. }</description>
-</snippet>

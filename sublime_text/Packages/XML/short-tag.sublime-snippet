@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[<${1:name} />]]></content>
-    <tabTrigger>&gt;</tabTrigger>
-    <scope>text.xml</scope>
-    <description>Short Tag</description>
-</snippet>

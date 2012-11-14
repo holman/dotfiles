@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[as Double]]></content>
-    <tabTrigger>as</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>as Double</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[.asSynchronized()]]></content>
-    <tabTrigger>.as</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>asSynchronized()</description>
-</snippet>

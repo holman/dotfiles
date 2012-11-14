@@ -1,6 +1,0 @@
-[
-    {"command": "insert", "args": {"characters": "\n\n"} },
-    {"command": "move", "args": {"by": "lines", "forward": false} },
-    {"command": "move_to", "args": {"to": "hardeol", "extend": false} },
-    {"command": "reindent", "args": {"single_line": true} }
-]

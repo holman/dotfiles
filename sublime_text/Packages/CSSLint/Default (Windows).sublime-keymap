@@ -1,7 +1,0 @@
-[
-	{
-		"keys": ["ctrl+alt+c"],
-		"__doc__": "Run CSSLint",
-		"command": "csslint"
-	}
-]

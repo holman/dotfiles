@@ -1,9 +1,0 @@
-{
-    "version" : "1.6"
-  , "port" : 35729
-  , "delay_ms" : 100
-  , "apply_js_live" : false
-  , "apply_css_live" : true
-  , "apply_images_live" : true
-  , "compass_css_dir" : false //set to false if you have problems with livereload
-}
