@@ -1,4 +1,4 @@
-PATH="$HOME/bin:$PATH"
+# PATH="$HOME/bin:$PATH"
 
 # Git command and branch name tab-completion
 source ~/.dotfiles/git/git-completion.bash
