@@ -1,0 +1,2 @@
+#!/bin/sh
+java -jar "$HOME/libexec/yuicompressor.jar" "$@"
