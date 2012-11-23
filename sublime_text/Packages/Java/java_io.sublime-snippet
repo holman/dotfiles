@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[java.io.]]></content>
-    <tabTrigger>j.i</tabTrigger>
-    <scope>source.java</scope>
-    <description>java.io.</description>
-</snippet>

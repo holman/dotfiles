@@ -1,7 +1,0 @@
-<snippet>
-    <content><![CDATA[break;
-]]></content>
-    <tabTrigger>br</tabTrigger>
-    <scope>source.java</scope>
-    <description>break</description>
-</snippet>

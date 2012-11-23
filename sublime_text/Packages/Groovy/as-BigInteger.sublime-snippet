@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[as BigInteger]]></content>
-    <tabTrigger>as</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>as BigInteger</description>
-</snippet>

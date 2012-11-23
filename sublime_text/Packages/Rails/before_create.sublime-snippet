@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[before_create ]]></content>
-    <tabTrigger>befc</tabTrigger>
-    <scope>source.ruby.rails</scope>
-    <description>before_create</description>
-</snippet>

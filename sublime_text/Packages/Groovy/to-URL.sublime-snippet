@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[toURL()]]></content>
-    <tabTrigger>to</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>to URL</description>
-</snippet>

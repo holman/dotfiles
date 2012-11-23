@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[type ${1:name} = $0]]></content>
-    <tabTrigger>type</tabTrigger>
-    <scope>source.ocaml</scope>
-    <description>type</description>
-</snippet>

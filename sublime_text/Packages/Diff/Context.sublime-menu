@@ -1,4 +1,0 @@
-[
-	{ "caption": "-" },
-	{ "caption": "Show Unsaved Changes…", "command": "diff_changes" }
-]

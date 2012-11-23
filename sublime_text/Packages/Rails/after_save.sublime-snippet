@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[after_save ]]></content>
-    <tabTrigger>afts</tabTrigger>
-    <scope>source.ruby.rails</scope>
-    <description>after_save</description>
-</snippet>

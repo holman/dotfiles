@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[println $0]]></content>
-    <tabTrigger>pl</tabTrigger>
-    <scope>source.groovy</scope>
-    <description>println </description>
-</snippet>

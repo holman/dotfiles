@@ -1,6 +1,0 @@
-HtmlTidy 1.0.1 Changelog:
-
-- removed 'htmltidy-' option prefix in file HtmlTidy.sublime-settings
-
-If you created your own copy of HtmlTidy.sublime-settings, 
-you need to remove the prefix in your settings file.

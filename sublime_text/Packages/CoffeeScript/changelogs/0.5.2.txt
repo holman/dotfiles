@@ -1,9 +1,0 @@
-CoffeeScript-Sublime-Plugin 0.5.2 Changelog
-
-Changes
-
-- On Mac OS, the shortcut for displaying lexer tokens has changed to alt+shift+x (for leXer tokens). This is because alt+shift+l is used to insert a pipe character on French keyboards.
-
-Enhancements
-
-- Improved the documentation.

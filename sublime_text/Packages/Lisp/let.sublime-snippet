@@ -1,7 +1,0 @@
-<snippet>
-    <content><![CDATA[(let (${1:variables})
-	($0))]]></content>
-    <tabTrigger>let</tabTrigger>
-    <scope>source.lisp</scope>
-    <description>let</description>
-</snippet>

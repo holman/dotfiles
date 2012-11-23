@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[before_update ]]></content>
-    <tabTrigger>befu</tabTrigger>
-    <scope>source.ruby.rails</scope>
-    <description>before_update</description>
-</snippet>

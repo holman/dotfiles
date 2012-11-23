@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[protected ]]></content>
-    <tabTrigger>po</tabTrigger>
-    <scope>source.java</scope>
-    <description>protected</description>
-</snippet>

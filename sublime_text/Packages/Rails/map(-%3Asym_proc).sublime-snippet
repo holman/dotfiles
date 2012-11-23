@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[map(&:${1:id})]]></content>
-    <tabTrigger>mp</tabTrigger>
-    <scope>source.ruby.rails</scope>
-    <description>map(&amp;:sym_proc)</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-	<description>template &lt;typename ${1:_InputIter}&gt;</description>
-    <content><![CDATA[template <typename ${1:_InputIter}>]]></content>
-    <tabTrigger>tp</tabTrigger>
-    <scope>source.c++, source.objc++</scope>
-</snippet>
