@@ -10,7 +10,7 @@ let g:ctrlp_cmd = 'CtrlP'
 
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 " Show Powerline in single windows
 set laststatus=2
