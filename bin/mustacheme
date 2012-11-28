@@ -49,6 +49,8 @@ for frame in $output/*.gif
 do
   url=$(cloudapp $frame | grep Uploaded | awk '{print substr($0, index($0, "http://"))}')
   url="$url/$(basename $frame)"
+  url="$(curl --silent $url | grep \"<a class=\\\"embed\\\" href=\\\"\" | sed -n -e 's/.*href=\"\(.*\)\".*/\\1/p')" 
+  echo $url
   wget "http://mustachify.me/?src=$url" -O "$frame-stache"
 done
 
