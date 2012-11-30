@@ -1,5 +1,6 @@
 [core]
     quotepath = false
+		editor = vim
     excludesfile = ~/.gitignore
 [user]
     name = Steven Bone
@@ -15,9 +16,4 @@
     di = diff
     dc = diff --cached
     dt = difftool
-[difftool "Kaleidoscope"]
-    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[difftool]
-    prompt = false
-[diff]
-    tool = Kaleidoscope
+
