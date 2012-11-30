@@ -21,7 +21,7 @@ git_prompt ()
 }
 
 # The prompt [Show Git branch if applicable]
-PS1='\e[0;34m\w\e[m\e[0;36m$(git_prompt)\e[m
+PS1='\H \e[0;34m\w\e[m\e[0;36m$(git_prompt)\e[m
 ==> '
 
 # Aliases
