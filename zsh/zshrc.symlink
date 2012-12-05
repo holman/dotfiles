@@ -4,6 +4,11 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
+# initialize autocomplete here, otherwise functions won't be loaded
+# also load compdef so git-completion doesn't complain about no compdef
+autoload -U compinit compdef
+compinit
+
 # source every .zsh file in this rep
 for config_file ($ZSH/**/*.zsh) source $config_file
 
@@ -13,10 +18,6 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
