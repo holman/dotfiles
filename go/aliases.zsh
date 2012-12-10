@@ -1,1 +1,1 @@
-alias go='/usr/local/go/bin/go'
+# alias go='/usr/local/Cellar/go/1.0.3/bin/go'
