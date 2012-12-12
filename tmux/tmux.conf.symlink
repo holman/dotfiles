@@ -1,5 +1,5 @@
 # Colors
-set -g default-terminal "screen-256color"
+# set -g default-terminal "screen-256color"
 
 # Remap prefix to Control + a
 set -g prefix C-a
@@ -15,7 +15,3 @@ bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
-
-# Pane resizing
-bind [ resize-pane -D
-bind ] resize-pane -U

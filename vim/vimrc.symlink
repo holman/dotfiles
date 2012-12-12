@@ -1,4 +1,5 @@
 call pathogen#infect()
+syntax enable 
 filetype plugin indent on
 
 set noswapfile
@@ -8,7 +9,6 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-syntax enable
 set background=dark
 " colorscheme solarized
 
