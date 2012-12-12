@@ -9,7 +9,6 @@
     ui = true
 [alias]
     mylog = log --author=Steven
-    l = "!source ~/.githelpers && pretty_git_log"
     st = status
     co = checkout
     sp = stash pop
