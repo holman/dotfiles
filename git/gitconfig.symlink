@@ -1,14 +1,16 @@
 # Sample gitconfig
 #
 # You probably want to change the [user] section here since you are not me.
+# Also search in this file for FIXME- you'll want to well, fix them.
 
 [hub]
         protocol = https
 [user]
         name = Zach Holman
         email = zach@zachholman.com
-[credential]
-        helper = osxkeychain
+        helper = /opt/boxen/bin/boxen-git-credential
+        # FIXME: You'll want the `helper` line below; delete the one above.
+        # helper = osxkeychain
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
@@ -21,7 +23,9 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = ~/.gitignore
+        excludesfile = /opt/boxen/config/git/gitignore
+        # FIXME: You'll want the `excludesfile` line below; delete the one above.
+        # excludesfile = ~/.gitignore
         editor = vim
 [apply]
         whitespace = nowarn
@@ -31,3 +35,7 @@
         prompt = false
 [help]
         autocorrect = 1
+
+# FIXME: You can nuke all of this on your machine.
+[credential]
+        helper = /opt/boxen/bin/boxen-git-credential
