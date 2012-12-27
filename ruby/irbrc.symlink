@@ -5,9 +5,7 @@ require 'rubygems'
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
-
 IRB.conf[:PROMPT_MODE] = :SIMPLE
-
 IRB.conf[:AUTO_INDENT] = true
 
 class Object
@@ -55,7 +53,7 @@ require "wirble"
 Wirble.init
 Wirble.colorize
 colors = Wirble::Colorize.colors.merge({
-     :comma  => :green,
-        :refers => :green,
+  :comma  => :green,
+  :refers => :green,
 })
 Wirble::Colorize.colors = colors
