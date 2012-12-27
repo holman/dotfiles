@@ -1,0 +1,13 @@
+{
+    "scope": "source.sublime-settings",
+
+    "completions": [
+        { "trigger": "s", "contents": "\"$1\":$0" },
+        { "trigger": "i", "contents": "\"$1\":$0" },
+
+        { "trigger": "ss", "contents": "\"$1\": {$0}" },
+        { "trigger": "ii", "contents": "\"$1\": {$0}" },
+
+        { "trigger": "arr", "contents": "[$0]" }
+    ]
+}

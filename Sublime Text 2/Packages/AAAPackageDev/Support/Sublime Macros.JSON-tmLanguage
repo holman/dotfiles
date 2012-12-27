@@ -1,0 +1,69 @@
+{ "name": "Sublime Text Macro",
+
+  "scopeName": "source.sublimemacro",
+
+  "fileTypes": ["sublime-macro"],
+
+  "patterns": [
+      { "begin": "(\\[)",
+        "beginCaptures": {
+            "1": { "name": "punctuation.definition.collection.start.sublimemacro" }
+        },
+        "end": "(\\])",
+        "endCaptures": {
+            "1": { "name": "punctuation.definition.collection.end.sublimemacro" }
+        },
+
+        "patterns": [
+            { "include": "#command" },
+            { "include": "#args" }
+        ]
+      }
+  ],
+
+  "repository": {
+
+      "args": {
+        "begin": "\"(args)\"\\s*:",
+        "beginCaptures": {
+            "1": { "name": "keyword.other.sublimemacro"}
+        },
+        "end": "(?<=\\})",
+        "name": "meta.definition.attached.command.arguments.sublimemacro",
+        "patterns": [
+            { "include": "source.jsongenericarray"
+            },
+            { "match": "\"([a-zA-Z0-9_]+)\"\\s*:",
+              "captures": {
+                  "1": { "name": "support.function.array.generic.key.sublimemacro" }
+              }
+            },
+            { "include": "source.jsongenericarrayelements"
+            },
+            { "match": "true|false|\\d+",
+              "name": "constant.numeric.sublimemacro"
+            },
+
+            { "match": "\\{",
+              "name": "punctuation.definition.array.keybinding.key.sequence"
+            }
+        ]
+      },
+
+      "command": {
+        "begin": "\\{",
+        "end": "\\}",
+        "patterns": [
+          { "match": "\"(command)\":\\s*\"([^\"]+)\"",
+            "captures": {
+              "1": { "name": "keyword.other.sublimemacro" },
+              "2": { "name": "string.attached.command.name.sublimemacro" }
+            }
+          },
+          { "include": "#args" }
+        ]
+      }
+  },
+
+  "uuid": "f56e1baa-51fc-4791-a9d9-21301f2e3a01"
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+require 'cgi'
+out = CGI.escapeHTML($stdin.read)
+out.gsub!("'", '&amp;#39;')
+out.gsub!("“", '&amp;#8220;')
+out.gsub!("”", '&amp;#8221;')
+out.gsub!("…", '&amp;#8230;')
+print out</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>~@x</string>
+	<key>name</key>
+	<string>Escape HTML</string>
+	<key>output</key>
+	<string>replaceSelectedText</string>
+	<key>scope</key>
+	<string>text.html,text.haml</string>
+	<key>uuid</key>
+	<string>7F790F32-5D23-4111-8964-9BF80A5B0498</string>
+</dict>
+</plist>

@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA["fileTypes": [${1:"f1"}]$0]]></content>
+    <tabTrigger>ftypes</tabTrigger>
+    <scope>source.json-tmlanguage</scope>
+</snippet>

@@ -1,0 +1,12 @@
+{
+	"installed_packages":
+	[
+		"AAAPackageDev",
+		"Apidock",
+		"Git",
+		"Haml",
+		"Package Control",
+		"RSpec",
+		"Sass"
+	]
+}

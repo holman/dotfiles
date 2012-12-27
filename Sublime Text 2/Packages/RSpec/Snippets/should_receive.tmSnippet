@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>${1:mock}${1/^.+$/./}should_receive(:${2:message})</string>
+	<key>name</key>
+	<string>should_receive</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>shr</string>
+	<key>uuid</key>
+	<string>0A7E08E5-4756-49BA-B015-FB3A4D11EA45</string>
+</dict>
+</plist>

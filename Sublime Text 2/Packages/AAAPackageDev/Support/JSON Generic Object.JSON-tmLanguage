@@ -1,0 +1,52 @@
+{ "name": "Json Generic Object Elements",
+  "scopeName": "source.jsongenericobject",
+  "patterns": [
+  	{ "include": "#key" },
+  	{ "include": "#typeNumber" },
+    { "include": "#typeBool" },
+    { "include": "#typeString" },
+    { "include": "#typeList" },
+    { "include": "#typeObject" }
+  ],
+  "repository": {
+  	"key": {
+  		"match": "(\".+?\")\\s*(:)",
+  		"captures": {
+          "1": { "name": "string.generic.key.jsongenericobject" }
+  		}
+  	},
+  	"typeNumber": {
+  		"match": "[0-9]+(?:.[0-9]+)?(?:[eE][+-]?[0-9]+)?",
+      "name": "constant.numeric.jsongenericobject"
+  	},
+  	"typeBool": {
+  		"match": "\\b(?:true|false)\\b",
+      "name": "constant.numeric.jsongenericobject"
+  	},
+    "typeString": {
+      "name": "string.quoted.double.jsongenericobject",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        { "include": "source.jsonstring" }
+      ]
+    },
+    "typeList": {
+      "name": "list.jsongenericobject",
+      "begin": "\\[",
+      "end": "]",
+      "patterns": [
+        { "include": "$self" }
+      ]
+    },
+    "typeObject": {
+      "name": "object.jsongenericobject",
+      "begin": "\\{",
+      "end": "}",
+      "patterns": [
+        { "include": "$self" }
+      ]
+    }
+  },
+  "uuid": "4317eb4e-b7ae-496d-a689-7d8ea3711204"
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>twice</string>
+	<key>name</key>
+	<string>twice</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>tw</string>
+	<key>uuid</key>
+	<string>85E6D1EE-74A4-4B4A-8A00-942B788FF599</string>
+</dict>
+</plist>

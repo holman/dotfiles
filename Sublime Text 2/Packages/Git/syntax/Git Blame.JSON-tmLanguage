@@ -1,0 +1,18 @@
+{ "name": "Git Blame",
+  "scopeName": "text.git-blame",
+  "fileTypes": ["git-blame"],
+  "patterns": [
+    {
+        "match": "^(\\^?[a-f0-9]+)\\s+([\\w\\-\\d\\.\\/]*)\\s*\\((.*?)\\s+(\\d{4}-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d [+-]\\d{4})\\s+(\\d+)\\)",
+        "name": "line.comment.git-blame",
+        "captures": {
+            "1": {"name": "string.sha.git-blame"},
+            "2": {"name": "string.path.git-blame"},
+            "3": {"name": "support.function.author.git-blame"},
+            "4": {"name": "constant.numeric.date.git-blame"},
+            "5": {"name": "variable.parameter.line-number.git-blame"}
+        }
+    }
+  ],
+  "uuid": "5d37add9-889e-4174-b232-4bd423b84c0a"
+}

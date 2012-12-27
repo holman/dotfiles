@@ -1,0 +1,25 @@
+[
+    { "caption": "z:AAAPackageDev: New Raw Snippet", "command": "new_raw_snippet" },
+    { "caption": "z:AAAPackageDev: New Raw Snippet from Snippet", "command": "new_raw_snippet_from_snippet" },
+    { "caption": "z:AAAPackageDev: Generate Snippet from Raw Snippet", "command": "generate_snippet_from_raw_snippet" },
+
+    { "caption": "z:AAAPackageDev: New Syntax Definition", "command": "new_syntax_def" },
+    { "caption": "z:AAAPackageDev: New Syntax Definition from Buffer", "command": "new_syntax_def_from_buffer" },
+
+    { "caption": "z:AAAPackageDev: JSON to Property List", "command": "json_to_plist" },
+    { "caption": "z:AAAPackageDev: Property List to JSON", "command": "plist_to_json" },
+
+    { "caption": "z:AAAPackageDev: New Settings File", "command": "new_settings" },
+
+    { "caption": "z:AAAPackageDev: New Completions File", "command": "new_completions" },
+
+    { "caption": "z:AAAPackageDev: New Commands File", "command": "new_commands_file" },
+
+    { "caption": "z:AAAPackageDev: New Build System", "command": "new_build_system2" },
+
+    { "caption": "z:AAAPackageDev: New Plugin", "command": "new_plugin" },
+
+    { "caption": "z:AAAPackageDev: New Package", "command": "new_package" },
+    { "caption": "z:AAAPackageDev: Delete Package", "command": "delete_package" }
+
+]

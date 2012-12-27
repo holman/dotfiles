@@ -1,0 +1,16 @@
+syntax: glob
+
+*.pyc
+_*.txt
+*.cache
+*.sublime-project
+*.sublime-workspace
+sample-grammar.js
+Manifest
+MANIFEST
+
+dist/
+build/
+data/
+Doc/
+_ref/

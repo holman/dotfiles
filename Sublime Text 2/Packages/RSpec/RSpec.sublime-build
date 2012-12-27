@@ -1,0 +1,11 @@
+{
+	"cmd": ["rspec", "-I ${file_path}", "$file"],
+	"file_regex": "# ([A-Za-z:0-9_./ ]+rb):([0-9]+)",
+	"working_dir": "${project_path:${folder:${file_path}}}",
+	"selector": "source.ruby",
+
+	"windows":
+	{
+		"cmd": ["rspec.bat", "-I ${file_path}", "$file"]
+	}
+}

@@ -1,0 +1,4 @@
+{
+  "target": "json_to_plist",
+  "selector": "source.json, source.json-tmlanguage"
+}

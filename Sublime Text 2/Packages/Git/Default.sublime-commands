@@ -1,0 +1,213 @@
+[
+    {   "caption": "Git: Init",
+        "command": "git_init"
+    }
+    ,{
+        "caption": "Git: Blame",
+        "command": "git_blame"
+    }
+    ,{
+        "caption": "Git: New Tag",
+        "command": "git_new_tag"
+    }
+    ,{
+        "caption": "Git: Show Tags",
+        "command": "git_show_tags"
+    }
+    ,{
+        "caption": "Git: Push Tags",
+        "command": "git_push_tags"
+    }
+    ,{
+        "caption": "Git: Log Current File",
+        "command": "git_log"
+    }
+    ,{
+        "caption": "Git: Log All",
+        "command": "git_log_all"
+    }
+    ,{
+        "caption": "Git: Graph Current File",
+        "command": "git_graph"
+    }
+    ,{
+        "caption": "Git: Graph All",
+        "command": "git_graph_all"
+    }
+    ,{
+        "caption": "Git: Diff Current File",
+        "command": "git_diff"
+    }
+    ,{
+        "caption": "Git: Diff All",
+        "command": "git_diff_all"
+    }
+    ,{
+        "caption": "Git: Diff Staged",
+        "command": "git_diff_commit"
+    }
+    ,{
+        "caption": "Git: Diff Tool Current File",
+        "command": "git_diff_tool"
+    }
+    ,{
+        "caption": "Git: Diff Tool All",
+        "command": "git_diff_tool_all"
+    }
+    ,{
+        "caption": "Git: Commit",
+        "command": "git_commit"
+    }
+    ,{
+        "caption": "Git: Amend Commit",
+        "command": "git_commit_amend"
+    }
+    ,{
+        "caption": "Git: Quick Commit",
+        "command": "git_quick_commit"
+    }
+    ,{
+        "caption": "Git: Status",
+        "command": "git_status"
+    }
+    ,{
+        "caption": "Git: Open Modified Files",
+        "command": "git_open_modified_files"
+    }
+    ,{
+        "caption": "Git: New Branch",
+        "command": "git_new_branch"
+    }
+    ,{
+        "caption": "Git: Change Branch",
+        "command": "git_branch"
+    }
+    ,{
+        "caption": "Git: Merge Branch",
+        "command": "git_merge"
+    }
+    ,{
+        "caption": "Git: Delete Branch",
+        "command": "git_delete_branch"
+    }
+    ,{
+        "caption": "Git: Stash Changes",
+        "command": "git_stash"
+    }
+    ,{
+        "caption": "Git: Stash Pop",
+        "command": "git_stash_pop"
+    }
+    ,{
+        "caption": "Git: Stash Apply",
+        "command": "git_stash_apply"
+    }
+    ,{
+        "caption": "Git: Stash Drop",
+        "command": "git_stash_drop"
+    }
+    ,{
+        "caption": "Git: Add Current File",
+        "command": "git_add"
+    }
+    ,{
+        "caption": "Git: Add...",
+        "command": "git_add_choice"
+    }
+    ,{
+        "caption": "Git: Checkout Current File",
+        "command": "git_checkout"
+    }
+    ,{
+        "caption": "Git: Fetch",
+        "command": "git_fetch"
+    }
+    ,{
+        "caption": "Git: Pull",
+        "command": "git_pull"
+    }
+    ,{
+        "caption": "Git: Pull Current Branch",
+        "command": "git_pull_current_branch"
+    }
+    ,{
+        "caption": "Git: Push",
+        "command": "git_push"
+    }
+    ,{
+        "caption": "Git: Push Current Branch",
+        "command": "git_push_current_branch"
+    }
+    ,{
+        "caption": "Git: Show Current File",
+        "command": "git_show"
+    }
+    ,{
+        "caption": "Git: Toggle Annotations",
+        "command": "git_toggle_annotations"
+    }
+    ,{
+        "caption": "Git: Custom Command",
+        "command": "git_custom"
+    }
+    ,{
+        "caption": "Git Flow: Feature Start", 
+        "command": "git_flow_feature_start"
+    }
+    ,{
+        "caption": "Git Flow: Feature Finish",
+        "command": "git_flow_feature_finish"
+    }
+    ,{
+        "caption": "Git Flow: Release Start",
+        "command": "git_flow_release_start"
+    }
+    ,{
+        "caption": "Git Flow: Release Finish",
+        "command": "git_flow_release_finish"
+    }
+    ,{
+        "caption": "Git Flow: Hotfix Start",
+        "command": "git_flow_hotfix_start"
+    }
+    ,{
+        "caption": "Git Flow: Hotfix Finish",
+        "command": "git_flow_hotfix_finish"
+    }
+    ,{
+        "caption": "Git: Open...",
+        "command": "git_open_file"
+    }
+    ,{
+        "caption": "Git: Reset (unstage) Current File",
+        "command": "git_reset_head"
+    }
+    ,{
+        "caption": "Git: Reset (unstage) All",
+        "command": "git_reset_head_all"
+    }
+    ,{
+        "caption": "Git: Reset (hard) HEAD",
+        "command": "git_reset_hard_head"
+    }
+    ,{
+        "caption": "Git: Add Selected Hunk",
+        "command": "git_add_selected_hunk"
+    }
+    ,{
+        "caption": "Git: Commit Selected Hunk",
+        "command": "git_commit_selected_hunk"
+    }
+    ,{
+        "caption": "Git: Gui",
+        "command": "git_gui"
+    }
+    ,{
+        "caption": "Git: Gitk",
+        "command": "git_gitk"
+    }
+    ,{
+        "caption": "Git: Commit history",
+        "command": "git_commit_history"
+    }
+]

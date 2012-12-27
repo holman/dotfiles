@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA["comment": "${2:this is a comment}"]]></content>
+    <tabTrigger>comment</tabTrigger>
+    <scope>source.json-tmlaguage</scope>
+</snippet>

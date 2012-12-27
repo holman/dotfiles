@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>git-blame</string>
+	</array>
+	<key>name</key>
+	<string>Git Blame</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>string.sha.git-blame</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.path.git-blame</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.author.git-blame</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.date.git-blame</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.line-number.git-blame</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(\^?[a-f0-9]+)\s+([\w\-\d\.\/]*)\s*\((.*?)\s+(\d{4}-\d\d-\d\d( \d\d:\d\d:\d\d [+-]\d{4})?)\s+(\d+)\)</string>
+			<key>name</key>
+			<string>line.comment.git-blame</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.git-blame</string>
+	<key>uuid</key>
+	<string>5d37add9-889e-4174-b232-4bd423b84c0a</string>
+</dict>
+</plist>

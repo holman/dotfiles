@@ -1,0 +1,41 @@
+{ "name": "JSON Generic Array Elements",
+
+  "scopeName": "source.jsongenericarrayelements",
+
+  "patterns": [
+    { "include": "#string" },
+    { "include": "#numericConstants" },
+    { "include": "#booleanConstants" }
+  ],
+
+  "repository": {
+
+      "string": {
+          "begin":"\"",
+          "end": "\"",
+          "patterns": [
+              { "match": "\\\\[\"tnr]",
+                "captures": {
+                    "0": { "name": "constant.character.escape.jsongenericarrayelements" }
+                }
+              },
+              { "include": "source.sublimesnippetraw" },
+              {  "name": "string.jsongenericarrayelements",
+                 "match": ".+?"
+              }
+          ]
+      },
+
+      "numericConstants": {
+      	"match": "\\d+(?:\\.\\d+)?",
+        "name": "constant.numeric.jsongenericarrayelements"
+      },
+
+      "booleanConstants": {
+        "match": "true|false",
+        "name": "constant.numeric.boolean.jsongenericarrayelements"
+      }
+  },
+
+  "uuid": "6c6128dc-0dcc-4a79-8adb-35bf12199d7f"
+}

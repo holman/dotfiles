@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>${1:target}.should be_close(${2:result}, ${3:tolerance})$0</string>
+	<key>name</key>
+	<string>should be_close</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>shbc</string>
+	<key>uuid</key>
+	<string>5A203680-6F32-482F-A6A3-50CB7EE99E0E</string>
+</dict>
+</plist>

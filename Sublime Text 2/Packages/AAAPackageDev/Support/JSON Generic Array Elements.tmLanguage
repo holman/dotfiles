@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>JSON Generic Array Elements</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>include</key>
+			<string>#string</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#numericConstants</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#booleanConstants</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>booleanConstants</key>
+		<dict>
+			<key>match</key>
+			<string>true|false</string>
+			<key>name</key>
+			<string>constant.numeric.boolean.jsongenericarrayelements</string>
+		</dict>
+		<key>numericConstants</key>
+		<dict>
+			<key>match</key>
+			<string>\d+(?:\.\d+)?</string>
+			<key>name</key>
+			<string>constant.numeric.jsongenericarrayelements</string>
+		</dict>
+		<key>string</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>constant.character.escape.jsongenericarrayelements</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\\["tnr]</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>source.sublimesnippetraw</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>.+?</string>
+					<key>name</key>
+					<string>string.jsongenericarrayelements</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.jsongenericarrayelements</string>
+	<key>uuid</key>
+	<string>6c6128dc-0dcc-4a79-8adb-35bf12199d7f</string>
+</dict>
+</plist>

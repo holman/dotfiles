@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>git-graph</string>
+	</array>
+	<key>name</key>
+	<string>Git Graph</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>comment.git-graph</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.git-graph</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.git-graph</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.git-graph</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.git-graph</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.git-graph</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^([| *\\]+)([0-9a-f]{4,40}) -( \(.*?\))? (.*) (\(.*) (&lt;.*&gt;) .*</string>
+			<key>name</key>
+			<string>log-entry.git-graph</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>lines with no commit details</string>
+			<key>match</key>
+			<string>^\|[\|_\/\\ ]+
+?$</string>
+			<key>name</key>
+			<string>comment.git-graph</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>issue numbers</string>
+			<key>match</key>
+			<string>(?:[Ff]ix(?:e[ds])?|[Rr]esolve[ds]?|[Cc]lose[ds]?)?\s*(?:#\d+|\[.*?\])</string>
+			<key>name</key>
+			<string>keyword.git-graph</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.git-graph</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>Merge branch '(.*?)' of .*?
+?$</string>
+			<key>name</key>
+			<string>comment.git-graph</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.git-graph</string>
+	<key>uuid</key>
+	<string>b900521e-af64-471b-aec8-1ecf88aab595</string>
+</dict>
+</plist>

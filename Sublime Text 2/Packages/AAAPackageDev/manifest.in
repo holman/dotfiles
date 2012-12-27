@@ -1,0 +1,19 @@
+global-include *.sublime-*
+global-exclude *.sublime-project
+global-exclude *.cache
+
+global-exclude _*.txt
+exclude html_template.txt
+
+global-include *.py
+exclude sublime_inspect.py
+exclude setup.py
+
+graft Support
+graft Snippets
+graft Doc
+# recursive-include Lib *.py
+
+prune PackageDev
+prune dist
+prune tests

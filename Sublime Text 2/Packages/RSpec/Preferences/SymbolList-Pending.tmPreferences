@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Pending</string>
+	<key>scope</key>
+	<string>meta.rspec.pending</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>s/^\s*(it)\s+(.+)\s*$/  $2 (Pending)/</string>
+	</dict>
+	<key>uuid</key>
+	<string>377BD4F9-4321-4D14-9A34-6A93033F1906</string>
+</dict>
+</plist>

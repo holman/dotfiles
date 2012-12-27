@@ -1,0 +1,95 @@
+Package Control 1.6.0 Changelog:
+
+Wow! It has been 9 months since the last stable release of Package Control.
+Quite a lot has happened since then, including the release of Sublime Text 2
+stable, and hundreds upon hundreds of new packages from the community!
+
+A quick thank you to Kevin Yank (@sentience) for recently volunteering to help
+review packages for inclusion in the default channel, and ninj0x
+(https://github.com/ninj0x) for rewriting the Package Control Community
+Packages search functionality so it is nice and fast once again! The lists
+below include specific thanks for code contributions.
+
+As Sublime Text has become increasingly more popular, and the number of
+packages has increased so rapidly, the bandwidth requirements have also
+significantly increased. This month the default channel will very likely serve
+over 1TB of JSON data. If you feel so inclined, consider pitching in a small
+amount to help cover the cost:
+http://wbond.net/sublime_packages/package_control/say_thanks. A big thank you
+to all of the users who have already contributed!
+
+
+Enhancements
+
+
+ - Added full (custom) proxy authentication support for HTTPS connections
+
+ - Added NTLM authentication for proxies on Windows
+
+ - Proxy authentication information is now set via the new proxy_username and
+   proxy_password settings.
+
+ - If the https_proxy setting it set to false, it will not inherit from the
+   http_proxy setting (thanks planardothum!)
+
+ - The time of the last successful run is no longer stored in
+   Packages/User/Package Control.sublime-settings, but rather in
+   Packages/User/Package Control.last-run making it easier to ignore via git,
+   hg, etc. (thanks schlamar!)
+
+ - Packages are now ignored during install and upgrade to help prevents errors
+   where Sublime Text tries to read a file as it is being extracted
+
+ - Packages that include DLLs for Windows can now be upgraded. In-use
+   DLLs will be detected and the user prompted to restart.
+
+ - Package version numbers may now include non-numeric components, and semantic
+   versioning (http://semver.org) is fully supported
+
+ - JSON parsing messages are now printed to the console instead of being shown
+   in an error popup
+
+ - Added support for changes to the BitBucket API
+
+ - Added support for changes to GitHub URLs
+
+ - Added the debug setting to help track down HTTP connection issues
+
+ - All of the downloaders will now try to use HTTP compression
+
+ - All of the downloaders will now follow redirects
+
+ - Added new install_missing setting to control if Package Control should try
+   to install any packages that appear to be missing from the current machine.
+   This defaults to true, and is really only useful if you want to prevent
+   Package Control from connecting to the internet without explicitly asking
+   it to.
+
+ - Added lots of code comments as a first step towards making contributions
+   by other developers easier
+
+
+Bug Fixes
+
+
+ - Added support for the new preferences filename (thanks titoBouzout!)
+
+ - If a package is missing from a machine, but not available for that
+   platform, it is no longer considered an error (thanks schlamar!)
+
+ - Updated CA certs
+
+ - Fixed handling of install and upgrade messages that contain non-ASCII
+   characters
+
+ - Fixed a unicode error trying to load the CA cert bundle file on Windows when
+   the install path to Sublime Text contains non-ASCII characters
+
+ - Better handling for edge case HTTP errors (thanks tgecho!)
+
+ - Fixed a number of errors related to non-ASCII error messages being created
+   by the operating system (thanks quarnster!)
+
+ - GitHub URLs will now automatically be trimmed of trailing .git suffixes
+
+ - Badly formatted messages.json files will no longer break the install process

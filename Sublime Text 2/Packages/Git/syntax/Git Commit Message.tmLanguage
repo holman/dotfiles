@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>COMMIT_EDITMSG</string>
+	</array>
+	<key>name</key>
+	<string>Git Commit Message</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.git-commit</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(#).*$
+?</string>
+			<key>name</key>
+			<string>comment.line.number-sign.git-commit</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>diff\ \-\-git</string>
+			<key>comment</key>
+			<string>diff at the end of the commit message when using commit -v, or viewing a log. End pattern is just something to be never matched so that the meta continues untill the end of the file.</string>
+			<key>end</key>
+			<string>(?=xxxxxx)123457</string>
+			<key>name</key>
+			<string>meta.diff.git-commit</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.diff</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.git-commit</string>
+	<key>uuid</key>
+	<string>de3fb2fc-e564-4a31-9813-5ee26967c5c8</string>
+</dict>
+</plist>

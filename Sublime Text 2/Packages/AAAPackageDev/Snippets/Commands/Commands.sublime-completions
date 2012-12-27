@@ -1,0 +1,8 @@
+{
+    "scope": "source.sublimecommands",
+
+    "completions": [
+        { "trigger": "c", "contents": "{ \"caption\": \"$1\", \"command\": \"$2\" }" },
+        { "trigger": "i", "contents": "{ \"caption\": \"$1\", \"command\": \"$2\" }" }
+    ]
+}

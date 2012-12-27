@@ -1,0 +1,22 @@
+{ "name": "Sublime Settings",
+  "scopeName": "source.sublime-settings",
+  "fileTypes": ["sublime-settings"],
+  "patterns": [
+    {  "name": "comment.single.line.sublime-settings",
+       "match": "//.*"
+    },
+    { "name": "comment.block.sublime-settings",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+  	{  "match": "\"([a-z0-9_.-]+)\"\\s*?:",
+  	   "captures": {
+  	       "1": { "name": "keyword.other.name.sublime-settings" }
+  	   }
+  	},
+
+    { "include": "source.jsongenericarray" },
+    { "include": "source.jsongenericarrayelements" }
+  ],
+  "uuid": "dd6dce14-1f27-4128-9c85-7e30c137ae30"
+}

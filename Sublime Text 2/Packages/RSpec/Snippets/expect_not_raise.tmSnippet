@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>content</key>
+  <string>expect { raise ${1:Error} }.not_to raise_error(${2:Error})$0</string>
+  <key>name</key>
+  <string>expect not raise_error</string>
+  <key>scope</key>
+  <string>source.ruby.rspec</string>
+  <key>tabTrigger</key>
+  <string>nraise</string>
+  <key>uuid</key>
+  <string>813263F0-A2C0-465F-A617-69ECBAF8F7DD</string>
+</dict>
+</plist>

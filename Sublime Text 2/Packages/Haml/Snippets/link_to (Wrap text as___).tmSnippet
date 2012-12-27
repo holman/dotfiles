@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>= link_to("${TM_SELECTED_TEXT:Anchor text...}", ${1:"${2:$0}"})</string>
+	<key>keyEquivalent</key>
+	<string>^L</string>
+	<key>name</key>
+	<string>link_to (wrap selected text)</string>
+	<key>scope</key>
+	<string>text.haml</string>
+	<key>tabTrigger</key>
+	<string>=</string>
+	<key>uuid</key>
+	<string>63977A3B-0723-4F09-99EF-95C2C7A6C727</string>
+</dict>
+</plist>

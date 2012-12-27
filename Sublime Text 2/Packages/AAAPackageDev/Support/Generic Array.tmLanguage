@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>JSON Generic Array</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>include</key>
+			<string>#genericArray</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>genericArray</key>
+		<dict>
+			<key>begin</key>
+			<string>\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.array.start.jsongenericarray</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>meta.definition.array.jsongenericarray</string>
+			<key>end</key>
+			<string>\]</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.jsongenericarrayelements</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#genericArray</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.jsongenericarray</string>
+	<key>uuid</key>
+	<string>8a5a7ee7-e39f-46ff-96ba-0691d65e946b</string>
+</dict>
+</plist>

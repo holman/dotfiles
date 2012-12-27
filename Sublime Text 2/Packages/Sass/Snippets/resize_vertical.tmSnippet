@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>resize: ${TM_CSS_SPACE}vertical$0</string>
+	<key>name</key>
+	<string>resize:vertical</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>tabTrigger</key>
+	<string>rz:v</string>
+	<key>uuid</key>
+	<string>C4A4B25F-669C-4835-B806-27A14969C5C3
+</string>
+</dict>
+</plist>
