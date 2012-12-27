@@ -1,11 +1,24 @@
 {
-    "color_scheme": "Packages/Color Scheme - Default/Tomorrow Night.tmTheme",
-    "draw_white_space": "all",
-    "font_size": 18.0,
-    "highlight_line": true,
-    "ignored_packages": ["Vintage"],
-    "rulers": [80],
-    "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true,
-    "folder_exclude_patterns": [".git", ".sass-cache", "log", ".bundle", "tmp"]
+	"color_scheme": "Packages/Color Scheme - Default/Tomorrow Night.tmTheme",
+	"draw_white_space": "all",
+	"folder_exclude_patterns":
+	[
+		".git",
+		".sass-cache",
+		"log",
+		".bundle",
+		"tmp"
+	],
+	"font_size": 18.0,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
 }
