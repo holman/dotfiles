@@ -1,6 +1,12 @@
 {
+	"bold_folder_labels": true,
+	"fade_fold_buttons": false,
+	"line_padding_top": 1,
+	"line_padding_bottom": 1,
+	"caret_style": "phase",
+  "tab_size": 2,
 	"color_scheme": "Packages/Color Scheme - Default/Tomorrow Night.tmTheme",
-	"draw_white_space": "all",
+	// "draw_white_space": "all",
 	"folder_exclude_patterns":
 	[
 		".git",
