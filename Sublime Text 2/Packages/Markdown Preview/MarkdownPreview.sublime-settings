@@ -28,14 +28,9 @@
     "css": "default",
 
     /*
-    If you want to use ftps on Linux you need the ssl module, which does
-    not come included with Sublime due to compatiblity issues. I've compiled
-    different ssl modules for both 32bit and 64bit and included them.
-    You can try enabling this, but if Sublime starts crashing, you know
-    what to disable. Sublime must be restarted after changing this setting.
+        Sets the supported filetypes for auto-reload on save
     */
-    "linux_enable_ssl": false
-
+    "markdown_filetypes": [".md", ".markdown", ".mdown"]
 }
 
 
