@@ -7,33 +7,9 @@ import sys
 import re
 import json
 import urllib2
-import imp
+
 
 settings = sublime.load_settings('MarkdownPreview.sublime-settings')
-
-# use a builtin version of ssl for linux (not bundled in ST2 linux)
-if sublime.platform() == 'linux' and settings.get('linux_enable_ssl'):
-    print 'Markdown Preview: enabling custom linux ssl module'
-    arch_lib_path = os.path.join(sublime.packages_path(), 'Markdown Preview', 'lib',
-        'linux-' + sublime.arch())
-    for ssl_ver in ['0.9.8', '1.0.0', '10']:
-        lib_path = os.path.join(arch_lib_path, 'libssl-' + ssl_ver)
-        try:
-            m_info = imp.find_module('_ssl', [lib_path])
-            m = imp.load_module('_ssl', *m_info)
-            print 'Markdown Preview: successfully loaded _ssl module for libssl.so.%s' % ssl_ver
-            break
-        except (ImportError) as (e):
-            print 'Markdown Preview: _ssl module import error - ' + str(e)
-    if '_ssl' in sys.modules:
-        plat_lib_path = os.path.join(sublime.packages_path(), 'Markdown Preview', 'lib',
-            'linux')
-        try:
-            m_info = imp.find_module('ssl', [plat_lib_path])
-            m = imp.load_module('ssl', *m_info)
-        except (ImportError) as (e):
-            print 'Markdown Preview: ssl module import error - ' + str(e)
-    reload(urllib2)
 
 
 def getTempMarkdownPreviewPath(view):
@@ -47,7 +23,7 @@ class MarkdownPreviewListener(sublime_plugin.EventListener):
     """ update the output html when markdown file has already been converted once """
 
     def on_post_save(self, view):
-        if view.file_name().endswith(('.md', '.markdown', '.mdown')):
+        if view.file_name().endswith(tuple(settings.get('markdown_filetypes', (".md", ".markdown", ".mdown")))):
             temp_file = getTempMarkdownPreviewPath(view)
             if os.path.isfile(temp_file):
                 # reexec markdown conversion
@@ -132,6 +108,12 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
         else:
             # convert the markdown
             markdown_html = markdown2.markdown(contents, extras=['footnotes', 'toc', 'fenced-code-blocks', 'cuddled-lists'])
+            toc_html = markdown_html.toc_html
+            if toc_html:
+                toc_markers = ['[toc]', '[TOC]', '<!--TOC-->']
+                for marker in toc_markers:
+                    markdown_html = markdown_html.replace(marker, toc_html)
+
             # postprocess the html
             markdown_html = self.postprocessor(markdown_html)
 
@@ -174,6 +156,7 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
             # build the html
             html_contents = markdown_html
             new_view = self.view.window().new_file()
+            new_view.set_scratch(True)
             new_edit = new_view.begin_edit()
             new_view.insert(new_edit, 0, html_contents)
             new_view.end_edit(new_edit)
