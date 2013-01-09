@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # spark
 # https://github.com/holman/spark
@@ -15,138 +15,75 @@
 #
 # Examples:
 #
-#   spark 1,5,22,13,53
+#   spark 1 5 22 13 53
 #   # => ▁▁▃▂▇
 #
-#   spark 0,30,55,80,33,150
+#   spark 0 30 55 80 33 150
 #   # => ▁▂▃▅▂▇
 #
 #   spark -h
 #   # => Prints the spark help text.
-set -e
 
-# Prints the help text for spark.
+# Generates sparklines.
 #
-# Returns nothing.
-help()
+# $1 - The data we'd like to graph.
+spark()
 {
-  echo "spark\n"
-  echo "USAGE:"
-  echo "  spark [comma,separated,value,list]\n"
-  echo "EXAMPLES:"
-  echo "  spark 1,5,22,13,53"
-  echo "  ▁▁▃▂▇"
-  echo "  spark 0,30,55,80,33,150"
-  echo "  ▁▂▃▅▂▇"
-}
+  local n numbers=
 
-# The actual fun characters we are generating in the sparkline.
-ticks=(▁ ▂ ▃ ▅ ▆ ▇)
+  # find min/max values
+  local min=0xffffffff max=0
 
-# The numbers the user gave us.
-numbers=()
-
-# The sorted array of the numbers.
-sorted=()
-
-# This sets up our secondary array so we can actually generate the correct
-# tick.
-#
-# Returns nothing.
-setup_array() {
-  # 3,6,2 => 2,3,6
-  sorted=$(echo $1 | tr ',' '\n' | sort -k1,1n | paste -s -d',' -)
-
-  # convert comma-separated string to array
-  IFS=,
-  sorted=($sorted)
-  numbers=($1)
-}
-
-# The maximum value of the sorted array. In other words, the last value.
-sort_max()
-{
-  last=${#sorted[@]}
-  echo ${sorted[$last - 1]}
-}
-
-# The minimum value of the sorted array. In other words, the first value.
-sort_min()
-{
-  echo ${sorted[0]}
-}
-
-# Find the distance between tiers so we know which tick to assign a character.
-tier()
-{
-  number_of_ticks=${#ticks[@]}
-  distance=$(echo "$(sort_max) / $number_of_ticks" | bc)
-  echo $distance
-}
-
-# Determines what tick we should print for this number and prints it.
-#
-# Returns nothing.
-print_tick()
-{
-  tier=$(tier)
-
-  for (( i = 0 ; i < ${#numbers[@]} ; i++ ))
+  for n in ${@//,/ }
   do
-    tick=${ticks[$i]}
-    number=$1
-    less_than=$(echo "$i * $tier + sort_min + $tier" | bc)
-    greater_than=$(echo "($i - 1) * $tier + sort_min + $tier" | bc)
-    result=$(echo "$number <= $less_than && $number >= $greater_than" | bc)
-
-    if [ $result -eq 1 ]
-    then
-      echo "$tick"
-      return
-    fi
+    # on Linux (or with bash4) we could use `printf %.0f $n` here to
+    # round the number but that doesn't work on OS X (bash3) nor does
+    # `awk '{printf "%.0f",$1}' <<< $n` work, so just cut it off
+    n=${n%.*}
+    (( n < min )) && min=$n
+    (( n > max )) && max=$n
+    numbers=$numbers${numbers:+ }$n
   done
 
-  last=${#ticks[@]}
-  echo ${ticks[$last-1]}
-}
+  # print ticks
+  local ticks=(▁ ▂ ▃ ▄ ▅ ▆ ▇ █)
 
-# Iterate over all of our ticks and print them out.
-#
-# Returns nothing.
-print_ticks()
-{
-  for number in ${numbers[@]}
+  local f=$(( (($max-$min)<<8)/(${#ticks[@]}-1) ))
+  (( f < 1 )) && f=1
+
+  for n in $numbers
   do
-    echo $"$(print_tick $number)\c"
+    echo -n ${ticks[$(( ((($n-$min)<<8)/$f) ))]}
   done
-  echo ""
+  echo
 }
 
-while getopts ":h" option; do
-  case "$option" in
-    h) help && exit ;;
-#    [?]) echo "$OPTARG";;
-  esac
-done
+# If we're being sourced, don't worry about such things
+if [ "$BASH_SOURCE" == "$0" ]; then
+  # Prints the help text for spark.
+  help()
+  {
+    cat <<EOF
 
-# Accept input from $1 or from the pipeline.
-if test "$1" != ""
-then
-  data="$1"
-else
-  data=''
+    USAGE:
+      spark [-h] VALUE,...
 
-  # check to see if stdin's a tty
-  if [ -t 0 ]; then
+    EXAMPLES:
+      spark 1 5 22 13 53
+      ▁▁▃▂█
+      spark 0,30,55,80,33,150
+      ▁▂▃▄▂█
+      echo 9 13 5 17 1 | spark
+      ▄▆▂█▁
+EOF
+  }
+
+  # show help for no arguments if stdin is a terminal
+  if { [ -z "$1" ] && [ -t 0 ] ; } || [ "$1" == '-h' ]
+  then
     help
-    exit
+    exit 0
   fi
 
-  while read data; do
-    data=$data
-    break
-  done
+  spark ${@:-`cat`}
 fi
-
-setup_array $data
-print_ticks $data
