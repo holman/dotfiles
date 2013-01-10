@@ -41,7 +41,7 @@ need_push () {
 }
 
 rb_prompt(){
-  if $(which rbenv &> /dev/null)
+  if (( $+commands[rbenv] ))
   then
 	  echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
 	else
@@ -53,7 +53,7 @@ rb_prompt(){
 # command line. I filter it to only count those tagged as "+next", so it's more
 # of a motivation to clear out the list.
 todo(){
-  if $(which todo.sh &> /dev/null)
+  if (( $+commands[todo.sh] ))
   then
     num=$(echo $(todo.sh ls +next | wc -l))
     let todos=num-2
