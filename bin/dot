@@ -13,6 +13,3 @@ brew update
 
 # Install homebrew packages
 $ZSH/homebrew/install.sh 2>&1
-
-# Upgrade formula
-brew upgrade
