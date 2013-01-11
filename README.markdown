@@ -2,9 +2,7 @@
 
 ## dotfiles
 
-Your dotfiles are how you personalize your system. These are mine. The very
-prejudiced mix: OS X, zsh, Ruby, Rails, git, homebrew, rbenv, vim. If you
-match up along most of those lines, you may dig my dotfiles.
+Your dotfiles are how you personalize your system. These are mine.
 
 I was a little tired of having long alias files and everything strewn about
 (which is extremely common on other dotfiles projects, too). That led to this
@@ -27,13 +25,18 @@ script/bootstrap
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
-Everything is configured and tweaked within `~/.dotfiles`, though.
+Everything is configured and tweaked within `~/.dotfiles`.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
 
 You'll also want to change `git/gitconfig.symlink`, which will set you up as
 committing as Zach Holman. You probably don't want that.
+
+When you're happy with the setup, run `dot` in a Terminal window. `dot` is a
+simple script that installs some dependencies, sets sane OS X defaults, and so
+on. Tweak this script, and occasionally run `dot` from time to time to keep
+your environment fresh and up-to-date.
 
 ## topical
 
@@ -63,17 +66,6 @@ There's a few special files in the hierarchy.
   symlinked in when you run `rake install`.
 - **topic/\*.completion.sh**: Any files ending in `completion.sh` get loaded
   last so that they get loaded after we set up zsh autocomplete functions.
-
-## add-ons
-
-There are a few things I use to make my life awesome. They're not a required
-dependency, but if you install them they'll make your life a bit more like a
-bubble bath.
-
-- If you want some more colors for things like `ls`, install grc: `brew install
-  grc`.
-- If you install the excellent [rbenv](https://github.com/sstephenson/rbenv) to
-  manage multiple rubies, your current branch will show up in the prompt. Bonus.
 
 ## bugs
 
