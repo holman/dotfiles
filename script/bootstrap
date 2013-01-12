@@ -2,13 +2,11 @@
 #
 # bootstrap installs things.
 
-OUTPUT=/tmp/dotfiles-bootstrap
 DOTFILES_ROOT="`pwd`"
 
 set -e
 
 echo ''
-echo '' > $OUTPUT
 
 info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
@@ -25,7 +23,6 @@ success () {
 fail () {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
   echo ''
-  echo "See $OUTPUT for more information."
   exit
 }
 
