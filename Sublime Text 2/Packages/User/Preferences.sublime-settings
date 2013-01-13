@@ -16,6 +16,7 @@
 		"tmp"
 	],
 	"font_size": 18.0,
+	"font_face": "Source Code Pro",
 	"highlight_line": true,
 	"ignored_packages":
 	[
