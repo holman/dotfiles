@@ -84,6 +84,8 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
             encoding = 'utf-8'
         elif encoding == 'Western (Windows 1252)':
             encoding = 'windows-1252'
+        elif encoding == 'UTF-8 with BOM':
+            encoding = 'utf-8'
         contents = self.view.substr(region)
 
         config_parser = settings.get('parser')

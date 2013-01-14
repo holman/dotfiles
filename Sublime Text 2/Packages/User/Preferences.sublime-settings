@@ -15,7 +15,7 @@
 		".bundle",
 		"tmp"
 	],
-	"font_size": 18.0,
+	"font_size": 20.0,
 	"font_face": "Source Code Pro",
 	"highlight_line": true,
 	"ignored_packages":
