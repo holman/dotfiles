@@ -1,7 +1,8 @@
 PATH=~/bin:$PATH
 # Git command and branch name tab-completion
 source ~/.dotfiles/git/git-completion.bash
-
+export PERL5LIB=/var/www/dev/otter/lib
+export OTTER_CONFIG=/var/www/dev/otter/conf/blip/dev03vm/otter.conf
 # Check if directory is a Git repo
 # Customized from http://vvv.tobiassjosten.net/git/add-current-git-branch-to-your-bash-prompt
 git_prompt ()

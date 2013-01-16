@@ -64,12 +64,9 @@ inoremap <s-tab> <c-n>
 " map <S-b> ^
 " map <S-w> $
 
-" ----------------------------------------------------------------------------
-"  Strip all trailing whitespace in file
-" ----------------------------------------------------------------------------
+" Strip all trailing whitespace in file
+" http://vim.wikia.com/wiki/Remove_unwanted_spaces
+command! StripWhitespace :%s/\s\+$
 
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
-endfunction
-" map <leader>s :call StripWhitespace ()<CR>
-
+" Automatically removed whitespace when saving file
+" autocmd BufWritePre * :%s/\s\+$//e
