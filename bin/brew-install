@@ -1,4 +1,0 @@
-#!/bin/zsh
-# Run this once when setting up on a new machine.
-
-brew install gist

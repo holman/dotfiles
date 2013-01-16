@@ -7,4 +7,12 @@ function t() {
   fi
 }
 
+function tz() {
+  todo.sh ls @zynga
+}
+
+function ta() {
+  todo.sh add $*
+}
+
 alias n="t ls +next"

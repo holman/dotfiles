@@ -1,0 +1,18 @@
+#!/bin/bash
+function usage {
+    echo "Usage: distractions [on/off]"
+    exit
+}
+
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+if [ $1 = "off" ]; then
+    sudo gsed -i '/^#-d-/,/^#-d-/ { /^#-d-/b; s/^# // }' /etc/hosts
+elif [ $1 = "on" ]; then
+    sudo gsed -i '/^#-d-/,/^#-d-/ { /^#-d-/b; s/^/# / }' /etc/hosts
+else
+    usage
+fi
+

@@ -45,8 +45,8 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
-bindkey '^?' backward-delete-char
-bindkey '\e[3-' delete-char
-bindkey '^R' history-incremental-search-backward
-
-$ZSH/bin/nextbirthdays.py $ZSH/bin/birthdays.scsv
+bindkey '^?' backward-delete-char					# Ctrl-bksp
+bindkey '\e[3-' delete-char							# Del
+bindkey '^R' history-incremental-search-backward    # Ctrl-R
+bindkey '^A' beginning-of-line						# Ctrl-A
+bindkey '^E' end-of-line							# Ctrl-E

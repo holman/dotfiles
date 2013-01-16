@@ -1,2 +1,2 @@
 runtime! ftdetect/*.vim
-au BufNewFile,BufRead *.mustache        setf mustache
+au! BufNewFile,BufRead *.json set filetype=json
