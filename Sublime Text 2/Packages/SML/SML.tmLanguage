@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>fileTypes</key>
+  <array>
+    <string>sml</string>
+    <string>cm</string>
+    <string>sig</string>
+  </array>
+  <key>name</key>
+  <string>SML</string>
+  <key>patterns</key>
+  <array>
+    <dict>
+      <key>comment</key>
+      <string>SML keywords</string>
+      <key>match</key>
+      <string>\b(open|if|functor|then|local|else|andalso|orelse|true|false|and|raise|handle|structure|struct|signature|sig|fun|let|val|in|end|case|print|of|fn|type|datatype|option|int|unit|word|real|char|string|substring|exn|array|vector|ref|bool|NONE|SOME|nil|list|LESS|EQUAL|GREATER|exception)\b</string>
+      <key>name</key>
+      <string>keyword.source.sml</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>Numeric constants</string>
+      <key>match</key>
+      <string>\b[0-9]+\b</string>
+      <key>name</key>
+      <string>constant.numeric.sml</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>Built in types</string>
+      <key>match</key>
+      <string>\b[A-Z]([A-z0-9]*)\b</string>
+      <key>name</key>
+      <string>support.type.sml</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>String constant</string>
+      <key>match</key>
+      <string>"(\\"|[^"])*"</string>
+      <key>name</key>
+      <string>string.sml</string>
+    </dict>
+    <dict>
+      <key>begin</key>
+      <string>\(\*</string>
+      <key>comment</key>
+      <string>Comment</string>
+      <key>end</key>
+      <string>\*\)</string>
+      <key>name</key>
+      <string>comment.sml</string>
+    </dict>
+    <dict>
+      <key>comment</key>
+      <string>Character</string>
+      <key>match</key>
+      <string>(\(\)|=&gt;|::|\[\]|-&gt;|:&gt;)</string>
+      <key>name</key>
+      <string>constant.character.sml</string>
+    </dict>
+  </array>
+  <key>scopeName</key>
+  <string>source.sml</string>
+  <key>uuid</key>
+  <string>c75fce86-de5e-40f0-b42e-1504c17b784a</string>
+</dict>
+</plist>
