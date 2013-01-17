@@ -2,7 +2,8 @@ PATH=~/bin:$PATH
 # Git command and branch name tab-completion
 source ~/.dotfiles/git/git-completion.bash
 export PERL5LIB=/var/www/dev/otter/lib
-export OTTER_CONFIG=/var/www/dev/otter/conf/blip/dev03vm/otter.conf
+export OTTER_CONFIG=/var/www/dev/otter/conf/blip/dev12/otter.conf
+
 # Check if directory is a Git repo
 # Customized from http://vvv.tobiassjosten.net/git/add-current-git-branch-to-your-bash-prompt
 git_prompt ()
@@ -45,3 +46,9 @@ alias cleanup="find . -name '*.DS_Store' -type f -delete"
 # instant simple server
 # https://gist.github.com/1525217
 alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
+
+# Work
+# SASS
+alias sassy="sass --watch html/skin/smooth/scss/:html/skin/smooth/"
+alias gettowork="cd /var/www/dev/otter/"
+alias ackless="ack --pager=\"less -R\""
