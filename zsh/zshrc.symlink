@@ -4,11 +4,11 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
-# setup $PATH first
-source $ZSH/system/path.zsh
+# setup $PATH by loading every path.zsh file
+for config_file ($ZSH/**/path.zsh) source $config_file
 
-# source every .zsh file in this rep
-for config_file ($ZSH/**/*.zsh) [[ "$(basename $config_file)" == "completion.zsh" ]] || source $config_file
+# source every .zsh file in this repo
+for config_file ($ZSH/**/*.zsh) [[ "$(basename $config_file)" == "completion.zsh" || "$(basename $config_file)" == "path.zsh" ]] || source $config_file
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
