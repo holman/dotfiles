@@ -1,0 +1,34 @@
+#compdef subl
+
+local context state state_descr line curcontext="$curcontext"
+typeset -A opt_args
+
+_arguments -w -S \
+  '(-n --new-window)'{-n,--new-window}'[Open a new window]' \
+  '(-a --add)'{-a,--add}'[Add folders to the current window]' \
+  '(-w --wait)'{-w,--wait}'[Wait for the files to be closed before returning]' \
+  '(-b --background)'{-b,--background}"[Don't activate the application]" \
+  '(-)'{-h,--help}'[Show help (this message) and exit]: :->noargs' \
+  '(-s --stay)'{-s,--stay}'[Keep the application activated after closing the file]' \
+  '(-)'{-v,--version}'[Show version and exit]: :->noargs' \
+  '(--project)--project[Load the given project]: :->project' \
+  '(--comment)--command[Run the given command]: :->noargs' \
+  '*::: :->empty'
+
+if [[ CURRENT -ge 1 ]]; then
+  case $state in
+    noargs)
+      _message "nothing to complete"
+      ;;
+    project)
+      compadd -P "$SUBLIME_PROJECTS/" -S ".sublime-project" `ls $SUBLIME_PROJECTS/*.sublime-project | sed -E "s/(.*)\/|\.sublime-project//g"`
+      ;;
+    empty)
+      _files -W `pwd`
+      ;;
+    *)
+      ;;
+  esac
+
+  return
+fi
