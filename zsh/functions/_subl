@@ -15,20 +15,19 @@ _arguments -w -S \
   '(--comment)--command[Run the given command]: :->noargs' \
   '*::: :->empty'
 
-if [[ CURRENT -ge 1 ]]; then
-  case $state in
-    noargs)
-      _message "nothing to complete"
-      ;;
-    project)
-      compadd -P "$SUBLIME_PROJECTS/" -S ".sublime-project" `ls $SUBLIME_PROJECTS/*.sublime-project | sed -E "s/(.*)\/|\.sublime-project//g"`
-      ;;
-    empty)
-      _files -W `pwd`
-      ;;
-    *)
-      ;;
-  esac
 
-  return
-fi
+case $state in
+  noargs)
+    _message "nothing to complete"
+    ;;
+  project)
+    compadd -P "$SUBLIME_PROJECTS/" -S ".sublime-project" `ls $SUBLIME_PROJECTS/*.sublime-project | sed -E "s/(.*)\/|\.sublime-project//g"`
+    ;;
+  empty)
+    _files -W `pwd`
+    ;;
+  *)
+    ;;
+esac
+
+return 0
