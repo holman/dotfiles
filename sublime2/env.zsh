@@ -1,0 +1,1 @@
+export SUBLIME_PROJECTS=$ZSH/sublime2/projects
