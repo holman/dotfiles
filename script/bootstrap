@@ -71,14 +71,14 @@ install_dotfiles () {
         read -n 1 action
 
         case "$action" in
+          B )
+            backup_all=true;;
           o )
             overwrite=true;;
           O )
             overwrite_all=true;;
           b )
             backup=true;;
-          B )
-            backup_all=true;;
           s )
             skip=true;;
           S )
