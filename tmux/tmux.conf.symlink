@@ -1,12 +1,11 @@
-set -g default-command /bin/zsh 
 set -g default-shell /bin/zsh
+
 # reload key
 bind r source-file ~/.tmux.conf
  
 set -g default-terminal "screen-256color"
 set -g history-limit 1000
- 
- 
+  
 # THEME
 set -g status-bg black
 set -g status-fg white
