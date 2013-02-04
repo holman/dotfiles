@@ -4,9 +4,9 @@ autoload colors && colors
 
 if (( $+commands[git] ))
 then
-  git=$commands[git]
+  git="$commands[git]"
 else
-  git=/usr/bin/git
+  git="/usr/bin/git"
 fi
 
 git_branch() {
