@@ -53,4 +53,4 @@ alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
 alias sassy="sass --watch html/skin/smooth/scss/:html/skin/smooth/"
 alias gettowork="cd /var/www/dev/otter/"
 alias ackless="ack --pager=\"less -R\""
-
+alias restartall="sudo sudo /etc/init.d/httpd restart ; sudo /etc/init.d/varnish restart ; sudo /etc/init.d/memcached restart"
