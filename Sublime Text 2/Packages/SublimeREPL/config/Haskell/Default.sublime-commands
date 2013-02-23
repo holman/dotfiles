@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Haskell",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_haskell",
+            "file": "config/Haskell/Main.sublime-menu"
+        }
+    }
+]

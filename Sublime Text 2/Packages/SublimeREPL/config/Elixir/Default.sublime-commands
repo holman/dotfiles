@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Elixir",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_elixir",
+            "file": "config/Elixir/Main.sublime-menu"
+        }
+    }
+]

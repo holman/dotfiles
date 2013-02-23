@@ -1,0 +1,18 @@
+[
+    {
+        "caption": "SublimeREPL: Scheme",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_scheme",
+            "file": "config/Scheme/Main.sublime-menu"
+        }
+    },
+    {
+        "caption": "SublimeREPL: Gauche",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_gauche",
+            "file": "config/Scheme/Main.sublime-menu"
+        }
+    }
+]

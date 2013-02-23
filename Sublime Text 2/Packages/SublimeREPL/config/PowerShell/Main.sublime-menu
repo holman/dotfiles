@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                 "caption": "PowerShell",
+                 "id": "repl_powershell",
+                 "mnemonic": "p",
+                 "args": {
+                    "type": "powershell",
+                    "encoding": "",
+                    "cmd": ["powershell", "-"],
+                    "cwd": "$file_path",
+                    "external_id": "powershell",
+                    "syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage"
+                    }
+                }
+            ]   
+        }]
+    }
+]

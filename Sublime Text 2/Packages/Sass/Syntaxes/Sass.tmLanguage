@@ -4,9 +4,9 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-            <string>sass</string>
-            <string>scss</string>
-        </array>
+    <string>sass</string>
+    <string>scss</string>
+  </array>
 	<key>foldingStartMarker</key>
 	<string>/\*|^#|^\*|^\b|^\.</string>
 	<key>foldingStopMarker</key>
@@ -25,7 +25,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>@(import|mixin|include|charset|import|media|page|font-face|namespace|for) [\/\.\w-]*\b</string>
+			<string>@(import|mixin|include|charset|import|media|page|font-face|namespace|for|extend) [\/\.\w-]*\b</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.sass</string>
 		</dict>
@@ -106,11 +106,18 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>url</string>
+			<string>((font|image|stylesheet|generated-image)-)?url\(</string>
 			<key>end</key>
 			<string>\)</string>
 			<key>name</key>
 			<string>variable.parameter.url</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#nested-parens</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -138,7 +145,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|underline|transparent|top|thin|thick|text|text-top|text-bottom|tb-rl|table-header-group|table-footer-group|sw-resize|super|strict|static|square|solid|small-caps|separate|se-resize|scroll|s-resize|rtl|row-resize|ridge|right|repeat|repeat-y|repeat-x|relative|progress|pointer|overline|outside|outset|oblique|nowrap|not-allowed|normal|none|nw-resize|no-repeat|no-drop|newspaper|ne-resize|n-resize|move|middle|medium|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|list-item|line|line-through|line-edge|lighter|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline|inline-block|inherit|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|horizontal|hidden|help|hand|groove|fixed|ellipsis|e-resize|double|dotted|distribute|distribute-space|distribute-letter|distribute-all-lines|disc|disabled|default|decimal|dashed|crosshair|collapse|col-resize|circle|char|center|capitalize|break-word|break-all|bottom|both|bolder|bold|block|bidi-override|below|baseline|auto|always|all-scroll|absolute)\b</string>
+			<string>\b(whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|underline|transparent|top|thin|thick|text|text-top|text-bottom|tb-rl|table-header-group|table-footer-group|sw-resize|super|strict|static|square|solid|small-caps|separate|se-resize|scroll|s-resize|rtl|row-resize|ridge|right|repeat|repeat-y|repeat-x|relative|progress|pointer|overline|outside|outset|oblique|nowrap|not-allowed|normal|none|nw-resize|no-repeat|no-drop|newspaper|ne-resize|n-resize|move|middle|medium|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|list-item|line|line-through|line-edge|lighter|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline|inline-block|inherit|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|horizontal|hidden|help|hand|groove|fixed|ellipsis|e-resize|double|dotted|distribute|distribute-space|distribute-letter|distribute-all-lines|disc|disabled|default|decimal|dashed|crosshair|collapse|col-resize|circle|char|center|capitalize|break-word|break-all|bottom|both|bolder|bold|block|bidi-override|below|baseline|auto|always|all-scroll|absolute|table|table-cell)\b</string>
 			<key>name</key>
 			<string>support.constant.property-value.sass</string>
 		</dict>
@@ -169,7 +176,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\-moz-(window-shadow|user-select|user-modify|user-input|user-focus|transition-timing-function|transition-property|transition-duration|transition-delay|transition|text-size-adjust|text-decoration-style|text-decoration-line|text-decoration-color|text-blink|text-align-last|tab-size|stack-sizing|script-size-multiplier|script-min-size|script-level|padding-start|padding-end|outline-radius-topright|outline-radius-topleft|outline-radius-bottomright|outline-radius-bottomleft|outline-radius|orient|margin-start|margin-end|image-region|hyphens|force-broken-image-icon|font-language-override|font-feature-settings|float-edge|columns|column-width|column-rule-width|column-rule-style|column-rule-color|column-rule|column-gap|column-count|box-sizing|box-pack|box-orient|box-ordinal-group|box-flex|box-direction|box-align|border-top-colors|border-start-width|border-start-style|border-start-color|border-start|border-right-colors|border-left-colors|border-end-width|border-end-style|border-end-color|border-end|border-bottom-colors|binding|background-inline-policy|appearance|animation-timing-function|animation-play-state|animation-name|animation-iteration-count|animation-fill-mode|animation-duration|animation-direction|animation-delay|animation)\b</string>
+			<string>\-moz-(window-shadow|user-select|user-modify|user-input|user-focus|transition-timing-function|transition-property|transition-duration|transition-delay|transition|text-size-adjust|text-decoration-style|text-decoration-line|text-decoration-color|text-blink|text-align-last|tab-size|stack-sizing|script-size-multiplier|script-min-size|script-level|padding-start|padding-end|outline-radius-topright|outline-radius-topleft|outline-radius-bottomright|outline-radius-bottomleft|outline-radius|orient|margin-start|margin-end|image-region|hyphens|force-broken-image-icon|font-language-override|font-feature-settings|float-edge|columns|column-width|column-rule-width|column-rule-style|column-rule-color|column-rule|column-gap|column-count|box-sizing|box-pack|box-orient|box-ordinal-group|box-flex|box-direction|box-align|box-shadow|border-top-colors|border-start-width|border-start-style|border-start-color|border-start|border-right-colors|border-left-colors|border-end-width|border-end-style|border-end-color|border-end|border-bottom-colors|binding|background-inline-policy|appearance|animation-timing-function|animation-play-state|animation-name|animation-iteration-count|animation-fill-mode|animation-duration|animation-direction|animation-delay|animation)\b</string>
 			<key>name</key>
 			<string>support.type.property-name.sass</string>
 		</dict>
@@ -193,6 +200,31 @@
 			<string>helper.sublime.property-value.sass</string>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>nested-parens</key>
+		<dict>
+			<key>begin</key>
+			<string>\(</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.scope.sass</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#nested-parens</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.sass</string>
 	<key>uuid</key>

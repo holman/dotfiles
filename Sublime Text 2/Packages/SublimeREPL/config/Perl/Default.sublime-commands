@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Perl",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_Perl",
+            "file": "config/Perl/Main.sublime-menu"
+        }
+    }
+]

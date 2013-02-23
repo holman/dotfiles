@@ -111,6 +111,7 @@ async_call('/path/to/api', function(json) {
 })
 ```
 
+The Github Markdown also brings some [nice Emoji support][emoji] : :+1: :heart: :beer:
 
 [^note-id]: This is the text of the note. 
 
@@ -126,5 +127,6 @@ This plugin and this sample file is proudly brought to you by the [revolunet tea
  [revolunet]: http://revolunet.com
  [revolunet-logo]: http://www.revolunet.com/static/parisjs8/img/logo-revolunet-carre.jpg "revolunet logo"
  [gfm]: http://github.github.com/github-flavored-markdown/
+ [emoji]: http://www.emoji-cheat-sheet.com/
 
 

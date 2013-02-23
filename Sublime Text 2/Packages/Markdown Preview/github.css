@@ -1,17 +1,18 @@
 html {
-    border: 3px solid #EEEEEE;
-    margin: 2em auto;
-    padding: 0;
-    width: 975px; }
+    margin: 0;
+    padding: 0; }
 
 body {
     background-color: white;
-    border: 1px solid #CACACA;
+    border-radius: 3px;
+    border: 3px solid #EEE;
+    box-shadow: inset 0 0 0 1px #CECECE;
     font-family: Helvetica,arial,sans-serif;
     font-size: 14px;
     line-height: 1.6;
+    width: 975px;
     padding: 30px;
-    margin: 0; }
+    margin: 2em auto; }
 
 body > *:first-child {
   margin-top: 0 !important; }

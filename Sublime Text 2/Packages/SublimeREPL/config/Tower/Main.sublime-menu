@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                "id": "repl_tower",
+                 "caption": "Tower Console",
+                 "args": {
+                    "cwd": "$file_path",               
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["tower", "console", "-c"],    
+                    "syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage",
+                    "external_id": "tower",
+                    "extend_env": {"NODE_DISABLE_COLORS": "1"}
+                    }
+                }
+            ]   
+        }]
+    }
+]

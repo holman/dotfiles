@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Lua",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_lua",
+            "file": "config/Lua/Main.sublime-menu"
+        }
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: R",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_r",
+            "file": "config/R/Main.sublime-menu"
+        }
+    }
+]

@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                "id": "repl_elixir",
+                 "caption": "Elixir",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["iex"],
+                    "cwd": "$file_path",
+                    "syntax": "Packages/Elixir/Elixir.tmLanguage",
+                    "external_id": "elixir",
+                    "extend_env": {"NODE_DISABLE_COLORS": "1"}
+                    }
+                }
+            ]   
+        }]
+    }
+]

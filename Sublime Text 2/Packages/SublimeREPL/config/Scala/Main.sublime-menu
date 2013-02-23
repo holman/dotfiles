@@ -1,0 +1,61 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"caption": "Scala",
+                "id": "Scala",
+
+                 "children":[
+                    {"command": "repl_open",
+                     "caption": "scala REPL",
+                     "id": "repl_scala",
+                     "mnemonic": "s",
+                     "args": {
+                        "type": "subprocess",
+                        "encoding": "utf8",
+                        "external_id": "scala",
+                        "cmd": {"linux": ["scala"],
+                                "osx": ["scala"],
+                                "windows": ["scala.bat", "-i"]},
+                        "soft_quit": "\nexit\n",
+                        "cwd": "$file_path",
+                        "cmd_postfix": "\n", 
+                        "extend_env": {"osx": {"EMACS": "1", "PATH": "{PATH}:/usr/local/bin"},
+                                       "linux": {"EMACS": "1", "PATH": "{PATH}:/usr/local/bin"},
+                                       "windows": {"EMACS": "1"}},
+                        "suppress_echo": false, 
+                        "syntax": "Packages/Scala/Scala.tmLanguage"
+                        }
+                    },
+                    {"command": "repl_open",
+                     "caption": "SBT for opened folder",
+                     "id": "repl_sbt",
+                     "mnemonic": "b",
+                     "args": {
+                        "type": "subprocess",
+                        "encoding": "utf8",
+                        "external_id": "scala",
+                        "cmd": {"linux": ["sbt"],
+                                "osx": ["sbt"],
+                                "windows": ["sbt"]},
+                        "soft_quit": "\nexit\n",
+                        "cwd": "$folder",
+                        "cmd_postfix": "\n", 
+                        "extend_env": {"osx": {"EMACS": "1", "PATH": "{PATH}:/usr/local/bin"},
+                                       "linux": {"EMACS": "1", "PATH": "{PATH}:/usr/local/bin"},
+                                       "windows": {"EMACS": "1"}},
+                        "suppress_echo": false, 
+                        "syntax": "Packages/Scala/Scala.tmLanguage"
+                        }
+                    } 
+                ]}
+            ]
+        }]
+    }
+]

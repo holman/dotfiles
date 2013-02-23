@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                 "caption": "Perl",
+                 "id": "repl_Perl",
+                 "mnemonic": "p",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["perl","${packages}/SublimeREPL/config/Perl/re.pl"],
+                    "cwd": "$file_path",
+                    "external_id": "perl",
+                    "syntax": "Packages/Perl/Perl.tmLanguage"
+                    }
+                }
+            ]   
+        }]
+    }
+]

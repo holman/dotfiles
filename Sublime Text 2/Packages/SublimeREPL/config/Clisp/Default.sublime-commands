@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Clisp",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_clisp",
+            "file": "config/Clisp/Main.sublime-menu"
+        }
+    }
+]

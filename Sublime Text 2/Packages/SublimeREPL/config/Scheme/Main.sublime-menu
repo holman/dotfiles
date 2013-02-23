@@ -1,0 +1,55 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"caption": "Scheme",
+                 "id": "Scheme",
+
+                 "children":[
+                    {"command": "repl_open",
+                     "caption": "Scheme",
+                     "id": "repl_scheme",
+                     "mnemonic": "r",
+                     "args": {
+                        "type": "subprocess",
+                        "encoding": "utf8",
+                        "external_id": "scheme",
+                        "cmd": {"linux": ["scheme"],
+                                "osx": ["scheme"],
+                                "windows": ["scheme"]},
+                        "soft_quit": "\nexit\n",
+                        "cwd": "$folder",
+                        "cmd_postfix": "\n",
+                        "extend_env": {"INSIDE_EMACS": "1"},
+                        "syntax": "Packages/sublime-scheme-syntax/Scheme.tmLanguage"
+                        }
+                    },
+                    {"command": "repl_open",
+                     "caption": "Gauche",
+                     "id": "repl_gauche",
+                     "mnemonic": "r",
+                     "args": {
+                        "type": "subprocess",
+                        "encoding": "utf8",
+                        "external_id": "gauche",
+                        "cmd": {"linux": ["gosh", "-i"],
+                                "osx": ["gosh", "-i"],
+                                "windows": ["gosh", "-i"]},
+                        "soft_quit": "\n(exit)\n",
+                        "cwd": "$folder",
+                        "cmd_postfix": "\n",
+                        "extend_env": {"INSIDE_EMACS": "1"},
+                        "syntax": "Packages/Gauche/Gauche.tmLanguage"
+                        }
+                    }
+                ]}
+            ]
+        }]
+    }
+]

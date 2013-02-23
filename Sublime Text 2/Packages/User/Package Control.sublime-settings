@@ -1,4 +1,5 @@
 {
+	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
 		"AAAPackageDev",
@@ -8,6 +9,7 @@
 		"Markdown Preview",
 		"Package Control",
 		"RSpec",
-		"Sass"
+		"Sass",
+		"SublimeREPL"
 	]
 }

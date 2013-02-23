@@ -1,0 +1,26 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                 "caption": "MozRepl",
+                 "mnemonic": "m",
+                 "id": "repl_mozrepl",
+                 "args": {
+                    "type": "telnet",
+                    "encoding": "utf8",
+                    "host":"localhost",
+                    "port": 4242,
+                    "syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+                    }
+                }
+            ]   
+        }]
+    }
+]

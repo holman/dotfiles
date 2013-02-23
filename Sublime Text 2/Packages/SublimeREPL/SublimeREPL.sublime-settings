@@ -1,0 +1,54 @@
+{
+	// default_extend_env are used to augment any environment variables
+	// that should be visible for all subporcess repls launched within
+	// SublimeREPL. This is a very good place to add PATH extension
+	// once "PATH": "{PATH}:/home/username/mylocalinstalls/bin" or whatever
+	"default_extend_env": {},
+
+	// Persistent history is stored per REPL external_id, it means that all python
+	// REPLS will share history. If you wish you can disable history altogether
+	"persistent_history_enabled": true,
+
+	// By default SublimeREPL leaves REPL view open once the underlying subprocess
+	// dies or closes connection. This is useful when the process dies for an unexpected
+	// reason as it allows you to inspect it output. If you want. Setting this
+	// to true will cause SublimreREPL to close view once the process died.
+	"view_auto_close": false,
+
+	// Some terminals output ascii color codes which are not currently supported
+	// enable this option to filter them out.
+	"filter_ascii_color_codes": true,
+
+	// Where to look for python virtualenvs
+	"python_virtualenv_paths": [
+		"~/.virtualenvs",  // virtualenvwrapper
+		"~/.venv"  // venv.bash https://github.com/wuub/venv
+	],
+
+	// Use arrows for history navigation instead of Alt+[P|N]/Ctrl+[P|N]
+	"history_arrows": true,
+
+	// standard sublime view settings that will be overwritten on each repl view
+	// this has to be customized as a whole dictionary
+	"repl_view_settings": {
+		"translate_tabs_to_spaces": false,
+		"auto_indent": false,
+		"smart_indent": false,
+		"indent_subsequent_lines": false,
+		"detect_indentation": false,
+		"auto_complete": true,
+		"line_numbers": false,
+		"gutter": false
+	},
+
+	// this settings exposes additional variables in repl config files, especially
+	// those related to sublime projects that are not available through standard API
+	// WARNING: this will switch your build system back to Automatic each time a REPL
+	// is started so beware!
+	"use_build_system_hack": false,
+
+	// IP address used to setup autocomplete server in sublimerepl.
+	// changing this is usefull when you want to exclude one address
+	// from proxychains/tsocks routing
+	"autocomplete_server_ip": "127.0.0.1"
+}

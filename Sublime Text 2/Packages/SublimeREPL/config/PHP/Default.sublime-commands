@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: PHP",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_php",
+            "file": "config/PHP/Main.sublime-menu"
+        }
+    }
+]

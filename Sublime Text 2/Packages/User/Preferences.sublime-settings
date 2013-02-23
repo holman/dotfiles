@@ -1,12 +1,8 @@
 {
 	"bold_folder_labels": true,
-	"fade_fold_buttons": false,
-	"line_padding_top": 1,
-	"line_padding_bottom": 1,
 	"caret_style": "phase",
-  "tab_size": 2,
 	"color_scheme": "Packages/Color Scheme - Default/Tomorrow Night.tmTheme",
-	// "draw_white_space": "all",
+	"fade_fold_buttons": false,
 	"folder_exclude_patterns":
 	[
 		".git",
@@ -15,17 +11,20 @@
 		".bundle",
 		"tmp"
 	],
-	"font_size": 20.0,
 	"font_face": "Source Code Pro",
+	"font_size": 16.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
 	"rulers":
 	[
 		80
 	],
+	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }

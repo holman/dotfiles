@@ -28,6 +28,14 @@
     "css": "default",
 
     /*
+        Allow CSS overrides
+
+        true - Any file with matching a .markdown_filetype extension with .css will be loaded as an override
+        false - Matching files ignored
+    */
+    "allow_css_overrides": true,
+
+    /*
         Sets the supported filetypes for auto-reload on save
     */
     "markdown_filetypes": [".md", ".markdown", ".mdown"]

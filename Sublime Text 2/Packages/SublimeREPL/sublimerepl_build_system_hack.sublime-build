@@ -1,0 +1,16 @@
+{
+	"target": "sublimerepl_build_system_hack",
+	"cmd": {
+		"file_path": "${file_path}",
+		"file": "${file}",
+		"file_name": "${file_name}",
+		"file_extension": "${file_extension}",
+		"file_base_name": "${file_base_name}",
+		"packages": "${packages}",
+		"project": "${project}",
+		"project_path": "${project_path}",
+		"project_name": "${project_name}",
+		"project_extension": "${project_extension}",
+		"project_base_name": "${project_base_name}"
+	}
+}

@@ -11,7 +11,31 @@
 	// setting
 	"repositories": [],
 
+	// A list of CA certs needed for domains. The default channel provides a
+	// list of domains and an identifier (the md5 hash) for the CA cert(s)
+	// necessary for each.
+	//
+	// If a custom cert is required for a proxy or for an alternate channel
+	// or repository domain name, it should be added in one of the two forms:
+	//
+	// "*": ["my_identifier", "https://example.com/url/of/cert_file"]
+	// "*": ["my_identifier_2", "/absolute/filesystem/path/to/cert_file"]
+	//
+	// In both cases the literal "*" means the cert will be checked to ensure
+	// it is present for accessing any URL. This is necessary for proxy
+	// connections, but also useful if you want to provide you own
+	// ca-bundle.crt file.
+	//
+	// The "my_identifier" and "my_identifier_2" can be any unique string
+	// that Package Control can use as a filename, and ensures that it has
+	// merged the cert file with the ca-bundle.crt file in the certs/ directory
+	// since that is what is passed to the downloaders.
 	"certs": {
+		"api.bitbucket.org": ["d867a7b2aecc46f9c31afc4f2f50de05", ""],
+		"api.github.com": ["1c5282418e2cb4989cd6beddcdbab0b5", ""],
+		"bitbucket.org": ["897abe0b41fd2f64e9e2e351cbc36d76", ""],
+		"nodeload.github.com": ["1c5282418e2cb4989cd6beddcdbab0b5", ""],
+		"raw.github.com": ["1c5282418e2cb4989cd6beddcdbab0b5", ""],
 		"sublime.wbond.net": ["7f4f8622b4fd001c7f648e09aae7edaa", ""]
 	},
 
@@ -61,6 +85,9 @@
 	// Username and password for both http_proxy and https_proxy
 	"proxy_username": "",
 	"proxy_password": "",
+
+	// User agent for HTTP requests
+	"user_agent": "Sublime Package Control",
 
 	// Setting this to true will cause Package Control to ignore all git
 	// and hg repositories - this may help if trying to list packages to install

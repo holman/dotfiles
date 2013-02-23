@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Node",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_node",
+            "file": "config/NodeJS/Main.sublime-menu"
+        }
+    }
+]

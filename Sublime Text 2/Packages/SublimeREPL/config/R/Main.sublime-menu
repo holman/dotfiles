@@ -1,0 +1,41 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "caption": "R",
+                 "id": "repl_r",
+                 "mnemonic": "r",
+                 "args": {
+                    "type": "subprocess",
+                    "external_id": "r",
+                    "encoding": {
+                        "windows": "$win_cmd_encoding",
+                        "linux": "utf8",
+                        "osx": "utf8"
+                        },
+                    "soft_quit": "\nquit(save=\"no\")\n",
+                    "cmd": {"linux": ["R", "--interactive", "--no-readline"],
+                            "osx": ["R", "--interactive", "--no-readline"],
+                            "windows": ["Rterm.exe", "--ess", "--encoding=$win_cmd_encoding"]},
+                    "cwd": "$file_path",
+                    "extend_env": {"osx": {"PATH": "{PATH}:/usr/local/bin"},
+                                   "linux": {"PATH": "{PATH}:/usr/local/bin"},
+                                   "windows": {}},
+                    "cmd_postfix": "\n", // postfix that will be automatically added after a line in repl
+                    "suppress_echo": {"osx": true,
+                                      "linux": true,
+                                      "windows": false},
+                    "syntax": "Packages/R/R Console.tmLanguage"
+                    }
+                }
+            ]
+        }]
+    }
+]

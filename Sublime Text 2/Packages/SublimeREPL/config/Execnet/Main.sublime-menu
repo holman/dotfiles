@@ -1,0 +1,21 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children": [
+                {"caption": "Python",
+                "id": "Python",
+                "children": [
+                    {
+                        "command": "execnet_virtualenv_repl",
+                        "id": "repl_sublime_execnet",
+                        "caption": "Python - execnet"
+                    }
+                ]}
+        ]}
+    ]
+}]

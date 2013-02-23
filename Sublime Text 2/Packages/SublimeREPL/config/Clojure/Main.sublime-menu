@@ -1,0 +1,38 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"caption": "Clojure",
+                 "id": "Clojure",
+                 "children":[
+                    {"command": "repl_open", 
+                     "caption": "Clojure",
+                     "id": "repl_clojure",
+                     "args": {
+                        "type": "subprocess",
+                        "encoding": "utf8",
+                        "cmd": {"windows": ["lein.bat", "repl"],
+                                "linux": ["lein", "repl"],
+                                "osx":  ["lein", "repl"]},
+                        "soft_quit": "\n(. System exit 0)\n",
+                        "cwd": {"windows":"c:/Clojure", // where the lein.bat lives!
+                                "linux": "$file_path",
+                                "osx": "$file_path"},
+                        "syntax": "Packages/Clojure/Clojure.tmLanguage",
+                        "external_id": "clojure",
+                        "extend_env": {"INSIDE_EMACS": "1"}
+                        }
+                    },
+                    {"command": "clojure_auto_telnet_repl", 
+                     "id": "repl_clojure_telnet",
+                     "caption": "Clojure-Telnet"}]}
+            ]   
+        }]
+    }
+]

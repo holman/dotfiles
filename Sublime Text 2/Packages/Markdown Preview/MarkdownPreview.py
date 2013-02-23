@@ -46,8 +46,9 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
         config_parser = settings.get('parser')
         config_css = settings.get('css')
 
+        styles = ''
         if config_css and config_css != 'default':
-            return "<link href='%s' rel='stylesheet' type='text/css'>" % config_css
+            styles += u"<link href='%s' rel='stylesheet' type='text/css'>" % config_css
         else:
             css_filename = 'markdown.css'
             if config_parser and config_parser == 'github':
@@ -60,7 +61,18 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
                 if not os.path.isfile(css_path):
                     sublime.error_message('markdown.css file not found!')
                     raise Exception("markdown.css file not found!")
-            styles = u"<style>%s</style>" % open(css_path, 'r').read().decode('utf-8')
+            styles += u"<style>%s</style>" % open(css_path, 'r').read().decode('utf-8')
+
+        if settings.get('allow_css_overrides'):
+            filename = self.view.file_name()
+            filetypes = settings.get('markdown_filetypes')
+
+            for filetype in filetypes:
+                if filename.endswith(filetype):
+                    css_filename = filename.rpartition(filetype)[0] + '.css'
+                if (os.path.isfile(css_filename)):
+                    styles += u"<style>%s</style>" % open(css_filename, 'r').read().decode('utf-8')
+
         return styles
 
     def postprocessor(self, html):
