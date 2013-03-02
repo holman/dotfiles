@@ -5,11 +5,119 @@
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 
+set -e
+
+echo ''
+
+info () {
+  printf "  [ \033[00;34m..\033[0m ] $1"
+}
+
+user () {
+  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  echo 'See /tmp/dot-upgrade for more information'
+  exit 0
+}
+
 # Set OS X defaults
 $ZSH/osx/set-defaults.sh
 
-# Upgrade homebrew
-brew update
+# Update and Upgrade homebrew
+if test $(which brew)
+then
+  info 'Updating brew'
+  if $(brew update > /tmp/dot-upgrade)
+  then
+    success 'Brew updated'
+  else
+    fail 'Brew update'
+  fi
 
-# Install homebrew packages
-$ZSH/homebrew/install.sh 2>&1
+  # Install homebrew packages
+  if [ -z "$(brew list)" ]
+  then
+    info 'Installing default brew packages from $ZSH/homebrew/install.sh'
+    if `$ZSH/homebrew/install.sh 2>&1`
+    then
+      success 'Install complete'
+    else
+      fail 'Install failed'
+    fi
+  fi
+
+  OUTDATED_LIST=($(brew outdated --quiet))
+
+  if [ ! -z ${OUTDATED_LIST} ]
+  then
+    # Print the complete list of packages that are outdated.
+    echo ''
+    echo '       - The following packages can be upgraded:'
+    brew outdated
+    echo ''
+
+    # Array to hold the list of outdated packages we are wanting to upgrade.
+    UPGRADE_LIST=()
+    yes_all=false
+
+
+    for package in ${OUTDATED_LIST[*]}
+    do
+      yes=false
+
+      if [ "$yes_all" == "false" ]
+      then
+        user "Would you like to upgrade $package [y]es, [n]o, [Y]es All, [N]o All?"
+        read action
+
+        case "$action" in
+          y )
+            yes=true;;
+          Y )
+            yes_all=true;;
+          N )
+            break;;
+          * )
+            ;;
+        esac
+      fi
+
+      if [ "$yes" == "true" ] || [ "$yes_all" == "true" ]
+      then
+        UPGRADE_LIST[${#UPGRADE_LIST[*]}]="$package"
+      fi
+    done
+
+    if [ ! -z "${UPGRADE_LIST}" ]
+    then
+      echo ''
+
+      for package in ${UPGRADE_LIST[*]}
+      do
+        info "Installing $package"
+
+        if $(brew upgrade $package > /tmp/dot-upgrade 2>&1)
+        then
+          success "Upgraded $package"
+        else
+          fail "Failed to upgrade $package."
+        fi
+      done
+    fi
+  fi
+
+fi
+
+echo ''
+printf "    You are all set to go!"
+echo ''
+
+exit 1
