@@ -5,11 +5,56 @@
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 
+set -e
+
+echo ''
+
+info () {
+  printf "  [ \033[00;34m..\033[0m ] $1"
+}
+
+user () {
+  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  echo 'See /tmp/dot-upgrade for more information'
+  exit
+}
+
 # Set OS X defaults
 $ZSH/osx/set-defaults.sh
 
-# Upgrade homebrew
-brew update
+# Update and Upgrade homebrew
+if test $(which brew)
+then
+  info 'Updating brew'
+  if $(brew update > /tmp/dot-upgrade)
+  then
+    success 'Brew updated'
+  else
+    fail 'Brew update'
+  fi
 
-# Install homebrew packages
-$ZSH/homebrew/install.sh 2>&1
+
+  if [ -z "$(brew list)" ]
+  then
+
+    # New packages need to be installed
+    . $ZSH/homebrew/install.sh 2>&1
+  else
+
+    # Update the packages we already have installed
+    . $ZSH/homebrew/upgrade.sh 2>&1
+  fi
+fi
+
+echo ''
+printf "    You are all set to go!"
+echo ''
