@@ -1,8 +1,8 @@
 # credit: http://nparikh.org/notes/zshrc.txt
-# Usage: smartextract <file>
+# Usage: extract <file>
 # Description: extracts archived files / mounts disk images
 # Note: .dmg/hdiutil is Mac OS X-specific.
-smartextract () {
+extract () {
     if [ -f $1 ]; then
         case $1 in
             *.tar.bz2)  tar -jxvf $1                        ;;
@@ -18,7 +18,7 @@ smartextract () {
             *.pax)      cat $1 | pax -r                     ;;
             *.pax.Z)    uncompress $1 --stdout | pax -r     ;;
             *.Z)        uncompress $1                       ;;
-            *)          echo "'$1' cannot be extracted/mounted via smartextract()" ;;
+            *)          echo "'$1' cannot be extracted/mounted via extract()" ;;
         esac
     else
         echo "'$1' is not a valid file"
