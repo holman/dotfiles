@@ -12,6 +12,7 @@ for config_file ($ZSH/**/*.zsh) source $config_file
 
 export PATH="$HOME/.rbenv/bin:/usr/local/lib/node_modules:/opt/rbenv/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/local/node/bin:$PATH"
+export PATH="/opt/splunkforwarder/bin:$PATH"
 eval "$(rbenv init -)"
 
 # use .localrc for SUPER SECRET CRAP that you don't
