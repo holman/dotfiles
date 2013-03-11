@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 #
 # bootstrap installs things.
 
