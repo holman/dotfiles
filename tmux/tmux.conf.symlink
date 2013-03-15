@@ -1,8 +1,8 @@
 # Colors
-set -g default-terminal "xterm-256color"
+set -g default-terminal "screen-256color"
 
 # Shorten input delay
-set -sg escape-time 1
+set -sg escape-time 0
 
 # Reload tmux.conf easily
 bind r source-file ~/.tmux.conf \; display "tmux.conf reloaded"
