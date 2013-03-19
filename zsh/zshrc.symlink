@@ -1,8 +1,21 @@
+# Auto-correct fixes
+alias ag='nocorrect ag'
+
+# MVIM
+function mvim { /Applications/MacVim.app/Contents/MacOS/Vim -g $*; }
+
+# Fix for RMagick
+# export DYLD_LIBRARY_PATH=/usr/local/Cellar/imagemagick/6.7.5-7/lib
+export MAGICK_HOME=/usr/local/Cellar/imagemagick/6.7.5-7/
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/Sites
+
+# source every .zsh file in this rep
+for config_file ($ZSH/**/*.zsh) source $config_file
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.

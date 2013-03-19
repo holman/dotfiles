@@ -3,3 +3,4 @@
 *~
 *.swp
 *.rbc
+.DS_Store
