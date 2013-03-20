@@ -54,3 +54,5 @@ alias sassy="sass --watch html/skin/smooth/scss/:html/skin/smooth/ --style :expa
 alias gettowork="cd /var/www/dev/otter/"
 alias ackless="ack --pager=\"less -R\""
 alias restartall="sudo sudo /etc/init.d/httpd restart ; sudo /etc/init.d/varnish restart ; sudo /etc/init.d/memcached restart"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
