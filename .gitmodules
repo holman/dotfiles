@@ -1,0 +1,12 @@
+[submodule "vim/vim.symlink/bundle/tabular"]
+	path = vim/vim.symlink/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim.symlink/bundle/ctrlp"]
+	path = vim/vim.symlink/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim.symlink/bundle/golang"]
+	path = vim/vim.symlink/bundle/golang
+	url = git://github.com/uggedal/go-vim.git

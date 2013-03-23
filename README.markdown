@@ -17,9 +17,12 @@ of my tricks, fork this project. Or fork upstream from @holman.
 
 ## install
 
-- `git clone git://github.com/mkenyon/dotfiles ~/.dotfiles`
-- `cd ~/.dotfiles`
-- `rake install`
+    git clone git://github.com/mkenyon/dotfiles ~/.dotfiles
+    cd ~/.dotfiles
+    rake install
+    git submodule update --init
+    cp gitconfig.symlink.example gitconfig.symlink
+    vim gitconfig.symlink
 
 The install rake task will symlink the appropriate files in `.dotfiles` to your
 home directory. Everything is configured and tweaked within `~/.dotfiles`,
@@ -67,6 +70,26 @@ bubble bath.
   grc`.
 - If you install the excellent [rvm](http://rvm.beginrescueend.com) to manage
   multiple rubies, your current branch will show up in the prompt. Bonus.
+
+## vim plugins
+
+I use Pathogen to help manage my vim plugins. It is fantastic.  However, new
+vim plugins need to be installed as submodules within this repository, which
+involves remembering commands.
+
+    # Install plugins as submodules
+    cd $ZSH
+    mkdir -p ./vim/vim.symlink/bundle
+    git submodule add $GIT_URL ./vim/vim.symlink/bundle/$REPO_SHORT
+    git add .
+    git commit -m "Install $REPO_SHORT.vim bundle as a submodule."
+    
+    # Upgrading a plugin bundle
+    cd ~/.vim/bundle/$REPO_SHORT
+    git pull origin master
+    
+    # Upgrading all bundled plugins
+    git submodule foreach git pull origin master
 
 ## bugs
 
