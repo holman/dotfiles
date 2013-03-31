@@ -4,10 +4,7 @@
 # NVM Install Script:
 # curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 
-nvm_directory="$HOME/.nvm"
-
-# Source NVM
-[[ -s "$nvm_directory/nvm.sh" ]] && . "$nvm_directory/nvm.sh"
-
-# Add NVM bash completion
-[[ -r "$nvm_directory/bash_completion" ]] && . "$nvm_directory/bash_completion"
+if [[ -s "$HOME/.nvm/nvm.sh" ]]
+then
+  . "$HOME/.nvm/nvm.sh"
+fi
