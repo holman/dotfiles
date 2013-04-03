@@ -1,0 +1,3 @@
+[submodule "vim/vim.symlink/bundle/syntax/stylus"]
+	path = vim/vim.symlink/bundle/syntax/stylus
+	url = git@github.com:wavded/vim-stylus.git
