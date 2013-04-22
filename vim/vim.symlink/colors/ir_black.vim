@@ -211,3 +211,6 @@ hi  link csXmlTag             Keyword
 
 
 " Special for PHP
+
+" Special for GitGutter
+hi SignColumn       guibg=NONE        ctermbg=NONE
