@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/tmilewski/Sites/Rolex/World-of-Rolex'
-let g:netrw_dirhist_2='/Users/tmilewski/.dotfiles/vim/vim.symlink/bundle'
-let g:netrw_dirhist_3='/Users/tmilewski/.dotfiles/vim/vim.symlink'
-let g:netrw_dirhist_4='/Users/tmilewski/.dotfiles/vim'

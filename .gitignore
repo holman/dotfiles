@@ -3,3 +3,4 @@ sublime2/User/Package Control.last-run
 git/gitconfig.symlink
 *.swp
 .DS_Store
+vim/vim.symlink/.netrwhist
