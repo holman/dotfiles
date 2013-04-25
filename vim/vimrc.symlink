@@ -1,10 +1,10 @@
 call pathogen#infect()
-syntax enable 
+syntax enable
 filetype plugin indent on
 
 set noswapfile
 
-" CtrlP 
+" CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -14,7 +14,6 @@ set background=dark
 
 let mapleader=","       " remap leader key
 set nocompatible
-let g:Powerline_symbols='fancy'
 set encoding=utf-8
 set backspace=start,eol,indent " fix issue where Delete wasn't being recognized
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
@@ -63,7 +62,7 @@ inoremap <s-tab> <c-n>
 
 " Strip all trailing whitespace in file
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
-command! StripWhitespace :%s/\s\+$
+" command! StripWhitespace :%s/\s\+$
 
 " Automatically removed whitespace when saving file
-" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
