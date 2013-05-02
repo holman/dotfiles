@@ -75,8 +75,40 @@ todo(){
   fi
 }
 
-directory_name(){
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+# This takes care of displaying the dir structure you're currently in up to
+# three levels. Also it detects so when you are in a git repository or submodule
+# and it will keep the root always visible in a different color. Issue #71
+# http://stackoverflow.com/questions/16147173/command-prompt-directory-styling/16214977#16214977
+directory_name() {
+    PROMPT_PATH=""
+
+    CURRENT=`dirname ${PWD}`
+    if [[ $CURRENT = / ]]; then
+        PROMPT_PATH=""
+    elif [[ $PWD = $HOME ]]; then
+        PROMPT_PATH=""
+    else
+        if [[ -d $(git rev-parse --show-toplevel 2>/dev/null) ]]; then
+            # We're in a git repo.
+            BASE=$(basename $(git rev-parse --show-toplevel))
+            if [[ $PWD = $(git rev-parse --show-toplevel) ]]; then
+                # We're in the root.
+                PROMPT_PATH=""
+            else
+                # We're not in the root. Display the git repo root.
+                GIT_ROOT="%{$fg_bold[blue]%}${BASE}%{$reset_color%}"
+
+                PATH_TO_CURRENT="${PWD#$(git rev-parse --show-toplevel)}"
+                PATH_TO_CURRENT="${PATH_TO_CURRENT%/*}"
+
+                PROMPT_PATH="${GIT_ROOT}${PATH_TO_CURRENT}/"
+            fi
+        else
+            PROMPT_PATH=$(print -P %3~)
+            PROMPT_PATH="${PROMPT_PATH%/*}/"
+        fi
+    fi
+    echo "${PROMPT_PATH}%{$fg_bold[cyan]%}%1~%{$reset_color%}"
 }
 
 export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
