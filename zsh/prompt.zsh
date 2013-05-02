@@ -96,7 +96,7 @@ directory_name() {
                 PROMPT_PATH=""
             else
                 # We're not in the root. Display the git repo root.
-                GIT_ROOT="%{$fg_bold[bluecd]%}${BASE}%{$reset_color%}"
+                GIT_ROOT="%{$fg_bold[blue]%}${BASE}%{$reset_color%}"
 
                 PATH_TO_CURRENT="${PWD#$(git rev-parse --show-toplevel)}"
                 PATH_TO_CURRENT="${PATH_TO_CURRENT%/*}"
