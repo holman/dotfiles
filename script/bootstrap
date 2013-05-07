@@ -6,8 +6,6 @@ DOTFILES_ROOT="`pwd`"
 
 set -e
 
-echo ''
-
 info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
 }
@@ -21,8 +19,7 @@ success () {
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n\n"
   exit
 }
 
@@ -114,6 +111,7 @@ install_dotfiles () {
   done
 }
 
+printf '\n'
 setup_gitconfig
 install_dotfiles
 
@@ -129,5 +127,4 @@ then
   fi
 fi
 
-echo ''
-echo '  All installed!'
+printf'\n  All installed!'
