@@ -1,3 +1,6 @@
 --pager=less -R
 
 --type-set=scss=.scss
+--type-add=html=.phtml
+
+--smart-case

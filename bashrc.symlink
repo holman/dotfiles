@@ -50,7 +50,8 @@ alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
 
 # Work
 # SASS
-alias sassy="sass --watch html/skin/smooth/scss/:html/skin/smooth/ --style :expanded"
+alias sasswatch="sass --watch html/skin/smooth/scss/:html/skin/smooth/ --style :expanded"
+alias sassupdate="cd /var/www/dev/otter ; sass -g -f --update html/skin/smooth/scss:html/skin/smooth ; cd -"
 alias otter="cd /var/www/dev/otter/"
 alias ackless="ack --pager=\"less -R\""
 alias restartall="sudo sudo /etc/init.d/httpd restart ; sudo /etc/init.d/varnish restart ; sudo /etc/init.d/memcached restart"
