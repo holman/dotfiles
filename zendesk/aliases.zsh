@@ -1,0 +1,5 @@
+alias carson="cd ~/code/zendesk/carson"
+alias classic="cd ~/code/zendesk/classic"
+alias lotus="cd ~/code/zendesk/lotus"
+alias market="cd ~/code/zendesk/app_market"
+alias zd="cd ~/code/zendesk"

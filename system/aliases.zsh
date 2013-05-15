@@ -8,3 +8,7 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+alias ..="cd .."
+alias ....="cd ../.."
+alias mysql="mysql -uroot"
