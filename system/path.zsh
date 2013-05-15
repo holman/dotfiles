@@ -1,4 +1,4 @@
-source /opt/boxen/env.sh
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 #export BOXEN_PATH="/opt/boxen"
 #export HOMEBREW_PATH="$BOXEN_PATH/homebrew"
