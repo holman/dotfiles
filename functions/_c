@@ -1,2 +1,0 @@
-#compdef c
-_files -W $PROJECTS -/
