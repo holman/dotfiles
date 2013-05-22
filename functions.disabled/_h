@@ -1,0 +1,2 @@
+#compdef h
+_files -W ~ -/

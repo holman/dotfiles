@@ -1,0 +1,56 @@
+#!/bin/sh
+#
+# mustacheme 
+#   expanded from an idea from Rick Olson (@technoweenie)
+#
+# Takes a .gif, splits it into constituent frames, mustaches each, restitches
+# the gif, and uploads to cloudapp.
+#
+# This leverages the nifty service mustachify.me, which will analyze your photo,
+# identify faces, and add a mustache to your image.
+#
+# If the .gif is a remote file, we'll download it and blow it up locally.
+#
+#   $1 - the path of the gif
+#
+# Examples:
+#
+#   mustacheme holman-jumping-off-cliff-into-butter.gif
+#   mustacheme http://github.com/holman/butter/blob/master/holman-butter.gif
+#
+# Dependencies:
+#
+#   - ImageMagick. If you're on a Mac, run:
+#       brew install imagemagick
+#   - wget
+#   - cloudapp: https://github.com/holman/dotfiles/blob/master/bin/cloudapp
+#   - gifme:    https://github.com/holman/gifme
+
+set -e
+
+# Set up mustacheme temporary working directory
+output=/tmp/mustacheme
+rm -rf $output
+mkdir $output
+
+if [[ $1 == http* ]]
+then
+  wget $1 -O /tmp/mustache-download.gif
+  file=/tmp/mustache-download.gif
+else
+  file="$1"
+fi
+
+# Blow apart the GIF
+convert $1 -coalesce $output/frame_%03d.gif
+
+# Mustache each frame
+for frame in $output/*.gif
+do
+  url=$(cloudapp $frame | grep Uploaded | awk '{print substr($0, index($0, "http://"))}')
+  url="$url/$(basename $frame)"
+  wget "http://mustachify.me/?src=$url" -O "$frame-stache"
+done
+
+# Ding! Fries are done.
+gifme $output/*-stache -d 0

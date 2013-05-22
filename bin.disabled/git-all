@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Stage all unstaged.
+
+git add -A
