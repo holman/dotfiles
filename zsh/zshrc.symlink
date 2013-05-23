@@ -45,4 +45,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-source /opt/boxen/env.sh
+source ~/.dotfiles/ruby/aliases.zsh
+source ~/.dotfiles/system/aliases.zsh
+source ~/.dotfiles/system/path.zsh
+source ~/.dotfiles/zendesk/aliases.zsh
+source ~/.dotfiles/zendesk/path.zsh
