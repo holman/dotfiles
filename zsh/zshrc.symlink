@@ -45,16 +45,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-# DOT=$HOME/.dotfiles
-# dotfiles=( "system/path" "system/aliases" "system/env" "system/grc" "system/keys" "zsh/fpath" "zsh/config" "ruby/aliases" "zendesk/aliases" "zendesk/path" )
-# 
-# for f in "$dotfiles[@]"
-# do	
-#   source "${DOT}/$f.zsh"
-# done
-
-
-
 # shortcut to this dotfiles path is $DOT
 export DOT=$HOME/.dotfiles
 
