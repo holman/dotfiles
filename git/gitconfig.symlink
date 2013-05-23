@@ -1,0 +1,23 @@
+[user]
+  name  = "Travers McInerney"
+  email = "travers@mcinerney.me"
+
+;[credential]
+;  helper = /opt/boxen/bin/boxen-git-credential
+
+[core]
+  excludesfile = /opt/boxen/config/git/gitignore
+  excludesfile = ~/.gitignore
+
+[hub]
+  protocol = https
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[color "status"]
+  changed = yellow
+  added = green
+  untracked = red
