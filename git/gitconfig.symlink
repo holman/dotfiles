@@ -7,7 +7,7 @@
 
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
-  excludesfile = ~/.gitignore
+  excludesfile = /opt/boxen/config/git/gitignore
 
 [hub]
   protocol = https
