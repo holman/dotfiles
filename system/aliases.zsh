@@ -10,3 +10,4 @@ then
 fi
 
 alias mysql="mysql -uroot"
+alias reload!="source ~/.zshrc"
