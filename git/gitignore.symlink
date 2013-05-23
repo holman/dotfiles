@@ -3,3 +3,5 @@
 *~
 *.swp
 *.rbc
+.ruby-version
+vendor/bundle
