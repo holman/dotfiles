@@ -1,1 +1,0 @@
-cd $PROJECTS/$1;

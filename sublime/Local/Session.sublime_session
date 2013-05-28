@@ -136,16 +136,6 @@
 			"buffers":
 			[
 				{
-					"contents": "Package Control Messages\n========================\n\nEmmet:\n-----\n\n  Thank you for installing Emmet -- a toolkit that can greatly improve your workflow. Note that this plugin automatically downloads and installs PyV8 binary (see status bar message). \n  \n  ******************************\n  Please restart editor \n  to finish installation process \n  after PyV8 was downloaded.\n  ******************************\n  \n  Tab key handler\n  ==========================\n  \n  By default, Emmet allows you to expand abbreviations with Tab key in HTML, XML, HAML and CSS/SASS/LESS/Stylus documents. As a side effect, you can’t use some of your ST2 snippets.\n  \n  Please read https://github.com/sergeche/emmet-sublime#tab-key-handler about how Tab handler works and how to tweak its behavior to match your needs.\n  \n  Enter key\n  ==========================\n  \n  In HTML and XML documents, Emmet overrides Enter key to insert formatted line breaks between opening and closing tags. In some cases it will break character input (for example, in Japanese language).\n  \n  To disable Enter key handler, simply add the following option in your user's Preferences file:\n  \n  \"disable_formatted_linebreak\": true\n  \n  Actions shortcuts\n  ==========================\n  \n  Emmet has a number of actions with keyboard shortcuts that may override ones you're using commonly (for example, Ctrl-E or Ctrl-Down). Please read the project main page to get list of available actions and keyboard shortcuts and how to disable them:\n  https://github.com/sergeche/emmet-sublime\n  \n  Documentation and examples:\n  http://emmet.io\n  \n  ------------------------------\n  Follow me on Twitter: @emmetio\n  ------------------------------\n  \n\n\nTrailingSpaces:\n--------------\n\n  \n  \n      Thank you for installing Trailing Spaces\n      ----------------------------------------\n  \n      You're now ready to give trailing spaces *a hard time*!\n  \n      Wait… I guess Package Control just introduced some of them :(\n      Why don't you try clicking \"Edit / Trailing Spaces / Delete\"?\n  \n  \n  \n  Documentation\n  =============\n  \n  Although the usage of this plugin is dead simple, it comes with several options. All\n  details are available in the documentation, and you can read it by clicking on\n  \"Preferences / Package Settings / Trailing Spaces / Help\", or in a prettier form, by\n  browsing https://github.com/SublimeText/TrailingSpaces.\n  \n  Key Binding\n  ===========\n  \n  This plugin does not come with a default key binding for the deletion command. You can\n  pick your own key binding and define it in \"Preferences / Key Bindings - User\", or just\n  stick to using the menu entry under \"Edit\". Check the help for advice on this.\n  \n  Upgrades & Issues\n  =================\n  \n  Package Control will automatically update all packages every time the editor is started,\n  so there is nothing for you to worry about. If you however do find the plugin not to work\n  as it used to, head to the issues tracker (see links below) to report the problem.\n  \n  Useful Links\n  ============\n  \n  * Documentation & Code: https://github.com/SublimeText/TrailingSpaces\n  * Report issues / Request New Features / Roadmap: https://github.com/SublimeText/TrailingSpaces/issues\n  * Follow me on twitter: @jdvauguet\n  \n",
-					"settings":
-					{
-						"buffer_size": 3248,
-						"line_ending": "Unix",
-						"name": "Package Control Messages",
-						"scratch": true
-					}
-				},
-				{
 					"file": "/Users/tmcinerney/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
@@ -231,38 +221,11 @@
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 3248,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										3248,
-										3248
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/Text/Plain text.tmLanguage",
-									"word_wrap": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 614.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
 							"file": "/Users/tmcinerney/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 							"semi_transient": false,
 							"settings":
