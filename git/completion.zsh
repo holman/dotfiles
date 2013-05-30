@@ -7,3 +7,7 @@ if test -f $completion
 then
   source $completion
 fi
+
+__git_files () {
+   _wanted files expl 'local files' _files
+}
