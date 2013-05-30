@@ -82,3 +82,6 @@ command! StripWhitespace :%s/\s\+$
 
 " Automatically removed whitespace when saving file
 " autocmd BufWritePre * :%s/\s\+$//e
+
+" Recognize Perl-HTML files as HTML for syntax highlighting and formatting
+au BufRead,BufNewFile *.phtml set filetype=html
