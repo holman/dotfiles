@@ -44,6 +44,22 @@ set hlsearch              " highlight searches
 set nolazyredraw          " turn off lazy redraw
 set ttyfast               " always assume a fast connection
 
+" highlight current line
+set cursorline
+
+" Don’t keep results highlighted after searching...
+set nohlsearch
+
+" ...just highlight as we type
+set incsearch
+
+
+" Ignore case when searching...
+set ignorecase
+
+" ...except if we input a capital letter
+set smartcase
+
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
 function! InsertTabWrapper()
@@ -62,7 +78,7 @@ inoremap <s-tab> <c-n>
 
 " Strip all trailing whitespace in file
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
-" command! StripWhitespace :%s/\s\+$
+command! StripWhitespace :%s/\s\+$
 
 " Automatically removed whitespace when saving file
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e

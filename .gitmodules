@@ -10,6 +10,3 @@
 [submodule "vim/vim.symlink/bundle/vim-haml"]
 	path = vim/vim.symlink/bundle/vim-haml
 	url = git://github.com/tpope/vim-haml.git
-[submodule "vim/vim.symlink/bundle/MatchTagAlways"]
-	path = vim/vim.symlink/bundle/MatchTagAlways
-	url = git@github.com:Valloric/MatchTagAlways.git
