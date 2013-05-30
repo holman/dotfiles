@@ -1,38 +1,101 @@
-# Sample gitconfig
-#
-
-[hub]
-        protocol = https
 [user]
         name = AUTHORNAME
         email = AUTHOREMAIL
-[credential]
-        helper = osxkeychain
-[alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributers = !$ZSH/bin/git-rank-contributers
-        count   = !git shortlog -sn
 [color]
         diff = auto
         status = auto
         branch = auto
+        wtf = true
         ui = true
+[alias]
+        pl = pull
+        pu = push
+        m = merge
+        f = fetch
+        st = status
+        di = diff
+        co = checkout
+        ci = commit
+        c = commit
+        com = commit
+        br = branch
+        sh = stash
+        sth = stash
+        cl = clone -o gh
+        bl = blame
+        pr = pull-request
+        x = !sh -c 'gitx $1' -
+        count-all = !git rev-list --all | wc -l
+        count = !sh -c 'git rev-list $1 | wc -l' -
+        short = rev-parse --short=4
+        ls-ignore = ls-files --others --ignored --exclude-standard
+        branch-has = branch -a --contains
+        tag-has = tag -l --contains
+        head = !git show-ref --abbrev $(git symbolic-ref HEAD) | awk '{print $1}'
+        pugh = push gh
+        wtf = !~/Dropbox/Dev/git-tools/bin/git-wtf
+        io = !sh -c 'curl -i http://git.io -F "url=$1"' -
+        show-merges = !~/Dropbox/Dev/git-tools/bin/git-show-merges
+        rank-contribs = !~/Dropbox/Dev/git-tools/bin/git-rank-contributors
+        diff-clip = !git diff -p | pbcopy
+        apply-clip = !pbpaste | git apply
+        prune-gh = remote prune gh
+
+        logp = log --pretty=oneline
+
+        # commits in argument 2 not reachable from HEAD of current branch
+        btwn = !git log $1..$2
+        to-here = !git log ..$1
+
+        # do log diff between ref and upstream ref
+        logup = !sh -c 'git log $1..gh/$1' -
+        logmine = !git log gh..
+        logbetween = !git log ...gh
+        # do content diff between ref and upstream ref
+        diffup = !sh -c 'git diff $1..gh/$1' -
+        graph = log --graph --all --decorate --oneline
+        pretty = log --pretty='%Cred%h%Creset %C(bold blue)<%an>%Creset %C(yellow)%d%Creset %s (%cr)' --date=relative
+
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
-[help]
-        autocorrect = 1
+        autocrlf = false
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to surpress warning message
         default = simple
+
+# Zach's gitconfig
+#
+# 
+# [hub]
+#         protocol = https
+# [user]
+#         name = AUTHORNAME
+#         email = AUTHOREMAIL
+# [credential]
+#         helper = osxkeychain
+# [alias]
+#         co = checkout
+#         promote = !$ZSH/bin/git-promote
+#         wtf     = !$ZSH/bin/git-wtf
+#         rank-contributers = !$ZSH/bin/git-rank-contributers
+#         count   = !git shortlog -sn
+# [color]
+#         diff = auto
+#         status = auto
+#         branch = auto
+#         ui = true
+# [core]
+#         excludesfile = ~/.gitignore
+#         editor = vim
+# [apply]
+#         whitespace = nowarn
+# [mergetool]
+#         keepBackup = false
+# [difftool]
+#         prompt = false
+# [help]
+#         autocorrect = 1
+# [push]
+#         # See `git help config` (search for push.default)
+#         # for more information on different options of the below setting.
+#         #
+#         # Setting to git 2.0 default to surpress warning message
+#         default = simple
