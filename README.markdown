@@ -1,4 +1,4 @@
-# holman does dotfiles
+# bradical does dotfiles
 
 ## dotfiles
 
