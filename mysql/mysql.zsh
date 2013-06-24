@@ -69,14 +69,12 @@ function mbak {
   file=${db}.${date}.sql.gz
   if [[ $2 != "" ]]
   then
-  file = ${2}.sql.gz
+  file="${2}.sql.gz"
   fi
 
   echo "Backing up MySQL db: $db to file: $file"
   mysqldump -u$USER -p$PASSWORD -e --add-drop-table --default-character-set=utf8 $db | gzip > ${file}
 }
-
-
 
 function mrefreshtest {
    db=$DEFAULT_TEST_DB
@@ -85,5 +83,5 @@ function mrefreshtest {
    then
    db=$1
    fi
-   mysql-refresh $db $dump
+   mrefresh $db $dump
 }
