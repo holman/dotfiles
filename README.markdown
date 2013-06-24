@@ -50,6 +50,19 @@ above and see what components may mesh up with you.
 [Fork it](https://github.com/holman/dotfiles/fork), remove what you don't
 use, and build on what you do use.
 
+## properties files and other files not under version control
+
+The [mysql scripts](https://github.com/bradical/dotfiles/blob/master/mysql/mysql.zsh) require a file called `mysql.properties` to exist in the `mysql` sub-directory and contain the following properties. It is ignored so as to avoid committing passwords to source control.
+
+```
+USER=root
+PASSWORD=<PASSWORD>
+DEFAULT_DMP=<Path to a dump file to default to when refreshing or creating new databases>
+DEFAULT_TEST_DMP=<Path to a dump file to default to when refreshing a test db>
+DEFAULT_DB=<Name of the db to use if no db is specified>
+DEFAULT_TEST_DB=<Name of the db to use for mrefreshtest if no name is specified>
+```
+
 ## components
 
 There's a few special files in the hierarchy.
