@@ -1,3 +1,23 @@
 {
-	"time": 1369471649
+	"licensed": true,
+	"packages":
+	[
+		"Emmet",
+		"Handlebars",
+		"Modific",
+		"SideBarEnhancements",
+		"Tag",
+		"Theme - Phoenix",
+		"TrailingSpaces",
+		"VintageEx",
+		"Emmet",
+		"Handlebars",
+		"Modific",
+		"SideBarEnhancements",
+		"Theme - Phoenix",
+		"TrailingSpaces",
+		"VintageEx"
+	],
+	"startup_sec": 0.32026,
+	"time": 1372481751
 }

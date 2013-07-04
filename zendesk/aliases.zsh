@@ -1,5 +1,6 @@
 alias carson="cd ~/Code/zendesk/zendesk_carson"
 alias classic="cd ~/Code/zendesk/zendesk"
+alias console="cd ~/Code/zendesk/zendesk_console"
 alias lotus="cd ~/Code/zendesk/zendesk_console"
 alias market="cd ~/Code/zendesk/zendesk_app_market"
 alias zd="cd ~/Code/zendesk"
