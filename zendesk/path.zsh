@@ -1,2 +1,3 @@
 export ZENDESK_ROOT=~/Code/zendesk
-#eval "$(/Users/travers/Development/Zendesk/z/bin/z init -)"
+export ZENDESK_PROVISIONING_PATH=~/Code/zendesk/zendesk_provisioning
+eval "$(/Users/tmcinerney/code/zendesk/z/bin/z init -)"
