@@ -1,5 +1,3 @@
-# gaboesquivel does dotfiles
-
 ## dotfiles
 
 Your dotfiles are how you personalize your system. These are mine.
@@ -61,6 +59,7 @@ There's a few special files in the hierarchy.
 
 I forked [Zach Holman](http://github.com/holman)' excellent
 [dotfiles](http://github.com/holman/dotfiles) and started to personalize them. 
+
 I loved the organization per topic - here you can [read more about it](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/)
 
 
