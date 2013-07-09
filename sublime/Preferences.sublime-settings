@@ -1,7 +1,16 @@
 // Settings in here override those in "Default/Preferences.sublime-settings", and
 // are overridden in turn by file type specific settings.
 {
+  "bold_folder_labels": true,
+  "caret_style": "phase",
   "color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
+  "ensure_newline_at_eof_on_save": true,
+  "highlight_line": true,
+  "highlight_modified_tabs": true,
   "ignored_packages": [],
-  "theme": "Flatland Dark.sublime-theme"
+  "indent_to_bracket": true,
+  "tab_size": 2,
+  "theme": "Flatland Dark.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true
 }
