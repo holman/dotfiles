@@ -11,10 +11,9 @@ helper = /opt/boxen/bin/boxen-git-credential
   st   = status
   br   = branch
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  
 
 [core]
-  excludesfile = /opt/boxen/config/git/gitignore
   excludesfile = /opt/boxen/config/git/gitignore
 
 [hub]
