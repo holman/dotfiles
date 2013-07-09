@@ -12,5 +12,6 @@
   "tab_size": 2,
   "theme": "Flatland Dark.sublime-theme",
   "translate_tabs_to_spaces": true,
+  "trailing_spaces_trim_on_save": true,
   "trim_trailing_white_space_on_save": true
 }
