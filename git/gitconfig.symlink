@@ -8,7 +8,8 @@ helper = /opt/boxen/bin/boxen-git-credential
 [alias]
   co   = checkout
   ci   = commit
-  st   = status
+  cm   = commit -m
+  st   = status -v
   br   = branch
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  
