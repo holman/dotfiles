@@ -1,0 +1,14 @@
+{
+    "scope": "source.sublimesnippetraw",
+
+    "completions": [
+        { "trigger": "f", "contents": "\\$${1:field_name}" },
+        { "trigger": "i", "contents": "\\$${1:field_name}" },
+
+        { "trigger": "ff", "contents": "\\${${1:1}:${2:some_text}}" },
+        { "trigger": "ii", "contents": "\\${${1:1}:${2:some_text}}" },
+
+        { "trigger": "fff", "contents": "\\${${1:1}/${2:search_text}/${3:replacement_text}/$4}$0" },
+        { "trigger": "iii", "contents": "\\${${1:1}/${2:search_text}/${3:replacement_text}/$4}$0" }
+    ]
+}

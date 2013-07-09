@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: MozRepl",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_mozrepl",
+            "file": "config/MozRepl/Main.sublime-menu"
+        }
+    }
+]

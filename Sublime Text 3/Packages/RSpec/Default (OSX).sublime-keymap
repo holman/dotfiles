@@ -1,0 +1,12 @@
+[
+	{ "keys": ["super+alt+b"],
+		"command": "exec",
+		"args": {"cmd": ["rspec", "*"]},
+		"file_regex": "# ([A-Za-z0-9_./ ]+rb):([0-9]+)",
+		"working_dir": "${folder}"
+	},
+
+	{ "keys": ["super+period"], "command": "open_rspec_file", "args": {} },
+
+	{ "keys": ["super+alt+n"], "command": "rspec_create_module", "args": {} }
+]

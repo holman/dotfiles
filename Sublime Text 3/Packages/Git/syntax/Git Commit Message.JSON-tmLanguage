@@ -1,0 +1,21 @@
+{ "name": "Git Commit Message",
+  "scopeName": "text.git-commit", 
+  "fileTypes": ["COMMIT_EDITMSG"], 
+  "patterns": [
+    { "name": "comment.line.number-sign.git-commit",
+      "match": "^\\s*(#).*$\n?",
+      "captures": {
+        "1": { "name": "punctuation.definition.comment.git-commit" }
+      }
+    },
+    { "name": "meta.diff.git-commit",
+      "comment": "diff at the end of the commit message when using commit -v, or viewing a log. End pattern is just something to be never matched so that the meta continues untill the end of the file.",
+      "begin": "diff\\ \\-\\-git",
+      "end": "(?=xxxxxx)123457",
+      "patterns": [
+        { "include": "source.diff" }
+      ]
+    }
+  ],
+  "uuid": "de3fb2fc-e564-4a31-9813-5ee26967c5c8"
+}

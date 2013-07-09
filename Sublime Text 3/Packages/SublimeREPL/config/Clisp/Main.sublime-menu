@@ -1,0 +1,26 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                "id": "repl_clisp",
+                 "caption": "Clisp",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["clisp", "-disable-readline"],
+                    "cwd": "$file_path",
+                    "syntax": "Packages/Lisp/Lisp.tmLanguage",
+                    "external_id": "lisp"
+                    }
+                }
+            ]
+        }]
+    }
+]

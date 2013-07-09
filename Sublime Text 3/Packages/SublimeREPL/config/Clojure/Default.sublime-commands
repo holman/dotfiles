@@ -1,0 +1,18 @@
+[
+    {
+        "caption": "SublimeREPL: Clojure",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_clojure",
+            "file": "config/Clojure/Main.sublime-menu"
+        }
+    },
+    {
+        "caption": "SublimeREPL: Clojure-Telnet",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_clojure_telnet",
+            "file": "config/Clojure/Main.sublime-menu"
+        }
+    }
+]

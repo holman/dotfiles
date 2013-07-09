@@ -1,0 +1,31 @@
+{ "name": "Git Graph",
+  "scopeName": "text.git-graph",
+  "fileTypes": ["git-graph"],
+  "patterns": [
+    { "match": "^([| *\\\\]+)([0-9a-f]{4,40}) (.*?) (\\d{4}-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d [+-]\\d{4}) (?:\\(((?:[a-zA-Z0-9._\\-\\/]+(?:, )?)+)\\) )?",
+      "name": "log-entry.git-graph",
+      "captures": {
+        "1": {"name": "comment.git-graph"            },
+        "2": {"name": "string.git-graph"             },
+        "3": {"name": "support.function.git-graph"   },
+        "4": {"name": "constant.numeric.git-graph"   },
+        "5": {"name": "variable.parameter.git-graph" }
+      }
+    },
+    { "match": "^\\|[\\|_\\/\\\\ ]+\n?$",
+      "name": "comment.git-graph",
+      "comment": "lines with no commit details"
+    },
+    { "match": "(?:[Ff]ix(?:e[ds])?|[Rr]esolve[ds]?|[Cc]lose[ds]?)?\\s*(?:#\\d+|\\[.*?\\])",
+      "name": "keyword.git-graph",
+      "comment": "issue numbers"
+    },
+    { "match": "Merge branch '(.*?)' of .*?\n?$",
+      "name": "comment.git-graph",
+      "captures": {
+        "1": {"name": "variable.parameter.git-graph"}
+      }
+    }
+  ],
+  "uuid": "b900521e-af64-471b-aec8-1ecf88aab595"
+}

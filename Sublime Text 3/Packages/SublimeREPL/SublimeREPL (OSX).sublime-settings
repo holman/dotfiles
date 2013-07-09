@@ -1,0 +1,4 @@
+{
+	// Add to PATH /usr/local/bin by default on OSX. 
+	"default_extend_env": {"PATH": "{PATH}:/usr/local/bin"}
+}

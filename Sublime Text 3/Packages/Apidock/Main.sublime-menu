@@ -1,0 +1,64 @@
+[
+    {
+        "caption": "Tools",
+        "mnemonic": "t",
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "ApiDock Search",
+                "mnemonic": "f",
+                "id": "apidocksearch",
+                "children":
+                [
+                  {
+                    "caption": "Ruby",
+                    "id": "apidockrubysearch",
+                    "children":
+                    [
+                      {
+                          "command": "apidock_ruby_search_selection",
+                          "caption": "From Selection"
+                      },
+                      {
+                          "command": "apidock_ruby_search_from_input",
+                          "caption": "From Input"
+                      }
+                    ]
+                  },
+                  {
+                    "caption": "Rails",
+                    "id": "apidockrailssearch",
+                    "children":
+                    [
+                      {
+                          "command": "apidock_rails_search_selection",
+                          "caption": "From Selection"
+                      },
+                      {
+                          "command": "apidock_rails_search_from_input",
+                          "caption": "From Input"
+                      }
+                    ]
+                  },
+                  {
+                    "caption": "Rspec",
+                    "id": "apidockrspecsearch",
+                    "children":
+                    [
+                      {
+                          "command": "apidock_rspec_search_selection",
+                          "caption": "From Selection"
+                      },
+                      {
+                          "command": "apidock_rspec_search_from_input",
+                          "caption": "From Input"
+                      }
+                    ]
+                  }
+
+                ]
+            }
+        ]
+    }
+]

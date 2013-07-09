@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                "id": "repl_erlang",
+                 "caption": "Erlang",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["erl", "-i"],
+                    "cwd": "$file_path",
+                    "syntax": "Packages/Erlang/Erlang.tmLanguage",
+                    "external_id": "erlang",
+                    "extend_env": {"NODE_DISABLE_COLORS": "1"}
+                    }
+                }
+            ]   
+        }]
+    }
+]

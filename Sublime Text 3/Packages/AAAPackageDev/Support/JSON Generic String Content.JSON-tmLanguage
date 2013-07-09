@@ -1,0 +1,16 @@
+{ "name": "JSON String Content",
+  "scopeName": "source.jsonstring",
+  "patterns": [
+  	{ "include": "#escapeSequence" },
+    {  "name": "string.double.quoted.jsonstring",
+       "match": ".+?"
+    }
+  ],
+  "repository": {
+  	"escapeSequence": {
+  		"match": "\\\\(?:\"|/|\\\\|[bnfrt]|u[0-9a-fA-F]{4})",
+  		"name": "entity.other.attribute-name.jsonstring"
+  	}
+  },
+  "uuid": "b94a984c-7a66-4c96-a828-dc8e7a6dafe7"
+}

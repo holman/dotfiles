@@ -1,0 +1,29 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                // {"command": "repl_open", 
+                //  "caption": "Command Caption in Menu",
+                //  "mnemonic": "m",
+                //  "args": {
+                //     "type": "subprocess|telnet",
+                //     "encoding": "utf8",
+                //     "cmd": ["bash", "-i"] or "bash -i" on windows,
+                //     "cwd": "$file_path",
+                //     "env": {}, // clean environment for subprocess repl
+                //     "extend_env": {}, // variables to be added to standard env
+                //     "cmd_postfix": "\n", // postfix that will be automatically added after a line in repl
+                //     "suppress_echo": false, // try to remove remote echo 
+                //     "syntax": "Packages/Text/Plain text.tmLanguage"
+                //     }
+                // },
+            ]   
+        }]
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: PowerShell",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_powershell",
+            "file": "config/PowerShell/Main.sublime-menu"
+        }
+    }
+]

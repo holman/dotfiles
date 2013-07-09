@@ -1,0 +1,4 @@
+[
+	{ "keys": ["ctrl+f12", "c", "s"], "command": "run_existing_window_command", "args": {"id": "repl_clojure", "file": "config/Clojure/Main.sublime-menu"}},
+	{ "keys": ["ctrl+f12", "c", "t"], "command": "run_existing_window_command", "args": {"id": "repl_clojure_telnet", "file": "config/Clojure/Main.sublime-menu"}}
+]

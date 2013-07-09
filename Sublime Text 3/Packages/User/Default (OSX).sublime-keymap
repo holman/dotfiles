@@ -1,0 +1,4 @@
+[
+    { "keys": ["super+alt+]"], "command": "align_assignments" },
+    { "keys": ["super+shift+x"], "command": "xml_prettify" }
+]

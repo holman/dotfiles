@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Erlang",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_erlang",
+            "file": "config/Erlang/Main.sublime-menu"
+        }
+    }
+]

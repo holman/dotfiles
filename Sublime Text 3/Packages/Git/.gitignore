@@ -1,0 +1,4 @@
+*.pyc
+*.tmLanguage.cache
+.DS_Store
+package-metadata.json

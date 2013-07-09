@@ -1,0 +1,82 @@
+{ "name": "Sublime Text Commands",
+
+  "scopeName": "source.sublimecommands",
+
+  "fileTypes": ["sublime-commands"],
+
+  "patterns": [
+      { "begin": "(\\[)",
+        "beginCaptures": {
+            "1": { "name": "punctuation.definition.collection.start.sublimecommands" }
+        },
+        "end": "(\\])",
+        "endCaptures": {
+            "1": { "name": "punctuation.definition.collection.end.sublimecommands" }
+        },
+
+        "patterns": [
+            { "include": "#command" },
+            { "include": "#args" },
+            { "match": "(?<!\\}),",
+              "name": "invalid.illegal.definition.sublimecommands"
+            },
+            { "match": ",{2,}",
+              "name": "invalid.illegal.definition.sublimecommands"
+            },
+            { "match": "[^,\t\\s]",
+              "name": "invalid.illegal.definition.sublimecommands"
+            },
+            {  "name": "invalid.illegal.definition.sublimecommands",
+               "match": ",(?>$\\s+\\])",
+               "comment": "XXX"
+            }
+        ]
+      }
+  ],
+
+  "repository": {
+
+      "args": {
+        "begin": "\"(args)\"\\s*:",
+        "beginCaptures": {
+            "1": { "name": "keyword.other.sublimecommands"}
+        },
+        "end": "(?<=\\})",
+        "name": "meta.definition.attached.command.arguments.sublimecommands",
+        "patterns": [
+            { "include": "source.jsongenericarray"
+            },
+            { "match": "\"([a-zA-Z0-9_]+)\"\\s*:",
+              "captures": {
+                  "1": { "name": "support.function.array.generic.key.sublimecommands" }
+              }
+            },
+            { "include": "source.jsongenericarrayelements"
+            },
+            { "match": "true|false|\\d+",
+              "name": "constant.numeric.sublimecommands"
+            },
+
+            { "match": "\\{",
+              "name": "punctuation.definition.array.keybinding.key.sequence"
+            }
+        ]
+      },
+
+      "command": {
+        "begin": "\\{",
+        "end": "\\}",
+        "patterns": [
+          { "match": "\"(command|caption)\":\\s*\"([^\"]+)\"",
+            "captures": {
+              "1": { "name": "keyword.other.sublimecommands" },
+              "2": { "name": "string.attached.command.name.sublimecommands" }
+            }
+          },
+          { "include": "#args" }
+        ]
+      }
+  },
+
+  "uuid": "f56e1baa-51fc-4791-a9d9-21301f2e3a01"
+}

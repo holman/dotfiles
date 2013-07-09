@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA[{ "include": "${1:#someElement}" }$0]]></content>
+    <tabTrigger>include</tabTrigger>
+    <scope>source.json-tmlanguage</scope>
+</snippet>

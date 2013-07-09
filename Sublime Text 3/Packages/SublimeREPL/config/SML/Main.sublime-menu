@@ -1,0 +1,26 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "caption": "SML",
+                 "id": "repl_sml",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["sml"],
+                    "cwd": "$file_path",
+                    "external_id": "sml",
+                    "syntax": "Packages/SML/SML.tmLanguage"
+                    }
+                }
+            ]
+        }]
+    }
+]

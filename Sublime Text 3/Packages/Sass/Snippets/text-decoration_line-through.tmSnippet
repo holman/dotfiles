@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>text-decoration: ${TM_CSS_SPACE}line-through$0</string>
+	<key>name</key>
+	<string>text-decoration:line-through</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>tabTrigger</key>
+	<string>td:l</string>
+	<key>uuid</key>
+	<string>197BA76C-CC12-4E87-AADB-C8B31ED1BD91
+</string>
+</dict>
+</plist>

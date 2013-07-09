@@ -1,0 +1,8 @@
+{
+  "scope": "context.operator.name.sublimekeymap",
+
+  "completions": [
+      "true",
+      "false"
+  ]
+}

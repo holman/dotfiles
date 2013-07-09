@@ -1,0 +1,31 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "caption": "Node",
+                 "id": "repl_node",
+                 "mnemonic": "n",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": {"linux": ["node", "${packages}/SublimeREPL/config/NodeJS/repl.js"],
+                            "osx": ["node", "${packages}/SublimeREPL/config/NodeJS/repl.js"],
+                            "windows": ["node.exe", "${packages}/SublimeREPL/config/NodeJS/repl.js"]},
+                    "cwd": "$file_path",
+                    "syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+                    "external_id": "js",
+                    "autocomplete_server": true,
+                    "extend_env": {"NODE_NO_READLINE": 1}
+                    }
+                }
+            ]
+        }]
+    }
+]

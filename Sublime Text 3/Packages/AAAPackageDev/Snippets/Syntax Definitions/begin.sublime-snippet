@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[{ "name": "${1:string.quoted.double.untitled}",
+  "begin": "$2",
+  "end": "$3"
+}
+]]></content>
+    <tabTrigger>begin</tabTrigger>
+    <scope>source.json-tmlanguage</scope>
+</snippet>

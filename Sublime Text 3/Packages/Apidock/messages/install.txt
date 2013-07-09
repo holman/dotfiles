@@ -1,0 +1,7 @@
+Search plugin for ApiDock.com (Ruby, Rails, Rspec)
+
+Please direct any feedback to me@artemk.name or through github at https://github.com/artemk/Sublime-Apidock
+
+Have fun.
+
+Artem Kramarenko

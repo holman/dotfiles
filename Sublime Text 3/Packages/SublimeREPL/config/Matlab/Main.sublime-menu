@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "caption": "Matlab",
+                 "id": "repl_matlab",
+                 "mnemonic": "m",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["matlab", "-nodesktop","-nosplash"],
+                    "cwd": "$file_path",
+                    "external_id": "matlab",
+                    "syntax": "Packages/Matlab/Matlab.tmLanguage"
+                    }
+                }
+            ]
+        }]
+    }
+]

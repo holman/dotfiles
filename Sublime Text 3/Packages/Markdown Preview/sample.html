@@ -1,0 +1,141 @@
+<h1 id="sample-markdown-cheat-sheet">Sample Markdown Cheat Sheet</h1>
+
+<p>This is a sample markdown file to help you write Markdown quickly :)</p>
+
+<p>If you use the fabulous <a href="http://sublimetext.com">Sublime Text 2 editor</a> along with the <a href="https://github.com/revolunet/sublimetext-markdown-preview">Markdown Preview plugin</a>, open your ST2 Palette with <code>CMD+P</code> then choose <code>Markdown Preview in browser</code> to see the result in your browser.</p>
+
+<h2 id="text-basics">Text basics</h2>
+
+<p>this is <em>italic</em> and this is <strong>bold</strong> .  another <em>italic</em> and another <strong>bold</strong></p>
+
+<p>this is <code>important</code> text. and percentage signs : % and <code>%</code></p>
+
+<p>This is a paragraph with a footnote (builtin parser only). <sup class="footnote-ref" id="fnref-note-id"><a href="#fn-note-id">1</a></sup> </p>
+
+<p>Insert <code>[ toc ]</code> without spaces to generate a table of contents (builtin parser only).</p>
+
+<h2 id="indentation">Indentation</h2>
+
+<blockquote>
+  <p>Here is some indented text</p>
+  
+  <blockquote>
+    <p>even more indented</p>
+  </blockquote>
+</blockquote>
+
+<h2 id="titles">Titles</h2>
+
+<h1 id="big-title-h1">Big title (h1)</h1>
+
+<h2 id="middle-title-h2">Middle title (h2)</h2>
+
+<h3 id="smaller-title-h3">Smaller title (h3)</h3>
+
+<h4 id="and-so-on-hx">and so on (hX)</h4>
+
+<h5 id="and-so-on-hx-2">and so on (hX)</h5>
+
+<h6 id="and-so-on-hx-3">and so on (hX)</h6>
+
+<h2 id="example-lists-1">Example lists (1)</h2>
+
+<ul>
+<li>bullets can be <code>-</code>, <code>+</code>, or <code>*</code></li>
+<li>bullet list 1</li>
+<li><p>bullet list 2</p>
+
+<ul>
+<li>sub item 1</li>
+<li><p>sub item 2</p>
+
+<p>with indented text inside</p></li>
+</ul></li>
+<li><p>bullet list 3</p></li>
+<li>bullet list 4</li>
+<li>bullet list 5</li>
+</ul>
+
+<h2 id="links">Links</h2>
+
+<p>This is an <a href="http://lmgtfy.com/">example inline link</a> and <a href="http://lmgtfy.com/" title="Hello, world">another one with a title</a>.</p>
+
+<p>Links can also be reference based : <a href="http://revolunet.com">reference 1</a> or <a href="http://revolunet.com" title="rich web apps">reference 2 with title</a>.</p>
+
+<p>References are usually placed at the bottom of the document</p>
+
+<h2 id="images">Images</h2>
+
+<p>A sample image :</p>
+
+<p><img src="http://www.revolunet.com/static/parisjs8/img/logo-revolunet-carre.jpg" alt="revolunet logo" title="revolunet logo" /></p>
+
+<p>As links, images can also use references instead of inline links :</p>
+
+<p><img src="http://www.revolunet.com/static/parisjs8/img/logo-revolunet-carre.jpg" alt="revolunet logo" title="revolunet logo" /></p>
+
+<h2 id="code">Code</h2>
+
+<p>It's quite easy to show code in markdown files.</p>
+
+<p>Backticks can be used to <code>highlight</code> some words.</p>
+
+<p>Also, any indented block is considered a code block.</p>
+
+<pre><code>&lt;script&gt;
+    document.location = 'http://lmgtfy.com/?q=markdown+cheat+sheet';
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="github-flavored-markdown">GitHub Flavored Markdown</h2>
+
+<p>If you use the Github parser, you can use some of <a href="http://github.github.com/github-flavored-markdown/">Github Flavored Markdown</a> syntax :</p>
+
+<ul>
+<li>User/Project@SHA: revolunet/sublimetext-markdown-preview@7da61badeda468b5019869d11000307e07e07401</li>
+<li>User/Project#Issue: revolunet/sublimetext-markdown-preview#1</li>
+<li>User : @revolunet</li>
+</ul>
+
+<p>Some Python code :</p>
+
+<pre><code>import random
+
+class CardGame(object):
+    """ a sample python class """
+    NB_CARDS = 32
+    def __init__(self, cards=5):
+        self.cards = random.sample(range(self.NB_CARDS), 5)
+        print 'ready to play'
+</code></pre>
+
+<p>Some Javascript code :</p>
+
+<pre><code>var config = {
+    duration: 5,
+    comment: 'WTF'
+}
+// callbacks beauty un action
+async_call('/path/to/api', function(json) {
+    another_call(json, function(result2) {
+        another_another_call(result2, function(result3) {
+            another_another_another_call(result3, function(result4) {
+                alert('And if all went well, i got my result :)');
+            });
+        });
+    });
+})
+</code></pre>
+
+<h2 id="about">About</h2>
+
+<p>This plugin and this sample file is proudly brought to you by the <a href="http://revolunet.com">revolunet team</a></p>
+
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn-note-id">
+<p>This is the text of the note.&nbsp;<a href="#fnref-note-id" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
+</li>
+</ol>
+</div>

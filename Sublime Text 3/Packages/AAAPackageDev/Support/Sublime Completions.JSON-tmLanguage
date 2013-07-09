@@ -1,0 +1,92 @@
+{ "name": "Sublime Completions",
+
+  "scopeName": "source.sublimecompletions",
+
+  "fileTypes": ["sublime-completions"],
+
+  "patterns": [
+  	{ "include": "#completionsDict" }
+  ],
+
+  "repository": {
+
+  	"completionsDict": {
+  		"begin": "\\{",
+  		"end": "\\}",
+  		"contentName": "meta.completions.dictionary.sublimecompletions",
+  		"patterns": [
+  			{ "include": "#scope" },
+        { "include": "#completionsList" }
+      ]
+  	},
+
+  	"scope": {
+  		"match": "\"(scope)\"\\s*?:\\s*?\"([a-zA-Z0-9. ,-]+)\"",
+  		"captures": {
+  		    "1": { "name": "keyword.key.sublimecompletions" },
+  		    "2": { "name": "string.scope.selector.sublimecompletions" }
+  		}
+  	},
+
+    "completionsList": {
+      "begin": "\"(completions)\"\\s*?:\\s*?",
+      "beginCaptures": {
+        "1" : { "name": "keyword.key.sublimecompletions" }
+      },
+      "end": "(?<=\\])",
+      "contentName": "meta.completions.array.sublimecompletions",
+      "patterns": [
+        { "match": "\\[" },
+        { "include": "#triggerCompletion" },
+        { "include": "#simpleCompletion" }
+      ]
+    },
+
+    "simpleCompletion": {
+      "match": "\"([a-zA-Z0-9_.]+)\"",
+      "captures": {
+          "1": { "name": "string.completion.simple.sublimecompletions" }
+      }
+    },
+
+    "triggerCompletion": {
+      "begin": "\\{",
+      "end": "\\}",
+      "contentName": "meta.completion.trigger-based.sublimecompletions",
+      "patterns": [
+        {  "match": "\"(trigger)\"\\s*?:\\s*?\"([a-zA-Z0-9_.-]+)\"",
+           "captures": {
+               "1": { "name": "support.function.key.sublimecompletions" },
+               "2": { "name": "string.trigger.name.sublimecompletions" }
+           }
+        },
+
+        { "begin": "\"(contents)\"\\s*?:\\s*?\"",
+          "end": "\"",
+          "beginCaptures": {
+            "1": { "name": "support.function.key.sublimecompletions" }
+          },
+          "comment": "XXX: rules below are becoming a mess. escaped $ does not work at the moment after escaped backslashes.",
+          "patterns": [
+            {  "name": "constant.character.escape.sequence.snippet.sublimecompletions",
+               "match": "\\\\\\\\(?:\\$)"
+            },
+            {  "name": "entity.other.attribute-name.escape.sequence.json.sublimecompletions",
+               "match": "\\\\(?:[tvbarn\"\\\\])"
+            },
+            {  "name": "invalid.illegal.unescaped.characters.sublimecompletions",
+               "match": "\\$(?!\\{|[0-9A-Za-z])"
+            },
+            { "include": "source.sublimesnippetraw" },
+            {  "name": "string.snippet.sublimecompletions",
+               "match": ".*?"
+            }
+          ],
+          "contentName": "source.sublimesnippetraw"
+        }
+      ]
+    }
+  },
+
+  "uuid": "3abbb928-3b6a-49b9-903f-150c021accb2"
+}

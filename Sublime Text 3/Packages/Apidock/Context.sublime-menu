@@ -1,0 +1,20 @@
+[
+    {
+        "caption": "ApiDock",
+        "children":
+        [
+            {
+                "command": "apidock_ruby_search_selection",
+                "caption": "Ruby"
+            },
+            {
+                "command": "apidock_rails_search_selection",
+                "caption": "Rails"
+            },
+            {
+                "command": "apidock_rspec_search_selection",
+                "caption": "Rspec"
+            }
+        ]
+    }
+]

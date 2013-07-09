@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>spec.rb</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>(?x)^
+	    (\s*+
+	        (module|class|def
+	        |background|feature|subscribe
+	        |before|describe|it
+	        |unless|if
+	        |case
+	        |begin
+	        |for|while|until
+			 |^=begin
+	        |(  "(\\.|[^"])*+"          # eat a double quoted string
+	         | '(\\.|[^'])*+'        # eat a single quoted string
+	         |   [^#"']                # eat all but comments and strings
+	         )*
+	         (                        \s   (do|begin|case)
+	         | (?&lt;!\$)[-+=&amp;|*/~%^&lt;&gt;~] \s*+ (if|unless)
+	         )
+	        )\b
+	        (?! [^;]*+ ; .*? \bend\b )
+	    |(  "(\\.|[^"])*+"              # eat a double quoted string
+	     | '(\\.|[^'])*+'            # eat a single quoted string
+	     |   [^#"']                    # eat all but comments and strings
+	     )*
+	     ( \{ (?!  [^}]*+ \} )
+	     | \[ (?! [^\]]*+ \] )
+	     )
+	    ).*$
+	|   [#] .*? \(fold\) \s*+ $         # Sune’s special marker
+	</string>
+	<key>foldingStopMarker</key>
+	<string>(?x)
+		(   (^|;) \s*+ end   \s*+ ([#].*)? $
+		|   (^|;) \s*+ end \. .* $
+		|   ^     \s*+ [}\]] \s*+ ([#].*)? $
+		|   [#] .*? \(end\) \s*+ $    # Sune’s special marker
+		|   ^=end
+		)</string>
+	<key>keyEquivalent</key>
+	<string>^~R</string>
+	<key>name</key>
+	<string>RSpec</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\.)\b(before|after|subject|let)\b(?![?!])</string>
+			<key>name</key>
+			<string>keyword.other.rspec</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#behaviour</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#single-line-example</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#pending</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#example</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>source.ruby</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>behaviour</key>
+		<dict>
+			<key>begin</key>
+			<string>^\s*(describe|context)\b</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.rspec.behaviour</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\b(do(?=\s*$))|{</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.ruby.start-block</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.rspec.behaviour</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.ruby</string>
+				</dict>
+			</array>
+		</dict>
+		<key>example</key>
+		<dict>
+			<key>begin</key>
+			<string>^\s*(it|specify)\b</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.rspec.example</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\b(do(?=\s*$))|{</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.ruby.start-block</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.rspec.example</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.ruby</string>
+				</dict>
+			</array>
+		</dict>
+		<key>pending</key>
+		<dict>
+			<key>begin</key>
+			<string>^\s*(it|specify)\b(?=((?!do|{).)*$)</string>
+			<key>end</key>
+			<string>$</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.rspec.pending</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.ruby</string>
+				</dict>
+			</array>
+			<key>name</key>
+			<string>meta.rspec.pending</string>
+		</dict>
+		<key>single-line-example</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.rspec.example</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(it|specify)\s*{</string>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.ruby.rspec</string>
+	<key>uuid</key>
+	<string>923F0A10-96B9-4792-99A4-94FEF66E0B8C</string>
+</dict>
+</plist>

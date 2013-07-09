@@ -1,0 +1,18 @@
+[
+    {
+        "caption": "SublimeREPL: Ruby",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_ruby",
+            "file": "config/Ruby/Main.sublime-menu"
+        }
+    },
+    {
+        "caption": "SublimeREPL: Ruby IRB (deprecated)",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_ruby_irb",
+            "file": "config/Ruby/Main.sublime-menu"
+        }
+    }
+]

@@ -1,0 +1,125 @@
+[
+    {
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Git",
+                "children":
+                [
+                    {
+                        "caption": "This file",
+                        "children":
+                        [
+                             { "caption": "Log", "command": "git_log" }
+                            ,{ "caption": "Graph", "command": "git_graph" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Diff", "command": "git_diff" }
+                            ,{ "caption": "DiffTool", "command": "git_diff_tool" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Add", "command": "git_add" }
+                            ,{ "caption": "Add Selected Hunk", "command": "git_add_selected_hunk" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Reset", "command": "git_reset_head" }
+                            ,{ "caption": "Checkout (Discard Changes)", "command": "git_checkout" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Quick Commit Current File", "command": "git_quick_commit" }
+                            ,{ "caption": "Commit Selected Hunk", "command": "git_commit_selected_hunk" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Blame", "command": "git_blame" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Toggle Annotations", "command": "git_toggle_annotations" }
+                        ]
+                    }
+                    ,{
+                        "caption": "Whole repo",
+                        "children":
+                        [
+                             { "caption": "Log", "command": "git_log_all" }
+                            ,{ "caption": "Graph", "command": "git_graph_all" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Diff", "command": "git_diff_all" }
+                            ,{ "caption": "Diff Staged", "command": "git_diff_commit" }
+                            ,{ "caption": "Diff Tool", "command": "git_diff_tool_all" }
+                            ,{ "caption": "Reset Hard", "command": "git_reset_hard_head" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Add...", "command": "git_add_choice" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Reset", "command": "git_reset_head_all" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Commit", "command": "git_commit" }
+                            ,{ "caption": "Amend Last Commit", "command": "git_commit_amend" }
+                            ,{ "caption": "-" }
+                            ,{ "caption": "Open...", "command": "git_open_file" }
+                        ]
+                    }
+                    ,{
+                        "caption": "Stash",
+                        "children":
+                        [
+                             { "caption": "Save", "command": "git_stash" }
+                            ,{ "caption": "Pop", "command": "git_stash_pop" }
+                            ,{ "caption": "Apply", "command": "git_stash_apply" }
+                            ,{ "caption": "Drop", "command": "git_stash_drop" }
+                        ]
+                    }
+                    ,{ "caption": "-" }
+                    ,{
+                        "caption": "Flow",
+                        "children":
+                        [
+                            { "caption": "Feature Start", "command": "git_flow_feature_start"}
+                            ,{ "caption": "Feature Finish", "command": "git_flow_feature_finish"}
+                            ,{ "caption": "-"}
+                            ,{ "caption": "Release Start", "command": "git_flow_release_start"}
+                            ,{ "caption": "Release Finish", "command": "git_flow_release_finish"}
+                            ,{ "caption": "-"}
+                            ,{ "caption": "Hotfix Start", "command": "git_flow_hotfix_start"}
+                            ,{ "caption": "Hotfix Finish", "command": "git_flow_hotfix_finish"}
+                        ]
+                    }
+                    ,{ "caption": "-" }
+                    ,{ "caption": "Init", "command": "git_init"}
+                    ,{ "caption": "Status...", "command": "git_status" }
+                    ,{ "caption": "Branches...", "command": "git_branch" }
+                    ,{ "caption": "Merge...", "command": "git_merge" }
+                    ,{ "caption": "See commit history...", "command": "git_commit_history"}
+                ]
+            }
+        ]
+    }
+
+    ,{
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "Git",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/Git/Git.sublime-settings"},
+                                "caption": "Settings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/User/Git.sublime-settings"},
+                                "caption": "Settings – User"
+                            },
+                            { "caption": "-" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

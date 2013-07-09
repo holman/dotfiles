@@ -1,0 +1,138 @@
+{
+	"scope": "source.off",
+
+	"completions": [
+
+		{ "trigger": "sublime", "contents": "sublime" },
+		{ "trigger": "sublime_plugin", "contents": "sublime_plugin" },
+
+
+		{"trigger": "set_timeout", "contents": "set_timeout(${1:callback}, ${2:delay})" },
+		{"trigger": "status_message", "contents": "status_message(${1:string})" },
+		{"trigger": "error_message", "contents": "error_message(${1:string})" },
+		{"trigger": "load_settings", "contents": "load_settings(${1:base_name})" },
+		{"trigger": "save_settings", "contents": "save_settings(${1:base_name})" },
+		{"trigger": "windows", "contents": "windows()" },
+		{"trigger": "active_window", "contents": "active_window()" },
+		{"trigger": "packages_path", "contents": "packages_path()" },
+		{"trigger": "installed_packages_path", "contents": "installed_packages_path()" },
+		{"trigger": "get_clipboard", "contents": "get_clipboard()" },
+		{"trigger": "set_clipboard", "contents": "set_clipboard(${1:string})" },
+		{"trigger": "log_commands", "contents": "log_commands(${1:flag})" },
+
+
+		{ "trigger": "id", "contents": "id()" },
+		{ "trigger": "buffer_id", "contents": "buffer_id()" },
+		{ "trigger": "file_name", "contents": "file_name()" },
+		{ "trigger": "name", "contents": "name()" },
+		{ "trigger": "set_name", "contents": "set_name(${1:name})" },
+		{ "trigger": "is_loading", "contents": "is_loading()" },
+		{ "trigger": "is_dirty", "contents": "is_dirty()" },
+		{ "trigger": "is_read_only", "contents": "is_read_only()" },
+		{ "trigger": "set_read_only", "contents": "set_read_only(${1:value})" },
+		{ "trigger": "is_scratch", "contents": "is_scratch()" },
+		{ "trigger": "set_scratch", "contents": "set_scratch(${1:value})" },
+		{ "trigger": "settings", "contents": "settings()" },
+		{ "trigger": "window", "contents": "window()" },
+		{ "trigger": "run_command", "contents": "run_command(${1:string}, ${2:<args>})" },
+		{ "trigger": "size", "contents": "size()" },
+		{ "trigger": "substr", "contents": "substr(${1:region or point})" },
+		{ "trigger": "begin_edit", "contents": "begin_edit(${1:<command>}, ${2:<args>})" },
+		{ "trigger": "end_edit", "contents": "end_edit(${1:edit})" },
+		{ "trigger": "insert", "contents": "insert(${1:edit}, ${2:point}, ${3:string})" },
+		{ "trigger": "erase", "contents": "erase(${1:edit}, ${2:region})" },
+		{ "trigger": "replace", "contents": "replace(${1:edit}, ${2:region}, ${3:string})" },
+		{ "trigger": "sel", "contents": "sel()" },
+		{ "trigger": "line", "contents": "line(${1:point or region})" },
+		{ "trigger": "full_line", "contents": "full_line(${1:point or region})" },
+		{ "trigger": "lines", "contents": "lines(${1:region})" },
+		{ "trigger": "split_by_newlines", "contents": "split_by_newlines(${1:region})" },
+		{ "trigger": "word", "contents": "word(${1:point or region})" },
+		{ "trigger": "find", "contents": "find(${1:pattern}, ${2:fromPosition}, ${3:<flags>})" },
+		{ "trigger": "find_all", "contents": "find_all(${1:pattern}, ${2:<flags>}, ${3:<format>}, ${4:<extractions>})" },
+		{ "trigger": "rowcol", "contents": "rowcol(${1:point})" },
+		{ "trigger": "text_point", "contents": "text_point(${1:row}, ${2:col})" },
+		{ "trigger": "set_syntax_file", "contents": "set_syntax_file(${1:syntax_file})" },
+		{ "trigger": "extract_scope", "contents": "extract_scope(${1:point})" },
+		{ "trigger": "scope_name", "contents": "scope_name(${1:point})" },
+		{ "trigger": "match_selector", "contents": "match_selector(${1:point}, ${2:selector})" },
+		{ "trigger": "show", "contents": "show(${1:point or region or region_set}, ${2:<show_surrounds>})" },
+		{ "trigger": "show_at_center", "contents": "show_at_center(${1:point or region})" },
+		{ "trigger": "visible_region", "contents": "visible_region()" },
+		{ "trigger": "add_regions", "contents": "add_regions(${1:key}, [${2:regions}], ${3:scope}, ${4:<icon>}, ${5:<flags>})" },
+		{ "trigger": "DRAW_EMPTY", "contents": "DRAW_EMPTY" },
+		{ "trigger": "HIDE_ON_MINIMAP", "contents": "HIDE_ON_MINIMAP" },
+		{ "trigger": "DRAW_EMPTY_AS_OVERWRITE", "contents": "DRAW_EMPTY_AS_OVERWRITE" },
+		{ "trigger": "DRAW_OUTLINED", "contents": "DRAW_OUTLINED" },
+		{ "trigger": "PERSISTENT", "contents": "PERSISTENT" },
+		{ "trigger": "HIDDEN", "contents": "HIDDEN" },
+		{ "trigger": "get_regions", "contents": "get_regions(${1:key})" },
+		{ "trigger": "erase_regions", "contents": "erase_regions(${1:key})" },
+		{ "trigger": "set_status", "contents": "set_status(${1:key}, ${2:value})" },
+		{ "trigger": "get_status", "contents": "get_status(${1:key})" },
+		{ "trigger": "erase_status", "contents": "erase_status(${1:key})" },
+
+
+		{ "trigger": "clear", "contents": "clear()" },
+		{ "trigger": "add", "contents": "add(${1:region})" },
+		{ "trigger": "add_all", "contents": "add_all(${1:region_set})" },
+		{ "trigger": "subtract", "contents": "subtract(${1:region})" },
+		{ "trigger": "contains", "contents": "contains(${1:region})" },
+
+		
+		{ "trigger": "Region", "contents": "Region(${1:a}, ${2:b})" },
+
+
+		{ "trigger": "begin", "contents": "begin()" },
+		{ "trigger": "end", "contents": "end()" },
+		{ "trigger": "size", "contents": "size()" },
+		{ "trigger": "empty", "contents": "empty()" },
+		{ "trigger": "cover", "contents": "cover(${1:region})" },
+		{ "trigger": "intersection", "contents": "intersection(${1:region})" },
+		{ "trigger": "intersects", "contents": "intersects(${1:region})" },
+		{ "trigger": "contains", "contents": "contains(${1:region})" },
+		{ "trigger": "contains", "contents": "contains(${1:point})" },
+		
+		
+		{ "trigger": "id", "contents": "id()" },
+		{ "trigger": "new_file", "contents": "new_file()" },
+		{ "trigger": "open_file", "contents": "open_file(file_name, <flags>)" },
+		{ "trigger": "ENCODED_POSITION", "contents": "ENCODED_POSITION" },
+		{ "trigger": "TRANSIENT", "contents": "TRANSIENT" },
+		{ "trigger": "active_view", "contents": "active_view()" },
+		{ "trigger": "run_command", "contents": "run_command(string, <args>)" },
+		{ "trigger": "show_input_panel", "contents": "show_input_panel(caption, initial_text, on_done, on_change, on_cancel)" },
+		{ "trigger": "get_output_panel", "contents": "get_output_panel(name)" },
+
+
+		{ "trigger": "get", "contents": "get(name)" },
+		{ "trigger": "get", "contents": "get(name, default)" },
+		{ "trigger": "set", "contents": "set(name, value)" },
+		{ "trigger": "erase", "contents": "erase(name)" },
+		{ "trigger": "has", "contents": "has(name)" },
+
+
+		{ "trigger": "on_new", "contents": "on_new(view)" },
+		{ "trigger": "on_load", "contents": "on_load(view)" },
+		{ "trigger": "on_close", "contents": "on_close(view)" },
+		{ "trigger": "on_pre_save", "contents": "on_pre_save(view)" },
+		{ "trigger": "on_post_save", "contents": "on_post_save(view)" },
+		{ "trigger": "on_modified", "contents": "on_modified(view)" },
+		{ "trigger": "on_selection_modified", "contents": "on_selection_modified(view)" },
+		{ "trigger": "on_activated", "contents": "on_activated(view)" },
+		{ "trigger": "on_deactivated", "contents": "on_deactivated(view)" },
+		{ "trigger": "on_query_context", "contents": "on_query_context(view, key, operator, operand, match_all)" },
+		"OP_EQUAL",
+		"OP_NOT_EQUAL",
+		"OP_REGEX_MATCH",
+		"OP_NOT_REGEX_MATCH",
+		"OP_REGEX_CONTAINS",
+		"OP_NOT_REGEX_CONTAINS",
+
+		{ "trigger": "run", "contents": "run(<args>)" },
+		{ "trigger": "is_enabled", "contents": "is_enabled(<args>)" },
+
+
+		{ "trigger": "run", "contents": "run(edit, <args>)" }
+	]
+}

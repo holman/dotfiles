@@ -1,0 +1,18 @@
+[
+	{
+        "caption": "SublimeREPL: Scala",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_scala",
+            "file": "config/Scala/Main.sublime-menu"
+        }
+    },
+    {
+        "caption": "SublimeREPL: SBT for opened folder",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_sbt",
+            "file": "config/Scala/Main.sublime-menu"
+        }
+    }
+]

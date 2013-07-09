@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>${1:target}.should_not match(/${2:regexp}/)$0</string>
+	<key>name</key>
+	<string>should_not match</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>shnm</string>
+	<key>uuid</key>
+	<string>014285F3-D908-427F-B535-E5A4AEF09339</string>
+</dict>
+</plist>

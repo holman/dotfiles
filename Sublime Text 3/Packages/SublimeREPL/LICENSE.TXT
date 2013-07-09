@@ -1,0 +1,3 @@
+The whole SublimeREPL package is licensed under GNU GENERAL PUBLIC LICENSE Version 2.
+
+Parts of SublimeREPL might be usable under more permisive terms. See LICENSE-LIB.txt for details.

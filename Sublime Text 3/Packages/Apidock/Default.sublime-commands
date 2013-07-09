@@ -1,0 +1,26 @@
+[
+    {
+        "caption": "ApiDock Ruby: Search Selection",
+        "command": "apidock_ruby_search_selection"
+    },
+    {
+        "caption": "ApiDock Ruby: Search from Input",
+        "command": "apidock_ruby_search_from_input"
+    },
+    {
+        "caption": "ApiDock Rails: Search Selection",
+        "command": "apidock_rails_search_selection"
+    },
+    {
+        "caption": "ApiDock Rails: Search from Input",
+        "command": "apidock_rails_search_from_input"
+    },
+    {
+        "caption": "ApiDock Rspec: Search Selection",
+        "command": "apidock_rspec_search_selection"
+    },
+    {
+        "caption": "ApiDock Rspec: Search from Input",
+        "command": "apidock_rspec_search_from_input"
+    }
+]

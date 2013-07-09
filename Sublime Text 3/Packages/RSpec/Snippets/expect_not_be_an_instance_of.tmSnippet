@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>content</key>
+  <string>expect(${1:subject}).not_to be_an_instance_of(${2:klass})$0</string>
+  <key>name</key>
+  <string>expect(subject) not be_an_instance_of</string>
+  <key>scope</key>
+  <string>source.ruby.rspec</string>
+  <key>tabTrigger</key>
+  <string>nbio</string>
+  <key>uuid</key>
+  <string>8C5B6597-E115-4569-AE58-EF04042B21CD</string>
+</dict>
+</plist>

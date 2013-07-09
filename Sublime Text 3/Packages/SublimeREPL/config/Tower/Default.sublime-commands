@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "SublimeREPL: Tower Console",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_tower",
+            "file": "config/Tower/Main.sublime-menu"
+        }
+    }
+]

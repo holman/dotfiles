@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>JSON String Content</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>include</key>
+			<string>#escapeSequence</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>.+?</string>
+			<key>name</key>
+			<string>string.double.quoted.jsonstring</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>escapeSequence</key>
+		<dict>
+			<key>match</key>
+			<string>\\(?:"|/|\\|[bnfrt]|u[0-9a-fA-F]{4})</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.jsonstring</string>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.jsonstring</string>
+	<key>uuid</key>
+	<string>b94a984c-7a66-4c96-a828-dc8e7a6dafe7</string>
+</dict>
+</plist>

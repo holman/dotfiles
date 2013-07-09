@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "caption": "Octave",
+                 "id": "repl_octave",
+                 "mnemonic": "o",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["octave", "-i"],
+                    "cwd": "$file_path",
+                    "external_id": "octave",
+                    "syntax": "Packages/Matlab/Matlab.tmLanguage"
+                    }
+                }
+            ]
+        }]
+    }
+]

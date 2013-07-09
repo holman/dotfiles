@@ -1,0 +1,7 @@
+<snippet>
+    <content><![CDATA[{  "name": "${1:keyword.control.untitled}",
+   "match": "${2:\\b(if|while|for|return)\\b}"
+}${3:,}]]></content>
+    <tabTrigger>match</tabTrigger>
+    <scope>source.json-tmlanguage</scope>
+</snippet>

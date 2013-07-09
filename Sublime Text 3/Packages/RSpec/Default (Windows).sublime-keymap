@@ -1,0 +1,12 @@
+[
+	{ "keys": ["ctrl+f7"],
+		"command": "exec",
+		"args": {"cmd": ["rspec.bat", "*"]},
+		"file_regex": "# ([A-Za-z0-9_./ ]+rb):([0-9]+)",
+		"working_dir": "${folder}"
+	},
+
+	{ "keys": ["ctrl+period"], "command": "open_rspec_file", "args": {} },
+
+	{ "keys": ["ctrl+alt+n"], "command": "rspec_create_module", "args": {} }
+]

@@ -1,0 +1,11 @@
+LICENSE Libraries and external dependencies
+
+SublimeREPL is not a monolithic block of code and some REPLs / functions depends on external libraries.
+
+This means that, although the parts of SublimeREPL that I (wuub) wrote are published under BSD license and you're free to reuse them as you wish, the whole SublimeREPL package is as of now licensed under GPLv2.
+
+- Remote Python depends on a fantastic execnet library by Holger Krekel (https://bitbucket.org/hpk42/execnet & http://codespeak.net/execnet/ & https://twitter.com/hpk42. execnet is licensed under GPLv2. As a result repls/execnet_repl.py and lang_integration:ExecnetVirtualenvRepl are licensed under GPLv2 as well!
+
+- Persistent history depends on buzhug library by Pierre Quentel. (http://buzhug.sourceforge.net/ buzhug is published under the revised BSD licence.
+
+- subprocess_repl depends on killableprocess by Peter Astrand, Mike Taylor and Mikeal Rogers. Please see killableprocess.py for details.

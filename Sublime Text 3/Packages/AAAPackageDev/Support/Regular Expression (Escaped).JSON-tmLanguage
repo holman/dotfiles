@@ -1,0 +1,129 @@
+{ "name": "Regular Expression (Escaped)",
+
+  "scopeName": "source.escapedregexp",
+
+  "patterns": [
+    { "include": "#classes" },
+    { "include": "#anchorsWithBackslash" },
+    { "include": "#allEscapes" },
+    { "include": "#anchors" },
+    { "include": "#quantifiers" },
+    { "include": "#granularQuantifier" },
+    { "include": "#operators" },
+    { "include": "#sets" },
+    { "include": "#groups" }
+  ],
+
+  "repository": {
+
+    "allEscapes": {
+      "comment": "Order matters.",
+      "patterns" : [
+        { "include": "#regexpEscapeSequences" },
+        { "include": "#regexpEscapedBackslash" },
+        { "include": "#jsonEscapeSequences" }
+      ]
+    },
+
+    "regexpEscapeSequences": {
+      "match": "(?<!\\\\\\\\)\\\\\\\\(?:[]^+?*.(){}$\\[])",
+      "name": "constant.character.escape.sequence.regexp.escapedregexp",
+      "comment": "Escape next char if the slash isn't being escaped itself."
+    },
+
+    "regexpEscapedBackslash": {
+      "match": "\\\\\\\\",
+      "name": "constant.character.escape.sequence.regexp.escapedregexp"
+    },
+
+    "jsonEscapeSequences": {
+      "match": "\\\\[bfntr\"\/]",
+      "name": "entity.other.attribute-name.escape.sequence.json.escapedregexp"
+    },
+
+    "quantifiers": {
+      "match": "(\\+|\\*|\\?)(\\?)?",
+      "name": "keyword.other.quantifier.escapedregexp"
+    },
+
+    "granularQuantifier": {
+      "match": "(\\{)([0-9]+)(,)?([0-9]+)?(\\})",
+      "name": "meta.granular.quantifier.escapedregexp",
+      "captures": {
+          "1": { "name": "keyword.other.punctuation.quantifier.start.escapedregexp" },
+          "2": { "name": "constant.numeric.escapedregexp" },
+          "3": { "name": "keyword.other.separator.escapedregexp" },
+          "4": { "name": "constant.numeric.escapedregexp" },
+          "5": { "name": "keyword.other.punctuation.quantifier.end.escapedregexp" }
+      }
+    },
+
+    "classes": {
+      "match": "\\\\\\\\[dDsSwW]",
+      "name": "keyword.other.character-class.escapedregexp",
+      "comment": "XXX: Add unicode escapes \\x00 and escapes within comments."
+    },
+
+    "operators": {
+      "match": "[|.]",
+      "name": "keyword.other.operator.escapedregexp"
+    },
+
+    "sets": {
+      "begin": "(\\[)(\\^)?(\\])?",
+      "beginCaptures": {
+          "1": { "name": "keyword.other.set.escapedregexp" },
+          "2": { "name": "keyword.other.set.operator.negate.escapedregexp" },
+          "3": { "name": "string.set.element.escapedregexp" }
+      },
+      "end": "]",
+      "endCaptures": {
+          "0": { "name": "keyword.other.set.escapedregexp" }
+      },
+      "patterns": [
+        {  "name": "support.function.set.range.escapedregexp",
+           "match": "[A-Za-z0-9](-)[A-Za-z0-9]",
+           "captures": {
+               "1": { "name": "keyword.operator.other.set.range.separator.escapedregexp" }
+           }
+        },
+        { "include": "#regexpEscapeSequences" },
+        { "include": "#classes" },
+        { "include": "#jsonEscapeSequences" },
+        {  "name": "string.set.element.escapedregexp",
+           "match": ".*?"
+        }
+      ]
+    },
+
+    "groups": {
+      "begin": "\\(",
+      "beginCaptures": {
+          "0": { "name": "string.regexp.group.escapedregexp" }
+      },
+      "endCaptures": {
+          "0": { "name": "string.regexp.group.escapedregexp" }
+      },
+      "end": "\\)",
+      "patterns": [
+        {  "name": "support.function.assertion.escapedregexp",
+           "match": "(\\?(?:[:=!>]|<[=!]))"
+        },
+        { "include": "$self" }
+      ],
+      "comment": "XXX: Implement named groups, options and yes/no groups."
+    },
+
+    "anchorsWithBackslash": {
+      "match": "(?:\\\\\\\\[AbBZ])",
+      "name": "entity.other.attribute-name.anchor.escapedregexp"
+    },
+
+    "anchors": {
+      "match": "[$^]",
+      "name": "entity.other.attribute-name.anchor.escapedregexp"
+    }
+  },
+
+  "uuid": "26c6799e-6824-4926-b2e5-87140300b97b"
+}

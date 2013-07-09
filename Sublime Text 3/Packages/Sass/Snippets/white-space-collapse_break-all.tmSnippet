@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>white-space-collapse: ${TM_CSS_SPACE}break-all$0</string>
+	<key>name</key>
+	<string>white-space-collapse:break-all</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>tabTrigger</key>
+	<string>whsc:ba</string>
+	<key>uuid</key>
+	<string>91DF287A-A854-4895-A8F2-527DF2F02D78
+</string>
+</dict>
+</plist>

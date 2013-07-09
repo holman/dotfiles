@@ -1,0 +1,12 @@
+{
+	"scope": "context.operator.name.sublimekeymap",
+
+	"completions": [
+			"equal",
+			"not_equal",
+			"regex_match",
+			"not_regex_match",
+			"regex_contains",
+			"not_regex_contains"
+	]
+}

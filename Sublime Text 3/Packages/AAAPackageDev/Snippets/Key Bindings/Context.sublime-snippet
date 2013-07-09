@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA["context":
+[
+	{ "key": "$1", "operator": "$2", "operand": "$3" }$0
+]]]></content>
+	<scope>source.sublimekeymap</scope>
+	<tabTrigger>ctx</tabTrigger>
+</snippet>

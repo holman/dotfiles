@@ -1,0 +1,4 @@
+{
+  "target": "plist_to_json",
+  "selector": "text.xml"
+}

@@ -1,0 +1,35 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open",
+                 "id": "repl_groovy",
+                 "caption": "Groovy",
+                 "mnemonic": "g",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "external_id": "groovy",
+                    "cmd": {"linux": ["groovysh", "--terminal=none"],
+                            "osx": ["groovysh", "--terminal=none"],
+                            "windows": ["groovysh.bat", "--terminal=none"]},
+                    "soft_quit": "\nexit\n",
+                    "cwd": "$file_path",
+                    "cmd_postfix": "\n", 
+                    "extend_env": {"osx": {"PATH": "{PATH}:/usr/local/bin"},
+                                   "linux": {"PATH": "{PATH}:/usr/local/bin"},
+                                   "windows": {}},
+                    "suppress_echo": false, 
+                    "syntax": "Packages/Groovy/Groovy.tmLanguage"
+                    }
+                }
+            ]
+        }]
+    }
+]

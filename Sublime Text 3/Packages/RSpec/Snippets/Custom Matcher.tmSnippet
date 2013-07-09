@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>class ${1:ReverseTo}
+  def initialize($3)
+    @$3 = $3
+  end
+
+  def matches?(actual)
+    @actual = actual
+    # Satisfy expectation here. Return false or raise an error if it's not met.
+    ${0:@actual.reverse.should == @$3}
+    true
+  end
+
+  def failure_message
+    "expected #{@actual.inspect} to $2 #{@$3.inspect}, but it didn't"
+  end
+
+  def negative_failure_message
+    "expected #{@actual.inspect} not to $2 #{@$3.inspect}, but it did"
+  end
+end
+
+def ${2:reverse_to}(${3:expected})
+  $1.new($3)
+end</string>
+	<key>name</key>
+	<string>Custom Matcher</string>
+	<key>scope</key>
+	<string>source.ruby.rspec</string>
+	<key>tabTrigger</key>
+	<string>mat</string>
+	<key>uuid</key>
+	<string>55BF6C99-B4C4-4772-B7DC-0A18407E429C</string>
+</dict>
+</plist>

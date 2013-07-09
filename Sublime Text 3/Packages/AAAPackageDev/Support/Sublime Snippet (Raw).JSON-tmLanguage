@@ -1,0 +1,79 @@
+{
+	"name": "Sublime Text Snippet (Raw)",
+	"scopeName": "source.sublimesnippetraw",
+
+	"patterns": [
+		{	"name": "entity.other.attribute-name.environment.sublimesnippetraw",
+			"match": "(\\$)(PARAM(\\d)|TM_SELECTED_TEXT|USER_NAME|SELECTION)",
+			"captures": {
+			 	"1": { "name": "keyword.other.sublimesnippetraw" },
+			 	"2": { "name": "variable.storage.name.sublimesnippetraw" },
+			 	"3": { "name": "support.constant.numeric.sublimesnippetraw" }
+			}
+		},
+
+		{	"name": "variable.field.numbered.sublimesnippetraw",
+			"match": "(\\$)(\\d+)",
+			"captures": {
+			    "1": { "name": "keyword.other.sublimesnippetraw" },
+			    "2": { "name": "support.constant.numeric.name.sublimesnippetraw" }
+			}
+		},
+
+		{	"name": "meta.definition.substitution.sublimesnippetraw",
+			"begin": "(\\$)\\{(\\d+)(?=\/)",
+			"beginCaptures": {
+				"1": { "name": "keyword.other.sublimesnippetraw" },
+				"2": { "name": "support.constant.numeric.sublimesnippetraw" }
+			},
+			"end": "\\}",
+			"patterns": [
+				{  "match": "(?<!\\\\)(\/)",
+					"captures": {
+					    "1": { "name": "punctuation.definition.substitution.sublimesnippetraw" }
+					}
+				},
+				{ "include": "source.regexp" },
+				{  "name": "string.sublimesnippetraw",
+				   "match": "."
+				}
+			]
+		},
+
+		{	"name": "variable.field.sublimesnippetraw",
+			"match": "(\\$)(?:(packages)|([a-zA-Z0-9_]+))",
+			"captures": {
+			    "1": { "name": "keyword.other.sublimesnippetraw" },
+			    "2": { "name": "entity.other.attribute-name.variable.storage.known.name.sublimesnippetraw" },
+			    "3": { "name": "variable.storage.name.sublimesnippetraw" }
+			}
+		},
+
+		{	"name": "meta.definition.variable.complex.sublimesnippetraw",
+			"begin": "(\\$)\\{",
+			"beginCaptures": {
+				"1": { "name": "keyword.other.sublimesnippetraw" }
+			},
+			"end": "(\\})",
+			"endCaptures": {
+				"1": { "name": "meta.definition.variable.complex.sublimesnippetraw" }
+			},
+			"patterns": [
+				{	"match": "(?<=\\{)(\\d+)(?>:)",
+					"captures": {
+				    	"1": { "name": "support.constant.numeric.sublimesnippetraw" }
+				   }
+				},
+				{  "name": "entity.other.attribute-name.variable.storage.known.name.sublimesnippetraw",
+				   "match": "\\b(packages)\\b"
+				},
+				{ "include": "$self" },
+				{  "name": "string.sublimesnippetraw",
+				   "match": "."
+				}
+			]
+		}
+	],
+
+	"uuid": "9c9f9b3c-0e97-4423-a995-14d6412613d3"
+}

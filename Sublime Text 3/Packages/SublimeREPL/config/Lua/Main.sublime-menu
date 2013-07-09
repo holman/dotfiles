@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                 "caption": "Lua",
+                 "id": "repl_lua",
+                 "mnemonic": "l",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["lua", "-i"],
+                    "cwd": "$file_path",
+                    "external_id": "lua",
+                    "syntax": "Packages/Lua/Lua.tmLanguage"
+                    }
+                }
+            ]   
+        }]
+    }
+]

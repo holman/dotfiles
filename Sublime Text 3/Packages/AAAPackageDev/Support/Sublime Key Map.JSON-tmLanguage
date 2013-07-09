@@ -1,0 +1,118 @@
+{ "name": "Sublime Text Key Map",
+  "scopeName": "source.sublimekeymap",
+  "fileTypes": ["sublime-keymap"],
+  "patterns": [
+
+      { "include": "#multiLineComment" },
+      { "include": "#lineComment" },
+      
+      { "begin": "(^\\[$)",
+        "end": "(^\\]$)",
+
+        "patterns": [
+          { "include": "#multiLineComment" },
+          { "include": "#lineComment" },
+          { "include": "#keys" },
+          { "include": "#mainKeys" },
+          { "include": "#supportKeys" },
+          { "include": "#string" },
+          { "include": "#numericPrimitives" }
+        ],
+        "contentName": "meta.keybinding.collection.sublimekeymap"
+      }
+  ],
+  "repository": {
+      "keys": {
+        "begin": "\"(keys)\": \\[",
+        "beginCaptures": {
+            "1": { "name": "keyword.other.sublimekeymap"}
+        },
+        "end": "\\],",
+        "patterns": [
+          { "begin": "(\")",
+            "beginCaptures": {
+                "1": { "name": "punctuation.keybinding.definition.key.sequence.start.sublimekeymap" }
+            },
+            "end": "(?<!\\\\)(\")",
+            "endCaptures": {
+                "1": { "name": "punctuation.keybinding.definition.key.sequence.end.sublime.sublimekeymap" }
+            },
+            "patterns": [
+                { "match": "(?<!shift|ctrl|alt|super|\\+)\\+",
+                  "name": "invalid.illegal.key.sequence.sublimekeymap"
+                },
+                { "match": "(shift|ctrl|alt|super)(\\+)",
+                  "captures": {
+                      "1": { "name": "support.function.modifier.key.sublimekeymap" },
+                      "2": { "name": "keyword.modifier.key.connector.sublimekeymap" }
+                  }
+                },
+                { "match": "f(?:[2-9]\\d+|\\d{3,})",
+                  "name": "invalid.illegal.key.sublimekeymap"
+                },
+                { "match": "\\b(?:up|down|right|left|insert|home|end|pageup|pagedown|backspace|delete|tab|enter|pause|escape|space|keypad[0-9]|keypad_(?:period|divide|multiply|minus|plus|enter)|clear|sysreq|break|context_menu|browser_(?:back|forward|refresh|stop|search|favorites|home)|forward_slash|backquote|plus|equals|minus|f(20|1[0-9]|[1-9]))\\b",
+                  "name": "entity.other.attribute-name.key.named.sublimekeymap"
+                },
+                { "match": "[A-Za-z0-9,;.:_=+-]{2,}",
+                  "name": "invalid.illegal.key.sublimekeymap"
+                },
+                {  "name": "keyword.control.other.sublimekeymap",
+                   "match": "<(character)>",
+                   "captures": {
+                       "1": { "name": "entity.other.attribute-name.key.captured.sublimekeymap" }
+                   }
+                },
+                { "match": ".{1}",
+                  "comment": "XXX What's invalid for key names?",
+                  "name": "string.key.literal.sublimekeymap"
+                }
+            ],
+            "contentName": "meta.key.sequence.sublimekeymap"
+            },
+            {  "name": "invalid.illegal.key.sequence.sublimekeymap",
+               "match": "[^\\s,]"
+            }
+        ]
+      },
+      "mainKeys": {
+         "match": "\"(command|args|context|key)\":",
+         "captures": {
+             "1": { "name": "keyword.other.sublimekeymap" }
+         }
+      },
+      "supportKeys": {
+        "match": "\"([A-z]+?)\":",
+        "captures": {
+            "1": { "name": "support.function.sublimekeymap" }
+        }
+      },
+      "string": {
+        "begin" : "\"",
+        "end": "(?<!\\\\)\"",
+        "patterns": [
+          { "include": "source.sublimesnippetraw" }
+        ],
+        "contentName": "string.double.quote.sublimekeymap"
+      },
+      "lineComment": {
+        "match": "//.*?$",
+        "name": "comment.single.line.sublimekeymap"
+      },
+      "multiLineComment": {
+        "begin": "/\\*",
+        "end": "\\*/",
+        "name": "comment.single.line.sublimekeymap"
+      },
+      "numericPrimitives": {
+        "patterns": [
+          {  "name": "constant.numeric.boolean.sublimekeymap",
+             "match": "\\b(?:true|false)\\b"
+          },
+          {  "name": "constant.numeric.sublimekeymap",
+             "match": "\\d+(?:\\.\\d+)?"
+          }
+        ]
+      }
+  },
+  "uuid": "f56e1baa-51fc-4791-a9d9-21301f2e3a01"
+}

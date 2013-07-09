@@ -1,0 +1,18 @@
+The execnet package is released under the provisions of the Gnu Public
+License (GPL), version 2 or later.  
+
+See http://www.fsf.org/licensing/licenses/ for more information.
+
+This package contains some code and contributions from 
+
+    Armin Rigo, Benjamin Peterson, Carl Friedrich Bolz, 
+    Maciej Fijalkowski, Ronny Pfannschmidt,
+    Alex Gaynor and others 
+
+which are useable under the MIT license. 
+
+If you have questions and/or want to use parts of 
+the code under a different license than the GPL 
+please contact me. 
+
+holger krekel, 2011, holger at merlinux eu 

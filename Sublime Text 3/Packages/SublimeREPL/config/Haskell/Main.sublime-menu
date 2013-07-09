@@ -1,0 +1,27 @@
+[
+     {
+        "id": "tools",
+        "children":
+        [{
+            "caption": "SublimeREPL",
+            "mnemonic": "r",
+            "id": "SublimeREPL",
+            "children":
+            [
+                {"command": "repl_open", 
+                 "caption": "Haskell",
+                 "id": "repl_haskell",
+                 "mnemonic": "h",
+                 "args": {
+                    "type": "subprocess",
+                    "encoding": "utf8",
+                    "cmd": ["ghc", "--interactive"],
+                    "cwd": "$file_path",
+                    "external_id": "haskell",
+                    "syntax": "Packages/Haskell/Haskell.tmLanguage"
+                    }
+                }
+            ]   
+        }]
+    }
+]

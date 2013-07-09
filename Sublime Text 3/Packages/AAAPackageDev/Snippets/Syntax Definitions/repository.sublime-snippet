@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA["repository": {$0}]]></content>
+    <tabTrigger>repo</tabTrigger>
+    <scope>source.json-tmlanguage</scope>
+</snippet>

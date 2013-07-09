@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>text-justify: ${TM_CSS_SPACE}inter-ideograph$0</string>
+	<key>name</key>
+	<string>text-justify:inter-ideograph</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>tabTrigger</key>
+	<string>tj:ii</string>
+	<key>uuid</key>
+	<string>FB08402A-B880-46BF-9BF0-50A014E61ADF
+</string>
+</dict>
+</plist>
