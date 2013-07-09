@@ -8,7 +8,7 @@ helper = /opt/boxen/bin/boxen-git-credential
 [alias]
   co   = checkout
   ci   = commit
-  cm   = commit -m
+  cim  = commit -m
   st   = status -v
   br   = branch
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
