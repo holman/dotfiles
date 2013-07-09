@@ -7,13 +7,13 @@ Your dotfiles are how you personalize your system. These are mine.
 Run this:
 
 ```sh
-git clone https://github.com/gaboesquivel/dotfiles.git ~/_dotfiles
-cd ~/_dotfiles
+git clone https://github.com/gaboesquivel/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 script/bootstrap
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
-Everything is configured and tweaked within `~/_dotfiles`.
+Everything is configured and tweaked within `~/.dotfiles`.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
