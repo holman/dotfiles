@@ -9,5 +9,6 @@ then
   alias la='gls -A --color'
 fi
 
+alias vim="mvim -v"
 alias mysql="mysql -uroot"
 alias reload!="source ~/.zshrc"
