@@ -1,9 +1,9 @@
 {
 	"bold_folder_labels": false,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Theme - Flatland/Flatland Monokai.tmTheme",
+	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
-	"font_face": "Monaco",
+	"font_face": "Menlo",
 	"font_size": 12,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
