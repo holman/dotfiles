@@ -1,21 +1,22 @@
 [user]
-  name  = "Travers McInerney"
-  email = "travers@mcinerney.me"
+	name = Travers McInerney
+	email = travers@mcinerney.me
 
 [credential]
 helper = /opt/boxen/bin/boxen-git-credential
 
 [alias]
-  co   = checkout
-  ci   = commit
-  cim  = commit -m
-  st   = status -v
-  br   = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  
+  co      = checkout
+  ci      = commit
+  cim     = commit -m
+  st      = status -s
+  br      = branch
+  hist    = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  lg      = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  standup = log --since=yesterday --author='Travers McInerney'
 
 [core]
-  excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = /opt/boxen/config/git/gitignore
 	editor = vim
 
 [hub]
