@@ -5,4 +5,4 @@ alias sc='script/console'
 alias sg='script/generate'
 alias sd='script/destroy'
 alias migrate='rake db:migrate db:test:clone'i
-alias update='git pull && bundle install'
+alias update='git stash && git pull && bundle install && git stash pop'
