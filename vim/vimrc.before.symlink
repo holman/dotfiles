@@ -1,6 +1,7 @@
 set rtp+=~/Code/other/powerline/powerline/bindings/vim
 set guifont=Menlo\ for\ Powerline:h12
-set guioptions-=r 
+set guioptions-=r
+set ambiwidth=double
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
