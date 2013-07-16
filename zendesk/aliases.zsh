@@ -1,4 +1,5 @@
 alias zd="cd ~/Code/zendesk"
+alias apps="cd ~/Code/zendesk/apps"
 alias classic="cd ~/Code/zendesk/zendesk"
 alias carson="cd ~/Code/zendesk/zendesk_carson"
 alias console="cd ~/Code/zendesk/zendesk_console"
