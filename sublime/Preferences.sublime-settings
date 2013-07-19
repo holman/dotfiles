@@ -1,9 +1,17 @@
 {
 	"bold_folder_labels": false,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
-	"font_face": "Menlo",
+	"folder_exclude_patterns":
+	[
+		".bundle",
+		"vendor"
+	],
+	"font_face": "Source Code Pro",
+	"font_options":
+	[
+	],
 	"font_size": 12,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -11,8 +19,9 @@
 	[
 	],
 	"indent_to_bracket": true,
+	"soda_folder_icons": true,
 	"tab_size": 2,
-	"theme": "Flatland Dark.sublime-theme",
+	"theme": "Soda Light.sublime-theme",
 	"trailing_spaces_trim_on_save": true,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
