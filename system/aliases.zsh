@@ -8,3 +8,15 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+# makes directory and cd 
+function take() { 
+    mkdir -p "$1"
+    cd "$1" 
+}
+
+# Quicker cd
+alias cw='cd $PROJECTS'
+function cr() {
+ cd $PROJECTS/$*
+}
