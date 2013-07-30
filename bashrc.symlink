@@ -3,9 +3,6 @@ PATH=~/bin:/usr/local/bin:/usr/local/share/python:$PATH
 #Git command and branch name tab-completion
 source ~/.dotfiles/git/git-completion.bash
 
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 export BASH=$HOME/.dotfiles
 
 # source every .bash file in bash/
