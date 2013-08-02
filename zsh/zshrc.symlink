@@ -1,5 +1,5 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/Dropbox/dotfiles
+export ZSH=$HOME/Dropbox/Dev/dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Dev
