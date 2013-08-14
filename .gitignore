@@ -4,3 +4,5 @@ git/gitconfig.symlink
 *.swp
 .DS_Store
 vim/vim.symlink/.netrwhist
+vim/vim.symlink/bundle/*
+!vim/vim.symlink/bundle/vundle
