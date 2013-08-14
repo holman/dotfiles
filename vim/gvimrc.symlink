@@ -1,5 +1,3 @@
-call pathogen#infect()
-
 " Include user's local pre .gvimrc config
 if filereadable(expand("~/.gvimrc.pre"))
   source ~/.gvimrc.pre
