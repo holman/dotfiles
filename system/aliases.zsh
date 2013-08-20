@@ -20,3 +20,17 @@ alias cw='cd $PROJECTS'
 function cr() {
  cd $PROJECTS/$*
 }
+
+#cd and clear
+function cdc () {
+  cd "$1"
+  clear
+}
+
+#cd clear and list
+function cdd () {
+  cd "$1"
+  clear
+  pwd
+  ls -lh --color=auto
+}
