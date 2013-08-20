@@ -40,3 +40,16 @@ function cdd () {
 function fp() {
     echo "`pwd`/$1"
 }
+
+
+#go to node modules
+#TODO : refactor and put in variable
+alias cdnm="cd /usr/local/share/npm/lib/node_modules && ls"
+#go to dotfiles and display git status
+funciton cddot () {
+  cd ~/.dotfiles
+  git status
+}
+
+#shorter clear
+alias cls="clear"
