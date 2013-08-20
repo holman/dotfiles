@@ -34,3 +34,9 @@ function cdd () {
   pwd
   ls -lh --color=auto
 }
+
+
+# get full path in shell
+function fp() {
+    echo "`pwd`/$1"
+}
