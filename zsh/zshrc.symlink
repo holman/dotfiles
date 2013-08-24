@@ -50,7 +50,7 @@ compinit
 # alias la='ls -laF'
 # alias lt='ls -lthF'
 #
-# export EDITOR=nano
+export EDITOR=vim
 #
 # RPROMPT=' %z %m:%~'
 #
