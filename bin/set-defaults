@@ -2,4 +2,28 @@
 #
 # Sets OS X defaults by running $ZSH/osx/set-defaults.sh.
 
-exec $ZSH/osx/set-defaults.sh
+sh $ZSH/osx/set-defaults.sh &&
+
+printf '\r  [ \033[0;33m?\033[0m ] - Do you want to restart affected services? [yn] '
+read -e restart
+
+should_restart=false
+
+shopt -s nocasematch
+
+if [[ $restart == "y" ]]
+then
+  should_restart=true
+fi
+
+if [[ $restart == "yes" ]]
+then
+  should_restart=true
+fi
+
+shopt -u nocasematch
+
+if $should_restart
+then
+  exec $ZSH/osx/restart-services.sh
+fi
