@@ -1,0 +1,22 @@
+#!/bin/sh
+# Setup a machine for Sublime Text
+set -x
+
+sublime_dir=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+
+# backup previous User folder if it exists
+if [ -d "$sublime_dir" ]; then
+  rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User.backup
+  cp -rf "$sublime_dir" ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User.backup
+fi
+
+if [ ! -d "$sublime_dir" ]; then
+  mkdir -p "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+fi
+
+# symlink user settings
+for file in $ZSH/sublime/User/*
+do
+  echo $file
+  ln -sf "$file" "$sublime_dir"
+done
