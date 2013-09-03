@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Restarts OS X services affected running $ZSH/osx/set-defaults.sh.
+
+exec $ZSH/osx/restart-services.sh
