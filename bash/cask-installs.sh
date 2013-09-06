@@ -7,6 +7,7 @@ brew cask install dropbox
 brew cask install evernote
 brew cask install f-lux
 brew cask install firefox
+brew cask install google-chrome
 brew cask install imageoptim
 brew cask install iterm2
 brew cask install one-password
