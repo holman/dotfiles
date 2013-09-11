@@ -44,3 +44,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ## NodeJS
 export PATH="/usr/local/share/npm/bin:$PATH"
+
+## rbenv eval
+eval "$(rbenv init -)"
