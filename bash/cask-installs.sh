@@ -14,5 +14,7 @@ brew cask install one-password
 brew cask install optimal-layout
 brew cask install the-unarchiver
 brew cask install transmit
+brew cask install lastfm
+brew cask install vlc
 
 echo "All Casks installed!"
