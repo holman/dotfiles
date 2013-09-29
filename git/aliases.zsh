@@ -1,5 +1,7 @@
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
+
+## TODO: automate hub instalation
 hub_path=$(which hub)
 if (( $+commands[hub] ))
 then
