@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/www
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -38,3 +38,12 @@ do
 done
 
 unset config_files
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+## NodeJS
+export PATH="/usr/local/share/npm/bin:$PATH"
+
+## rbenv eval
+eval "$(rbenv init -)"
