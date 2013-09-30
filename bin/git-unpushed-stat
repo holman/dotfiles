@@ -3,4 +3,14 @@
 # Show the diffstat of everything you haven't pushed yet.
 
 branch=$(git rev-parse --abbrev-ref HEAD)
+count=$(git rev-list --count HEAD origin/$branch...HEAD)
+
+if [ "$count" -eq "1" ]
+then
+  s=''
+else
+  s='s'
+fi
+
 git diff --stat origin/$branch..HEAD
+echo " $count commit$s total"
