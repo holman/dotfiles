@@ -18,3 +18,6 @@ brew cask install lastfm
 brew cask install vlc
 
 echo "All Casks installed!"
+
+brew cask alfred link
+brew cask alfred status
