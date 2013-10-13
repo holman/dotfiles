@@ -68,29 +68,27 @@ install_dotfiles () {
   overwrite_all=false
   backup_all=false
   local_all=false
-  merge_all=false
+  ignore_all=false
 
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
   do
     dest="$HOME/.`basename \"${source%.*}\"`"
 
-    if [ -L $dest ] #Assume a link already have been processed
-    then
-      continue
-    fi
-
     if [ -f $dest ] || [ -d $dest ]
     then
+
+      #Assume links already have been processed
+      [ -L $dest ] && continue
 
       overwrite=false
       backup=false
       local_=false
-      merge=false
+      ignore=false
 
-      if [ "$overwrite_all" == false ] && [ "$backup_all" == false ] && [ "$local_all" == false ] && [ "$merge_all" == false ]
+      if [ "$overwrite_all" == false ] && [ "$backup_all" == false ] && [ "$local_all" == false ] && [ "$ignore_all" == false ]
       then
         alert "File already exists: `basename $dest`, which file do you like to use (capital sets all)?"
-      user "[l]ocal, [r]emote (overwrite), [m]erge, [b]ackup and install remote  [b]"
+        user "[l]ocal, [r]emote (overwrite), [i]ignore, [b]ackup and install remote  [b]"
         read -n 1 action
 
         case "$action" in
@@ -106,18 +104,18 @@ install_dotfiles () {
             local_=true;;
           L )
             local_all=true;;
-          m )
-            merge=true;;
-          M )
-            merge_all=true;;
+          i )
+            ignore=true;;
+          I )
+            ignore_all=true;;
           * )
             backup=true;;
         esac
       fi
 
-      if [ "$merge" == true ] || [ "$merge_all" == true ]
+      if [ "$ignore" == true ] || [ "$ignore_all" == true ]
       then
-        fail "merge is not implemented yet."
+        continue
       fi
 
       if [ "$overwrite" == "true" ] || [ "$overwrite_all" == "true" ]
