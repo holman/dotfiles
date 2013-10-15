@@ -2,8 +2,8 @@
 #
 # bootstrap installs things.
 
-DOTFILES_ROOT="`dirname $0`"
-DOTFILES_ROOT=${DOTFILES_ROOT%/script}
+DOTFILES_ROOT="`pwd`/`dirname $0`"
+DOTFILES_ROOT=${DOTFILES_ROOT%/script*}
 
 set -e
 
