@@ -44,11 +44,27 @@ if ARGV[0].nil?
    exit!(1)
 end
 
+def zip(x)
+  `zip -r '#{x}.zip' '#{x}'`
+  "#{x}.zip"
+end
+
+def upload(x)
+  CloudApp::Item.create(:upload, {:file => x}).url
+end
+
 urls = []
 ARGV.each do |x|
   CloudApp.authenticate(email,password)
   puts "Attempting to upload #{x}"
-  url = CloudApp::Item.create(:upload, {:file => x}).url
+
+  if File.directory?(x)
+    x = zip(x)
+    url = upload(x)
+    `rm '#{x}'`
+  else
+    url = upload(x)
+  end
 
   # Say it for good measure.
   puts "Uploaded #{x} to #{url}"
