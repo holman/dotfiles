@@ -10,6 +10,7 @@ brew cask install firefox
 brew cask install google-chrome
 brew cask install imageoptim
 brew cask install iterm2
+brew cask install keyremap4macbook
 brew cask install one-password
 brew cask install optimal-layout
 brew cask install the-unarchiver
