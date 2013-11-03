@@ -6,6 +6,7 @@
 helper = /opt/boxen/bin/boxen-git-credential
 
 [alias]
+  a       = add -p
   co      = checkout
   ci      = commit -v
   cim     = commit -m
@@ -16,8 +17,8 @@ helper = /opt/boxen/bin/boxen-git-credential
   standup = log --since=yesterday --author='Travers McInerney'
 
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
 	editor = vim
+	excludesfile = ~/.gitignore
 
 [hub]
   protocol = https
@@ -41,4 +42,7 @@ helper = /opt/boxen/bin/boxen-git-credential
 	trustExitCode = true
 
 [push]
-	default = simple
+	default = upstream
+
+[branch]
+  autosetuprebase = always

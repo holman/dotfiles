@@ -1,3 +1,6 @@
+# Disable shared history
+unsetopt share_history
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -58,3 +61,13 @@ function ssht(){
   ssh $* -t 'tmux a || tmux || /bin/bash'
 }
 
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
+
+function run() {
+  FOLDER = "${PWD##*/}"
+  printf "$FOLDER"
+}

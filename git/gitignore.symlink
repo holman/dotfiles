@@ -3,5 +3,8 @@
 *~
 *.swp
 *.rbc
+.floo*
 .ruby-version
+.sublime-project
+.idea
 vendor/bundle
