@@ -23,9 +23,11 @@ then
   source ~/.localrc
 fi
 
+source "`brew --prefix`/etc/grc.bashrc"
+
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
@@ -46,10 +48,10 @@ compinit
 # End of lines added by compinstall
 
 
-# alias ls='ls -lF'
-# alias ll='ls -lhF'
-# alias la='ls -laF'
-# alias lt='ls -lthF'
+alias ls='ls -lF'
+alias ll='ls -lhF'
+alias la='ls -laF'
+alias lt='ls -lthF'
 #
 export EDITOR=vim
 #
