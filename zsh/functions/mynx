@@ -1,0 +1,5 @@
+#! /usr/local/bin/zsh
+
+mynx() {
+  markdown $1 | lynx -stdin
+}
