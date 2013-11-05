@@ -1,0 +1,1 @@
+export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512M -Xms256M -Dlogback.configurationFile=file:/Users/oleclangfjaran/DEV/sg/FinansFront/front/src/main/resources/logback-judoole.xml"
