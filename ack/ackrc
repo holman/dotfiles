@@ -1,0 +1,23 @@
+# case-insensitive searching
+#--ignore-case
+
+# sort results by filename
+--sort-files
+
+# directory ignores
+--ignore-dir=.git
+--ignore-dir=.svn
+--ignore-dir=.idea
+--ignore-dir=vendor/bundle
+--ignore-dir=tmp
+--ignore-dir=gems
+--ignore-dir=node_modules
+
+# add filetypes that ack normally ignores
+--type-set=haml=.haml
+--type-set=mustache=.mustache,.mu,.handlebars,.hbs,.hbars,.hdbs
+--type-set=sass=.sass,.scss
+--type-set=coffeescript=.coffee
+--type-set=coffee=.coffee
+--type-set=json=.json
+
