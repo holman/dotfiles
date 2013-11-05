@@ -1,9 +1,26 @@
 set rtp+=~/Code/other/powerline/powerline/bindings/vim
-set guifont=Menlo\ for\ Powerline:h12
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 set guioptions-=r
-set ambiwidth=double
 set expandtab
 set tabstop=2
 set shiftwidth=2
 
+" Ignore some folders and files for CtrlP indexing
+ let g:ctrlp_custom_ignore = {
+   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$|node_modules\',
+   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+   \ }
+
+let mapleader = ","
+
+" jj == ESC
+inoremap jj <ESC>
+
+" split window mapping
+nnoremap <leader>w <c-w>v<c-w>l
+noremap <leader>s <c-w>s<c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
