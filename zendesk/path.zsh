@@ -5,7 +5,7 @@ export ZENDESK_CARSON_PATH=~/Code/zendesk/zendesk_carson
 export ZENDESK_CLASSIC_PATH=~/Code/zendesk/zendesk
 export ZENDESK_PROVISIONING_PATH=~/Code/zendesk/zendesk_provisioning
 
-#export ZENDESK_HOST=dev.localhost
-#export ZENDESK_PORT=443
+#export ZENDESK_HOST=dev
+export ZENDESK_PORT=443
 
 eval "$(/Users/tmcinerney/Code/zendesk/z/bin/z init -)"
