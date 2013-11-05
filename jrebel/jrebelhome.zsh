@@ -1,0 +1,1 @@
+export JREBEL_HOME="/opt/jrebel/"
