@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Shorten commands for pushes to Heroku
+#
+# $1 - Remote Origin
+# $2 - Local Branch
+#
+# Examples
+#
+#   push production      -> git push production master
+#   push staging develop -> git push staging develop:master
+
+source=master
+
+if [ ! -z "$2" ]
+then
+  source="$2:master"
+fi
+
+git push $1 $source
