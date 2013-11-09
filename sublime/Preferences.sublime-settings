@@ -8,7 +8,7 @@
 	[
 		".git"
 	],
-	// "font_face": "Source Code Pro",
+	"font_face": "Source Code Pro",
 	"font_options":
 	[
 		"subpixel_antialias"
@@ -18,10 +18,6 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SublimeGit",
-		"Tomorrow Color Schemes",
-		"Vintage",
-		"GitGutter"
 	],
 	"indent_to_bracket": true,
 	"phoenix_color_blue": true,
@@ -33,7 +29,7 @@
 	"phoenix_tabs_small": true,
 	"rulers":
 	[
-		100
+		80
 	],
 	"soda_folder_icons": true,
 	"tab_size": 2,
