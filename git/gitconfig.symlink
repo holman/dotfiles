@@ -25,6 +25,7 @@
   commit = auto
   diff = auto
   status = auto
+	ui = true
 
 [color "status"]
   changed = yellow
