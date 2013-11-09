@@ -2,9 +2,6 @@
 	name = Travers McInerney
 	email = travers@mcinerney.me
 
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
-
 [alias]
   a       = add -p
   co      = checkout
@@ -46,3 +43,6 @@ helper = /opt/boxen/bin/boxen-git-credential
 
 [branch]
   autosetuprebase = always
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
