@@ -8,7 +8,7 @@
 	[
 		".git"
 	],
-	"font_face": "Source Code Pro",
+	// "font_face": "Source Code Pro",
 	"font_options":
 	[
 		"subpixel_antialias"
