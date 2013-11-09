@@ -21,9 +21,10 @@
   protocol = https
 
 [color]
+  branch = auto
+  commit = auto
   diff = auto
   status = auto
-  branch = auto
 
 [color "status"]
   changed = yellow
