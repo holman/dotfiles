@@ -24,7 +24,6 @@ setopt HIST_VERIFY
 setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt PROMPT_SUBST
-setopt CORRECT
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
@@ -46,3 +45,17 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
+
+# use incremental search
+bindkey '^R' history-incremental-search-backward
+
+# expand functions in the prompt
+setopt prompt_subst
+
+# ignore duplicate history entries
+setopt histignoredups
+
+setopt LOCAL_OPTIONS # allow functions to have local options
+setopt LOCAL_TRAPS # allow functions to have local traps
+
+setopt autopushd # Use pushd for all directory changing
