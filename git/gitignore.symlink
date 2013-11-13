@@ -7,4 +7,5 @@
 .ruby-version
 .sublime-project
 .idea
+tags
 vendor/bundle

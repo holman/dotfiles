@@ -33,18 +33,18 @@ export ZENDESK_CLASSIC_PATH=~/Code/zendesk/zendesk
 export ZENDESK_PROVISIONING_PATH=~/Code/zendesk/zendesk_provisioning
 
 # Server configuration
-export ZENDESK_HOST=zendesk.dev
-export ZENDESK_PORT=443
+#export ZENDESK_HOST=zendesk.dev
+#export ZENDESK_PORT=443
 
 # Aliases
-alias apps="cd $ZENDESK_ROOT/apps"
-alias classic="cd $ZENDESK_CLASSIC_PATH"
-alias carson="cd $ZENDESK_CARSON_PATH"
-alias console="cd $ZENDESK_ROOT/zendesk_console"
-alias framework="cd $ZENDESK_ROOT/zendesk_app_framework"
-alias lotus="cd $ZENDESK_ROOT/zendesk_console"
-alias market="cd $ZENDESK_APP_MARKET_PATH"
-alias zd="cd $ZENDESK_ROOT"
+#alias apps="cd $ZENDESK_ROOT/apps"
+#alias classic="cd $ZENDESK_CLASSIC_PATH"
+#alias carson="cd $ZENDESK_CARSON_PATH"
+#alias console="cd $ZENDESK_ROOT/zendesk_console"
+#alias framework="cd $ZENDESK_ROOT/zendesk_app_framework"
+#alias lotus="cd $ZENDESK_ROOT/zendesk_console"
+#alias market="cd $ZENDESK_APP_MARKET_PATH"
+#alias zd="cd $ZENDESK_ROOT"
 
 
 # INITIALIZATION

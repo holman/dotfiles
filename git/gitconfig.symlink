@@ -17,9 +17,6 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 
-[hub]
-  protocol = https
-
 [color]
   diff = auto
   status = auto
@@ -34,7 +31,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -48,3 +45,6 @@
 
 [credential]
   helper = /opt/boxen/bin/boxen-git-credential
+
+[hub]
+protocol = https
