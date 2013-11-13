@@ -1,13 +1,22 @@
 "" OPTIONS
+set history=1000          " Remember more commands and search history
 set nobackup              " Disable backups
+set noerrorbells          " Don't beep
 set noswapfile            " Disable swap file
 set shiftwidth=2          " An autoindent (with <<) is two spaces
+set shortmess+=I          " Hide the launch screen
+set splitbelow            " Open horizontal splits below
+set splitright            " Open vertical splits to the right
 set tabstop=2             " A tab is two spaces
+set title                 " Change the terminals title
+set ttimeoutlen=50        " Quicker timeout for leaving insert mode
+set undolevels=1000       " More undos
+set visualbell            " Don't beep
 
 
 "" MAPPINGS
 let mapleader = ","                         " Set leader
-inoremap jj <Esc>                           " Easier way to get out of insert mode
+imap jj <Esc>                               " Easier way to get out of insert mode
 nmap <leader>w :w!<cr>                      " Fast saving
 nnoremap Y y$                               " Quick yanking to the end of the line
 nmap <silent> <leader>ev :e $MYVIMRC<CR>    " Edit vimrc
@@ -24,3 +33,18 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+
+"" PLUGINS
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" Syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=0
+let g:syntastic_auto_loc_list=2
+
+" Tagbar
+let g:tagbar_width     = 45
+let g:tagbar_ctags_bin = "/opt/boxen/homebrew/bin/ctags"
