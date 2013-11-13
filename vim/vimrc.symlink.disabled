@@ -1,0 +1,213 @@
+execute pathogen#infect()
+call pathogen#helptags()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SETTINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""
+"" Basic Setup
+""
+
+colorscheme Tomorrow-Night-Eighties
+
+set nocompatible      " Use vim, no vi defaults
+set hidden            " Allow unsaved background buffers
+set number            " Show line numbers
+set ruler             " Show line and column number
+syntax enable         " Turn on syntax highlighting allowing local overrides
+set encoding=utf-8    " Set default encoding to UTF-8
+set splitbelow        " Open horizontal splits below
+set splitright        " Open vertical splits to the right
+set shortmess+=I      " Hide the launch screen
+set history=1000      " Remember more commands and search history
+set undolevels=1000   " More undos
+set title             " Change the terminal's title
+set visualbell        " Don't beep
+set noerrorbells      " Don't beep
+set ttimeoutlen=50    " Quicker timeout for leaving insert mode
+set showcmd           " Display incomplete commands
+set magic             " For regular expressions turn magic on
+filetype plugin indent on         " Enable file type detection
+"set ffs=mac,unix,dos  " Set standard filetype
+
+""
+"" Whitespace
+""
+
+set nowrap                        " don't wrap lines
+set tabstop=2                     " a tab is two spaces
+set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
+set autoindent                    " always set autoindenting on
+set copyindent                    " copy the previous indentation on autoindenting
+set showmatch                     " show matching parenthesis
+
+" List chars
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+set listchars+=precedes:<         " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the left of the screen
+
+""
+"" Searching
+""
+
+set hlsearch    " highlight matches
+set incsearch   " incremental searching
+set ignorecase  " searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
+
+
+""
+"" Wild settings
+""
+
+" Disable output and VCS files
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+
+" Disable archive files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+
+" Ignore bundler and sass cache
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+
+" Ignore librarian-chef, vagrant, test-kitchen and Berkshelf cache
+set wildignore+=*/tmp/librarian/*,*/.vagrant/*,*/.kitchen/*,*/vendor/cookbooks/*
+
+" Ignore rails temporary asset caches
+set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
+
+" Disable temp and backup files
+set wildignore+=*.swp,*~,._*
+
+
+""
+"" Backup and swap files
+""
+
+set nobackup                       " Disable backups
+set noswapfile                     " Disable swap file
+set backupdir^=~/.vim/_backup//    " where to put backup files.
+set directory^=~/.vim/_temp//      " where to put swap files.
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MAPPINGS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""
+"" General Mappings (Normal, Visual, Operator-pending)
+""
+
+let mapleader = ","                         " Set leader
+inoremap jj <Esc>                           " Easier way to get out of insert mode
+nmap <leader>w :w!<cr>                      " Fast saving
+nnoremap Y y$                               " Quick yanking to the end of the line
+
+nmap <S-Enter> O<Esc>                       " Insert new line above
+"nmap <CR> o<Esc>                            " Insert new line below
+
+nmap <silent> <leader>ev :e $MYVIMRC<CR>    " Edit vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<CR>   " Reload vimrc
+
+map <leader>/ <plug>NERDCommenterToggle<CR>   " Toggle comments
+
+map <leader>f :Ack<space>
+
+map <leader>rt :TagbarToggle<CR>
+
+" Toggle hlsearch with <leader>hs
+nmap <leader>hs :set hlsearch! hlsearch?<CR>
+
+" Adjust viewports to the same size
+map <leader>= <c-w>=
+
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+" Futitive
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Git push<CR>
+
+" ZoomWin
+map <leader>zw :ZoomWin<CR>
+
+
+  ""
+  "" Editor mappings
+  ""
+
+  " Use the damn hjkl keys
+  noremap <up> <nop>
+  noremap <down> <nop>
+  noremap <left> <nop>
+  noremap <right> <nop>
+
+  " Move around splits with <c-hjkl>
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-l> <c-w>l
+
+
+
+  " => AUTOCOMMANDS
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+  if has("gui_running")
+    if has("autocmd")
+      " Automatically resize splits when resizing MacVim window
+      autocmd VimResized * wincmd =
+    endif
+  endif
+
+
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " => STATUSLINE
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+  if has("statusline") && !&cp
+    set laststatus=2  " always show the status bar
+
+    " Start the status line
+    set statusline=%f\ %m\ %r
+    set statusline+=Line:%l/%L[%p%%]
+    set statusline+=Col:%v
+    set statusline+=Buf:#%n
+    set statusline+=[%b][0x%B]
+  endif
+
+
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " => Plugins
+  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+  " Airline
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts = 1
+
+
+  " Syntastic
+  let g:syntastic_enable_signs=1
+  let g:syntastic_quiet_warnings=0
+  let g:syntastic_auto_loc_list=2
+
+
+  " Tagbar
+  let g:tagbar_width     = 45
+  let g:tagbar_ctags_bin = "/opt/boxen/homebrew/bin/ctags"
