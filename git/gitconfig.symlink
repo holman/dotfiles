@@ -7,10 +7,12 @@
         branch = auto
 [core]
         excludesfile = ~/.gitignore
-        editor = mate -w
+        editor = vim
         quotepath = false
 
 [apply]
         whitespace = nowarn
 [github]
-        user = holman
+        user = bbttxu
+[push]
+	default = simple
