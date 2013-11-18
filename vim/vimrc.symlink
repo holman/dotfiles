@@ -10,7 +10,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 set background=dark
-" colorscheme solarized
+colorscheme solarized
+call togglebg#map("<F5>") "Uses <F5> to switch b/w light and dark
 
 let mapleader=","       " remap leader key
 set nocompatible
@@ -30,8 +31,8 @@ set smartindent           " be smart about it
 set nowrap                " do not wrap lines
 set softtabstop=2         " # of columns used Tabbing in insert
 set shiftwidth=2          " # of columns used when using << or >>
-set tabstop=2             " # of columns a tab counts as
-" set expandtab           " tab in insert mode uses spaces
+set tabstop=2             " number of spaces used when tabbing
+set expandtab             " tab in insert mode uses spaces
 set ruler                 " show the cursor position at all times
 set number                " show line numbers
 set ch=1                  " set command area height

@@ -4,6 +4,9 @@ set -g default-terminal "screen-256color"
 # Shorten input delay
 set -sg escape-time 0
 
+# Start window numbering at 1 instead of 0
+set -g base-index 1
+
 # Reload tmux.conf easily
 bind r source-file ~/.tmux.conf \; display "tmux.conf reloaded"
 
