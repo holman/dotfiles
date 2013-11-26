@@ -4,8 +4,9 @@
 alias bower='noglob bower'
 alias mysql="mysql -uroot"
 alias reload!="source ~/.zshrc"
-alias update='git stash && git pull && bundle install && git stash pop'
-
+alias restart!="touch ./tmp/restart.txt"
+alias update='git stash && git pull && bundle install && git stash pop && restart!'
+alias watch='tail -f log/development.log'
 export EDITOR='vim'
 
 
@@ -13,7 +14,7 @@ export EDITOR='vim'
 # ********************************************************
 
 alias be='bundle exec'
-alias bi='bundle install --path vendor/bundle'
+alias bi='bundle install'
 alias sb='script/bootstrap'
 alias sc='script/console'
 alias sg='script/generate'
@@ -27,6 +28,7 @@ alias migrate='rake db:migrate db:test:clone'
 # Paths
 export ZENDESK_ROOT=~/Code/zendesk
 export ZENDESK_APP_MARKET_PATH=~/Code/zendesk/zendesk_app_market
+export ZENDESK_APPS_PATH=~/Code/zendesk/apps
 export ZENDESK_APPS_TOOLS_PATH=~/Code/zendesk/zendesk_apps_tools
 export ZENDESK_CARSON_PATH=~/Code/zendesk/zendesk_carson
 export ZENDESK_CLASSIC_PATH=~/Code/zendesk/zendesk
