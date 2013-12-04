@@ -35,8 +35,8 @@ export ZENDESK_CLASSIC_PATH=~/Code/zendesk/zendesk
 export ZENDESK_PROVISIONING_PATH=~/Code/zendesk/zendesk_provisioning
 
 # Server configuration
-#export ZENDESK_HOST=zendesk.dev
-#export ZENDESK_PORT=443
+export ZENDESK_HOST=my.zendesk.dev
+export ZENDESK_PORT=443
 
 # Aliases
 #alias apps="cd $ZENDESK_ROOT/apps"
