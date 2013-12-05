@@ -1,7 +1,7 @@
 {
 	"bold_folder_labels": false,
-	"caret_style": "phase",
-	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Eighties.tmTheme",
+	"caret_style": "block",
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"flatland_square_tabs": true,
 	"folder_exclude_patterns":

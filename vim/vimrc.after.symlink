@@ -1,1 +1,13 @@
 colorscheme Tomorrow-Night-Bright
+
+set mouse=a
+
+" Move between splits
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" Better Ack
+nmap <leader>f :Ack! 
+

@@ -10,35 +10,16 @@ set splitbelow            " Open horizontal splits below
 set splitright            " Open vertical splits to the right
 set tabstop=2             " A tab is two spaces
 set title                 " Change the terminals title
-"set ttimeoutlen=50        " Quicker timeout for leaving insert mode
+set ttimeoutlen=50        " Quicker timeout for leaving insert mode
 set undolevels=1000       " More undos
 set visualbell            " Don't beep
 
 set wildignore+=*/.git/*,*/node_modules/*,*/vendor/bundle/*,*/vendor/cache/*
 
 "" MAPPINGS
-let mapleader = ","                         " Set leader
-inoremap jj <Esc>                           " Easier way to get out of insert mode
-nmap <leader>w :w!<cr>                      " Fast saving
-nmap <D-s> :w!<cr>                          " Alternate fast saving
-"nnoremap Y y$                               " Quick yanking to the end of the line
-nmap <silent> <leader>ev :e $MYVIMRC<CR>    " Edit vimrc
-nmap <silent> <leader>sv :so $MYVIMRC<CR>   " Reload vimrc
-noremap <leader>f :Ack!   
-
-
-" Prevent arrow keys
-"noremap <up> <nop>
-"noremap <down> <nop>
-"noremap <left> <nop>
-"noremap <right> <nop>
-
- "Move around splits with <c-hjkl>
-"nnoremap <c-j> <c-w>j
-"nnoremap <c-k> <c-w>k
-"nnoremap <c-h> <c-w>h
-"nnoremap <c-l> <c-w>l
-
+let mapleader = ","
+inoremap jj <esc>
+nmap <leader>w :w!<cr>
 
 "" PLUGINS
 " Airline
