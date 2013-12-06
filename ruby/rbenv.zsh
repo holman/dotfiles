@@ -1,2 +1,5 @@
 # init according to man page
-eval "$(rbenv init -)"
+if (( $+commands[rbenv] ))
+then
+  eval "$(rbenv init -)"
+fi
