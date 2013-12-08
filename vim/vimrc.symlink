@@ -11,19 +11,27 @@ let g:ctrlp_cmd = 'CtrlP'
 
 set background=dark
 colorscheme solarized
-call togglebg#map("<F5>") "Uses <F5> to switch b/w light and dark
+call togglebg#map("<F4>") "Uses <F4> to switch b/w light and dark
 
 let mapleader=","       " remap leader key
 set nocompatible
 set encoding=utf-8
 set backspace=start,eol,indent " fix issue where Delete wasn't being recognized
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
-" Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+" airline stuff
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+let g:airline_powerline_fonts = 1
+set laststatus=2
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 set showtabline=2         " show tabs
 set autoindent            " automatic indent new lines
@@ -83,6 +91,3 @@ command! StripWhitespace :%s/\s\+$
 
 " Automatically removed whitespace when saving file
 " autocmd BufWritePre * :%s/\s\+$//e
-
-" Recognize Perl-HTML files as HTML for syntax highlighting and formatting
-au BufRead,BufNewFile *.phtml set filetype=html
