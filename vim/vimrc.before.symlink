@@ -1,11 +1,11 @@
 "" OPTIONS
 set hidden                " Allow buffer switching without having to save
 set history=1000          " Remember more commands and search history
-"set nobackup              " Disable backups
 set noerrorbells          " Don't beep
-"set noswapfile            " Disable swap file
 set shiftwidth=2          " An autoindent (with <<) is two spaces
-set shortmess+=I          " Hide the launch screen
+
+" Hide the launch screen
+set shortmess+=I
 set splitbelow            " Open horizontal splits below
 set splitright            " Open vertical splits to the right
 set tabstop=2             " A tab is two spaces
@@ -14,11 +14,16 @@ set ttimeoutlen=50        " Quicker timeout for leaving insert mode
 set undolevels=1000       " More undos
 set visualbell            " Don't beep
 
+" Syntax highlighting
+au BufRead,BufNewFile *.hdbs set filetype=handlebars
+
+" Ignore some directories
 set wildignore+=*/.git/*,*/node_modules/*,*/vendor/bundle/*,*/vendor/cache/*
 
 "" MAPPINGS
 let mapleader = ","
 inoremap jj <esc>
+inoremap jjw <esc> :w!<cr>
 nmap <leader>w :w!<cr>
 
 "" PLUGINS

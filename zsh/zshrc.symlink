@@ -34,45 +34,8 @@ export ZENDESK_CARSON_PATH=~/Code/zendesk/zendesk_carson
 export ZENDESK_CLASSIC_PATH=~/Code/zendesk/zendesk
 export ZENDESK_PROVISIONING_PATH=~/Code/zendesk/zendesk_provisioning
 
-
-# GENERAL
-# ********************************************************
-
-alias bower='noglob bower'
-alias mysql="mysql -uroot"
-alias reload!="source ~/.zshrc"
-alias restart!="touch ./tmp/restart.txt"
-alias update='git stash && git pull && bundle install && git stash pop && restart!'
-alias watch='tail -f log/development.log'
-export EDITOR='vim'
-
-
-# RUBY
-# ********************************************************
-
-alias be='bundle exec'
-alias bi='bundle install'
-alias sb='script/bootstrap'
-alias sc='script/console'
-alias sg='script/generate'
-alias sd='script/destroy'
-alias migrate='rake db:migrate db:test:clone'
-
-
-# ZENDESK
-# ********************************************************
-
-# Paths
-export ZENDESK_ROOT=~/Code/zendesk
-export ZENDESK_APP_MARKET_PATH=~/Code/zendesk/zendesk_app_market
-export ZENDESK_APPS_PATH=~/Code/zendesk/apps
-export ZENDESK_APPS_TOOLS_PATH=~/Code/zendesk/zendesk_apps_tools
-export ZENDESK_CARSON_PATH=~/Code/zendesk/zendesk_carson
-export ZENDESK_CLASSIC_PATH=~/Code/zendesk/zendesk
-export ZENDESK_PROVISIONING_PATH=~/Code/zendesk/zendesk_provisioning
-
 # Server configuration
-#export ZENDESK_HOST=my.zendesk.dev
+export ZENDESK_HOST=zendesk.dev
 export ZENDESK_PORT=80
 
 # Aliases
@@ -91,6 +54,7 @@ export ZENDESK_PORT=80
 
 # Boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+source $(brew --prefix nvm)/nvm.sh
 
 
 # autojump
@@ -121,48 +85,3 @@ eval "$(rbenv init -)"
 # Z Bootstrap
 eval "$(/Users/tmcinerney/Code/zendesk/z/bin/z init -)"
 
-# Aliases
-#alias apps="cd $ZENDESK_ROOT/apps"
-#alias classic="cd $ZENDESK_CLASSIC_PATH"
-#alias carson="cd $ZENDESK_CARSON_PATH"
-#alias console="cd $ZENDESK_ROOT/zendesk_console"
-#alias framework="cd $ZENDESK_ROOT/zendesk_app_framework"
-#alias lotus="cd $ZENDESK_ROOT/zendesk_console"
-#alias market="cd $ZENDESK_APP_MARKET_PATH"
-#alias zd="cd $ZENDESK_ROOT"
-
-
-# INITIALIZATION
-# ********************************************************
-
-# Boxen
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
-
-# autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
-
-# Coreutils
-if $(gls &>/dev/null)
-then
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
-fi
-
-
-# GRC [colorizes nifty unix tools all over the place]
-if $(grc &>/dev/null) && ! $(brew &>/dev/null)
-then
-  source `brew --prefix`/etc/grc.bashrc
-fi
-
-
-# RBENV
-eval "$(rbenv init -)"
-
-
-# Z Bootstrap
-eval "$(/Users/tmcinerney/Code/zendesk/z/bin/z init -)"
