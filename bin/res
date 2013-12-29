@@ -30,10 +30,11 @@ end tell
 local indexToUse
 
 tell application "System Events"
-  tell window "Color LCD" of application process "System Preferences" of application "System Events"
+  tell window "Built-in Retina Display" of application process "System Preferences" of application "System Events"
+    -- Click the "Scaled" radio button
+    click radio button "Scaled" of radio group 1 of tab group 1
+
     tell tab group 1
-      -- Click the "Scaled" radio button
-      click radio button "Scaled"
       tell radio group 1 of group 1
         -- Depending on what scale option/index is current selected, set the appropriate new option/index to use
         if (value of radio button index1) is true then
