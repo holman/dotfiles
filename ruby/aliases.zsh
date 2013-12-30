@@ -1,7 +1,7 @@
-alias r='rbenv local 1.8.7-p358'
+alias two-point-oh='rbenv local 2.0.0-p353'
 
 alias sc='script/console'
 alias sg='script/generate'
 alias sd='script/destroy'
 
-alias migrate='rake db:migrate db:test:clone'
+alias migrate='rake db:migrate'

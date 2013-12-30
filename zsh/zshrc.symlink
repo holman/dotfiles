@@ -38,3 +38,12 @@ do
 done
 
 unset config_files
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="robbyrussell"
+
+plugins=(git ruby rails github)
+
+source $ZSH/oh-my-zsh.sh
