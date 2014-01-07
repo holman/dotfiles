@@ -1,14 +1,32 @@
+" Interface
+set guifont=Sauce\ Code\ Powerline:h13
 set background=dark
-colorscheme Tomorrow-Night
+"let base16colorspace=256
+"colorscheme Tomorrow-Night
+colorscheme base16-ocean
 
-set mouse=a
+" Use the mouse
+set mouse=v
 
-" Move between splits
-"map <c-j> <c-w>j
-"map <c-k> <c-w>k
-"map <c-l> <c-w>l
-"map <c-h> <c-w>h
+" Prevent 'Ex mode'
+:nnoremap Q <Nop>
 
 " Better Ack
 nmap <leader>f :Ack! 
+
+" Folding
+set foldcolumn=2
+set foldlevelstart=20
+set foldmethod=indent
+
+" treat folds as text-objects
+vnoremap af :<C-U>silent! normal! [zV]z<CR>
+omap af :normal Vaf<CR>
+
+autocmd FileType ruby set foldmethod=syntax
+autocmd FileType haml set foldmethod=indent
+autocmd FileType cucumber set foldmethod=indent
+autocmd FileType sass set foldmethod=indent
+autocmd FileType scss set foldmethod=indent
+autocmd FileType yaml set foldmethod=indent
 

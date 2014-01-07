@@ -5,9 +5,12 @@ alias bower='noglob bower'
 alias mysql="mysql -uroot"
 alias reload!="source ~/.zshrc"
 alias restart!="touch ./tmp/restart.txt"
+alias tidy_git="git branch --merged | grep -v master | xargs git branch -d"
 alias update='git stash && git pull && bundle install && git stash pop && restart!'
+alias vim='mvim -v'
 alias watch='tail -f log/development.log'
-export EDITOR='vim'
+
+export EDITOR='mvim -f'
 
 
 # RUBY
@@ -36,17 +39,7 @@ export ZENDESK_PROVISIONING_PATH=~/Code/zendesk/zendesk_provisioning
 
 # Server configuration
 export ZENDESK_HOST=zendesk.dev
-export ZENDESK_PORT=80
-
-# Aliases
-#alias apps="cd $ZENDESK_ROOT/apps"
-#alias classic="cd $ZENDESK_CLASSIC_PATH"
-#alias carson="cd $ZENDESK_CARSON_PATH"
-#alias console="cd $ZENDESK_ROOT/zendesk_console"
-#alias framework="cd $ZENDESK_ROOT/zendesk_app_framework"
-#alias lotus="cd $ZENDESK_ROOT/zendesk_console"
-#alias market="cd $ZENDESK_APP_MARKET_PATH"
-#alias zd="cd $ZENDESK_ROOT"
+#export ZENDESK_PORT=80
 
 
 # INITIALIZATION
@@ -56,10 +49,8 @@ export ZENDESK_PORT=80
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 source $(brew --prefix nvm)/nvm.sh
 
-
 # autojump
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
 
 # Coreutils
 if $(gls &>/dev/null)
@@ -70,18 +61,20 @@ then
   alias la='gls -A --color'
 fi
 
-
 # GRC [colorizes nifty unix tools all over the place]
 if $(grc &>/dev/null) && ! $(brew &>/dev/null)
 then
   source `brew --prefix`/etc/grc.bashrc
 fi
 
-
 # RBENV
 eval "$(rbenv init -)"
 
-
 # Z Bootstrap
 eval "$(/Users/tmcinerney/Code/zendesk/z/bin/z init -)"
+
+# Base16 Shell
+#BASE16_SCHEME="ocean"
+#BASE16_SHELL="$BOXEN_SRC_DIR/other/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+#[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 

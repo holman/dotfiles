@@ -1,7 +1,7 @@
 {
 	"bold_folder_labels": false,
 	"caret_style": "block",
-	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"flatland_square_tabs": true,
 	"folder_exclude_patterns":
@@ -13,11 +13,12 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 12,
+	"font_size": 13,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+	  "Vintage"
 	],
 	"indent_to_bracket": true,
 	"phoenix_color_blue": true,
@@ -33,7 +34,7 @@
 	],
 	"soda_folder_icons": true,
 	"tab_size": 2,
-	"theme": "Soda Dark 3.sublime-theme",
+	"theme": "Spacegray.sublime-theme",
 	"trailing_spaces_trim_on_save": true,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
