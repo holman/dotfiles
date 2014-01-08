@@ -26,3 +26,5 @@ function _completemarks {
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
+compctl -K _completemarks j
+alias j=jump
