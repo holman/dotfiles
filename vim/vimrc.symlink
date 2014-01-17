@@ -54,6 +54,9 @@ set hlsearch              " highlight searches
 set nolazyredraw          " turn off lazy redraw
 set ttyfast               " always assume a fast connection
 
+" fix 'No newline at end of file' git diff changes
+set binary
+
 " highlight current line
 set cursorline
 
