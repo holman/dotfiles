@@ -38,3 +38,6 @@ do
 done
 
 unset config_files
+eval "$(rbenv init -)"
+
+

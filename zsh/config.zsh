@@ -13,6 +13,11 @@ export CLICOLOR=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm vagrant github)
+plugins=(git vagrant github)
 
 source $ZSH/oh-my-zsh.sh
+
+source "`brew --prefix`/etc/grc.bashrc"
+source /usr/local/bin/virtualenvwrapper.sh
+
+source ~/.nvm/nvm.sh
