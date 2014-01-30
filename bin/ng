@@ -1,0 +1,55 @@
+#!/bin/sh
+
+ngrok_host=${NGROK_HOST:-ngrok.com}
+tmux_user=${TMUX_USER:-$USER}
+
+if [ ! $(command -v ngrok) ]; then
+  echo "You must install https://ngrok.com to use this script."
+  exit 1
+fi
+
+help(){
+  echo "Usage: $command <subcommand> [options]\n"
+  echo "Subcommands:"
+  echo "    connect  Connect ngrok reverse tunnel"
+  echo "    ssh      Display ssh command to connect through"
+  echo "             ngrok tunnel"
+  echo ""
+}
+
+connect(){
+  if [ $@ ]; then
+    ngrok $@
+  else
+    ngrok --proto=tcp 22
+  fi
+}
+
+ssh(){
+  port=$(tunnel_port)
+
+  if [ ! -z $port ]; then
+    ssh_command="ssh -p $port $tmux_user@$ngrok_host"
+    echo $ssh_command
+  else
+    echo "Tunnel with TCP forwarding doesn't seem to be connected."
+  fi
+}
+
+tunnel_port(){
+  tunnel_info_endpoint="http://localhost:4040/http/in"
+  search_string="tcp://$ngrok_host"
+  port_strip_regex="s/^.*$ngrok_host:\([0-9]*\).*$/\1/"
+
+  curl -s $tunnel_info_endpoint | grep $search_string | sed $port_strip_regex
+}
+
+subcommand=$1
+case $subcommand in
+  '' | '-h' | '--help')
+    help ;;
+  *)
+    shift
+    ${subcommand} $@
+    ;;
+esac
