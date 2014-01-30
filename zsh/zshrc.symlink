@@ -11,6 +11,7 @@ alias vim='mvim -v'
 alias watch='tail -f log/development.log'
 
 export EDITOR='mvim -f'
+export PATH="~/bin:$PATH"
 
 
 # RUBY
@@ -72,9 +73,3 @@ eval "$(rbenv init -)"
 
 # Z Bootstrap
 eval "$(/Users/tmcinerney/Code/zendesk/z/bin/z init -)"
-
-# Base16 Shell
-#BASE16_SCHEME="ocean"
-#BASE16_SHELL="$BOXEN_SRC_DIR/other/base16-shell/base16-$BASE16_SCHEME.dark.sh"
-#[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-

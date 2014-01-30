@@ -1,0 +1,75 @@
+nd=$(basename $0)
+
+# Make sure dependencies are installed
+if [ ! $(command -v gh-auth) ]; then
+  gem install github-auth
+fi
+if [ ! $(command -v tmux) ]; then
+  echo "This script depends on tmux. Try: brew install tmux"
+  exit 1
+fi
+if [ ! $(command -v ng) ]; then
+  echo "This script depends on https://github.com/iamvery/dotfiles/blob/master/bin/ng"
+  exit 1
+fi
+
+help(){
+  echo "Usage: $command <subcommand> [options]\n"
+  echo "Subcommands:"
+  echo "    add  Add a github user"
+  echo "    rm   Remove a github user"
+  echo "    ls   List github users"
+  echo "    up   Open shared tmux session"
+  echo "    ssh  Start a reverse tunnel for pair sharing"
+  echo "         See: https://ngrok.com"
+  echo ""
+  echo "** Full Disclosure: This script uses sudo **"
+  echo ""
+}
+
+add(){
+  gh-auth add --users $@ --command="$(which tmux) attach -t pairing"
+}
+
+rm(){
+  gh-auth remove --users $@
+}
+
+ls(){
+  gh-auth list
+}
+
+up(){
+  # Add any users, if specified
+  if [[ ! -z $@ ]]; then
+    add $@
+  fi
+
+  tmux new-session -d -s pairing "ng connect"
+  tmux split-window
+  sleep 0.5 # some delay so tunnel has time to get up
+  tmux send-keys "pair ssh" C-m
+  tmux attach
+}
+
+ssh(){
+  clipboard_helper="reattach-to-user-namespace"
+  ssh_command=$(ng ssh)
+  echo $ssh_command
+
+  if [ $(command -v $clipboard_helper) ]; then
+    echo $ssh_command | $clipboard_helper pbcopy
+  else
+    echo "You must have $clipboard_helper installed to copy ssh command automatically. Try: brew install $clipboard_command"
+  fi
+}
+
+subcommand=$1
+case $subcommand in
+  '' | '-h' | '--help')
+    help ;;
+  *)
+    shift
+    ${subcommand} $@
+    ;;
+esac

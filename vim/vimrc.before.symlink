@@ -14,6 +14,9 @@ set ttimeoutlen=50        " Quicker timeout for leaving insert mode
 set undolevels=1000       " More undos
 set visualbell            " Don't beep
 
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
 " Syntax highlighting
 au BufRead,BufNewFile *.hdbs set filetype=handlebars
 

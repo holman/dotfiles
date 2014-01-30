@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+require 'time'
+ 
+def clamp(n,min,max); (n<min) ? min : ((n > max) ? max : n); end
+def gray(g); 232 + clamp(g,0,23); end
+def rgb(red, green, blue); 16 + clamp(red,0,5)*36 + clamp(green,0,5)*6 + clamp(blue,0,5); end 
+def c(fg, bg = nil); "#{fg ? "\033[38;5;#{fg}m" : ""}#{bg ? "\033[48;5;#{bg}m" : ""}"; end 
+def ec; "\033[0m"; end 
+ 
+cmd = "git grep -n #{ARGV.join(" ")}"
+puts cmd
+grep = `#{cmd}`
+ 
+puts "blaming"
+last_file = ""
+grep.lines.each{|instance|
+  instance.encode!('UTF-8', 'UTF-8', :invalid => :replace)
+  file, line = instance.split(':')
+  line = line.to_i
+  
+  if file != last_file
+    puts "\n" + c(gray(12)) + file + ec
+    last_file = file
+  end
+  next if file =~ /^Binary file .* matches/
+ 
+  blame = (`git blame -L #{line},#{line} #{file}`).encode!('UTF-8', 'UTF-8', :invalid => :replace)
+  details = blame.scan(/^([^ ]+).* (\d{4}-\d{2}-\d{2}) .* (\d+)\)(.*)/)[0]
+  details[3] = (details[3][0..200] + "...") if details[3].length > 200
+  puts c(gray(23 - ((Time.now - Time.parse(details[1])) / 604800).to_i)) + "#{details[1]} #{details[0]} #{details[2].rjust(5)}: #{details[3]}" + ec
+ 
+  trap('INT'){ exit }
+}
