@@ -13,6 +13,7 @@ alias watch='tail -f log/development.log'
 export EDITOR='mvim -f'
 export PATH="~/bin:$PATH"
 
+unsetopt correct
 
 # RUBY
 # ********************************************************
