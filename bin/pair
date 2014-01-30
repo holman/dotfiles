@@ -1,4 +1,7 @@
-nd=$(basename $0)
+#!/bin/sh
+# https://raw.github.com/iamvery/dotfiles/master/bin/pair
+
+command=$(basename $0)
 
 # Make sure dependencies are installed
 if [ ! $(command -v gh-auth) ]; then

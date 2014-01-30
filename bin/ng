@@ -1,4 +1,5 @@
 #!/bin/sh
+# https://raw.github.com/iamvery/dotfiles/master/bin/pair
 
 ngrok_host=${NGROK_HOST:-ngrok.com}
 tmux_user=${TMUX_USER:-$USER}
