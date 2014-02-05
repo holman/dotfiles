@@ -4,12 +4,18 @@ filetype plugin indent on
 
 set noswapfile
 
+set tabstop=2             " number of spaces used when tabbing
+set shiftwidth=2          " of columns used when using << or >>
+set softtabstop=2         " deleting tab spaces consistently
+set expandtab             " tab in insert mode uses spaces
+
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = 'scssc'
 
+" Theme settings
 set background=dark
 colorscheme solarized
 call togglebg#map("<F4>") "Uses <F4> to switch b/w light and dark
@@ -17,7 +23,6 @@ call togglebg#map("<F4>") "Uses <F4> to switch b/w light and dark
 let mapleader=","       " remap leader key
 set nocompatible
 set encoding=utf-8
-set backspace=start,eol,indent " fix issue where Delete wasn't being recognized
 
 " airline stuff
 if !exists('g:airline_symbols')
@@ -34,14 +39,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-set showtabline=2         " show tabs
 set autoindent            " automatic indent new lines
 set smartindent           " be smart about it
 set nowrap                " do not wrap lines
-set softtabstop=2         " # of columns used Tabbing in insert
-set shiftwidth=2          " # of columns used when using << or >>
-set tabstop=2             " number of spaces used when tabbing
-set expandtab             " tab in insert mode uses spaces
 set ruler                 " show the cursor position at all times
 set number                " show line numbers
 set ch=1                  " set command area height
@@ -55,7 +55,11 @@ set nolazyredraw          " turn off lazy redraw
 set ttyfast               " always assume a fast connection
 
 " fix 'No newline at end of file' git diff changes
+" from: http://askubuntu.com/a/13324
 set binary
+
+" toggle paste mode
+set pastetoggle=<leader>p
 
 " highlight current line
 set cursorline
@@ -66,32 +70,41 @@ set nohlsearch
 " ...just highlight as we type
 set incsearch
 
-
 " Ignore case when searching...
 set ignorecase
 
 " ...except if we input a capital letter
 set smartcase
 
+" Show invisible characters
+nmap <leader>l :set list!<CR>
+
+" Customize tab and EOL characters
+set listchars=tab:▸\ ,eol:¬
+
+
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+      return "\<tab>"
+  else
+      return "\<c-p>"
+  endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
-
-" map <S-b> ^
-" map <S-w> $
 
 " Strip all trailing whitespace in file
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 command! StripWhitespace :%s/\s\+$
 
 " Automatically removed whitespace when saving file
-" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
+
+" manually set expandtab when entering buffers
+" TODO: why isn't this working automotically?
+autocmd BufEnter * :set expandtab
+
+autocmd BufNewFile,BufRead :set expandtab
