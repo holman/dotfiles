@@ -79,6 +79,9 @@ set smartcase
 " Show invisible characters
 nmap <leader>l :set list!<CR>
 
+" retab current line
+nmap <leader>t :.retab<CR>
+
 " Customize tab and EOL characters
 set listchars=tab:▸\ ,eol:¬
 
