@@ -1,5 +1,3 @@
-PATH=~/bin:/usr/local/bin:/usr/local/share/python:$PATH
-
 #Git command and branch name tab-completion
 source ~/.dotfiles/git/git-completion.bash
 

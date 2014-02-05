@@ -4,19 +4,17 @@
     excludesfile = ~/.gitignore
 [user]
     name = Steven Bone
-    email = stevenmbone@gmail.com
+    email = steven@stevenbone.com
 [color]
     ui = true
 	diff = true
 [alias]
-    mylog = log --author=Steven
     st = status
     co = checkout
     sp = stash pop
     di = diff
     dc = diff --cached
-    dt = difftool
 		lg = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
 		wd = diff --color-words
 [push]
-	default = simple
+	default = tracking
