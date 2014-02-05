@@ -4,3 +4,4 @@
 --type-add=html=.phtml
 
 --smart-case
+--ignore-dir=log
