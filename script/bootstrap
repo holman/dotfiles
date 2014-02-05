@@ -2,7 +2,8 @@
 #
 # bootstrap installs things.
 
-DOTFILES_ROOT="`pwd`"
+DOTFILES_ROOT="`pwd`/`dirname $0`"
+DOTFILES_ROOT=${DOTFILES_ROOT%/script*}
 
 set -e
 
@@ -20,6 +21,10 @@ success () {
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
 }
 
+alert () {
+  printf "\r\033[2K  [ \033[0;31m!\033[0m ] $1\n"
+}
+
 fail () {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
   echo ''
@@ -27,7 +32,7 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.symlink ]
+  if ! [ -f $DOTFILES_ROOT/git/gitconfig.symlink ]
   then
     info 'setup gitconfig'
 
@@ -42,23 +47,28 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" $DOTFILES_ROOT/git/gitconfig.symlink.example > $DOTFILES_ROOT/git/gitconfig.symlink
 
     success 'gitconfig'
   fi
 }
 
 link_files () {
-  ln -s $1 $2
-  success "linked $1 to $2"
+  if `ln -s $1 $2`; then
+    success "linked $1 to $2"
+  else
+    return 1
+  fi
+  return 0
 }
 
 install_dotfiles () {
-  info 'installing dotfiles'
+  info "installing dotfiles\n"
 
   overwrite_all=false
   backup_all=false
-  skip_all=false
+  local_all=false
+  ignore_all=false
 
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
   do
@@ -67,50 +77,71 @@ install_dotfiles () {
     if [ -f $dest ] || [ -d $dest ]
     then
 
+      #Assume links already have been processed
+      [ -L $dest ] && continue
+
       overwrite=false
       backup=false
-      skip=false
+      local_=false
+      ignore=false
 
-      if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
+      if [ "$overwrite_all" == false ] && [ "$backup_all" == false ] && [ "$local_all" == false ] && [ "$ignore_all" == false ]
       then
-        user "File already exists: `basename $source`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        alert "File already exists: `basename $dest`, which file do you like to use (capital sets all)?"
+        user "[l]ocal, [r]emote (overwrite), [i]ignore, [b]ackup and install remote  [b]"
         read -n 1 action
 
         case "$action" in
-          o )
+          r )
             overwrite=true;;
-          O )
+          R )
             overwrite_all=true;;
           b )
             backup=true;;
           B )
             backup_all=true;;
-          s )
-            skip=true;;
-          S )
-            skip_all=true;;
+          l )
+            local_=true;;
+          L )
+            local_all=true;;
+          i )
+            ignore=true;;
+          I )
+            ignore_all=true;;
           * )
-            ;;
+            backup=true;;
         esac
+      fi
+
+      if [ "$ignore" == true ] || [ "$ignore_all" == true ]
+      then
+        continue
       fi
 
       if [ "$overwrite" == "true" ] || [ "$overwrite_all" == "true" ]
       then
-        rm -rf $dest
-        success "removed $dest"
+        if `rm -rf $dest && ln -s $source $dest`; then
+          success "removed `basename $dest` and linked it to `basename $source`"
+          continue
+        else
+          fail "failed to remove $dest and link to $source"
+        fi
       fi
 
       if [ "$backup" == "true" ] || [ "$backup_all" == "true" ]
       then
-        mv $dest $dest\.backup
+        mv $dest $dest\.backup && \
         success "moved $dest to $dest.backup"
+        link_files $source $dest
       fi
 
-      if [ "$skip" == "false" ] && [ "$skip_all" == "false" ]
+      if [ "$local_" == true ] || [ "$local_all" == true ]
       then
-        link_files $source $dest
-      else
-        success "skipped $source"
+        if `mv -f $dest $source && ln -s $source $dest`; then
+          success "moved `basename $dest` to `basename $source` and linked it back to `basename $dest`"
+        else
+          fail "failed to move `basename $dest` to `basename $source` and link it back to `basename $dest`"
+        fi
       fi
 
     else
@@ -127,7 +158,7 @@ install_dotfiles
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
-  if . bin/dot > /tmp/dotfiles-dot 2>&1
+  if `. $DOTFILES_ROOT/bin/dot > /tmp/dotfiles-dot 2>&1`
   then
     success "dependencies installed"
   else
