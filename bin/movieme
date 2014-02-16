@@ -24,7 +24,7 @@ rm -rf /tmp/movieme
 mkdir -p /tmp/movieme
 
 # split the movie into constituent frames
-ffmpeg -i $1 -f image2 -ss $2 -t $3 -r 7 /tmp/movieme/d-%05d.png
+ffmpeg -i $1 -f image2 -vf "scale=iw*sar:ih" -ss $2 -t $3 -r 7 /tmp/movieme/d-%05d.png
 
 # ANIMATE
 gifme /tmp/movieme/* -d 0
