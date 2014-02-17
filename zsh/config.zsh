@@ -15,6 +15,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+setopt AUTOPUSHD
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
@@ -48,14 +49,3 @@ bindkey '^?' backward-delete-char
 
 # use incremental search
 bindkey '^R' history-incremental-search-backward
-
-# expand functions in the prompt
-setopt prompt_subst
-
-# ignore duplicate history entries
-setopt histignoredups
-
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
-
-setopt autopushd # Use pushd for all directory changing
