@@ -1,7 +1,7 @@
 --pager=less -R
 
 --type-set=scss=.scss
---type-add=html=.phtml
+--type-set=erb=.erb
 
 --smart-case
 --ignore-dir=log
