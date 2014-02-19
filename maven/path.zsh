@@ -1,1 +1,2 @@
 export M2_HOME="/opt/apache-maven-3.1.1/"
+export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512M -Xms256M -Dlogback.configurationFile=file:/Users/oleclangfjaran/DEV/sg/FinansFront/front/src/main/resources/logback-judoole.xml"
