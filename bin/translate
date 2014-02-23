@@ -1,0 +1,8 @@
+#!/bin/sh
+# I find my mind often using english words more than norwegian
+# This is just a faster way to figure out what I'm thinking about
+# Usage
+# translate bash
+sentence=`echo "$@"`
+url="$(perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$sentence")"
+open "http://translate.google.no/#en/no/$url"
