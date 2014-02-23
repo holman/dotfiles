@@ -2,6 +2,7 @@ alias reload!='. ~/.zshrc'
 
 alias ..="cd .."
 alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
