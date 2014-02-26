@@ -1,0 +1,10 @@
+
+function dotfilespresentation(){
+	cowsay "DOTFILES
+	bash, prompt og sånt 
+	by @judoole aka Langfjæran"
+	
+	alias open-oh-my-zsh='open "https://github.com/robbyrussell/oh-my-zsh"'
+	alias open-dotfiles-github='open https://dotfiles.github.com'""
+	alias open-org-dotfiles='open http://dotfiles.org'
+}
