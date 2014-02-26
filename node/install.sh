@@ -6,10 +6,17 @@ then
   brew install npm > /tmp/npm-install.log
 fi
 
+
+if test ! $(which nvm)
+then
+  echo "  Installing nvm for you."
+  brew install nvm > /tmp/nvm-install.log
+fi
+
 if test ! $(which node-inspector)
 then
   echo "  Installing node-inspector for you."
-  npm install -g node-inspector > /tmp/node-inspector-install.log
+  sudo npm install -g node-inspector > /tmp/node-inspector-install.log
 fi
 
 if test ! $(which nodemon)
