@@ -25,3 +25,6 @@
 [submodule "vim/vim.symlink/bundle/vim-rails"]
 	path = vim/vim.symlink/bundle/vim-rails
 	url = git@github.com:tpope/vim-rails.git
+[submodule "vim/vim.symlink/bundle/jshint2"]
+	path = vim/vim.symlink/bundle/jshint2
+	url = git@github.com:Shutnik/jshint2.vim.git
