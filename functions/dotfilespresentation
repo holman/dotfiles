@@ -1,7 +1,7 @@
 
 function dotfilespresentation(){
 	cowsay "DOTFILES
-	bash, prompt og sånt 
+	bash, prompt and shits 
 	by @judoole aka Langfjæran"
 	
 	alias open-oh-my-zsh='open "https://github.com/robbyrussell/oh-my-zsh"'
