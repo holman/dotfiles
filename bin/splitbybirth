@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Montage a couple of images. Name them. Pray that it's funny.
+# The resulting montage is saved on your desktop
+#
+#   $1 - label left
+#   $2 - pic left
+#   $3 - label right
+#   $4 - pic right
+#
+# Requires imagemagick
+#
+# Example:
+# splitbybirth "40 year old woman" kim-jong.jpg "Kim Jong Un" woman.jpg 
+
+montage -mode concatenate -frame 10x10+6+0 -pointsize 22 -label $1 $2 -label $3 $4 $HOME/Desktop/splitbybirth-$(date +"%Y-%d-%m-%H.%M.%S").jpg
