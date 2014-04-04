@@ -1,20 +1,22 @@
 [core]
     quotepath = false
-		editor = vim
+    editor = vim
     excludesfile = ~/.gitignore
 [user]
     name = Steven Bone
     email = steven@stevenbone.com
 [color]
     ui = true
-	diff = true
+  diff = true
 [alias]
     st = status
     co = checkout
     sp = stash pop
     di = diff
     dc = diff --cached
-		lg = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
-		wd = diff --color-words
+    lg = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+    wd = diff --color-words
+    # list local branches, sorted by most recently committed to
+    ls = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
 [push]
-	default = tracking
+  default = tracking
