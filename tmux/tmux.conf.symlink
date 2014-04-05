@@ -13,3 +13,5 @@ unbind-key l
 bind-key l select-pane -R
 
 source "$POWERLINE_DIR/powerline/bindings/tmux/powerline.conf"
+
+set -g default-terminal "screen-256color"

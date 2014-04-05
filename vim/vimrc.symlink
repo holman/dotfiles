@@ -6,8 +6,6 @@ set laststatus=2
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode
 
-colorscheme default
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -18,6 +16,7 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mileszs/ack.vim'
@@ -26,7 +25,9 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-dispatch'
 Bundle 'nathanaelkane/vim-indent-guides'
 
-syntax on
+syntax enable
+set background=light
+colorscheme solarized
 
 inoremap jj <ESC>
 
