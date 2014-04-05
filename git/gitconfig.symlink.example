@@ -14,6 +14,11 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        s = status -sb
+        f = fetch
+        tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	p = push
 [color]
         diff = auto
         status = auto
@@ -23,7 +28,7 @@
         excludesfile = ~/.gitignore
         editor = vim
 [apply]
-        whitespace = nowarn
+        whitespace = warn
 [mergetool]
         keepBackup = false
 [difftool]
