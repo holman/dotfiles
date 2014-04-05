@@ -1,8 +1,11 @@
-#!/bin/sh
+#!/bin/zsh
+set -e
+
 checkout_path=~/.oh-my-zsh
 
 if [ -d "$checkout_path" ]; then
-  /usr/bin/env ZSH=$ZSH /bin/sh $ZSH/tools/upgrade.sh
+  source ${checkout_path}/lib/functions.zsh
+  upgrade_oh_my_zsh
 else
   git clone git://github.com/robbyrussell/oh-my-zsh.git $checkout_path
 fi
