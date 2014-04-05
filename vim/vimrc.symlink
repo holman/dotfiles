@@ -1,11 +1,12 @@
 set nocompatible
-filetype off
+set modelines=0
 
 " Always display the statusline in all windows
 set laststatus=2 
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode
 
+filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -34,7 +35,7 @@ inoremap jj <ESC>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-set softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
@@ -53,3 +54,40 @@ python del powerline_setup
 "set background=dark
 "let g:airline_theme='solarized'
 "set t_Co=256
+
+" Shamelessly copied from Steve Losh's vimrc
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+
+" First off, some standard settings, making vim more 'sane'
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set wildmenu
+set visualbell
+set ttyfast
+set relativenumber
+set undofile
+
+let mapleader = ","
+
+" fix vim's default regex handling / search behavior
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+" handle lines intelligently
+set wrap
+set textwidth=79
+set formatoptions+=qrn1
+set colorcolumn=85
+
+" easier command typing
+nnoremap ; :
