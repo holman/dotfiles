@@ -10,4 +10,4 @@ unbind-key h
 bind-key h select-pane -L
 
 unbind-key l
-b
+bind-key l select-pane -R
