@@ -1,6 +1,8 @@
 set nocompatible
 filetype off
 
+colorscheme default
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -17,7 +19,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-dispatch'
-Bundle 'Yggdroot/indentLine'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 syntax on
 
@@ -31,10 +33,10 @@ set softtabstop=2 shiftwidth=2 expandtab
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
-" Activate the Yggdroot/indentLine plugin
-let g:indentLine_loaded = 1
-
 set wildignore+=*/node_modules/*
+
+" Enable indent guides per default
+let g:indent_guides_enable_on_vim_startup = 1
 
 "set laststatus=2
 "set background=dark
