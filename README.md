@@ -12,9 +12,10 @@ Run this:
 ```sh
 git clone https://github.com/kaihowl/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-script/bootstrap
 # Optionally install packages (if need be)
 script/install
+# Actual sourcing/linking of dotfiles
+script/bootstrap
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
