@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ "$(uname)" == "Darwin" ]; then
   brew install autojump
 elif [ "$(lsb_release -i)" == "Distributor ID: Ubuntu" ]; then
