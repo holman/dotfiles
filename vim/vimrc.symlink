@@ -1,6 +1,11 @@
 set nocompatible
 filetype off
 
+" Always display the statusline in all windows
+set laststatus=2 
+" Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set noshowmode
+
 colorscheme default
 
 " set the runtime path to include Vundle and initialize
@@ -37,6 +42,11 @@ set wildignore+=*/node_modules/*
 
 " Enable indent guides per default
 let g:indent_guides_enable_on_vim_startup = 1
+
+" Use powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 "set laststatus=2
 "set background=dark
