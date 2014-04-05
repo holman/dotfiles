@@ -1,4 +1,42 @@
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" alternatively, pass a path where Vundle should install plugins
+" let path = '~/some/path/here'
+" call vundle#rc(path)
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-dispatch'
+Plugin 'Yggdroot/indentLine'
+
 syntax on
+
+inoremap jj <ESC>
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+set softtabstop=2 shiftwidth=2 expandtab
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+" Activate the Yggdroot/indentLine plugin
+let g:indentLine_loaded = 1
+
+set wildignore+=*/node_modules/*
+
+"set laststatus=2
+"set background=dark
+"let g:airline_theme='solarized'
+"set t_Co=256
