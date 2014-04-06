@@ -92,6 +92,9 @@ nnoremap <leader>g :Gstatus<cr>
 nnoremap <leader>l :Glog<cr>
 nnoremap <leader>d :Gdiff<cr>
 
+" Dispatch mappings
+nnoremap <leader>p :Disp! git push<cr>
+
 " customize ctrlp plugin
 let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_map = '<c-p>'
