@@ -30,11 +30,6 @@ syntax enable
 set background=light
 colorscheme solarized
 
-inoremap jj <ESC>
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " Wrap gitcommit file types at the appropriate length
@@ -91,3 +86,13 @@ set colorcolumn=85
 
 " easier command typing
 nnoremap ; :
+
+" Fugitive mappings
+nnoremap <leader>g :Gstatus<cr>
+nnoremap <leader>l :Glog<cr>
+nnoremap <leader>d :Gdiff<cr>
+
+" customize ctrlp plugin
+let g:ctrlp_extensions = ['line', 'mixed']
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
