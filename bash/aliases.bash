@@ -2,7 +2,7 @@ alias tmux="tmux -2"
 
 # System
 alias ..="cd .."
-alias ls="ls -la"
+alias ls="ls -lah"
 
 # Flush DNS Cache
 alias flushdns="dscacheutil -flushcache"
