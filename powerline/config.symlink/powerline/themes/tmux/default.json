@@ -1,12 +1,6 @@
 {
 	"default_module": "powerline.segments.common",
 	"segment_data": {
-		"uptime": {
-			"before": "⇑  "
-		},
-		"date": {
-			"before": "⌚ "
-		}
 	},
 	"segments": {
 		"right": [
