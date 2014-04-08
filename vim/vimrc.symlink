@@ -88,12 +88,13 @@ set formatoptions+=qrn1
 set colorcolumn=85
 
 " Fugitive mappings
-nnoremap <leader>g :Gstatus<cr>
-nnoremap <leader>l :Glog<cr>
-nnoremap <leader>d :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gd :Gdiff<cr>
 
 " Dispatch mappings
-nnoremap <leader>p :Disp git push<cr>
+nnoremap <leader>gp :Disp git push<cr>
+nnoremap <leader>gf :Disp git fetch<cr>
 
 " customize ctrlp plugin
 let g:ctrlp_extensions = ['line', 'mixed']
