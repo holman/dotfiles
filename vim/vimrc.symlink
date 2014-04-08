@@ -87,10 +87,6 @@ set textwidth=79
 set formatoptions+=qrn1
 set colorcolumn=85
 
-" easier command typing
-nnoremap ; :
-vnoremap ; :
-
 " Fugitive mappings
 nnoremap <leader>g :Gstatus<cr>
 nnoremap <leader>l :Glog<cr>
