@@ -29,6 +29,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
+Bundle 'bronson/vim-trailing-whitespace'
 
 syntax enable
 set background=light
