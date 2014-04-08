@@ -27,6 +27,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-surround'
 
 syntax enable
 set background=light
