@@ -105,3 +105,6 @@ nnoremap <c-l> :CtrlPLine<cr>
 
 " easier escaping
 inoremap jj <ESC>
+
+" python pep8 compliance
+au BufEnter *.py set sw=4 ts=4 sta et fo=croql
