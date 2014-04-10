@@ -1,0 +1,41 @@
+{
+  "editor": {
+    "fontSize": 15,
+    "showIndentGuide": true
+  },
+  "core": {
+    "excludeVcsIgnoredPaths": true,
+    "ignoredNames": [
+      ".bundle",
+      ".git",
+      "log",
+      "repositories",
+      "tmp",
+      "vendor"
+    ],
+    "themes": [
+      "unity-ui",
+      "glacier-syntax"
+    ],
+    "hideGitIgnoredFiles": true,
+    "disabledPackages": [
+      "background-tips",
+      "exception-reporting",
+      "metrics"
+    ]
+  },
+  "spell-check": {
+    "grammars": [
+      "text.plain",
+      "source.gfm",
+      "text.git-commit"
+    ]
+  },
+  "welcome": {
+    "showOnStartup": false
+  },
+  "release-notes": {
+    "viewedVersion": "0.85.0"
+  },
+  "tree-view": {}
+}
