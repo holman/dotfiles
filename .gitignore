@@ -1,3 +1,9 @@
+.atom/.node-gyp
+.atom/.storage
+.atom/packages
+.atom/storage
+.atom/themes
+
 sublime2/User/Package\ Control.sublime-settings
 sublime2/User/Package Control.last-run
 git/gitconfig.symlink
