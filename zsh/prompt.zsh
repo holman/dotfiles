@@ -14,7 +14,7 @@ git_branch() {
 }
 
 git_dirty() {
-  if [[ ! -d .git ]]
+  if $(! $git status -s &> /dev/null)
   then
     echo ""
   else
