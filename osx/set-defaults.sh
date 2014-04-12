@@ -39,3 +39,8 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Prolong the time to set macbook to deeper sleep
+# Set standby to 90 minutes when on battery power
+echo "Trying to change battery standbydelay to 90 mins"
+sudo pmset -b standbydelay 5400
