@@ -11,6 +11,7 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C
 alias ga='git add'
 alias gf='git fetch'
 alias gp='git push'
+alias gpr='git pull --rebase'
 alias gd='git diff'
 alias gc='git commit'
 alias gca='git commit -a'
