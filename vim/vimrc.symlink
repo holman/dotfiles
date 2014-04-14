@@ -109,3 +109,6 @@ inoremap jj <ESC>
 
 " python pep8 compliance
 au BufEnter *.py set sw=4 ts=4 sta et fo=croql
+
+" Syntastic settings
+let g:syntastic_cpp_check_header = 0
