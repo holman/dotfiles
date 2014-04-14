@@ -111,4 +111,4 @@ inoremap jj <ESC>
 au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 
 " Syntastic settings
-let g:syntastic_cpp_check_header = 0
+let g:syntastic_cpp_no_include_search = 1
