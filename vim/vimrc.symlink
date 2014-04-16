@@ -93,6 +93,7 @@ set colorcolumn=85
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>ge :Gedit<cr>
 
 " Dispatch mappings
 nnoremap <leader>gp :Disp git push<cr>
