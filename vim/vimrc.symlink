@@ -2,7 +2,7 @@ set nocompatible
 set modelines=0
 
 " Always display the statusline in all windows
-set laststatus=2 
+set laststatus=2
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode
 
