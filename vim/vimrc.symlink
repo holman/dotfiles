@@ -71,8 +71,6 @@ set undofile
 let mapleader = ","
 
 " fix vim's default regex handling / search behavior
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
