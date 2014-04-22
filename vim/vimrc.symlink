@@ -115,3 +115,6 @@ let g:syntastic_cpp_no_include_search = 1
 " Make mappings
 nnoremap <leader>mj :Make -j<cr>
 nnoremap <leader>m8 :Make -j8<cr>
+
+" Sudo after the fact
+cmap w!! w !sudo tee % >/dev/null
