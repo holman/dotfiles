@@ -113,3 +113,7 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 
 " Syntastic settings
 let g:syntastic_cpp_no_include_search = 1
+
+" Make mappings
+nnoremap <leader>mj :Make -j<cr>
+nnoremap <leader>m8 :Make -j8<cr>
