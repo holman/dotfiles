@@ -15,6 +15,9 @@ bind-key h select-pane -L
 unbind-key l
 bind-key l select-pane -R
 
+bind \ split-window -h
+bind - split-window -v
+
 source "$POWERLINE_DIR/powerline/bindings/tmux/powerline.conf"
 
 set -g default-terminal "screen-256color"
