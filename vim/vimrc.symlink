@@ -118,3 +118,5 @@ nnoremap <leader>m8 :Make -j8<cr>
 
 " Sudo after the fact
 cmap w!! w !sudo tee % >/dev/null
+
+:set pastetoggle=<leader>p
