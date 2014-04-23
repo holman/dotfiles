@@ -1,11 +1,46 @@
 {
-	"color_scheme": "Packages/Base16 Color Schemes/base16-default.dark.tmTheme",
-	"font_face": "Source Code Pro",
-	"font_size": 14,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"theme": "Soda Dark 3.sublime-theme",
-	"translate_tabs_to_spaces": false
+    "color_scheme": "Packages/Base16 Color Schemes/base16-default.dark.tmTheme",
+    "font_face": "Source Code Pro",
+    "font_size": 14.0,
+    "highlight_line": true,
+    "font_options":
+    [
+        "no_bold",
+        "no_italic"
+    ],
+    "file_exclude_patterns":
+    [
+        "*.pyc",
+        "*.pyo",
+        "*.exe",
+        "*.dll",
+        "*.obj",
+        "*.o",
+        "*.a",
+        "*.lib",
+        "*.so",
+        "*.dylib",
+        "*.ncb",
+        "*.sdf",
+        "*.suo",
+        "*.pdb",
+        "*.idb",
+        ".DS_Store",
+        "*.class",
+        "*.psd",
+        "*.db",
+        "*.sublime*"
+    ],
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "line_padding_top": 1,
+    "line_padding_bottom": 1,
+    "theme": "Soda Dark 3.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "ensure_newline_at_eof_on_save": true,
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": false,
+    "tab_size": 4
 }
