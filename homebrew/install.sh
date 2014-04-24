@@ -20,4 +20,9 @@ fi
 # Install homebrew packages
 brew install grc coreutils spark
 
+# Installing vim because the apple-supplied vim is outdated
+# Furthermore has('macunix') does not work in apple vim
+# That breaks latex-suite mac specifics
+brew install vim
+
 exit 0
