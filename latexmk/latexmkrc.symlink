@@ -1,0 +1,2 @@
+$clean_ext = 'acn alg glo syg ist synctex.gz synctex.gz(busy) run.xml tex.bak bbl bcf fdb_latexmk run tdo %R-blx.bib';
+$bibtex_use = 2;
