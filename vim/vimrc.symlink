@@ -30,6 +30,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'jcf/vim-latex'
 
 syntax enable
 set background=light
@@ -119,4 +120,12 @@ nnoremap <leader>m8 :Make -j8<cr>
 " Sudo after the fact
 cmap w!! w !sudo tee % >/dev/null
 
-:set pastetoggle=<leader>p
+set pastetoggle=<leader>p
+
+" Make sure latex-suite is invoked for plaintex files
+let g:tex_flavor='latex'
+
+" Configure pdf format for latex-suite
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
+let g:Tex_ViewRule_pdf = 'Skim'
