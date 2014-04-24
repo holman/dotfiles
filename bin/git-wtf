@@ -312,7 +312,7 @@ remote_branches = {}
     remote, name = $1, $2
     remote_branches["#{remote}/#{name}"] = true
     next if name == "HEAD"
-    ignore = !($all || remote == "origin")
+    ignore = !($all || remote == "gh")
 
     branch = name
     if branches[name] && branches[name][:remote] == remote
