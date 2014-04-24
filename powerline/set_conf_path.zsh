@@ -3,4 +3,5 @@
 
 user_base=`python -c "import site; print site.USER_BASE"`
 export PATH="$user_base/bin":$PATH
-export POWERLINE_DIR="$user_base/lib/python/site-packages/powerline"
+user_base_packages=`python -c "import site; print site.getusersitepackages()"`
+export POWERLINE_DIR="$user_base_packages/powerline"
