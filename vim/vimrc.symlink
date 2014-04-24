@@ -93,6 +93,7 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :Gedit<cr>
+nnoremap <leader>gb :Gblame<cr>
 
 " Dispatch mappings
 nnoremap <leader>gp :Disp git push<cr>
