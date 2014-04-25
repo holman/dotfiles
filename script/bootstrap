@@ -127,7 +127,7 @@ install_dotfiles
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing mac specifics\n"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
+  if source bin/dots > /tmp/dotfiles-dots 2>&1
   then
     success "mac specifics installed"
   else

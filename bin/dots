@@ -1,8 +1,8 @@
 #!/bin/sh
 #
-# dot
+# dots
 #
-# `dot` handles installation, updates, things like that. Run it periodically
+# `dots` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 export DOTS=$HOME/.dotfiles
 
