@@ -33,7 +33,7 @@ then
   fi
 
   epoch_diff=$(($(_current_epoch) - $LAST_EPOCH))
-  if [ $epoch_diff -gt $epoch_target ]
+  if [ $epoch_diff -ge $epoch_target ]
   then
     if [ "$DISABLE_UPDATE_PROMPT" = "true" ]
     then
