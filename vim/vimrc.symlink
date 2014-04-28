@@ -41,7 +41,7 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
-set wildignore+=*/node_modules/*
+set wildignore+=*/node_modules/*,*.aux
 
 " Enable indent guides per default
 let g:indent_guides_enable_on_vim_startup = 1
