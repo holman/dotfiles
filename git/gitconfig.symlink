@@ -14,7 +14,7 @@
     sp = stash pop
     di = diff
     dc = diff --cached
-    lg = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+    lg = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --name-only
     wd = diff --color-words
     # list local branches, sorted by most recently committed to
     ls = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'

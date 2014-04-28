@@ -5,3 +5,4 @@
 
 --smart-case
 --ignore-dir=log
+--ignore-dir=tmp

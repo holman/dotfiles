@@ -14,12 +14,12 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = 'scssc'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.woff,*.ttf
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.woff,*.ttf,*.dump
 
 " Theme settings
 set background=dark
 colorscheme solarized
-call togglebg#map("<F4>") "Uses <F4> to switch b/w light and dark
+" call togglebg#map("<F4>") "Uses <F4> to switch b/w light and dark
 
 let mapleader=","       " remap leader key
 set nocompatible
