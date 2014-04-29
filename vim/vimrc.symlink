@@ -182,3 +182,7 @@ autocmd BufWinEnter * call FoldToScreen()
 " Comment out, if you need to debug latex-suite
 "let g:Tex_Debug=1
 "let g:Tex_DebugLog="texdebug.log"
+
+" Allow to delete old characters in insert mode
+" Also needed that latex-suite will be able to delete placeholders
+set backspace=2
