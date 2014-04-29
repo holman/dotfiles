@@ -170,3 +170,7 @@ function! FoldToScreen()
 endfunction
 
 autocmd BufWinEnter * call FoldToScreen()
+
+" Comment out, if you need to debug latex-suite
+"let g:Tex_Debug=1
+"let g:Tex_DebugLog="texdebug.log"
