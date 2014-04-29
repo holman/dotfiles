@@ -133,6 +133,12 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'Skim'
 
+" Change default alt mappings for latex-suite to mac friendly ones
+imap <C-B> <Plug>Tex_MathBF
+imap <C-C> <Plug>Tex_MathCal
+imap <C-L> <Plug>Tex_LeftRight
+imap <C-I> <Plug>Tex_InsertItemOnThisLine
+
 " Blindly robbed from Janus vim.rc
 " https://github.com/rdeits/janus/blob/master/vimrc
 " Calculate the number of screen lines needed to display a file with folds at
