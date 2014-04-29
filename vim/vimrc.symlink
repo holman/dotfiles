@@ -131,6 +131,42 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'Skim'
 
-" open one fold level
-" makes for nicer viewing of section/*.tex files
-set foldlevel=1
+" Blindly robbed from Janus vim.rc
+" https://github.com/rdeits/janus/blob/master/vimrc
+" Calculate the number of screen lines needed to display a file with folds at
+" the given fold_level. This is used to set the initial fold level of a file
+" in order to display the entire file on screen if possible without closing
+" any unnecessary folds.
+function! ScreenLines(fold_level)
+  let line_num = 1
+  let screen_lines = 0
+  let prev_fold_level = 0
+  let cur_fold_level = 0
+  let buf_length = line("$")
+  while line_num <= buf_length
+    let fold_expr = foldlevel(line_num)
+    let prev_fold_level = cur_fold_level
+    let cur_fold_level = fold_expr
+    if (cur_fold_level <= a:fold_level) || ((cur_fold_level != prev_fold_level) && (prev_fold_level <= a:fold_level))
+      let screen_lines = screen_lines + 1
+    endif
+      let line_num = line_num+1
+   endwhile
+   return screen_lines
+endfunction
+
+" Increase the fold level until the entire file will fit on the screen or
+" foldlevel reaches 10, whichever comes first.
+function! FoldToScreen()
+  let ndx = 0
+  set foldlevel=0
+  while ndx < 10
+    let ndx = ndx + 1
+    if ScreenLines(ndx) > &lines
+      break
+    endif
+    set foldlevel+=1
+  endwhile
+endfunction
+
+autocmd BufWinEnter * call FoldToScreen()
