@@ -177,7 +177,7 @@ function! FoldToScreen()
   endwhile
 endfunction
 
-autocmd BufWinEnter * call FoldToScreen()
+autocmd BufWinEnter *.tex call FoldToScreen()
 
 " Comment out, if you need to debug latex-suite
 "let g:Tex_Debug=1
