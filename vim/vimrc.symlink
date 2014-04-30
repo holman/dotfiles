@@ -134,10 +134,10 @@ let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'Skim'
 
 " Change default alt mappings for latex-suite to mac friendly ones
-imap <C-B> <Plug>Tex_MathBF
-imap <C-C> <Plug>Tex_MathCal
-imap <C-L> <Plug>Tex_LeftRight
-imap <C-I> <Plug>Tex_InsertItemOnThisLine
+imap <leader>lb <Plug>Tex_MathBF
+imap <leader>lc <Plug>Tex_MathCal
+imap <leader>ll <Plug>Tex_LeftRight
+imap <leader>li <Plug>Tex_InsertItemOnThisLine
 
 " Blindly robbed from Janus vim.rc
 " https://github.com/rdeits/janus/blob/master/vimrc
