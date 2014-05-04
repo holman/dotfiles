@@ -184,3 +184,6 @@ autocmd BufWinEnter *.tex call FoldToScreen()
 " Allow to delete old characters in insert mode
 " Also needed that latex-suite will be able to delete placeholders
 set backspace=2
+
+" enable spellchecking for git commits
+au FileType gitcommit setlocal spell
