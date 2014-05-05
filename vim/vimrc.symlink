@@ -115,8 +115,9 @@ let g:syntastic_cpp_no_include_search = 1
 let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
 
 " Make mappings
-nnoremap <leader>mj :Make -j<cr>
+nnoremap <leader>m0 :Make -j<cr>
 nnoremap <leader>m8 :Make -j8<cr>
+nnoremap <leader>mc :Make clean<cr>
 
 " Sudo after the fact
 cmap w!! w !sudo tee % >/dev/null
