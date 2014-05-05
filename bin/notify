@@ -7,4 +7,39 @@ echo Execute supplied command...
 exec 5>&1
 output=$("$@" | tee >(cat - >&5))
 
-echo -e "Subject: $1 done\n$output" | sendmail -f "$NOTIFY_EMAIL" -r "$NOTIFY_EMAIL" "$NOTIFY_EMAIL"
+# find attachment pdfs
+# these are denoted with lines >>><filename> in stdout of command
+# example: >>>some_attachment_file.pdf
+files=$( grep "^>>>" <<< "$output" | sed "s/>>>//")
+
+# Not using uuencode, since it may not be available on some systems
+echo "$files" | python -c "
+import sys, uu
+from email.MIMEMultipart import MIMEMultipart
+from email.mime.application import MIMEApplication
+from email.MIMEText import MIMEText
+from email import Encoders
+import os
+
+msg = MIMEMultipart()
+msg['Subject'] = \"$1 done\"
+msg['From'] = \"$NOTIFY_EMAIL\"
+msg['To'] = \"$NOTIFY_EMAIL\"
+
+text = \"\"\"Output of command:
+$output
+\"\"\"
+text_part = MIMEText(text, 'plain')
+msg.attach(text_part)
+
+for filename in sys.stdin.read().splitlines():
+  if filename == '':
+    continue
+  part = MIMEApplication(open(filename, 'rb').read(), 'pdf')
+  part.add_header('Content-Disposition', 'attachment; filename=\"%s\"' % os.path.basename(filename))
+  msg.attach(part)
+
+import smtplib
+s = smtplib.SMTP('localhost')
+s.sendmail(\"$NOTIFY_EMAIL\", \"$NOTIFY_EMAIL\", msg.as_string())
+"
