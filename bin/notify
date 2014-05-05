@@ -22,7 +22,7 @@ from email import Encoders
 import os
 
 msg = MIMEMultipart()
-msg['Subject'] = \"$1 done\"
+msg['Subject'] = \"$@ done\"
 msg['From'] = \"$NOTIFY_EMAIL\"
 msg['To'] = \"$NOTIFY_EMAIL\"
 
