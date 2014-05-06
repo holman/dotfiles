@@ -5,6 +5,7 @@ echo Execute supplied command...
 
 tmp_file=output.tmp
 
+# Execute the command and save output in tmp_file
 "$@" | tee $tmp_file
 
 # find attachment pdfs
@@ -22,7 +23,7 @@ from email import Encoders
 import os
 
 msg = MIMEMultipart()
-msg['Subject'] = \"$@ done\"
+msg['Subject'] = \"$(printf '%s ' "$@") done\"
 msg['From'] = \"$NOTIFY_EMAIL\"
 msg['To'] = \"$NOTIFY_EMAIL\"
 
