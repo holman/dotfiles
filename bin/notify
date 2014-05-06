@@ -6,7 +6,7 @@ echo Execute supplied command...
 tmp_file=output.tmp
 
 # Execute the command and save output in tmp_file
-"$@" | tee $tmp_file
+"$@" 2>&1 | tee $tmp_file
 
 # find attachment pdfs
 # these are denoted with lines >>><filename> in stdout of command
