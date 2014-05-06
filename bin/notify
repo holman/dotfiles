@@ -6,7 +6,8 @@ echo Execute supplied command...
 tmp_file=output.tmp
 
 # Execute the command and save output in tmp_file
-"$@" 2>&1 | tee $tmp_file
+"$@" | tee $tmp_file
+SUCCESS=${PIPESTATUS[0]}
 
 # find attachment pdfs
 # these are denoted with lines >>><filename> in stdout of command
@@ -46,3 +47,5 @@ import smtplib
 s = smtplib.SMTP('localhost')
 s.sendmail(\"$NOTIFY_EMAIL\", \"$NOTIFY_EMAIL\", msg.as_string())
 "
+
+exit $SUCCESS
