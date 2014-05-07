@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 # Shamelessly copied from oh my zsh
 
 printf '\033[0;34m%s\033[0m\n' "Upgrading Dotfiles"

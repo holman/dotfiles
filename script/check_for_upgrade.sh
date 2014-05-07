@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Shamelessly copied from oh-my-zsh
 
