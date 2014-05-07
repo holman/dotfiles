@@ -24,7 +24,7 @@ from email import Encoders
 import os
 
 msg = MIMEMultipart()
-msg['Subject'] = \"$(printf '%s ' "$@") done\"
+msg['Subject'] = \"Code $SUCCESS for $(printf '%s ' "$@")\"
 msg['From'] = \"$NOTIFY_EMAIL\"
 msg['To'] = \"$NOTIFY_EMAIL\"
 
