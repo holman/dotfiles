@@ -12,7 +12,7 @@ export ga_auto_remove="yes"
 # - Set the following option to 'no' if you want to use your existing git aliases
 #   instead of overwriting them.
 #   Note: Bash tab completion will not be automatically set up for your aliases if you disable this option.
-export git_setup_aliases="yes"
+export git_setup_aliases="no"
 
 
 # Git Index Config
