@@ -50,6 +50,9 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git autojump tmux ssh-agent)
 
+# Without this, a ssh-agent is started even when SSH_AUTH_SOCK is supplied
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
