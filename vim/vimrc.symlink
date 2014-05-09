@@ -34,6 +34,9 @@ let g:airline_symbols.space = "\ua0"
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
+" jj to escape
+inoremap jj <ESC>
+
 " Move around splits with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
