@@ -3,7 +3,7 @@ echo Sending email to ${NOTIFY_EMAIL:?"You have to set NOTIFY_EMAIL in the env
 before."} upon completion.
 echo Execute supplied command...
 
-tmp_file=output.tmp
+tmp_file=notify_$(date +%s).tmp
 
 # Execute the command and save output in tmp_file
 "$@" 2>&1 | tee $tmp_file
