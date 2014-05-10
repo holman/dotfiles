@@ -12,8 +12,7 @@ function usage() {
 }
 
 function sendfailmail() {
-  echo Would send email to "$2"
-  echo -e "Subject: Ping to $1 failed\n" | sendmail -f "$2" -r "$2" "$2"
+  echo -e "Subject: Ping to $1 failed\n" | sendmail -f "$2" "$2"
   exit 1
 }
 
