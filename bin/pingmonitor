@@ -24,6 +24,6 @@ fi
 if ping -c 1 "$1" > /dev/null; then
   exit 0
 else
-  sendfailmail
+  sendfailmail $1 $2
 fi
 
