@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Usage:
+# pingmonitor <hostname> <email>
+# Ping the supplied hostname and send an email if the ping failed.
+# Setup a cron job with this script to have a simple monitoring tool.
+
+function usage() {
+  echo Wrong number of arguments!
+  echo pingmonitor \<hostname\> \<email\>
+  echo Ping supplied hostname and send an email if the ping failed.
+}
+
+function sendfailmail() {
+  echo Would send email to "$2"
+  echo -e "Subject: Ping to $1 failed\n" | sendmail -f "$2" -r "$2" "$2"
+  exit 1
+}
+
+if [ $# != 2 ]; then
+  usage
+  exit 1
+fi
+
+if ping -c 1 "$1" > /dev/null; then
+  exit 0
+else
+  sendfailmail
+fi
+
