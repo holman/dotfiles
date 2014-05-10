@@ -4,6 +4,11 @@
 # pingmonitor <hostname> <email>
 # Ping the supplied hostname and send an email if the ping failed.
 # Setup a cron job with this script to have a simple monitoring tool.
+# Make sure sendmail is included in PATH for cronjob!
+# */15 * * * * PATH=$PATH:/usr/sbin <abs-path-pingnotify> <host> <email>
+# Would ping host every 15 minutes and send an email to email if ping failed.
+# Since sendmail is in /usr/sbin, which is not in cron's default PATH, it is
+# set manually.
 
 function usage() {
   echo Wrong number of arguments!
@@ -13,7 +18,6 @@ function usage() {
 
 function sendfailmail() {
   echo -e "Subject: Ping to $1 failed\n" | sendmail -f "$2" "$2"
-  exit 1
 }
 
 if [ $# != 2 ]; then
@@ -21,9 +25,6 @@ if [ $# != 2 ]; then
   exit 1
 fi
 
-if ping -c 1 "$1" > /dev/null; then
-  exit 0
-else
+if ! ping -c 1 "$1" > /dev/null; then
   sendfailmail $1 $2
 fi
-
