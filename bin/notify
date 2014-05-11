@@ -3,19 +3,26 @@ echo Sending email to ${NOTIFY_EMAIL:?"You have to set NOTIFY_EMAIL in the env
 before."} upon completion.
 echo Execute supplied command...
 
-tmp_file=notify_$(date +%s).tmp
+tmp_file=notify_$(date +%s).txt
 
 # Execute the command and save output in tmp_file
 "$@" 2>&1 | tee $tmp_file
 SUCCESS=${PIPESTATUS[0]}
 
-# find attachment pdfs
+# find attachment files
 # these are denoted with lines >>><filename> in stdout of command
 # example: >>>some_attachment_file.pdf
+# files contains a line by line representation of to be attached files
 files=$( grep "^>>>" < $tmp_file | sed "s/>>>//")
 
-# Not using uuencode, since it may not be available on some systems
-cat $tmp_file | python -c "
+if [ "$(wc -l < $tmp_file)" -gt 20 ]; then
+  mail_body="{ head -n 10 $tmp_file && echo \"...\" && tail -n 10 $tmp_file; }"
+  files+="\n$tmp_file"
+else
+  mail_body="cat $tmp_file"
+fi
+
+eval $mail_body | python -c "
 import sys, uu
 from email.MIMEMultipart import MIMEMultipart
 from email.mime.application import MIMEApplication
@@ -39,7 +46,13 @@ $files
 for filename in files.splitlines():
   if filename == '':
     continue
-  part = MIMEApplication(open(filename, 'rb').read(), 'pdf')
+  extension = os.path.splitext(filename)[1]
+  if extension == \".pdf\":
+    part = MIMEApplication(open(filename, 'rb').read(), 'pdf')
+  elif extension == \".txt\":
+    part = MIMEText(open(filename, 'rb').read())
+  else:
+    part = MIMEApplication(open(filename, 'rb').read(), 'application/octet-stream')
   part.add_header('Content-Disposition', 'attachment; filename=\"%s\"' % os.path.basename(filename))
   msg.attach(part)
 
