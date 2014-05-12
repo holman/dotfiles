@@ -31,6 +31,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'jcf/vim-latex'
+Bundle 'godlygeek/tabular'
 
 syntax enable
 set background=light
