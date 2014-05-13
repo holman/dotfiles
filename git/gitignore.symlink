@@ -3,3 +3,4 @@
 *.swp
 *.un~
 core
+notify_*.txt
