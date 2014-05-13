@@ -2,9 +2,29 @@
 #
 # Run all dotfiles installers.
 
-set -e
+pprint intro 'Running installers'
 
-cd "$(dirname $0)"/..
+# Clean logs
+find -L /tmp -maxdepth 1 -name *.dot.log | while read logfile; do rm "${logfile}"; done
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+for installer in `find $ZSH -maxdepth 2 -name install.sh`; do
+  topic=`basename $(dirname ${installer})`
+  pprint info "Installing $topic"
+  sh -c "${installer}"
+  pprint flush
+
+  if [[ $? == 1 ]]; then
+    errors=true
+  fi
+done
+
+if [[ "$errors" == true ]]; then
+  pprint fail "There were some errors. Check the logfiles:"
+  find -L /tmp -maxdepth 1 -name *.dot.log | while read logfile; do pprint error "${logfile}"; done
+else
+  pprint success "Everything installed like a charm!"
+fi
+
+pprint flush
+exit 0

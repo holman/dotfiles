@@ -1,0 +1,107 @@
+#!/bin/bash
+#
+# Pretty prints for dotfiles scripts
+
+# Status prints
+pp_fail() {
+  printf "$1  [\033[0;31mFAIL\033[0m] $2"
+}
+
+pp_info() {
+  printf "$1  [ \033[00;34m..\033[0m ] $2"
+}
+
+pp_success() {
+  printf "$1  [ \033[00;32mOK\033[0m ] $2"
+}
+
+pp_user() {
+  printf "$1  [ \033[0;33m??\033[0m ] $2 "
+}
+
+# Step prints
+pp_error() {
+  printf "$1      \033[0;31m..\033[0m $2"
+}
+
+pp_ok() {
+  printf "$1      \033[00;32m..\033[0m $2"
+}
+
+pp_step() {
+  printf "$1      .. $2"
+}
+
+pp_warning() {
+  printf "$1      \033[0;33m..\033[0m $2"
+}
+
+# Helpers
+pp_intro() {
+  printf "$1  $2\n"
+}
+
+pp_flush() {
+  printf '\n'
+}
+
+usage() {
+  echo "usage: $0 <type> [-r] [string ...]"
+  echo "where <type>:"
+  echo "  fail info success user"
+  echo "  error ok step warning"
+  echo "  flush intro"
+}
+
+# Print type check
+case "$1" in
+  # Status
+  fail)
+    TYPE="pp_fail";;
+  info)
+    TYPE="pp_info";;
+  success)
+    TYPE="pp_success";;
+  user)
+    TYPE="pp_user";;
+
+  # Steps
+  error)
+    TYPE="pp_error";;
+  ok)
+    TYPE="pp_ok";;
+  step)
+    TYPE="pp_step";;
+  warning)
+    TYPE="pp_warning";;
+
+  # Helpers
+  flush)
+    TYPE="pp_flush";;
+  intro)
+    TYPE="pp_intro";;
+
+  *)
+    usage
+    exit 1
+esac
+shift
+
+# Start of line option
+if [[ $# > 1 ]]; then
+  case "$1" in
+    -r)
+      SOF="\r\033[2K"
+      shift
+      ;;
+    *)
+      usage
+      exit 1
+  esac
+else
+  SOF="\n"
+fi
+
+# Print call
+$TYPE $SOF "$1"
+exit 0
