@@ -50,7 +50,7 @@ setup_gitconfig () {
 }
 
 link_files () {
-  ln -s $1 $2
+  ln -s "$1" "$2"
   success "linked $1 to $2"
 }
 
@@ -61,11 +61,11 @@ install_dotfiles () {
   backup_all=false
   skip_all=false
 
-  for source in `find . -maxdepth 2 -name \*.symlink`
+  for source in $(find . -maxdepth 2 -name '*.symlink')
   do
-    dest="$HOME/.`basename \"${source%.*}\"`"
+    dest="$HOME/.$(basename "${source%.*}")"
 
-    if [ -f $dest ] || [ -d $dest ]
+    if [ -f "$dest" ] || [ -d "$dest" ]
     then
 
       overwrite=false
@@ -74,7 +74,7 @@ install_dotfiles () {
 
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
-        user "File already exists: `basename $source`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        user "File already exists: $(basename "$source"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
 
         case "$action" in
@@ -97,25 +97,25 @@ install_dotfiles () {
 
       if [ "$overwrite" == "true" ] || [ "$overwrite_all" == "true" ]
       then
-        rm -rf $dest
+        rm -rf "$dest"
         success "removed $dest"
       fi
 
       if [ "$backup" == "true" ] || [ "$backup_all" == "true" ]
       then
-        mv $dest $dest\.backup
-        success "moved $dest to $dest.backup"
+        mv "$dest" "${dest}.backup"
+        success "moved $dest to ${dest}.backup"
       fi
 
       if [ "$skip" == "false" ] && [ "$skip_all" == "false" ]
       then
-        link_files $source $dest
+        link_files "$source" "$dest"
       else
         success "skipped $source"
       fi
 
     else
-      link_files $source $dest
+      link_files "$source" "$dest"
     fi
 
   done
