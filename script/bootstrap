@@ -65,12 +65,13 @@ install_dotfiles () {
   do
     dest="$HOME/.$(basename "${source%.*}")"
 
+    skip=false
+
     if [ -f "$dest" ] || [ -d "$dest" ]
     then
 
       overwrite=false
       backup=false
-      skip=false
 
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
@@ -107,14 +108,15 @@ install_dotfiles () {
         success "moved $dest to ${dest}.backup"
       fi
 
-      if [ "$skip" == "false" ] && [ "$skip_all" == "false" ]
+      if [ "$skip" == "true" ] || [ "$skip_all" == "true" ]
       then
-        link_files "$source" "$dest"
-      else
+        skip=true
         success "skipped $source"
       fi
+    fi
 
-    else
+    if [ "$skip" == "false" ]
+    then
       link_files "$source" "$dest"
     fi
 
