@@ -56,7 +56,7 @@ link_file () {
   local overwrite= backup= skip=
   local action=
 
-  if [ -f "$dst" ] || [ -d "$dst" ]
+  if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
 
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
