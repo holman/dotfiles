@@ -57,21 +57,19 @@ link_files () {
 install_dotfiles () {
   info 'installing dotfiles'
 
-  overwrite_all=false
-  backup_all=false
-  skip_all=false
+  local overwrite= backup= skip=
+  local overwrite_all=false backup_all=false skip_all=false
 
   for source in $(find "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
   do
     dest="$HOME/.$(basename "${source%.*}")"
 
-    skip=false
+    overwrite=
+    backup=
+    skip=
 
     if [ -f "$dest" ] || [ -d "$dest" ]
     then
-
-      overwrite=false
-      backup=false
 
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
@@ -96,26 +94,29 @@ install_dotfiles () {
         esac
       fi
 
-      if [ "$overwrite" == "true" ] || [ "$overwrite_all" == "true" ]
+      overwrite=${overwrite:-$overwrite_all}
+      backup=${backup:-$backup_all}
+      skip=${skip:-$skip_all}
+
+      if [ "$overwrite" == "true" ]
       then
         rm -rf "$dest"
         success "removed $dest"
       fi
 
-      if [ "$backup" == "true" ] || [ "$backup_all" == "true" ]
+      if [ "$backup" == "true" ]
       then
         mv "$dest" "${dest}.backup"
         success "moved $dest to ${dest}.backup"
       fi
 
-      if [ "$skip" == "true" ] || [ "$skip_all" == "true" ]
+      if [ "$skip" == "true" ]
       then
-        skip=true
         success "skipped $source"
       fi
     fi
 
-    if [ "$skip" == "false" ]
+    if [ "$skip" != "true" ]  # "false" or empty
     then
       link_files "$source" "$dest"
     fi
