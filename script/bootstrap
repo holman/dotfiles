@@ -55,20 +55,20 @@ install_dotfiles () {
   local overwrite= backup= skip=
   local overwrite_all=false backup_all=false skip_all=false
 
-  for source in $(find "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
+  for src in $(find "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
   do
-    dest="$HOME/.$(basename "${source%.*}")"
+    dst="$HOME/.$(basename "${src%.*}")"
 
     overwrite=
     backup=
     skip=
 
-    if [ -f "$dest" ] || [ -d "$dest" ]
+    if [ -f "$dst" ] || [ -d "$dst" ]
     then
 
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
-        user "File already exists: $(basename "$source"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
 
         case "$action" in
@@ -95,19 +95,19 @@ install_dotfiles () {
 
       if [ "$overwrite" == "true" ]
       then
-        rm -rf "$dest"
-        success "removed $dest"
+        rm -rf "$dst"
+        success "removed $dst"
       fi
 
       if [ "$backup" == "true" ]
       then
-        mv "$dest" "${dest}.backup"
-        success "moved $dest to ${dest}.backup"
+        mv "$dst" "${dst}.backup"
+        success "moved $dst to ${dst}.backup"
       fi
 
       if [ "$skip" == "true" ]
       then
-        success "skipped $source"
+        success "skipped $src"
       fi
     fi
 
