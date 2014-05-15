@@ -49,11 +49,6 @@ setup_gitconfig () {
   fi
 }
 
-link_files () {
-  ln -s "$1" "$2"
-  success "linked $1 to $2"
-}
-
 install_dotfiles () {
   info 'installing dotfiles'
 
@@ -118,7 +113,8 @@ install_dotfiles () {
 
     if [ "$skip" != "true" ]  # "false" or empty
     then
-      link_files "$source" "$dest"
+      ln -s "$1" "$2"
+      success "linked $1 to $2"
     fi
 
   done
