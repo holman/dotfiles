@@ -190,3 +190,5 @@ set backspace=2
 
 " enable spellchecking for git commits
 au FileType gitcommit setlocal spell
+" and for markdown files
+au FileType markdown setlocal spell
