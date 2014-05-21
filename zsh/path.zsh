@@ -8,8 +8,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Findawayworld
 
-export FLEX_HOME=$HOME/tools/apache-flex-sdk
-
-# export PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
+export FLEX_HOME=$HOME/tools/flex-sdk
 
 ## HOMEBREW_GITHUB_API_TOKEN moved to ~/.localrc
