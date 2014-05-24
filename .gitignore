@@ -1,3 +1,9 @@
 sublime2/User/Package\ Control.sublime-settings
 sublime2/User/Package Control.last-run
 git/gitconfig.symlink
+powerline/config.symlink/Thunar/
+powerline/config.symlink/gtk-2.0/
+powerline/config.symlink/pulse/
+powerline/config.symlink/user-dirs.dirs
+powerline/config.symlink/user-dirs.locale
+powerline/config.symlink/xfce4/
