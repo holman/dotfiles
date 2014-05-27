@@ -7,30 +7,10 @@ DOTFILES_ROOT=$(pwd)
 
 set -e
 
-echo ''
-
-info () {
-  printf "  [ \033[00;34m..\033[0m ] $1"
-}
-
-user () {
-  printf "\r  [ \033[0;33m?\033[0m ] $1 "
-}
-
-success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
-}
-
-fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
-  exit
-}
-
 setup_gitconfig () {
   if ! [ -f git/gitconfig.symlink ]
   then
-    info 'setup gitconfig'
+    pprint intro 'Setup gitconfig'
 
     git_credential='cache'
     if [ "$(uname -s)" == "Darwin" ]
@@ -38,17 +18,16 @@ setup_gitconfig () {
       git_credential='osxkeychain'
     fi
 
-    user ' - What is your github author name?'
+    pprint user ' - What is your github author name?'
     read -e git_authorname
-    user ' - What is your github author email?'
+    pprint user ' - What is your github author email?'
     read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
-    success 'gitconfig'
+    pprint success 'gitconfig'
   fi
 }
-
 
 link_file () {
   local src=$1 dst=$2
@@ -61,7 +40,7 @@ link_file () {
 
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then
-      user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+      pprint user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
       read -n 1 action
 
       case "$action" in
@@ -89,30 +68,30 @@ link_file () {
     if [ "$overwrite" == "true" ]
     then
       rm -rf "$dst"
-      success "removed $dst"
+      pprint success "removed $dst"
     fi
 
     if [ "$backup" == "true" ]
     then
       mv "$dst" "${dst}.backup"
-      success "moved $dst to ${dst}.backup"
+      pprint success "moved $dst to ${dst}.backup"
     fi
 
     if [ "$skip" == "true" ]
     then
-      success "skipped $src"
+      pprint success "skipped $src"
     fi
   fi
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
     ln -s "$1" "$2"
-    success "linked $1 to $2"
+    pprint success "linked $1 to $2"
   fi
 }
 
 install_dotfiles () {
-  info 'installing dotfiles'
+  pprint intro 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
 
@@ -129,14 +108,15 @@ install_dotfiles
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
+  pprint info "installing dependencies"
+  if source bin/dot > /tmp/dotfiles.dot.log 2>&1; then
+    pprint success -r "dependencies installed"
+    pprint flush
   else
-    fail "error installing dependencies"
+    pprint fail -r "error installing dependencies"
+    pprint flush
+    exit 1
   fi
 fi
 
-echo ''
-echo '  All installed!'
+pprint intro "All installed"
