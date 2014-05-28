@@ -4,7 +4,7 @@
 printf '\033[0;34m%s\033[0m\n' "Upgrading Dotfiles"
 cd "$DOTS"
 oldcommit=$(git rev-parse master)
-if git pull --rebase --stat origin master
+if git fetch origin && git rebase origin/master master
 then
   newcommit=$(git rev-parse master)
   if [[ $oldcommit != $newcommit ]]; then
