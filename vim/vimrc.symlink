@@ -19,7 +19,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
