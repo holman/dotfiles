@@ -16,3 +16,6 @@ function title() {
   esac
 }
 
+if [[ -n $TMUX ]]; then
+  export TMUX_SESSION="$(tmux display-message -p '#S')"
+fi
