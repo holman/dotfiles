@@ -1,5 +1,3 @@
-# From http://dotfiles.org/~_why/.zshrc
-# Sets the window title nicely no matter where you are
 function title() {
   case $TERM in
   screen|screen-256color)
@@ -11,7 +9,7 @@ function title() {
     }
     ;;
   xterm*|rxvt)
-    print -Pn "\e]2;$2\a" # plain xterm title ($3 for pwd)
+    print -Pn "\e]2;%m:%21<...<%~\a" # print hostname:pwd for xterm title
     ;;
   esac
 }
