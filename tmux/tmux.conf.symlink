@@ -22,6 +22,6 @@ bind | split-window -h
 bind - split-window -v
 
 set -g set-titles on
-set -g set-titles-string "#H/#S"
+set -g set-titles-string "#h/#S"
 
 source "$POWERLINE_DIR/bindings/tmux/powerline.conf"
