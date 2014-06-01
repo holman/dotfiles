@@ -24,3 +24,5 @@ alias gsmu='git submodule update --init'
 alias gsms='git submodule sync'
 alias gsl="git stash list --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias grm="git rm"
+alias gru="git rebase @{u}"
+alias gri="git rebase -i @{u}"
