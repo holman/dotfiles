@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e
-
 checkout_path=~/.scm_breeze
 
 if [ -d "$checkout_path" ]; then
