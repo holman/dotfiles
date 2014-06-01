@@ -115,7 +115,7 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 let g:syntastic_cpp_no_include_search = 1
 " Ignore certain syntastic latex warnings
 let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
-let g:syntastic_python_checkers = ['python', 'pep8', 'pyflakes']
+let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 
 " Make mappings
 nnoremap <leader>mm :Make<cr>
