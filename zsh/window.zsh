@@ -5,7 +5,10 @@ function title() {
       print -Pn "\ek%21<...<%~\e\\" # screen title (in ^A")
     }
     preexec () {
-      print -Pn "\ek$1:%21<...<%~\e\\" # screen title (in ^A")
+      local command
+      # only print name of command without arguments
+      command=$(echo "$1" | cut -d" " -f1)
+      print -Pn "\ek$command:%21<...<%~\e\\" # screen title (in ^A")
     }
     ;;
   xterm*|rxvt)
