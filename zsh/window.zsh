@@ -6,9 +6,14 @@ function title() {
     }
     preexec () {
       local command
+      local formatted_title
       # only print name of command without arguments
       command=$(echo "$1" | cut -d" " -f1)
-      print -Pn "\ek$command:%21<...<%~\e\\" # screen title (in ^A")
+      formatted_title="$command:%21<...<%~"
+      if [[ $command == "vim" ]]; then
+        export VIM_TITLE=$formatted_title
+      fi
+      print -Pn "\ek$formatted_title\e\\" # screen title (in ^A")
     }
     ;;
   xterm*|rxvt)
@@ -20,3 +25,7 @@ function title() {
 if [[ -n $TMUX ]]; then
   export TMUX_SESSION="$(tmux display-message -p '#S')"
 fi
+
+function restore_vim_title() {
+  print -Pn "\ek$VIM_TITLE\e\\" # screen title (in ^A")
+}
