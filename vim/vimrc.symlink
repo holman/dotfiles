@@ -88,6 +88,11 @@ set textwidth=79
 set formatoptions+=qrn1
 set colorcolumn=81
 
+" Silent command
+command! -nargs=1 Silent
+      \ | execute ':silent !'.<q-args>
+      \ | execute ':redraw!'
+
 " Fugitive mappings
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gl :Glog<cr>
@@ -96,8 +101,8 @@ nnoremap <leader>ge :Gedit<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gru :Git rebase @{u}<cr>
 nnoremap <leader>gri :Git rebase -i @{u}<cr>
-nnoremap <leader>g- :Git stash -u<cr>:e<cr>
-nnoremap <leader>g+ :Git stash pop<cr>:e<cr>
+nnoremap <leader>g- :Silent Git stash -u<cr>:e<cr>
+nnoremap <leader>g+ :Silent Git stash pop<cr>:e<cr>
 
 " Dispatch mappings
 nnoremap <leader>gp :Disp git push<cr>
