@@ -17,7 +17,8 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
-Bundle 'altercation/vim-colors-solarized'
+" Forked for a fix of sign column highlighting
+Bundle 'kaihowl/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-fugitive'
