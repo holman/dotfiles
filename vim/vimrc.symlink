@@ -33,6 +33,7 @@ Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'jcf/vim-latex'
 Bundle 'godlygeek/tabular'
 Bundle 'justinmk/vim-sneak'
+Bundle 'airblade/vim-gitgutter'
 
 syntax enable
 set background=light
