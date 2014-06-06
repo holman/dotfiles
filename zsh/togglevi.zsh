@@ -7,3 +7,7 @@ foreground-vi() {
 }
 zle -N foreground-vi
 bindkey '^Z' foreground-vi
+
+function is-vi-suspended() {
+  jobs %?vi 2> /dev/null
+}

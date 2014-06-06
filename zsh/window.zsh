@@ -2,7 +2,12 @@ function title() {
   case $TERM in
   screen|screen-256color)
     precmd () {
-      print -Pn "\ek%21<...<%~\e\\" # screen title (in ^A")
+      local prefix
+      prefix=""
+      if is-vi-suspended; then
+        prefix="(vim):"
+      fi
+      print -Pn "\ek$prefix%21<...<%~\e\\" # screen title (in ^A")
     }
     preexec () {
       local command
