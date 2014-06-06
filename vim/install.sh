@@ -1,3 +1,3 @@
 #!/bin/sh
 # update packages in vundle
-vundle
+zsh -c 'source $ZSH/plugins/vundle/vundle.plugin.zsh; vundle'
