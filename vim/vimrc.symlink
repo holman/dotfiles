@@ -103,8 +103,8 @@ nnoremap <leader>ge :Gedit<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gru :Git rebase @{u}<cr>
 nnoremap <leader>gri :Git rebase -i @{u}<cr>
-nnoremap <leader>g- :Silent Git stash -u<cr>:e<cr>
-nnoremap <leader>g+ :Silent Git stash pop<cr>:e<cr>
+nnoremap <leader>g- :Silent Git stash -u<cr>:windo e<cr>
+nnoremap <leader>g+ :Silent Git stash pop<cr>:windo e<cr>
 
 " Dispatch mappings
 nnoremap <leader>gp :Disp git push<cr>
