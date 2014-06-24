@@ -6,10 +6,12 @@
 # to make sure you're on the latest and greatest.
 
 # Set OS X defaults
-$ZSH/osx/set-defaults.sh
+DOTFILES_ROOT="`pwd`"
+
+$DOTFILES_ROOT/osx/set-defaults.sh
 
 # Upgrade homebrew
 brew update
 
 # Install homebrew packages
-$ZSH/homebrew/install.sh 2>&1
+$DOTFILES_ROOT/homebrew/install.sh 2>&1

@@ -120,6 +120,9 @@ install_dotfiles () {
   done
 }
 
+ln -sf ~/.zsh_custom $ZSH/custom/cwardzala.zsh
+ln -sf $DOTFILES_ROOT/cwardzala.zsh-theme $ZSH/themes/cwardzala.zsh-theme
+
 setup_gitconfig
 install_dotfiles
 
