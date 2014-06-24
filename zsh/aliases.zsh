@@ -44,3 +44,5 @@ alias vp='vagrant provision'
 alias vr='vagrant reload'
 alias vrp='vagrant reload --provision'
 alias vssh='vagrant ssh'
+
+alias hosts!='$EDITOR /etc/hosts'

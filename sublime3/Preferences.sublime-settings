@@ -4,6 +4,8 @@
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
+		".sass-cache",
+		".vagrant",
 		"*.pyc",
 		"*.pyo",
 		"*.exe",
@@ -23,7 +25,8 @@
 		"*.class",
 		"*.psd",
 		"*.db",
-		"*.sublime*"
+		"*.sublime*",
+		"*.scssc"
 	],
 	"font_face": "Source Code Pro",
 	"font_options":
@@ -36,9 +39,10 @@
 	"ignored_packages":
 	[
 		"JavaScript",
+		"ApplySyntax",
 		"SyncedSideBar",
-		"Vintage",
-		"Markdown"
+		"Markdown",
+		"Vintage"
 	],
 	"index_files": false,
 	"line_padding_bottom": 1,
