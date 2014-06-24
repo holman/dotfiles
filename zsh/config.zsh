@@ -15,7 +15,7 @@ export CLICOLOR=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git vagrant github)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 source "`brew --prefix`/etc/grc.bashrc"
 

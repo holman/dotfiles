@@ -1,3 +1,5 @@
+alias colourify='grc -es --colour=auto'
+
 alias reload!='. ~/.zshrc'
 alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh"
