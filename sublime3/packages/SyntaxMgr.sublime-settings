@@ -1,0 +1,10 @@
+{
+    "syntaxmgr_settings": [
+        {
+            "scopes": ["Vagrantfile", "Berksfile"],
+            "settings": {
+                "syntax": "Packages/Ruby/Ruby.tmLanguage"
+            }
+        }
+    ]
+}

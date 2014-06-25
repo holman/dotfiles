@@ -2,7 +2,7 @@ alias colourify='grc -es --colour=auto'
 
 alias reload!='. ~/.zshrc'
 alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"
+alias prezto='subl ~/.zprezto'
 
 alias edit="subl ."
 
@@ -10,14 +10,15 @@ alias fww="~/Findawayworld"
 alias proj="~/Projects"
 
 # List direcory contents
-alias lsa='colourify ls -lah'
-alias l='colourify ls -la'
-alias ll='colourify ls -l'
-alias la='colourify ls -lA'
+alias lsa='ls -lah'
+alias l='ls -la'
+alias ll='ls -l'
+alias la='ls -lA'
 
 alias bower='noglob bower'
 
-alias t='/usr/local/Cellar/todo-txt/2.9/bin/todo.sh -d $HOME/Dropbox/todo/todo.cfg'
+# Pipe my public key to my clipboard.
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # SSH aliases
 alias appserver1='ssh cwardzala@10.217.43.6'
@@ -37,7 +38,7 @@ alias rpi='ssh cam@192.168.1.122'
 # vagrant
 alias vst='vagrant status'
 alias vu='vagrant up'
-alias vup=vu
+alias vup='vu'
 alias vd='vagrant destroy'
 alias vd!='vagrant destroy -f'
 alias vh='vagrant halt'
@@ -48,3 +49,7 @@ alias vrp='vagrant reload --provision'
 alias vssh='vagrant ssh'
 
 alias hosts!='$EDITOR /etc/hosts'
+
+alias gst='gws'
+
+alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
