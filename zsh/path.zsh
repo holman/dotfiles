@@ -5,7 +5,7 @@ export PATH="/usr/local/bin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sb
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-export PATH="$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:$HOME/.sfs:$ZSH/bin:$PATH"
+export PATH="$HOME/.pyenv/shims:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:$HOME/.sfs:$ZSH/bin:$PATH"
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
