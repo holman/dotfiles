@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark ssh-copy-id libdvdcss heroku-toolbelt
+brew install coreutils spark ssh-copy-id libdvdcss heroku-toolbelt
 
 exit 0
