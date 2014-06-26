@@ -1,4 +1,4 @@
-alias colourify='grc -es --colour=auto'
+alias colourify='$commands[grc] -es --colour=auto'
 
 alias reload!='. ~/.zshrc'
 alias zshconfig="subl ~/.zshrc"
@@ -10,10 +10,10 @@ alias fww="~/Findawayworld"
 alias proj="~/Projects"
 
 # List direcory contents
-alias lsa='ls -lah'
-alias l='ls -la'
-alias ll='ls -l'
-alias la='ls -lA'
+alias lsa='colourify ls -lah'
+alias l='colourify ls -la'
+alias ll='colourify ls -l'
+alias la='colourify ls -lA'
 
 alias bower='noglob bower'
 
