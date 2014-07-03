@@ -1,0 +1,3 @@
+#!/bin/bash
+# Beep on command line. Can be used for notification of done background jobs
+echo -ne "\007"
