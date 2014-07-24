@@ -2,3 +2,4 @@ sublime2/User/Package\ Control.sublime-settings
 sublime2/User/Package Control.last-run
 git/gitconfig.symlink
 mysql/mysql.properties
+.DS_Store
