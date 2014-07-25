@@ -194,6 +194,10 @@ endfunction
 
 autocmd BufWinEnter *.tex call FoldToScreen()
 
+" Function to break lines in tex files on period(.) and wrap to colorcolumn
+" This makes version control for latex files easier since git is line-based
+command! -range LineBreakTexSource :silent! <line1>,<line2>s/\. /.\r/g | :<line1>,<line2>normal gw | :noh<cr>
+
 " Comment out, if you need to debug latex-suite
 "let g:Tex_Debug=1
 "let g:Tex_DebugLog="texdebug.log"
