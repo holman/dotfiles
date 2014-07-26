@@ -5,3 +5,4 @@ alias devbox-start='aws ec2 start-instances --instance-ids $AWS_I_ID && sleep 10
 alias devbox-status='aws ec2 describe-instance-status --instance-ids $AWS_I_ID'
 alias devbox-stop='aws ec2 stop-instances --instance-ids $AWS_I_ID'
 alias devbox-ssh='ssh ${AWS_USER}@${AWS_HOST}'
+alias devbox-ssh-sudoer='ssh ${AWS_USER_SUDOER}@${AWS_HOST}'
