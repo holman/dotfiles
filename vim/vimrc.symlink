@@ -134,6 +134,8 @@ if filereadable('/proc/cpuinfo')
 endif
 nnoremap <leader>mm :Make<cr>
 nnoremap <leader>mc :Make clean<cr>
+" For latex file run latex instead of makefile
+au FileType tex nnoremap <buffer> <leader>mm :silent! call Tex_RunLaTeX()<CR>
 
 " Sudo after the fact
 cmap w!! w !sudo tee % >/dev/null
