@@ -19,6 +19,7 @@ Bundle 'gmarik/vundle'
 
 " Forked for a fix of sign column highlighting
 Bundle 'kaihowl/vim-colors-solarized'
+Bundle 'kaihowl/vim-indent-sentence'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-fugitive'
@@ -214,3 +215,7 @@ au FileType gitcommit setlocal spell
 au FileType markdown setlocal spell
 " and for tex files
 au FileType tex setlocal spell
+
+" Indent-sentence mapping
+nnoremap <leader>ip vip :call g:IndentSentence()<cr>
+vnoremap <leader>is :call g:IndentSentence()<cr>
