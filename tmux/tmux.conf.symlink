@@ -24,4 +24,9 @@ bind - split-window -v
 set -g set-titles on
 set -g set-titles-string "#h/#S"
 
+# Enable copy paste in vim with system clipboard in OSX
+# Uses the safe-* version in order to run on *NIX as well.
+# Source: https://github.com/jimeh/dotfiles/commit/3838db8
+set-option -g default-command "safe-reattach-to-user-namespace -l $SHELL"
+
 source "$POWERLINE_DIR/bindings/tmux/powerline.conf"

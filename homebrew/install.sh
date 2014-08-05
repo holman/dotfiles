@@ -25,4 +25,8 @@ brew install grc coreutils spark
 # That breaks latex-suite mac specifics
 brew install vim
 
+# Install reattach-to-user-namespace
+# This makes sure that tmux + vim is able to use the system clipboard
+brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
+
 exit 0
