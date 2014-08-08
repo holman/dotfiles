@@ -53,3 +53,6 @@ alias hosts!='$EDITOR /etc/hosts'
 alias gst='gws'
 
 alias ios="open /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+alias ios8="open /Applications/Xcode6-Beta2.app/Contents/Developer/Applications/iOS\ Simulator.app"
+
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"

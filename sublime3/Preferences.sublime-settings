@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Base16 Color Schemes/base16-default.dark.tmTheme",
+	"color_scheme": "Packages/User/base16-default.dark (SL).tmTheme",
 	"copy_with_empty_selection": false,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
@@ -37,17 +37,17 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"JavaScript",
-		"ApplySyntax",
 		"SyncedSideBar",
 		"Markdown",
-		"Vintage"
+		"JavaScript",
+		"Vintage",
+		"ApplySyntax"
 	],
 	"index_files": false,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"tab_size": 4,
-	"theme": "Soda Dark 3.sublime-theme",
+	"theme": "Spacegray Eighties.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false

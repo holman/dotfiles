@@ -29,3 +29,6 @@ source $HOME/.dotfiles/zsh/aliases.zsh
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
+
+export NVM_DIR="/Users/cwardzala/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
