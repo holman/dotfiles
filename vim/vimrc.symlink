@@ -69,7 +69,6 @@ set encoding=utf-8
 set scrolloff=3
 set autoindent
 set wildmenu
-set visualbell
 set ttyfast
 set relativenumber
 set undofile
