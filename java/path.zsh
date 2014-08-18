@@ -4,7 +4,7 @@ MAVEN_OPTS='-Xmx768m -noverify'
 M2_HOME=/usr/share/maven
 M2=$M2_HOME/bin
 J6_HOME=/Library/Java/JavaVirtualMachines/1.6.0_45-b06-451.jdk/Contents/Home
-J7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
+J7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
 JAVA_HOME=$J7_HOME
 JAVA_OPTS=-Xmx512m
 
