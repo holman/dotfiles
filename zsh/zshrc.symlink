@@ -1,6 +1,8 @@
 # shortcut to this dotfiles path is $DOTS
 export DOTS=$HOME/.dotfiles
 
+DISABLE_UPDATE_PROMPT="true"
+
 # Periodically (typically once a day), update from github
 /usr/bin/env DOTS=$DOTS DISABLE_UPDATE_PROMPT=$DISABLE_UPDATE_PROMPT zsh -f $DOTS/script/check_for_upgrade.sh
 
