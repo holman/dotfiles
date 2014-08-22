@@ -21,6 +21,8 @@ bind \ split-window -h
 bind | split-window -h
 bind - split-window -v
 
+bind l last-window
+
 set -g set-titles on
 set -g set-titles-string "#h/#S"
 
