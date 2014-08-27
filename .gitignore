@@ -1,3 +1,4 @@
 git/gitconfig.symlink
 *.swp
 test
+vim.symlink/bundle
