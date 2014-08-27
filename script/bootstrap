@@ -134,24 +134,32 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+
+  success 'laid down dotfiles'
 }
 
 update_submodules () {
   info 'updating submodules'
 
+  git submodule init
   git submodule update
+
+  success 'submodules all loaded'
 }
 
 run_vundle () {
   info 'running vundle'
 
   vim +PluginInstall +qall
+
+  success 'vundle all set'
 }
 
 generate_font_cache () {
   info 'generating the font cache'
 
   fc-cache -vf
+  success 're-generated the font cache'
 }
 
 init_command_t () {
@@ -159,16 +167,24 @@ init_command_t () {
 
   start_dir=`pwd`
   cd ~/.vim/bundle/Command-T/ruby/command-t
-  rvm use system
+  if type rvm > /dev/null
+  then
+    rvm use system
+  else
+    info 'rvm not found'
+  fi
   ruby extconf.rb
   make
   cd $start_dir
+  success 'initialized command t'
 }
 
 setup_oh_my_zsh () {
   info 'setting up oh-my-zsh'
 
   curl -L http://install.ohmyz.sh | sh
+
+  success 'oh my zsh installed'
 }
 
 install_awesome_config () {
