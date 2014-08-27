@@ -1,0 +1,9 @@
+[submodule "fonts.symlink/ubuntu-mono-powerline-ttf"]
+	path = fonts.symlink/ubuntu-mono-powerline-ttf
+	url = https://github.com/pdf/ubuntu-mono-powerline-ttf.git
+[submodule "fonts.symlink/ubuntu-mono-powerline"]
+	path = fonts.symlink/ubuntu-mono-powerline
+	url = https://github.com/scotu/ubuntu-mono-powerline.git
+[submodule "vim.symlink/bundle/Vundle.vim"]
+	path = vim.symlink/bundle/Vundle.vim
+	url = git://github.com/gmarik/Vundle.vim.git

@@ -136,8 +136,33 @@ install_dotfiles () {
   done
 }
 
+update_submodules () {
+  info 'updating submodules'
+
+  git submodule update
+}
+
+run_vundle () {
+  vim +PluginInstall +qall
+}
+
+generate_font_cache () {
+  fc-cache -vf
+}
+
+init_command_t () {
+  start_dir=`pwd`
+  cd ~/.vim/bundle/Command-T/ruby/command-t
+  ruby extconf.rb
+  cd $start_dir
+}
+
 setup_gitconfig
 install_dotfiles
+update_submodules
+run_vundle
+generate_font_cache
+init_command_t
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
