@@ -170,7 +170,7 @@ set novisualbell
 set encoding=utf8
 set ffs=unix,dos,mac
 
-color jellybeans
+silent! color jellybeans
 
 let $GIT_SSL_NO_VERIFY = 'true'
 

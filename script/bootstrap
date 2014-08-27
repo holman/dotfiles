@@ -143,18 +143,41 @@ update_submodules () {
 }
 
 run_vundle () {
+  info 'running vundle'
+
   vim +PluginInstall +qall
 }
 
 generate_font_cache () {
+  info 'generating the font cache'
+
   fc-cache -vf
 }
 
 init_command_t () {
+  info 'initializing command t'
+
   start_dir=`pwd`
   cd ~/.vim/bundle/Command-T/ruby/command-t
+  rvm use system
   ruby extconf.rb
+  make
   cd $start_dir
+}
+
+setup_oh_my_zsh () {
+  info 'setting up oh-my-zsh'
+
+  curl -L http://install.ohmyz.sh | sh
+}
+
+install_awesome_config () {
+  info 'installing rc.lua for awesome'
+
+  mkdir -p .config/awesome
+  ln -s "$(pwd)/awesome/rc.lua" ".config/awesome/rc.lua"
+  success " linked $(pwd)/awesome/rc.lua to .config/awesome/rc.lua"
+
 }
 
 setup_gitconfig
@@ -163,6 +186,7 @@ update_submodules
 run_vundle
 generate_font_cache
 init_command_t
+setup_oh_my_zsh
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
