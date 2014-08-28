@@ -1,0 +1,33 @@
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+bind-key C-a last-window
+
+set -g default-terminal "screen-256color" 
+
+setw -g mode-keys vi
+
+# moving between panes with vim movement keys
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# moving between windows with vim movement keys
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# resize panes with vim movement keys
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Allow for reaload
+bind R source-file ~/.tmux.conf \; display-message "Config reloaded!"
+
+# Yeah, it's hard coded, couldn't get it not hardcoded, but we should have 
+# powerline installed in python2 land regardless and if we don't have 2.7 on 
+# the machine why the hell would we have tmux?
+source "$HOME/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf"
+

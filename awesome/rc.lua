@@ -190,8 +190,13 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(mytextclock)
+    --right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
+
+    -- powerline
+    package.path = package.path .. ';.local/lib/python3.4/site-packages/powerline/bindings/awesome/powerline.lua'
+    require('powerline')
+    right_layout:add(powerline_widget)
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()

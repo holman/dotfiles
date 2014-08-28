@@ -59,6 +59,7 @@ link_file () {
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
 
+
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then
 
@@ -135,6 +136,8 @@ install_dotfiles () {
     link_file "$src" "$dst"
   done
 
+  install_awesome_config
+
   success 'laid down dotfiles'
 }
 
@@ -180,9 +183,25 @@ init_command_t () {
 }
 
 setup_oh_my_zsh () {
-  info 'setting up oh-my-zsh'
+  info "setting up oh-my-zsh\n"
 
-  curl -L http://install.ohmyz.sh | sh
+  #############
+  # Copied from the automatic install, but removed the changing shell as it was erroring
+  # And removed the installing/backing up .zshrc, mine already has oh-my-zsh in it
+
+  if [ ! -n "$ZSH" ]; then
+    ZSH=~/.oh-my-zsh
+  fi
+
+  if [ -d "$ZSH" ]; then
+    success "You already have Oh My Zsh installed. You'll need to remove $ZSH if you want to install"
+    return
+  fi
+
+  info "Cloning Oh My Zsh..."
+  hash git >/dev/null 2>&1 && /usr/bin/env git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
+    fail "git not installed"
+  }
 
   success 'oh my zsh installed'
 }
@@ -190,10 +209,34 @@ setup_oh_my_zsh () {
 install_awesome_config () {
   info 'installing rc.lua for awesome'
 
-  mkdir -p .config/awesome
-  ln -s "$(pwd)/awesome/rc.lua" ".config/awesome/rc.lua"
-  success " linked $(pwd)/awesome/rc.lua to .config/awesome/rc.lua"
+  mkdir -p ~/.config/awesome
+  src="$(pwd)/awesome/rc.lua"
+  dst="$HOME/.config/awesome/rc.lua"
+  link_file "$src" "$dst"
+  success "linked $src to $dst"
 
+}
+
+install_pip () {
+  info "installing pip\n"
+
+  wget -O /tmp/get-pip.py 'https://bootstrap.pypa.io/get-pip.py'
+
+  python /tmp/get-pip.py --user
+
+  rm /tmp/get-pip.py
+
+  success 'installed pip'
+}
+
+install_powerline () {
+  info 'installing powerline'
+
+  install_pip
+  # There is an arch package, but I'd like this to be OS agnostic
+  ~/.local/bin/pip install --user git+git://github.com/Lokaltog/powerline
+
+  success 'installed powerline'
 }
 
 setup_gitconfig
@@ -203,6 +246,7 @@ run_vundle
 generate_font_cache
 init_command_t
 setup_oh_my_zsh
+install_powerline
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
