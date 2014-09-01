@@ -1,0 +1,2712 @@
+*vimshell.txt*	Powerful shell implemented by VimScript
+
+Version: 9.0
+Author : Shougo <Shougo.Matsu@gmail.com>
+License: MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+CONTENTS						*vimshell-contents*
+
+Introduction		|vimshell-introduction|
+Install			|vimshell-install|
+Interface		|vimshell-interface|
+  Commands		  |vimshell-commands|
+  Variables		  |vimshell-variables|
+  Functions		  |vimshell-functions|
+  Key mappings		  |vimshell-key-mappings|
+    Vimshell buffer key mappings    |vimshell-buffer-key-mappings|
+    Interactive buffer key mappings |vimshell-interactive-buffer-key-mappings|
+Examples		|vimshell-examples|
+Internal Commands	|vimshell-internal-commands|
+Special Commands	|vimshell-special-commands|
+Alter Command		|vimshell-alter-command|
+Hook			|vimshell-hook|
+Tips			|vimshell-tips|
+Unite sources		|vimshell-unite-sources|
+Create plugin		|vimshell-create-plugin|
+Changelog		|vimshell-changelog|
+
+
+==============================================================================
+INTRODUCTION						*vimshell-introduction*
+
+==============================================================================
+USAGE							*vimshell-usage*
+
+You can start vimshell in ":VimShell".  Because vimshell works similar with
+a common shell, you may operate it intuitively.  But vimshell perform the
+path appointment in '/'. Vimshell is misunderstood with escape sequence when
+you use '\' by Windows for a path and do not work.
+
+ToDo
+
+==============================================================================
+INSTALL							*vimshell-install*
+
+vimshell needs |vimproc|
+http://github.com/Shougo/vimproc
+
+Please install vimproc Ver.5.0(or later) before use vimshell.
+And make proc.so
+
+Make method:
+
+* Mingw: >
+	$ make -f make_mingw.mak
+
+* Mac OS X: >
+	$ make -f make_mac.mak
+
+* Linux BSD: >
+	$ make -f make_gcc.mak
+
+* Visual Studio: >
+	$ make -f make_msvc.mak
+
+* Cygwin: >
+	$ make -f make_cygwin.mak
+
+After compile, copy autoload/vimproc.vim and autoload/vimproc/parser.vim and
+autoload/proc.so(or proc.dll) to autoload directory.
+Note: "proc.dll" compiled in Cygwin environment is only Cygwin Vim. Can't use
+in Windows Vim.
+
+==============================================================================
+INTERFACE						*vimshell-interface*
+
+------------------------------------------------------------------------------
+COMMANDS 						*vimshell-commands*
+
+:VimShell                                       *:VimShell*
+		Run vimshell.
+
+:VimShellCreate {path}					*:VimShellCreate*
+			Todo
+
+:VimShellTab {path}					*:VimShellTab*
+			Todo
+
+:VimShellPop {path}					*:VimShellPop*
+			Todo
+
+:VimShellExecute {command}				*:VimShellExecute*
+			Todo
+
+:VimShellInteractive [{command}]			*:VimShellInteractive*
+			Todo
+
+:VimShellTerminal {command}				*:VimShellTerminal*
+			Todo
+
+:VimShellSendString {string}				*:VimShellSendString*
+			Todo
+
+:VimShellSendBuffer {bufname}				*:VimShellSendBuffer*
+			Todo
+
+------------------------------------------------------------------------------
+VARIABLES 						*vimshell-variables*
+
+g:vimshell_prompt					*g:vimshell_prompt*
+			Todo
+
+g:vimshell_user_prompt					*g:vimshell_user_prompt*
+			Todo
+>
+			let g:vimshell_user_prompt = 'getcwd()'
+<
+			Todo
+
+g:vimshell_right_prompt					*g:vimshell_right_prompt*
+			Todo
+>
+g:vimshell_no_default_keymappings			*g:vimshell_no_default_keymappings*
+			Todo
+
+g:vimshell_ignore_case					*g:vimshell_ignore_case*
+			Todo
+
+g:vimshell_smart_case					*g:vimshell_smart_case*
+			Todo
+
+g:vimshell_max_list					*g:vimshell_max_list*
+			Todo
+
+g:vimshell_use_ckw					*g:vimshell_use_ckw*
+			Todo
+
+g:vimshell_split_height					*g:vimshell_split_height*
+			Todo
+
+g:vimshell_temporary_directory				*g:vimshell_temporary_directory*
+			Todo
+
+g:vimshell_max_command_history				*g:vimshell_max_command_history*
+			Todo
+
+g:vimshell_max_directory_stack				*g:vimshell_max_directory_stack*
+			Todo
+
+g:vimshell_vimshrc_path					*g:vimshell_vimshrc_path*
+			Todo
+
+g:vimshell_escape_colors				*g:vimshell_escape_colors*
+			Todo
+
+g:vimshell_disable_escape_highlight			*g:vimshell_disable_escape_highlight*
+			Todo
+
+g:vimshell_cat_command					*g:vimshell_cat_command*
+			Todo
+
+g:vimshell_environment_term				*g:vimshell_environment_term*
+			Todo
+
+g:vimshell_split_command				*g:vimshell_split_command*
+			Todo
+
+g:vimshell_cd_command					*g:vimshell_cd_command*
+			Todo
+
+g:vimshell_no_save_history_commands			*g:vimshell_no_save_history_commands*
+			Todo
+
+g:vimshell_interactive_no_save_history_commands		*g:vimshell_interactive_no_save_history_commands*
+			Todo
+
+g:vimshell_interactive_update_time			*g:vimshell_interactive_update_time*
+			Todo
+
+g:vimshell_interactive_command_options			*g:vimshell_interactive_command_options*
+			Todo
+
+g:vimshell_interactive_interpreter_commands		*g:vimshell_interactive_interpreter_commands*
+			Todo
+
+g:vimshell_interactive_encodings			*g:vimshell_interactive_encodings*
+			Todo
+
+g:vimshell_interactive_no_echoback_commands		*g:vimshell_interactive_no_echoback_commands*
+			Todo
+
+g:vimshell_terminal_cursor				*g:vimshell_terminal_cursor*
+			Todo
+
+g:vimshell_terminal_commands				*g:vimshell_terminal_commands*
+			Todo
+
+g:vimshell_interactive_cygwin_commands			*g:vimshell_interactive_cygwin_commands*
+			Todo
+
+g:vimshell_interactive_cygwin_path			*g:vimshell_interactive_cygwin_path*
+			Todo
+
+g:vimshell_interactive_cygwin_home			*g:vimshell_interactive_cygwin_home*
+			Todo
+
+g:vimshell_interactive_monochrome_commands		*g:vimshell_interactive_monochrome_commands*
+			Todo
+
+------------------------------------------------------------------------------
+KEY MAPPINGS 						*vimshell-key-mappings*
+
+<Plug>(vimshell_split_switch)				*<Plug>(vimshell_split_switch)*
+			Todo
+
+<Plug>(vimshell_split_create)				*<Plug>(vimshell_split_create)*
+			Todo
+
+<Plug>(vimshell_switch)					*<Plug>(vimshell_switch)*
+			Todo
+
+<Plug>(vimshell_create)					*<Plug>(vimshell_create)*
+			Todo
+
+VIMSHELL BUFFER KEY MAPPINGS 				*vimshell-buffer-key-mappings*
+
+Normal mode key mappings.
+
+<Plug>(vimshell_enter)					*<Plug>(vimshell_enter)*
+			Execute command line.
+
+<Plug>(vimshell_previous_prompt)			*<Plug>(vimshell_previous_prompt)*
+			Move to previous prompt from cursor.
+
+<Plug>(vimshell_next_prompt)				*<Plug>(vimshell_next_prompt)*
+			Move to next prompt from cursor.
+
+<Plug>(vimshell_delete_previous_output)			*<Plug>(vimshell_delete_previous_output)*
+			Delete previous output form cursor.
+
+<Plug>(vimshell_paste_prompt)				*<Plug>(vimshell_paste_prompt)*
+			Paste cursor line to last prompt.
+
+<Plug>(vimshell_move_end_argument)			*<Plug>(vimshell_move_end_argument)*
+			Move to command end argument.
+
+<Plug>(vimshell_hide)					*<Plug>(vimshell_hide)*
+			Hide vimshell buffer.
+
+<Plug>(vimshell_exit)					*<Plug>(vimshell_exit)*
+			Quit vimshell buffer.
+
+<Plug>(vimshell_change_line)				*<Plug>(vimshell_change_line)*
+			Change whole line.
+
+<Plug>(vimshell_delete_line)				*<Plug>(vimshell_delete_line)*
+			Delete whole line.
+
+<Plug>(vimshell_hangup)					*<Plug>(vimshell_hangup)*
+			Terminate command.
+
+<Plug>(vimshell_insert_head)				*<Plug>(vimshell_insert_head)*
+<Plug>(vimshell_insert_enter)				*<Plug>(vimshell_insert_enter)*
+<Plug>(vimshell_append_enter)				*<Plug>(vimshell_append_enter)*
+<Plug>(vimshell_append_end)				*<Plug>(vimshell_append_end)*
+			Enter insert mode.
+
+<Plug>(vimshell_clear)					*<Plug>(vimshell_clear)*
+			Redraw vimshell buffer.
+
+<Plug>(vimshell_move_head)				*<Plug>(vimshell_move_head)*
+			Move to head.
+
+<Plug>(vimshell_execute_by_background)			*<Plug>(vimshell_execute_by_background)*
+			Execute command by iexe.
+
+Visual mode key mappings.
+<Plug>(vimshell_select_previous_prompt)			*v_<Plug>(vimshell_select_previous_prompt)*
+			Select previous prompt from cursor.
+
+<Plug>(vimshell_select_next_prompt)			*v_<Plug>(vimshell_select_next_prompt)*
+			Select next prompt from cursor.
+
+Insert mode key mappings.
+
+<Plug>(vimshell_command_complete)			*i_<Plug>(vimshell_command_complete)*
+			Start completion.
+
+<Plug>(vimshell_push_current_line)			*i_<Plug>(vimshell_push_current_line)*
+			Push current line command to command line stack.
+
+<Plug>(vimshell_insert_last_word)			*i_<Plug>(vimshell_insert_last_word)*
+			Insert command last word.
+
+<Plug>(vimshell_run_help)				*i_<Plug>(vimshell_run_help)*
+			View internal command help.
+
+<Plug>(vimshell_move_head)				*i_<Plug>(vimshell_move_head)*
+			Move to line head.
+
+<Plug>(vimshell_delete_backward_line)			*i_<Plug>(vimshell_delete_backward_line)*
+			Delete backward line from cursor.
+
+<Plug>(vimshell_delete_backward_word)			*i_<Plug>(vimshell_delete_backward_word)*
+			Delete backward word from cursor.
+
+<Plug>(vimshell_enter)					*i_<Plug>(vimshell_enter)*
+			Execute command.
+
+<Plug>(vimshell_interrupt)				*i_<Plug>(vimshell_interrupt)*
+			Send interrupt.
+
+<Plug>(vimshell_move_previous_window)			*i_<Plug>(vimshell_move_previous_window)*
+			Move to previous window.
+
+<Plug>(vimshell_delete_backward_char)			*i_<Plug>(vimshell_delete_backward_char)*
+<Plug>(vimshell_another_delete_backward_char)		*i_<Plug>(vimshell_another_delete_backward_char)*
+			Delete backward char from cursor.
+
+<Plug>(vimshell_delete_forward_line)			*i_<Plug>(vimshell_delete_forward_line)*
+			Delete forward line from cursor.
+
+<Plug>(vimshell_clear)					*i_<Plug>(vimshell_clear)*
+			Redraw vimshell buffer.
+
+<Plug>(vimshell_execute_by_background)			*i_<Plug>(vimshell_execute_by_background)*
+			Execute command by iexe.
+
+Normal mode default key mappings.
+{lhs}			{rhs}
+--------		-----------------------------
+<CR>			<Plug>(vimshell_enter)
+q			<Plug>(vimshell_hide)
+Q			<Plug>(vimshell_exit)
+<C-p>			<Plug>(vimshell_previous_prompt)
+<C-n>			<Plug>(vimshell_next_prompt)
+<C-k>			<Plug>(vimshell_delete_previous_output)
+<C-y>			<Plug>(vimshell_paste_prompt)
+E			<Plug>(vimshell_move_end_argument)
+cc			<Plug>(vimshell_change_line)
+dd			<Plug>(vimshell_delete_line)
+I			<Plug>(vimshell_insert_head)
+A			<Plug>(vimshell_append_end)
+i			<Plug>(vimshell_insert_enter)
+a			<Plug>(vimshell_append_enter)
+^			<Plug>(vimshell_move_head)
+<C-c>			<Plug>(vimshell_hangup)
+<C-l>			<Plug>(vimshell_clear)
+<C-z>			<Plug>(vimshell_execute_by_background)
+
+Visual mode default key mappings.
+{lhs}			{rhs}
+--------		-----------------------------
+<C-p>			<Plug>(vimshell_select_previous_prompt)
+<C-n>			<Plug>(vimshell_select_next_prompt)
+
+Insert mode default key mappings.
+{lhs}			{rhs}
+--------		-----------------------------
+<CR>			<Plug>(vimshell_enter)
+<C-l>			Start vimshell/history source
+<TAB>			<Plug>(vimshell_command_complete)
+<C-a>			<Plug>(vimshell_move_head)
+<C-u>			<Plug>(vimshell_delete_backward_line)
+<C-w>			<Plug>(vimshell_delete_backward_word)
+<C-z>	(while execute)	<Plug>(vimshell_execute_by_background)
+	(other)		<Plug>(vimshell_push_current_line)
+<C-t>			<Plug>(vimshell_insert_last_word)
+<C-x><C-h>		<Plug>(vimshell_run_help)
+<C-c>			<Plug>(vimshell_interrupt)
+<C-h>			<Plug>(vimshell_delete_backward_char)
+<BS>			<Plug>(vimshell_delete_backward_char)
+<C-k>			<Plug>(vimshell_delete_forward_line)
+<C-x>			<Plug>(vimshell_move_previous_window)
+
+VIMSHELL INTERACTIVE BUFFER KEY MAPPINGS 		*vimshell-interactive-buffer-key-mappings*
+
+Normal mode key mappings.
+
+<Plug>(vimshell_int_execute_line)			*<Plug>(vimshell_int_execute_line)*
+			Execute cursor line.
+
+<Plug>(vimshell_int_previous_prompt)			*<Plug>(vimshell_int_previous_prompt)*
+			Move to previous prompt from cursor.
+
+<Plug>(vimshell_int_next_prompt)			*<Plug>(vimshell_int_next_prompt)*
+			Move to next prompt from cursor.
+
+<Plug>(vimshell_int_paste_prompt)			*<Plug>(vimshell_int_paste_prompt)*
+			Paste cursor line to last prompt.
+
+<Plug>(vimshell_int_hangup)				*<Plug>(vimshell_int_hangup)*
+			Exit executing command.
+
+<Plug>(vimshell_int_exit)				*<Plug>(vimshell_int_exit)*
+			Exit interactive buffer.
+
+<Plug>(vimshell_int_restart_command)			*<Plug>(vimshell_int_restart_command)*
+			Restart command.
+
+<Plug>(vimshell_int_change_line)			*<Plug>(vimshell_int_change_line)*
+			Change whole line.
+
+<Plug>(vimshell_int_delete_line)			*<Plug>(vimshell_int_delete_line)*
+			Delete whole line.
+
+<Plug>(vimshell_int_insert_enter)			*<Plug>(vimshell_int_insert_enter)*
+<Plug>(vimshell_int_insert_head)			*<Plug>(vimshell_int_insert_head)*
+<Plug>(vimshell_int_append_enter)			*<Plug>(vimshell_int_append_enter)*
+<Plug>(vimshell_int_append_end)				*<Plug>(vimshell_int_append_end)*
+			Enter insert mode.
+
+<Plug>(vimshell_int_clear)				*<Plug>(vimshell_int_clear)*
+			Redraw interactive buffer.
+
+Insert mode key mappings.
+
+<Plug>(vimshell_int_move_head)				*i_<Plug>(vimshell_int_move_head)*
+			Move to line head.
+
+<Plug>(vimshell_int_delete_backward_line)		*i_<Plug>(vimshell_int_delete_backward_line)*
+			Delete backward line from cursor.
+
+<Plug>(vimshell_int_delete_backward_word)		*i_<Plug>(vimshell_int_delete_backward_word)*
+			Delete backward word from cursor.
+
+<Plug>(vimshell_int_execute_line)			*i_<Plug>(vimshell_int_execute_line)*
+			Execute current line.
+
+<Plug>(vimshell_int_delete_backward_char)		*i_<Plug>(vimshell_int_delete_backward_char)*
+<Plug>(vimshell_int_another_delete_backward_char)	*i_<Plug>(vimshell_int_another_delete_backward_char)*
+			Delete backward character from cursor.
+
+<Plug>(vimshell_int_send_input)				*i_<Plug>(vimshell_int_send_input)*
+			Send user input.
+
+<Plug>(vimshell_int_interrupt)				*i_<Plug>(vimshell_int_interrupt)*
+			Send interrupt to command.
+
+<Plug>(vimshell_int_command_complete)			*i_<Plug>(vimshell_int_command_complete)*
+			Start completion.
+
+<Plug>(vimshell_int_delete_forward_line)		*i_<Plug>(vimshell_int_delete_forward_line)*
+			Delete forward line from cursor.
+
+Normal mode default key mappings.
+{lhs}			{rhs}
+--------		-----------------------------
+<C-p>			<Plug>(vimshell_int_previous_prompt)
+<C-n>			<Plug>(vimshell_int_next_prompt)
+<CR>			<Plug>(vimshell_int_execute_line)
+<C-y>			<Plug>(vimshell_int_paste_prompt)
+<C-z>			<Plug>(vimshell_int_restart_command)
+<C-c>			<Plug>(vimshell_int_hangup)
+q			<Plug>(vimshell_int_exit)
+cc			<Plug>(vimshell_int_change_line)
+dd			<Plug>(vimshell_int_delete_line)
+I			<Plug>(vimshell_int_insert_head)
+A			<Plug>(vimshell_int_append_end)
+i			<Plug>(vimshell_int_insert_enter)
+a			<Plug>(vimshell_int_append_enter)
+<C-l>			<Plug>(vimshell_int_clear)
+
+Insert mode default key mappings.
+{lhs}			{rhs}
+--------		-----------------------------
+<C-h>			<Plug>(vimshell_int_delete_backward_char)
+<BS>			<Plug>(vimshell_int_delete_backward_char)
+<C-a>			<Plug>(vimshell_int_move_head)
+<C-u>			<Plug>(vimshell_int_delete_backward_line)
+<C-w>			<Plug>(vimshell_int_delete_backward_word)
+<C-k>			<Plug>(vimshell_int_delete_forward_line)
+<CR>			<Plug>(vimshell_int_execute_line)
+<C-c>			<Plug>(vimshell_int_interrupt)
+<C-l>			Start vimshell/history source
+<C-v>			<Plug>(vimshell_int_send_input)
+<C-n>			<C-n>
+<TAB>			Select candidate or start completion
+
+------------------------------------------------------------------------------
+FUNCTIONS 						*vimshell-functions*
+
+vimshell#hook#set({hook-point}, {func-list})		*vimshell#hook#set()*
+			Todo
+
+vimshell#hook#get({hook-point})				*vimshell#hook#get()*
+			Todo
+
+vimshell#hook#add({hook-point}, {hook-name}, {func})	*vimshell#hook#add()*
+			Todo
+
+vimshell#hook#remove({hook-point}, {hook-name})		*vimshell#hook#remove()*
+			Todo
+
+==============================================================================
+EXAMPLES						*vimshell-examples*
+>
+	let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+	"let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
+	let g:vimshell_enable_smart_case = 1
+	
+	if has('win32') || has('win64')
+	  " Display user name on Windows.
+	  let g:vimshell_prompt = $USERNAME."% "
+	else
+	  " Display user name on Linux.
+	  let g:vimshell_prompt = $USER."% "
+	
+	  call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexe eog')
+	  call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe amarok')
+	  let g:vimshell_execute_file_list['zip'] = 'zipinfo'
+	  call vimshell#set_execute_file('tgz,gz', 'gzcat')
+	    call vimshell#set_execute_file('tbz,bz2', 'bzcat')
+	endif
+	
+	" Initialize execute file list.
+	let g:vimshell_execute_file_list = {}
+	call vimshell#set_execute_file('txt,vim,c,h,cpp,d,xml,java', 'vim')
+	let g:vimshell_execute_file_list['rb'] = 'ruby'
+	let g:vimshell_execute_file_list['pl'] = 'perl'
+	let g:vimshell_execute_file_list['py'] = 'python'
+	call vimshell#set_execute_file('html,xhtml', 'gexe firefox')
+	
+	autocmd FileType vimshell
+	\ call vimshell#altercmd#define('g', 'git')
+	\| call vimshell#altercmd#define('i', 'iexe')
+	\| call vimshell#altercmd#define('l', 'll')
+	\| call vimshell#altercmd#define('ll', 'ls -l')
+	\| call vimshell#hook#add('chpwd', 'my_chpwd', 'g:my_chpwd')
+	
+	function! g:my_chpwd(args, context)
+	  call vimshell#execute('ls')
+	endfunction
+	
+	autocmd FileType int-* call s:interactive_settings()
+	function! s:interactive_settings()
+	endfunction
+<
+Todo
+
+==============================================================================
+INTERNAL COMMANDS					*vimshell-internal-commands*
+
+Todo
+
+Note: Todo
+>
+		vimshell% echo hello | vim
+<
+
+bg [{option}...] {command}				*vimshell-internal-bg*
+		Todo
+		
+		Example:
+>
+		vimshell% ls&
+<
+		Todo
+		
+		--filetype = {filetype-name}
+		Todo
+
+cd {directory-path} [{substitute-pattern}]		*vimshell-internal-cd*
+		Todo
+
+clear 							*vimshell-internal-clear*
+		Clear display.
+
+dirs [{max}]						*vimshell-internal-dirs*
+		Todo
+
+echo [{argument}...]					*vimshell-internal-echo*
+		print arguments.
+
+eval {expression}					*vimshell-internal-eval*
+		Todo
+
+exe [{option}...] {command} 				*vimshell-internal-exe*
+		Todo
+		
+							*vimshell-execute-options*
+		--encoding = {encoding-name}		*vimshell-execute-options-encoding*
+		Todo
+
+exit 							*vimshell-internal-exit*
+		Exit vimshell buffer.
+
+gcd [{directory-path}]					*vimshell-internal-gcd*
+		Todo
+
+gendoc {command} {args}					*vimshell-internal-gendoc*
+		Todo
+
+gexe {command}						*vimshell-internal-gexe*
+		Todo
+
+h [{pattern}]						*vimshell-internal-h*
+		Todo
+
+histdel {history-number}				*vimshell-internal-histdel*
+		Todo
+
+history [{search-string}]				*vimshell-internal-history*
+		Todo
+
+iexe [{options}...] {command}				*vimshell-internal-iexe*
+		Todo
+		
+		Note:
+		Todo
+
+less [{options}...] {command}				*vimshell-internal-less*
+		Todo
+
+ls [{argument}...]					*vimshell-internal-ls*
+		Todo
+
+mkcd {directory-name}					*vimshell-internal-mkcd*
+		Todo
+
+nop 							*vimshell-internal-nop*
+		No operation.
+
+open {filename}						*vimshell-internal-open*
+		Open {filename} by associated application.
+
+popd [{directory-stack-number}]				*vimshell-internal-popd*
+		Todo
+
+pwd 							*vimshell-internal-pwd*
+		Print vimshell working directory.
+
+repeat {cnt} {command}					*vimshell-internal-repeat*
+		Execute {command} {cnt} times.
+
+shell 							*vimshell-internal-shell*
+		Todo
+
+source {files}						*vimshell-internal-source*
+		Todo
+
+texe [{options}...] {command}				*vimshell-internal-texe*
+		Todo
+		
+		Note: Todo
+		
+
+time {command}						*vimshell-internal-time*
+		Todo
+
+view [{options}...] {filenames}... 			*vimshell-internal-view*
+		Todo
+
+vi [{options}...] [{filenames}...]			*vimshell-internal-vi*
+		Same as |vimshell-internal-vim|.
+
+vim [{options}...] [{filenames}...]			*vimshell-internal-vim*
+		Todo
+
+vimdiff {filename1} {filename2}				*vimshell-internal-vimdiff*
+		Todo
+
+vimsh [{filename}]					*vimshell-internal-vimsh*
+		Todo
+
+which {command}					*vimshell-internal-which*
+		Todo
+
+whereis {command}				*vimshell-internal-whereis*
+		Print {command} by full path.
+
+==============================================================================
+SPECIAL COMMANDS					*vimshell-special-commands*
+Todo
+
+alias {alias-name} = {command}				*vimshell-special-alias*
+		Todo
+>
+		vimshell% alias echo=':echo "$$args"'
+		vimshell% alias echo2=':echo "$$args[1]"'
+		vimshell% alias echo3=':echo "$$args[2:]"'
+<
+galias {global-alias-name} = {command}			*vimshell-internal-galias*
+		Todo
+>
+		vimshell% galias G = '|grep'
+		vimshell% ls G hoge
+<
+let ${var-name} = {expression}				*vimshell-special-let*
+		Todo
+>
+		vimshell% let $Hoge = $hoge
+<
+sexe {command}						*vimshell-special-sexe*
+		Todo
+
+vexe {expression}					*vimshell-special-vexe*
+		Todo
+		
+		Example:
+>
+		:ls
+<
+==============================================================================
+ALTER COMMAND						*vimshell-alter-command*
+
+Todo
+>
+	autocmd FileType vimshell
+	\ call vimshell#altercmd#define('g', 'git')
+<
+==============================================================================
+HOOK							*vimshell-hook*
+
+Todo
+>
+	autocmd FileType vimshell
+	\ call vimshell#hook#add('chpwd', 'my_chpwd', 'g:my_chpwd')
+	
+	function! g:my_chpwd(args, context)
+		call vimshell#execute('ls')
+	endfunction
+<
+Todo
+
+chpwd							*vimshell-hook-chpwd*
+		Todo
+
+preparse						*vimshell-hook-preparse*
+		Todo
+
+preexec							*vimshell-hook-preexec*
+		Todo
+
+postexec						*vimshell-hook-postexec*
+		Todo
+
+emptycmd						*vimshell-hook-emptycmd*
+		Todo
+
+notfound						*vimshell-hook-notfound*
+		Todo
+
+preprompt						*vimshell-hook-preprompt*
+		Todo
+
+preinput						*vimshell-hook-preinput*
+		Todo
+
+postinput						*vimshell-hook-postinput*
+		Todo
+
+		Todo
+
+==============================================================================
+TIPS							*vimshell-tips*
+Todo
+
+directory stack						*vimshell-tips-directory-stack*
+		Todo
+
+auto_cd							*vimshell-tips-auto_cd*
+		Todo
+
+block							*vimshell-tips-block*
+		Todo
+>
+		vimshell% echo /hoge/piyo/{hoge,hogera}
+		-> /hoge/piyo/hoge /hoge/piyo/hogera
+<
+		Todo
+>
+		vimshell% echo {00..09}
+		-> 00 01 02 03 04 05 06 07 08 09
+<
+wild card						*vimshell-tips-wildcard*
+		Todo
+>
+		vimshell% ls *.htm
+<
+		Todo
+>
+		vimshell% ls *~*.htm
+<
+		Todo
+
+backquote						*vimshell-tips-backquote*
+		コマンドの引数にコマンドの実行結果が使える。
+>
+		vimshell% echo `ls`
+<
+		Vim scriptの埋め込みもできる。
+>
+		vimshell% echo `=3`
+<
+
+fakecygpty						*vimshell-tips-fakecygpty*
+		Todo
+>
+		> fakecygpty ssh
+<
+		Todo
+		http://github.com/Shougo/fakecygpty
+>
+		$ gcc fakecygpty.c -o fakecygpty.exe
+<
+		Todo
+>
+==============================================================================
+UNITE SOURCES						*vimshell-unite-sources*
+
+Todo
+
+							*vimshell-unite-source-vimshell-history*
+vimshell/history
+		Todo
+		
+		Exmaple:
+>
+		inoremap <buffer> <expr><silent> <C-l>  unite#sources#vimshell_history#start_complete()
+<
+
+actions:
+
+vimshell/history					*vimshell-unite-action-vimshell-history*
+	execute		Execute history
+	edit		Edit history
+	delete		Delete history.
+
+==============================================================================
+CREATE PLUGIN						*vimshell-create-plugin*
+
+In this clause, I comment on a method to make plugin of vimshell.  The
+ability of vimshell will spread by creating plugin by yourself.
+
+==============================================================================
+CHANGELOG						*vimshell-changelog*
+
+2011-10-05
+- Improved vimshell#terminal#print().
+
+2011-10-04
+- Improved earthquake syntax.
+- Fixed history execution.
+- Improved buffering.
+- Fixed vimshell#interactive#exit().
+- Refactored internal commands.
+- Added g:vimshell_use_terminal_command option.
+- Improved shell internal command.
+
+2011-10-03
+- Fixed :VimShellExecute and :VimShellInteractive split behavior.
+- Improved earthquake syntax.
+
+2011-09-28
+- Added time internal command.
+
+2011-09-25
+- Fixed tags.
+
+2011-09-24
+- Improved documentation.
+- Refactored mappings.
+
+2011-09-23
+- Improved documentation.
+
+2011-09-19
+- vim and view internal commands allow multiple files.
+- Refactored local variable names.
+- Fixed interactive output.
+
+2011-09-18
+- Fixed hangup bugs.
+
+2011-09-17
+- Improved vimshell initialize.
+- Fixed vimshell examples.
+
+2011-09-16
+- Fixed stopinsert.
+- Improved g:vimshell_split_command behavior.
+- Fixed complete files.
+- Fixed iexe.
+
+2011-09-15
+- Added <Plug>(vimshell_execute_by_background) keymapping.
+
+2011-09-14
+- Fixed next prompt.
+- Fixed password input.
+- Improved Japanese documentation.
+
+2011-09-13
+- Fixed history error.
+
+2011-09-12
+- Fixed inputsecret() error.
+- Fixed tempname() problem.
+- Deleted sudo internal command.
+- Improved exe behavior.
+
+2011-09-09
+- Improved execute continuation.
+- Improved commands history.
+- Fixed terminal.
+- Improved texe.
+
+2011-09-08
+- Supported vimproc Ver.6
+- Improved error message.
+- Supported iexe error output.
+- exe use pty.
+- Improved interactive.
+
+2011-09-07
+- Ver.9.0 development started.
+
+------------------------------------------------------------------------------
+ChangeLog 8.0
+
+2011-09-06
+- Fixed vimfiler function error.
+
+2011-09-04
+- Improved buffer name.
+- Renamed save_dir.
+
+2011-09-01
+- Use unite#start_complete().
+
+2011-08-31
+- Fixed interactive history completion.
+- Fixed command completion.
+- Fixed manual completion error.
+
+2011-08-29
+- Improved :VimShellPop behavior.
+
+2011-08-27
+- Fixed for gdb.
+- Improved vimshell/history source.
+
+2011-08-24
+- Fixed vimshell get prompt error.
+
+2011-08-23
+- Fixed execute command behavior.
+- Set winfixheight.
+- Improved vimshell history error.
+- Improved updatetime.
+
+2011-08-22
+- Fixed parser.
+
+2011-08-21
+- Improved clear.
+- Improved :VimShellPop.
+
+2011-08-20
+- Improved documentation.
+
+2011-08-16
+- Added is_listed attribute.
+
+2011-08-14
+- Fixed context error.
+
+2011-08-13
+- Deleted bcd internal command.
+
+2011-08-12
+- Fixed for complete and echodoc error.
+- Fixed documentation.
+
+2011-08-10
+- Improved internal commands initialize.
+- Added vi internal command.
+- Improved open file mapping.
+
+2011-08-09
+- Improved vimshell switch.
+
+2011-08-03
+- Improved documentation.
+
+2011-07-23
+- Deleted obsolute option.
+
+2011-07-22
+- Fixed color table.
+
+2011-07-21
+- Fixed vimshell initialize error.
+
+2011-07-20
+- Fixed complete error in interactive buffer.
+- Improved set variables.
+- Implemented interrupt in interactive buffer.
+- Improved interrupt in vimshell buffer.
+
+2011-07-13
+- Fixed clear bug.
+
+2011-07-12
+- Fixed :VimShellSendString error.
+
+2011-07-11
+- Fixed save interactive history.
+
+2011-07-10
+- Fixed cd internal command.
+
+2011-07-06
+- Improved open cursor file.
+
+2011-07-05
+- Improved open cursor file.
+
+2011-07-04
+- Added <Plug>(vimshell_move_head) mapping.
+- Improved <Plug>(vimshell_previous_prompt) and <Plug>(vimshell_next_prompt)
+
+2011-07-02
+- Fixed preinput bug.
+
+2011-07-01
+- Improved escape sequences.
+- Close popup if output.
+- Improved interactive output.
+
+2011-06-25
+- Changed <Plug>(vimshell_paste_prompt) behavior.
+
+2011-06-16
+- Fixed open_file().
+- Supported earthquake command.
+- Added g:vimshell_interactive_monochrome_commands option.
+
+2011-06-15
+- Fixed execute_line().
+- Improved vimshell description.
+
+2011-06-14
+- Fixed filename completion.
+- Fixed colorscheme problem.
+- Fixed :VimShellInteractive error.
+
+2011-06-12
+- Improved open cursor file.
+
+2011-06-10
+- Fixed vital error.
+
+2011-06-08
+- Fixed restart keymapping.
+
+2011-06-04
+- Fixed terminal print error.
+
+2011-06-03
+- Improved hooks.
+- Added some hook functions.
+
+2011-06-02
+- Added postinput hook.
+- Changed input hook to preinput hook.
+- Improved iexe and texe description.
+
+2011-06-01
+- Improved hook.
+- Added input hook.
+- Fixed exit error.
+
+2011-05-30
+- Fixed vimshell update bug.
+- Improved examples.
+- Improved previous/next prompt mappings in interactive.
+
+2011-05-29
+- Improved iexe completion.
+- Improved description.
+- Added source internal command.
+- Improved :VimShellSendString command.
+
+2011-05-20
+- Fixed vimshell error problem.
+
+2011-05-18
+- Fixed vimshell completion error.
+- Fixed mappings error.
+
+2011-05-17
+- Use neocomplcache filename_complete.
+
+2011-05-15
+- Fixed conceal problem.
+- Fixed quote error.
+
+2011-05-14
+- Fixed man.
+
+2011-05-13
+- Use system_gui().
+- Use vimproc Ver.5.2.
+
+2011-05-11
+- Supported hash tag in termtter syntax.
+
+2011-05-10
+- Supported clojure.
+
+2011-05-08
+- Fixed set nocompatible bug.
+
+2011-04-27
+- Fixed vimshell history source.
+
+2011-04-16
+- Fixed execute command line bug.
+- Improved filename completion.
+- Improved complete position.
+
+2011-04-12
+- Improved history source.
+
+2011-04-05
+- Supported sbt in Windows.
+
+2011-04-01
+- Improved vimshell/history source.
+- Fixed interactive command bug.
+- Supported fsi interpreter.
+- Improved unite source split direction.
+
+2011-03-25
+- Implemented unite highlight.
+- Deleted g:vimshell_external_history_path option.
+- Fixed delete action.
+- Improved vimproc check.
+- Fixed completion error when using neocomplcache.
+- Deleted obsolute completefuncs.
+- Added edit and execute actions.
+- Improved default_action.
+- Added unite source description.
+- Refactoringed vimshell history.
+
+2011-03-23
+- Implemented vimshell history source.
+
+2011-03-16
+- Improved concealed highlight.
+
+2011-03-14
+- Deleted highlight oneline option.
+
+2011-03-13
+- Implemented &.
+- Improved parser.
+
+2011-03-08
+- Improved concealed color.
+
+2011-03-07
+- Improved print.
+- Improved virtual file.
+- Implemented alias arguments.
+
+2011-03-06
+- Use conceal when possible.
+- Fixed output error.
+
+2011-03-05
+- Fixed : parse.
+- Improved vexe description.
+
+2011-03-03
+- Fixed cmdline error.
+
+2011-03-02
+- Save last executed command line.
+
+2011-02-26
+- Fixed error_line() and print_line().
+- Fixed : parse.
+- Changed q keymapping behavior.
+
+2011-02-25
+- Implemented Vim command execution(example :ls).
+
+2011-02-24
+- Improved error output.
+
+2011-02-23
+- Fixed output position bug.
+- Improved position restore.
+
+2011-02-22
+- Improved interactive buffer update.
+
+2011-02-16
+- Improved termtter syntax.
+
+2011-02-15
+- Fixed kill.
+
+2011-02-13
+- Fixed less initialization.
+
+2011-02-12
+- Improved documentation.
+
+2011-02-11
+- Improved timeout.
+
+2011-02-10
+- Check ls command.
+
+2011-01-28
+- Fixed hook#call().
+
+2011-01-27
+- Fixed hook error.
+
+2011-01-26
+- Implemented postexec hook.
+
+2011-01-22
+- Fixed vimshell#print_line() error.
+
+2011-01-19
+- Fixed move head bug.
+- Improved hooks.
+- Fixed history execution bug.
+- Catch hook error.
+
+2011-01-17
+- Fixed error message position.
+
+2011-01-16
+- Fixed vimshell#get_current_args() error.
+- Fixed search cursor file.
+
+2011-01-12
+- Fixed English help.
+
+2011-01-11
+- Fixed for Vim 7.0 bug.
+
+2011-01-08
+- Improved vimproc error message.
+
+2010-12-26
+- Improved history output(Experimental).
+
+2010-12-25
+- Fixed :VimShellSendString.
+- Supported maxima in Windows.
+
+2010-12-24
+- Improved usage.
+- Fixed :VimShellExecute complete function.
+
+2010-12-23
+- Supported echodoc.
+- Added gendoc command.
+
+2010-12-14
+- Implemented set winsize behavior.
+
+2010-12-08
+- Restored cd behavior.
+
+2010-12-07
+- Fixed less highlight.
+- Improved delete highlight.
+
+2010-12-06
+- Changed <Plug>(vimshell_another_delete_backward_char) mapping.
+
+2010-12-05
+- Fixed cd command.
+
+2010-11-17
+- Improved less keymappings.
+- Improved view internal command.
+- Improved less internal command.
+
+2010-11-16
+- Supported directory_mru.
+
+2010-11-07
+- Improved modeline.
+
+2010-11-04
+- Added g:vimshell_cd_command option.
+
+2010-11-03
+- Changed <Plug>(vimshell_delete_previous_output) default mapping.
+
+2010-10-30
+- Added g:vimshell_interactive_no_echoback_commands option.
+- Fixed echoback.
+
+2010-10-28
+- Fixed doc tags.
+- Fixed terminal bug.
+- Improved util.vim.
+
+2010-10-26
+- Fixed typo.
+- Improved change current directory.
+
+2010-10-21
+- Fixed escape bug.
+- Fixed filename execution.
+- Check t:unite_buffer_dictionary.
+
+2010-10-19
+- Improved interactive update.
+- Added g:vimshell_terminal_commands option.
+
+2010-10-14
+- Improved execute line.
+- Fixed delete backward line.
+- Stopinsert in vimdiff.
+
+2010-10-12
+- Fixed switch directory bug.
+
+2010-10-08
+- Improved window move.
+- Improved vimshell switch.
+
+2010-10-07
+- Don't resolve link.
+
+2010-10-05
+- Fixed modifiable error.
+
+2010-10-02
+- Fixed typo.
+- Fixed variables name.
+
+2010-10-01
+- Deleted completion imdisable().
+- Improved iskeyword.
+- Fixed clear bug.
+
+2010-09-30
+- Improved clear.
+
+2010-09-29
+- Added g:vimshell_enable_auto_slash.
+- Fixed vimshell switch bug.
+- Improved <Plug>(vimshell_switch).
+- Fixed abbr in command completion.
+
+2010-09-28
+- Fixed <Plug>(vimshell_delete_backward_line) error.
+- Fixed glob().
+- Fixed conceal cursor.
+- Fixed glob().
+- Implemented insert / (experimental).
+
+2010-09-27
+- Improved filename completion.
+- Fixed complete executable.
+
+2010-09-23
+- Fixed send_string().
+- Fixed completion error.
+- Fixed eof.
+- Refactoringed vimshell completion.
+
+2010-09-21
+- Supported b:interactive.is_close_immediately for iexe buffers.
+- Fixed typo.
+- Merged from ujihisa.
+- Changed completion keymappings.
+- Changed clear keymappings.
+
+2010-09-16
+- Improved command split behavior.
+
+2010-09-15
+- Fixed japanese documentation.
+
+2010-09-09
+- Implemented <Plug>(vimshell_int_clear).
+
+2010-09-05
+- Ver.8.0 development started.
+- Use vimproc Ver.5.
+- Changed completion keymappings.
+- Fixed for scala.
+
+------------------------------------------------------------------------------
+ChangeLog 7.2
+
+2010-09-04
+- Deleted VimShellBang and VimShellRead commands.
+
+2010-09-03
+- Fixed cursor.
+
+2010-09-02
+- Improved insert enter.
+- Improved interactive cursor.
+- Improved interactive update.
+
+2010-09-01
+- Improved insert enter.
+- Improved output.
+
+2010-08-29
+- Improved syntax.
+
+2010-08-26
+- Supported grep pattern.
+- Added syntax highlight.
+
+2010-08-25
+- Fixed filename completion.
+
+2010-08-23
+- Fixed alias parse.
+- Fixed texe error.
+- Improved save variables.
+
+2010-08-22
+- Improved iexe mappings.
+- Improved vimshell mappings.
+- Improved get_cur_text.
+- Fixed prompt bug.
+
+2010-08-20
+- Stop insert when execute exit.
+
+2010-08-19
+- Improved column.
+- Fixed update.
+- Improved interactive completion.
+
+2010-08-18
+- Fixed initialization error check.
+- Fixed environment variables.
+- Fixed output bug.
+
+2010-08-17
+- Implemented which internal command.
+- Implemented wherereis internal command.
+
+2010-08-15
+* Ver.7.2 development started.
+- Improved wildcard.
+- Fixed wildcard parse.
+- Implemented file modifier.
+
+------------------------------------------------------------------------------
+ChangeLog 7.1:
+2010-08-15
+- Improved error detection.
+
+2010-08-13
+- Supported set syntax in bg and less command.
+- Fixed less parse.
+- Improved terminal highlight.
+- Implemented user syntax.
+- Fixed :VimShellBang and :VimShellRead error.
+
+2010-08-08
+- Improved redirection.
+- Fixed conceal parse.
+
+2010-08-07
+- Improved vimshell#switch_shell().
+- Implemented <Plug>(vimshell_move_previous_window).
+
+2010-08-05
+- Improved iexe completion.
+- Improved right prompt.
+- Improved cursor word check.
+- Fixed delete line bug.
+- Improved change line.
+- Improved process exists check.
+- No change $SHELL.
+- Improved default settings.
+
+2010-08-04
+- Improved send_string().
+- Check interactive command.
+- Implemented print exit value.
+
+2010-08-03
+- Changed history mappings.
+- Improved mappings name.
+- Fixed conditional code bug.
+- Ignore ** pattern when completion.
+
+2010-08-02
+- Implemented interactive command completion.
+- Improved mappings.
+- Improved send string.
+- Fixed col.
+- Fixed filename completion.
+
+2010-08-01
+- Deleted interactive command complete.
+- Deleted terminal filter.
+
+2010-07-31
+- Fixed pipe parse bug.
+- Added less internal command.
+- Improved buffer name.
+- Implemented <Plug>(vimshell_less_next_half_screen).
+- Fixed tags error.
+
+2010-07-30
+- Set wrap.
+- Improved <Plug>(vimshell_clear).
+- Fixed h internal command.
+- Implemented <Plug>(vimshell_select_previous_prompt) and <Plug>(vimshell_select_next_prompt) mappings.
+
+2010-07-27
+- Improved documentation.
+- Fixed s:send_region().
+- Fixed execute continuation.
+
+2010-07-26
+- Fixed documentation.
+- Supported conceal feature in Vim 7.3.
+
+2010-07-25
+- Fixed error print.
+- Added g:vimshell_interactive_interpreter_commands option.
+- Fixed texe filetype.
+- Improved interpreter commands.
+- Improved :VimShellInteractive, :VimshellTerminal, :VimShellExecute behavior.
+- Fixed get type.
+- Implemented <Plug>(vimshell_interrupt).
+- Fixed don't call preexec bug.
+- Improved vimshell#system().
+- Improved vimshell#set_dictionary_helper().
+
+2010-07-24
+- Fixed caching check.
+- Implemented asyncronous exe.
+- Fixed :VimShellInteractive, :VimshellTerminal, :VimShellExecute error.
+- Clear previous highlight.
+
+2010-07-23
+- Implemented g:vimshell_vcs_print_null option.
+- Implemented timeout in vcs.
+- Improved documentation.
+- Improved drawing character set.
+- Improved scroll down.
+- Implemented wrap around bs.
+- Implemented key mappings helper function.
+- Fixed default mappings bug.
+
+2010-07-22
+- Improved search cursor file.
+- Added :VimShellSendBuffer command.
+- Changed terminal filetype.
+- Improved multibyte.
+- Optimized escape sequence.
+- Improved scroll region.
+- Implemented reset escape sequence.
+- Improved interactive.
+- Fixed expand alias.
+- Improved parser.
+
+2010-07-21
+- Improved initialize autoload.
+
+2010-07-18
+- Fixed <Plug>(vimshell_int_send_input) error.
+
+2010-07-17
+- Improved killed message.
+- Implemented pipe.
+- Optimized head match.
+- Improved print error.
+
+2010-07-15
+- Improved tilde substitution.
+
+2010-07-14
+- Changed list and wrap settings.
+
+2010-07-13
+- Improved terminal update.
+- Fixed scrolling region.
+
+2010-07-12
+- Fixed history count.
+- Fixed for neocomplcache Ver.5.1.
+- Improved eskk and vimproc check.
+- Improved output check.
+- Fixed 256 colors highlight bug.
+- Implemented magic equal completion.
+- Implemented change cursor shape.
+- Added g:vimshell_terminal_cursor.
+- Added some keys.
+- Implemented multibyte cursor move.
+
+2010-07-11
+- ReFixed listchars.
+- Improved highlight.
+- Improved g:vimshell_escape_colors.
+- Improved output check.
+
+2010-07-10
+- Fixed listchars.
+
+2010-07-09
+- Fixed interactive position.
+- Fixed output bug.
+- Fixed interactive history error.
+- Improved texe update.
+- Fixed iexe execute bug.
+- Fixed texe mappings.
+- Fixed some error.
+- Added <Plug>(vimshell_term_execute_line) mapping.
+- Improved listchars.
+- Fixed command line completion.
+- Fixed initialize bug.
+- Deleted screen internal command.
+- Improved commands.
+- Improved args complete.
+- Improved helper function name.
+- Improved internal helper function.
+
+2010-07-07
+* Ver.7.1 development started.
+- Fixed documentation.
+- Using dictionary.
+
+------------------------------------------------------------------------------
+ChangeLog 7.0:
+2010-07-07
+- Fixed auto completion bug.
+- Improved :VimShellInteractive and :VimShellExecute and :VimShellTerminal commands.
+- Improved termtter syntax.
+
+2010-07-06
+- Fixed directory compltion bug.
+
+2010-07-05
+- Improved texe update.
+
+2010-07-04
+- Improved history.
+- Added g:vimshell_external_history_path option.
+- Improved history and h command.
+- Highlights history output.
+- Implemented texe completion.
+- Improved commands completion.
+- Check window size.
+
+2010-07-03
+- Improved texe update.
+- Fixed terminal clear bug.
+- Improved escape highlight.
+- Added g:vimshell_disable_escape_highlight option.
+- Detect g:neocomplcache_enable_auto_select option.
+
+2010-07-02
+- Set $COLUMNS and $LINES.
+- Set $VIMSHELL_TERM.
+- Added g:vimshell_environment_term option.
+- Improved interactive history.
+- Set nomodifiable in texe.
+- Implemented send input.
+- Implemented texe auto update.
+
+2010-07-01
+- Added :VimShellTerminal command.
+- Improved split window.
+- Fixed <Plug>(vimshell_clear) bug.
+- Improved texe.
+- Fixed escape error in texe.
+- Fixed initial output in texe.
+- Supported scroll.
+
+2010-06-30
+- Improved cursor move.
+
+2010-06-29
+- Fixed texe update.
+
+2010-06-28
+- Fixed repeat error.
+- Refactoringed interactive.
+- Improved update timing.
+- Fixed print error.
+- Improved <Plug>(vimshell_int_execute_line) behavior.
+- Fixed print bug.
+- Merged hamaco's change.
+- Fixed dirs and bcd and clear error.
+- Fixed open cursor file.
+- Fixed cursor position in texe.
+
+2010-06-27
+- Added g:vimshell_split_command option.
+- Improved terminal mappings.
+
+2010-06-26
+- Fixed output for gosh.
+
+2010-06-25
+- Improved mappings.
+- Changed background filetype.
+- Implemented change title escape sequence.
+- Improved terminal information.
+- Added g:vimshell_interactive_no_save_history_commands option.
+- Fixed append history.
+- Implemented few escape sequences.
+- Implemented texe.
+
+2010-06-24
+- Fixed auto update.
+
+2010-06-22
+- Improved gexe.
+- Improved iexe filetype.
+- Improved command completion.
+- Fixed directory stack completion.
+- Added g:vimshell_interactive_encodings option.
+- Changed g:vimshell_history_max_size as g:vimshell_max_command_history.
+- Added g:vimshell_max_directory_stack option.
+- Improved append history.
+- Improved popd and cd.
+
+2010-06-21
+- Fixed command completion bug.
+- Added fakecygpty description.
+
+2010-06-20
+- Use vimproc Ver.4.1.
+- Added g:vimshell_interactive_command_options and g:vimshell_interactive_cygwin_commands.
+- Added g:vimshell_interactive_cygwin_path and g:vimshell_interactive_cygwin_home.
+- Improved vimproc check.
+- Revised help file.
+
+2010-06-19
+- Improved get cur_text.
+- Fixed filename completion bug.
+- Fixed PATH_SEPARATOR error.
+- Fixed command complete.
+
+2010-06-18
+- Fixed expand glob bug.
+- Improved escape filter.
+- Added g:vimshell_cat_command option.
+- Refactoringed.
+- Improved imdisable.
+- Fixed fatal print bug.
+- Fixed cdpath complete.
+
+2010-06-16
+- Improved vimshell#complete#helper#files() and vimshell#complete#helper#cdpath_directories().
+- Improved highlight sequences.
+- Fixed print_prompt() bug.
+- Implemented delete_backword_char escape sequence.
+- Added some escape sequences support.
+- Improved echoback check.
+
+2010-06-15
+- Improved interactive update.
+- Optimized escape sequence.
+- Optimized highlight escape sequence.
+- Improved highlight escape sequence.
+- Improved skip prompt.
+- Fixed context bug.
+- Fixed window split bug.
+- Fixed keyword filter error.
+- Fixed escape parse bug.
+
+2010-06-14
+- Overwrite text in vimshell#terminal#print().
+- Changed hook specification.
+- Improved parse alias.
+- Deleted auto_popd.
+- Implemented vimshell#hook#get().
+
+2010-06-13
+- Fixed vimsh error.
+- Improved print_prompt() behavior.
+- Deleted hide internal command.
+- Improved error message.
+- Improved escape sequence.
+
+2010-06-12
+- Added <Plug>(vimshell_change_line) and <Plug>(vimshell_delete_line) keymappings.
+- Improved auto update.
+- Added <Plug>(vimshell_int_delete_word) and <Plug>(vimshell_insert_head) keymappings.
+- Refactoringed mappings.
+- Set $EDITOR to cat.
+- Detect blocked time.
+- Improved another <Plug>(vimshell_another_delete_backword_char).
+- Improved popd.
+- Implemented popd completion.
+- Optimized filter.
+- Supported symbolic link and Win32 shortcut.
+- Improved resolve.
+
+2010-06-11
+- Improved undo.
+- Changed <Plug>(vimshell_int_restart_command) default keymappings.
+
+2010-06-10
+- Improved iskeyword for altercmd.
+- Improved skk.vim check.
+- Fixed <Plug>(vimshell_int_restart_command) command.
+
+2010-06-09
+- Fixed auto update and escape sequence error bug.
+- Fixed change position bug when auto update.
+
+2010-06-08
+- Call explorer in vim and view.
+
+2010-06-07
+- Optimized control sequences check.
+- Refactoringed terminal functions.
+- Fixed <C-g>u bug.
+
+2010-06-06
+- Fixed escape bug.
+- Fixed update cursor move bug.
+- Improved output routine.
+- Improved highlight.
+- Added some escape sequence functions.
+
+2010-06-04
+- Improved URL open in iexe.
+- Improved iexe buffer update.
+- Improved open file in vimshell buffer.
+- Improved append history timing.
+
+2010-06-01
+- Fixed error when exe.
+- Fixed popd error.
+
+2010-05-30
+- Improved update iexe buffer.
+
+2010-05-30
+- Improved echoback.
+- Improved multiline input.
+- Improved Japanese help.
+- sudo supported Windows.
+- Implemented interactive history complete.
+- Added g:vimshell_no_save_history_programs variable.
+- Added g:vimshell_interactive_update_time variable.
+- Improved update iexe buffer.
+- Fixed prompt history bug.
+
+2010-05-29
+- Improved run help.
+- Check exists('*SkkDisable').
+- Improved dummy move in iexe.
+
+2010-05-28
+- Disable ime when execute <Plug>(vimshell_int_execute_line).
+- Supported eskk.vim.
+
+2010-05-26
+- Fixed eval back quote.
+
+2010-05-25
+- Improved iexe update.
+
+2010-05-24
+- Improved open.
+- Improved vimshell#system().
+- Set interactive filetype when iexe buffer is initialized.
+- Added <Plug>(vimshell_interactive_another_delete_backword_char) <Plug>(vimshell_delete_backword_char) and <Plug>(vimshell_another_delete_backword_char) mappings.
+- Fixed error.
+
+2010-05-23
+- Fixed cd error.
+- Fixed <C-e> behavior in iexe.
+- Improved interactive complete.
+- Improved alias parse.
+- Added :VimShellRead command.
+
+2010-05-19
+- Fixed error in output check.
+- Fixed output.
+- Improved error line.
+
+2010-05-18
+- Added :VimShellBang command.
+- Fixed output check error.
+- Improved output check.
+- Improved autocmd.
+
+2010-05-15
+* Improved output check.
+* Improved Cygwin detect.
+
+2010-05-14
+* Improved disable bell.
+
+2010-05-13
+* Improved environment detect.
+* Deleted g:vimshell_history_path option.
+* Added g:vimshell_temporary_directory option.
+* Revised help file.
+* Fixed h bug.
+* Changed history path.
+
+2010-05-11
+* Changed variables name.
+
+2010-05-10
+* Fixed error in output check.
+* Improved :VimShellSendString.
+
+2010-05-09
+* vimshell disables bell.
+* Fixed <CR> bug in iexe.
+* Added <Plug>(vimshell_interactive_restart_command) mapping.
+* Improved :VimShellSendString.
+* Improved highlight clear.
+
+2010-05-05
+* Improved encoding.
+* sexe is special command.
+* Added <Plug>(vimshell_exit) mapping.
+* Improved exit and open.
+
+2010-05-04
+* Improved system().
+
+2010-05-02
+* Improved galias and alias parse.
+* Implemented vimshell#set_alias() and vimshell#set_galias(). 
+* Fixed wildcard.
+* Fixed convert encoding.
+
+2010-05-01
+* Fixed alias parse bug.
+* Deleted obsolute mappings.
+* Implemented some escape sequence functions.
+
+2010-04-30
+* Improved interactive keymappings.
+* Improved interactive behavior.
+* Fixed bg bug.
+* Ignore escape sequences.
+* Improved highlight.
+
+2010-04-27
+* Fixed vimshell#print().
+* Improved g:vimshell_no_default_keymappings.
+* Nestable vexe.
+* Deleted g:VimShell_MaxKeywordWidth.
+* Fixed bcd bugs.
+
+2010-04-26
+* Improved auto complete behavior in iexe buffer.
+
+2010-04-25
+* vimshell#execute returns exit status.
+* Improved prompt check.
+* Added vimshell#version().
+* Fixed iexe args.
+* Deleted g:VimShell_EnableInteractive.
+
+2010-04-24
+* Fixed prompt check error.
+* Fixed mapping <CR>.
+
+2010-04-20
+* Ver.7 development started.
+* Supported vimproc Ver.4.
+
+------------------------------------------------------------------------------
+ChangeLog 6.50:
+2010-04-20
+    * Marked as ver.6.50.
+    * Implemented .vimshrc quote.
+    * Revised Japanese help.
+
+2010-04-18
+    * Implemented include Vim Script syntax.
+
+2010-04-17
+    * Improved update behavior on insert mode.
+    * Fixed g:vimshell_ignore_case default value.
+    * Improved g:vimshell_ignore_case behavior.
+    * Detect head matches each prompt pattern.
+    * Fixed searchpos() bug.
+    * Improved prompt syntax highlight.
+
+2010-04-16
+    * Improved iexe update.
+    * Add history when parse passed.
+    * Improved vimshell exception and error mechanism.
+    * Improved auto update behavior.
+    * Improved directory completion.
+    * Improved error catch.
+
+2010-04-14
+    * Improved vimshell#start_insert().
+    * Implemented multiline quote.
+    * Improved echo.
+    * Improved syntax of string.
+    * Fixed print and vexe split <CR> bugs.
+
+2010-04-13
+    * Improved quote parser.
+    * Revised Japanese help.
+    * Improved output check.
+    * Changed vexe as special command.
+    * Added eval internal command.
+    * Deleted ev internal command.
+    * Fixed vimshell#print_line().
+    * Improved alias and galias error message.
+    * Improved alias parse.
+    * Changed hook specification.
+    * Improved context.
+
+2010-04-12
+    * Fixed command_complete bug.
+    * Improved expand wildcard.
+
+2010-04-08
+    * Fixed output check when program exited.
+    * Call hook functions if interactive only.
+    * Implemented emptycmd, precmd, preexec hooks.
+    * Deleted g:VimShell_EnableAutoLs option.
+    * Fixed s:check_output() error.
+    * Improved vimshell#print_prompt().
+
+2010-04-06
+    * Fixed help file.
+    * Changed galias as special command.
+    * Fixed popd error.
+    * Disable output when inputing in iexe.
+    * Implemented hook.
+    * Added chpwd hook.
+
+2010-04-03
+    * Fixed autocd.
+    * Refactoringed.
+    * Implemented recursive altercmd and alias.
+    * Fixed auto complete bug when path contains blanks.
+    * Added execute option description.
+    * Improved bg.
+    * Fixed :VimShellSendString bug.
+
+2010-04-02
+    * Fixed vimshell#altercmd.
+
+2010-04-01
+    * Interpret escape sequence(experimental).
+    * Added internal command description.
+    * Fixed escape color.
+
+2010-03-19
+    * Fixed interrupt error.
+    * Supported comment in .vimshrc.
+    * Implemented altercmd.
+
+2010-03-03
+    * Improved restore current directory.
+    * Added scala support in iexe.
+    * Improved gcd command.
+    * Supported fakecygpty.
+    * Fixed error message in interactive.vim.
+    * Improved cd.
+
+2010-03-02
+    * Fixed interactive_command_complete error.
+    * Fixed vimshell#interactive#get_cur_text().
+
+------------------------------------------------------------------------------
+ChangeLog 6.00-:
+2010-02-26
+    * Print lines if one screen in view.
+    * Fixed nomodifiable error in view.
+    * Revised internal vim command.
+    * Marked As Ver.6.05.
+
+2010-02-24
+    * Fixed interactive filetype.
+    * Ignore .gitignore in vcs_git.
+    * Added g:vimshell_right_prompt variable.
+    * Improved parse in argument complete.
+    * Fixed command parse.
+    * Implemented history output execution.
+
+2010-02-18
+    * Fixed "E121: Undefined variable: b:prompt_history" error.
+    * Fixed args_complete compltion pos bug.
+    * Fixed filename pattern.
+    * Fixed s:hist_size error.
+    * Renamed interactive_complete.vim.
+
+2010-02-17
+    * Added vimshrc syntax file.
+    * setlocal nolist in vimshell buffer.
+
+    6.05 : *Supported vimproc Ver.3 or later*
+    - Improved update timing in iexe and bg.
+    - Optimized history completion.
+    - Changed history completion keymappings.
+    - Improved execute line in iexe.
+    - Fixed <Plug>(vimshell_interactive_previous_prompt).
+    - Fixed no prompt behavior bug in iexe.
+    - Improved interactive in Windows.
+    - Fixed interactive option bug in iexe.
+    - Improved prompt in iexe.
+    - Improved prompt syntax.
+    - Fixed parse filename modifier bug.
+    - Improved split nicely.
+    - Fixed hang up bug.
+    - Implemented background execution and interrupt in exe.
+    - Fixed paste prompt bug in iexe.
+    - Implemented --encoding in exe and bg and iexe.
+    - Added :VimShellSendString command.
+    - Implemented vimshell#interactive#send_string().
+    - Fixed convert encoding in redirecting.
+    - Improved terminal compatiblity.
+    - Deleted g:VimShell_UsePopen2 option.
+    - Improved redraw in executing.
+    
+    6.04 :
+    - Fixed history_complete bug.
+    - Truncate many candidates in history_complete.
+    - Changed g:vimshell_split_height default value.
+    - Optimized complete file.
+    - Improved autocmd.
+    - Changed buffer name.
+    - Improved enter directory.
+    - Improved move to drive.
+    - Implemented auto update.
+    - Fixed multibyte input bug.
+    - Improved termtter syntax.
+    - Fixed sexe error.
+    - Implemented interactive mappings.
+    - Improved prompt move.
+    - Changed omni complete keymappings.
+    - Improved close popup.
+    - Improved buffer search in <Plug>(vimshell_split_create).
+    - Improved detect for mac in open.
+    - Improved filtype and update in bg.
+    - Reimplemented vimshell#internal#iexe#vimshell_iexe().
+    - Added :VimShellExecute and :VimShellInteractive commands.
+    - Implemented bg and iexe and sudo completions.
+    - Improved execute line in Normal mode.
+    - Improved keymappings.
+    - Implemented CursorHold event in iexe.
+    
+    6.03 :
+    - Refactoringed.
+    - Improved environment detect in open.
+    - Fixed delete escape sequence bug.
+    - Improved interactive print.
+    - Implemented execute line in iexe buffer.
+    - Open URI when press <Enter>.
+    - Improved password input.
+    - Implemented interactive termtter syntax.
+    - Fixed syntax error.
+    - Fixed alias parse.
+    - Improved start in Windows.
+    - Improved irb option in iexe.
+    - Improved vimshell split switch.
+    - Added :VimShellPop command.
+    
+    6.02 :
+    - Improved autocommand in iexe.
+    - Improved completion in iexe.
+    - Improved highlight escape sequence.
+    - Fixed echo in iexe.
+    - Improved password input.
+    - Fixed timer.
+    - Added powershell.exe and cmd.exe support.
+    - Improved vimshell buffer settings.
+    - Fixed <Plug>(vimshell_delete_previous_output) error.
+    - Delete control sequences.
+    - Improved complete pattern.
+    - Set completion timeout.
+    - Fixed interactive prompt bug.
+    - Deleted syntax keyword.
+    - Improved interactive print.
+    - Renamed interactive_complete.
+    - Fixed interactive process error.
+    - Fixed expand tilde bug.
+    
+    6.01 :
+     - Improved error handling.
+     - Improved head match.
+     - Use completefunc_complete if available.
+     - Fixed trunk string.
+     - Escape complete candidates.
+     - Improved Windows pty support.
+     - Improved password input.
+     - Improved echo back.
+     - Improved encoding.
+     - Implemented next_prompt() in iexe.
+     - Implemented arguments completion.
+     - Set interactive option in Windows iexe.
+     - Fixed force exit error.
+
+    6.00 :
+     - Deleted plugin/interactive.vim.
+     - Deleted ftplugin/vimshell.vim.
+     - Implemented vimshell#system().
+     - Implemented VCS information support.
+     - Deleted pipe inout.
+     - Implemented completion helper.
+     - Improved command completion.
+     - Implemented argument completion.
+     - Implemented expand wildcard.
+     - Improved get prompt.
+
+------------------------------------------------------------------------------
+ChangeLog 5.30-:
+    5.38 :
+     - Fixed stdout flush bug.
+     - Append last line when interactive error.
+     - Syntax clear in clear command. 
+     - Ignore interactive exit error.
+     - Use vimproc.vim.
+     - Fixed error in readonly buffer.
+     - Deleted interactive pty code.
+     - Use updatetime in iexe.
+     - Deleted CursorHold event in iexe.
+     - Deleted echo in iexe.
+     - Fixed iexe for echoback.
+     - Improved filetype in iexe.
+     - Improved read time.
+     - Improved iexe wait.
+     - Implemented bcd internal command.
+     - Implemented Windows pty support.
+     - Fixed popd.
+     - Improved completion.
+
+    5.37 :
+     - Added g:vimshell_no_default_keymappings option.
+     - Unique key mappings.
+     - Improved echo when executing.
+     - Fixed delete_line error.
+     - Implemented pseudo device '/dev/clip'.
+     - Improved command completion in Windows.
+     - Implemented mkcd internal command.
+     - Append last line.
+
+    5.36 :
+     - Added syntax keywords.
+     - Echo error when you use old Vim.
+     - Splitted mapping functions.
+     - Improved run_help.
+     - Implemented insert history completion.
+     - Improved completion.
+
+    5.35 :
+     - Improved open behavior.
+     - Fixed completion column bug.
+     - Implemented <Plug>(vimshell_move_end_argument).
+     - Fixed environment variables parse bug.
+     - Accept null wildcard.
+     - Substitute modifier.
+     - Added VimShellCreate command.
+     - Save prompt variables when vimshell is initialized.
+     - Implemented vimshell#push_and_execute() function.
+    
+    5.34 :
+     - Improved execute internal command.
+     - Fixed wildcard parse bug.
+     - Use startinsert!.
+     - Implemented vimdiff command.
+     - Fixed cursor pos bug in completion.
+     - Implemented 'vexe' and 'open' command.
+     - Fixed command completion bug.
+     
+    5.33 :
+     - Deleted one command.
+     - Changed default prompt.
+     - Improved kill processes(Thanks Nico).
+     - Send interrupt when press <C-c> in iexe(Thanks Nico).
+     - Improved tab completion in iexe.
+     - Fixed tilde parse bug.
+     - Don't select in completion.
+     - Implemented 'cd -' and '-' command.
+     - Improved popd behavior.
+     - Don't print prompt when switch to vimshell.
+     - Setlocal bufhidden=hide.
+     - Implemented 'cd name1 name2'.
+     - Fixed empty argument bug.
+
+     5.32 :
+     - Fixed delete_line when cursor pos is end.
+     - Escape g:VimShell_Prompt.
+     - Shell escape in sexe.
+     - Implemented clear key-mapping.
+     - Improved delete previous output.
+     - Implemented multiline user prompt.
+     - Fixed suffix execution bug.
+     - Overwrite highlight Normal in escape sequence range.
+     - Execute cursor file.
+
+     5.31 :
+     - Check cd path.
+     - Mark executable file.
+     - Improved completion.
+     - Deleted normal iexe.
+     - Splitted complete functions.
+     - Catch error in vim and view.
+
+     5.30 :
+     - Improved execute message.
+     - Implemented sexe command.
+     - Setfiletype iexe in iexe.
+     - Improved key-mappings.
+     - Fixed expand filename bug.
+     - Improved command search.
+     - Close window in exit.
+     - Implemented delete line.
+     - Implemented delete line and move head in iexe.
+
+------------------------------------------------------------------------------
+ChangeLog 5.10-5.29
+     5.29 :
+     - Implemented filename expantion.
+     - Supported neocomplcache omni completion.
+     - Improved block expantion.
+     - Improved highlight of escape sequence.
+     - Create g:vimshell_history_path's parent directory if not exists.
+     - Create g:vimshell_vimshrc_path's parent directory if not exists.
+     - Check 'cdpath' when cd.
+     - Used plugin key-mappings insetead of key-mappings option.
+
+     5.28 :
+     - Fixed tail space bug(Thanks Nico).
+     - Fixed prompt history bug(Thanks Nico).
+     - Supported escape sequence in cd.
+     - Print all error.
+     - Improved error print format.
+     - Optimized print.
+     - Implemented user prompt.
+     - Implemented exclude wildcard.
+     - Implemented global alias.
+
+     5.27 :
+     - Fixed parse error.
+     - Optimized output.
+     - Deleted long lines error.
+     - Implemented paste prompt.
+     - Extend current directory.
+     - Applyed backspace patch(Thanks Nico!).
+     - Added g:VimShell_PromptPrevKey, g:VimShell_PromptNextKey, g:VimShell_PastePromptKey options.
+     - Improved run_help and push_current_line.
+
+     5.26 :
+     - Implemented iexe completion.
+     - Implemented iexe prompt.
+     - <C-c> as <C-v><C-d>.
+     - Added g:VimShell_HistoryPrevKey, g:VimShell_HistoryNextKey, g:VimShell_TabCompletionKey options.
+     - Improved pty response.
+     - Set filetype.
+     - Improved initialize on pty.
+     - Improved syntax highlight.
+     - Improved run_help.
+
+     5.25 :
+     - Catch kill error.
+     - Improved prompt in background pty(Thanks Nico!).
+     - Supported input empty.
+     - Supported completion on pty.
+     - Improved output in dirs command.
+     - Implemented command history on pty(Thanks Nico!).
+     - . and .. were excluded from a wildcard expand result.
+
+     5.24 :
+     - Improved parser.
+     - Fixed append_history() bug.
+     - Implemented block.
+     - Supported multiple statements.
+     - Fixed alias parse bug.
+     - Implemented repeat.
+     - Improved pushd timing.
+
+     5.23 :
+     - Improved completion.
+     - Added g:VimShell_EnableAutoLs option.
+     - Move to parent directory if argument isn't directory in cd command.
+     - Implemented force kill processes.
+
+     5.22 :
+     - Improved share history.
+     - Improved run_help.
+     - Improved alias.
+     - Fixed parse bug.
+     - Changed run_help key mappings.
+     - Implemented sudo vim.
+     - Improved iexe and bg(Tanks Nico!).
+
+     5.21 :
+     - Improved error highlight.
+     - Implemented password input.
+     - Implemented sudo internal command.
+     - Added g:VimShell_SecondaryPrompt option.
+     - Set COLUMNS and LINES environment variables.
+     - Remove dup history.
+     - Improved history commands.
+     - Splitted parser.
+     - Reduce blanks when append history.
+     - Implemented insert last word keymapping.
+     - Improved iexe.
+     - Implemented run_help.
+
+     5.20 :
+     - Added g:VimShell_UsePopen2 option.
+     - Openable directory in vim command.
+     - Improved bg command.
+     - Fixed escape sequence.
+     - Improved highlight timing.
+     - Implemented error highlight.
+     - Refactoringed interactive.vim.
+
+     5.19 :
+     - Improved variables path.
+     - Implemented h string.
+     - Added space when command completed.
+     - Improved escape sequence support.
+
+     5.18 :
+     - Improved command completion.
+     - Changed alias syntax.
+     - Improved stdin read.
+     - Improved pipe in external command.
+
+     5.17 :
+     - Fixed error when bg or iexe terminated.
+     - Implemented gexe command.
+     - Implemented pipe.
+     - Check pipe in ls command.
+     - Improved wildcard.
+     - Fully pipe implemented.
+
+     5.16 :
+     - Implemented back quote and vim quote.
+     - Implemented double quote escape.
+     - Implemented expand home directory.
+     - Fixed stdin redirection bug.
+     - Get status.
+
+     5.15 :
+     - Fixed for ATOK X3.
+     - Improved error catch.
+     - Implemented redirection.
+     - Implemented /dev/null virtual device.
+     - Implemented special functions.
+     - Improved let and ev.
+
+     5.14 :
+     - Implemented echo.
+     - Implemented wildcard.
+     - Executable one liner in Windows.
+     - Improved command search.
+     - Implemented command completion.
+     - Fixed g:vimshell_execute_file_list bug.
+
+     5.13 :
+     - Added command vimshell_delete_previous_prompt.
+     - Fixed lcd escape bug.
+     - Deleted process.vim.
+     - Deleted ! execution.
+     - Added gcd command.
+     - Optimized parse in alias and let commands.
+
+     5.12 Changed command behavior:
+     - Added g:VimShell_EnableInteractive option.
+     - Changed command behavior.
+     - Added exe command.
+     - Convert encoding for system().
+     - Fixed name conversion.
+     - Added g:vimshell_split_height option.
+
+     5.11:
+     - Added VimShellExecute and VimShellInteractive commands.
+
+     5.10:
+     - Implemented iexe.
+     - Improved bg.
+     - Improved print_prompt().
+     - Use neocomplcache#manual_filename_complete().
+
+------------------------------------------------------------------------------
+ChangeLog 5.9-4.0
+     5.9:
+     - Fixed background execution.
+     - Fixed auto_cd bug.
+     - Fixed error in screen command.
+
+     5.8:
+     - Fixed !! error.
+     - Implemented filename completion.
+     - Implemented exchange ~ into $HOME.
+
+     5.7:
+     - Implemented g:vimshell_execute_file_list.
+     - Refactoring.
+     - Added screen, bg internal command.
+
+     5.6:
+     - Escape prompt when prompt search.
+     - Fixed auto cd error.
+
+     5.5:
+     - Created ftplugin/vimshell.vim
+     - Added command vimshell_previous_prompt and vimshell_next_prompt.
+
+     5.4:
+     - Fixed alias, cd, histdel bug.
+
+     5.3:
+     - Improved autocmds.
+     - Refactoring plugin call.
+
+     5.2:
+     - Plugin interface changed.
+     - Converted special commands into internal commands.
+     - Deleted quick match.
+
+     5.1:
+     - Improved key-mappings and autocmd.
+     - Implemented command line stack.
+
+     5.0:
+     - Return previous buffer when call vimshell#switch_shell on vimshell.
+     - Implemented vimshell#error_line.
+     - Error when iexe execute without python interface.
+
+     4.9:
+     - Implemented exit command.
+     - Implemented hide command.
+     - Added g:vimshell_smart_case option.
+
+     4.8:
+     - Implemented comment.
+     - Not escape when cd command.
+     - Eval environment variables.
+
+     4.7:
+     - Improved vimshell#switch_shell.
+     - Implemented one command.
+     - Implemented ev command.
+
+     4.6:
+     - Implemented h command.
+     - Implemented VimShell buffer current directory.
+     - History execution was implemented with h command.
+     - Change VimShell current directory when vimshell#switch_shell.
+
+     4.5:
+     - Fixed popd and history bugs.
+     - Implemented history arguments.
+     - Implemented internal command.
+     - Improved syntax color.
+
+     4.4:
+     - Changed s:alias_table into b:vimshell_alias_table.
+     - Interpret cd of no argument as cd $HOME
+     - Added pwd command.
+     - Improved ls on Windows.
+     - Load ~/.vimshrc on init.
+     - Improved escape.
+
+     4.3:
+     - Implemented zsh like cd.
+     - Make built-in command autoload.
+     - Optimized special commands.
+     - Implemented popd, dirs command.
+
+     4.2:
+     - Implemented alias command.
+     - Implemented VimShell script.
+     - Optimized vimshell#process_enter.
+
+     4.1:
+     - Implemented history command.
+     - Implemented histdel command.
+     - Implemented nop command.
+     - Ignore empty command line.
+
+     4.0:
+     - Implemented shell background execution.
+     - Added g:VimShell_UseCkw option.
+
+------------------------------------------------------------------------------
+ChangeLog 3.9-1.0
+     3.9:
+     - Implemented background execution on Linux.
+     - Improved print prompt.
+     - Fixed cd bug.
+     - Fixed background execution bug.
+
+     3.8:
+     - Implemented background execution on Windows.
+     - Implemented shell execution.
+     - Implemented shell command.
+     - Implemented exit command.
+
+     3.7:
+     - Not escape quotation.
+     - Implemented command completion.
+
+     3.6:
+     - Improved command execute.
+     - Fixed execute program bug.
+
+     3.5:
+     - Implemented by autoload.
+     - Fixed non-Windows platform error.
+     - Improved history executed.
+     - Fixed many bugs.
+
+     3.4:
+     - Fixed filename escape bug.
+     - Fixed vimshell buffer clear when hide.
+     - No setlocal lazyredraw.
+     - Filename escape when cd.
+     - Implemented pseudo shell variables.
+
+     3.3:
+     - Changed escape sequence into \<ESC>.
+     - Changed autocmd timing.
+     - Added filename escape.
+     - Added vimshell_split_switch, vimshell_switch, vimshell_split_create, vimshell_create.
+     - Can have multiple Vimshell instance.
+
+     3.2:
+     - Fixed space name command bug.
+     - Fixed quick match bug.
+     - Implemented vim and view command.
+
+     3.1:
+     - Fixed ATOK X3 is ON  when startinsert.
+     - Silent message if exit code isn't 0.
+
+     3.0:
+     - Do startinsert! after command executed.
+     - Added g:vimshell_QuickMatchmax_lists option.
+     - Added g:VimShell_QuickMatchEnable option.
+     - Implemented two digits quick match.
+
+     2.9:
+     - Trial implemented highlight escape sequence.
+     - Fixed history bug.
+     - Convert cd to lcd.
+
+     2.8:
+     - Dup check when quick match.
+     - Due to optimize, filtering len(cur_keyword_str) >.
+     - Ignore head spaces when completion.
+
+     2.7:
+     - Implemented shell history completion by omnifunc.
+     - Mapping omnifunc <C-j>.
+     - Implemented quick match.
+     - Improved escape.
+
+     2.6:
+     - Implemented shell history.
+
+     2.5:
+     - Set lazyredraw in vimshell buffer.
+     - Refactoring.
+
+     2.3:
+     - Code cleanup.
+
+     2.2:
+     - Fix syntax highlight at pipe command.
+     - Fix quotation highlight.
+
+     2.1:
+     - Fix syntax highlights.
+
+     2.0:
+     - Implemented syntax highlight.
+
+     1.0:
+     - Initial version.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:isk+=-:
