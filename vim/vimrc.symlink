@@ -71,8 +71,8 @@ set laststatus=2
 set hidden
 
 syntax enable
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
 
 au BufRead,BufNewFile *.ru setfiletype ruby
 
