@@ -1,0 +1,79 @@
+*grunt_plugins.txt*    Grunt plugins: generated helpfile (grunt v0.3.9)
+
+|plugins-intro|	Plugins
+|plugins-why-create-a-grunt-plugin|	Why create a grunt plugin?
+|plugins-plugin-creation-and-development|	Plugin creation and development
+|plugins-two-usage-options|	Two usage options
+|plugins-1-global-install-where-you-run-grunt-yourplugin|	1. Global install, where you run `grunt-yourplugin`
+|plugins-2-local-install-where-you-run-grunt|	2. Local install, where you run `grunt`
+|plugins-todos|	TODOS
+
+Plugins	*plugins-intro*
+
+This section is a work in progress. Grunt currently has preliminary plugin support, but it might be a little while before plugins work perfectly. If you have any suggestions or comments, please [file an issue](/cowboy/grunt/issues) and we'll work it all out!
+
+
+Why create a grunt plugin?	*plugins-why-create-a-grunt-plugin*
+
+Publishing a "grunt plugin" to Npm gives you 3 possible things:
+
+An easily-included-in-your-project set of tasks that get referenced in `grunt.js` when run via `grunt`.
+
+A custom global binary that is like "some version of grunt, plus your specific extra stuff."
+
+Either 1 or 2, depending on whether the plugin was installed globally or locally via Npm.
+
+Other than that, it's not too much more than a specific directory structure, contain some number of task files. You load a plugin locally installed via Npm via [grunt.loadNpmTasks](api.md), and you load tasks from a directory via [grunt.loadTasks](api.md).
+
+
+Plugin creation and development	*plugins-plugin-creation-and-development*
+
+Run `grunt init:gruntplugin` in an empty directory.
+
+Run `npm install` to install grunt locally.
+
+Run `./node_modules/.bin/grunt` to run the plugin-specific grunt. Just `grunt` won't work.
+
+When done, run `npm publish` to publish the grunt plugin to npm!
+
+
+Two usage options	*plugins-two-usage-options*
+
+
+1. Global install, where you run `grunt-yourplugin`	*plugins-1-global-install-where-you-run-grunt-yourplugin*
+
+Run `npm install -g grunt-yourplugin`. This installs the plugin globally, which contains its own internal grunt (the version specified in the plugin's package.json).
+
+A new `grunt-yourplugin` binary should be globally available.
+
+When run from that binary, the internal grunt runs, and provides grunt's internal tasks and helpers plus all the plugin's tasks and helpers.
+
+Notes:
+
+When executed via the plugin binary, eg. `grunt-yourplugin`, the internally-specified grunt will be used. This allows you to "lock in" a specific version of grunt to your plugin.
+
+
+2. Local install, where you run `grunt`	*plugins-2-local-install-where-you-run-grunt*
+
+Grunt should already have been installed globally with `npm install -g grunt`.
+
+In your project's root, next to the grunt.js gruntfile, run `npm install grunt-yourplugin`.
+
+Add [grunt.loadNpmTasks('grunt-yourplugin')](api.md) into the project's grunt.js gruntfile.
+
+Run `grunt` and all of the `grunt-yourplugin` tasks and helpers should be available in addition to those already provided by grunt..
+
+Notes:
+
+Multiple plugins, eg. `grunt-yourplugin` and `grunt-anotherplugin` can be installed locally via Npm.
+
+[grunt.loadNpmTasks('grunt-yourplugin')](api.md) should behave exactly the same as [grunt.loadTasks('./node_modules/grunt-yourplugin/tasks')](api.md) does. It's less to type though, which is awesome.
+
+
+TODOS	*plugins-todos*
+
+More docs.
+
+
+
+vim:tw=78:ts=8:ft=help:norl:

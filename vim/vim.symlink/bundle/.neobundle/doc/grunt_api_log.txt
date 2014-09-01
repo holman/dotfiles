@@ -1,0 +1,205 @@
+*grunt_api_log.txt*    Grunt api_log: generated helpfile (grunt v0.3.9)
+
+|grunt-log-grunt-verbose-intro|	grunt.log, grunt.verbose
+|grunt-log-grunt-verbose-the-log-api|	The log API
+|grunt-log-grunt-verbose-grunt-log-write-grunt-verbose-write|	grunt.log.write / grunt.verbose.write
+|grunt-log-grunt-verbose-grunt-log-writeln-grunt-verbose-writeln|	grunt.log.writeln / grunt.verbose.writeln
+|grunt-log-grunt-verbose-grunt-log-error-grunt-verbose-error|	grunt.log.error / grunt.verbose.error
+|grunt-log-grunt-verbose-grunt-log-ok-grunt-verbose-ok|	grunt.log.ok / grunt.verbose.ok
+|grunt-log-grunt-verbose-grunt-log-subhead-grunt-verbose-subhead|	grunt.log.subhead / grunt.verbose.subhead
+|grunt-log-grunt-verbose-grunt-log-writeflags-grunt-verbose-writeflags|	grunt.log.writeflags / grunt.verbose.writeflags
+|grunt-log-grunt-verbose-grunt-log-debug-grunt-verbose-debug|	grunt.log.debug / grunt.verbose.debug
+|grunt-log-grunt-verbose-verbose-and-notverbose|	Verbose and Notverbose
+|grunt-log-grunt-verbose-grunt-verbose-grunt-log-verbose|	grunt.verbose / grunt.log.verbose
+|grunt-log-grunt-verbose-grunt-verbose-or-grunt-log-notverbose|	grunt.verbose.or / grunt.log.notverbose
+|grunt-log-grunt-verbose-utility-methods|	Utility Methods
+|grunt-log-grunt-verbose-grunt-log-wordlist|	grunt.log.wordlist
+|grunt-log-grunt-verbose-grunt-log-uncolor|	grunt.log.uncolor
+|grunt-log-grunt-verbose-grunt-log-wraptext|	grunt.log.wraptext
+|grunt-log-grunt-verbose-grunt-log-table|	grunt.log.table
+|grunt-log-grunt-verbose-an-example|	An Example
+
+grunt.log, grunt.verbose	*grunt-log-grunt-verbose-intro*
+
+Output messages to the console.
+
+See the [log lib source](../lib/grunt/log.js) for more information.
+
+
+The log API	*grunt-log-grunt-verbose-the-log-api*
+
+Grunt output should look consistent, and maybe even pretty. As such, there is a plethora of logging methods, and a few useful patterns. All of the methods that actually log something are chainable.
+
+_Note: all methods available under `grunt.verbose` work exactly like `grunt.log` methods, but only log if the `--verbose` command-line option was specified._
+
+
+grunt.log.write / grunt.verbose.write	*grunt-log-grunt-verbose-grunt-log-write-grunt-verbose-write*
+
+Log the specified `msg` string, with no trailing newline.
+
+>
+	grunt.log.write(msg)
+<
+
+
+grunt.log.writeln / grunt.verbose.writeln	*grunt-log-grunt-verbose-grunt-log-writeln-grunt-verbose-writeln*
+
+Log the specified `msg` string, with trailing newline.
+
+>
+	grunt.log.writeln([msg])
+<
+
+
+grunt.log.error / grunt.verbose.error	*grunt-log-grunt-verbose-grunt-log-error-grunt-verbose-error*
+
+If `msg` string is omitted, logs `ERROR` in red, otherwise logs `>> msg`, with trailing newline.
+
+>
+	grunt.log.error([msg])
+<
+
+
+grunt.log.ok / grunt.verbose.ok	*grunt-log-grunt-verbose-grunt-log-ok-grunt-verbose-ok*
+
+If `msg` string is omitted, logs `OK` in green, otherwise logs `>> msg`, with trailing newline.
+
+>
+	grunt.log.ok([msg])
+<
+
+
+grunt.log.subhead / grunt.verbose.subhead	*grunt-log-grunt-verbose-grunt-log-subhead-grunt-verbose-subhead*
+
+Log the specified `msg` string in **bold**, with trailing newline.
+
+>
+	grunt.log.subhead(msg)
+<
+
+
+grunt.log.writeflags / grunt.verbose.writeflags	*grunt-log-grunt-verbose-grunt-log-writeflags-grunt-verbose-writeflags*
+
+Log a list of `obj` properties (good for debugging flags).
+
+>
+	grunt.log.writeflags(obj, prefix)
+<
+
+
+grunt.log.debug / grunt.verbose.debug	*grunt-log-grunt-verbose-grunt-log-debug-grunt-verbose-debug*
+
+Logs a debugging message, but only if the `--debug` command-line option was specified.
+
+>
+	grunt.log.debug(msg)
+<
+
+
+Verbose and Notverbose	*grunt-log-grunt-verbose-verbose-and-notverbose*
+
+All logging methods available under `grunt.verbose` work exactly like their `grunt.log` counterparts, but only log if the `--verbose` command-line option was specified. There is also a "notverbose" counterpart available at both `grunt.log.notverbose` and `grunt.log.verbose.or`. In fact, the `.or` property can be used on both `verbose` and `notverbose` to effectively toggle between the two.
+
+
+grunt.verbose / grunt.log.verbose	*grunt-log-grunt-verbose-grunt-verbose-grunt-log-verbose*
+
+This object contains all methods of `grunt.log` but only logs if the `--verbose` command-line option was specified.
+
+>
+	grunt.verbose
+<
+
+
+grunt.verbose.or / grunt.log.notverbose	*grunt-log-grunt-verbose-grunt-verbose-or-grunt-log-notverbose*
+
+This object contains all methods of `grunt.log` but only logs if the `--verbose` command-line option was _not_ specified.
+
+>
+	grunt.verbose.or
+<
+
+
+Utility Methods	*grunt-log-grunt-verbose-utility-methods*
+
+These methods don't actually log, they just return strings that can be used in other methods.
+
+
+grunt.log.wordlist	*grunt-log-grunt-verbose-grunt-log-wordlist*
+
+Returns a comma-separated list of `arr` array items.
+
+>
+	grunt.log.wordlist(arr)
+<
+
+
+grunt.log.uncolor	*grunt-log-grunt-verbose-grunt-log-uncolor*
+
+Removes all color information from a string, making it suitable for testing `.length` or perhaps logging to a file.
+
+>
+	grunt.log.uncolor(str)
+<
+
+
+grunt.log.wraptext	*grunt-log-grunt-verbose-grunt-log-wraptext*
+
+Wrap `text` string to `width` characters with `\n`, ensuring that words are not split in the middle unless absolutely necessary.
+
+>
+	grunt.log.wraptext(width, text)
+<
+
+
+grunt.log.table	*grunt-log-grunt-verbose-grunt-log-table*
+
+Wrap `texts` array of strings to columns `widths` characters wide. A wrapper for the `grunt.log.wraptext` method that can be used to generate output in columns.
+
+>
+	grunt.log.table(widths, texts)
+<
+
+
+An Example	*grunt-log-grunt-verbose-an-example*
+
+A common pattern is to only log when in `--verbose` mode OR if an error occurs, like so:
+
+>
+	grunt.registerHelper('something', function(arg) {
+	  var result;
+	  var msg = 'Doing something...';
+	  grunt.verbose.write(msg);
+	  try {
+		result = doSomethingThatThrowsAnExceptionOnError(arg);
+		// Success!
+		grunt.verbose.ok();
+		return result;
+	  } catch(e) {
+		// Something went wrong.
+		grunt.verbose.or.write(msg).error().error(e.message);
+		grunt.fail.warn('Something went wrong.', 50);
+	  }
+	});
+<
+
+An explanation of the above code:
+
+`grunt.verbose.write(msg);` logs the message (no newline), but only in `--verbose` mode.
+
+`grunt.verbose.ok();` logs OK in green, with a newline.
+
+`grunt.verbose.or.write(msg).error().error(e.message);` does a few things:
+
+`grunt.verbose.or.write(msg)` logs the message (no newline) if not in `--verbose` mode, and returns the `notverbose` object.
+
+`.error()` logs ERROR in red, with a newline, and returns the `notverbose` object.
+
+`.error(e.message);` logs the actual error message (and returns the `notverbose` object).
+
+`grunt.fail.warn('Something went wrong.', 50);` logs a warning in bright yellow, exiting grunt with exit code 50, unless `--force` was specified.
+
+Take a look at the [built-in tasks source code](../tasks) for more examples.
+
+
+
+vim:tw=78:ts=8:ft=help:norl:

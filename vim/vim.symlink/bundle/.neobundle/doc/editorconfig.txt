@@ -1,0 +1,173 @@
+*editorconfig.txt*
+
+File: editorconfig.txt
+Version: 0.3.2
+Maintainer: EditorConfig Team <http://editorconfig.org>
+Description: EditorConfig vim plugin
+
+License:
+   Copyright (c) 2011-2013 EditorConfig Team
+   All rights reserved.
+   
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+   
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+   
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+   POSSIBILITY OF SUCH DAMAGE.
+
+
+CONTENTS~
+                                            *editorconfig-contents*
+----------------------------------------------------------------------------
+1.  Overview                                 |editorconfig-overview|
+2.  Installation                             |editorconfig-installation|
+3.  Commands                                 |editorconfig-commands|
+4.  Settings                                 |editorconfig-settings|
+5.  Advanced                                 |editorconfig-advanced|
+
+
+OVERVIEW~
+                                            *editorconfig-overview*
+----------------------------------------------------------------------------
+This is the EditorConfig plugin for vim.
+
+
+INSTALLATION~
+                                            *editorconfig-installation*
+----------------------------------------------------------------------------
+Download the [EditorConfig core][] and follow the instructions in the README
+and INSTALL files to install it.
+
+Once EditorConfig core is installed, copy the `plugin/editorconfig.vim` file
+to your `~/.vim/plugin` directory and `doc/editorconfig.txt` to your
+`~/.vim/doc` directory to install the EditorConfig plugin.
+
+COMMANDS~
+                                            *editorconfig-commands*
+----------------------------------------------------------------------------
+
+                                            *:EditorConfigReload*
+Command:
+    :EditorConfigReload
+
+Reload the EditorConfig conf files. When `.editorconfig` files are modified,
+this command could prevent you to reload the current edited file to load the
+new configuration.
+
+SETTINGS~
+                                            *editorconfig-settings*
+----------------------------------------------------------------------------
+                                            *g:EditorConfig_core_mode*
+Specify the mode of EditorConfig core. Generally it is OK to leave this option
+empty. There are 3 modes currently: "external_command", "python_builtin",
+"python_external".
+
+    python_builtin:     Use the vim built-in python to run the python version
+                        EditorConfig Core.
+    python_external:    Use an external python interpreter to run the python
+                        version EditorConfig Core.
+    external_command:   Run external EditorConfig Core.
+
+If "g:EditorConfig_core_mode" is not specified, this plugin will automatically
+choose a mode that could work for you. The checking sequence is:
+python_builtin, external_command, python_external.
+
+                                            *g:EditorConfig_exec_path*
+The file path to the EditorConfig core executable. You could set this value in
+your |vimrc| like this:
+>
+ let g:EditorConfig_exec_path = 'Path to your EditorConfig Core executable'
+<
+The default value is empty.
+
+This plugin will search through the following executables in order:
+
+On UNIX:
+    the value of g:EditorConfig_exec_path
+    editorconfig
+    /usr/local/bin/editorconfig
+    /usr/bin/editorconfig
+    /opt/bin/editorconfig
+    /opt/editorconfig/bin/editorconfig
+    editorconfig.py
+    /usr/local/bin/editorconfig.py
+    /usr/bin/editorconfig.py
+    /opt/bin/editorconfig.py
+    /opt/editorconfig/bin/editorconfig.py
+
+On Windows:
+    the value of g:EditorConfig_exec_path
+    editorconfig
+    C:\editorconfig\bin\editorconfig
+    D:\editorconfig\bin\editorconfig
+    E:\editorconfig\bin\editorconfig
+    F:\editorconfig\bin\editorconfig
+    C:\Program Files\editorconfig\bin\editorconfig
+    D:\Program Files\editorconfig\bin\editorconfig
+    E:\Program Files\editorconfig\bin\editorconfig
+    F:\Program Files\editorconfig\bin\editorconfig
+    editorconfig.py
+
+                                            *g:EditorConfig_python_files_dir*
+If the EditorConfig core mode is python_builtin or python_external (see
+|g:EditorConfig_core_mode|), this variable is the directory where the plugin
+looks for the python scripts. This could either be an abosolute path, or a
+path relative to any of the directories in 'runtimepath'. The default value is
+"plugin/editorconfig-core-py", which means all "plugin/editorconfig-core-py"
+directory in 'runtimepath' will be searched.
+
+                                            *g:EditorConfig_verbose*
+Set this to 1 if you want debug info printed:
+>
+ let g:EditorConfig_verbose = 1
+<
+
+ADVANCED~
+                                            *editorconfig-advanced*
+----------------------------------------------------------------------------
+                                            *editorconfig-hook*
+                                            *EditorConfig#AddNewHook()*
+While this plugin offers several builtin supported properties (as mentioned
+here: https://github.com/editorconfig/editorconfig-vim#supported-properties),
+we are also able to add our own hooks to support additional EditorConfig
+properties, including those not in the EditorConfig standard. For example, we
+are working on an Objective-C project, and all our "*.m" files should be
+Objective-C source files. However, vim sometimes detect "*.m" files as MATLAB
+source files, which causes incorrect syntax highlighting, code indentation,
+etc. To solve the case, we could write the following code into the |vimrc|
+file:
+>
+ function! FiletypeHook(config)
+     if has_key(a:config, 'vim_filetype')
+         let &filetype = a:config['vim_filetype']
+     endif
+
+     return 0   " Return 0 to show no error happened
+ endfunction
+
+ call editorconfig#AddNewHook(function('FiletypeHook'))
+<
+And add the following code to your .editorconfig file:
+>
+ [*.m]
+ vim_filetype = objc
+<
+Then try to open an Objective-C file, you will find the |filetype| is set to
+"objc".
+
+vim:ft=help:tw=78

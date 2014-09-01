@@ -1,0 +1,179 @@
+*grunt.txt*    grunt - A plugin to help working with Grunt
+
+Author: mklabs~
+
+|grunt-intro|                              grunt.vim
+|grunt-utility|                            Utility
+|grunt-completion|                         Completion
+|grunt-commands|                           Commands
+|grunt-gdoc|                               Gdoc
+|grunt-gtask|                              Gtask
+|grunt-glint|                              Glint
+|grunt-gtest|                              Gtest
+|grunt-initialization|                     Initialization
+
+=====================================================================
+grunt.vim                                                 *grunt-intro*
+
+todo:
+- should probably do the grunt detect only on buff enter, instead of
+once at VimEnter. Mappings and commands would only take effect on
+current buffer
+- if it gets longer (and it will), put the bulk of the plugin in
+autoload.
+- commands should be prefixed by something setup by user, and this
+should default to :G<cmd>, so that it can be set to something else
+like :GR<cmd>, or :Grunt<cmd>.  The fugitive family of :G<cmd> with
+grunt ones may be confusing in tab completions.
+
+
+=====================================================================
+Utility                                                *grunt-utility*
+
+spawn helper, basic wrapper to :!
+
+Set base path utility, for easier `:find`, super simplified here.
+
+Should be improved. (:h find) " current directory + tasks and bin
+
+Used in gf command. Set includeexpr to append .js / .coffee files
+automatically. Make it possible to easily 'goto file' with tasks.
+(:h includeexpr). The find logic should be improved and be a little
+bit more dynamic. Ideally, it should be easy to also jump to one of
+the grunt source file (resolved globally or locally)
+
+completion filter helper borrowed to vim-rails:
+>
+    https://github.com/tpope/vim-rails/blob/master/autoload/rails.vim#L2162-2173
+<
+
+same here:
+>
+    https://github.com/tpope/vim-rails/blob/master/autoload/rails.vim#L35-41
+<
+
+or here:
+>
+    https://github.com/tpope/vim-rails/blob/master/autoload/rails.vim#L1331-1345
+<
+
+===============================================================================
+Completion                                               *grunt-completion*
+
+Completion for :Gdoc~
+
+will probably write a node script to get this back from github api for now, a
+simple
+>
+    $('.js-slide-to[id]').map(function(i, el) { return el.innerText; });
+<
+
+in my devtool at https://github.com/cowboy/grunt/tree/master/docs
+
+Completion helper for :Gtask.~
+
+Globs the tasks/ directory for any .js or .coffee files. This currently
+implies and won't work if pathogen is not used. But pathogen is pretty common
+in vim config now, should probably add a few safeguard checks.
+
+Completion helper for :Gtest.~
+
+Similar to completion for ':Gtask', except that it globs into the `test/`
+directory instead.
+
+
+===============================================================================
+Commands                                                         *grunt-commands*
+
+
+-------------------------------------------------------------------------------
+Gdoc                                                        *grunt-gdoc* *:Gdoc*
+
+Task command
+>
+    :Gdoc <page>
+<
+
+Open a given grunt doc page in default browser.
+
+-------------------------------------------------------------------------------
+Gtask                                                     *grunt-gtask* *:Gtask*
+
+Task command
+>
+    :Gtask <task>
+<
+With a filepath as argument attempt to load the taskfile in current buffer or
+init a new one from a predefined template
+>
+    :Gtask tasks/foo.js
+<
+
+Works best with completion, ':Gtask' <tab> should return and filter based on
+any .js or .coffee files under the `tasks/` directory.
+
+If the given `task` doesn't exist yet, then a predefined task template is
+loaded into a new buffer.
+
+Appends a `.js` if filename is given without extension, and prepend ./tasks/
+directory if not already.
+
+-------------------------------------------------------------------------------
+Glint                                                       *grunt-glint* *:Glint*
+
+Task command
+>
+    :Glint
+<
+Grunt lint wrapper, collect output for quickfix window. You can then
+jump to the given file, at the given line number
+
+See :h 'quickfix'
+
+>
+  In the quickfix window, each line is one error.  The line number is equal to
+  the error number.  You can use ":.cc" to jump to the error under the cursor.
+  Hitting the <Enter> key or double-clicking the mouse on a line has the same
+  effect.  The file containing the error is opened in the window above the
+  quickfix window.  If there already is a window for that file, it is used
+<
+
+-------------------------------------------------------------------------------
+Gtest                                                       *grunt-gtest* *:Gtest*
+
+Task command
+>
+    :Gtest [<filename>]
+<
+
+Same as ':Glint' runs `grunt test` task, collects output and displays any
+error, with filename and error line in the quickfix window.
+
+When a filename argument is given, the file is loaded in current buffer.
+Limited amount of completion, globing any files in test/ dir, should be
+supported.
+
+- load file if command was called with arguments
+  - otherwise run test, and attempt to parse error output
+    - find file by globing the task dir, grunt output only include basename
+  - update the qflist with action set to 'r'
+  - close / open quickfix window depending on errors length
+
+A node script quickfix-filter (scripts/grunt-help.js) helper is used, mainly for parsing grunt test
+output a bit too tricky for me in plain vimscript should return something.
+
+
+===============================================================================
+Initialization                                            *grunt-initialization*
+
+Detects a grunt project. A little crude right now, just checking cwd's
+gruntfile exists.
+
+> todo: it shoulld detect on both cwd (when starting vim from console) and
+actual vim path (eg. vim ./some/nested/path) to handle both case
+
+It also redefines gruntlint autocmd group when needed (on ':Gtask' or ':Glint'
+commands). This removes any previously defined cmd in this group, and readd
+quickfix window update listener on save only if there's error.
+
+vim:tw=78:ts=8:ft=help:norl:

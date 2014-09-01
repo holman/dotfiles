@@ -1,0 +1,53 @@
+*grunt_toc.txt*    Grunt toc: generated helpfile (grunt v0.3.9)
+
+|documentation-table-of-contents-intro|	Documentation table of contents
+|documentation-table-of-contents-getting-started|	Getting started
+|documentation-table-of-contents-built-in-tasks|	Built-in tasks
+|documentation-table-of-contents-other-built-ins|	Other built-ins
+|documentation-table-of-contents-development|	Development
+
+Documentation table of contents	*documentation-table-of-contents-intro*
+
+
+Getting started	*documentation-table-of-contents-getting-started*
+
+[Getting started](getting_started.md) - A guide to configuring grunt for your project.
+
+[Example gruntfiles](example_gruntfiles.md) - A few samples, to help you get started.
+
+[The grunt API](api.md) - Complete API documentation here!
+
+[FAQ](faq.md) - Frequently asked questions, along with their answers.
+
+[Exit codes](exit_codes.md) - A list of all built-in grunt exit codes.
+
+
+Built-in tasks	*documentation-table-of-contents-built-in-tasks*
+
+[concat](task_concat.md) - Concatenate files.
+
+[init](task_init.md) - Generate project scaffolding from a predefined template.
+
+[lint](task_lint.md) - Validate files with [JSHint][jshint].
+
+[min](task_min.md) - Minify files with [UglifyJS][uglify].
+
+[qunit](task_qunit.md) - Run [QUnit][qunit] unit tests in a headless [PhantomJS][phantom] instance.
+
+[server](task_server.md) - Start a static web server.
+
+_(more documentation coming soon)_
+
+
+Other built-ins	*documentation-table-of-contents-other-built-ins*
+
+[Helpers and Directives](helpers_directives.md) - Ones not specifically covered in other task documentation.
+
+
+Development	*documentation-table-of-contents-development*
+
+[Contributing to grunt](contributing.md) - Development advice.
+
+
+
+vim:tw=78:ts=8:ft=help:norl:

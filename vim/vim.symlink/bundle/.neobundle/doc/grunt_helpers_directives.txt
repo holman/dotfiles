@@ -1,0 +1,53 @@
+*grunt_helpers_directives.txt*    Grunt helpers_directives: generated helpfile (grunt v0.3.9)
+
+|helpers-and-directives-intro|	Helpers and Directives
+|helpers-and-directives-built-in-helpers|	Built-in Helpers
+|helpers-and-directives-built-in-directives|	Built-in Directives
+|helpers-and-directives-config-prop-subprop|	`&lt;config:prop.subprop&gt;`
+|helpers-and-directives-json-file-json|	`&lt;json:file.json&gt;`
+|helpers-and-directives-banner-prop-subprop|	`&lt;banner:prop.subprop&gt;`
+|helpers-and-directives-file_strip_banner-file-js|	`&lt;file_strip_banner:file.js&gt;`
+|helpers-and-directives-file_template-file-js|	`&lt;file_template:file.js&gt;`
+
+Helpers and Directives	*helpers-and-directives-intro*
+
+
+Built-in Helpers	*helpers-and-directives-built-in-helpers*
+
+EXPLAIN
+
+Take a look at the [built-in tasks source code](../tasks) for more examples.
+
+
+Built-in Directives	*helpers-and-directives-built-in-directives*
+
+
+`&lt;config:prop.subprop&gt;`	*helpers-and-directives-config-prop-subprop*
+
+Expands to the value of the `prop.subprop` config property. This can be any number of objects deep, `prop.subprop.otherprop.whatever` is totally valid. Great for DRYing up file lists.
+
+
+`&lt;json:file.json&gt;`	*helpers-and-directives-json-file-json*
+
+Expand to the object parsed from file.json via [grunt.file.parseJSON](api_file.md).
+
+
+`&lt;banner:prop.subprop&gt;`	*helpers-and-directives-banner-prop-subprop*
+
+Expand to the string in config property `prop.subprop`, parsed via [grunt.template.process](api_template.md), using `<% %>` delimiters. If the config property isn't specified like `<banner>`, defaults to the `meta.banner` property.
+
+
+`&lt;file_strip_banner:file.js&gt;`	*helpers-and-directives-file_strip_banner-file-js*
+
+Expand to the given file, with any leading `/*...*/` banner (excluding `/*!...*/` comments) stripped. Flags can be passed to instruct which banners to strip. The `line` flag (eg. `<file_strip_banner:file.js:line>`) will remove a continguous block of leading `//` line comments, while the `block` flag (eg. `<file_strip_banner:file.js:block>`) will strip _all_ block comments.
+
+
+`&lt;file_template:file.js&gt;`	*helpers-and-directives-file_template-file-js*
+
+Expand to the given file, parsed as a template via [grunt.template.process](api_template.md), using `<% %>` delimiters.
+
+Take a look at the [api documentation](api.md) and [example gruntfiles](example_gruntfiles.md) for directive creation and usage examples.
+
+
+
+vim:tw=78:ts=8:ft=help:norl:

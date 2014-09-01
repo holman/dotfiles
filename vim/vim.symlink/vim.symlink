@@ -1,1 +1,0 @@
-/Users/adam/.dotfiles/vim/vim.symlink
