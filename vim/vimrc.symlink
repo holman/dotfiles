@@ -47,6 +47,8 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'wavded/vim-stylus'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'reedes/vim-wordy'
 
 
 " You can specify revision/branch/tag.
@@ -75,6 +77,6 @@ colorscheme solarized
 au BufRead,BufNewFile *.ru setfiletype ruby
 
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>

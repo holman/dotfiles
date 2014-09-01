@@ -20,6 +20,7 @@ vim-airline
 vim-coffee-script
 vim-colors-solarized
 vim-css3-syntax
+vim-easymotion
 vim-fugitive
 vim-gitgutter
 vim-haml
@@ -31,4 +32,5 @@ vim-nerdtree-tabs
 vim-node
 vim-rails
 vim-stylus
+vim-wordy
 vimshell
