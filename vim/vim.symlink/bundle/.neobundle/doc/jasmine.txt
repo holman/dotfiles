@@ -1,0 +1,127 @@
+*jasmine.txt* Documentation for jasmine.vim
+
+==============================================================================
+                                                               *jasmine_intro*
+1. Overview~
+
+  The jasmine plugin is meant to speed up development and testing of
+JasmineBDD projects within Vim, including file type detection, snippets,
+templates, red/green test running and :make compiler support.
+
+  1. Overview                   |jasmine_intro|
+  2. File Type Detection        |jasmine_filetype|
+  3. Syntax                     |jasmine_syntax|
+  4. Snippets                   |jasmine_snippets|
+  5. Templates                  |jasmine_templates|
+  6. Commands                   |jasmine_commands|
+  7. Red/Green Test Running     |jasmine_redgreen|
+  8. Settings                   |jasmine_settings|
+
+==============================================================================
+                                                            *jasmine_filetype*
+2. File Type Detection~
+
+  This plugin currently uses the JasmineBDD naming conventions to detect and
+set buffers file type to 'jasmine.javascript'. This file type applies jasmine
+specific options as well as all of the current javascript settings.
+
+  All *Spec.js and *SpecHelper.js buffers are mapped to
+the jasmine file type when they are opened, saved or created. You can map
+other files patterns using 'autocmd' as necessary.
+
+Jasmine buffers have their 'compiler' set to the jasmine compiler, which
+is just 'rake'.
+
+==============================================================================
+                                                              *jasmine_syntax*
+3. Syntax~
+
+  When the jasmine file type is set, all of the jasmine and jasmine jqeury
+keywords are highlighted with the *Special* code with the exception of
+xit/xdescription, which are highlighted with the *Error* group.
+
+  In addition to all of the keywords, any matcher following the .toBeSomething
+pattern will also be highlighted.
+
+==============================================================================
+                                                            *jasmine_snippets*
+4. Snippets~
+
+  If snipmate.vim is loaded, the snippets directory in this plugin will be
+loaded into vim when you open your first jasmine buffer. These snoppets
+include:
+
+  desc:       description block with before..it..expect
+  before:     beforeEach block
+  after:      afterEach block
+  it:         it…expect block
+  helper:     beforeEach block and addMatcher/matcher blocks for SpecHelper.js
+  matcher:    matcher block for SpecHelper.js
+  expect:     expect..to line
+  spy:        spyOn method
+
+See |jasmine_settings| for specifying an alternate path for the snippets
+directory.
+
+==============================================================================
+                                                           *jasmine_templates*
+5. Templates~
+
+  When opening a new buffer matching the |jasmine_filetype| pattern, a new
+Spec.js or SpecHelper.js template will be inserted into the new buffer
+automatically from the templates directory.
+
+See |jasmine_settings| for specifying an alternate template path or
+disabling templates completely.
+
+==============================================================================
+                                                            *jasmine_commands*
+8. Commands~
+
+  The following commands are available for jasmine buffers:
+
+  :JasmineRedGreen
+
+    Runs the jasmine:ci rake task for the current buffers Rakefile and
+    displays the red/green test status.
+
+  :JasmineMake
+
+    Runs the jasmine:ci rake task using 'make', the jasmine compiler and the
+    buffers Rakefile.
+
+==============================================================================
+                                                            *jasmine_redgreen*
+7. Red/Green Test Running~
+
+  When editing a jasmine buffer, you can run the test suite using <leader>m,
+which simply runs the :JasmineRedGreen command.
+
+When editing multiple jasmine buffers, maybe even in different projects,
+this plugin will search parent directories for the active buffer looking for
+the nearest Rakefile, then runs jasmine:ci.
+
+If any tests fail, the status bar turns Red, and prints the passing/failing
+test counts. When all tests pass, the status bar turns Green.
+
+==============================================================================
+                                                            *jasmine_settings*
+8. Settings~
+
+  g:jasmine_use_templates
+
+    When set, new buffers are loaded with Spec/Helper templates.
+    Set to ""/0 to disabled templating for jasmine buffers.
+
+  g:jasmine_templates_directory
+
+    When set, this is the directory templates will be loaded from.
+    When unset, the templates directory relative to the plugin will be used.
+
+  g:jasmine_snippets_directory
+
+    When set, this is where snippets are loaded from.
+    When unset, the snippets directory relative to the plugin will be used.
+
+------------------------------------------------------------------------------                                                    
+ vim:tw=78:fo=tcq2:isk=!-~,^*,^\|,^\":ts=8:ft=help:norl:  

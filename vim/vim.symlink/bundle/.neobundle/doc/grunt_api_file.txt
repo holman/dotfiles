@@ -1,0 +1,245 @@
+*grunt_api_file.txt*    Grunt api_file: generated helpfile (grunt v0.3.9)
+
+|grunt-file-intro|	grunt.file
+|grunt-file-the-file-api|	The file API
+|grunt-file-grunt-file-read|	grunt.file.read
+|grunt-file-grunt-file-readjson|	grunt.file.readJSON
+|grunt-file-grunt-file-write|	grunt.file.write
+|grunt-file-grunt-file-copy|	grunt.file.copy
+|grunt-file-grunt-file-mkdir|	grunt.file.mkdir
+|grunt-file-grunt-file-recurse|	grunt.file.recurse
+|grunt-file-grunt-file-findup|	grunt.file.findup
+|grunt-file-grunt-file-ispathabsolute|	grunt.file.isPathAbsolute
+|grunt-file-grunt-file-userdir|	grunt.file.userDir
+|grunt-file-grunt-file-setbase|	grunt.file.setBase
+|grunt-file-file-lists-and-wildcards|	File Lists and Wildcards
+|grunt-file-grunt-file-expand|	grunt.file.expand
+|grunt-file-grunt-file-expanddirs|	grunt.file.expandDirs
+|grunt-file-grunt-file-expandfiles|	grunt.file.expandFiles
+|grunt-file-grunt-file-expandfileurls|	grunt.file.expandFileURLs
+|grunt-file-grunt-file-ismatch|	grunt.file.isMatch
+|grunt-file-external-libraries|	External libraries
+|grunt-file-grunt-file-glob|	grunt.file.glob
+
+grunt.file	*grunt-file-intro*
+
+Wildcard expansion, file reading, writing, directory traversing.
+
+See the [file lib source](../lib/grunt/file.js) for more information.
+
+
+The file API	*grunt-file-the-file-api*
+
+There are many provided methods for reading and writing files, as well as traversing the filesystem and finding files by wildcard patterns. Many of these methods are wrappers around core Node.js file functionality, but with additional error handling and logging.
+
+_Note: all file paths are relative to the [grunt.js gruntfile](getting_started.md) unless the current working directory is changed with `grunt.file.setBase` or the `--base` command-line option._
+
+
+grunt.file.read	*grunt-file-grunt-file-read*
+
+Read and return a file's contents. The `encoding` argument defaults to `utf8` if unspecified.
+
+>
+	grunt.file.read(filepath, encoding)
+<
+
+
+grunt.file.readJSON	*grunt-file-grunt-file-readjson*
+
+Read a file's contents, parsing the data as JSON and returning the result.
+
+>
+	grunt.file.readJSON(filepath)
+<
+
+
+grunt.file.write	*grunt-file-grunt-file-write*
+
+Write the specified contents to a file, creating intermediate directories if necessary.
+
+_If the `--no-write` command-line option is specified, the file won't actually be written._
+
+>
+	grunt.file.write(filepath, contents)
+<
+
+
+grunt.file.copy	*grunt-file-grunt-file-copy*
+
+Copy a source file to a destination path, creating intermediate directories if necessary.
+
+_If the `--no-write` command-line option is specified, the file won't actually be written._
+
+>
+	grunt.file.copy(srcpath, destpath [, options])
+<
+
+The `options` object has these possible properties:
+
+>
+	var options = {
+	  // If specified, the file contents will be parsed as `utf8` and passed into
+	  // the function, whose return value will be used as the destination file's
+	  // contents. If this function returns false, the file copy will be aborted.
+	  process: processFunction,
+	  // These optional wildcard patterns will be matched against the filepath using
+	  // grunt.file.isMatch. If a specified wildcard pattern matches, the file will
+	  // not be processed via `processFunction`. Note that `true` may also be
+	  // specified to prvent processing.
+	  noProcess: wildcardPatterns
+	};
+<
+
+
+grunt.file.mkdir	*grunt-file-grunt-file-mkdir*
+
+Works like `mkdir -p`. Create a directory along with any intermediate directories.
+
+_If the `--no-write` command-line option is specified, directories won't actually be created._
+
+>
+	grunt.file.mkdir(dirpath)
+<
+
+
+grunt.file.recurse	*grunt-file-grunt-file-recurse*
+
+Recurse into a directory, executing `callback` for each file.
+
+>
+	grunt.file.recurse(rootdir, callback)
+<
+
+The callback function receives the following arguments:
+
+>
+	function callback(abspath, rootdir, subdir, filename) {
+	  // The full path to the current file, which is nothing more than
+	  // the rootdir + subdir + filename arguments, joined.
+	  abspath
+	  // The root director, as originally specified.
+	  rootdir
+	  // The current file's directory, relative to rootdir.
+	  subdir
+	  // The filename of the current file, without any directory parts.
+	  filename
+	}
+<
+
+
+grunt.file.findup	*grunt-file-grunt-file-findup*
+
+Search for a filename in the given directory followed by all parent directories. Returns the first matching filepath found, otherwise returns `null`.
+
+>
+	grunt.file.findup(rootdir, filename)
+<
+
+
+grunt.file.isPathAbsolute	*grunt-file-grunt-file-ispathabsolute*
+
+Is a given file path absolute? Returns a boolean.
+
+Like the Node.js [path.join](http://nodejs.org/docs/latest/api/path.html#path_path_join_path1_path2) method, this method will join all arguments together and normalize the resulting path.
+
+>
+	grunt.file.isPathAbsolute(path1 [, path2 [, ...]])
+<
+
+
+grunt.file.userDir	*grunt-file-grunt-file-userdir*
+
+Return a file path relative to the user's `.grunt` directory, which is `%USERPROFILE%\.grunt\` on Windows, and `~/.grunt/` on OS X or Linux. If no file path is specified, the base user `.grunt` directory path will be returned. If the specified path is not found, `null` is returned.
+
+Windows users: `%USERPROFILE%` is generally your `Documents and Settings` directory.
+
+_Like the Node.js [path.join](http://nodejs.org/docs/latest/api/path.html#path_path_join_path1_path2) method, this method will join all arguments together and normalize the resulting path._
+
+>
+	grunt.file.userDir([path1, [, path2 [, ...]]])
+<
+
+
+grunt.file.setBase	*grunt-file-grunt-file-setbase*
+
+Change grunt's current working directory. By default, all file paths are relative to the [grunt.js gruntfile](getting_started.md). This works just like the `--base` command-line option.
+
+>
+	grunt.file.setBase(path1 [, path2 [, ...]])
+<
+
+Like the Node.js [path.join](http://nodejs.org/docs/latest/api/path.html#path_path_join_path1_path2) method, this method will join all arguments together and normalize the resulting path.
+
+
+File Lists and Wildcards	*grunt-file-file-lists-and-wildcards*
+
+Wildcard patterns are resolved using the [glob-whatev library](https://github.com/cowboy/node-glob-whatev). See the [minimatch](https://github.com/isaacs/minimatch) module documentation for more details on supported wildcard patterns.
+
+There are also a number of [task-specific file listing methods](api_task.md) that find files inside grunt plugins and task directories.
+
+_Note: all file paths are relative to the [grunt.js gruntfile](getting_started.md) unless the current working directory is changed with `grunt.file.setBase` or the `--base` command-line option._
+
+
+grunt.file.expand	*grunt-file-grunt-file-expand*
+
+Return a unique array of all file or directory paths that match the given wildcard pattern(s). This method accepts one or more comma separated wildcard patterns as well as an array of wildcard patterns.
+
+The `options` object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+
+>
+	grunt.file.expand([options, ] patterns)
+<
+
+
+grunt.file.expandDirs	*grunt-file-grunt-file-expanddirs*
+
+This method behaves the same as `grunt.file.expand` except it only returns directory paths.
+
+>
+	grunt.file.expandDirs([options, ] patterns)
+<
+
+
+grunt.file.expandFiles	*grunt-file-grunt-file-expandfiles*
+
+This method behaves the same as `grunt.file.expand` except it only returns file paths.
+
+>
+	grunt.file.expandFiles([options, ] patterns)
+<
+
+This method is used by many built-in tasks to handle wildcard expansion of the specified source files. See the [concat task source](../tasks/concat.js) for an example.
+
+
+grunt.file.expandFileURLs	*grunt-file-grunt-file-expandfileurls*
+
+Return a unique array of all `file://` URLs for files that match the given wildcard pattern(s). Any absolute `file://`, `http://` or `https://` URLs specified will be passed through. This method accepts one or more comma separated wildcard patterns (or URLs), as well as an array of wildcard patterns (or URLs).
+
+>
+	grunt.file.expandFileURLs(patternsOrURLs)
+<
+
+See the [qunit task source](../tasks/qunit.js) for an example.
+
+
+grunt.file.isMatch	*grunt-file-grunt-file-ismatch*
+
+Match one or more wildcard patterns against a file path. If any of the specified matches, return `true` otherwise return `false`. This method accepts a single string wildcard pattern as well as an array of wildcard patterns. Note that `true` may also be specified to prvent processing.
+
+>
+	grunt.file.isMatch(patterns, filepath)
+<
+
+Patterns without slashes will be matched against the basename of the path if it contains slashes, eg. pattern `*.js` will match filepath `path/to/file.js`.
+
+
+External libraries	*grunt-file-external-libraries*
+
+
+grunt.file.glob	*grunt-file-grunt-file-glob*
+
+[glob-whatev](https://github.com/cowboy/node-glob-whatev) - Synchronous file globbing utility.
+
+
+
+vim:tw=78:ts=8:ft=help:norl:

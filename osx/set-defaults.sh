@@ -18,3 +18,6 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
+
+# Disable “natural” (Lion-style) scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
