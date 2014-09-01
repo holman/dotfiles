@@ -102,3 +102,4 @@ autocmd InsertEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of
 autocmd InsertLeave * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
 autocmd BufWinLeave * call clearmatches()
 
+au BufRead,BufNewFile *.ru setfiletype ruby
