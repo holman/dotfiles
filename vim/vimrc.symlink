@@ -36,6 +36,7 @@ Bundle 'jcf/vim-latex'
 Bundle 'godlygeek/tabular'
 Bundle 'justinmk/vim-sneak'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'Cpp11-Syntax-Support'
 
 syntax enable
 set background=light
@@ -124,6 +125,7 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 
 " Syntastic settings
 let g:syntastic_cpp_no_include_search = 1
+let g:syntastic_cpp_compiler_options="-std=c++11"
 " Ignore certain syntastic latex warnings
 let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
