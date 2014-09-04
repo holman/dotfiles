@@ -130,6 +130,7 @@ let g:syntastic_cpp_compiler_options="-std=c++11"
 " Ignore certain syntastic latex warnings
 let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
+let g:syntastic_always_populate_loc_list = 1
 
 " Make mappings
 if filereadable('/proc/cpuinfo')
