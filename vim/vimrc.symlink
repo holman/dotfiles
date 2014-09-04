@@ -73,6 +73,7 @@ set wildmenu
 set ttyfast
 set relativenumber
 set undofile
+set noautochdir
 
 let mapleader = ","
 
