@@ -14,7 +14,7 @@ vmap <Leader>h :s/\:\([a-zA-Z_]*\)\s*=>/\1\: /g<cr>
 
 map <leader><space> :noh<cr>
 map <leader>a :Ack 
-map <leader>e :e 
+map <leader>e :Explore<cr> 
 
 
 " Toggle spell checking

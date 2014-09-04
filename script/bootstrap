@@ -236,6 +236,10 @@ install_powerline () {
   # There is an arch package, but I'd like this to be OS agnostic
   ~/.local/bin/pip install --user git+git://github.com/Lokaltog/powerline
 
+  src="$(pwd)/powerline"
+  dst="$HOME/.config/"
+  link_file "$src" "$dst"
+
   success 'installed powerline'
 }
 

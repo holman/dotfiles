@@ -3,8 +3,6 @@ set -g prefix C-a
 bind C-a send-prefix
 bind-key C-a last-window
 
-set -g default-terminal "screen-256color" 
-
 setw -g mode-keys vi
 
 # moving between panes with vim movement keys
@@ -16,6 +14,10 @@ bind l select-pane -R
 # moving between windows with vim movement keys
 bind -r C-h select-window -t :-
 bind -r C-l select-window -t :+
+
+# Remove n and p to train myself out of using them
+unbind-key n
+unbind-key p
 
 # resize panes with vim movement keys
 bind -r H resize-pane -L 5
@@ -31,3 +33,7 @@ bind R source-file ~/.tmux.conf \; display-message "Config reloaded!"
 # the machine why the hell would we have tmux?
 source "$HOME/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf"
 
+#Titles
+set -g set-titles on
+set -g set-titles-string 'tmux:#S:#I'
+set -g automatic-rename
