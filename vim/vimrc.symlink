@@ -220,5 +220,6 @@ au FileType tex setlocal spell
 au FileType tex syntax spell toplevel
 
 " Indent-sentence mapping
-nnoremap <leader>ip vip :call g:IndentSentence()<cr>
+" For paragraph, restore position using register T
+nnoremap <leader>ip i//CURSOR//<esc>vip :call g:IndentSentence()<cr>:%s/\/\/CURSOR\/\///<cr>
 vnoremap <leader>is :call g:IndentSentence()<cr>
