@@ -154,6 +154,10 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'Skim'
 
+" Set more sensible ignore warning level for latex-suite
+" ensures that missing numbers, undefined references, and citations are shown
+let g:Tex_IgnoreLevel = 4
+
 " Change default alt mappings for latex-suite to mac friendly ones
 imap <leader>lb <Plug>Tex_MathBF
 imap <leader>lc <Plug>Tex_MathCal
