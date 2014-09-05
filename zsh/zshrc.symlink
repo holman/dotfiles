@@ -1,3 +1,6 @@
+# plugins=(git)
+# source $ZSH/oh
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
