@@ -1,7 +1,7 @@
 'editor':
   'showIndentGuide': true
-  'fontSize': 14
   'fontFamily': 'Monaco'
+  'fontSize': 14
 'core':
   'excludeVcsIgnoredPaths': true
   'ignoredNames': [
@@ -12,16 +12,16 @@
     'tmp'
     '.tmp'
   ]
-  'themes': [
-    'atom-dark-ui'
-    'atom-dark-syntax'
-  ]
   'hideGitIgnoredFiles': true
   'disabledPackages': [
     'exception-reporting'
     'metrics'
   ]
   'projectHome': '~/Code'
+  'themes': [
+    'seti-ui'
+    'base16-tomorrow-dark-theme'
+  ]
 'spell-check':
   'grammars': [
     'text.plain'
@@ -33,4 +33,6 @@
 'release-notes':
   'viewedVersion': '0.89.0'
 'tree-view':
-  'hideVcsIgnoredFiles': false
+  'hideVcsIgnoredFiles': true
+'autocomplete-plus':
+  'autoActivationDelay': 1
