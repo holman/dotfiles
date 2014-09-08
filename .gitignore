@@ -2,4 +2,5 @@ git/gitconfig.symlink
 *.swp
 test
 vim.symlink/bundle
+!vim.symlink/bundle/Vundle.vim
 .netrwhist

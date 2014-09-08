@@ -6,4 +6,4 @@
 	url = https://github.com/scotu/ubuntu-mono-powerline.git
 [submodule "vim.symlink/bundle/Vundle.vim"]
 	path = vim.symlink/bundle/Vundle.vim
-	url = git://github.com/gmarik/Vundle.vim.git
+	url = https://github.com/gmarik/Vundle.vim.git
