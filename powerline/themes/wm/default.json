@@ -4,7 +4,12 @@
 		"right": [
 			{
 				"name": "weather",
-				"priority": 50
+				"priority": 50,
+        "args": {
+          "unit": "F",
+          "temp_coldest": -10,
+          "temp_hottest": 40
+        }
 			},
 			{
 				"name": "date",
