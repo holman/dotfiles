@@ -10,7 +10,7 @@ set -e
 echo ''
 
 info () {
-  printf "  [ \033[00;34m..\033[0m ] $1"
+  printf "  [ \033[00;34m..\033[0m ] $1\n"
 }
 
 user () {
@@ -168,9 +168,21 @@ generate_font_cache () {
 init_command_t () {
   info 'initializing command t'
 
+  # Check for ruby in vim and skip if it is missing
+  set +e
+  vim --version |grep +ruby > /dev/null
+  code=$?
+  set -e
+  if [[ $code -ne 0 ]]
+  then
+    echo $code
+    info 'Vim not compiled with ruby, skipping command t'
+    return
+  fi
+
   start_dir=`pwd`
   cd ~/.vim/bundle/Command-T/ruby/command-t
-  if type rvm > /dev/null
+  if type rvm 2&>1 > /dev/null
   then
     rvm use system
   else
@@ -231,6 +243,16 @@ install_pip () {
 
 install_powerline () {
   info 'installing powerline'
+
+  set +e
+  python -c 'import sys; sys.version_info < (2,6) and sys.exit(1)'
+  code=$?
+  set -e
+  if [[ $code -ne 0 ]]
+  then
+    info 'Python version looks old, skipping powerline and pip'
+    return
+  fi
 
   install_pip
   # There is an arch package, but I'd like this to be OS agnostic
