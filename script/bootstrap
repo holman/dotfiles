@@ -175,7 +175,6 @@ init_command_t () {
   set -e
   if [[ $code -ne 0 ]]
   then
-    echo $code
     info 'Vim not compiled with ruby, skipping command t'
     return
   fi
