@@ -1,7 +1,7 @@
 'editor':
   'showIndentGuide': true
-  'fontFamily': 'Menlo'
-  'fontSize': 15
+  'fontSize': 14
+  'fontFamily': 'Monaco'
 'core':
   'excludeVcsIgnoredPaths': true
   'ignoredNames': [
@@ -33,4 +33,4 @@
 'release-notes':
   'viewedVersion': '0.89.0'
 'tree-view':
-  'hideVcsIgnoredFiles': true
+  'hideVcsIgnoredFiles': false
