@@ -1,4 +1,4 @@
-ls /usr/share/terminfo/*|grep screen-256color 2&>1 > /dev/null
+ls /usr/share/terminfo/*|grep screen-256color > /dev/null
 code=$?
 if [[ $code = 0 ]]
 then
