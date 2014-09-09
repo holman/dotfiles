@@ -3,27 +3,22 @@
 	"segments": {
 		"right": [
 			{
-				"name": "weather",
-				"priority": 50,
-        "args": {
-          "unit": "F",
-          "temp_coldest": -10,
-          "temp_hottest": 40
-        }
+				"function": "weather",
+				"priority": 50
 			},
 			{
-				"name": "date",
-				"before": ""
+				"function": "date"
 			},
 			{
-				"name": "date",
+				"function": "date",
+				"name": "time",
 				"args": {
 					"format": "%H:%M",
 					"istime": true
 				}
 			},
 			{
-				"name": "email_imap_alert",
+				"function": "email_imap_alert",
 				"priority": 10,
 				"args": {
 					"username": "",

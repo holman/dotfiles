@@ -25,6 +25,10 @@
 			"contents": "LN "
 		},
 
+		"time": {
+			"before": ""
+		},
+
 		"powerline.segments.common.network_load": {
 			"args": {
 				"recv_format": "DL {value:>8}",
@@ -50,9 +54,6 @@
 		"powerline.segments.common.uptime": {
 			"before": "UP  "
 		},
-		"powerline.segments.common.date": {
-			"before": ""
-		},
 		"powerline.segments.common.email_imap_alert": {
 			"before": "MAIL "
 		},
@@ -77,7 +78,13 @@
 					"windy":         "WINDY",
 					"not_available": "NA",
 					"unknown":       "UKN"
-				}
+				},
+				"temp_format": "{temp:.0f} C"
+			}
+		},
+		"powerline.segments.common.fuzzy_time": {
+			"args": {
+				"unicode_text": false
 			}
 		},
 

@@ -4,40 +4,54 @@
 		"left": [
 			{
 				"type": "segment_list",
-				"module": "powerline.listers.vim",
-				"name": "tabbuflister",
+				"function": "powerline.listers.vim.tablister",
+				"exclude_function": "single_tab",
 				"segments": [
 					{
-						"name": "tabnr",
+						"function": "tabnr",
 						"after": " ",
-						"exclude_modes": ["tab", "buf", "buf_nc"],
 						"priority": 5
 					},
 					{
-						"name": "bufnr",
-						"after": " ",
-						"exclude_modes": ["tab", "buf", "tab_nc"],
-						"priority": 5
-					},
-					{
-						"name": "file_directory",
+						"function": "file_directory",
 						"priority": 40
 					},
 					{
-						"name": "file_name",
+						"function": "file_name",
 						"args": {
 							"display_no_file": true
 						},
 						"priority": 10
 					},
 					{
-						"name": "tab_modified_indicator",
-						"exclude_modes": ["buf", "buf_nc"],
+						"function": "tab_modified_indicator",
+						"priority": 5
+					}
+				]
+			},
+			{
+				"type": "segment_list",
+				"function": "powerline.listers.vim.bufferlister",
+				"include_function": "single_tab",
+				"segments": [
+					{
+						"function": "bufnr",
+						"after": " ",
 						"priority": 5
 					},
 					{
-						"name": "modified_indicator",
-						"exclude_modes": ["tab", "tab_nc"],
+						"function": "file_directory",
+						"priority": 40
+					},
+					{
+						"function": "file_name",
+						"args": {
+							"display_no_file": true
+						},
+						"priority": 10
+					},
+					{
+						"function": "modified_indicator",
 						"priority": 5
 					}
 				]
@@ -52,7 +66,18 @@
 		],
 		"right": [
 			{
-				"name": "single_tab"
+				"type": "string",
+				"contents": "Bufs",
+				"name": "single_tab",
+				"highlight_group": ["single_tab"],
+				"include_function": "single_tab"
+			},
+			{
+				"type": "string",
+				"contents": "Tabs",
+				"name": "many_tabs",
+				"highlight_group": ["many_tabs"],
+				"exclude_function": "single_tab"
 			}
 		]
 	}
