@@ -7,96 +7,62 @@ then
 fi
 
 # The rest of my fun git aliases
+alias g='git'
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
+alias gpu='git push'
 alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
 alias gc='git commit'
 alias gca='git commit -a'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
+alias gba='git branch -a'
+alias gbr='git branch --remote'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
-
-# Aliases
-alias g='git'
-# compdef g=git
+alias gss='git status -s'
 alias gst='git status'
-# compdef _git gst=git-status
-alias gd='git diff'
-# compdef _git gd=git-diff
-alias gdc='git diff --cached'
-# compdef _git gdc=git-diff
-alias gdt='git diff-tree --no-commit-id --name-only -r'
-# compdef _git gdc=git diff-tree --no-commit-id --name-only -r
 alias gl='git pull'
-# compdef _git gl=git-pull
 alias gup='git pull --rebase'
-# compdef _git gup=git-fetch
-alias gp='git push'
-# compdef _git gp=git-push
-alias gd='git diff'
 gdv() { git diff -w "$@" | view - }
-# compdef _git gdv=git-diff
 alias gdt='git difftool'
-alias gc='git commit -v'
-# compdef _git gc=git-commit
-alias gc!='git commit -v --amend'
-# compdef _git gc!=git-commit
-alias gca='git commit -v -a'
-# compdef _git gc=git-commit
-alias gca!='git commit -v -a --amend'
-# compdef _git gca!=git-commit
-alias gcmsg='git commit -m'
-# compdef _git gcmsg=git-commit
-alias gco='git checkout'
-# compdef _git gco=git-checkout
 alias gcm='git checkout master'
 alias gr='git remote'
-# compdef _git gr=git-remote
 alias grv='git remote -v'
-# compdef _git grv=git-remote
 alias grmv='git remote rename'
-# compdef _git grmv=git-remote
 alias grrm='git remote remove'
-# compdef _git grrm=git-remote
 alias grset='git remote set-url'
-# compdef _git grset=git-remote
 alias grup='git remote update'
-# compdef _git grset=git-remote
 alias grbi='git rebase -i'
-# compdef _git grbi=git-rebase
 alias grbc='git rebase --continue'
-# compdef _git grbc=git-rebase
 alias grba='git rebase --abort'
-# compdef _git grba=git-rebase
-alias gb='git branch'
-# compdef _git gb=git-branch
-alias gba='git branch -a'
-# compdef _git gba=git-branch
-alias gbr='git branch --remote'
+
+function _git_interactive_rebase() {
+  HASH=`git merge-base master $(current_branch)`
+  git rebase -i ${HASH}
+}
+alias grb='_git_interactive_rebase'
+
 alias gcount='git shortlog -sn'
-# compdef gcount=git
 alias gcl='git config --list'
 alias gcp='git cherry-pick'
-# compdef _git gcp=git-cherry-pick
 alias glg='git log --stat --max-count=10'
-# compdef _git glg=git-log
 alias glgg='git log --graph --max-count=10'
-# compdef _git glgg=git-log
 alias glgga='git log --graph --decorate --all'
-# compdef _git glgga=git-log
 alias glo='git log --oneline --decorate --color'
-# compdef _git glo=git-log
 alias glog='git log --oneline --decorate --color --graph'
-# compdef _git glog=git-log
-alias gss='git status -s'
-# compdef _git gss=git-status
+
 alias ga='git add'
-# compdef _git ga=git-add
 alias gap='git add --patch'
 alias gm='git merge'
-# compdef _git gm=git-merge
 alias grh='git reset HEAD'
 alias grhh='git reset HEAD --hard'
 alias gclean='git reset --hard && git clean -dfx'
@@ -104,22 +70,14 @@ alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
 # Sign and verify commits with GPG
 alias gcs='git commit -S'
-# compdef _git gcs=git-commit
 alias gsps='git show --pretty=short --show-signature'
-# compdef _git gsps=git-show
 
 # Sign and verify tags with GPG
 alias gts='git tag -s'
-# compdef _git gts=git-tag
 alias gvt='git verify-tag'
-# compdef _git gvt=git verify-tag
-
-#remove the gf alias
-#alias gf='git ls-files | grep'
 
 alias gpoat='git push origin --all && git push origin --tags'
 alias gmt='git mergetool --no-prompt'
-# compdef _git gm=git-mergetool
 
 alias gg='git gui citool'
 alias gga='git gui citool --amend'
@@ -136,10 +94,9 @@ alias grt='cd $(git rev-parse --show-toplevel || echo ".")'
 
 # Git and svn mix
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
-# compdef git-svn-dcommit-push=git
-
 alias gsr='git svn rebase'
 alias gsd='git svn dcommit'
+
 #
 # Will return the current branch name
 # Usage example: git pull origin $(current_branch)
@@ -158,13 +115,9 @@ function current_repository() {
 
 # these aliases take advantage of the previous function
 alias ggpull='git pull origin $(current_branch)'
-# compdef ggpull=git
 alias ggpur='git pull --rebase origin $(current_branch)'
-# compdef ggpur=git
 alias ggpush='git push origin $(current_branch)'
-# compdef ggpush=git
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
-# compdef ggpnp=git
 
 # Pretty log messages
 function _git_log_prettily(){
@@ -173,7 +126,6 @@ function _git_log_prettily(){
   fi
 }
 alias glp="_git_log_prettily"
-# compdef _git glp=git-log
 
 # Work In Progress (wip)
 # These features allow to pause a branch development and switch to another one (wip)
