@@ -25,6 +25,7 @@ alias gsms='git submodule sync'
 alias gsl="git stash list --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias grm="git rm"
 alias gru="git rebase @{u}"
+alias gdt="git difftool"
 function git_rebase_interactive() {
   if [[ -n $1 ]]; then
     git rebase -i $1
