@@ -228,3 +228,8 @@ au FileType tex syntax spell toplevel
 " For paragraph, restore position using register T
 nnoremap <leader>ip i//CURSOR//<esc>vip :call g:IndentSentence()<cr>:%s/\/\/CURSOR\/\///<cr>
 vnoremap <leader>is :call g:IndentSentence()<cr>
+
+" gitgutter configuration
+" explicitly set hunk navigation commands
+nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>GitGutterNextHunk
