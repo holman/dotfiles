@@ -4,6 +4,10 @@ function mpurge-older-than7 {
   mysql -u$USER -p$PASSWORD -e "PURGE BINARY LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 7 DAY);"
 }
 
+function msw {
+  sed -i '' "s|jdbc:mysql://localhost:3306/[^\?]*|jdbc:mysql://localhost:3306/${1}|g" $TOMCAT_CONF_FILE
+}
+
 function mrefresh {
   database=$DEFAULT_DB
   dump=$DEFAULT_DMP
