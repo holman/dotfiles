@@ -6,7 +6,8 @@
 " set a map leader that and a save shortcut
 " Leader is already \
 let mapleader = ','
-nmap <leader>w :w<cr>
+" Don't do below, it messes up window swap!
+" nmap <leader>w :w<cr>
 
 " Ruby 1.8 to 1.9 hash conversion
 nmap <leader>h :s/\:\([a-zA-Z_]*\)\s*=>/\1\: /g<cr>

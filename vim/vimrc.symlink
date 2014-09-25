@@ -33,7 +33,6 @@ Bundle 'gcmt/wildfire.vim'
 Bundle 'wesQ3/vim-windowswap'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'avakhov/vim-yaml'
 call vundle#end()
 
 syntax on
