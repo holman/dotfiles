@@ -18,3 +18,4 @@
 ehthumbs.db
 Thumbs.db
 .sass-cache
+node_modules
