@@ -16,10 +16,6 @@ alias cleanup="find . -name '*.DS_Store' -type f -delete"
 alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
 
 # Work
-# SASS
-alias sassy="sass --watch html/skin/smooth/scss/:html/skin/smooth/ --style :expanded"
-alias otter="cd /var/www/dev/otter/"
-alias ackless="ack --pager=\"less -R\""
-alias restartall="sudo sudo /etc/init.d/httpd restart ; sudo /etc/init.d/varnish restart ; sudo /etc/init.d/memcached restart"
+alias updatedev="bundle && rake db:migrate && foreman start"
 
 
