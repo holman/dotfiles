@@ -2,6 +2,7 @@
 source ~/.dotfiles/git/git-completion.bash
 
 export BASH=$HOME/.dotfiles
+export EDITOR='vim'
 
 # source every .bash file in bash/
 for config_file in $BASH/bash/*.bash
