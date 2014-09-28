@@ -18,8 +18,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.woff,*.ttf,*.dump
 
 " Theme settings
 set background=dark
-colorscheme solarized
-" call togglebg#map("<F4>") "Uses <F4> to switch b/w light and dark
+colorscheme Tomorrow-Night-Eighties
 
 let mapleader=","       " remap leader key
 set nocompatible
