@@ -10,3 +10,8 @@ powerline/config.symlink/xfce4/
 powerline/config.symlink/htop/
 powerline/config.symlink/Trolltech.conf
 powerline/config.symlink/inkscape/*
+powerline/config.symlink/dconf/
+powerline/config.symlink/gnome-control-center/
+powerline/config.symlink/libreoffice/
+powerline/config.symlink/monitors.xml
+powerline/config.symlink/nautilus/
