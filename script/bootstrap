@@ -264,8 +264,18 @@ install_powerline () {
   fi
 
   install_pip
-  # There is an arch package, but I'd like this to be OS agnostic
-  ~/.local/bin/pip install --user git+git://github.com/Lokaltog/powerline
+  set +e
+  uname -a |grep 'Darwin'
+  code=$?
+  set -e
+  if [[ $code -ne 0 ]]
+  then
+    # There is an arch package, but I'd like this to be OS agnostic
+    ~/.local/bin/pip install --user git+git://github.com/Lokaltog/powerline
+  else
+    ~/Library/Python/2.7/bin/pip install --user git+git://github.com/Lokaltog/powerline
+  fi
+
 
   src="$(pwd)/powerline"
   dst="$HOME/.config/"
