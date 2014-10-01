@@ -24,7 +24,8 @@ MAC=$?
 
 # all of our zsh files
 typeset -U config_files
-config_files=($DOTFILES/**/*.zsh)
+# Don't use ** to avoid hitting the .zsh files in zsh-syntax-highlighting
+config_files=($DOTFILES/*/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
