@@ -6,3 +6,7 @@ alias devbox-status='aws ec2 describe-instance-status --instance-ids $AWS_I_ID'
 alias devbox-stop='aws ec2 stop-instances --instance-ids $AWS_I_ID'
 alias devbox-ssh='ssh ${AWS_USER}@${AWS_HOST}'
 alias devbox-ssh-sudoer='ssh ${AWS_USER_SUDOER}@${AWS_HOST}'
+
+function devbox-change {
+  aws ec2 modify-instance-attribute --instance-type $1 --instance-id $AWS_I_ID
+}
