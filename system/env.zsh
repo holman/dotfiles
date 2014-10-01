@@ -2,4 +2,7 @@ EDITOR='vim'
 
 autoload zmv
 
-setxkbmap -option caps:escape
+if [ $MAC -ne 0 ]
+then
+  setxkbmap -option caps:escape
+fi

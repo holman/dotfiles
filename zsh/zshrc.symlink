@@ -19,6 +19,9 @@ source $ZSH/oh-my-zsh.sh
 python -c 'import sys; sys.version_info < (2,6) and sys.exit(1)'
 POWERLINE_CAPABLE=$?
 
+uname -a |grep 'Darwin'
+MAC=$?
+
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTFILES/**/*.zsh)
