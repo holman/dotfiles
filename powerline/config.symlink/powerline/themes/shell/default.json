@@ -1,52 +1,38 @@
 {
-	"default_module": "powerline.segments.common",
-	"segment_data": {
-		"hostname": {
-			"before": " ",
-			"args": {
-				"only_if_ssh": true
-			}
-		},
-		"virtualenv": {
-			"before": "ⓔ  "
-		},
-		"branch": {
-			"before": " "
-		}
-	},
 	"segments": {
 		"left": [
 			{
-				"module": "powerline.segments.shell",
-				"name": "mode"
+				"function": "powerline.segments.shell.mode"
 			},
 			{
-				"name": "hostname"
+				"function": "powerline.segments.common.net.hostname",
+				"priority": 10
 			},
 			{
-				"name": "user"
+				"function": "powerline.segments.common.env.user",
+				"priority": 30
 			},
 			{
-				"name": "virtualenv"
+				"function": "powerline.segments.common.env.virtualenv",
+				"priority": 50
 			},
 			{
-				"name": "cwd",
-				"args": {
-					"dir_limit_depth": 3
-				}
+				"function": "powerline.segments.shell.cwd",
+				"priority": 10
 			},
 			{
-				"module": "powerline.segments.shell",
-				"name": "jobnum"
+				"function": "powerline.segments.shell.jobnum",
+				"priority": 20
 			}
 		],
 		"right": [
 			{
-				"module": "powerline.segments.shell",
-				"name": "last_pipe_status"
+				"function": "powerline.segments.shell.last_pipe_status",
+				"priority": 10
 			},
 			{
-				"name": "branch"
+				"function": "powerline.segments.common.vcs.branch",
+				"priority": 40
 			}
 		]
 	}

@@ -1,9 +1,9 @@
 {
-	"default_module": "powerline.segments.plugin.ctrlp",
+	"default_module": "powerline.segments.vim.plugin.ctrlp",
 	"segments": {
 		"left": [
 			{
-				"name": "ctrlp",
+				"function": "ctrlp",
 				"args": {
 					"side": "left"
 				}
@@ -18,7 +18,7 @@
 		],
 		"right": [
 			{
-				"name": "ctrlp",
+				"function": "ctrlp",
 				"args": {
 					"side": "right"
 				}
