@@ -29,3 +29,6 @@ map <leader>s? z=
 
 map <leader>v :vs<cr>
 map <leader>s :sp<cr>
+
+map <leader>'' cs"'
+map <leader>"" cs'"

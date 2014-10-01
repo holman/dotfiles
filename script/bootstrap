@@ -161,6 +161,16 @@ run_vundle () {
 generate_font_cache () {
   info 'generating the font cache'
 
+  set +e
+  which fc-cache
+  code=$?
+  set -e
+  if [[ $code -ne 0 ]]
+  then
+    info 'fc-cache not found, skipping'
+    return
+  fi
+
   fc-cache -vf
   success 're-generated the font cache'
 }
