@@ -19,7 +19,7 @@ source $ZSH/oh-my-zsh.sh
 python -c 'import sys; sys.version_info < (2,6) and sys.exit(1)'
 POWERLINE_CAPABLE=$?
 
-uname -a |grep 'Darwin'
+uname -a |grep 'Darwin' > /dev/null
 MAC=$?
 
 # all of our zsh files
