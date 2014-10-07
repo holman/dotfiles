@@ -38,3 +38,7 @@ do
 done
 
 unset config_files
+export RBENV_ROOT=${install_dir}
+export PATH=${install_dir}/bin:$PATH
+eval "$(rbenv init -)"
+[[ -s "/Users/oleclangfjaran/.gvm/scripts/gvm" ]] && source "/Users/oleclangfjaran/.gvm/scripts/gvm"
