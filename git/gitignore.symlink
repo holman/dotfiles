@@ -4,3 +4,4 @@
 *.un~
 core
 notify_*.txt
+*.pyc
