@@ -6,3 +6,4 @@ core
 notify_*.txt
 *.pyc
 .p4config
+.gitreview
