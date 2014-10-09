@@ -2,8 +2,8 @@
   'showIndentGuide': true
   'fontFamily': 'Menlo'
   'fontSize': 15
+  'invisibles': {}
 'core':
-  'excludeVcsIgnoredPaths': true
   'ignoredNames': [
     '.bundle'
     '.git'
@@ -32,4 +32,3 @@
   'showOnStartup': false
 'release-notes':
   'viewedVersion': '0.89.0'
-'tree-view': {}
