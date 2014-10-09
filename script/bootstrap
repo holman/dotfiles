@@ -43,7 +43,14 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+    git_push_default='simple'
+    git_major_version=$(git --version 2>/dev/null | sed 's/^git version \([0-9][0-9]*\)\..*/\1/')
+    if [ -n "$git_major_version" ] && [ $git_major_version -lt 2 ]
+    then
+      git_push_default='current'
+    fi
+
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" -e "s/GIT_PUSH_DEFAULT/$git_push_default/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
     success 'gitconfig'
   fi
