@@ -8,7 +8,7 @@
 # Set ZSH if not set in previous script (eg bootstrap)
 if [ -z "$ZSH" ]
 then
-  export ZSH="$(dirname "$0")/.."
+  export ZSH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
 fi
 
 # Set OS X defaults
