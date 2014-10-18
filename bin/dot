@@ -4,13 +4,18 @@
 #
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
-export ZSH=$HOME/.dotfiles
+
+# Set ZSH if not set in previous script (eg bootstrap)
+if [ -z "$ZSH" ]
+then
+  export ZSH="$(dirname "$0")/.."
+fi
 
 # Set OS X defaults
 $ZSH/osx/set-defaults.sh
 
+# Install homebrew & packages
+$ZSH/homebrew/install.sh 2>&1
+
 # Upgrade homebrew
 brew update
-
-# Install homebrew packages
-$ZSH/homebrew/install.sh 2>&1
