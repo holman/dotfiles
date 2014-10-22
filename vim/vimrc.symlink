@@ -1,4 +1,13 @@
 syntax on
+set hlsearch
+set ignorecase
+set tabstop=4
+set shiftwidth=4
+set fileencodings=utf-8
+set cmdheight=1
+set ruler
+set wrap
+set textwidth=0
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
