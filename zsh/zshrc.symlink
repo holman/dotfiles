@@ -1,5 +1,10 @@
 # shortcut to this dotfiles path is $DOTS
-export DOTS=$HOME/.dotfiles
+# if not using ALT_HOME use normal HOME
+if [ -z "$ALT_HOME" ]; then
+	export DOTS=$HOME/.dotfiles
+else
+	export DOTS=$ALT_HOME/.dotfiles
+fi
 
 DISABLE_UPDATE_PROMPT="true"
 
