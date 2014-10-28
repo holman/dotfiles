@@ -237,3 +237,6 @@ vnoremap <leader>is :call g:IndentSentence()<cr>
 " explicitly set hunk navigation commands
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
+
+" add file in current dir explore shortcut
+nmap <leader>f :e %:h<cr>
