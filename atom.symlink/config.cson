@@ -1,38 +1,37 @@
-'editor':
-  'showIndentGuide': true
-  'fontFamily': 'Monaco'
-  'fontSize': 14
-'core':
-  'excludeVcsIgnoredPaths': true
-  'ignoredNames': [
-    '.bundle'
-    '.git'
-    'log'
-    'repositories'
-    'tmp'
-    '.tmp'
-  ]
-  'hideGitIgnoredFiles': true
-  'disabledPackages': [
-    'exception-reporting'
-    'metrics'
-  ]
-  'projectHome': '~/Code'
-  'themes': [
-    'seti-ui'
-    'base16-tomorrow-dark-theme'
-  ]
-'spell-check':
-  'grammars': [
-    'text.plain'
-    'source.gfm'
-    'text.git-commit'
-  ]
-'welcome':
-  'showOnStartup': false
-'release-notes':
-  'viewedVersion': '0.89.0'
-'tree-view':
-  'hideVcsIgnoredFiles': true
-'autocomplete-plus':
-  'autoActivationDelay': 1
+'global':
+  'editor':
+    'showIndentGuide': true
+    'fontFamily': 'Monaco'
+    'fontSize': 14
+    'invisibles': {}
+  'core':
+    'ignoredNames': [
+      '.bundle'
+      '.git'
+      'log'
+      'repositories'
+      'tmp'
+      '.tmp'
+    ]
+    'hideGitIgnoredFiles': true
+    'disabledPackages': [
+      'exception-reporting'
+      'metrics'
+    ]
+    'projectHome': '~/Code'
+    'themes': [
+      'seti-ui'
+      'base16-tomorrow-dark-theme'
+    ]
+  'spell-check':
+    'grammars': [
+      'text.plain'
+      'source.gfm'
+      'text.git-commit'
+    ]
+  'welcome':
+    'showOnStartup': false
+  'release-notes':
+    'viewedVersion': '0.89.0'
+  'autocomplete-plus':
+    'autoActivationDelay': 1
