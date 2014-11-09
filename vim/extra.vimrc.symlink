@@ -1,0 +1,17 @@
+" colorschemes
+Bundle 'wgibbs/vim-irblack'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'flazz/vim-colorschemes'
+
+Bundle 'leshill/vim-json'
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-cucumber'
+Bundle 'ngmy/vim-rubocop'
+Bundle 'vim-scripts/greplace.vim'
+Bundle 'darthdeus/vim-emblem'
+Bundle 'xhr/vim-io'
+Bundle 'heartsentwined/vim-ember-script'
+Bundle 'tpope/vim-commentary'
+Bundle 'vim-scripts/loremipsum'
+Bundle 'ekalinin/Dockerfile.vim'
