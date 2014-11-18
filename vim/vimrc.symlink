@@ -240,3 +240,6 @@ nmap ]h <Plug>GitGutterNextHunk
 
 " add file in current dir explore shortcut
 nmap <leader>f :e %:h<cr>
+
+" open tagbar
+nmap <leader>t :Tagbar<cr>
