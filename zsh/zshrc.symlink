@@ -6,6 +6,9 @@ else
 	export DOTS=$ALT_HOME/.dotfiles
 fi
 
+# Enable colors
+export TERM=xterm-256color
+
 DISABLE_UPDATE_PROMPT="true"
 
 # Periodically (typically once a day), update from github
