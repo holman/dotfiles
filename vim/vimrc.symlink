@@ -38,6 +38,7 @@ Bundle 'justinmk/vim-sneak'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Cpp11-Syntax-Support'
 Bundle 'majutsushi/tagbar'
+Bundle 'vimwiki/vimwiki'
 
 syntax enable
 set background=light
