@@ -262,3 +262,5 @@ nmap <leader>f :e %:h<cr>
 
 " open tagbar
 nmap <leader>t :Tagbar<cr>
+" show line numbers in tagbar
+let g:tagbar_show_linenumbers=-1
