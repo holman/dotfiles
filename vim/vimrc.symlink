@@ -264,3 +264,6 @@ nmap <leader>f :e %:h<cr>
 nmap <leader>t :Tagbar<cr>
 " show line numbers in tagbar
 let g:tagbar_show_linenumbers=-1
+
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
