@@ -8,3 +8,4 @@ notify_*.txt
 .p4config
 .gitreview
 tags
+.vimrc
