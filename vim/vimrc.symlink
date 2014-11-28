@@ -150,8 +150,9 @@ let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_always_populate_loc_list = 1
 " Syntastic / Eclim
-" Python validation should be done by syntastic
-let g:EclimPythonValidate = 0
+" Only Java validation is done by Eclim
+let g:EclimFileTypeValidate = 0
+let g:EclimJavaValidate = 1
 
 " Make mappings
 if filereadable('/proc/cpuinfo')
