@@ -36,4 +36,5 @@ set-option -g default-command "safe-reattach-to-user-namespace -l $SHELL"
 
 set-option -g history-limit 10000
 
-source "$POWERLINE_DIR/bindings/tmux/powerline.conf"
+# use vim-tmuxline as powerline replacement
+if-shell "test -f $DOTS/tmux/tmuxline-snapshot.conf" "source $DOTS/tmux/tmuxline-snapshot.conf"
