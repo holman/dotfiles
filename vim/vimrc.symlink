@@ -117,7 +117,7 @@ command! -nargs=1 Silent
 
 " Fugitive mappings
 nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gl :Glog -n 20<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :Gedit<cr>
 nnoremap <leader>gb :Gblame<cr>
