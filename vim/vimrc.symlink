@@ -143,7 +143,6 @@ inoremap jj <ESC>
 au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 
 " Syntastic settings
-let g:syntastic_cpp_checkers = [ "cppcheck" ]
 " Ignore certain syntastic latex warnings
 let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
