@@ -1,7 +1,12 @@
 #!/usr/bin/ruby
+
+# http://blog.nicksieger.com/articles/2006/04/23/tweaking-irb
+ARGV.concat ["--readline", "--prompt-mode", "simple"]
+
 require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems'
+require 'pp'
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
@@ -14,6 +19,15 @@ class Object
   # list methods which aren't in superclass
   def local_methods(obj = self)
     (obj.methods - obj.class.superclass.instance_methods).sort
+  end
+
+  def ls(obj=self)
+    width = `stty size 2>/dev/null`.split(/\s+/, 2).last.to_i
+    width = 80 if width == 0
+    local_methods(obj).each_slice(3) do |meths|
+      pattern = "%-#{width / 3}s" * meths.length
+      puts pattern % meths
+    end
   end
 
   # print documentation
@@ -31,10 +45,19 @@ class Object
   end
 end
 
+# http://ozmm.org/posts/time_in_irb.html
+def time(times = 1)
+  require 'benchmark'
+  ret = nil
+  Benchmark.bm { |x| x.report { times.times { ret = yield } } }
+  ret
+end
+
 def me
   User.find_by_login(ENV['USER'].strip)
 end
 
-def r
-  reload!
+# reload this .irbrc
+def IRB.reload
+  load __FILE__
 end
