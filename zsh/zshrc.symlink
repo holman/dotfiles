@@ -43,3 +43,7 @@ do
 done
 
 unset config_files
+
+autoload -Uz promptinit
+promptinit
+prompt sorin
