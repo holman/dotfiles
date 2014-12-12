@@ -46,4 +46,7 @@ unset config_files
 
 autoload -Uz promptinit
 promptinit
-prompt sorin
+prompt agnoster
+
+ZSH_THEME="agnoster"
+DEFAULT_USER="luizdamim"
