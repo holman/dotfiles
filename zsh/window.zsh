@@ -14,7 +14,7 @@ function title() {
       local formatted_title
       # only print name of command without arguments
       command=$(echo "$1" | cut -d" " -f1)
-      formatted_title="'${command/\(//}':%21<...<%~"
+      formatted_title="${command/\(//}:%21<...<%~"
       if [[ $command == "vim" ]]; then
         export VIM_TITLE=$formatted_title
       fi
