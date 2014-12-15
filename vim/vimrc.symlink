@@ -108,6 +108,7 @@ set formatoptions+=qrn1
 set colorcolumn=81
 
 " set default chars for whitespace in list chars
+set list
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " Silent command
