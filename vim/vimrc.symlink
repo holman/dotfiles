@@ -249,6 +249,9 @@ au FileType tex syntax spell toplevel
 " and for vimwiki files
 au FileType vimwiki setlocal spell
 
+" vim-wiki options
+let g:vimwiki_folding='expr'
+
 " Indent-sentence mapping
 " For paragraph, restore position using register T
 nnoremap <leader>ip i//CURSOR//<esc>vip :call g:IndentSentence()<cr>:%s/\/\/CURSOR\/\///<cr>
