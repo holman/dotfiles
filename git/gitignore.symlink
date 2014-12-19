@@ -52,3 +52,8 @@ coverage.xml
 docs/_build/
 vendor/bundle
 .DS_Store
+
+dont_commit/
+
+*.sublime-project
+*.sublime-workspace

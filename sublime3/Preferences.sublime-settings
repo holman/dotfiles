@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/base16-default.dark (SL).tmTheme",
+	"color_scheme": "Packages/User/base16-tomorrow.dark (SL).tmTheme",
 	"copy_with_empty_selection": false,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
@@ -27,6 +27,15 @@
 		"*.db",
 		"*.scssc"
 	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".sass-cache",
+		".vagrant"
+	],
 	"font_face": "Source Code Pro",
 	"font_options":
 	[
@@ -37,17 +46,18 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"Vintage",
+		"Enhanced HTML and CFML",
 		"SyncedSideBar",
 		"Markdown",
-		"JavaScript",
-		"Vintage",
-		"ApplySyntax"
+		"JavaScript"
 	],
 	"index_files": false,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
+	"preview_on_click": false,
 	"tab_size": 4,
-	"theme": "Spacegray Eighties.sublime-theme",
+	"theme": "Cobalt2.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false
