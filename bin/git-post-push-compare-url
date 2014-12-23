@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# Prints the compare URL of the push you just made.
+#
+# This is tied to repos using the https:// protocol on github.com now for one
+# very good reason: I am lazy. You should be using https:// anyway. We can make
+# this generic for other environments as well at some point. #yolo
+output=
+
+while read line
+do
+  if [[ "$line" != "Done" ]]
+  then
+    echo $line
+    output=$line
+  fi
+done
+
+comparison=$(echo $output | cut -d' ' -f2)
+remote=$(git config --get remote.origin.url)
+
+if [[ -n "$comparison" && $remote == *"https://github.com"* ]]
+then
+  echo "$remote/compare/$comparison"
+fi
