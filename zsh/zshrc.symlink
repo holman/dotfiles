@@ -85,3 +85,6 @@ export EDITOR=vim
 # PROMPT='%T !%! %c$(prompt_git_info) '
 # RPROMPT=' %z %m:%~'
 #
+
+# added by travis gem
+[ -f /Users/adam/.travis/travis.sh ] && source /Users/adam/.travis/travis.sh
