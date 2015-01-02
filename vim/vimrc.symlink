@@ -3,11 +3,11 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 
   " Required:
-  set runtimepath+=/Users/adam/.vim/bundle/neobundle.vim/
+  set runtimepath+=/Users/akrawiec/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/Users/adam/.vim/bundle'))
+call neobundle#begin(expand('/Users/akrawiec/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -49,7 +49,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'reedes/vim-wordy'
-
+NeoBundle 'groenewege/vim-less'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -70,12 +70,16 @@ set laststatus=2
 
 set hidden
 
+set shiftwidth=2
+set tabstop=2
+
 syntax enable
 " set background=dark
 " colorscheme solarized
 
 au BufRead,BufNewFile *.ru setfiletype ruby
 
+set relativenumber 
 
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
