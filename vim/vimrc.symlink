@@ -241,6 +241,8 @@ set backspace=2
 
 " enable spellchecking for git commits
 au FileType gitcommit setlocal spell
+au FileType gitcommit setlocal colorcolumn=72
+au FileType gitcommit setlocal textwidth=71
 " and for markdown files
 au FileType markdown setlocal spell
 " and for tex files
