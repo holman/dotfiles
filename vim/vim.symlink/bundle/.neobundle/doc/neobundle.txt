@@ -784,6 +784,7 @@ OPTIONS 					*neobundle-options*
 
 			others		(String)
 			Specify others environment build script.
+			If you don't specify other keys, it means "all".
 
 		Example:
 >
