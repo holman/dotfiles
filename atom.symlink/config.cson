@@ -1,9 +1,8 @@
-'global':
+'*':
   'editor':
-    'showIndentGuide': true
     'fontFamily': 'Monaco'
     'fontSize': 14
-    'invisibles': {}
+    'showIndentGuide': true
   'core':
     'ignoredNames': [
       '.bundle'
@@ -13,16 +12,15 @@
       'tmp'
       '.tmp'
     ]
-    'hideGitIgnoredFiles': true
     'disabledPackages': [
       'exception-reporting'
       'metrics'
     ]
-    'projectHome': '~/Code'
     'themes': [
       'seti-ui'
       'base16-tomorrow-dark-theme'
     ]
+    'projectHome': '~/Code'
   'spell-check':
     'grammars': [
       'text.plain'
@@ -35,3 +33,4 @@
     'viewedVersion': '0.89.0'
   'autocomplete-plus':
     'autoActivationDelay': 1
+  'linter': {}
