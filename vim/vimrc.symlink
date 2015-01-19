@@ -137,6 +137,7 @@ nnoremap <leader>gf :Disp git fetch<cr>
 let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_switch_buffer = 't' " Do not switch to other tabs on <cr>
 nnoremap <c-l> :CtrlPLine<cr>
 
 " easier escaping
