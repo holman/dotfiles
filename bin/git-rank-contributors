@@ -25,6 +25,16 @@
 class String
   def obfuscate; gsub(/@/, " at the ").gsub(/\.(\w+)(>|$)/, ' dot \1s\2') end
   def htmlize; gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;") end
+  # Fix for invalid encodings http://stackoverflow.com/a/24037885
+  def clean
+    if RUBY_VERSION >= "2.1"
+      scrub
+    elsif RUBY_VERSION >= "1.9"
+      encode("UTF-16be", :invalid => :replace).encode("UTF-8")
+    else
+      self
+    end
+  end
 end
 
 lines = {}
@@ -34,13 +44,7 @@ htmlize = ARGV.delete("-h")
 
 author = nil
 state = :pre_author
-log = `git log -M -C -C -p --no-color`
-# Fix for invalid encodings
-# http://stackoverflow.com/a/24037885
-if !log.valid_encoding?
-  log = log.encode("UTF-16be", :invalid => :replace, :replace => "?").encode('UTF-8')
-end
-log.split("\n").each do |l|
+`git log -M -C -C -p --no-color`.clean.split("\n").each do |l|
   case
   when (state == :pre_author || state == :post_author) && l =~ /Author: (.*)$/
     author = $1
