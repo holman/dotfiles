@@ -8,6 +8,10 @@ function msw {
   sed -i '' "s|jdbc:mysql://localhost:3306/[^\?]*|jdbc:mysql://localhost:3306/${1}|g" $TOMCAT_CONF_FILE
 }
 
+function mcurrent {
+ grep -o -E 'jdbc:mysql://localhost:3306/.*?\?' $TOMCAT_CONF_FILE
+}
+
 function mrefresh {
   database=$DEFAULT_DB
   dump=$DEFAULT_DMP
