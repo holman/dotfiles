@@ -1,3 +1,1 @@
-source "$ZSH/mysql/mysql.properties"
-
-alias m='mysql -u$USER -p$PASSWORD'
+alias m='mysql -u$MYSQL_USER -p$MYSQL_PASSWORD'
