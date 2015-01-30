@@ -3,6 +3,7 @@
     'showIndentGuide': true
     'fontFamily': 'Menlo'
     'fontSize': 15
+    'invisibles': {}
   'core':
     'ignoredNames': [
       '.bundle'
@@ -32,4 +33,3 @@
     'showOnStartup': false
   'release-notes':
     'viewedVersion': '0.89.0'
-  'go-plus': {}
