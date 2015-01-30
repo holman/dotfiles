@@ -4,6 +4,14 @@ export ZSH=$HOME/Dropbox/Dev/dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Dev
 
+# Stash your environment variables in ~/.env-vars. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.env-vars ]]
+then
+  source ~/.env-vars
+fi
+
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
