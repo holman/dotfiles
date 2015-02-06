@@ -1,3 +1,5 @@
 alias reload!='. ~/.zshrc'
 alias sshc='ssh-copy-id -i ~/.ssh/id_rsa.pub'
 alias ssh='TERM=xterm-256color ssh'
+alias sshig='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+alias sshcig='ssh-copy-id -i ~/.ssh/id_rsa.pub -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'

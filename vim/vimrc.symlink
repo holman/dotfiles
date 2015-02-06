@@ -5,34 +5,36 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Bundle 'gmarik/vundle'
-Bundle 'wikitopian/hardmode'
-Bundle 'rorymckinley/vim-symbols-strings'
-Bundle 'tpope/vim-fugitive'
 Bundle 'msanders/snipmate.vim'
+Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
 Bundle 'scrooloose/syntastic'
 Bundle 'ap/vim-css-color'
-Bundle 'tpope/vim-surround'
 Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'tpope/vim-vividchalk'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'yaymukund/vim-rabl'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
 Bundle 'briancollins/vim-jst'
 Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-markdown'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'gcmt/wildfire.vim'
 Bundle 'wesQ3/vim-windowswap'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-abolish'
+Bundle 'Keithbsmiley/rspec.vim'
 call vundle#end()
 
 syntax on
@@ -65,7 +67,7 @@ set showmatch
 set tabstop=2
 set vb t_vb=
 set virtualedit=all
-set wildignore=*.o,*~,*.pyc,coverage,*.jpg,*.png,node_modules
+set wildignore=*.o,*~,*.pyc,coverage,*.jpg,*.png,node_modules,out
 set wildmenu
 set wrap
 
@@ -103,6 +105,7 @@ match Todo /\s\+$/
 
 " For syntastic
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 let $GIT_SSL_NO_VERIFY = 'true'
 

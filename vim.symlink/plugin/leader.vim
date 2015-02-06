@@ -10,8 +10,8 @@ let mapleader = ','
 " nmap <leader>w :w<cr>
 
 " Ruby 1.8 to 1.9 hash conversion
-nmap <leader>h :s/\:\([a-zA-Z_]*\)\s*=>/\1\: /g<cr>
-vmap <Leader>h :s/\:\([a-zA-Z_]*\)\s*=>/\1\: /g<cr>
+nmap <leader>h :s/\:\([a-zA-Z_]*\)\s*=>\s*/\1\: /g<cr>
+vmap <Leader>h :s/\:\([a-zA-Z_]*\)\s*=>\s*/\1\: /g<cr>
 
 map <leader><space> :noh<cr>
 map <leader>a :Ack 
