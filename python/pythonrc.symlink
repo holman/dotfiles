@@ -1,0 +1,16 @@
+# Enable tab completion
+
+try:
+    # OS X users should install GNU readline for tab completion:
+    # https://pypi.python.org/pypi/gnureadline
+    import gnureadline as readline
+except ImportError:
+    import readline
+
+import rlcompleter
+
+if "libedit" in readline.__doc__:
+    # Compatibility for libedit, in case gnureadline is not installed
+    readline.parse_and_bind("bind ^I rl_complete")
+else:
+    readline.parse_and_bind("tab:complete")
