@@ -13,9 +13,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "luizdamim"
-sudo scutil --set HostName "luiz-rmbp"
-sudo scutil --set LocalHostName "luizdamim"
+sudo scutil --set ComputerName "luiz"
+sudo scutil --set HostName "Tristram"
+sudo scutil --set LocalHostName "luiz"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "LUIZ"
 
 # Set standby delay to 24 hours (default is 1 hour)
@@ -183,7 +183,7 @@ defaults write NSGlobalDomain KeyRepeat -int 0
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "pt" "en-US"
+defaults write NSGlobalDomain AppleLanguages -array "en" "en-US" "pt"
 defaults write NSGlobalDomain AppleLocale -string "en_BR@currency=BRL"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
@@ -225,7 +225,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
+defaults write com.apple.finder QuitMenuItem -bool false
 
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
@@ -251,7 +251,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool false
+defaults write com.apple.finder ShowPathbar -bool true
 
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
