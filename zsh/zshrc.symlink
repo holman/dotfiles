@@ -46,7 +46,7 @@ unset config_files
 
 autoload -Uz promptinit
 promptinit
-prompt agnoster
+prompt steeef
 
-ZSH_THEME="agnoster"
+ZSH_THEME="steeef"
 DEFAULT_USER="luizdamim"
