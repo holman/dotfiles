@@ -18,7 +18,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.woff,*.ttf,*.dump,*
 
 " Theme settings
 set background=dark
-colorscheme Tomorrow-Night-Eighties
+colorscheme solarized
 
 let mapleader=","       " remap leader key
 set nocompatible
