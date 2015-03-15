@@ -19,3 +19,4 @@ ehthumbs.db
 Thumbs.db
 .sass-cache
 node_modules
+npm_debug.log
