@@ -41,6 +41,7 @@ Bundle 'vimwiki/vimwiki'
 Bundle 'reedes/vim-colors-pencil'
 Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
+Bundle 'rking/ag.vim'
 
 syntax enable
 
