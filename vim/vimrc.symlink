@@ -151,7 +151,7 @@ else
 endif
 
 " Set delay to prevent extra search
-let g:ctrlp_lazy_update = 350
+let g:ctrlp_lazy_update = 200
 
 " Do not clear filenames cache, to improve CtrlP startup
 " You can manualy clear it by <F5>
