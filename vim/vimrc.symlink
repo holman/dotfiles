@@ -42,6 +42,7 @@ Bundle 'reedes/vim-colors-pencil'
 Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'rking/ag.vim'
+Bundle 'FelikZ/ctrlp-py-matcher'
 
 syntax enable
 
@@ -142,6 +143,12 @@ let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 't' " Do not switch to other tabs on <cr>
+" PyMatcher for CtrlP
+if !has('python')
+    echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
 
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
