@@ -74,7 +74,7 @@ directory_name() {
 
 # export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
 
-PROMPT=$'\n$(rb_prompt)in %{${fg[cyan]}%}%B%~%b on$(prompt_git_info)%{${fg[default]}%}$(need_push)\n› '
+PROMPT=$'\n$(rb_prompt)in %{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%}$(need_push)\n› '
 # PROMPT=$'%{${fg[cyan]}%}%B%~%b $(git_dirty)%{${fg[default]}%} '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"

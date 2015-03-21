@@ -17,7 +17,7 @@ if [ -n "$__CURRENT_GIT_BRANCH" ]; then
     fi
     s+=")"
 
-    printf " %s%s" "%{${fg[yellow]}%}" $s
+    printf " on %s%s" "%{${fg[yellow]}%}" $s
 fi
 # git_super_status() {
 # 	precmd_update_git_vars
