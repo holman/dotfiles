@@ -1,9 +1,9 @@
 {
-	"default_module": "powerline.segments.common",
+	"default_module": "",
 	"segments": {
 		"right": [
 			{
-				"function": "weather",
+				"function": "powerline.segments.common.wthr.weather",
 				"priority": 50,
         "args": {
           "unit": "F",
@@ -12,22 +12,14 @@
         }
 			},
 			{
-				"function": "date"
+				"function": "powerline.segments.common.time.date"
 			},
 			{
-				"function": "date",
+				"function": "powerline.segments.common.time.date",
 				"name": "time",
 				"args": {
 					"format": "%H:%M",
 					"istime": true
-				}
-			},
-			{
-				"function": "email_imap_alert",
-				"priority": 10,
-				"args": {
-					"username": "",
-					"password": ""
 				}
 			}
 		]

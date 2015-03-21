@@ -271,9 +271,9 @@ install_powerline () {
   if [[ $code -ne 0 ]]
   then
     # There is an arch package, but I'd like this to be OS agnostic
-    ~/.local/bin/pip install --user git+git://github.com/Lokaltog/powerline
+    ~/.local/bin/pip install powerline-status
   else
-    ~/Library/Python/2.7/bin/pip install --user git+git://github.com/Lokaltog/powerline
+    ~/Library/Python/2.7/bin/pip install powerline-status
   fi
 
 

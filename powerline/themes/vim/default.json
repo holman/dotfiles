@@ -16,6 +16,11 @@
 				"priority": 10
 			},
 			{
+				"function": "powerline.segments.vim.plugin.capslock.capslock_indicator",
+				"include_modes": ["i", "R", "Rv"],
+				"priority": 10
+			},
+			{
 				"function": "branch",
 				"exclude_modes": ["nc"],
 				"priority": 30
@@ -66,7 +71,7 @@
 			},
 			{
 				"type": "string",
-				"highlight_group": ["background"],
+				"highlight_groups": ["background"],
 				"draw_soft_divider": false,
 				"draw_hard_divider": false,
 				"width": "auto"
@@ -96,9 +101,13 @@
 				"align": "r"
 			},
 			{
+				"function": "csv_col_current",
+				"priority": 30
+			},
+			{
 				"type": "string",
 				"name": "line_current_symbol",
-				"highlight_group": ["line_current_symbol", "line_current"]
+				"highlight_groups": ["line_current_symbol", "line_current"]
 			},
 			{
 				"function": "line_current",
