@@ -1,0 +1,47 @@
+unset __CURRENT_GIT_BRANCH
+unset __CURRENT_GIT_BRANCH_STATUS
+unset __CURRENT_GIT_BRANCH_IS_DIRTY
+
+local st="$(git status 2>/dev/null)"
+if [[ -n "$st" ]]; then
+    local -a arr
+    arr=(${(f)st})
+
+    if [[ $arr[1] =~ 'Not currently on any branch.' ]]; then
+        __CURRENT_GIT_BRANCH='no-branch'
+    else
+        __CURRENT_GIT_BRANCH="${arr[1][(w)4]}";
+    fi
+
+    if [[ $arr[2] =~ 'Your branch is' ]]; then
+        if [[ $arr[2] =~ 'ahead' ]]; then
+            __CURRENT_GIT_BRANCH_STATUS='ahead'
+        elif [[ $arr[2] =~ 'diverged' ]]; then
+            __CURRENT_GIT_BRANCH_STATUS='diverged'
+        else
+            __CURRENT_GIT_BRANCH_STATUS='behind'
+        fi
+    fi
+
+    if [[ ! $st =~ 'nothing to commit' ]]; then
+        __CURRENT_GIT_BRANCH_IS_DIRTY='1'
+    fi
+fi
+# unset __CURRENT_GIT_STATUS
+#
+# if [[ "$GIT_PROMPT_EXECUTABLE" == "python" ]]; then
+#     local gitstatus="$__GIT_PROMPT_DIR/gitstatus.py"
+#     _GIT_STATUS=`python ${gitstatus} 2>/dev/null`
+# fi
+# if [[ "$GIT_PROMPT_EXECUTABLE" == "haskell" ]]; then
+#     local gitstatus="$__GIT_PROMPT_DIR/dist/build/gitstatus/gitstatus"
+#     _GIT_STATUS=`${gitstatus}`
+# fi
+#  __CURRENT_GIT_STATUS=("${(@s: :)_GIT_STATUS}")
+# GIT_BRANCH=$__CURRENT_GIT_STATUS[1]
+# GIT_AHEAD=$__CURRENT_GIT_STATUS[2]
+# GIT_BEHIND=$__CURRENT_GIT_STATUS[3]
+# GIT_STAGED=$__CURRENT_GIT_STATUS[4]
+# GIT_CONFLICTS=$__CURRENT_GIT_STATUS[5]
+# GIT_CHANGED=$__CURRENT_GIT_STATUS[6]
+# GIT_UNTRACKED=$__CURRENT_GIT_STATUS[7]

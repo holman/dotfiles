@@ -1,0 +1,11 @@
+# case "$1" in
+#     git*)
+#     __EXECUTED_GIT_COMMAND=1
+#     ;;
+# esac
+
+case "$2" in
+    git*|hub*|gh*|stg*)
+    __EXECUTED_GIT_COMMAND=1
+    ;;
+esac
