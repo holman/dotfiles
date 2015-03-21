@@ -13,13 +13,15 @@ if [[ -n "$st" ]]; then
         __CURRENT_GIT_BRANCH="${arr[1][(w)4]}";
     fi
 
-    if [[ $arr[2] =~ 'Your branch is' ]]; then
+    if [[ $arr[2] =~ 'Your branch' ]]; then
         if [[ $arr[2] =~ 'ahead' ]]; then
             __CURRENT_GIT_BRANCH_STATUS='ahead'
         elif [[ $arr[2] =~ 'diverged' ]]; then
             __CURRENT_GIT_BRANCH_STATUS='diverged'
-        else
+        elif [[ $arr[2] =~ 'behind' ]]; then
             __CURRENT_GIT_BRANCH_STATUS='behind'
+        else
+            __CURRENT_GIT_BRANCH_STATUS=''
         fi
     fi
 
