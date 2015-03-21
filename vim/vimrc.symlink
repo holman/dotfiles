@@ -61,6 +61,7 @@ set mouse=a
 set noerrorbells
 set novisualbell
 set number
+set relativenumber
 set ruler
 set shiftwidth=2
 set showmatch
