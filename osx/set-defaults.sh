@@ -266,7 +266,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Enable spring loading for directories
-defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+defaults write NSGlobalDomain com.apple.springing.enabled -bool false
 
 # Remove the spring loading delay for directories
 defaults write NSGlobalDomain com.apple.springing.delay -float 0.5
