@@ -271,9 +271,9 @@ install_powerline () {
   if [[ $code -ne 0 ]]
   then
     # There is an arch package, but I'd like this to be OS agnostic
-    ~/.local/bin/pip install powerline-status
+    ~/.local/bin/pip install --user powerline-status
   else
-    ~/Library/Python/2.7/bin/pip install powerline-status
+    ~/Library/Python/2.7/bin/pip install --user powerline-status
   fi
 
 
@@ -284,10 +284,21 @@ install_powerline () {
   success 'installed powerline'
 }
 
+download_powerline_symbols () {
+  info 'downloading the powerline symbols font'
+
+  mkdir -p ~/.local/share/fonts
+  mkdir -p ~/.config/fontconfig/conf.d
+
+  curl -o ~/.local/share/fonts/PowerLineSymbols.otf 'https://raw.githubusercontent.com/Lokaltog/powerline/develop/font/PowerlineSymbols.otf'
+  curl -o ~/.config/fontconfig/conf.d/10-powerline-symbols.conf 'https://raw.githubusercontent.com/Lokaltog/powerline/develop/font/10-powerline-symbols.conf'
+}
+
 setup_gitconfig
 install_dotfiles
 update_submodules
 run_vundle
+download_powerline_symbols
 generate_font_cache
 init_command_t
 setup_oh_my_zsh
