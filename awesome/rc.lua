@@ -278,6 +278,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
     -- Added by me
     awful.key({ modkey }, "\\", function() awful.util.spawn('xterm -e top') end),
+    awful.key({ modkey }, "c", function() awful.util.spawn('playerctl play-pause') end),
     awful.key({ modkey,           }, "s", function () awful.util.spawn('xscreensaver-command -lock') end)
 )
 
