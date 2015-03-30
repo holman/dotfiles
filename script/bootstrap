@@ -272,8 +272,11 @@ install_powerline () {
   then
     # There is an arch package, but I'd like this to be OS agnostic
     ~/.local/bin/pip install --user powerline-status
+    echo "source `ls ~/.local/lib/python/3.4/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
   else
     ~/Library/Python/2.7/bin/pip install --user powerline-status
+    ~/Library/Python/2.7/bin/pip install --user psutil
+    echo "source `ls ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
   fi
 
 

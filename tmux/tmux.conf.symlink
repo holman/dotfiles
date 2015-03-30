@@ -31,9 +31,12 @@ bind R source-file ~/.tmux.conf \; display-message "Config reloaded!"
 # Yeah, it's hard coded, couldn't get it not hardcoded, but we should have 
 # powerline installed in python2 land regardless and if we don't have 2.7 on 
 # the machine why the hell would we have tmux?
-source "$HOME/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf"
+#source "$TMUX_POWERLINE_CONFIG"
+source "$HOME/.tmux_powerline.conf"
 
 #Titles
 set -g set-titles on
-set -g set-titles-string 'tmux:#S:#I'
+set -g set-titles-string "foo $TMUX_POWERLINE_CONFIG asdf"
+#set -g set-titles-string 'tmux:#S:#I'
 set -g automatic-rename
+set-option -g default-shell /bin/zsh
