@@ -250,34 +250,48 @@ install_pip () {
   success 'installed pip'
 }
 
-install_powerline () {
-  info 'installing powerline'
+install_the_fuck () {
+  info 'installing the fuck'
+  local_pip_install 'thefuck'
+  success 'installed the fuck'
+  
+}
 
-  set +e
-  python -c 'import sys; sys.version_info < (2,6) and sys.exit(1)'
-  code=$?
-  set -e
-  if [[ $code -ne 0 ]]
-  then
-    info 'Python version looks old, skipping powerline and pip'
-    return
-  fi
-
-  install_pip
+local_pip_install () {
   set +e
   uname -a |grep 'Darwin'
   code=$?
   set -e
   if [[ $code -ne 0 ]]
   then
-    # There is an arch package, but I'd like this to be OS agnostic
-    ~/.local/bin/pip install --user powerline-status
+    ~/.local/bin/pip install --user $1
+  else
+    ~/Library/Python/2.7/bin/pip install --user $1
+  fi
+}
+
+set_tmux_powerline_config () {
+  set +e
+  python -c 'import sys; sys.version_info < (2,6) and sys.exit(1)'
+  code=$?
+  set -e
+  if [[ $code -ne 0 ]]
+  then
     echo "source `ls ~/.local/lib/python/3.4/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
   else
-    ~/Library/Python/2.7/bin/pip install --user powerline-status
-    ~/Library/Python/2.7/bin/pip install --user psutil
+    local_pip_install 'psutil'
     echo "source `ls ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
   fi
+}
+
+install_powerline () {
+  info 'installing powerline'
+
+  set_tmux_powerline_config
+
+  install_pip
+
+  local_pip_install 'powerline-status'
 
 
   src="$(pwd)/powerline"
@@ -306,6 +320,7 @@ generate_font_cache
 init_command_t
 setup_oh_my_zsh
 install_powerline
+install_the_fuck
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
