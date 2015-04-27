@@ -11,6 +11,8 @@ alias bah='eval $(thefuck $(fc -ln -1))'
 alias grr='eval $(thefuck $(fc -ln -1))'
 alias grrr='eval $(thefuck $(fc -ln -1))'
 alias grrrr='eval $(thefuck $(fc -ln -1))'
+alias phrasing='eval $(thefuck $(fc -ln -1))'
+alias YUNO='eval $(thefuck $(fc -ln -1))'
 
 alias fucking='sudo'
 alias please='sudo'

@@ -59,7 +59,6 @@ link_file () {
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
 
-
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then
 
@@ -137,6 +136,15 @@ install_dotfiles () {
   done
 
   install_awesome_config
+  update_submodules
+  run_vundle
+  download_powerline_symbols
+  # I think the font-config symbols stuff means I don't need to call this
+  # generate_font_cache
+  init_command_t
+  setup_oh_my_zsh
+  install_powerline
+  install_the_fuck
 
   success 'laid down dotfiles'
 }
@@ -311,16 +319,10 @@ download_powerline_symbols () {
   curl -o ~/.config/fontconfig/conf.d/10-powerline-symbols.conf 'https://raw.githubusercontent.com/Lokaltog/powerline/develop/font/10-powerline-symbols.conf'
 }
 
+
 setup_gitconfig
 install_dotfiles
-update_submodules
-run_vundle
-download_powerline_symbols
-generate_font_cache
-init_command_t
-setup_oh_my_zsh
-install_powerline
-install_the_fuck
+
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
