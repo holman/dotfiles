@@ -43,6 +43,7 @@ Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'rking/ag.vim'
 Bundle 'FelikZ/ctrlp-py-matcher'
+Bundle 'ludovicchabant/vim-gutentags'
 
 syntax enable
 
