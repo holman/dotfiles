@@ -187,10 +187,11 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_java_checkers = []
 " Syntastic / Eclim
 " Only Java validation is done by Eclim
-let g:EclimFileTypeValidate = 0
 let g:EclimJavaValidate = 1
+let g:EclimXmlValidate = 0
 
 " Make mappings
 if filereadable('/proc/cpuinfo')
@@ -308,6 +309,11 @@ nmap <leader>f :e %:h<cr>
 nnoremap <leader>t :TagbarOpen fj<cr>
 " show line numbers in tagbar
 let g:tagbar_show_linenumbers=-1
+
+" some java eclim mappings
+nnoremap <leader>i :JavaImport<cr>
+nnoremap <leader>d :JavaDocSearch -x declarations<cr>
+nnoremap <leader>s :JavaSearchContext<cr>
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
