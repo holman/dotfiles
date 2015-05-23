@@ -9,3 +9,7 @@ notify_*.txt
 .gitreview
 tags
 .vimrc
+# For vim-gutentags
+tags.temp
+tags.lock
+
