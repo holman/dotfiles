@@ -36,7 +36,6 @@ source "$HOME/.tmux_powerline.conf"
 
 #Titles
 set -g set-titles on
-set -g set-titles-string "foo $TMUX_POWERLINE_CONFIG asdf"
-#set -g set-titles-string 'tmux:#S:#I'
+set -g set-titles-string 'tmux:#S:#I'
 set -g automatic-rename
 set-option -g default-shell /bin/zsh

@@ -280,12 +280,12 @@ local_pip_install () {
 
 set_tmux_powerline_config () {
   set +e
-  python -c 'import sys; sys.version_info < (2,6) and sys.exit(1)'
+  python -c 'import sys; sys.version_info > (2,7) and sys.exit(1)'
   code=$?
   set -e
   if [[ $code -ne 0 ]]
   then
-    echo "source `ls ~/.local/lib/python/3.4/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
+    echo "source `ls ~/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
   else
     local_pip_install 'psutil'
     echo "source `ls ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
