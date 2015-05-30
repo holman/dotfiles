@@ -1,3 +1,15 @@
+# Source for profiling code:
+# http://stackoverflow.com/questions/4351244/can-i-profile-my-zshrc-zshenv
+# set the trace prompt to include seconds, nanoseconds, script name and line
+# number. This is GNU date syntax; by default Macs ship with the BSD date
+# program, which isn't compatible
+PS4='+$(date "+%s:%N") %N:%i> '
+# save file stderr to file descriptor 3 and redirect stderr (including trace
+# output) to a file with the script's PID as an extension
+exec 3>&2 2>/tmp/startlog.$$
+# set options to turn on tracing and expansion of commands contained in the prompt
+setopt xtrace prompt_subst
+
 # shortcut to this dotfiles path is $DOTS
 # if not using ALT_HOME use normal HOME
 if [ -z "$ALT_HOME" ]; then
@@ -13,11 +25,19 @@ fi
 
 DISABLE_UPDATE_PROMPT="true"
 
+echo Update check
+
+unsetopt xtrace
 # Periodically (typically once a day), update from github
 /usr/bin/env DOTS=$DOTS DISABLE_UPDATE_PROMPT=$DISABLE_UPDATE_PROMPT zsh -f $DOTS/script/check_for_upgrade.sh
+setopt xtrace prompt_subst
 
+echo Loading preamble
+
+unsetopt xtrace
 # First, load oh-my-zsh
 source $DOTS/zsh/oh-my.zsh.preamble
+setopt xtrace prompt_subst
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Documents/repos/
@@ -26,22 +46,39 @@ export PROJECTS=~/Documents/repos/
 typeset -U config_files
 config_files=($DOTS/**/*.zsh)
 
+echo Loading path files
+
+unsetopt xtrace
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
   source $file
 done
+setopt xtrace prompt_subst
 
+echo Load all other config files
+
+unsetopt xtrace
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
+setopt xtrace prompt_subst
 
+echo Load completion files
+unsetopt xtrace
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
   source $file
 done
+setopt xtrace prompt_subst
+
+echo Done
 
 unset config_files
+# turn off tracing
+unsetopt xtrace
+# restore stderr to the value saved in FD 3
+exec 2>&3 3>&-
