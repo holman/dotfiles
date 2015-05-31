@@ -4,3 +4,4 @@ bind-key C-a last-window
 set -s escape-time 0
 setw -g aggressive-resize on
 set -g default-terminal "xterm-256color"
+set -g history-limit 30000
