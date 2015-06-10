@@ -10,7 +10,7 @@ export ZSH=$HOME/.dotfiles
 $ZSH/osx/set-defaults.sh
 
 # Upgrade homebrew
-brew update
+brew update && brew upgrade brew-cask
 
 # Install homebrew
 $ZSH/homebrew/install.sh 2>&1
@@ -23,4 +23,4 @@ brew cask install $(cat $HOME/.brewcaskfile|grep -v "#")
 
 brew alfred link
 
-brew cleanup
+brew cleanup && brew cask cleanup
