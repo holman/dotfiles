@@ -1,0 +1,20 @@
+# brew cask install dev tools
+iterm2
+sublime-text-3
+vagrant
+virtualbox
+# brew cask install apps
+alfred
+caffeine
+cakebrew
+dropbox
+evernote
+google-drive
+google-hangouts
+hipchat
+join-me
+skype
+the-unarchiver
+# brew cask install browsers
+firefox
+google-chrome

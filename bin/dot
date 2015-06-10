@@ -12,5 +12,15 @@ $ZSH/osx/set-defaults.sh
 # Upgrade homebrew
 brew update
 
-# Install homebrew packages
+# Install homebrew
 $ZSH/homebrew/install.sh 2>&1
+
+brew tap $(cat $HOME/.brewtapfile|grep -v "#")
+
+brew install $(cat $HOME/.brewfile|grep -v "#")
+
+brew cask install $(cat $HOME/.brewcaskfile|grep -v "#")
+
+brew alfred link
+
+brew cleanup

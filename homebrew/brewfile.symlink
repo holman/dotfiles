@@ -1,0 +1,9 @@
+coreutils
+findutils
+bash
+grep
+hub
+node
+rbenv
+ruby-build
+brew-cask
