@@ -43,7 +43,9 @@ Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'rking/ag.vim'
 Bundle 'FelikZ/ctrlp-py-matcher'
-Bundle 'ludovicchabant/vim-gutentags'
+Bundle 'xolox/vim-easytags'
+" Needed for vim-easytags
+Bundle 'xolox/vim-misc'
 
 syntax enable
 
@@ -314,6 +316,8 @@ let g:tagbar_show_linenumbers=-1
 nnoremap <leader>i :JavaImport<cr>
 nnoremap <leader>d :JavaDocSearch -x declarations<cr>
 nnoremap <leader>s :JavaSearchContext<cr>
+" Configure vim-easytags
+let g:easytags_auto_highlight = 0
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
