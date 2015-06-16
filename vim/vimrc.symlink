@@ -316,6 +316,8 @@ let g:tagbar_show_linenumbers=-1
 nnoremap <leader>i :JavaImport<cr>
 nnoremap <leader>d :JavaDocSearch -x declarations<cr>
 nnoremap <leader>s :JavaSearchContext<cr>
+nnoremap <leader>p :ProjectProblems!<cr>
+
 " Configure vim-easytags
 let g:easytags_auto_highlight = 0
 
