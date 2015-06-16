@@ -12,4 +12,4 @@ tags
 # For vim-gutentags
 tags.temp
 tags.lock
-
+.gitreview
