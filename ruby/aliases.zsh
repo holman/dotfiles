@@ -7,3 +7,5 @@ alias ret='RAILS_ENV=test '
 alias rspec="nocorrect rspec"
 alias jruby="nocorrect jruby"
 alias be='bundle exec'
+
+alias bumble='bundle'
