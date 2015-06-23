@@ -1,8 +1,9 @@
 # brew cask install dev tools
 iterm2
-sublime-text-3
+sublime-text3
 vagrant
 virtualbox
+java
 # brew cask install apps
 alfred
 caffeine
@@ -12,9 +13,10 @@ evernote
 google-drive
 google-hangouts
 hipchat
-join-me
+joinme
 skype
 the-unarchiver
+ringcentral
 # brew cask install browsers
 firefox
 google-chrome

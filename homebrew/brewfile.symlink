@@ -6,4 +6,15 @@ hub
 node
 rbenv
 ruby-build
+python
 brew-cask
+ec2-api-tools
+auto-scaling
+aws-cfn-tools
+aws-elasticache
+aws-elasticbeanstalk
+aws-sns-cli
+cloud-watch
+ec2-ami-tools
+elb-tools
+rds-command-line-tools

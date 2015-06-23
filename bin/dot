@@ -15,12 +15,12 @@ brew update && brew upgrade brew-cask
 # Install homebrew
 $ZSH/homebrew/install.sh 2>&1
 
-brew tap $(cat $HOME/.brewtapfile|grep -v "#")
+while read p; do
+	brew tap $p
+done <$HOME/.brewtapfile
 
 brew install $(cat $HOME/.brewfile|grep -v "#")
 
 brew cask install $(cat $HOME/.brewcaskfile|grep -v "#")
-
-brew alfred link
 
 brew cleanup && brew cask cleanup
