@@ -24,3 +24,5 @@ brew install $(cat $HOME/.brewfile|grep -v "#")
 brew cask install $(cat $HOME/.brewcaskfile|grep -v "#")
 
 brew cleanup && brew cask cleanup
+
+pip install $(cat $HOME/.pipfile|grep -v "#")
