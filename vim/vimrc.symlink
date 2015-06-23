@@ -321,6 +321,9 @@ nnoremap <leader>d :JavaDocSearch -x declarations<cr>
 nnoremap <leader>s :JavaSearchContext<cr>
 nnoremap <leader>p :ProjectProblems!<cr>
 
+" Disable auto completion of log statements in java eclim
+let g:EclimLoggingDisabled = 1
+
 " Configure vim-easytags
 let g:easytags_auto_highlight = 0
 
