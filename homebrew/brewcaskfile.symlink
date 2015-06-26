@@ -4,6 +4,8 @@ sublime-text3
 vagrant
 virtualbox
 java
+atom
+kitematic
 # brew cask install apps
 alfred
 caffeine
@@ -17,6 +19,8 @@ joinme
 skype
 the-unarchiver
 ringcentral
+transmission
+vlc
 popcorn-time
 # brew cask install browsers
 firefox
