@@ -10,7 +10,7 @@ kitematic
 alfred
 caffeine
 cakebrew
-dropbox
+#dropbox
 evernote
 google-drive
 google-hangouts
@@ -22,6 +22,7 @@ ringcentral
 transmission
 vlc
 popcorn-time
+teamviewer
 # brew cask install browsers
 firefox
 google-chrome
