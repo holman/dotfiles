@@ -340,5 +340,17 @@ if executable("ag")
 endif
 
 
+let ag_additional_options = '--smart-case'
+" Set smart case for Ag
+if executable("ag")
+  " Copied from source for destinction between ag version from 0.25.0 onward
+  if split(system("ag --version"), "[ \n\r\t]")[2] =~ '\d\+.\(\(2[5-9]\)\|\([3-9][0-9]\)\)\(.\d\+\)\?'
+    let g:ag_prg="ag --vimgrep" . " " . ag_additional_options
+  else
+    " --noheading seems odd here, but see https://github.com/ggreer/the_silver_searcher/issues/361
+    let g:ag_prg="ag --column --nogroup --noheading" . " " . ag_additional_options
+  endif
+endif
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
