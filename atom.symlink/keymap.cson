@@ -17,8 +17,8 @@
 #   'ctrl-p': 'core:move-down'
 #
 
-'.platform-darwin .editor':
+'.platform-darwin atom-text-editor':
   'cmd-shift-k': 'find-and-replace:select-next'
 
-'.editor:not(.mini)':
+'atom-text-editor:not(.mini)':
   'cmd-d': 'editor:delete-line'
