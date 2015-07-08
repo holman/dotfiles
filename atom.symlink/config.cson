@@ -40,10 +40,10 @@
   react: {}
   linter: {}
   minimap: {}
-".coffee.jsx.source":
+".js.jsx.source":
   editor:
     autoIndentOnPaste: true
-".js.jsx.source":
+".coffee.jsx.source":
   editor:
     autoIndentOnPaste: true
 ".js.source":
