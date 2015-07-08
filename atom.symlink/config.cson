@@ -1,36 +1,51 @@
-'*':
-  'editor':
-    'fontFamily': 'Monaco'
-    'fontSize': 14
-    'showIndentGuide': true
-  'core':
-    'ignoredNames': [
-      '.bundle'
-      '.git'
-      'log'
-      'repositories'
-      'tmp'
-      '.tmp'
+"*":
+  editor:
+    showIndentGuide: true
+    fontFamily: "Monaco"
+    invisibles: {}
+    scrollPastEnd: true
+  core:
+    ignoredNames: [
+      ".bundle"
+      ".git"
+      "log"
+      "repositories"
+      "tmp"
+      ".tmp"
     ]
-    'disabledPackages': [
-      'exception-reporting'
-      'metrics'
+    hideGitIgnoredFiles: true
+    disabledPackages: [
+      "exception-reporting"
+      "metrics"
     ]
-    'themes': [
-      'seti-ui'
-      'base16-tomorrow-dark-theme'
+    projectHome: "~/Code"
+    themes: [
+      "seti-ui"
+      "base16-tomorrow-dark-theme"
     ]
-    'projectHome': '~/Code'
-  'spell-check':
-    'grammars': [
-      'text.plain'
-      'source.gfm'
-      'text.git-commit'
+  "spell-check":
+    grammars: [
+      "text.plain"
+      "source.gfm"
+      "text.git-commit"
     ]
-  'welcome':
-    'showOnStartup': false
-  'release-notes':
-    'viewedVersion': '0.89.0'
-  'autocomplete-plus':
-    'autoActivationDelay': 1
-  'linter': {}
+  welcome:
+    showOnStartup: false
+  "release-notes":
+    viewedVersion: "0.89.0"
+  "autocomplete-plus":
+    autoActivationDelay: 1
+  "atom-beautify":
+    _analyticsUserId: "b2fd3f78-10ca-43ea-94b0-69b5606e924a"
+  react: {}
+  linter: {}
+  minimap: {}
+".coffee.jsx.source":
+  editor:
+    autoIndentOnPaste: true
+".js.jsx.source":
+  editor:
+    autoIndentOnPaste: true
+".js.source":
+  editor:
+    showInvisibles: false
