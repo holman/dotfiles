@@ -92,6 +92,7 @@ set autoindent
 set wildmenu
 set ttyfast
 set relativenumber
+set number
 set undofile
 set noautochdir
 
