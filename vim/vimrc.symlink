@@ -297,7 +297,7 @@ au FileType tex syntax spell toplevel
 au FileType vimwiki setlocal spell
 
 " vim-wiki options
-let g:vimwiki_folding='expr'
+let g:vimwiki_folding='list'
 au FileType vimwiki setlocal textwidth=120 colorcolumn=""
 
 " Indent-sentence mapping
