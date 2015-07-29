@@ -9,7 +9,14 @@
 if test ! $(which brew)
 then
   echo "  Installing Homebrew for you."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  # Install the correct homebrew for each OS type
+  if [ "$(uname)" == "Darwin" ]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+  fi
+  
 fi
 
 # Install homebrew packages
