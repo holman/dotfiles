@@ -52,3 +52,6 @@ prompt pure
 #ZSH_THEME="steeef"
 ZSH_THEME="pure"
 DEFAULT_USER="luizdamim"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
