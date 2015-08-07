@@ -1,1 +1,1 @@
-for f in *.rar; do unrar x -ad $f; rm $f; done
+for f in ~/Downloads/legenda*.rar; do unrar x -ad $f ~/uTorrent; rm $f; done
