@@ -55,3 +55,6 @@ DEFAULT_USER="luizdamim"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Docker
+eval `boot2docker shellinit 2>/dev/null`
