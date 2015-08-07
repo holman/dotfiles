@@ -46,7 +46,9 @@ unset config_files
 
 autoload -Uz promptinit
 promptinit
-prompt steeef
+#prompt steeef
+prompt pure
 
-ZSH_THEME="steeef"
+#ZSH_THEME="steeef"
+ZSH_THEME="pure"
 DEFAULT_USER="luizdamim"
