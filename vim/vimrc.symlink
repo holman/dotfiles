@@ -42,6 +42,7 @@ colorscheme sexy-railscasts-256
 " Make search nicer
 set incsearch
 set ignorecase
+set smartcase " worry about case if specified
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
