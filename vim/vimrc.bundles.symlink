@@ -1,0 +1,35 @@
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+if &compatible
+  set nocompatible
+end
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+" Define bundles via Github repos
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-ruby/vim-ruby'
+" https://github.com/christoomey/vim-tmux-navigator
+" Allow easier tmux window nav
+Plugin 'christoomey/vim-tmux-navigator'
+" CS syntax highlighting
+Plugin 'kchmck/vim-coffee-script'
+" https://github.com/thoughtbot/vim-rspec
+" This is a lightweight RSpec runner for Vim and MacVim.
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'scrooloose/nerdtree'
+
+call vundle#end()
+filetype on
