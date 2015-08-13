@@ -1,5 +1,6 @@
-call pathogen#infect()
-syntax enable
+" vim-pathogen: https://github.com/tpope/vim-pathogen
+execute pathogen#infect()
+syntax on
 filetype plugin indent on
 
 set noswapfile
@@ -9,14 +10,13 @@ set shiftwidth=2          " of columns used when using << or >>
 set softtabstop=2         " deleting tab spaces consistently
 set expandtab             " tab in insert mode uses spaces
 
-" CtrlP
+" ctrlp: https://github.com/kien/ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = 'scssc'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.woff,*.ttf,*.dump,*/node_modules/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.woff,*.ttf,*.dump,*/node_modules/*,*.scssc
 
-" Theme settings
+" color settings
 set background=dark
 colorscheme solarized
 
@@ -48,7 +48,7 @@ set backspace=indent,eol,start
 set autoindent            " automatic indent new lines
 set smartindent           " be smart about it
 set nowrap                " do not wrap lines
-set ruler                 " show the cursor position at all times
+" set ruler                 " show the cursor position at all times
 set number                " show line numbers
 set ch=1                  " set command area height
 set whichwrap+=<,>,h,l,[,]  " backspace and cursor keys wrap lines
@@ -60,15 +60,8 @@ set hlsearch              " highlight searches
 set nolazyredraw          " turn off lazy redraw
 set ttyfast               " always assume a fast connection
 
-" fix 'No newline at end of file' git diff changes
-" from: http://askubuntu.com/a/13324
-set binary
-
 " toggle paste mode
 set pastetoggle=<leader>p
-
-" highlight current line
-set cursorline
 
 " Don’t keep results highlighted after searching...
 set nohlsearch
@@ -81,16 +74,6 @@ set ignorecase
 
 " ...except if we input a capital letter
 set smartcase
-
-" Show invisible characters
-nmap <leader>l :set list!<CR>
-
-" retab current line
-nmap <leader>t :.retab<CR>
-
-" Customize tab and EOL characters
-set listchars=tab:▸\ ,eol:¬
-
 
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
@@ -105,15 +88,6 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
-" Strip all trailing whitespace in file
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-command! StripWhitespace :%s/\s\+$
-
-" Automatically removed whitespace when saving file
+" automatically remove whitespace when saving file
 autocmd BufWritePre * :%s/\s\+$//e
 
-" manually set expandtab when entering buffers
-" TODO: why isn't this working automotically?
-autocmd BufEnter * :set expandtab
-
-autocmd BufNewFile,BufRead :set expandtab
