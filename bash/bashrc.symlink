@@ -10,3 +10,5 @@ do
 	source $config_file
 done
 
+# z.sh https://github.com/rupa/z/blob/master/z.sh
+. ~/.dotfiles/bash/z.sh
