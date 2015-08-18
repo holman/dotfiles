@@ -1,4 +1,8 @@
-# holman does dotfiles
+# holman does dotfiles (forked)
+
+**disclaimer:**
+*This repo is a fork from https://github.com/holman/dotfiles. If you want get the latest version you should use the original one.
+My fork contains personal settings that in some case are different from the other ones.*
 
 ## dotfiles
 
