@@ -328,6 +328,11 @@ nnoremap <leader>p :ProjectProblems!<cr>
 let g:EclimLoggingDisabled = 1
 
 " Configure vim-easytags
+set tags=./tags
+" Use tags file relative to current working directory
+set cpo+=d
+" Only us project specific tag files
+let g:easytags_dynamic_files = 2
 let g:easytags_auto_highlight = 0
 
 let ag_additional_options = '--smart-case'
