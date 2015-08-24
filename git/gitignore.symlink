@@ -13,3 +13,4 @@ tags
 tags.temp
 tags.lock
 .gitreview
+.jira-url
