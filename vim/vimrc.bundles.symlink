@@ -30,6 +30,9 @@ Plugin 'kchmck/vim-coffee-script'
 " This is a lightweight RSpec runner for Vim and MacVim.
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/nerdtree'
+" https://github.com/bling/vim-airline
+" Better status line
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 filetype on
