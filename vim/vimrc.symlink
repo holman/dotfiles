@@ -122,6 +122,10 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" Settings for vim-airline
+let g:airline_theme='bubblegum'
+set laststatus=2
+
 " Settings for CtrlP
 
 " Ignoring Directories
