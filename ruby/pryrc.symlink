@@ -10,3 +10,17 @@ end
 Pry::Commands.command /^$/, "repeat last command" do
   _pry_.run_command Pry.history.to_a.last
 end
+
+begin
+  require 'awesome_print'
+  # AwesomePrint.pry!
+
+  AwesomePrint.defaults = {
+    :indent => -2,
+    :color => {
+      :hash  => :pale,
+      :class => :white
+    }
+  }
+rescue LoadError
+end
