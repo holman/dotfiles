@@ -131,6 +131,10 @@ set laststatus=2
 " Ignoring Directories
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
+" Close NERDTree window
+let g:ctrlp_dont_split = 'NERD'
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " " Indent if we're at the beginning of a line. Else, do completion.
