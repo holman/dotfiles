@@ -360,5 +360,8 @@ if executable("ag")
   endif
 endif
 
+" Add yaml file type for salt sls files
+au BufEnter *.sls set ft=yaml
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
