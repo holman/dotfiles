@@ -37,5 +37,8 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-bundler.git'
 
+" https://github.com/tpope/vim-surround
+Plugin 'tpope/vim-surround.git'
+
 call vundle#end()
 filetype on
