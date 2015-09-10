@@ -32,9 +32,13 @@ alias c='clear'
 
 ## Git
 alias gd='git diff'
+alias gds='gd --staged'
+alias gdo='gd @{u}'
 alias gc='git commit --verbose'
 alias gca='gc -a'
 alias gs='git status'
+alias ga='git add'
+alias gad='ga -A .'
 
 ## Vim
 alias v='vim .'
