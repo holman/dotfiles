@@ -46,6 +46,10 @@ def r
   reload!
 end
 
+def c
+  clear
+end
+
 # Uncomment the following line if you want to remove SQL query output:
 # ActiveRecord::Base.logger.level = 1 if defined? ActiveRecord::Base
 
