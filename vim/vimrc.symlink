@@ -43,9 +43,10 @@ Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'rking/ag.vim'
 Bundle 'FelikZ/ctrlp-py-matcher'
-Bundle 'xolox/vim-easytags'
+Bundle 'ludovicchabant/vim-gutentags'
+" Bundle 'xolox/vim-easytags'
 " Needed for vim-easytags
-Bundle 'xolox/vim-misc'
+" Bundle 'xolox/vim-misc'
 
 syntax enable
 
@@ -327,13 +328,13 @@ nnoremap <leader>p :ProjectProblems!<cr>
 " Disable auto completion of log statements in java eclim
 let g:EclimLoggingDisabled = 1
 
-" Configure vim-easytags
+" Configure vim-easytags / tags in general
 set tags=./tags
 " Use tags file relative to current working directory
 set cpo+=d
 " Only us project specific tag files
-let g:easytags_dynamic_files = 2
-let g:easytags_auto_highlight = 0
+" let g:easytags_dynamic_files = 2
+" let g:easytags_auto_highlight = 0
 
 let ag_additional_options = '--smart-case'
 " Set smart case for Ag
