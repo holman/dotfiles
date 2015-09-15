@@ -361,6 +361,18 @@ if executable("ag")
   endif
 endif
 
+" Ag short cut to search with current and parent directories
+" Basic idea: http://vim.wikia.com/wiki/Invoke_a_function_with_a_count_prefix
+" http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
+" The count supplies how many parent directories we should traverse up
+" 0 indicates to just search within the directory of the current file
+function! AgParentSearch(parents)
+  execute 'Ag '.shellescape(expand("<cword>")).' %'.(repeat(':h', a:parents + 1))
+endfunction
+
+command! -nargs=1 AgParentSearch call AgParentSearch(<args>)
+noremap <leader>a :<C-U>AgParentSearch(v:count)<CR>
+
 " Add yaml file type for salt sls files
 au BufEnter *.sls set ft=yaml
 
