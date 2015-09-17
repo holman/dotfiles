@@ -134,6 +134,11 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 " Close NERDTree window
 let g:ctrlp_dont_split = 'NERD'
 
+" Settings for NERDTree
+
+" Toggle NERDTree like Sublime's sidebar
+nmap <Leader>kb :NERDTreeToggle<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
