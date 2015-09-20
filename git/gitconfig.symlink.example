@@ -45,3 +45,6 @@
   tool=diffpdf
 [difftool "diffpdf"]
   cmd="diff-pdf \"$LOCAL\" \"$REMOTE\" --view"
+[git-p4]
+	detectRename = true
+  allowSubmit = master
