@@ -15,7 +15,7 @@ call vundle#rc()
 " call vundle#rc(path)
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " Forked for a fix of sign column highlighting
 Bundle 'kaihowl/vim-indent-sentence'
