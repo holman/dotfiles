@@ -1,0 +1,13 @@
+#!/bin/sh
+# Source:
+# http://stackoverflow.com/questions/6315459/git-command-to-save-a-stash-without-modifying-working-tree
+# git-stash-push
+# Push working tree onto the stash without modifying working tree.
+# First argument (optional) is the stash message.
+if [ -n "$1" ]; then
+        git update-ref -m "$1" refs/stash "$(git stash create \"$1\")"
+else
+        HASH=`git stash create`
+        MESSAGE=`git log --no-walk --pretty="tformat:%-s" "$HASH"`
+        git update-ref -m "$MESSAGE" refs/stash "$HASH"
+fi
