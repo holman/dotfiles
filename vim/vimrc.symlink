@@ -136,7 +136,7 @@ nnoremap <leader>gri :Git rebase -i @{u}<cr>
 nnoremap <leader>g- :Silent Git stash -u<cr>:windo e<cr>
 nnoremap <leader>g+ :Silent Git stash pop<cr>:windo e<cr>
 " Git snapshot (stash everything, and apply again immediately)
-nnoremap <leader>g0 :Silent Git stash -u <bar> Git stash apply<cr>
+nnoremap <leader>g0 :Silent ! git-stash-push<cr>
 
 " Git diff mapping 'accept and next'
 nnoremap <leader>n do]c
