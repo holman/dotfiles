@@ -16,10 +16,10 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## install
 
-Run this:
+Run this for this fork of https://github.com/holman/dotfiles.git :
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/donnoman/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
