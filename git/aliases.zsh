@@ -23,6 +23,7 @@ alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gsmu='git submodule update --init'
 alias gsms='git submodule sync'
 alias gsl="git stash list --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias gsp="git-stash-push"
 alias grm="git rm"
 alias gru="git rebase @{u}"
 alias gdt="git difftool"
