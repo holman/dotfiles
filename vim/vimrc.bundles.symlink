@@ -40,5 +40,8 @@ Plugin 'tpope/vim-bundler.git'
 " https://github.com/tpope/vim-surround
 Plugin 'tpope/vim-surround.git'
 
+" https://github.com/tpope/vim-dispatch
+Plugin  'tpope/vim-dispatch'
+
 call vundle#end()
 filetype on
