@@ -116,6 +116,10 @@ let g:tmux_navigator_save_on_switch = 1
 
 " Settings from vim-rspec
 " https://github.com/thoughtbot/vim-rspec
+
+" Use Zeus
+let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
+
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -155,3 +159,9 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
+
+
+" Various Mappings
+
+" Save on exit insert mode
+" noremap <C-[> <ESC>:w<CR>
