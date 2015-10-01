@@ -103,6 +103,9 @@ augroup vimrcEx
 
   " Remove extra lines at EOF
   autocmd BufWritePre * :%s/\n\{1,}\%$//e
+
+  " Source the vimrc after saving
+  autocmd bufwritepost .vimrc source $MYVIMRC
 augroup END
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -171,3 +174,6 @@ inoremap <s-tab> <c-n>
 
 " Save on exit insert mode
 " noremap <C-[> <ESC>:w<CR>
+
+" Leader command to easily edit vimrc
+nmap <leader>ev :vsplit $MYVIMRC<CR>
