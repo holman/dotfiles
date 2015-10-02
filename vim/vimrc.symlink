@@ -1,4 +1,33 @@
 set nocompatible
+
+" Vundle
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim 
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'wavded/vim-stylus'
+Plugin 'lilydjwg/colorizer'
+Plugin 'kien/ctrlp.vim'
+Plugin 'slim-template/vim-slim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'fatih/vim-go'
+
+" Bundle 'git://git.wincent.com/command-t.git'
+" Bundle '~/.vim/local-bundle/vim-statusline/plugin/statusline.vim'
+
+call vundle#end()
+
+filetype plugin indent on
+syntax on
+
 set backspace=indent,eol,start
 set langmenu=none
 set nowrap
@@ -19,27 +48,6 @@ set cursorline
 " Line Numbers
 set number
 set relativenumber
-
-" Vundle
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/ 
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-Bundle 'Yggdroot/indentLine'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'wavded/vim-stylus'
-Bundle 'lilydjwg/colorizer'
-
-" Bundle 'git://git.wincent.com/command-t.git'
-" Bundle '~/.vim/local-bundle/vim-statusline/plugin/statusline.vim'
-
-filetype plugin indent on
-syntax on
 
 if has("statusline") && !&cp
   set laststatus=2                    " Always show the status bar

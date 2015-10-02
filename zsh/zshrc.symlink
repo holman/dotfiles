@@ -45,3 +45,14 @@ do
 done
 
 unset config_files
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Load Local .envrc
+eval "$(direnv hook zsh)" # echo 'export GOPATH=$(PWD)' > .envrc
+
+# added by travis gem
+[ -f /Users/tmilewski/.travis/travis.sh ] && source /Users/tmilewski/.travis/travis.sh

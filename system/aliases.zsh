@@ -8,3 +8,5 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+alias gosp='export GOPATH=$(pwd);export GOBIN="$(pwd)/bin";export PATH=$PATH:$GOBIN;'

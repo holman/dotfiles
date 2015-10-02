@@ -11,7 +11,13 @@ if has("gui_macvim")
   set guioptions-=L 
 
   " Automatically Open NERDTree
-  au VimEnter *  NERDTree
+  " au VimEnter *  NERDTree
+
+  " Don't open NERDTree if no files were specified
+  autocmd vimenter * if !argc() | NERDTree | endif
+
+  " Map Command-n to Open NerdTree
+  map <C-n> :NERDTreeToggle<CR>
 
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert

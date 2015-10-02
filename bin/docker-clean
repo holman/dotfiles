@@ -1,0 +1,33 @@
+#!/bin/sh                                                                                                                                                                            
+
+remove_dangling() {
+   echo "Removing dangling images ..."
+   docker rmi $(docker images -f dangling=true -q)
+}
+
+remove_stopped_containers() {
+    echo "Removing stopped containers ..."
+    docker rm $(docker ps -qa)
+}
+
+case $1 in
+    images)
+        remove_dangling
+        ;;
+    containers)
+        read -p "Are you sure you want to remove all stopped containers?" -n 1 -r
+        echo  #                                                                                                                                                                      
+        if [[ $REPLY =~ ^[Yy]$ ]]
+        then
+            remove_stopped_containers
+        fi
+
+        ;;
+    *)
+        echo "                                                                                                                                                                       
+usage: docker-clean containers|images                                                                                                                                                
+    containers - removes all stopped containers it can.                                                                                                                              
+    images - removes dangling (un-needed) image layers - images you no longer need                                                                                                   
+"
+        ;;
+esac
