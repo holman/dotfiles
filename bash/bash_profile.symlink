@@ -39,6 +39,7 @@ alias gca='gc -a'
 alias gs='git status'
 alias ga='git add'
 alias gad='ga -A .'
+alias gl='git log'
 
 ## Vim
 alias v='vim .'

@@ -20,6 +20,12 @@ set number
 " Copy to system clipboard
 vmap <C-c> "+y
 
+" Default to moving around with softwarps
+nmap k gk
+nmap j gj
+nmap ^ g^
+nmap $ g$
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -97,6 +103,9 @@ augroup vimrcEx
 
   " Remove extra lines at EOF
   autocmd BufWritePre * :%s/\n\{1,}\%$//e
+
+  " Source the vimrc after saving
+  autocmd bufwritepost .vimrc source $MYVIMRC
 augroup END
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
@@ -116,6 +125,10 @@ let g:tmux_navigator_save_on_switch = 1
 
 " Settings from vim-rspec
 " https://github.com/thoughtbot/vim-rspec
+
+" Use Zeus
+let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
+
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -134,6 +147,11 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 " Close NERDTree window
 let g:ctrlp_dont_split = 'NERD'
 
+" Settings for NERDTree
+
+" Toggle NERDTree like Sublime's sidebar
+nmap <Leader>kb :NERDTreeToggle<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -150,3 +168,12 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
+
+
+" Various Mappings
+
+" Save on exit insert mode
+" noremap <C-[> <ESC>:w<CR>
+
+" Leader command to easily edit vimrc
+nmap <leader>ev :vsplit $MYVIMRC<CR>
