@@ -177,3 +177,10 @@ inoremap <s-tab> <c-n>
 
 " Leader command to easily edit vimrc
 nmap <leader>ev :vsplit $MYVIMRC<CR>
+
+" Leader to Rubocop current file
+nmap <leader>rc :call RubocopCurrentFile()<CR>
+
+function! RubocopCurrentFile()
+  execute "Dispatch rubocop " . bufname("%")
+endfunction
