@@ -86,4 +86,5 @@ set relativenumber
 map <C-n> :NERDTreeToggle<CR>
 
 nnoremap <SPACE> <Nop>
-let mapleader = "\<Space>"
+let mapleader = "\<Space>" 
+inoremap jk <esc>
