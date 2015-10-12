@@ -87,5 +87,8 @@ export EDITOR=vim
 # RPROMPT=' %z %m:%~'
 #
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # added by travis gem
 [ -f /Users/akrawiec/.travis/travis.sh ] && source /Users/akrawiec/.travis/travis.sh
