@@ -43,5 +43,9 @@ Plugin 'tpope/vim-surround.git'
 " https://github.com/tpope/vim-dispatch
 Plugin  'tpope/vim-dispatch'
 
+" http://sjl.bitbucket.org/gundo.vim/
+" Easier Vim time traveling
+Plugin 'sjl/gundo.vim'
+
 call vundle#end()
 filetype on

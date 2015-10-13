@@ -152,6 +152,8 @@ let g:ctrlp_dont_split = 'NERD'
 " Toggle NERDTree like Sublime's sidebar
 nmap <Leader>kb :NERDTreeToggle<CR>
 
+" Seetings for Gundo
+nmap <Leader>gu :GundoToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
