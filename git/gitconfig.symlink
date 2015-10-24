@@ -2,41 +2,41 @@
 #
 
 [hub]
-        protocol = https
+    protocol = https
 [user]
-        name = cwardzala
-        email = cwardzala@gmail.com
+    name = cwardzala
+    email = cwardzala@gmail.com
 [credential]
-        helper = osxkeychain
+    helper = osxkeychain
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
-        interactive = true
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+    interactive = true
 [core]
-	excludesfile = /Users/cwardzala/.gitignore
-        editor = vim
+    excludesfile = /Users/cwardzala/.gitignore
+    editor = vim
 [apply]
-        whitespace = nowarn
+    whitespace = nowarn
 [mergetool]
-        keepBackup = false
+    keepBackup = false
 [difftool]
-        prompt = false
+    prompt = false
 [help]
-        autocorrect = 1
+    autocorrect = 1
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to surpress warning message
-        default = simple
+    # See `git help config` (search for push.default)
+    # for more information on different options of the below setting.
+    #
+    # Setting to git 2.0 default to surpress warning message
+    default = simple
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true

@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/base16-tomorrow.dark (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/base16-tomorrow.dark (SL).tmTheme",
 	"copy_with_empty_selection": false,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
@@ -46,18 +46,22 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Enhanced HTML and CFML",
+		"cdnjs",
+		"HTML5",
+		"EJS",
+		"PHP Modern",
 		"SyncedSideBar",
-		"Markdown",
-		"JavaScript"
+		"JavaScript",
+		"Enhanced HTML and CFML",
+		"Vintage"
 	],
 	"index_files": false,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"preview_on_click": false,
+	"soda_folder_icons": false,
 	"tab_size": 4,
-	"theme": "Cobalt2.sublime-theme",
+	"theme": "Spacegray Eighties.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false

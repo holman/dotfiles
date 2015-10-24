@@ -17,7 +17,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Findawayworld
 
 export FLEX_HOME=$HOME/tools/flex-sdk
-
-export ATOM_PATH="/opt/homebrew-cask/Caskroom/atom/latest"
+export RBENV_ROOT=$HOME/.rbenv
 
 ## HOMEBREW_GITHUB_API_TOKEN moved to ~/.localrc
