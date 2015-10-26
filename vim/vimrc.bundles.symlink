@@ -47,5 +47,9 @@ Plugin  'tpope/vim-dispatch'
 " Easier Vim time traveling
 Plugin 'sjl/gundo.vim'
 
+" https://github.com/tpope/vim-fugitive
+" Git Wrapper for Vim
+Plugin 'tpope/vim-fugitive'
+
 call vundle#end()
 filetype on
