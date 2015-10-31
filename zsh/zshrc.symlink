@@ -13,8 +13,12 @@ fi
 
 DISABLE_UPDATE_PROMPT="true"
 
+echo Update check
+
 # Periodically (typically once a day), update from github
 /usr/bin/env DOTS=$DOTS DISABLE_UPDATE_PROMPT=$DISABLE_UPDATE_PROMPT zsh -f $DOTS/script/check_for_upgrade.sh
+
+echo Loading preamble
 
 # First, load oh-my-zsh
 source $DOTS/zsh/oh-my.zsh.preamble
@@ -26,11 +30,15 @@ export PROJECTS=~/Documents/repos/
 typeset -U config_files
 config_files=($DOTS/**/*.zsh)
 
+echo Loading path files
+
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
   source $file
 done
+
+echo Load all other config files
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
@@ -38,10 +46,13 @@ do
   source $file
 done
 
+echo Load completion files
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
   source $file
 done
+
+echo Done
 
 unset config_files
