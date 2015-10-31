@@ -29,3 +29,5 @@ endfunction
 nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
 
 let g:vimrubocop_config = '~/.rubocop.yml'
+
+set rtp+=/usr/local/Cellar/fzf/HEAD
