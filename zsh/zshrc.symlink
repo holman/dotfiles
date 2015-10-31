@@ -28,6 +28,8 @@ do
   source $file
 done
 
+fpath=(~/zsh-completions/src $fpath)
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
@@ -42,4 +44,4 @@ unset config_files
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-source ~/.completion/tmuxinator.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -139,7 +139,16 @@ install_dotfiles () {
   done
 }
 
+get_extra_zsh_completions () {
+    if [ ! -d ~/zsh-completions ]
+    then
+        echo 'test'
+        git clone git@github.com:zsh-users/zsh-completions.git ~/zsh-completions
+    fi
+}
+
 setup_gitconfig
+get_extra_zsh_completions
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
