@@ -18,4 +18,9 @@ alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
 # Work
 alias updatedev="bundle && rake db:migrate && foreman start"
 
+# kill process(es) on certain port
+killPortProcess() {
+  kill `lsof -t -i:$1`
+}
+alias killport=killPortProcess
 
