@@ -18,5 +18,7 @@
     wd = diff --color-words
     # list local branches, sorted by most recently committed to
     ls = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+    # roll local branch back one commit
+    rollback = git reset --hard HEAD~1
 [push]
   default = tracking
