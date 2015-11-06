@@ -15,8 +15,11 @@ alias cleanup="find . -name '*.DS_Store' -type f -delete"
 # https://gist.github.com/1525217
 alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
 
-# Work
-alias updatedev="bundle && rake db:migrate && foreman start"
+# git grep
+alias gg="git grep"
+
+# global agignore
+alias ag="ag --path-to-agignore=~/.agignore"
 
 # kill process(es) on certain port
 killPortProcess() {
