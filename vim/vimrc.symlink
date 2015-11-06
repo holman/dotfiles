@@ -57,7 +57,7 @@ set scrolloff=8           " keep 8 lines above and below cursor
 set showmatch             " bracket/brace highlighting
 set hlsearch              " highlight searches
 
-set nolazyredraw          " turn off lazy redraw
+set lazyredraw            " turn off lazy redraw
 set ttyfast               " always assume a fast connection
 
 " toggle paste mode
@@ -74,6 +74,9 @@ set ignorecase
 
 " ...except if we input a capital letter
 set smartcase
+
+" Highlight current line
+set cursorline
 
 " Indent if we're at the beginning of a line. Else, do completion.
 " (from Destroy All Software)
