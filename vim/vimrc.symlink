@@ -312,7 +312,7 @@ nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
 
 " add file in current dir explore shortcut
-nmap <leader>f :e %:h<cr>
+nmap - :Explore<cr>
 
 " open tagbar (and focus) (or jump to if open)
 nnoremap <leader>t :TagbarOpen fj<cr>
