@@ -1,0 +1,3 @@
+brew "grc"
+brew "coreutils"
+brew "spark"
