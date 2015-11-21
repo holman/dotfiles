@@ -142,13 +142,20 @@ install_dotfiles () {
 get_extra_zsh_completions () {
     if [ ! -d ~/zsh-completions ]
     then
-        echo 'test'
         git clone git@github.com:mattbeedle/zsh-completions.git ~/zsh-completions
+    fi
+}
+
+get_zsh_syntax_highlighting () {
+    if [ ! -d ~/zsh-syntax-highlighting ]
+    then
+        git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/zsh-syntax-highlighting
     fi
 }
 
 setup_gitconfig
 get_extra_zsh_completions
+get_zsh_syntax_highlighting
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.

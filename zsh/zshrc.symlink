@@ -44,4 +44,10 @@ unset config_files
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+define() {
+  curl -s "http://www.collinsdictionary.com/dictionary/english/$*" | sed -n '/class="def"/p' | awk '{gsub(/.*<span class="def">|<\/span>.*/,"");print}' | sed "s/<[^>]\+>//g";
+}
