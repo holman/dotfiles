@@ -148,6 +148,9 @@ nnoremap <leader>gf :Disp git fetch<cr>
 " Git mapping for finding conflict markers
 nnoremap <leader>c /\m\(<<<<\\|====\\|>>>>\)<cr>
 
+" Git review mapping
+nnoremap <leader>r :Disp git review<cr>
+
 " customize ctrlp plugin
 let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_map = '<c-p>'
