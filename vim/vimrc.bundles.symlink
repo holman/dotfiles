@@ -51,5 +51,8 @@ Plugin 'sjl/gundo.vim'
 " Git Wrapper for Vim
 Plugin 'tpope/vim-fugitive'
 
+" Highlighting for React's JSX
+Plugin 'mxw/vim-jsx'
+
 call vundle#end()
 filetype on
