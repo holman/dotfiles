@@ -18,8 +18,12 @@ then
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
   fi
-  
+
 fi
+
+# Install homebrew bundle and cask
+brew tap Homebrew/bundle
+brew install caskroom/cask/brew-cask
 
 # Install homebrew packages
 brew install grc coreutils spark
