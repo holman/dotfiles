@@ -24,6 +24,7 @@
       "exception-reporting"
       "metrics"
     ]
+    followSymlinks: false
   "spell-check":
     grammars: [
       "text.plain"
@@ -34,3 +35,5 @@
     showOnStartup: false
   "release-notes":
     viewedVersion: "0.89.0"
+  "go-plus":
+    goPath: "/Users/holman/Code/go"
