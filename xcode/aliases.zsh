@@ -1,1 +1,1 @@
-alias ios="open /Applications/Xcode.app/Contents/Applications/iOS\ Simulator.app"
+alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"

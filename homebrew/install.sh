@@ -18,10 +18,7 @@ then
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
   fi
-  
-fi
 
-# Install homebrew packages
-brew install grc coreutils spark
+fi
 
 exit 0
