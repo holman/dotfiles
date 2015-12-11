@@ -18,3 +18,4 @@ cloud-watch
 ec2-ami-tools
 elb-tools
 rds-command-line-tools
+awscli

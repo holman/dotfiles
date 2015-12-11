@@ -6,7 +6,9 @@ virtualbox
 java
 atom
 kitematic
+sourcetree
 # brew cask install apps
+adium
 alfred
 caffeine
 cakebrew
@@ -22,7 +24,8 @@ ringcentral
 transmission
 vlc
 popcorn-time
-teamviewer
+projectlibre
+spotify
 # brew cask install browsers
 firefox
 google-chrome
