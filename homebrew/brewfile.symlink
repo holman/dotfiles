@@ -7,7 +7,6 @@ node
 rbenv
 ruby-build
 python
-brew-cask
 ec2-api-tools
 auto-scaling
 aws-cfn-tools
