@@ -98,6 +98,7 @@ set number
 set relativenumber
 set undofile
 set noautochdir
+set diffopt=filler,iwhite
 
 let mapleader = ","
 
