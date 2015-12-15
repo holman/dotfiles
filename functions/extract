@@ -1,7 +1,10 @@
-# credit: http://nparikh.org/notes/zshrc.txt
+#!/bin/sh
+#
 # Usage: extract <file>
 # Description: extracts archived files / mounts disk images
 # Note: .dmg/hdiutil is Mac OS X-specific.
+#
+# credit: http://nparikh.org/notes/zshrc.txt
 extract () {
     if [ -f $1 ]; then
         case $1 in
@@ -17,6 +20,7 @@ extract () {
             *.ZIP)      unzip $1                            ;;
             *.pax)      cat $1 | pax -r                     ;;
             *.pax.Z)    uncompress $1 --stdout | pax -r     ;;
+            *.rar)      unrar x $1                          ;;
             *.Z)        uncompress $1                       ;;
             *)          echo "'$1' cannot be extracted/mounted via extract()" ;;
         esac
@@ -24,4 +28,3 @@ extract () {
         echo "'$1' is not a valid file"
     fi
 }
-
