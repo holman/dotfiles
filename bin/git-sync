@@ -1,0 +1,132 @@
+#!/bin/bash
+# Usage: git sync
+#
+# Fetches new objects from origin remote named either "upstream" or "origin",
+# then iterates over each local branch that corresponds to a remote branch and:
+#
+# - If the local branch is outdated, fast-forward it;
+# - If the local branch contains unpushed work, warn about it;
+# - If the branch seems merged and its upstream branch was deleted, delete it.
+#
+# If a local branch doesn't have any upstream configuration, but has a
+# same-named branch on the remote, assume that's its upstream branch.
+set -e
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+  -h | --help )
+    sed -ne '/^#/!q;s/.\{1,2\}//;1d;p' < "$0"
+    exit 0
+    ;;
+  * )
+    "$0" --help >&2
+    exit 1
+    ;;
+  esac
+  shift 1
+done
+
+GIT_DIR="$(git rev-parse --git-dir)"
+
+if [ -e "${GIT_DIR}/refs/remotes/upstream" ]; then
+  ORIGIN="upstream"
+else
+  ORIGIN="origin"
+fi
+
+if [ -t 1 ]; then
+  RED=$'\e[31m'
+  LIGHT_RED=$'\e[31;1m'
+  GREEN=$'\e[32m'
+  LIGHT_GREEN=$'\e[32;1m'
+  RESET=$'\e[0m'
+else
+  RED=""
+  LIGHT_RED=""
+  GREEN=""
+  LIGHT_GREEN=""
+  RESET=""
+fi
+
+main_branch() {
+  local remote="$1"
+  local head="$(cat "${GIT_DIR}/refs/remotes/${remote}/HEAD" 2>/dev/null)"
+  if [[ $head == "ref: "* ]]; then
+    echo "${head#ref: refs/remotes/${remote}/}"
+  else
+    return 1
+  fi
+}
+
+has_upstream_configuration() {
+  local branch="$1"
+  local remote="$(git config "branch.${branch}.remote")"
+  [ "$remote" = "$ORIGIN" ] || return 1
+}
+
+upstream_branch() {
+  local branch="$1"
+  local resolved=""
+  if resolved="$(git rev-parse --symbolic-full-name "${branch}@{upstream}" 2>/dev/null)"; then
+    echo "$resolved"
+  else
+    return 1
+  fi
+}
+
+is_ancestor() {
+  git merge-base --is-ancestor "$@"
+}
+
+git fetch "$ORIGIN" --prune --quiet --progress
+
+MASTER="$(main_branch "$ORIGIN")" || MASTER="master"
+CURRENT_BRANCH="$(git symbolic-ref --short --quiet HEAD || true)"
+
+git branch --list | \
+  while read -r local_branch; do
+    local_branch="${local_branch#* }"
+    remote_branch="refs/remotes/${ORIGIN}/${local_branch}"
+    gone=""
+
+    if has_upstream_configuration "$local_branch"; then
+      remote_branch="$(upstream_branch "$local_branch")" || gone=1
+    elif [ ! -e "${GIT_DIR}/${remote_branch}" ]; then
+      remote_branch=""
+    fi
+
+    if [ -n "$remote_branch" ]; then
+      shas=( `git rev-parse "$local_branch" "$remote_branch"` )
+      local_sha="${shas[0]}"
+      remote_sha="${shas[1]}"
+
+      if [ "$local_sha" = "$remote_sha" ]; then
+        : # branch is up to date.
+      elif is_ancestor "$local_branch" "$remote_branch"; then
+        # Local branch is behind
+        if [ "$local_branch" = "$CURRENT_BRANCH" ]; then
+          git merge --ff-only --quiet "$remote_branch"
+        else
+          git update-ref "refs/heads/${local_branch}" "$remote_branch"
+        fi
+        echo "${GREEN}Updated branch ${LIGHT_GREEN}${local_branch}${RESET} (was ${local_sha:0:7})."
+      else
+        # Local branch is ahead or diverged.
+        # TODO: Decide whether to try clean merge check + rebase here.
+        echo "warning: \`$local_branch' seems to contain unpushed commits" >&2
+      fi
+    elif [ -n "$gone" ]; then
+      # Upstream branch got deleted
+      if is_ancestor "$local_branch" "${ORIGIN}/${MASTER}"; then
+        if [ "$local_branch" = "$CURRENT_BRANCH" ]; then
+          git checkout --quiet "$MASTER"
+          CURRENT_BRANCH="$MASTER"
+        fi
+        local_sha="$(git rev-parse "$local_branch")"
+        git branch -D "$local_branch" >/dev/null
+        echo "${RED}Deleted branch ${LIGHT_RED}${local_branch}${RESET} (was ${local_sha:0:7})."
+      else
+        echo "warning: \`$local_branch' was deleted on $ORIGIN, but appears not merged into $MASTER" >&2
+      fi
+    fi
+  done
