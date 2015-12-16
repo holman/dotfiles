@@ -379,5 +379,7 @@ function! GutentagsAirline(...)
 endfunction
 autocmd VimEnter * call GutentagsAirline()
 
+autocmd FileType groovy set sw=4 ts=4 sta et fo=croql
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
