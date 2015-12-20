@@ -56,5 +56,5 @@ tell application "System Events" to tell process "System Preferences" to tell wi
 end tell
 
 tell application "System Preferences"
-    -- quit
+  quit
 end tell
