@@ -132,16 +132,15 @@ install_dotfiles () {
 
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
-    echo "From" ${src}
     dst="$HOME/.$(basename "${src%.*}")"
-    echo "To" ${dst}
     link_file "$src" "$dst"
   done
 }
 
 setup_gitconfig
 install_dotfiles
-#If we're on a Mac, let's install and setup homebrew.
+
+# If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"

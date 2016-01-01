@@ -12,7 +12,7 @@ plugins=(git virtualenv brew python)
 export DISABLE_LS_COLORS="true"
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code/
+export PROJECTS=~/Code
 
 autoload -U $ZSH/functions/*(:t)
 # Stash your environment variables in ~/.localrc. This means they'll stay out
@@ -36,7 +36,6 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-#    source $file
     if [ -z "$ZSH_THEME" ]; then
         case "${$(basename $file)%.*}" in
         oh-my-zsh)
@@ -75,5 +74,3 @@ do
 done
 
 unset config_files
-
-
