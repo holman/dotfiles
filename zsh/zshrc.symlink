@@ -1,9 +1,9 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=/tmp/dotfiles
+export ZSH=~/.dotfiles
 export OHZSH=~/.oh-my-zsh
 
 
-ZSH_THEME="random"
+ZSH_THEME="powerline"
 plugins=(git virtualenv brew python)
 
 
