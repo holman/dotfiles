@@ -1,9 +1,20 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export ZSH=/tmp/dotfiles
+export OHZSH=~/.oh-my-zsh
+
+
+ZSH_THEME="random"
+plugins=(git virtualenv brew python)
+
+
+
+# Avoid oh-my-zsh ls ls --color=tty problem
+export DISABLE_LS_COLORS="true"
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/Code/
 
+autoload -U $ZSH/functions/*(:t)
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -25,7 +36,32 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  source $file
+#    source $file
+    if [ -z "$ZSH_THEME" ]; then
+        case "${$(basename $file)%.*}" in
+        oh-my-zsh)
+#        echo $(basename $file) "Should be loadeddd"
+        ;;
+        *)
+        source $file
+        ;;
+        esac
+    else
+        case "${$(basename $file)%.*}" in
+        config|prompt|window)
+#        echo "ZSH_THEME is set to '$ZSH_THEME'" $(basename $file) "Should not be loaded"
+        ;;
+        oh-my-zsh)
+#        echo $(basename $file) "Should be loaded"
+        source $file
+        ;;
+        *)
+        source $file
+        ;;
+        esac
+    fi
+
+
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -39,3 +75,5 @@ do
 done
 
 unset config_files
+
+
