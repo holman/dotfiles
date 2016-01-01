@@ -14,7 +14,12 @@ export DISABLE_LS_COLORS="true"
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
-autoload -U $ZSH/functions/*(:t)
+#funcions completion problems when using oh-my-zsh themes
+if [ "$ZSH_THEME" ]; then
+    autoload -U $ZSH/functions/*(:t)
+fi
+
+
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
