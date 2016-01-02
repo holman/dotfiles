@@ -16,4 +16,5 @@ alias gca='git commit -a'
 alias gco='git checkout'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
+alias gpush='git add . && git commit -m '$RANDOM' && git push'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.

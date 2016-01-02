@@ -16,6 +16,6 @@ $ZSH/homebrew/install.sh 2>&1
 echo "› brew update"
 brew update
 
-# Install software
+# Install softwared
 echo "› $ZSH/script/install"
 $ZSH/script/install

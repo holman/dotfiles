@@ -1,8 +1,25 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export ZSH=~/.dotfiles
+export OHZSH=~/.oh-my-zsh
+
+
+ZSH_THEME="powerline"
+plugins=(git virtualenv brew)
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Avoid oh-my-zsh ls ls --color=tty problem
+export DISABLE_LS_COLORS="true"
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
+
+#funcions completion problems when using oh-my-zsh themes
+if [ "$ZSH_THEME" ]; then
+    autoload -U $ZSH/functions/*(:t)
+fi
+
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -25,7 +42,20 @@ done
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  source $file
+    if [ -z "$ZSH_THEME" ]; then
+        case "${$(basename $file)%.*}" in
+        oh-my-zsh);;
+        *) source $file;;
+        esac
+    else
+        case "${$(basename $file)%.*}" in
+        config|prompt|window);;
+        oh-my-zsh) source $file ;;
+        *) source $file ;;
+        esac
+    fi
+
+
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -39,3 +69,7 @@ do
 done
 
 unset config_files
+
+
+eval "$(pyenv init -)"
+

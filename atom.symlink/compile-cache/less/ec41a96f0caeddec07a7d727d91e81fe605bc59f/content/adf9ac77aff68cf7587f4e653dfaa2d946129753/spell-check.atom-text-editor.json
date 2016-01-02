@@ -1,0 +1,1 @@
+{"digest":"a75cbfb463ee06715f713cd1c1e4902e43cb5836","css":".spell-check-misspelling .region {\n  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);\n}\n","imports":[{"path":"static/variables/ui-variables.less","digest":"3b703d5c8511c09d0cc2c851f9099d683e6d2176"},{"path":"static/variables/syntax-variables.less","digest":"812c1b7883a023f768773d14294653adcdb932d7"}],"version":1}
