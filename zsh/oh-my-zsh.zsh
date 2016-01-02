@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 # Check for updates on initial load...
 if [ "$DISABLE_AUTO_UPDATE" != "true" ]; then
   env ZSH=$ZSH DISABLE_UPDATE_PROMPT=$DISABLE_UPDATE_PROMPT zsh -f $OHZSH/tools/check_for_upgrade.sh
@@ -11,13 +10,12 @@ fi
 
 # Load all stock functions (from $fpath files) called below.
 autoload -U compaudit compinit
-
 : ${ZSH_DISABLE_COMPFIX:=true}
 
 # Set ZSH_CUSTOM to the path where your custom config files
 # and plugins exists, or else we will use the default custom/
 if [[ -z "$ZSH_CUSTOM" ]]; then
-    ZSH_CUSTOM="$ZSH/custom"
+    ZSH_CUSTOM="$OHZSH/custom"
 fi
 
 # Set ZSH_CACHE_DIR to the path where cache files should be created
@@ -49,7 +47,7 @@ is_plugin() {
 for plugin ($plugins); do
   if is_plugin $ZSH_CUSTOM $plugin; then
     fpath=($ZSH_CUSTOM/plugins/$plugin $fpath)
-  elif is_plugin $ZSH $plugin; then
+  elif is_plugin $OHZSH $plugin; then
     fpath=($ZSH/plugins/$plugin $fpath)
   fi
 done
@@ -84,8 +82,8 @@ fi
 for plugin ($plugins); do
   if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
     source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
-  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
-    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+  elif [ -f $OHZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $OHZSH/plugins/$plugin/$plugin.plugin.zsh
   fi
 done
 

@@ -4,9 +4,10 @@ export OHZSH=~/.oh-my-zsh
 
 
 ZSH_THEME="powerline"
-plugins=(git virtualenv brew python)
+plugins=(git virtualenv brew)
 
-
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Avoid oh-my-zsh ls ls --color=tty problem
 export DISABLE_LS_COLORS="true"
@@ -43,25 +44,14 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
     if [ -z "$ZSH_THEME" ]; then
         case "${$(basename $file)%.*}" in
-        oh-my-zsh)
-#        echo $(basename $file) "Should be loadeddd"
-        ;;
-        *)
-        source $file
-        ;;
+        oh-my-zsh);;
+        *) source $file;;
         esac
     else
         case "${$(basename $file)%.*}" in
-        config|prompt|window)
-#        echo "ZSH_THEME is set to '$ZSH_THEME'" $(basename $file) "Should not be loaded"
-        ;;
-        oh-my-zsh)
-#        echo $(basename $file) "Should be loaded"
-        source $file
-        ;;
-        *)
-        source $file
-        ;;
+        config|prompt|window);;
+        oh-my-zsh) source $file ;;
+        *) source $file ;;
         esac
     fi
 
@@ -79,3 +69,7 @@ do
 done
 
 unset config_files
+
+
+eval "$(pyenv init -)"
+
