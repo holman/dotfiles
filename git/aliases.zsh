@@ -17,3 +17,23 @@ alias gco='git checkout'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+
+
+# custom git shortcuts
+alias g='git'
+alias gs='git status -sb'
+alias gcb='git checkout -b'
+alias gch='git checkout'
+alias gb='git branch'
+# alias gc='git commit -v'
+# alias gca='git commit -v -a'
+alias gd='git diff | $EDITOR'
+alias ga='git add'
+alias gl='git log'
+alias push='git push'
+alias pull='git pull'
+alias merge='git merge'
+
+alias such=git
+alias very=git
+alias wow='git status'
