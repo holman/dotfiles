@@ -36,5 +36,7 @@ set-option -g default-command "safe-reattach-to-user-namespace -l $SHELL"
 
 set-option -g history-limit 10000
 
+set-option -g renumber-windows on
+
 # use vim-tmuxline as powerline replacement
 if-shell "test -f $DOTS/tmux/tmuxline-snapshot.conf" "source $DOTS/tmux/tmuxline-snapshot.conf"
