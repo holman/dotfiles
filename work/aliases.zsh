@@ -13,12 +13,15 @@ postCreateSymlink="ll;cd ../../drupal/;./drush cc all"
 alias teslausemigration="$preCreateSymlink;ln -s settings-d7-migration.php settings.php;$postCreateSymlink"
 alias teslauseproduction="$preCreateSymlink;ln -s settings-d7-production.php settings.php;$postCreateSymlink"
 
+alias resetafterd6dbsync="cd ~/bin/tesla/6/drupal;./drush updb;./drush tesla-d6p-modules-on;./drush tesla-d6p-vars-on;./drush pm-disable tesla_sso;./drush cc all"
+alias resetafterdbsync="cd ~/bin/tesla/7/drupal/;./drush pm-disable tesla_gatekeeper;./drush cc all;./drush uli --mail=eritchey@teslamotors.com"
+
 
 # Drush shortcuts
 alias dr='./Users/eritchey/bin/tesla/7/drupal/drush'
 
 
-# Sass watch alias for D7 migration
+# Sass watch alias for D7 Master
 alias watch="sass --unix-newlines --sourcemap --watch --compass scss:css"
 
 function sass-watcher() {

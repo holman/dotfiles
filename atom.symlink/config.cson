@@ -3,8 +3,8 @@
     showIndentGuide: true
     fontFamily: "Menlo"
     invisibles: {}
-    fontSize: 15
     softWrapAtPreferredLineLength: true
+    fontSize: 13
   core:
     ignoredNames: [
       ".bundle"
@@ -14,10 +14,6 @@
       "tmp"
       "vendor"
     ]
-    themes: [
-      "unity-ui"
-      "glacier-syntax"
-    ]
     hideGitIgnoredFiles: true
     disabledPackages: [
       "background-tips"
@@ -25,6 +21,10 @@
       "metrics"
     ]
     followSymlinks: false
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
   "spell-check":
     grammars: [
       "text.plain"
