@@ -5,6 +5,7 @@
     invisibles: {}
     softWrapAtPreferredLineLength: true
     fontSize: 13
+    tabLength: 4
   core:
     ignoredNames: [
       ".bundle"
@@ -13,6 +14,7 @@
       "repositories"
       "tmp"
       "vendor"
+      ".DS_Store"
     ]
     hideGitIgnoredFiles: true
     disabledPackages: [
