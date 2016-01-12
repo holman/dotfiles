@@ -189,8 +189,11 @@ endif
 
 nnoremap <c-l> :CtrlPLine<cr>
 
+" Normal mode commands
 " easier escaping
 inoremap jj <ESC>
+" join two lines
+inoremap JJ <esc>Ji
 
 " python pep8 compliance
 au BufEnter *.py set sw=4 ts=4 sta et fo=croql
