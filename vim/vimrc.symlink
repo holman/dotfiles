@@ -361,7 +361,7 @@ endif
 " 1 indicates the current directory, 2 would include .., and so on.
 " 0 indicates to start the search at the cwd instead.
 function! AgParentSearch(parents)
-  let command = 'Ag '.shellescape(expand("<cword>"))
+  let command = 'Ag -w '.shellescape(expand("<cword>"))
   if a:parents > 0
     let command .= ' %'.(repeat(':h', a:parents))
   endif
