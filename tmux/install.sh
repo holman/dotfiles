@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 if [ "$(uname)" == "Darwin" ]; then
   brew install tmux
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
