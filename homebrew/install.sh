@@ -11,7 +11,7 @@ if [ "$(uname -s)" != "Darwin" ]; then
 fi
 
 # Check for Homebrew
-if test ! $(which brew)
+if test ! "$(which brew)"
 then
   echo "  Installing Homebrew for you."
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" > /tmp/homebrew-install.log
@@ -19,11 +19,6 @@ fi
 
 # Install homebrew packages
 brew install grc coreutils spark ctags
-
-# Installing vim because the apple-supplied vim is outdated
-# Furthermore has('macunix') does not work in apple vim
-# That breaks latex-suite mac specifics
-brew install vim
 
 # Install reattach-to-user-namespace
 # This makes sure that tmux + vim is able to use the system clipboard
