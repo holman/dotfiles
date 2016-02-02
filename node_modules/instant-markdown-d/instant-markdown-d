@@ -1,0 +1,101 @@
+#!/bin/sh
+':' //; exec "`command -v nodejs || command -v node`" "$0"
+
+var MarkdownIt = require('markdown-it');
+var hljs = require('highlight.js');
+var server = require('http').createServer(httpHandler),
+    exec = require('child_process').exec,
+    io = require('socket.io').listen(server),
+    send = require('send'),
+    server,
+    socket;
+
+server.listen(8090);
+
+var md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  highlight: function(str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (err) {
+        // Do nothing
+      }
+    } else {
+      return str;
+    }
+  }
+});
+
+function writeMarkdown(input, output) {
+  var body = '';
+  input.on('data', function(data) {
+    body += data;
+    if (body.length > 1e6) {
+      throw new Error('The request body is too long.');
+    }
+  });
+  input.on('end', function() {
+    output.emit('newContent', md.render(body));
+  });
+}
+
+function httpHandler(req, res) {
+  switch(req.method)
+  {
+    case 'GET':
+      // Example: /my-repo/raw/master/sub-dir/some.png
+      var githubUrl = req.url.match(/\/[^\/]+\/raw\/[^\/]+\/(.+)/);
+      if (githubUrl) {
+         // Serve the file out of the current working directory
+        send(req, githubUrl[1])
+         .root(process.cwd())
+         .pipe(res);
+        return;
+      }
+
+      // Otherwise serve the file from the directory this module is in
+      send(req, req.url)
+        .root(__dirname)
+        .pipe(res);
+      break;
+
+    // case 'HEAD':
+      // res.writeHead(200);
+      // res.end();
+      // exec('open -g http://localhost:8090', function(error, stdout, stderr){
+        // http.request({port: 8090})
+      // });
+      // break;
+
+    case 'DELETE':
+      socket.emit('die');
+      process.exit();
+      break;
+
+    case 'PUT':
+      writeMarkdown(req, socket);
+      res.writeHead(200);
+      res.end();
+      break;
+
+    default:
+  }
+}
+
+io.set('log level', 1);
+io.sockets.on('connection', function(sock){
+  socket = sock;
+  process.stdout.write('connection established!');
+  writeMarkdown(process.stdin, socket);
+  process.stdin.resume();
+});
+
+
+if (process.platform.toLowerCase().indexOf('darwin') >= 0){
+  exec('open -g http://localhost:8090', function(error, stdout, stderr){});
+}
+else {  // assume unix/linux
+  exec('xdg-open http://localhost:8090', function(error, stdout, stderr){});
+}
