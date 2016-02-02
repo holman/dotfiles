@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="en">
+  <link rel="stylesheet" type="text/css" href="/github-syntax-highlight.css">
+  <link rel="stylesheet" type="text/css" href="/github-markdown.css">
+  <style>
+    .markdown-body {
+      min-width: 200px;
+      max-width: 790px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+  </style>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io.connect('http://localhost:8090/');
+    socket.on('connect', function () {
+      socket.on('newContent', function(newHTML) {
+        document.querySelector(".markdown-body").innerHTML = newHTML;
+      });
+      socket.on('die', function(newHTML) {
+        window.open('', '_self', '');
+        window.close();
+
+        var firefoxWarning =
+        "<h1>Oops!</h1>" +
+        "<h3>Firefox doesn't allow windows to self-close.</h3>" +
+        "<h3>If you want the preview window to close automatically like in other browsers, go to about:config and set dom.allow_scripts_to_close_windows to true.</h3>"
+        document.body.innerHTML = firefoxWarning;
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation">
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container">
+          <div id="readme" class="boxed-group flush clearfix announce instapaper_body md">
+            <article class="markdown-body"></article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
