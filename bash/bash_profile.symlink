@@ -40,6 +40,11 @@ alias gs='git status'
 alias ga='git add'
 alias gad='ga -A .'
 alias gl='git log --oneline --decorate --graph'
+alias gri='git rebase -i'
+alias grid='git rebase -i develop'
+alias grim='git rebase -i master'
+# this interfereces with grc (generic colorizer), may need to change if grc us used
+alias grc='git rebase --continue'
 
 ## Vim
 alias v='vim .'
