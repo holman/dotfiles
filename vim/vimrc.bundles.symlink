@@ -32,7 +32,8 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/nerdtree'
 " https://github.com/bling/vim-airline
 " Better status line
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Rails Things
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-bundler.git'
