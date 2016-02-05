@@ -55,5 +55,8 @@ Plugin 'tpope/vim-fugitive'
 " Highlighting for React's JSX
 Plugin 'mxw/vim-jsx'
 
+" Highlighting for Elixir
+Plugin 'elixir-lang/vim-elixir'
+
 call vundle#end()
 filetype on
