@@ -16,7 +16,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'vundle/Vundle.vim'
 
 " Define bundles via Github repos
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -32,7 +32,8 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'scrooloose/nerdtree'
 " https://github.com/bling/vim-airline
 " Better status line
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Rails Things
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-bundler.git'
