@@ -1,6 +1,3 @@
-## Sourcing files
-source ~/.antigen/antigen/antigen.zsh
-
 ## Antigen
 antigen use oh-my-zsh
 
