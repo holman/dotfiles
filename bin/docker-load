@@ -1,0 +1,99 @@
+#!/bin/sh
+
+source ./helpers/verbosity.sh
+
+echo 'Reading docker-machine info' >&1
+MACHINES=( $(docker-machine ls --format='{{.Name}};{{.State}}'))
+STATUS=()
+MACHINE=
+
+COLOR_NC="\033[0m"
+COLOR_RED="\033[1;31m"
+COLOR_GREEN="\033[0;32m"
+COLOR_ORANGE="\033[0;33m"
+COLOR_YELLOW="\033[1;33m"
+
+for (( i=0; i<${#MACHINES[@]}; i++ )); do
+    splitArr=(${MACHINES[i]//;/ })
+    MACHINES[i]=${splitArr[0]}
+    STATUS[i]=${splitArr[1]}
+done
+
+echo "Machines: ${MACHINES[@]}" >&3
+echo "Statuse: ${STATUS[@]}"  >&3
+
+
+checkArgument(){
+    if [ -n "$1" ]; then
+        requestedMachine=$1
+
+        echo "Checking for machine ${requestedMachine}" >&3
+        for (( i=0; i<${#MACHINES[@]}; i++ )); do
+            echo "${COLOR_YELLOW}Comparing ${MACHINES[i]} to ${requestedMachine}${COLOR_NC}" >&5
+            if [ "${MACHINES[i]}" = "${requestedMachine}" ]; then
+                MACHINE="${i}"
+            fi
+        done
+
+        if [ -z $MACHINE ]; then
+            echo "${COLOR_RED}No '${requestedMachine}' machine defined ${COLOR_NC}" >&2
+            exit
+        else
+            echo "Selected machine '${MACHINE}'" >&3
+        fi
+    fi
+
+    checkMachineStatus
+}
+
+
+
+selectMachine(){
+    echo "These are the docker machines currently created:" >&1
+    for (( i=0; i<${#MACHINES[@]}; i++ )); do
+        color=$COLOR_NC
+        case "${STATUS[i]}" in
+            "Running")
+                color=$COLOR_GREEN
+                ;;
+            "Stopped")
+                color=$COLOR_RED
+                ;;
+            *)
+                color=$COLOR_ORANGE
+                ;;
+        esac
+        echo "$(($i+1))) ${color}${MACHINES[i]}${COLOR_NC}" >&1
+    done
+
+    read -p 'Which machine should I use: ' MACHINE
+
+    MACHINE=$(($MACHINE - 1))
+
+    echo "Selected machine is: ${MACHINES[machine]}" >&3
+
+    checkMachineStatus
+}
+
+checkMachineStatus(){
+    read -p 'This machine is stopped, should I start it? [Yn] ' answer
+
+}
+
+updateDnsmasq(){
+    read -p 'Update dnsmasq [Yn] ' answer
+
+    echo 'address=/dev/192.168.99.100' > /usr/local/etc/dnsmasq.conf
+    sudo launchctl stop homebrew.mxcl.dnsmasq
+    sudo launchctl start homebrew.mxcl.dnsmasq
+}
+
+
+if [ $# -eq 0 ]; then
+    selectMachine
+else
+    checkArgument $1
+fi
+
+
+

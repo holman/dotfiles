@@ -1,0 +1,1 @@
+eval $(grunt --completion=zsh)
