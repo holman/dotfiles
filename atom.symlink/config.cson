@@ -1,0 +1,39 @@
+"*":
+  core:
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+    ]
+    followSymlinks: false
+    hideGitIgnoredFiles: true
+    ignoredNames: [
+      ".bundle"
+      ".git"
+      "log"
+      "repositories"
+      "tmp"
+      "vendor"
+    ]
+    themes: [
+      "atom-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    fontFamily: "Menlo"
+    fontSize: 15
+    invisibles: {}
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+  "go-plus":
+    goPath: "/Users/holman/Code/go"
+  "release-notes":
+    viewedVersion: "0.89.0"
+  "spell-check":
+    grammars: [
+      "text.plain"
+      "source.gfm"
+      "text.git-commit"
+    ]
+  welcome:
+    showOnStartup: false
