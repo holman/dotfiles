@@ -37,3 +37,8 @@ alias merge='git merge'
 alias such=git
 alias very=git
 alias wow='git status'
+
+function gitdelete(){
+    git push origin --delete $1
+    git branch -D $1
+}
