@@ -1,11 +1,11 @@
 ## Antigen
 antigen use oh-my-zsh
 
-### Themes
-
 ### Bundles
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle git
+antigen bundle nvm
+antigen bundle zsh-users/zsh-syntax-highlighting
+
 
 
 ### Applying Antigen config
