@@ -1,4 +1,4 @@
-export NVM_DIR="$HOME/.nvm"
+#export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
 nvm install 0.10
@@ -9,4 +9,4 @@ nvm alias default 0.10
 
 nvm use 0.10
 
-npm install bower grunt-cli -g
+npm install bower grunt-cli gulp-cli -g
