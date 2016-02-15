@@ -332,6 +332,9 @@ nnoremap <leader>d :JavaDocSearch -x declarations<cr>
 nnoremap <leader>s :JavaSearchContext<cr>
 nnoremap <leader>p :ProjectProblems!<cr>
 
+" integrate eclim and youcompleteme
+let g:EclimCompletionMethod = 'omnifunc'
+
 " Disable auto completion of log statements in java eclim
 let g:EclimLoggingDisabled = 1
 
