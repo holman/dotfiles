@@ -38,6 +38,7 @@ alias such=git
 alias very=git
 alias wow='git status'
 
+# found at: http://stackoverflow.com/a/35324551/2503968
 function gitdelete(){
     git push origin --delete $1
     git branch -D $1
