@@ -4,9 +4,9 @@ tap 'Goles/battery'
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'railwaycat/homebrew-emacsmacport'
+tap 'caskroom/versions'
 
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
+brew 'brew-cask'
 
 brew 'battery'
 brew 'coreutils'
