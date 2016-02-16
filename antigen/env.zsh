@@ -3,6 +3,11 @@ antigen use oh-my-zsh
 
 ### Bundles
 antigen bundle git
+antigen bundle brew
+antigen bundle docker
+antigen bundle bower
+antigen bundle npm
+antigen bundle osx
 antigen bundle nvm
 antigen bundle zsh-users/zsh-syntax-highlighting
 
