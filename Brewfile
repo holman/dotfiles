@@ -1,14 +1,16 @@
 cask_args appdir: '/Applications'
 
+tap 'Goles/battery'
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
+tap 'railwaycat/homebrew-emacsmacport'
 
-brew 'ag'
+brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
+
 brew 'battery'
 brew 'coreutils'
-brew 'docker'
-brew 'docker-machine'
-brew 'emacs-mac'
+brew 'emacs-mac', args: ['with-spacemacs-icon']
 brew 'grc'
 brew 'exercism'
 brew 'htop-osx'
@@ -23,6 +25,7 @@ brew 'readline'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'spark'
+brew 'the_silver_searcher'
 brew 'tmux'
 brew 'tree'
 brew 'unrar'
@@ -35,10 +38,10 @@ cask 'dockertoolbox'
 cask 'google-chrome'
 cask 'iterm2'
 cask 'macdown'
-cask 'osxfuse'
 cask 'rescuetime'
 cask 'slack'
 cask 'spotify'
 cask 'sublime-text3'
 cask 'telegram'
+cask 'virtualbox'
 
