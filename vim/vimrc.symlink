@@ -1,4 +1,122 @@
-syntax on
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+set noswapfile
+set nocompatible              " disable compatibility with Vi
+set number                    " enables numbers on the left
+set laststatus=2
+set clipboard=unnamed
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+filetype off                  " required
+syntax on
+filetype plugin indent on
+
+" Map leader key for Vim
+let mapleader = "\<Space>"
+
+" Better sequence to escape from Insert mode (than pressing ESC)
+:imap jj <esc>
+
+" Display a dot for trailing whitespaces (Rubocop complains about them)
+set list listchars=tab:»·,trail:·
+
+" Better matching for % (matching keywords like class or def)
+runtime macros/matchit.vim
+
+" Better searching for files inside vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Plugins
+
+" Bundle configuration - START
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdTree'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'tpope/vim-fugitive.git'
+Bundle 'tpope/vim-bundler.git'
+
+Bundle 'tpope/vim-fireplace'
+
+" " All of your Plugins must be added before the following line
+call vundle#end()            " required
+" " To ignore plugin indent changes, instead use:
+" "filetype plugin on
+" Bundle configuration - END
+
+" Change moving between windows to enable CTRL h,j,k,l in tmux
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Resize Vim panes when rezising one of them (better integration with tmux)
+autocmd VimResized * :wincmd =
+
+" Zoom a vim pane (like tmux: leader + z). leader + -/= to zomm in/out
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" VTR - Vim tmux integration
+let g:VtrUseVtrMaps = 0
+let g:VtrGitCdUpOnOpen = 1
+let g:VtrPercentage = 30
+
+nmap <leader>ap :VtrAttachToPane<cr>
+nmap <leader>fs :VtrFlushCommand<cr>:VtrSendCommandToRunner<cr>
+nmap <C-f> :VtrSendLinesToRunner<cr>
+vmap <C-f> :VtrSendLinesToRunner<cr>
+
+nmap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
+nmap <leader>opr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50, 'cmd': 'pry' }<cr>
+
+nmap <leader>fr :VtrFocusRunner<cr>
+nmap <leader>kr :VtrKillRunner<cr>
+
+nnoremap <leader>sd :VtrSendCtrlD<cr>
+nnoremap <leader>sq :VtrSendCommandToRunner q<cr>
+nnoremap <leader>sl :VtrSendCommandToRunner <cr>
+nnoremap <leader>scu :VtrSendCommandToRunner <cr>
+" END VTR - VIM tmux integration
+
+" Vim-rspec configuration
+let g:rspec_runner = "os_x_iterm2"
+let g:rspec_command = "call VtrSendCommand('bundle exec rspec {spec}')"
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+execute pathogen#infect()
+
+" Closing NERDTree automatically if only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Make CtrlP use ag for listing the files. Way faster and no useless files.
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+
+" Vim solarized configuration
+set t_Co=256
+syntax enable
+set background=dark
+colorscheme solarized

@@ -1,0 +1,2 @@
+export ARTIFACTORY_USER=javierholguera
+export ARTIFACTORY_PASSWORD=1Artifact0ry1

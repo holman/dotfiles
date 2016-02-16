@@ -39,3 +39,11 @@ do
 done
 
 unset config_files
+
+# Setting up oh-my-zsh
+export ZSH=~/.oh-my-zsh
+ZSH_THEME="agnoster"
+source $ZSH/oh-my-zsh.sh
+
+DEFAULT_USER=jholguera
+

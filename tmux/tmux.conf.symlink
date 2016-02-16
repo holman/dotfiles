@@ -1,0 +1,84 @@
+# remap prefix to `
+unbind C-b
+set -g prefix `
+bind-key ` send-prefix
+
+# force a reload of the config file
+unbind r
+bind r source-file ~/.tmux.conf
+
+# Name windows and panes with 1-base (instead of 0-based) && renumber automatically
+set -g base-index 1
+set -g renumber-windows on
+setw -g pane-base-index 1
+
+# quick pane cycling
+unbind ^A
+bind ^A select-pane -t :.+
+
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+run-shell "powerline-daemon -q"
+#source "$HOME/HandsOnLab/powerline/powerline/bindings/tmux/powerline.conf"
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+bind-key C-t split-window -p 20 -c "#{pane_current_path}"
+set -g default-terminal "xterm-256color"
+
+# smart pane switching with awareness of vim splits
+bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
+bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+
+# Grey foreground and background colors for status bar
+set -g status-bg '#666666'
+set -g status-fg '#aaaaaa'
+
+# Bigger left status bar to display session names
+set -g status-left-length 50
+
+# Display battery info right status bar (using https://github.com/Goles/Battery)
+set -g status-right " #(battery -p -t) #(date '+%a, %b %d - %I:%M') "
+
+# Easier to remember configurations for splitting windows AND opening new pane in current path
+bind-key - split-window -v -c '#{pane_current_path}'
+bind-key | split-window -h -c '#{pane_current_path}'
+
+# Opening new windows on the current path
+bind-key c new-window -c '#{pane_current_path}'
+
+# Fine adjustment (5 or 3 cursor cells per bump)
+bind -n S-Left resize-pane -L 5
+bind -n S-Right resize-pane -R 5
+bind -n S-Down resize-pane -D 3
+bind -n S-Up resize-pane -U 3
+
+# Coarse adjustment (5 or 10 cursor cells per bump) -- don't work unless remapping MacOS functions
+#bind -n C-Left resize-pane -L 10
+#bind -n C-Right resize-pane -R 10
+#bind -n C-Down resize-pane -D 5
+#bind -n C-Up resize-pane -U 5
+
+# Binding to break a panel into a secundary window (without losing focus on current window)
+bind b break-pane -d
+
+# Enable mouse support
+set-window-option -g mode-mouse on
+set-option -g mouse-select-pane on
+set-option -g mouse-select-window on
+
+# Plugins!
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

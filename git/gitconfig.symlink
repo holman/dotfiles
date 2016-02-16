@@ -14,20 +14,24 @@
         status = auto
         branch = auto
         ui = true
-[core]
         excludesfile = ~/.gitignore
         editor = vim
 [apply]
         whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
-[help]
-        autocorrect = 1
+[core]
+	excludesfile = /Users/jholguera/.gitignore_global
+[user]
+	name = Javier Holguera
+	email = javier.holguera@fundingcircle.com
+	mail = javier.holguera@fundingcircle.com
+[pull]
+	rebase = true
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+	default = simple
+[merge]
+	tool = bc3
+[mergetool]
+	bc3 = trustExitCode
+	keepBackup = false
