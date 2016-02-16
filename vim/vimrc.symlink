@@ -335,6 +335,9 @@ nnoremap <leader>p :ProjectProblems!<cr>
 " integrate eclim and youcompleteme
 let g:EclimCompletionMethod = 'omnifunc'
 
+" map YcmCompleter GoTo
+nnoremap <leader>g :YcmCompleter GoTo<cr>
+
 " Disable auto completion of log statements in java eclim
 let g:EclimLoggingDisabled = 1
 
