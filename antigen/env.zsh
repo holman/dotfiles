@@ -6,6 +6,7 @@ antigen bundle git
 antigen bundle brew
 antigen bundle docker
 antigen bundle bower
+antigen bundle symfony2
 antigen bundle npm
 antigen bundle osx
 antigen bundle nvm
