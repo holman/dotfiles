@@ -8,6 +8,7 @@ set nocompatible              " disable compatibility with Vi
 set number                    " enables numbers on the left
 set laststatus=2
 set clipboard=unnamed
+set backspace=2
 
 filetype off                  " required
 syntax on

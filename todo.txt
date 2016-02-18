@@ -1,0 +1,8 @@
+
+
+Things to do:
+
+Install patched font that works with powerline
+https://gist.github.com/kevin-smets/8568070
+
+
