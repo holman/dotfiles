@@ -19,7 +19,6 @@ bind ^A select-pane -t :.+
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
 run-shell "powerline-daemon -q"
-#source "$HOME/HandsOnLab/powerline/powerline/bindings/tmux/powerline.conf"
 
 # Setup 'v' to begin selection as in Vim
 bind-key -t vi-copy v begin-selection
@@ -47,7 +46,7 @@ set -g status-fg '#aaaaaa'
 set -g status-left-length 50
 
 # Display battery info right status bar (using https://github.com/Goles/Battery)
-set -g status-right " #(battery -p -t) #(date '+%a, %b %d - %I:%M') "
+set -g status-right " #(battery -p -t) #(date '+%a, %b %d - %H:%M') "
 
 # Easier to remember configurations for splitting windows AND opening new pane in current path
 bind-key - split-window -v -c '#{pane_current_path}'
@@ -71,10 +70,13 @@ bind -n S-Up resize-pane -U 3
 # Binding to break a panel into a secundary window (without losing focus on current window)
 bind b break-pane -d
 
-# Enable mouse support
-set-window-option -g mode-mouse on
-set-option -g mouse-select-pane on
-set-option -g mouse-select-window on
+# Enable mouse support (previous to 2.1)
+#set-window-option -g mode-mouse on
+#set-option -g mouse-select-pane on
+#set-option -g mouse-select-window on
+
+# From 2.1 onwards
+set-option -g mouse on
 
 # Plugins!
 set -g @plugin 'tmux-plugins/tmux-resurrect'

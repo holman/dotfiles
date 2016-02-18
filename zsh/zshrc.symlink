@@ -1,3 +1,6 @@
+plugins=(git)
+DEFAULT_USER=jholguera
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
@@ -44,6 +47,4 @@ unset config_files
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="agnoster"
 source $ZSH/oh-my-zsh.sh
-
-DEFAULT_USER=jholguera
 
