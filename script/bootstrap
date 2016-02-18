@@ -2,8 +2,12 @@
 #
 # bootstrap installs things.
 
+progname="bootstrap"
+
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
+
+altname="default"
 
 set -e
 
@@ -28,7 +32,7 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.local.symlink ]
+  if ! [ -f git/gitconfig${gext} ]
   then
     info 'setup gitconfig'
 
@@ -43,12 +47,100 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig${gext}.example > git/gitconfig${gext}
 
     success 'gitconfig'
   fi
 }
 
+#; Filename patterns for matching
+#;      "<file>.symlink__SYSTEM.HOSTNAME.USER"   // default Holman naming
+#; or
+#;      "<file>##SYSTEM.HOSTNAME.USER"           // yadm naming
+#;
+#; The $gext and $ext variables, used by setup_gitconfig() and
+#; install_dotfiles() resp., are not regular expressions.
+#; But the patterns for the $match variable *are* (extended) regex's;
+#; so when modifying or adding patterns, account for magic characters.
+#;
+#; When adding new patterns, also add the name in the space delimited
+#; NAME_INDEX below.
+#; Inspired by yadm.
+NAME_INDEX="default yadm plusplus"
+set_altname () {
+  
+  match_system=$(uname -s)
+  match_host=$(hostname -s)
+  match_user=$(id -u -n)
+  
+  if [ "$altname" == "default" ]
+  then
+  	gext=".symlink"
+  	ext=".symlink*"
+  	
+  	alt2="__$match_system"
+  	alt3="__$match_system.$match_host"
+  	alt4="__$match_system.$match_host.$match_user"
+  	
+  	match="^(.+)\.symlink($alt2|$alt3|$alt4|())$"  #; used by find(1)
+  
+  elif [ "$altname" == "yadm" ]
+  then
+  	gext="##"
+  	ext="##*"
+  	
+  	alt2="$match_system"
+  	alt3="$match_system.$match_host"
+  	alt4="$match_system.$match_host.$match_user"
+  	
+  	match="^(.+)##($alt2|$alt3|$alt4|())$"
+
+  elif [ "$altname" == "plusplus" ]
+  then
+    # As an example, a '++'  naming convention.
+    # Note the $match variable: it's a regex, so escape the '+'s.
+  	gext="++"
+  	ext="++*"
+  	
+  	alt2="$match_system"
+  	alt3="$match_system.$match_host"
+  	alt4="$match_system.$match_host.$match_user"
+  	
+  	match="^(.+)\+\+($alt2|$alt3|$alt4|())$"
+  fi
+}
+
+test_altname () {
+	local found=false
+	local action= name=
+	
+	for name in $NAME_INDEX
+	do
+		if [ "$altname" == "$name" ]
+		then
+			found=true
+			break
+		fi
+	done
+	
+	if [ "$found" == "false" ]
+	then
+		user "$altname: unknown filename convention. Continue with default?\n\
+		[c]ontinue, or any other key to quit."
+		
+		read -sn 1 action
+		
+		case "$action" in
+		  c )
+		  	altname="default"
+		    echo "continuing..."
+		    break ;;
+		  * )
+		    exit ;;		  
+		esac
+	fi
+}
+	
 
 link_file () {
   local src=$1 dst=$2
@@ -125,32 +217,94 @@ link_file () {
   fi
 }
 
+
 install_dotfiles () {
   info 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
+  local current_file=
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  
+  #; Collect a filename and its possible alternate versions - the last version
+  #; if any, will be linked; then continue with the next filename.
+  #; 
+  #; The last file found doesn't get processed in the for-loop, so do
+  #; it at the end, after the loop - ugly, must do better.
+  #;
+  for src in $(find -HE "$DOTFILES_ROOT" -maxdepth 2 \
+              \( -regex "$match" \) -not -path '*.git*')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+  	if [ -z "${current_file}" ]; then
+  		current_file="${src}"
+  		continue
+  		
+  	elif [ "x${src%$ext}" == "x${current_file%$ext}" ]; then
+  		#; found an alternate file; `push' it.
+  		current_file="${src}"
+  		continue
+	fi
+	
+    dst="$HOME/.$(basename "${current_file%$ext}")"
+    link_file "$current_file" "$dst"
+    current_file="${src}"
   done
+
+  dst="$HOME/.$(basename "${current_file%$ext}")"
+  link_file "$current_file" "$dst"
 }
 
-setup_gitconfig
-install_dotfiles
-
 # If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
-then
-  info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
-fi
+setup_Mac () {
+   if [ "$(uname -s)" == "Darwin" ]
+   then
+     info "installing dependencies"
+     if source bin/dot > /tmp/dotfiles-dot 2>&1
+     then
+        success "dependencies installed"
+     else
+        fail "error installing dependencies"
+     fi
+   fi
+}
 
+usage () {
+	cat <<eot
+usage: $progname  [-h | -l] [-a altname]
+     -a altname  Use the <altname> naming convention.
+     -l          Only create/update symbolic links.
+     -h          This message.
+eot
+}
+
+
+while getopts :a:hl opt
+do
+	case "$opt" in
+	  a )
+	    altname="$OPTARG"
+	    test_altname ;;
+	  l )
+	    link_only=true ;;
+	  h )
+	    usage ; exit ;;
+	  * )
+	    echo "$opt: unknown option" >&2
+	    usage
+	    exit 1 ;;
+	esac
+done
+shift $(( ${OPTIND} -1 )) 
+
+set_altname
+
+if [ "$link_only" == "true" ]
+then
+	install_dotfiles
+else
+	setup_gitconfig
+	install_dotfiles
+	setup_Mac
+fi	
+	
 echo ''
 echo '  All installed!'
