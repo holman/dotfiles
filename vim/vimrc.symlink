@@ -378,7 +378,7 @@ au BufEnter *.sls set ft=yaml
 " Configure gutentags status line
 " set statusline+=%{gutentags#statusline()}
 function! GutentagsAirline(...)
-  let g:airline_section_warning .= g:airline_right_sep . ' %{gutentags#statusline()}'
+  let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#syntastic#get_warnings(),0)} %{airline#util#wrap(airline#extensions#whitespace#check(),0)} %{gutentags#statusline()}'
 endfunction
 autocmd VimEnter * call GutentagsAirline()
 
