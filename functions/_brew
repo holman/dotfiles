@@ -29,6 +29,14 @@ _1st_arguments=(
   'log:git commit log for a formula'
   'create:create a new formula'
   'edit:edit a formula'
+  'bundle:install or upgrade all dependencies in a Brewfile'
+)
+
+local -a _bundle_arguments
+_bundle_arguments=(
+  'dump:write all installed casks/formulae/taps into a Brewfile'
+  'cleanup:uninstall all dependencies not listed in a Brewfile'
+  'check:check if all dependencies are installed in a Brewfile'
 )
 
 local expl
@@ -55,11 +63,17 @@ case "$words[1]" in
       if [[ "$state" == forms ]]; then
         _brew_installed_formulae
         _requested installed_formulae expl 'installed formulae' compadd -a installed_formulae
-      fi ;;
+      fi
+  ;;
   install|home|log|info)
     _brew_all_formulae
-    _wanted formulae expl 'all formulae' compadd -a formulae ;;
+    _wanted formulae expl 'all formulae' compadd -a formulae
+  ;;
   remove|edit|xo)
     _brew_installed_formulae
-    _wanted installed_formulae expl 'installed formulae' compadd -a installed_formulae ;;
+    _wanted installed_formulae expl 'installed formulae' compadd -a installed_formulae
+  ;;
+  bundle)
+    _describe 'values' _bundle_arguments
+  ;;
 esac
