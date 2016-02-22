@@ -39,3 +39,22 @@
         default = simple
 [commit]
 	     template = /Users/he8us/.gitmessage.txt
+
+[diff]
+        tool = pstorm
+[difftool]
+        prompt = false
+[difftool.pstorm]
+        cmd = /usr/local/bin/pstorm diff "$LOCAL" "$REMOTE"
+[merge]
+        tool = pstorm
+[mergetool.pstorm]
+        cmd = /usr/local/bin/pstorm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+
+[difftool "sourcetree"]
+	    cmd = /usr/local/bin/pstorm diff \"$LOCAL\" \"$REMOTE\"
+	    path =
+
+[mergetool "sourcetree"]
+	    cmd = /usr/local/bin/pstorm merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	    trustExitCode = true

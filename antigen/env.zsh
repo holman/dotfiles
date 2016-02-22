@@ -11,7 +11,7 @@ antigen bundle npm
 antigen bundle osx
 antigen bundle nvm
 antigen bundle zsh-users/zsh-syntax-highlighting
-
+antigen bundle zsh-users/zsh-completions src
 
 
 ### Applying Antigen config
