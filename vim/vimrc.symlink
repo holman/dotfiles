@@ -1,4 +1,220 @@
-syntax on
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set hidden
+set noerrorbells
+set novisualbell
+set t_vb=
+set vb t_vb=
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+set formatoptions-=o " don't start new lines w/ comment leader on pressing 'o'
+au filetype vim set formatoptions-=o
+                     " somehow, during vim filetype detection, this gets set
+                     " for vim files, so explicitly unset it again
+
+au BufNewFile,BufRead *.ts set syntax=typescript
+au BufNewFile,BufRead *.ts set filetype=typescript
+
+
+if &t_Co >= 256 || has("gui_running")
+    colorscheme monokai
+endif
+
+if &t_Co > 2 || has("gui_running")
+    " switch syntax highlighting on, when the terminal has colors
+    syntax on
+endif
+
+nnoremap ; :
+
+" ===========================================================================================================
+" Plugins
+" ===========================================================================================================
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/ctrlp.vim
+set rtp+=~/.vim/bundle/typescript-tools
+
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'L9'
+Plugin 'SirVer/ultisnips'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'svermeulen/vim-easyclip'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'clausreinke/typescript-tools.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'vim-ctrlspace/vim-ctrlspace'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+set showmode                    " always show what mode we're currently editing in
+set nowrap                      " don't wrap lines
+set tabstop=4                   " a tab is four spaces
+set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
+set expandtab                   " expand tabs by default (overloadable per file type later)
+set shiftwidth=4                " number of spaces to use for autoindenting
+set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set autoindent                  " always set autoindenting on
+set copyindent                  " copy the previous indentation on autoindenting
+set relativenumber
+set number                      " always show line numbers
+set showmatch                   " set show matching parenthesis
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+                                "    case-sensitive otherwise
+set smarttab                    " insert tabs on the start of a line according to
+                                "    shiftwidth, not tabstop
+set scrolloff=4                 " keep 4 lines off the edges of the screen when scrolling
+set hlsearch                    " highlight search terms
+set incsearch                   " show search matches as you type
+set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
+
+nnoremap / /\v
+vnoremap / /\v
+" Speed up scrolling of the viewport slightly
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
+" }}}
+
+" Folding rules {{{
+set foldmethod=syntax
+set foldlevelstart=1
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+" }}}
+
+set nolist                      " don't show invisible characters by default,
+                                " but it is enabled for some file types (see later)
+set pastetoggle=<F2>            " when in insert mode, press <F2> to go to
+                                "    paste mode, where you can paste mass data
+                                "    that won't be autoindented
+set mouse=a                     " enable using the mouse if terminal emulator
+                                "    supports it (xterm does)
+set fileformats="unix,dos,mac"
+set formatoptions+=1            " When wrapping paragraphs, don't end lines
+                                "    with 1-letter words (looks stupid)
+
+set nrformats=                  " make <C-a> and <C-x> play well with
+                                "    zero-padded numbers (i.e. don't consider
+                                "    them octal or hex)
+
+set clipboard=unnamed           " normal OS clipboard interaction
+set autoread                    " automatically reload files changed outside of Vim
+
+set nobackup
+set noswapfile
+
+" Save whenever switching windows or leaving vim. This is useful when running
+" the tests inside vim without having to save all files first.
+au FocusLost,WinLeave * :silent! wa
+
+" Trigger autoread when changing buffers or coming back to vim.
+au FocusGained,BufEnter * :silent! !
+
+" Enable Mouse scrolling, selection, etc
+if has("mouse")
+    set mouse=a
+endif
+
+"show powerline on single windows, not only split panels"
+set laststatus=2
+
+" ===========================================================================================================
+" KEYBINDINGS
+" ===========================================================================================================
+"
+" Disable arrows. only noobs need arrows anyway
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" General ease of use
+:let mapleader = ","
+noremap <C-S> :w<CR>
+vnoremap <C-S> <C-C>:w<CR>
+inoremap <C-S> <Esc>:w<CR>
+
+" Jump 5 lines at a time. useful for keyboard scrolling the cursor. wil
+" eventually get rid of this and enable the panel switching
+noremap <C-J> 5j
+noremap <C-K> 5k
+
+"Switch between panels left and right.
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+
+nnoremap  :Commentary<CR>
+
+noremap <Leader>k :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+
+nnoremap <silent> <Leader>/ :nohl<CR>
+
+" Fuzzy Finder
+if executable('ag')
+   " Use ag over grep
+   set grepprg=ag\ --nogroup\ --nocolor
+
+   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+   " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+   " ag is fast enough that CtrlP doesn't need to cache
+   let g:ctrlp_use_caching = 0
+endif
+
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" multiple cursors
+let g:multi_cursor_use_default_mapping=0
+" Default mapping
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" Snippet configuration
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+"" YouCompleteMe
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
