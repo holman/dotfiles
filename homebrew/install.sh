@@ -17,6 +17,9 @@ then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" > /tmp/homebrew-install.log
 fi
 
+# Update all outdates packages
+brew update && brew upgrade `brew outdated`
+
 # Install homebrew packages
 brew install grc coreutils spark ctags
 
