@@ -33,6 +33,7 @@
       "text.plain"
       "source.gfm"
       "text.git-commit"
+      "text.html.basic"
     ]
   welcome:
     showOnStartup: false
