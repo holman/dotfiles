@@ -108,6 +108,9 @@ match Todo /\s\+$/
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
+" For nerdcommenter
+let g:NERDSpaceDelims=1
+
 let $GIT_SSL_NO_VERIFY = 'true'
 
 let g:multi_cursor_exit_from_insert_mode = 0
