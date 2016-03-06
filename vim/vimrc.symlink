@@ -126,11 +126,17 @@ command! -nargs=1 Silent
       \ | execute ':silent '.<q-args>
       \ | execute ':redraw!'
 
+" Restore position command
+command! -nargs=1 RestoreCurPos
+      \ | let save_cursor = getcurpos()
+      \ | execute <q-args>
+      \ | call setpos('.', save_cursor)
+
 " Fugitive mappings
 nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gl :Silent Glog -n 20<cr>
+nnoremap <leader>gl :RestoreCurPos Silent Glog -n 20<cr>
 nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>ge :Gedit<cr>
+nnoremap <leader>ge :RestoreCurPos Gedit<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gru :Git rebase @{u}<cr>
 nnoremap <leader>gri :Git rebase -i @{u}<cr>
