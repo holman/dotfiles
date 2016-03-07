@@ -413,5 +413,8 @@ nnoremap coD :call <SID>toggle_iwhite(0)<CR>
 nnoremap [oD :call <SID>toggle_iwhite(1)<CR>
 nnoremap ]oD :call <SID>toggle_iwhite(-1)<CR>
 
+" Netrw settings to show linenumbers abs/rel by default
+let g:netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
