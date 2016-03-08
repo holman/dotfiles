@@ -16,7 +16,7 @@ then
     printf '\033[0;34m%s\033[0m\n' 'No updates found.'
   fi
 
-  if git --no-pager log --exit-code master..origin/master; then
+  if ! git --no-pager diff --exit-code master..origin/master > /dev/null; then
     printf '\033[0;31m%s\033[0m\n' 'You have pending, local changes. Use dot-export.'
   fi
 else
