@@ -156,7 +156,7 @@ nnoremap <leader>gf :Disp git fetch<cr>
 nnoremap <leader>c /\m\(<<<<\\|====\\|>>>>\)<cr>
 
 " Git review mapping
-nnoremap <leader>r :Disp git review<cr>
+nnoremap <leader>r :Disp git review -R<cr>
 
 " customize ctrlp plugin
 let g:ctrlp_extensions = ['line', 'mixed']
