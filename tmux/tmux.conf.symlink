@@ -17,8 +17,23 @@ set -g default-terminal "screen-256color"
 set -g status-bg colour235
 set -g status-fg white
 
+# Easily source conf file
+bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+
+# Status Bar Settings
+
+# Color of bar
 set-window-option -g window-status-current-fg black
 set-window-option -g window-status-current-bg green
+
+# Left Side Display
+
+# Allow session name to be longer (default 10)
+set-option -g status-left-length 50
+
+
+# Right Side Display
+set-option -g status-right " #(date '+%a, %b %d - %I:%M %p') "
 
 set -g pane-border-fg colour235
 set -g pane-border-bg black
