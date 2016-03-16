@@ -128,7 +128,7 @@ command! -nargs=1 Silent
 
 " Restore position command
 command! -nargs=1 RestoreCurPos
-      \ | let save_cursor = getcurpos()
+      \ | let save_cursor = getpos('.')
       \ | execute <q-args>
       \ | call setpos('.', save_cursor)
 
