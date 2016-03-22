@@ -8,3 +8,5 @@ atom.symlink/storage
 atom.symlink/themes
 
 git/gitconfig.local.symlink
+.DS_Store
+*.swp
