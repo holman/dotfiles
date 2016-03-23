@@ -1,23 +1,29 @@
-cask_args appdir: '/Applications'
-
 tap 'caskroom/cask'
+tap 'caskroom/versions'
 tap 'homebrew/bundle'
-
 brew 'ack'
+brew 'android-sdk'
+brew 'autoconf'
+brew 'cmake'
 brew 'coreutils'
+brew 'cscope'
 brew 'git'
-brew 'macvim', args: ['override-system-vim', 'custom-system-icons']
+brew 'gradle'
+brew 'leiningen'
+brew 'libyaml'
+brew 'macvim', args: ['with-override-system-vim']
+brew 'pkg-config'
 brew 'openssl'
 brew 'node'
-brew 'readline'
 brew 'ruby-build'
 brew 'rbenv'
+brew 'readline'
 brew 'wget'
-brew 'android'
-brew 'sublime-text3'
-
 cask 'android-studio'
 cask 'firefox'
 cask 'google-chrome'
+cask 'iterm2-beta'
+cask 'java'
 cask 'slack'
-
+cask 'sourcetree'
+cask 'sublime-text3'
