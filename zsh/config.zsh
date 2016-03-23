@@ -4,12 +4,12 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
+# export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-fpath=($ZSH/functions $fpath)
+fpath=($DOT_FILES/functions $fpath)
 
-autoload -U $ZSH/functions/*(:t)
+autoload -U $DOT_FILES/functions/*(:t)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
