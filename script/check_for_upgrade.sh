@@ -35,19 +35,9 @@ then
   epoch_diff=$(($(_current_epoch) - $LAST_EPOCH))
   if [ $epoch_diff -ge $epoch_target ]
   then
-    if [ "$DISABLE_UPDATE_PROMPT" = "true" ]
-    then
-      _upgrade_dots
-    else
-      echo "[Dots] Would you like to check for updates?"
-      echo "Type Y to update dot files: \c"
-      read line
-      if [ "$line" = Y ] || [ "$line" = y ]; then
-        _upgrade_dots
-      else
-        _update_dots_update
-      fi
-    fi
+    _upgrade_dots
+    # update the dots file
+    _update_dots_update
   fi
 else
   # create the zsh file
