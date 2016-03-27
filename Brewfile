@@ -8,6 +8,8 @@ tap 'caskroom/versions'
 
 brew 'brew-cask'
 
+brew 'autoconf'
+brew 'automake'
 brew 'battery'
 brew 'coreutils'
 brew 'emacs-mac', args: ['with-spacemacs-icon']
@@ -19,7 +21,6 @@ brew 'jq'
 brew 'kafkacat'
 brew 'leiningen'
 brew 'openssl'
-brew 'homebrew/versions/postgresql92'
 brew 'python'
 brew 'readline'
 brew 'ruby-build'
