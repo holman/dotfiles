@@ -5,4 +5,8 @@ Things to do:
 Install patched font that works with powerline
 https://gist.github.com/kevin-smets/8568070
 
+Extra apps (not in Brew)
+- Airmail
+- OneDrive
+- OneNote
 
