@@ -5,6 +5,13 @@ Things to do:
 Install patched font that works with powerline
 https://gist.github.com/kevin-smets/8568070
 
+Install Vim Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+Install Plugins in Vim
+1. Fire up vim
+2. Execute :PluginInstall
+
 Extra apps (not in Brew)
 - Airmail
 - OneDrive
