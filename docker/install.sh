@@ -1,7 +1,7 @@
 
 
 "Creating docker machine"
-docker-machine create --driver virtualbox default
+docker-machine create --driver virtualbox --virtualbox-memory 2048 default
 
 
 mkdir -p ~/.zsh/completion
