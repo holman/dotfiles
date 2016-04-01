@@ -13,6 +13,8 @@ antigen bundle nvm
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions src
 
+### Theme
+antigen theme candy
 
 ### Applying Antigen config
 antigen apply
