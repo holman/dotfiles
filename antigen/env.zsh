@@ -12,9 +12,14 @@ antigen bundle osx
 antigen bundle nvm
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions src
+antigen bundle zsh-users/zsh-autosuggestions
 
 ### Theme
-antigen theme candy
+POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm battery time)
+
+antigen theme bhilburn/powerlevel9k powerlevel9k
 
 ### Applying Antigen config
 antigen apply

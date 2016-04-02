@@ -8,6 +8,7 @@ tap 'homebrew/php'
 brew 'ack'
 brew 'coreutils'
 brew 'dnsmasq'
+brew 'fontconfig'
 brew 'grc'
 brew 'imagemagick'
 brew 'libgit2'
@@ -20,8 +21,6 @@ brew 'wget'
 brew 'youtube-dl'
 brew 'zsh'
 brew 'zsh-completions'
-
-
 
 cask 'alfred'
 cask 'atom'
