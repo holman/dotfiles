@@ -17,7 +17,6 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Forked for a fix of sign column highlighting
 Plugin 'kaihowl/vim-indent-sentence'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
