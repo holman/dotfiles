@@ -53,3 +53,5 @@ unset config_files
 
 # added by travis gem
 [ -f /home/jhenrich/.travis/travis.sh ] && source /home/jhenrich/.travis/travis.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

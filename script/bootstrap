@@ -295,16 +295,19 @@ local_pip_install () {
 }
 
 set_tmux_powerline_config () {
+  python_version=$(python -c 'import sys;sys.stdout.write(sys.version[0:3])')
+
   set +e
-  python -c 'import sys; sys.version_info > (2,7) and sys.exit(1)'
-  code=$?
+  uname -a |grep 'Darwin' > /dev/null 
+  mac=$?
   set -e
-  if [[ $code -ne 0 ]]
+
+  if [[ $mac -eq 0 ]]
   then
-    echo "source `ls ~/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
-  else
     local_pip_install 'psutil'
     echo "source `ls ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
+  else
+    echo "source `ls ~/.local/lib/python$python_version/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
   fi
 }
 
@@ -319,7 +322,7 @@ install_powerline () {
 
 
   src="$(pwd)/powerline"
-  dst="$HOME/.config/"
+  dst="$HOME/.config/powerline"
   link_file "$src" "$dst"
 
   success 'installed powerline'

@@ -195,7 +195,10 @@ for s = 1, screen.count() do
     right_layout:add(mylayoutbox[s])
 
     -- powerline
-    package.path = package.path .. ';.local/lib/python3.4/site-packages/powerline/bindings/awesome/powerline.lua'
+    local handle = io.popen('python -c "import sys;sys.stdout.write(sys.version[0:3])"')
+    local result = handle:read("*a")
+    handle:close()
+    package.path = package.path .. ';.local/lib/python'.. result .. '/site-packages/powerline/bindings/awesome/powerline.lua'
     require('powerline')
     right_layout:add(powerline_widget)
 
