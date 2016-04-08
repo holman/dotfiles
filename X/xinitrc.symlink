@@ -1,3 +1,5 @@
+synapse &
+/* pulseaudio --start */
+syndaemon -i 2 -t -k &
+xscreensaver &
 exec awesome
-synapse
-pulseaudio --start
