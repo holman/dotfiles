@@ -26,6 +26,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
@@ -322,9 +323,6 @@ vnoremap <leader>is :call g:IndentSentence()<cr>
 " explicitly set hunk navigation commands
 nmap [h <Plug>GitGutterPrevHunk
 nmap ]h <Plug>GitGutterNextHunk
-
-" add file in current dir explore shortcut
-nmap - :Explore<cr>
 
 " open tagbar (and focus) (or jump to if open)
 nnoremap <leader>t :TagbarOpen fj<cr>
