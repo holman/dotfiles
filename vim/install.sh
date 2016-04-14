@@ -4,7 +4,7 @@
 # Furthermore has('macunix') does not work in apple vim
 # That breaks latex-suite mac specifics
 if [ "$(uname -s)" = "Darwin" ]; then
-  brew install vim
+  brew reinstall macvim --HEAD --with-cscope --with-lua --with-override-system-vim
   # To make sure that ycm has the correct python version
   brew install python
 fi
