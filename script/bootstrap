@@ -133,10 +133,22 @@ install_dotfiles () {
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+    link_file "${src/$HOME\/}" "$dst"
   done
 }
 
+is_user_folder() {
+  echo [[ $1 =~ "$HOME/" ]];
+}
+
+fix_rootpath() {
+  if [[ !`is_user_folder $DOTFILES_ROOT` && `is_user_folder $(pwd -L)` ]]; then
+    DOTFILES_ROOT=$(pwd -L)
+  fi
+}
+
+
+fix_rootpath
 setup_gitconfig
 install_dotfiles
 
