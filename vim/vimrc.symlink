@@ -38,6 +38,8 @@ set expandtab
 
 " Use sexy railscasts color scheme
 colorscheme sexy-railscasts-256
+" Overwrite color for line indicating over text length
+hi ColorColumn ctermbg=237
 
 " Make search nicer
 set incsearch
