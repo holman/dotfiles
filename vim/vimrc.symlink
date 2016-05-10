@@ -72,6 +72,27 @@ noremap <C-S> :w<CR>
 vnoremap <C-S> <C-C>:w<CR>
 inoremap <C-S> <Esc>:w<CR>
 
+" Speed up scrolling of the viewport slightly
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
+
+" ctrl-h is sending backspace<BS> instead of ^H
+" https://github.com/neovim/neovim/issues/2048
+if has('nvim')
+    nmap <BS> <C-W>h
+endif
+
+"Switch between panels left and right.
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+" Jump 5 lines at a time. useful for keyboard scrolling the cursor. wil
+" eventually get rid of this and enable the panel switching
+noremap <C-j> 5j
+noremap <C-k> 5k
+
 " ===========================================================================================================
 " Plugin Keybindings
 " ===========================================================================================================
@@ -117,3 +138,4 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "" YouCompleteMe
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
