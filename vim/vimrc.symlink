@@ -1,13 +1,7 @@
-" Enable relative line numbering
-set number
-" Enable current line number
-set relativenumber
-nnoremap ; :
-nnoremap : ;
-
 " ===========================================================================================================
 " Plugins
 " ===========================================================================================================
+" {{{
 call plug#begin('~/.vim/plugged')
 " General development plugins
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -31,13 +25,22 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 call plug#end()
-
+" }}}
 " ===========================================================================================================
 " Editor settings
 " ===========================================================================================================
+" {{{
 let mapleader = ","
+set foldmethod=marker
 
 " Set colour scheme to monokai
+" Enable relative line numbering
+set number
+" Enable current line number
+set relativenumber
+nnoremap ; :
+nnoremap : ;
+
 colorscheme monokai
 " Set colour scheme for airline (powerline alternative)
 let g:airline_theme='powerlineish'
@@ -61,11 +64,11 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 " paste mode, where you can paste mass data
 " that won't be autoindented
 set pastetoggle=<F2>            
-
+" }}}
 " ===========================================================================================================
 " Personal Keybindings
 " ===========================================================================================================
-
+" {{{
 " General ease of use
 " Save on cmd-s. Iterm sending as ctrl s
 noremap <C-S> :w<CR>
@@ -92,11 +95,11 @@ nnoremap <C-k> <C-w>k
 " eventually get rid of this and enable the panel switching
 noremap <C-j> 5j
 noremap <C-k> 5k
-
+" }}}
 " ===========================================================================================================
 " Plugin Keybindings
 " ===========================================================================================================
-
+" {{{
 " Comment out visual selection
 nnoremap  :Commentary<CR>
 vnoremap  :Commentary<CR>
@@ -105,6 +108,8 @@ inoremap  :Commentary<CR>
 " Nerd tree key bindings
 noremap <Leader>k :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
+
+let NERDTreeMapActivateNode='<space>'
 
 " CtrlP Fuzzy Finder
 if executable('ag')
@@ -139,3 +144,4 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
+" }}}
