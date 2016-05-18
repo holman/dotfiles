@@ -105,6 +105,11 @@ augroup vimrcEx
 
   " Handle coffeescript JSX files
   au BufNewFile,BufRead *.cjsx set filetype=jsx
+
+  " JS Specific changes
+  autocmd FileType javascript setlocal tabstop=4
+  autocmd FileType javascript setlocal shiftwidth=4
+
 augroup END
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
