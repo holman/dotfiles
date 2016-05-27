@@ -1,6 +1,5 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/cask'
 tap 'homebrew/bundle'
 
 brew 'ack'
@@ -18,8 +17,10 @@ brew 'postgresql'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'roundup'
+brew 'spaceman-diff'
 brew 'spark'
 brew 'unrar'
+brew 'wget'
 brew 'youtube-dl'
 
 cask '1password'
