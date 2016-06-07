@@ -1,4 +1,7 @@
+synapse &
+pulseaudio --start
+syndaemon -i 2 -t -k &
+xscreensaver &
 exec awesome
 source /etc/X11/xinit/xinitrc.d/*
 synapse
-pulseaudio --start

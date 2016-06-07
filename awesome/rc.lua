@@ -85,7 +85,7 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 'main', 'mail', 'scratch', 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
 end
 -- }}}
 
@@ -195,7 +195,10 @@ for s = 1, screen.count() do
     right_layout:add(mylayoutbox[s])
 
     -- powerline
-    package.path = package.path .. ';.local/lib/python3.4/site-packages/powerline/bindings/awesome/powerline.lua'
+    local handle = io.popen('python -c "import sys;sys.stdout.write(sys.version[0:3])"')
+    local result = handle:read("*a")
+    handle:close()
+    package.path = package.path .. ';.local/lib/python'.. result .. '/site-packages/powerline/bindings/awesome/powerline.lua'
     require('powerline')
     right_layout:add(powerline_widget)
 
