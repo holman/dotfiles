@@ -3,6 +3,10 @@
 		"quay.io": {
 			"auth": "amF2aWVyaG9sZ3VlcmE6MUNhdCNuYXAx",
 			"email": "javier.holguera@fundingcircle.com"
+		},
+		"v1.quay.io": {
+			"auth": "amF2aWVyaG9sZ3VlcmE6MUNhdCNuYXAx",
+			"email": "javier.holguera@fundingcircle.com"
 		}
 	}
 }
