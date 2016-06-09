@@ -1,0 +1,5 @@
+[user]
+        name = Javier Holguera
+        email = javier.holguera@gmail.com
+[credential]
+        helper = osxkeychain
