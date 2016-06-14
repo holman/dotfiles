@@ -314,9 +314,9 @@ set_tmux_powerline_config () {
 install_powerline () {
   info 'installing powerline'
 
-  set_tmux_powerline_config
-
   install_pip
+
+  set_tmux_powerline_config
 
   local_pip_install 'powerline-status'
 
