@@ -45,6 +45,7 @@ Plugin 'rking/ag.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'lyuts/vim-rtags'
 " Plugin 'xolox/vim-easytags'
 " Needed for vim-easytags
 " Plugin 'xolox/vim-misc'
