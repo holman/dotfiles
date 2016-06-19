@@ -418,5 +418,16 @@ let g:netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 " Do not use the location but the quickfix list for rtags
 let g:rtagsUseLocationList = 0
 
+" Additional function to print class hierarchy in rtags
+function! RtagsShowHierarchy()
+  let &l:grepprg = rtags#getRcCmd()." --class-hierarchy ".rtags#getCurrentLocation()
+  let &l:grepformat = "%.%#\t%f:%l:%c:\t%m"
+  grep
+  copen
+  redraw!
+endfunction
+
+noremap <Leader>rh :call RtagsShowHierarchy()<CR>
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
