@@ -33,9 +33,9 @@ end
 
 # Copies the result of the last operation you ran in IRB to the system
 # clipboard (if you're on macOS).
-def cp
+def cop
   last_value = IRB.CurrentContext.last_value
-  system "echo #{last_value} | pbcopy"
+  %x[echo '#{last_value}' | pbcopy]
   "copied \`#{last_value}' to your clipboard"
 end
 
