@@ -18,17 +18,17 @@ Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/Gundo'
-Plug 'vim-scripts/ZoomWin'
-Plug 'ervandew/supertab'
+" Plug 'majutsushi/tagbar'
+" Plug 'vim-scripts/Gundo'
+" Plug 'vim-scripts/ZoomWin'
+" Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " Javascript plugins
-
+" Plug 'mxw/vim-jsx'
 
 " Clojure(Script) plugins
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 call plug#end()
 " }}}
@@ -46,6 +46,8 @@ set number
 set relativenumber
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 colorscheme monokai
 " Set colour scheme for airline (powerline alternative)
@@ -149,5 +151,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "" YouCompleteMe
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 " }}}
