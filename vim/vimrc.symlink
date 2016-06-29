@@ -39,6 +39,10 @@ call plug#end()
 let mapleader = ","
 set foldmethod=marker
 
+" disable line wrapping.
+" its seriously distracting, like cant see stuff.
+set nowrap
+
 " Set colour scheme to monokai
 " Enable relative line numbering
 set number
