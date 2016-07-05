@@ -37,16 +37,44 @@ call plug#end()
 " Editor settings
 " ===========================================================================================================
 " {{{
-set foldmethod=marker
 
-" disable line wrapping.
-" its seriously distracting, like cant see stuff.
-set nowrap
+" Save whenever switching windows or leaving vim. This is useful when running
+" the tests inside vim without having to save all files first.
+au FocusLost,WinLeave * :silent! wa
+" Trigger autoread when changing buffers or coming back to vim.
+au FocusGained,BufEnter * :silent! !
 
-" set default indentation to 4 spaces
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set nobackup
+set noswapfile
+set autoread                    " automatically reload files changed outside of Vim
+
+" Folding rules {{{
+set foldmethod=syntax
+set foldlevelstart=0
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+
+au filetype vim set foldmethod=marker
+" }}}
+
+" Indentation rules {{{
+set tabstop=4                   " a tab is four spaces
+set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
+set expandtab                   " expand tabs by default (overloadable per file type later)
+set shiftwidth=4                " number of spaces to use for autoindenting
+set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
+" }}}
+
+set nowrap                      " don't wrap lines
+set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
+set scrolloff=4                 " keep 4 lines off the edges of the screen when scrolling
 
 " Set colour scheme to monokai
 " Enable relative line numbering
@@ -69,6 +97,22 @@ set cursorline
 " Personal Keybindings
 " ===========================================================================================================
 " {{{
+
+
+" Disable arrows. only noobs need arrows anyway
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" enables magic mode in regular expressions
+" :help /magic
+nnoremap / /\v
+vnoremap / /\v
+
+" recursive fold opening/closing as default
+nnoremap za zA
+nnoremap zA za
 
 let mapleader = ","
 
