@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 " General development plugins
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -21,10 +21,11 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'majutsushi/tagbar'
 " Plug 'vim-scripts/Gundo'
 " Plug 'vim-scripts/ZoomWin'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 " Javascript plugins
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Plug 'mxw/vim-jsx'
 
 " Clojure(Script) plugins
@@ -36,23 +37,24 @@ call plug#end()
 " Editor settings
 " ===========================================================================================================
 " {{{
-let mapleader = ","
 set foldmethod=marker
 
 " disable line wrapping.
 " its seriously distracting, like cant see stuff.
 set nowrap
 
+" set default indentation to 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " Set colour scheme to monokai
 " Enable relative line numbering
-set number
-" Enable current line number
 set relativenumber
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
+" Enable current line number
+set number
 
+" set syntax colour scheme
 colorscheme monokai
 " Set colour scheme for airline (powerline alternative)
 let g:airline_theme='powerlineish'
@@ -60,27 +62,45 @@ let g:airline_theme='powerlineish'
 " Highlight current line
 " Set cursorline on by default. bind leader c to toggle
 hi CursorLine   cterm=NONE ctermbg=237 ctermfg=NONE
-nnoremap <Leader>c :set cursorline!<CR>
 set cursorline
 
-" Move lines up and down
-" alt-j triangles move down, alt-k dots move up 
-nnoremap ∆ :m .+1<CR>==
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gv
-
-" when in insert mode, press <F2> to go to
-" paste mode, where you can paste mass data
-" that won't be autoindented
-set pastetoggle=<F2>            
 " }}}
 " ===========================================================================================================
 " Personal Keybindings
 " ===========================================================================================================
 " {{{
+
+let mapleader = ","
+
+nnoremap <Leader>c :set cursorline!<CR>
+
+" Remap colon and semicolon, saves pressing shift
+" everytime I need to enter command mode
+" pretty sure i do that more than find next occurance
+" of char on line (default semicolon behaviour)
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" when in insert mode, press <F2> to go to
+" paste mode, where you can paste mass data
+" that won't be autoindented
+set pastetoggle=<F2>            
+
+" Move lines up and down
+" M is Meta, ie. Alt
+nnoremap <M-j> :m .+1<CR>==
+nnoremap <M-k> :m .-2<CR>==
+inoremap <M-j> <Esc>:m .+1<CR>==gi
+inoremap <M-k> <Esc>:m .-2<CR>==gi
+vnoremap <M-j> :m '>+1<CR>gv=gv
+vnoremap <M-k> :m '<-2<CR>gv=gv
+
+" Reselect previous selection after indenting
+vnoremap > >gv
+vnoremap < <gv
+
 " General ease of use
 " Save on cmd-s. Iterm sending as ctrl s
 noremap <C-S> :w<CR>
@@ -94,7 +114,7 @@ nnoremap <C-y> 5<C-y>
 " ctrl-h is sending backspace<BS> instead of ^H
 " https://github.com/neovim/neovim/issues/2048
 if has('nvim')
-    nmap <BS> <C-W>h
+    nmap <BS> <C-h>
 endif
 
 "Switch between panels left and right.
@@ -103,24 +123,41 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 
-" Jump 5 lines at a time. useful for keyboard scrolling the cursor. wil
+" Jump 5 lines at a time. useful for keyboard scrolling the cursor. will
 " eventually get rid of this and enable the panel switching
 noremap <C-j> 5j
 noremap <C-k> 5k
+
+" Scroll horizontally 5 lines at a time
+" one line just isnt enough
+nnoremap zl z5l
+nnoremap zh z5h
+
+" Tab controls. Awesomeness engaged.
+" Shift H and Shift L to switch tabs
+nnoremap <S-T> :tabnew<CR>
+nnoremap <S-W> :tabclose<CR>
+nnoremap <S-H> :tabprevious<CR>
+nnoremap <S-L> :tabnext<CR>
 " }}}
 " ===========================================================================================================
 " Plugin Keybindings
 " ===========================================================================================================
 " {{{
+"
+
+
+" Fu(git)ive keybindings
+nnoremap <leader>gs :Gstatus<CR>
+
 " Comment out visual selection
 nnoremap  :Commentary<CR>
 vnoremap  :Commentary<CR>
 inoremap  :Commentary<CR>
 
 " Nerd tree key bindings
-noremap <Leader>k :NERDTreeToggle<CR>
+noremap <leader>k :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
-
 let NERDTreeMapActivateNode='<space>'
 
 " CtrlP Fuzzy Finder
@@ -129,7 +166,7 @@ if executable('ag')
    set grepprg=ag\ --nogroup\ --nocolor
 
    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-   " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+   " let g:ctrlp_user_command = ['ag %s -l --nocolor -g ""']
    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
    " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
@@ -137,25 +174,29 @@ if executable('ag')
    let g:ctrlp_use_caching = 0
 endif
 
-" multiple cursors
+"" Multiple cursors ===========================================================
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_quit_key='<Esc>'
 
-" Snippet configuration
+"" Ultisnips ==================================================================
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
 " better key bindings for UltiSnipsExpandTrigger
+" let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-"" YouCompleteMe
+"" YouCompleteMe ==============================================================
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
+"" Syntasic ===================================================================
+" needs to be swapped for neomake
+" Can get the asynchronousness and enable linting again
 let g:syntastic_javascript_checkers = ['eslint']
 
 " }}}
