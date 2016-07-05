@@ -188,59 +188,56 @@ nnoremap <S-L> :tabnext<CR>
 " Plugin Keybindings
 " ===========================================================================================================
 " {{{
-"
 
-
-" Fu(git)ive keybindings
+"" Fu(git)ive {{{
 nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gb :Gblame<CR>
+" }}}
 
-" Comment out visual selection
+"" Commentary {{{
 nnoremap  :Commentary<CR>
 vnoremap  :Commentary<CR>
-inoremap  :Commentary<CR>
+" }}}
 
-" Nerd tree key bindings
+"" NERDTree {{{
 noremap <leader>k :NERDTreeToggle<CR>
+let NERDTreeChDirMode=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeMapActivateNode='<space>'
+let NERDTreeMinimalUI=1
+" }}}
 
-" CtrlP Fuzzy Finder
+"" CtrlP Fuzzy Finder {{{
 if executable('ag')
    " Use ag over grep
    set grepprg=ag\ --nogroup\ --nocolor
-
-   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-   " let g:ctrlp_user_command = ['ag %s -l --nocolor -g ""']
    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-   " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-   " ag is fast enough that CtrlP doesn't need to cache
    let g:ctrlp_use_caching = 0
 endif
+" }}}
 
-"" Multiple cursors ===========================================================
+"" Multiple cursors {{{
 let g:multi_cursor_use_default_mapping=0
-" Default mapping
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_quit_key='<Esc>'
+" }}}
 
-"" Ultisnips ==================================================================
-" If you want :UltiSnipsEdit to split your window.
+"" Ultisnips {{{
 let g:UltiSnipsEditSplit="vertical"
-
-" better key bindings for UltiSnipsExpandTrigger
 " let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" }}}
 
-"" YouCompleteMe ==============================================================
+"" YouCompleteMe {{{
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+" }}}
 
-"" Syntasic ===================================================================
+"" Syntasic {{{
 " needs to be swapped for neomake
 " Can get the asynchronousness and enable linting again
 let g:syntastic_javascript_checkers = ['eslint']
-
+" }}}
 " }}}
