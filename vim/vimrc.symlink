@@ -1,19 +1,16 @@
+let mapleader = ","
+
 " ===========================================================================================================
 " Plugins
 " ===========================================================================================================
 " {{{
 call plug#begin('~/.vim/plugged')
 " General development plugins
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'scrooloose/syntastic'
-Plug 'terryma/vim-multiple-cursors'
+"
+Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
@@ -21,16 +18,56 @@ Plug 'airblade/vim-gitgutter'
 " Plug 'majutsushi/tagbar'
 " Plug 'vim-scripts/Gundo'
 " Plug 'vim-scripts/ZoomWin'
-Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'ajh17/VimCompletesMe'
+" Plug 'tpope/vim-unimpaired'
 
 " Javascript plugins
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Plug 'mxw/vim-jsx'
 
-" Clojure(Script) plugins
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'SirVer/ultisnips', {'on': [] } "{{{
+    let g:UltiSnipsEditSplit="vertical"
+    " let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger = "<tab>"
+    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+    inoremap <silent> <tab> <C-r>=LoadUltiSnips()<cr>
+
+    function! LoadUltiSnips()
+        let l:curpos = getcurpos()
+        execute plug#load('ultisnips')
+        call cursor(l:curpos[1], l:curpos[2])
+        call UltiSnips#ExpandSnippet()
+        return ""
+    endfunction
+" }}}
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "{{{
+    noremap <leader>k :NERDTreeToggle<CR>
+    let NERDTreeChDirMode=1
+    let NERDTreeHighlightCursorline=1
+    let NERDTreeMapActivateNode='<space>'
+    let NERDTreeMinimalUI=1
+    let NERDTreeShowHidden=1
+" }}}
+Plug 'terryma/vim-multiple-cursors' "{{{
+    let g:multi_cursor_use_default_mapping=0
+    let g:multi_cursor_next_key='<C-d>'
+    let g:multi_cursor_quit_key='<Esc>'
+    let g:multi_cursor_normal_maps={'f': 1,'t': 1,'F': 1,'T': 1,'c': 1,'d': 1}
+" }}}
+Plug 'tpope/vim-fugitive' "{{{
+    nnoremap <leader>gs :Gstatus<CR>
+    nnoremap <leader>gb :Gblame<CR>
+" }}}
+Plug 'tpope/vim-commentary' "{{{
+    nnoremap  :Commentary<CR>
+    vnoremap  :Commentary<CR>
+" }}}
+Plug 'ctrlpvim/ctrlp.vim' "{{{
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+    let g:ctrlp_use_caching = 0
+" }}}"
 call plug#end()
 " }}}
 " ===========================================================================================================
@@ -89,7 +126,7 @@ let g:airline_theme='powerlineish'
 
 " Highlight current line
 " Set cursorline on by default. bind leader c to toggle
-hi CursorLine   cterm=NONE ctermbg=237 ctermfg=NONE
+hi CursorLine   cterm=bold ctermbg=237 ctermfg=NONE
 set cursorline
 
 " }}}
@@ -98,6 +135,11 @@ set cursorline
 " ===========================================================================================================
 " {{{
 
+" Edit and load .vimrc
+nnoremap <leader>ve :tabedit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+nnoremap <leader>/ :nohlsearch<cr>
 
 " Disable arrows. only noobs need arrows anyway
 noremap <Up> <NOP>
@@ -114,7 +156,6 @@ vnoremap / /\v
 nnoremap za zA
 nnoremap zA za
 
-let mapleader = ","
 
 nnoremap <Leader>c :set cursorline!<CR>
 
@@ -183,61 +224,11 @@ nnoremap <S-T> :tabnew<CR>
 nnoremap <S-W> :tabclose<CR>
 nnoremap <S-H> :tabprevious<CR>
 nnoremap <S-L> :tabnext<CR>
-" }}}
-" ===========================================================================================================
-" Plugin Keybindings
-" ===========================================================================================================
-" {{{
 
-"" Fu(git)ive {{{
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gb :Gblame<CR>
+
 " }}}
 
-"" Commentary {{{
-nnoremap  :Commentary<CR>
-vnoremap  :Commentary<CR>
-" }}}
-
-"" NERDTree {{{
-noremap <leader>k :NERDTreeToggle<CR>
-let NERDTreeChDirMode=1
-let NERDTreeHighlightCursorline=1
-let NERDTreeMapActivateNode='<space>'
-let NERDTreeMinimalUI=1
-" }}}
-
-"" CtrlP Fuzzy Finder {{{
 if executable('ag')
-   " Use ag over grep
-   set grepprg=ag\ --nogroup\ --nocolor
-   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-   let g:ctrlp_use_caching = 0
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
 endif
-" }}}
-
-"" Multiple cursors {{{
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_quit_key='<Esc>'
-" }}}
-
-"" Ultisnips {{{
-let g:UltiSnipsEditSplit="vertical"
-" let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" }}}
-
-"" YouCompleteMe {{{
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-" }}}
-
-"" Syntasic {{{
-" needs to be swapped for neomake
-" Can get the asynchronousness and enable linting again
-let g:syntastic_javascript_checkers = ['eslint']
-" }}}
-" }}}
