@@ -8,22 +8,40 @@ call plug#begin('~/.vim/plugged')
 " General development plugins
 "
 Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline' "{{{
+  let g:airline#extensions#tabline#enabled = 1
+" }}}
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
+Plug 'mkitt/tabline.vim'
 " Plug 'majutsushi/tagbar'
 " Plug 'vim-scripts/Gundo'
 " Plug 'vim-scripts/ZoomWin'
-" Plug 'ajh17/VimCompletesMe'
-" Plug 'tpope/vim-unimpaired'
+Plug 'ajh17/VimCompletesMe'
+Plug 'tpope/vim-unimpaired'
+Plug 'neomake/neomake' "{{{
+    "run neomake on the current file on every write:<Paste>
+    autocmd! BufWritePost * Neomake
+    let g:neomake_javascript_enabled_makers = ['eslint']
+" }}}
 
 " Javascript plugins
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'elzr/vim-json'
+" Plug 'heavenshell/vim-jsdoc'
+Plug '1995eaton/vim-better-javascript-completion'
 " Plug 'mxw/vim-jsx'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+let g:deoplete#enable_at_startup = 1
 
 Plug 'SirVer/ultisnips', {'on': [] } "{{{
     let g:UltiSnipsEditSplit="vertical"
@@ -32,7 +50,7 @@ Plug 'SirVer/ultisnips', {'on': [] } "{{{
     let g:UltiSnipsJumpForwardTrigger = "<tab>"
     let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-    inoremap <silent> <tab> <C-r>=LoadUltiSnips()<cr>
+    " inoremap <silent> <tab> <C-r>=LoadUltiSnips()<cr>
 
     function! LoadUltiSnips()
         let l:curpos = getcurpos()
@@ -56,6 +74,7 @@ Plug 'terryma/vim-multiple-cursors' "{{{
     let g:multi_cursor_quit_key='<Esc>'
     let g:multi_cursor_normal_maps={'f': 1,'t': 1,'F': 1,'T': 1,'c': 1,'d': 1}
 " }}}
+
 Plug 'tpope/vim-fugitive' "{{{
     nnoremap <leader>gs :Gstatus<CR>
     nnoremap <leader>gb :Gblame<CR>
@@ -84,6 +103,8 @@ au FocusGained,BufEnter * :silent! !
 set nobackup
 set noswapfile
 set autoread                    " automatically reload files changed outside of Vim
+scriptencoding utf-8
+
 
 " Folding rules {{{
 set foldmethod=syntax
@@ -107,11 +128,16 @@ set softtabstop=4               " when hitting <BS>, pretend like a tab is remov
 set expandtab                   " expand tabs by default (overloadable per file type later)
 set shiftwidth=4                " number of spaces to use for autoindenting
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
+set backspace=indent,eol,start  " Backspace for dummies
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+
 " }}}
 
 set nowrap                      " don't wrap lines
 set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
-set scrolloff=4                 " keep 4 lines off the edges of the screen when scrolling
+set scrolloff=5                   " keep 4 lines off the edges of the screen when scrolling
 
 " Set colour scheme to monokai
 " Enable relative line numbering
@@ -125,9 +151,9 @@ colorscheme monokai
 let g:airline_theme='powerlineish'
 
 " Highlight current line
-" Set cursorline on by default. bind leader c to toggle
+" Set cursorline off by default. bind leader c to toggle
 hi CursorLine   cterm=bold ctermbg=237 ctermfg=NONE
-set cursorline
+" set cursorline
 
 " }}}
 " ===========================================================================================================
