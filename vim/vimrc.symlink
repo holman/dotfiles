@@ -53,7 +53,7 @@ Plugin 'lyuts/vim-rtags'
 
 syntax enable
 
-set background=light
+set background=dark
 colorscheme pencil
 
 

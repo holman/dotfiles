@@ -39,4 +39,5 @@ set-option -g history-limit 10000
 set-option -g renumber-windows on
 
 # use vim-tmuxline as powerline replacement
-if-shell "test -f $DOTS/tmux/tmuxline-snapshot.conf" "source $DOTS/tmux/tmuxline-snapshot.conf"
+if-shell "test -f $DOTS/tmux/tmuxline-snapshot.conf" "source-file $DOTS/tmux/tmuxline-snapshot.conf"
+if-shell "test -f $DOTS/colors/tmux-pencilcolors.conf" "source-file $DOTS/colors/tmux-pencilcolors.conf"

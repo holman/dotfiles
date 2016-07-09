@@ -10,6 +10,15 @@ pencil-light()
   gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#212121:#C30771:#10A778:#A89C14:#008EC4:#523C79:#20A5BA:#D9D9D9:#424242:#FB007A:#5FD7AF:#F3E430:#20BBFC:#6855DE:#4FB8CC:#F1F1F1"
 }
 
+# Pencil-dark
+pencil-dark()
+{
+  gconftool-2 --set /apps/gnome-terminal/profiles/Default/foreground_color --type string "#f1f1f1f1f1f1"
+  gconftool-2 --set /apps/gnome-terminal/profiles/Default/background_color --type string "##212121212121"
+  gconftool-2 --set /apps/gnome-terminal/profiles/Default/bold_color --type string "#fbfb00007a7a"
+  gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#212121212121:#c3c307077171:#1010a7a77878:#a8a89c9c1414:#00008e8ec4c4:#52523c3c7979:#2020a5a5baba:#d9d9d9d9d9d9:#424242424242:#fbfb00007a7a:#5f5fd7d7afaf:#f3f3e4e43030:#2020bbbbfcfc:#68685555dede:#4f4fb8b8cccc:#f1f1f1f1f1f1"
+}
+
 # ./Twilight.itermcolors
 twilight()
 {
