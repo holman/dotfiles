@@ -4,6 +4,13 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/bin
 
+# editor of choice -- Follow tutorial here: https://www.sublimetext.com/docs/2/osx_command_line.html
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+export EDITOR='subl -w'
+export SVN_EDITOR='subl -w'
+export VISUAL='subl -w'
+
+
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.

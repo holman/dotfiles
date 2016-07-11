@@ -1,6 +1,5 @@
 alias reload!='. ~/.zshrc'
 
-
 # various helpful aliases related to terminal commands
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias sl="ls"                               # in case you spell it wrong it will still work
@@ -30,3 +29,10 @@ alias st='open /Applications/SourceTree.app'
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 alias switch53="brew-php-switcher 53;php -v"
 alias switch56="brew-php-switcher 56;php -v"
+
+
+# editor of choice -- Follow tutorial here: https://www.sublimetext.com/docs/2/osx_command_line.html
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+export EDITOR='subl -w'
+export SVN_EDITOR='subl -w'
+export VISUAL='subl -w'
