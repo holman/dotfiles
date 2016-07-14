@@ -94,3 +94,6 @@ inoremap <s-tab> <c-n>
 " automatically remove whitespace when saving file
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Disable ex mode
+nnoremap Q <nop>
+
