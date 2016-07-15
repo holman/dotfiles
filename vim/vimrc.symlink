@@ -38,7 +38,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Cpp11-Syntax-Support'
 Plugin 'majutsushi/tagbar'
 Plugin 'vimwiki/vimwiki'
-Plugin 'reedes/vim-colors-pencil'
+" Forked to add more clean diff highlighting
+" Pull-request is pending
+Plugin 'kaihowl/vim-colors-pencil'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'rking/ag.vim'
