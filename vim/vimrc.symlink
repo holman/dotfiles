@@ -1,4 +1,207 @@
-syntax on
+" Core
+" ====
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+  " Use Vim settings instead of Vi settings.
+  set nocompatible
+
+  " Disable file type detection
+  filetype off
+
+" Vundle
+" ======
+
+  " Setting up Vundle - the vim plugin bundler
+  let iCanHazVundle=1
+  let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+  if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    let iCanHazVundle=0
+  endif
+
+  " set the runtime path to include Vundle and initialize
+  set rtp+=~/.vim/bundle/Vundle.vim
+  "call vundle#begin()
+  call vundle#rc()
+
+  " let Vundle manage Vundle, required
+  Plugin 'VundleVim/Vundle.vim'
+  Plugin 'puppetlabs/puppet-syntax-vim'
+  Plugin 'saltstack/salt-vim'
+  Plugin 'Lokaltog/vim-powerline'
+  Plugin 'garbas/vim-snipmate'
+
+  " following required for vim-snipmate
+  Plugin 'MarcWeber/vim-addon-mw-utils'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'honza/vim-snippets'
+
+  Plugin 'godlygeek/tabular'
+
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'scrooloose/syntastic'
+
+  " Git wrapper plugin
+  Plugin 'tpope/vim-fugitive'
+
+  Plugin 'morhetz/gruvbox'
+    set background=dark
+    colorscheme gruvbox
+
+  " All of your Plugins must be added before the following line
+  call vundle#end()
+
+  filetype plugin indent on
+
+" FileTypes
+" =========
+
+  autocmd! BufEnter *.pp set filetype=puppet
+  autocmd! BufEnter *.sls set filetype=sls
+
+" Vim Settings
+" ============
+
+  syntax enable
+
+  set cursorline
+  set modelines=0
+  set shiftwidth=2
+  set clipboard=unnamed
+  set synmaxcol=128
+  set ttyscroll=10
+  set encoding=utf-8
+  set tabstop=2
+  " set nowrap
+  " set number
+  set expandtab 
+  set nowritebackup
+  set noswapfile
+  set nobackup
+  set hlsearch
+  set ignorecase
+  set smartcase
+  set laststatus=2
+
+  " Highlight Trailing Whitespace
+  " highlight ExtraWhitespace ctermbg=darkblue guibg=darkblue
+  " match ExtraWhitespace /\s\+$/
+
+  " Persistent Undo
+  if v:version >= 703
+      set undofile
+      set undodir=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+  endif
+
+  " No show command
+  autocmd VimEnter * set nosc
+
+  " Toggle Paste/No Paste
+  nnoremap <leader>p :set paste!<CR>
+
+  " Fix backspace on Mac
+  set backspace=indent,eol,start
+
+  " Quick ESC
+  imap jj <ESC>
+
+  " Jump to the next row on long lines
+  map <Down> gj
+  map <Up> jk
+  nnoremap j gj
+  nnoremap k gk
+
+  " format the entire file
+  nmap <leader>fef ggVG=
+
+  " Open new buffers
+  nmap <leader>s<left>   :leftabove  vnew<cr>
+  nmap <leader>s<right>  :rightbelow vnew<cr>
+  nmap <leader>s<up>     :leftabove  new<cr>
+  nmap <leader>s<down>   :rightbelow new<cr>
+
+  " Tab between buffers
+  noremap <tab> <c-w><c-w>
+
+  " Switch between last two buffers
+  "nnoremap <leader><leader> <C-^>
+
+  " Sudo write
+  cnoremap w!! w !sudo tee % >/dev/null
+
+  " Keep search matches in the center of the screen
+  nnoremap n nzzzv
+  nnoremap N Nzzzv
+
+  " Resize buffers
+  if bufwinnr(1)
+    nmap µ <C-W><<C-W><
+    nmap ∆ <C-W>><C-W>>
+    nmap Ô <C-W>-<C-W>-
+    nmap Â <C-W>+<C-W>+
+  endif
+
+  " Disable Q (Command Shell Mode)
+  nnoremap Q <nop>
+
+  " Quit with :Q
+  command -nargs=0 Quit :qa!
+
+" Plugin Settings
+" ===============
+
+  " NERDTree
+  nmap <leader>n :NERDTreeToggle<CR>
+  let NERDTreeHighlightCursorline=1
+  let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+
+  " Syntastic
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_puppet_checkers=['puppetlint']
+  let g:syntastic_always_populate_loc_list = 1
+  "let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+
+  " Fugitive
+  nnoremap <leader>ga :Git add %:p<CR><CR>
+  nnoremap <leader>gs :Gstatus<CR>
+  nnoremap <leader>gc :Gcommit<cr>
+  nnoremap <leader>gc :Gcommit -v -q<CR>
+  nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+  nnoremap <Leader>gb :Gblame<CR>
+  nnoremap <leader>gd :Gdiff<CR>
+  nnoremap <leader>ge :Gedit<CR>
+  nnoremap <leader>gr :Gread<CR>
+  nnoremap <leader>gw :Gwrite<CR><CR>
+  nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <leader>gp :Ggrep<Space>
+  nnoremap <leader>gm :Gmove<Space>
+  nnoremap <leader>gq :Git branch<Space>
+  nnoremap <leader>go :Git checkout<Space>
+  nnoremap <leader>gp :Git push<cr>
+  nnoremap <leader>gps :Dispatch! git push<CR>
+  nnoremap <leader>gpl :Dispatch! git pull<CR>
+
+" Performance Optimization
+" ========================
+
+  " Fast terminal connections
+  set ttyfast
+
+  " Don't redraw when running macros
+  set lazyredraw
+
+  " Set timeout on keycodes but not mappings
+  set notimeout
+  set ttimeout
+  set ttimeoutlen=10
+
+  " Syntax optimazations
+  "syntax sync minlines=256
+  "set syntaxcol=256
+
