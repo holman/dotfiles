@@ -170,6 +170,7 @@ if [ -z $1 ]
 then
   echo "Specify a theme as the first argument: "
   echo "--------------------------------------"
+  echo "pencil-dark"
   echo "pencil-light"
   echo "darkpastel"
   echo "desert"
