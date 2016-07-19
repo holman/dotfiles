@@ -139,14 +139,13 @@ set nowrap                      " don't wrap lines
 set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
 set scrolloff=5                   " keep 4 lines off the edges of the screen when scrolling
 
-" Set colour scheme to monokai
 " Enable relative line numbering
 set relativenumber
 " Enable current line number
 set number
 
 " set syntax colour scheme
-colorscheme monokai
+colorscheme molokai
 " Set colour scheme for airline (powerline alternative)
 let g:airline_theme='powerlineish'
 

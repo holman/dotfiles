@@ -1,4 +1,6 @@
-if test ! $(which spoof)
+echo "Installing npm global modules"
+
+if test ! $(which npm)
 then
-  sudo npm install spoof -g
+  npm install -g spoof cordova eslint
 fi
