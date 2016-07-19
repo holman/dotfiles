@@ -4,7 +4,7 @@ local return_code="%(?..%{$fg[red]%}%? %{$reset_color%})"
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
 
 RPS1='%{$fg[blue]%}%~%{$reset_color%} ${return_code} '
-PROMPT='${ret_status}%{$fg_bold[green]%} %n@%m%p %{$fg[cyan]%}%c %{$fg_bold[blue]%} $(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+PS1='${ret_status}%{$fg_bold[green]%} %n@%m%p %{$fg[cyan]%}%c %{$fg_bold[blue]%} $(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
