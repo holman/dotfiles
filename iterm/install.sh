@@ -1,0 +1,1 @@
+ln -s ~/.dotfiles/iterm ~/.iterm 
