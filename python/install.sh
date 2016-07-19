@@ -1,3 +1,6 @@
+# enable use of pip to install virtual environments
+export PIP_REQUIRE_VIRTUALENV=false
+
 # install venv globally
 pip install virtualenv
 
