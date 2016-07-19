@@ -6,10 +6,19 @@ let mapleader = ","
 " {{{
 call plug#begin('~/.vim/plugged')
 " General development plugins
-"
+
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline' "{{{
-  let g:airline#extensions#tabline#enabled = 1
+    " Set colour scheme for airline (powerline alternative)
+    let g:airline_theme='powerlineish'
+    let g:airline_powerline_fonts = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_tab_nr = 1
+    let g:airline#extensions#tabline#show_tab_type = 1
+    let g:airline#extensions#tabline#show_close_button = 0
+    let g:airline#extensions#tabline#tab_min_count = 0
+    let g:airline#extensions#tabline#buffer_min_count = 0
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
 " }}}
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
@@ -17,12 +26,13 @@ Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
-Plug 'mkitt/tabline.vim'
-" Plug 'majutsushi/tagbar'
-" Plug 'vim-scripts/Gundo'
-" Plug 'vim-scripts/ZoomWin'
+" Plug 'mkitt/tabline.vim'
+Plug 'majutsushi/tagbar'
 Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-unimpaired'
+Plug 'ervandew/supertab' "{{{
+    let g:SuperTabDefaultCompletionType = '<C-x><c-o>'
+" }}}
 Plug 'neomake/neomake' "{{{
     "run neomake on the current file on every write:<Paste>
     autocmd! BufWritePost * Neomake
@@ -30,19 +40,32 @@ Plug 'neomake/neomake' "{{{
 " }}}
 
 " Javascript plugins
-Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
+    let g:tern_show_argument_hints = 'on_hold'
+    let g:tern_show_signature_in_pum = 1
+" }}}"
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 " Plug 'heavenshell/vim-jsdoc'
-Plug '1995eaton/vim-better-javascript-completion'
+" Plug '1995eaton/vim-better-javascript-completion'
 " Plug 'mxw/vim-jsx'
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-let g:deoplete#enable_at_startup = 1
 
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } "{{{
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#omni#input_patterns = {}
+    let g:deoplete#omni_patterns = {}
+    " autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+
+    " Use tab as the autocomplete trigger
+    " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" }}}
+" not sure if its necessary to include this one
+" Plug 'carlitux/deoplete-ternjs'
 Plug 'SirVer/ultisnips', {'on': [] } "{{{
     let g:UltiSnipsEditSplit="vertical"
     " let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
@@ -61,7 +84,7 @@ Plug 'SirVer/ultisnips', {'on': [] } "{{{
     endfunction
 " }}}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "{{{
-    noremap <leader>k :NERDTreeToggle<CR>
+    noremap <leader>k :NERDTreeToggle<cr>
     let NERDTreeChDirMode=1
     let NERDTreeHighlightCursorline=1
     let NERDTreeMapActivateNode='<space>'
@@ -74,18 +97,26 @@ Plug 'terryma/vim-multiple-cursors' "{{{
     let g:multi_cursor_quit_key='<Esc>'
     let g:multi_cursor_normal_maps={'f': 1,'t': 1,'F': 1,'T': 1,'c': 1,'d': 1}
 " }}}
-
 Plug 'tpope/vim-fugitive' "{{{
-    nnoremap <leader>gs :Gstatus<CR>
-    nnoremap <leader>gb :Gblame<CR>
+    nnoremap <leader>gs :Gstatus<cr>
+    nnoremap <leader>gb :Gblame<cr>
 " }}}
 Plug 'tpope/vim-commentary' "{{{
-    nnoremap  :Commentary<CR>
-    vnoremap  :Commentary<CR>
+    nnoremap  :Commentary<cr>
+    vnoremap  :Commentary<cr>
 " }}}
 Plug 'ctrlpvim/ctrlp.vim' "{{{
+    noremap <C-b> :CtrlPBuffer<cr>
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
     let g:ctrlp_use_caching = 0
+
+    " close prompt on backspace or <c-h>
+    let g:ctrlp_brief_prompt = 1
+    let g:ctrlp_switch_buffer = 'Et'
+
+    let g:ctrlp_prompt_mappings = {
+        \ 'PrtDeleteEnt()':       ['<C-d>'],
+        \ }
 " }}}"
 call plug#end()
 " }}}
@@ -104,6 +135,9 @@ set nobackup
 set noswapfile
 set autoread                    " automatically reload files changed outside of Vim
 scriptencoding utf-8
+
+set ignorecase
+set smartcase
 
 
 " Folding rules {{{
@@ -132,28 +166,27 @@ set backspace=indent,eol,start  " Backspace for dummies
 set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-
 " }}}
 
 set nowrap                      " don't wrap lines
+set list
 set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
-set scrolloff=5                   " keep 4 lines off the edges of the screen when scrolling
+set scrolloff=5                 " keep 4 lines off the edges of the screen when scrolling
 
-" Enable relative line numbering
-set relativenumber
-" Enable current line number
-set number
+set relativenumber              " Enable relative line numbering
+set number                      " Enable current line number
 
-" set syntax colour scheme
+" set syntax colour scheme to monokai
 colorscheme molokai
-" Set colour scheme for airline (powerline alternative)
-let g:airline_theme='powerlineish'
 
 " Highlight current line
 " Set cursorline off by default. bind leader c to toggle
 hi CursorLine   cterm=bold ctermbg=237 ctermfg=NONE
 " set cursorline
 
+augroup omnifuncs
+    autocmd filetype javascript setlocal omnifunc=tern#Complete
+augroup end
 " }}}
 " ===========================================================================================================
 " Personal Keybindings
@@ -164,6 +197,7 @@ hi CursorLine   cterm=bold ctermbg=237 ctermfg=NONE
 nnoremap <leader>ve :tabedit $MYVIMRC<cr>
 nnoremap <leader>vs :source $MYVIMRC<cr>
 
+" Clear the highlighted search results
 nnoremap <leader>/ :nohlsearch<cr>
 
 " Disable arrows. only noobs need arrows anyway
@@ -181,8 +215,8 @@ vnoremap / /\v
 nnoremap za zA
 nnoremap zA za
 
-
-nnoremap <Leader>c :set cursorline!<CR>
+" Cursorline keymapping, using iterm2 built-in cursor guide
+nnoremap <Leader>c :set cursorline!<cr>
 
 " Remap colon and semicolon, saves pressing shift
 " everytime I need to enter command mode
@@ -196,16 +230,16 @@ vnoremap : ;
 " when in insert mode, press <F2> to go to
 " paste mode, where you can paste mass data
 " that won't be autoindented
-set pastetoggle=<F2>            
+set pastetoggle=<F2>
 
 " Move lines up and down
 " M is Meta, ie. Alt
-nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
-inoremap <M-j> <Esc>:m .+1<CR>==gi
-inoremap <M-k> <Esc>:m .-2<CR>==gi
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> :m '<-2<CR>gv=gv
+nnoremap <M-j> :m .+1<cr>==
+nnoremap <M-k> :m .-2<cr>==
+inoremap <M-j> <Esc>:m .+1<cr>==gi
+inoremap <M-k> <Esc>:m .-2<cr>==gi
+vnoremap <M-j> :m '>+1<cr>gv=gv
+vnoremap <M-k> :m '<-2<cr>gv=gv
 
 " Reselect previous selection after indenting
 vnoremap > >gv
@@ -213,9 +247,9 @@ vnoremap < <gv
 
 " General ease of use
 " Save on cmd-s. Iterm sending as ctrl s
-noremap <C-S> :w<CR>
-vnoremap <C-S> <C-C>:w<CR>
-inoremap <C-S> <Esc>:w<CR>
+nnoremap <C-S> :w<cr>
+vnoremap <C-S> <C-C>:w<cr>
+inoremap <C-S> <Esc>:w<cr>
 
 " Speed up scrolling of the viewport slightly
 nnoremap <C-e> 5<C-e>
@@ -235,8 +269,8 @@ nnoremap <C-k> <C-w>k
 
 " Jump 5 lines at a time. useful for keyboard scrolling the cursor. will
 " eventually get rid of this and enable the panel switching
-noremap <C-j> 5j
-noremap <C-k> 5k
+noremap <S-j> 5j
+noremap <S-k> 5k
 
 " Scroll horizontally 5 lines at a time
 " one line just isnt enough
@@ -245,12 +279,21 @@ nnoremap zh z5h
 
 " Tab controls. Awesomeness engaged.
 " Shift H and Shift L to switch tabs
-nnoremap <S-T> :tabnew<CR>
-nnoremap <S-W> :tabclose<CR>
-nnoremap <S-H> :tabprevious<CR>
-nnoremap <S-L> :tabnext<CR>
+nnoremap <S-T> :tabnew<cr>
+nnoremap <S-W> :tabclose<cr>
+nnoremap <S-H> :tabprevious<cr>
+nnoremap <S-L> :tabnext<cr>
 
+" Let escape leave terminal buffer
+" Returns to normal mode, making all vim keybindings come back to life
+" neovim only
+if(has('nvim'))
+    tnoremap <Esc> <C-\><C-n>
+endif
 
+" Scroll screen so tht cursor is in the center after searches
+nnoremap n nzz
+nnoremap N Nzz
 " }}}
 
 if executable('ag')
