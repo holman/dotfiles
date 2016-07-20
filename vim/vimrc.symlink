@@ -65,6 +65,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } "{{{
     " Use tab as the autocomplete trigger
     " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " }}}
+Plug 'mxw/vim-jsx'
+Plug 'editorconfig/editorconfig-vim'
 " not sure if its necessary to include this one
 " Plug 'carlitux/deoplete-ternjs'
 Plug 'SirVer/ultisnips', {'on': [] } "{{{
