@@ -44,6 +44,7 @@ Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
     let g:tern_show_argument_hints = 'on_hold'
     let g:tern_show_signature_in_pum = 1
 " }}}"
+Plug 'carlitux/deoplete-ternjs'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
@@ -59,7 +60,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } "{{{
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#omni#input_patterns = {}
     let g:deoplete#omni_patterns = {}
-    " autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+    autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
 
     " Use tab as the autocomplete trigger
     " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -201,10 +202,10 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 nnoremap <leader>/ :nohlsearch<cr>
 
 " Disable arrows. only noobs need arrows anyway
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+noremap <Up> :copen<cr>
+noremap <Down> :cclose<cr>
+noremap <Left> :cp<cr>
+noremap <Right> :cn<cr>
 
 " enables magic mode in regular expressions
 " :help /magic

@@ -1,6 +1,6 @@
-echo "Installing npm global modules"
 
-if test ! $(which npm)
+if test $(which npm)
 then
-  npm install -g spoof cordova eslint
+    echo "Installing npm global modules"
+    npm install -g cordova eslint tern
 fi
