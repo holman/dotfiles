@@ -20,9 +20,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo " on git : %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo " on git : %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -68,10 +68,24 @@ rb_prompt() {
 }
 
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  echo " in %{$fg_bold[cyan]%}%~%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+date_and_time() {
+  if [[ -z $TMUX ]]; then
+    echo " %{$fg[cyan]%}%D{[%I:%M:%S]}"
+  fi
+}
+
+hostname() {
+  # if in TMUX window name will give hostname
+  if [[ -z $TMUX ]]; then
+    echo " at %{$fg[yellow]%}%m%{$reset_color%}"
+  fi
+}
+
+export PROMPT=$'\n%{$fg[magenta]%}%n%{$reset_color%}$(hostname)$(directory_name)$(git_dirty)$(need_push)$(date_and_time)\n› '
+
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
