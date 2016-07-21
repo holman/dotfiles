@@ -15,10 +15,8 @@ alias l='colourify ls -la'
 alias ll='colourify ls -l'
 alias la='colourify ls -lA'
 
-alias bower='noglob bower'
-
 # Pipe my public key to my clipboard.
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias pubkey="less ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # servers
 alias deathstar='ssh cwardzala@192.168.1.103'
@@ -40,11 +38,10 @@ alias vssh='vagrant ssh'
 
 alias gst='gws'
 
-alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"
-
 alias nwjs="/Applications/nwjs.app/Contents/MacOS/nwjs"
 
 alias gclean="git checkout master && git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
-alias ip='ipconfig getifaddr en0'
-alias pubip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias ip='colourify ipconfig getifaddr en0'
+alias pubip='colourify dig +short myip.opendns.com @resolver1.opendns.com'
+alias uuid="uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]'  | pbcopy && pbpaste && echo"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PYVERSION=2.7.7
+PYVERSION=2.7.11
 
 if test ! $(which pyenv)
 then

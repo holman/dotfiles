@@ -57,3 +57,5 @@ dont_commit/
 
 *.sublime-project
 *.sublime-workspace
+
+/.bundle/

@@ -10,6 +10,7 @@ export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/Users/cwardzala/anaconda2/bin:$PATH"
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
@@ -18,5 +19,7 @@ export PROJECT_HOME=$HOME/Findawayworld
 
 export FLEX_HOME=$HOME/tools/flex-sdk
 export RBENV_ROOT=$HOME/.rbenv
+
+export PYTHONDONTWRITEBYTECODE=1
 
 ## HOMEBREW_GITHUB_API_TOKEN moved to ~/.localrc

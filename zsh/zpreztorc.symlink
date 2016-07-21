@@ -37,7 +37,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'node' \
   'homebrew' \
-  'python'
+  'python' \
+  'osx'
 
 #
 # Editor
