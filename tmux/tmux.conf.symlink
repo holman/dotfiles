@@ -40,6 +40,10 @@ set -g status-justify left
 set -g status-bg default
 set -g status-fg colour15
 set -g status-interval 2
+set -g status-left ''
+set -g status-right '#[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S '
+set -g status-right-length 50
+set -g status-left-length 20
 
 # messaging
 set -g message-fg black
@@ -55,11 +59,19 @@ setw -g mode-fg colour15
 setw -g window-status-format "#[fg=colour15]#[bg=colour244] #I:#[bg=colour244]#[fg=colour15] #W "
 setw -g window-status-current-format "#[fg=clour244]#[bg=colour0] #W "
 
-set -g status-left ''
-set -g status-right ''
-
 # loud or quiet?
 set-option -g visual-activity on
 set-option -g visual-bell off
 set-option -g visual-silence off
 set -g default-terminal "screen-256color"
+
+# use vim keybindinds in copy mode
+setw -g mode-keys vi
+
+# setup 'v' to begin selection as in vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattached-to-user-namespace pbcopy"
