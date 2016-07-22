@@ -25,6 +25,7 @@ cask 'slack'
 cask 'sourcetree'
 cask 'sublime-text'
 cask 'steam'
+cask 'teamspeak-client'
 
 # Must install java before android stuff
 cask 'java'
