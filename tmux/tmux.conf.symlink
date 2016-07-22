@@ -37,11 +37,11 @@ set -g pane-active-border-fg colour75
 # status line
 set -g status-utf8 on
 set -g status-justify left
-set -g status-bg default
+set -g status-bg colour237
 set -g status-fg colour15
 set -g status-interval 2
 set -g status-left ''
-set -g status-right '#[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S '
+set -g status-right '#[fg=colour250,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour15,bold] %H:%M:%S '
 set -g status-right-length 50
 set -g status-left-length 20
 
