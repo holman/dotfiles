@@ -44,6 +44,9 @@ Plugin 'tpope/vim-surround.git'
 " https://github.com/tpope/vim-dispatch
 Plugin  'tpope/vim-dispatch'
 
+" https://github.com/tpope/vim-commentary
+Plugin 'tpope/vim-commentary.git'
+
 " http://sjl.bitbucket.org/gundo.vim/
 " Easier Vim time traveling
 Plugin 'sjl/gundo.vim'
