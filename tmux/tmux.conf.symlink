@@ -35,7 +35,7 @@ set -g pane-active-border-fg colour75
 
 ### status bar design
 # status line
-set -g status-utf8 on
+#set -g status-utf8 on
 set -g status-justify left
 set -g status-bg colour237
 set -g status-fg colour15
