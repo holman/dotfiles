@@ -1,0 +1,94 @@
+set-option -g default-shell /bin/zsh
+
+# Copy-paste integration
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Bind ']' to use pbpaste
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+# remap prefix to Control + a
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+
+# force a reload of the config file
+unbind r
+bind r source-file ~/.tmux.conf
+
+# quick pane cycling
+unbind ^A
+bind ^A select-pane -t :.+
+
+setw -g monitor-activity on
+
+# remove confirmation when kill-pane
+bind-key x kill-pane
+
+set-window-option -g window-status-current-bg yellow
+
+# Make mouse useful in copy mode
+set-option -g mouse on
+
+# Allow xterm titles in terminal window, terminal scrolling with scrollbar,
+# and setting overrides of C-Up, C-Down, C-Left, C-Right
+set -g terminal-overrides "xterm*:XT:smcup@:rmcup@:kUP5=\eOA:kDN5=\eOB:kLFT5=\eOD:kRIT5=\eOC"
+# Scroll History
+set -g history-limit 30000
+# Set ability to capture on start and restore on exit window data when running an application
+setw -g alternate-screen on
+# Lower escape timing from 500ms to 50ms for quicker response to scroll-buffer access.
+set -s escape-time 50
+
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-left-length 360
+set-option -g status-right-length 90
+set-option -g status-left "#(~/.tmux/prompt.sh)"
+
+set -g base-index 1 # Numbering of windows
+setw -g pane-base-index 1 # Numbering of Panes
+bind \ split-window -h # Split panes horizontal
+bind - split-window -v # Split panes vertically
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+
+set -g @themepack 'double/cyan'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+
+# Key bindings
+#
+# prefix + I
+#
+# Installs new plugins from GitHub or any other git repository
+# Refreshes TMUX environment
+# prefix + U
+#
+# updates plugin(s)
+# prefix + alt + u
+#
+# remove/uninstall plugins not on the plugin list
+
