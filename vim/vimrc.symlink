@@ -121,6 +121,8 @@ Plug 'ctrlpvim/ctrlp.vim' "{{{
         \ 'PrtDeleteEnt()':       ['<C-d>'],
         \ }
 " }}}"
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux'
 call plug#end()
 " }}}
 " ===========================================================================================================
@@ -189,6 +191,10 @@ hi CursorLine   cterm=bold ctermbg=237 ctermfg=NONE
 
 augroup omnifuncs
     autocmd filetype javascript setlocal omnifunc=tern#Complete
+augroup end
+
+augroup tmux_cfg
+    autocmd BufNewFile,BufRead *tmux.conf* set syntax=tmux
 augroup end
 " }}}
 " ===========================================================================================================
