@@ -1,3 +1,6 @@
+pyenv install 3.5.2
+pyenv global 3.5.2
+
 # enable use of pip to install virtual environments
 export PIP_REQUIRE_VIRTUALENV=false
 

@@ -144,10 +144,11 @@ scriptencoding utf-8
 set ignorecase
 set smartcase
 
+set clipboard=unnamed
 
 " Folding rules {{{
 set foldmethod=syntax
-set foldlevelstart=0
+set foldlevelstart=99
 
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
@@ -193,8 +194,9 @@ augroup omnifuncs
     autocmd filetype javascript setlocal omnifunc=tern#Complete
 augroup end
 
-augroup tmux_cfg
+augroup dotfiles
     autocmd BufNewFile,BufRead *tmux.conf* set syntax=tmux
+    autocmd BufNewFile,BufRead Brewfile set syntax=ruby
 augroup end
 " }}}
 " ===========================================================================================================
