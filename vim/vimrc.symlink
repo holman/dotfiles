@@ -123,6 +123,7 @@ Plug 'ctrlpvim/ctrlp.vim' "{{{
 " }}}"
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 " }}}
 " ===========================================================================================================
@@ -198,6 +199,12 @@ augroup dotfiles
     autocmd BufNewFile,BufRead *tmux.conf* set syntax=tmux
     autocmd BufNewFile,BufRead Brewfile set syntax=ruby
 augroup end
+
+" augroup BgHighlight
+"     autocmd!
+"     autocmd WinEnter * set cul
+"     autocmd WinLeave * set nocul
+" augroup END
 " }}}
 " ===========================================================================================================
 " Personal Keybindings
