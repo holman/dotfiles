@@ -17,7 +17,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-ruby/vim-ruby'
 Plug 'valloric/youcompleteme'
 Plug 'pangloss/vim-javascript'
-Plug 'MvanDiemen/ghostbuster'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'rking/ag.vim'
 call plug#end()
 
 set noswapfile
@@ -26,6 +27,7 @@ set noswapfile
 filetype indent plugin on
 
 set background=dark
+colorscheme deep-space
 
 "  ---------------------------------------------------
 "  TEXT FORMATTING
@@ -67,6 +69,7 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap <Leader><Leader> :e#<CR> " Reopen last file
 nnoremap <Leader>w :w<CR> " <Leader>w will save
+nnoremap <Leader>qc :ccl<CR> " close quick fix window
 
 
 set ruler                  " show the cursor position all the time
@@ -104,3 +107,5 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 
 nnoremap <Leader>t :CtrlP<CR>
+let g:ctrlp_by_filename = 1
+let g:ctrlp_switch_buffer = 0
