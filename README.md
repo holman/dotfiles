@@ -45,6 +45,14 @@ script/bootstrap
 
 Once completed open up vim and run :PlugInstall
 
+## YouCompleteMe
+This takes a couple extra commands. Once you run the :PlugInstall do the following....
+```sh
+cd ~/.vim/plugged/youcompleteme
+git submodule update --init --recursive
+python install.py
+```
+
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
