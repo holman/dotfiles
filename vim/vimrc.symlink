@@ -6,13 +6,26 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-ruby/vim-ruby'
+Plug 'valloric/youcompleteme'
+Plug 'pangloss/vim-javascript'
+Plug 'MvanDiemen/ghostbuster'
 call plug#end()
 
 set noswapfile
 
-
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+set background=dark
 
 "  ---------------------------------------------------
 "  TEXT FORMATTING
@@ -43,10 +56,17 @@ inoremap jj <ESC>
 " map NERDTreeToggle to nn
 noremap <Leader>nn :NERDTreeToggle<cr>
 
+" reload vim <Leader>s
+map <leader>s :source ~/.vimrc<CR>
+
+" Movement around panes CTRL-<letter>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap <Leader><Leader> :e#<CR> " Reopen last file
+nnoremap <Leader>w :w<CR> " <Leader>w will save
 
 
 set ruler                  " show the cursor position all the time
@@ -71,13 +91,16 @@ set ignorecase             " ignore case when searching
 set nohlsearch             " don't highlight searches
 set visualbell             " shut up
 
-
-function! StripWhitespace ()
-  exec ':%s/ \+$//gc'
-endfunction
-map ,s :call StripWhitespace ()<CR>
+autocmd BufWritePre * :%s/\s\+$//e
 
 syntax on
 
 autocmd vimenter * if !argc() | NERDTree | endif
 nmap <silent> <C-D> :NERDTreeToggle<CR>
+
+" ------- PLUGIN CONFIGS ------- "
+" NERDTREE
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+
+nnoremap <Leader>t :CtrlP<CR>

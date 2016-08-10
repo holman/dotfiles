@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/Andrew.Holman'
-let g:netrw_dirhist_2='/Users/Andrew.Holman/.dotfiles'
-let g:netrw_dirhist_3='/Users/Andrew.Holman/.dotfiles/vim.symlink'
-let g:netrw_dirhist_4='/Users/Andrew.Holman/.dotfiles/vim.symlink/autoload'
-let g:netrw_dirhist_5='/Users/Andrew.Holman/.dotfiles/vim.symlink'
-let g:netrw_dirhist_6='/Users/Andrew.Holman/.dotfiles'
