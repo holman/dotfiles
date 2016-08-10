@@ -27,7 +27,10 @@ set noswapfile
 filetype indent plugin on
 
 set background=dark
-colorscheme deep-space
+
+if filereadable(expand("$HOME/.vim/plugged/vim-deep-space/colors/deep-space.vim"))
+  colorscheme deep-space
+endif
 
 "  ---------------------------------------------------
 "  TEXT FORMATTING
