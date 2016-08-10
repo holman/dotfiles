@@ -28,14 +28,11 @@ set noswapfile
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
-"set background=dark
+set background=dark
 
 if filereadable(expand("$HOME/.vim/plugged/vim-deep-space/colors/deep-space.vim"))
-  set t_Co=256
-  set background=dark
   colorscheme deep-space
-  highlight Normal ctermbg=NONE
-  highlight nonText ctermbg=NONE
+  let g:airline_theme='deep_space'
 endif
 
 "  ---------------------------------------------------
