@@ -19,6 +19,8 @@ Plug 'valloric/youcompleteme'
 Plug 'pangloss/vim-javascript'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'rking/ag.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 
 set noswapfile
