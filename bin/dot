@@ -6,15 +6,18 @@
 # to make sure you're on the latest and greatest.
 export ZSH=$HOME/.dotfiles
 
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
+if [ "$(uname)" == "Darwin" ]; then
+  # Set macOS defaults
+  $ZSH/macos/set-defaults.sh
 
-# Install homebrew
-$ZSH/homebrew/install.sh 2>&1
+  # Install homebrew
+  $ZSH/homebrew/install.sh 2>&1
 
-# Upgrade homebrew
-echo "› brew update"
-brew update
+  # Upgrade homebrew
+  echo "› brew update"
+  brew update
+fi
+
 
 # Install software
 echo "› $ZSH/script/install"
