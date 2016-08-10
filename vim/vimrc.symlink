@@ -21,7 +21,6 @@ Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tomtom/tcomment_vim'
-Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 set noswapfile
@@ -29,10 +28,14 @@ set noswapfile
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
-set background=dark
+"set background=dark
 
 if filereadable(expand("$HOME/.vim/plugged/vim-deep-space/colors/deep-space.vim"))
+  set t_Co=256
+  set background=dark
   colorscheme deep-space
+  highlight Normal ctermbg=NONE
+  highlight nonText ctermbg=NONE
 endif
 
 "  ---------------------------------------------------
@@ -108,10 +111,13 @@ autocmd vimenter * if !argc() | NERDTree | endif
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 
 " ------- PLUGIN CONFIGS ------- "
+
 " NERDTREE
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
+let NERDTreeQuitOnOpen=1
 
+" CTRL-P"
 nnoremap <silent> ,t :CtrlP<CR>
 nnoremap <silent> ,b :CtrlPBuffer<CR>
 let g:ctrlp_by_filename = 1
@@ -162,3 +168,10 @@ nmap <silent> // :nohlsearch<CR>
 
 " Type ,hl to toggle highlighting on/off, and show current value.
 noremap ,hl :set hlsearch! hlsearch?<CR>
+
+
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
