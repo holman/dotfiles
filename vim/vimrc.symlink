@@ -29,6 +29,8 @@ Plug 'tpope/vim-markdown'
 " in your repo, here (maybe work stuff)
 try
   source ~/.vimplugins.local
+catch
+  "Unable to open vimplugins.local"
 endtry
 
 call plug#end()
