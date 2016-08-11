@@ -5,25 +5,28 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-ruby/vim-ruby'
 Plug 'valloric/youcompleteme'
-Plug 'pangloss/vim-javascript'
-Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tomtom/tcomment_vim'
+
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'pangloss/vim-javascript'
+Plug 'elixir-lang/vim-elixir'
+Plug 'tpope/vim-markdown'
 call plug#end()
 
-set noswapfile
+set noswapfile " don't create .swp files
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
@@ -51,6 +54,7 @@ set formatoptions+=n       " support for numbered/bullet lists
 set textwidth=80           " wrap at 80 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
 set mouse=a                " enable mouse in term"
+set wildmenu
 
 "  ----------------------------------------------------
 "  REMAPPING
@@ -118,22 +122,10 @@ let NERDTreeQuitOnOpen=1
 nnoremap <silent> ,t :CtrlP<CR>
 nnoremap <silent> ,b :CtrlPBuffer<CR>
 let g:ctrlp_by_filename = 1
+let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
-if exists("g:ctrlp_user_command")
-  unlet g:ctrlp_user_command
-endif
-if executable('ag')
-  "Use ag in CtrlP for listing files. Lightning fast and respects
-  ".gitignore
-  let g:ctrlp_user_command =
-        \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-else
-  " Fall back to using git ls-files if Ag is not available
-  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files .  --cached --exclude-standard --others']
-endif
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " MAPPINGS FOR RAILS APPS "
 map ,ja :CtrlP app/assets<CR>
@@ -151,7 +143,6 @@ map ,jV :CtrlP vendor<CR>
 map ,jF :CtrlP factories<CR>
 map ,jT :CtrlP test<CR>
 
-
 " Easier rails movement
 nnoremap ,vv :Eview<cr>
 nnoremap ,cc :Econtroller<cr>
@@ -165,8 +156,6 @@ nmap <silent> // :nohlsearch<CR>
 
 " Type ,hl to toggle highlighting on/off, and show current value.
 noremap ,hl :set hlsearch! hlsearch?<CR>
-
-
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
