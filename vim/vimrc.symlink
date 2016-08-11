@@ -11,19 +11,26 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-bundler'
-Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'valloric/youcompleteme'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tomtom/tcomment_vim'
+Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
+
+" Add local plugins that you don't really want
+" in your repo, here (maybe work stuff)
+try
+  source ~/.vimplugins.local
+endtry
+
 call plug#end()
 
 set noswapfile " don't create .swp files
@@ -35,8 +42,11 @@ set background=dark
 
 if filereadable(expand("$HOME/.vim/plugged/vim-deep-space/colors/deep-space.vim"))
   colorscheme deep-space
-  let g:airline_theme='deep_space'
+  let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
 endif
+
 
 "  ---------------------------------------------------
 "  TEXT FORMATTING
