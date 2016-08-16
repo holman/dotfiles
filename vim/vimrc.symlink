@@ -115,8 +115,6 @@ set laststatus=2           " always show the status line
 set ignorecase             " ignore case when searching
 set visualbell             " shut up
 
-autocmd BufWritePre * :%s/\s\+$//e
-
 syntax on
 
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -183,3 +181,13 @@ nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>ge :Gedit<CR>
+
+" Automatically trim trailing whitespace
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
