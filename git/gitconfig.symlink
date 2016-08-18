@@ -15,7 +15,7 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = /Users/muneeb/.gitignore_global
+	excludesfile = /Users/muneeb/.gitignore_global
         editor = nvim
 [apply]
         whitespace = nowarn

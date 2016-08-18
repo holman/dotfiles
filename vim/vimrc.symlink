@@ -67,24 +67,14 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } "{{{
 " }}}
 Plug 'mxw/vim-jsx'
 Plug 'editorconfig/editorconfig-vim'
-" not sure if its necessary to include this one
-" Plug 'carlitux/deoplete-ternjs'
-Plug 'SirVer/ultisnips', {'on': [] } "{{{
+
+" https://github.com/SirVer/ultisnips/issues/710
+Plug 'SirVer/ultisnips' "{{{
     let g:UltiSnipsEditSplit="vertical"
-    " let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips']
+    let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
     let g:UltiSnipsExpandTrigger = "<tab>"
     let g:UltiSnipsJumpForwardTrigger = "<tab>"
     let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-    " inoremap <silent> <tab> <C-r>=LoadUltiSnips()<cr>
-
-    function! LoadUltiSnips()
-        let l:curpos = getcurpos()
-        execute plug#load('ultisnips')
-        call cursor(l:curpos[1], l:curpos[2])
-        call UltiSnips#ExpandSnippet()
-        return ""
-    endfunction
 " }}}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "{{{
     noremap <leader>k :NERDTreeToggle<cr>
