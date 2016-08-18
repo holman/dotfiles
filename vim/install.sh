@@ -3,6 +3,9 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 
 mkdir -p ~/.config/nvim/colors
 
-rm ~/.config/nvim/init.vim
+if [ -f ~/.config/nvim/init.vim ]; then
+    rm ~/.config/nvim/init.vim
+fi
+
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 cp ~/.dotfiles/vim/molokai.vim ~/.config/nvim/colors/molokai.vim
