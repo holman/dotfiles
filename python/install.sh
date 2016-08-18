@@ -1,17 +1,13 @@
 #!/bin/sh
 
-PYVERSION=2.7.11
+# install Python2
+brew install python > /tmp/python2-install.log
 
-if test ! $(which pyenv)
-then
-    echo " Installing pyenv"
-    brew install pyenv > /tmp/pyenv-install.log
-fi
+# install Python3
+brew install python3 > /tmp/python3-install.log
 
-pyenv install -s $PYVERSION
-
-pyenv global $PYVERSION
-
+# install virtualenv for Python2
 pip install virtualenv
 
-pyenv rehash
+# install virtualenv for Python3
+pip3 install virtualenv

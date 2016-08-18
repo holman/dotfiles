@@ -25,6 +25,7 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
+  'fasd' \
   'terminal' \
   'editor' \
   'history' \
@@ -32,13 +33,23 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
   'history-substring-search' \
+  'autosuggestions' \
   'git' \
   'node' \
   'homebrew' \
   'python' \
-  'osx'
+  'osx' \
+  'syntax-highlighting' \
+  'prompt'
+
+#
+# Autosuggestions
+#
+
+# Set the query found color.
+zstyle ':prezto:module:autosuggestions' color 'yes'
+zstyle ':prezto:module:autosuggestions:color' found '#eee'
 
 #
 # Editor
@@ -123,12 +134,12 @@ zstyle ':prezto:module:prompt' theme 'cwardzala'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'cursor' \
-#   'root'
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+   'main' \
+   'brackets' \
+   'pattern' \
+   'cursor' \
+   'root'
 #
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \

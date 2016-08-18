@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install coreutils spark ssh-copy-id libdvdcss grc
+brew install coreutils spark ssh-copy-id libdvdcss grc jq fasd csvfix
 
 exit 0
