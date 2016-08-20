@@ -1,8 +1,2 @@
-
-
-"Creating docker machine"
-docker-machine create --driver virtualbox --virtualbox-memory 2048 default
-
-
 mkdir -p ~/.zsh/completion
 curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > completion.zsh
