@@ -19,6 +19,8 @@ then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
   fi
 
+  brew analytics off
+
 fi
 
 exit 0
