@@ -58,3 +58,5 @@
 [mergetool "sourcetree"]
 	    cmd = /usr/local/bin/pstorm merge \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 	    trustExitCode = true
+[fetch]
+	prune = true
