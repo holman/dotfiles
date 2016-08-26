@@ -5,8 +5,6 @@ alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias sl="ls"                               # in case you spell it wrong it will still work
 alias ll="ls -alh"                          # list all files, even the hidden ones
 alias lf="du -sh"                           # display directory file size
-alias htdocs="cd /Applications/MAMP/htdocs" # go to MAMP's htdocs folder
-alias reload=". ~/.profile"                 # reload your bash profile
 alias relaod=reload                         # in case you spell it wrong it will still work
 
 # ssh into ritcheyfamily.com
@@ -23,6 +21,7 @@ alias apachestop="sudo apachectl stop"
 # Opening Applications
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 alias st='open /Applications/SourceTree.app'
+
 
 
 # Switching PHP versions

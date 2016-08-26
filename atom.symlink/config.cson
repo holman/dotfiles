@@ -4,9 +4,10 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "minimap"
     ]
     excludeVcsIgnoredPaths: false
-    hideGitIgnoredFiles: true
+    hideGitIgnoredFiles: false
     ignoredNames: [
       "README*"
       "config.rb"
@@ -65,8 +66,9 @@
       "base16-tomorrow-dark-theme"
     ]
   editor:
+    autoIndentOnPaste: false
     fontFamily: "Menlo"
-    fontSize: 13
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -92,6 +94,12 @@
     hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
+".coffee.jsx.source":
+  editor:
+    autoIndentOnPaste: true
+    showInvisibles: true
+    tabLength: 4
 ".js.jsx.source":
   editor:
+    autoIndentOnPaste: true
     tabLength: 4
