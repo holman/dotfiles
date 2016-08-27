@@ -1,3 +1,3 @@
-be='bundle exec'
-bake='bundle exec rake'
-brail='bundle exec rails'
+alias be='bundle exec'
+alias bake='bundle exec rake'
+alias brail='bundle exec rails'
