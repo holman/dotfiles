@@ -4,9 +4,6 @@ export ZSH=$HOME/.oh-my-zsh
 # shortcut to this dotfiles path is $ZSH_DOT
 export ZSH_DOT=$HOME/.dotfiles
 
-# load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
@@ -45,3 +42,6 @@ do
 done
 
 unset config_files
+
+# load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
