@@ -3,7 +3,7 @@ eval "$(rbenv init -)"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/sbone/.zshrc'
@@ -11,9 +11,10 @@ zstyle :compinstall filename '/Users/sbone/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-#
+
 # Enable colors
 autoload -Uz colors && colors
+
 # Enable git details
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
