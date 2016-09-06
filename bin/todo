@@ -16,3 +16,11 @@
 
 # Run our new web 2.0 todo list application and raise millions of VC dollars.
 touch ~/Desktop/"$*"
+
+# Version 2.0 
+#
+# In addition to typing "todo pick-up-dry-cleaning" in the command line, you can 
+# now drag an email, URL, or any other item that needs attention to the desktop.
+# This is a FREE upgrade for a limited time!
+
+# https://zachholman.com/posts/inbox-zero-everything-zero/
