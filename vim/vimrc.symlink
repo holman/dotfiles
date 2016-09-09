@@ -186,6 +186,7 @@ augroup omnifuncs
 augroup end
 
 augroup dotfiles
+    autocmd BufNewFile,BufRead *.mustache* set syntax=html
     autocmd BufNewFile,BufRead *tmux.conf* set syntax=tmux
     autocmd BufNewFile,BufRead Brewfile set syntax=ruby
 augroup end
