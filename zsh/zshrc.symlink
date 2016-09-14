@@ -26,3 +26,6 @@ export PS1="%{$fg[red]%}%m%{$reset_color%} %{$fg[yellow]%}%*%{$reset_color%} %{$
 # show git branch name
 zstyle ':vcs_info:git:*' formats '[%b]'
 
+# case-insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
