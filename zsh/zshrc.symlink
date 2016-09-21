@@ -42,12 +42,40 @@ done
 
 unset config_files
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh/site-functions/_aws
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 define() {
   curl -s "http://www.collinsdictionary.com/dictionary/english/$*" | sed -n '/class="def"/p' | awk '{gsub(/.*<span class="def">|<\/span>.*/,"");print}' | sed "s/<[^>]\+>//g";
 }
+
+dcleanup(){
+  docker run --rm \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /etc:/etc \
+    eeacms/docker-gc
+}
+
+eval "$(rbenv init -)"
+
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups
+
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+export AWS_ACCESS_KEY=***REMOVED***
+export AWS_SECRET_KEY=***REMOVED***
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export DOCKER_HOST=tcp://192.168.63.128:2376
+export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy
+export DOCKER_TLS_VERIFY=1
+export DOCKER_MACHINE_NAME=dinghy
+export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
+export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
+export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
+export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
