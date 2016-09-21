@@ -19,3 +19,4 @@ alias gds="ey deploy -e staging_v3 -r "
 alias run="./bin/run"
 alias start="./bin/start"
 alias stop="./bin/stop"
+alias cls='clear' # Good 'ol Clear Screen command

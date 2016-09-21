@@ -1,13 +1,8 @@
-# Sample gitconfig
-#
-
+# Local/private config goes in the include
+[include]
+        path = ~/.gitconfig.local
 [hub]
         protocol = https
-[user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
-[credential]
-        helper = GIT_CREDENTIAL_HELPER
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
