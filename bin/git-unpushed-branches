@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+#
+# Lists all branches that have not been pushed to the remote
+
+git log --branches --not --remotes --simplify-by-decoration --decorate --oneline

@@ -1,33 +1,76 @@
 # Local/private config goes in the include
+
 [include]
-        path = ~/.gitconfig.local
-[hub]
-        protocol = https
+  path = ~/.gitconfig.local
+
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+  # Pretty prints the log with colors
+  plog = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\[%cn]" --decorate
+
+  # Pretty prints the graph with colors
+  lsgraph = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\[%cn]" --decorate
+
+  # More verbose graph
+  llgraph = log --graph --oneline --decorate --branches --tags
+
+  # Very verbose graph
+  lllgraph = log --graph --oneline --decorate --all
+
+  # Fancy diff
+  fdiff = !git diff --color | diff-highlight | diff-so-fancy | less -R --tabs=3
+
+  # List aliases
+  la = !git config -l | grep alias | cut -c 7-
+
+  # Stage all changes that are more than just whitespace
+  addiws = !git add-ignore-whitespace
+
+  # Give commit counts by author
+  count = !git shortlog -sn
+
+  # WFT of the repo
+  wtf = !$ZSH/bin/git-wtf
+
+  # Ranks all authors by size of diffs
+  rank-contributors = !$ZSH/bin/git-rank-contributors
+
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
+  excludesfile = ~/.gitignore
+	editor = vim
+
 [apply]
-        whitespace = nowarn
+  whitespace = nowarn
+
 [mergetool]
-        keepBackup = false
+  keepBackup = false
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
 [difftool]
-        prompt = false
+  prompt = false
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+
 [help]
-        autocorrect = 1
+  autocorrect = 1
+
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+  # See `git help config` (search for push.default)
+  # for more information on different options of the below setting.
+  #
+  # Setting to git 2.0 default to suppress warning message
+  default = simple
+
+[user]
+	name = Patrick Auld
+	email = pauld@birst.com

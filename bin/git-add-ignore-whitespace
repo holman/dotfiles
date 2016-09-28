@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+#
+# Stages all changes that are more than just white space
+
+git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero
