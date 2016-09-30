@@ -39,6 +39,12 @@
   # Ranks all authors by size of diffs
   rank-contributors = !$ZSH/bin/git-rank-contributors
 
+  # Quick insight of Stash
+  shorty = !git status --short --branch
+
+  # Remove whitespace changes
+  rws = !git remove-whitespace-changes
+
 [color]
   diff = auto
   status = auto

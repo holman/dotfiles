@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+#
+# Stages all non-whitespace changes. 
+# Does a checkout of all unstaged changes.
+# Unstages the changes from #1
+
+git addiws
+git checkout -- .
+git reset
