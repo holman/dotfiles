@@ -24,6 +24,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
 Plug 'sheerun/vim-wombat-scheme'
+Plug 'jnurmine/Zenburn'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
