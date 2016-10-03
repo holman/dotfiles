@@ -38,4 +38,7 @@ do
   source $file
 done
 
+export TERM=xterm-256color
+
 unset config_files
+export LS_COLORS="di=00;94:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90:*.sh=31"

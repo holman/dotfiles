@@ -6,7 +6,6 @@ endif
 
 
 call plug#begin('~/.vim/plugged')
-Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
@@ -24,6 +23,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
+Plug 'sheerun/vim-wombat-scheme'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -42,8 +42,8 @@ filetype indent plugin on
 
 set background=dark
 
-if filereadable(expand("$HOME/.vim/plugged/vim-deep-space/colors/deep-space.vim"))
-  colorscheme deep-space
+if filereadable(expand("$HOME/.vim/plugged/vim-wombat-scheme/colors/wombat.vim"))
+  colorscheme wombat
   let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
