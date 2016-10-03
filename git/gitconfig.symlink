@@ -17,6 +17,7 @@
 [core]
 	excludesfile = /Users/muneeb/.gitignore_global
         editor = nvim
+	compression = 0
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -35,7 +36,7 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Volumes/Macintosh HD/opt/homebrew-cask/Caskroom/sourcetree/2.2.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
 	name = Muneeb Baderoen

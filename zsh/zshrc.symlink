@@ -7,7 +7,7 @@ export PROJECTS=~/Development
 
 # oh-my-zsh setup and plugin inclusion
 source $ZSH/oh-my-zsh.sh
-plugins=(git sublime tmux)
+plugins=(git sublime tmux vagrant)
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
