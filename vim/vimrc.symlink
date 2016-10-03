@@ -4,15 +4,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
 
 call plug#begin('~/.vim/plugged')
 Plug 'tyrannicaltoucan/vim-deep-space'
@@ -23,7 +14,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-bundler'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tomtom/tcomment_vim'
@@ -58,7 +48,6 @@ if filereadable(expand("$HOME/.vim/plugged/vim-deep-space/colors/deep-space.vim"
       \ 'colorscheme': 'seoul256',
       \ }
 endif
-
 
 "  ---------------------------------------------------
 "  TEXT FORMATTING
@@ -103,7 +92,6 @@ nnoremap <Leader><Leader> :e#<CR> " Reopen last file
 nnoremap <Leader>w :w<CR> " <Leader>w will save
 nnoremap <Leader>qc :ccl<CR> " close quick fix window
 
-
 set ruler                  " show the cursor position all the time
 set noshowcmd              " don't display incomplete commands
 set nolazyredraw           " turn off lazy redraw
@@ -116,7 +104,6 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
-
 
 set showmatch              " brackets/braces that is
 set mat=5                  " duration to show matching brace (1/10 sec)
@@ -136,6 +123,8 @@ nmap <silent> <C-D> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 let NERDTreeQuitOnOpen=1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 " CTRL-P"
 nnoremap <silent> ,t :CtrlP<CR>
