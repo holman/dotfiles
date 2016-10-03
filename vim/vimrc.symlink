@@ -4,6 +4,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+
 call plug#begin('~/.vim/plugged')
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'scrooloose/nerdtree'
@@ -13,7 +23,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-bundler'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tomtom/tcomment_vim'
