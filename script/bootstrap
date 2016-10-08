@@ -281,28 +281,43 @@ install_the_fuck () {
   
 }
 
-local_pip_install () {
+os_name () {
   set +e
-  uname -a |grep 'Darwin'
-  code=$?
+  uname -a |grep 'Darwin' > /dev/null 
+  mac=$?
+  uname -a |grep 'Debian' > /dev/null
+  deb=$?
   set -e
-  if [[ $code -ne 0 ]]
+  if [[ $mac -eq 0 ]]
   then
-    ~/.local/bin/pip install --user $1
+    echo 'OSX'
+  elif [[ $deb -eq 0 ]]
+  then
+    echo 'Debian'
   else
+    echo 'Other'
+  fi
+}
+
+local_pip_install () {
+  os=$(os_name)
+  if [[ $os = "OSX" ]]
+  then
     ~/Library/Python/2.7/bin/pip install --user $1
+  elif [[ $os = "Debian" ]]
+  then
+    /usr/bin/pip install --user $1
+  else
+    ~/.local/bin/pip install --user $1
   fi
 }
 
 set_tmux_powerline_config () {
   python_version=$(python -c 'import sys;sys.stdout.write(sys.version[0:3])')
 
-  set +e
-  uname -a |grep 'Darwin' > /dev/null 
-  mac=$?
-  set -e
+  os=$(os_name)
 
-  if [[ $mac -eq 0 ]]
+  if [[ $os = "OSX" ]]
   then
     local_pip_install 'psutil'
     echo "source `ls ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf`" > ~/.tmux_powerline.conf
@@ -316,9 +331,9 @@ install_powerline () {
 
   install_pip
 
-  set_tmux_powerline_config
-
   local_pip_install 'powerline-status'
+
+  set_tmux_powerline_config
 
 
   src="$(pwd)/powerline"
