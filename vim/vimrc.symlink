@@ -155,6 +155,8 @@ map ,jT :CtrlP test<CR>
 " Easier rails movement
 nnoremap ,vv :Eview<cr>
 nnoremap ,cc :Econtroller<cr>
+nnoremap ,rA :AV<cr>
+nnoremap ,ra :A<cr>
 
 " Easier window splits
 nnoremap <silent> vv <C-w>v
