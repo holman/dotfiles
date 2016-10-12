@@ -25,6 +25,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
 Plug 'sheerun/vim-wombat-scheme'
 Plug 'jnurmine/Zenburn'
+Plug 'godlygeek/tabular'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
