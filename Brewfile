@@ -24,6 +24,7 @@ brew 'spaceman-diff'
 brew 'spark'
 brew 'unrar'
 brew 'wget'
+brew 'yarn'
 brew 'youtube-dl'
 
 cask '1password'
