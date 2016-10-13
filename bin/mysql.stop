@@ -1,1 +1,0 @@
-sudo /usr/local/mysql/bin/mysqladmin shutdown -u root --password=bmw+cool
