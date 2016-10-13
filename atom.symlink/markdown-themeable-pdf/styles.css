@@ -1,0 +1,13 @@
+/**
+ * Your markdown-themeable-pdf custom styles
+ *
+ * The default file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/templates
+ * The base css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/css
+ * The current highlight.js css file can be found in the folder ~/.atom/packages/markdown-themeable-pdf/node_modules/highlight.js/styles
+ */
+
+/*
+html, body {
+	color: red;
+}
+*/

@@ -4,6 +4,7 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "language-gfm"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -15,6 +16,7 @@
       "tmp"
       "vendor"
     ]
+    telemetryConsent: "no"
     themes: [
       "atom-dark-ui"
       "solarized-dark-syntax"
@@ -27,6 +29,8 @@
     softWrapAtPreferredLineLength: true
   "go-plus":
     goPath: "/Users/holman/Code/go"
+  "markdown-writer":
+    fileExtension: ".md"
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
