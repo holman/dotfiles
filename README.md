@@ -66,6 +66,28 @@ defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
+## test
+
+Because you don't want to necessarily ruin your local environment
+everytime you make a change, let's use Docker.
+
+**Note:** you can only test the pieces of your dotfiles that will work
+in a Linux environment.  macOS specifics cannot be tested.
+
+### dependencies
+
+#### docker
+
+Be sure Docker is installed.
+
+##### macOS
+
+    brew cask install docker
+
+### run
+
+    ./test/run.sh
+
 ## bugs
 
 I want this to work for everyone; that means when you clone it down it should
