@@ -39,3 +39,4 @@ do
 done
 
 unset config_files
+PATH="/Users/eric/.themekit:$PATH"
