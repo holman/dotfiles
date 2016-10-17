@@ -60,3 +60,10 @@ bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
 bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# These options shold stop tmux from locking up when
+# dumping out a bunch of text
+#
+# From: https://stelfox.net/blog/2014/03/preventing-tmux-lockups/
+setw -g c0-change-interval 50
+setw -g c0-change-trigger  75
