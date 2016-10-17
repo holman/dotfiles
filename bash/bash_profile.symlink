@@ -14,7 +14,10 @@ if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
 fi
 
 export PATH=/usr/local/bin:$PATH
-export RUBYGEMS_GEMDEPS=-
+# Make Yarn work
+# https://yarnpkg.com/en/docs/install
+export PATH="$PATH:$HOME/.yarn/bin
+expor tRUBYGEMS_GEMDEPS=-
 
 HISTFILESIZE=1000000000
 HISTSIZE=1000000
