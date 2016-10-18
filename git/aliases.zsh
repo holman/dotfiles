@@ -38,8 +38,13 @@ alias such=git
 alias very=git
 alias wow='git status'
 
+# Running the daily git commands
+alias dailytask="gco master && pull && git fetch --prune"
+alias deletelocal="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
+alias deleteremote="git push --delete origin"
+
 # found at: http://stackoverflow.com/a/35324551/2503968
-function gitdelete(){
-    git push origin --delete $1
-    git branch -D $1
-}
+# function gitdelete(){
+#     git push origin --delete $1
+#     git branch -D $1
+# }

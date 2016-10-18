@@ -4,22 +4,72 @@
       "background-tips"
       "exception-reporting"
       "metrics"
+      "minimap"
     ]
     excludeVcsIgnoredPaths: false
-    hideGitIgnoredFiles: true
+    hideGitIgnoredFiles: false
     ignoredNames: [
+      "README*"
+      "config.rb"
+      "settings.*"
+      ".commandrc*"
+      ".fabrc*"
+      ".bin"
       ".bundle"
       ".git"
+      ".DS_Store"
+      ".sass-cache"
+      "command*"
+      "fabfile*"
       "log"
       "repositories"
       "tmp"
       "vendor"
-      ".DS_Store"
+      "build"
+      "conf"
+      "exports"
+      "info"
+      "patches"
+      "scripts"
+      "tests"
+      "pressflow-6.30.113"
+      "drupal-7.41"
+      "profiles"
+      "misc"
+      "___AKAM___"
+      "modules"
+      "sites_d7"
       ".sass-cache"
+      "build"
+      "conf"
+      "contrib"
+      "contrib_patched"
+      "development"
+      "drupal-*"
+      "exports"
+      "host_config"
+      "info"
+      "patches"
+      "pressflow-*"
+      "pyfire"
+      "scripts"
+      "sites"
+      "sites_d7/all/modules/pending_deletion"
+      "sites_d7/default"
+      "tesla_files"
+      "tesla_utils"
+      "tests"
+    ]
+    projectHome: "~/bin"
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
     ]
   editor:
+    autoIndentOnPaste: false
     fontFamily: "Menlo"
-    fontSize: 13
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -29,8 +79,14 @@
     softWrapHangingIndent: 2
   "git-plus":
     pullBeforePush: "pull"
+    tabLength: 4
   "go-plus":
     goPath: "/Users/holman/Code/go"
+  "merge-conflicts": {}
+  minimap:
+    absoluteMode: true
+    adjustAbsoluteModeHeight: true
+  react: {}
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
@@ -45,8 +101,22 @@
     fillColorAsBackground: false
   welcome:
     showOnStartup: false
+".coffee.jsx.source":
+  editor:
+    autoIndentOnPaste: true
+    showInvisibles: true
+    tabLength: 4
 ".diff.source":
   editor:
     scrollPastEnd: true
     showInvisibles: true
     softWrapAtPreferredLineLength: false
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+".js.jsx.source":
+  editor:
+    autoIndentOnPaste: true
+    tabLength: 4
