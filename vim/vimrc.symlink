@@ -26,13 +26,11 @@ Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
-" Plug 'mkitt/tabline.vim'
-Plug 'majutsushi/tagbar'
-Plug 'ajh17/VimCompletesMe'
-Plug 'tpope/vim-unimpaired'
-Plug 'ervandew/supertab' "{{{
-    let g:SuperTabDefaultCompletionType = '<C-x><c-o>'
-" }}}
+" Plug 'ajh17/VimCompletesMe'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'ervandew/supertab' "{{{
+"     let g:SuperTabDefaultCompletionType = '<C-x><c-o>'
+" " }}}
 Plug 'neomake/neomake' "{{{
     "run neomake on the current file on every write:<Paste>
     autocmd! BufWritePost * Neomake
@@ -46,11 +44,10 @@ Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
 " }}}"
 Plug 'carlitux/deoplete-ternjs'
 Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 " Plug 'heavenshell/vim-jsdoc'
 " Plug '1995eaton/vim-better-javascript-completion'
-" Plug 'mxw/vim-jsx'
 
 function! DoRemote(arg)
     UpdateRemotePlugins
@@ -66,7 +63,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } "{{{
     " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " }}}
 Plug 'mxw/vim-jsx'
-Plug 'editorconfig/editorconfig-vim'
 
 " https://github.com/SirVer/ultisnips/issues/710
 Plug 'SirVer/ultisnips' "{{{
@@ -83,16 +79,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "{{{
     let NERDTreeMapActivateNode='<space>'
     let NERDTreeMinimalUI=1
     let NERDTreeShowHidden=1
-" }}}
-Plug 'terryma/vim-multiple-cursors' "{{{
-    let g:multi_cursor_use_default_mapping=0
-    let g:multi_cursor_next_key='<C-d>'
-    let g:multi_cursor_quit_key='<Esc>'
-    let g:multi_cursor_normal_maps={'f': 1,'t': 1,'F': 1,'T': 1,'c': 1,'d': 1}
-" }}}
-Plug 'tpope/vim-fugitive' "{{{
-    nnoremap <leader>gs :Gstatus<cr>
-    nnoremap <leader>gb :Gblame<cr>
 " }}}
 Plug 'tpope/vim-commentary' "{{{
     nnoremap  :Commentary<cr>
@@ -137,22 +123,6 @@ set smartcase
 
 set clipboard=unnamed
 
-" Folding rules {{{
-set foldmethod=syntax
-set foldlevelstart=99
-
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
-
-au filetype vim set foldmethod=marker
-" }}}
-
 " Indentation rules {{{
 set tabstop=4                   " a tab is four spaces
 set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
@@ -175,11 +145,6 @@ set number                      " Enable current line number
 
 " set syntax colour scheme to monokai
 colorscheme molokai
-
-" Highlight current line
-" Set cursorline off by default. bind leader c to toggle
-hi CursorLine   cterm=bold ctermbg=237 ctermfg=NONE
-" set cursorline
 
 augroup omnifuncs
     autocmd filetype javascript setlocal omnifunc=tern#Complete
@@ -220,13 +185,6 @@ noremap <Right> :cn<cr>
 nnoremap / /\v
 vnoremap / /\v
 
-" recursive fold opening/closing as default
-nnoremap za zA
-nnoremap zA za
-
-" Cursorline keymapping, using iterm2 built-in cursor guide
-nnoremap <Leader>c :set cursorline!<cr>
-
 " Remap colon and semicolon, saves pressing shift
 " everytime I need to enter command mode
 " pretty sure i do that more than find next occurance
@@ -243,12 +201,12 @@ set pastetoggle=<F2>
 
 " Move lines up and down
 " M is Meta, ie. Alt
-nnoremap <M-j> :m .+1<cr>==
-nnoremap <M-k> :m .-2<cr>==
-inoremap <M-j> <Esc>:m .+1<cr>==gi
-inoremap <M-k> <Esc>:m .-2<cr>==gi
-vnoremap <M-j> :m '>+1<cr>gv=gv
-vnoremap <M-k> :m '<-2<cr>gv=gv
+" nnoremap <M-j> :m .+1<cr>==
+" nnoremap <M-k> :m .-2<cr>==
+" inoremap <M-j> <Esc>:m .+1<cr>==gi
+" inoremap <M-k> <Esc>:m .-2<cr>==gi
+" vnoremap <M-j> :m '>+1<cr>gv=gv
+" vnoremap <M-k> :m '<-2<cr>gv=gv
 
 " Reselect previous selection after indenting
 vnoremap > >gv
@@ -278,8 +236,8 @@ nnoremap <C-k> <C-w>k
 
 " Jump 5 lines at a time. useful for keyboard scrolling the cursor. will
 " eventually get rid of this and enable the panel switching
-noremap <S-j> 5j
-noremap <S-k> 5k
+" noremap <S-j> 5j
+" noremap <S-k> 5k
 
 " Scroll horizontally 5 lines at a time
 " one line just isnt enough
