@@ -9,11 +9,19 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        unstage = reset HEAD --
+	br = branch
+	cm = commit
+	pl = pull
+	sts = status
+	st = status
 [color]
         diff = auto
         status = auto
         branch = auto
         ui = true
+[user]
+	name = Jacob Pledger
 [core]
         excludesfile = ~/.gitignore
         editor = vim
