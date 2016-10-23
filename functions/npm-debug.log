@@ -1,0 +1,52 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/6.3.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'uninstall',
+1 verbose cli   '-g',
+1 verbose cli   'muneeb-cli' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly uninstall loadAllDepsIntoIdealtree
+19 silly loadAllDepsIntoIdealTree Finishing
+20 silly loadIdealTree Finishing
+21 silly currentTree lib
+21 silly currentTree └── muneeb-cli
+22 silly idealTree lib
+23 silly generateActionsToTake Starting
+24 silly install generateActionsToTake
+25 warn checkPermissions Missing write access to /usr/local/lib/node_modules/muneeb-cli
+26 silly rollbackFailedOptional Starting
+27 silly rollbackFailedOptional Finishing
+28 silly runTopLevelLifecycles Starting
+29 silly runTopLevelLifecycles Finishing
+30 silly install printInstalled
+31 verbose stack Error: ENOENT: no such file or directory, access '/usr/local/lib/node_modules/muneeb-cli'
+31 verbose stack     at Error (native)
+32 verbose cwd /Users/muneeb/.dotfiles/functions
+33 error Darwin 16.0.0
+34 error argv "/usr/local/Cellar/node/6.3.0/bin/node" "/usr/local/bin/npm" "uninstall" "-g" "muneeb-cli"
+35 error node v6.3.0
+36 error npm  v3.10.3
+37 error path /usr/local/lib/node_modules/muneeb-cli
+38 error code ENOENT
+39 error errno -2
+40 error syscall access
+41 error enoent ENOENT: no such file or directory, access '/usr/local/lib/node_modules/muneeb-cli'
+42 error enoent ENOENT: no such file or directory, access '/usr/local/lib/node_modules/muneeb-cli'
+42 error enoent This is most likely not a problem with npm itself
+42 error enoent and is related to npm not being able to find a file.
+43 verbose exit [ -2, true ]
