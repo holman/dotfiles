@@ -1,22 +1,33 @@
+#!/usr/bin/zsh
 # shortcut to this dotfiles path is $ZSH
 export DOT_FILES=$HOME/.dotfiles
-export ZSH=$HOME/.oh-my-zsh
-# oh-my-zsh setup and plugin inclusion
-plugins=(git sublime tmux vagrant)
-source $ZSH/oh-my-zsh.sh
+source $HOME/.zgen/zgen.zsh
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Development
+if ! zgen saved; then
+    echo "Creating a zgen save"
 
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
+    zgen prezto prompt theme 'pure'
+    zgen prezto tmux:auto-start local 'yes'
+    zgen prezto '*:*' color 'yes'
+
+    zgen prezto
+    zgen prezto git
+    zgen prezto tmux
+    zgen prezto fasd
+    zgen prezto history-substring-search
+    zgen prezto syntax-highlighting
+
+    zgen load TBSliver/zsh-plugin-colored-man
+    zgen load junegunn/fzf shell
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen save
 fi
 
-# all of our zsh files
+# Load prezto and all plugins
+source ~/.zgen/init.zsh
+
+# # all of our zsh files
 typeset -U config_files
 config_files=($DOT_FILES/**/*.zsh)
 
@@ -32,18 +43,5 @@ do
   source $file
 done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
-
 unset config_files
 unsetopt correct
-
-export NVM_DIR="/Users/muneeb/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

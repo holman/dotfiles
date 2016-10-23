@@ -236,8 +236,8 @@ nnoremap <C-k> <C-w>k
 
 " Jump 5 lines at a time. useful for keyboard scrolling the cursor. will
 " eventually get rid of this and enable the panel switching
-" noremap <S-j> 5j
-" noremap <S-k> 5k
+noremap <S-j> 5j
+noremap <S-k> 5k
 
 " Scroll horizontally 5 lines at a time
 " one line just isnt enough
