@@ -7,6 +7,7 @@ source $HOME/.zgen/zgen.zsh
 if ! zgen saved; then
     echo "Creating a zgen save"
 
+    zgen prezto editor key-bindings 'vi'
     zgen prezto prompt theme 'pure'
     zgen prezto tmux:auto-start local 'yes'
     zgen prezto '*:*' color 'yes'
@@ -14,12 +15,12 @@ if ! zgen saved; then
     zgen prezto
     zgen prezto git
     zgen prezto tmux
-    zgen prezto history-substring-search
     zgen prezto syntax-highlighting
+    zgen prezto history-substring-search
 
+    zgen load zsh-users/zsh-syntax-highlighting
     zgen load TBSliver/zsh-plugin-colored-man
     zgen load junegunn/fzf shell
-    zgen load zsh-users/zsh-syntax-highlighting
 
     zgen save
 fi
