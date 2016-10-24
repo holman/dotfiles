@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 # shortcut to this dotfiles path is $ZSH
 export DOT_FILES=$HOME/.dotfiles
-export ZGEN_RESET_ON_CHANGE=($HOME/.zshrc)
+# export ZGEN_RESET_ON_CHANGE=($HOME/.zshrc)
 source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
