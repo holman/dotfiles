@@ -11,8 +11,8 @@ else
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 	echo "Downloading default node version"
-	nvm install 6.6.0
-	nvm use 6.6.0
+	nvm install 6.9.1
+	nvm use 6.9.1
 fi
 
 if test $(which npm); then

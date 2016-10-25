@@ -20,11 +20,10 @@ export PIP_REQUIRE_VIRTUALENV=true
 mkdir -p ~/.virtualenv
 
 # create and activate our default python environment
-cd ~/.virtualenv/
-virtualenv -p python3 neo
-source ~/.virtualenv/neo/bin/activate
+# cd ~/.virtualenv/
+# virtualenv -p python3 neo
+# source ~/.virtualenv/neo/bin/activate
 
 # install our neovim dependency
 # this is basically the reason for all this mission
-pip3 install -r $DOT_FILES/python/requirements.txt
-
+# pip3 install -r $DOT_FILES/python/requirements.txt
