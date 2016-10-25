@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+echo "Installing python versions"
 
+pyenv install 2.7.12
 pyenv install 3.5.2
-pyenv global 3.5.2
+pyenv global 2.7.12
 
 # enable use of pip to install virtual environments
 export PIP_REQUIRE_VIRTUALENV=false

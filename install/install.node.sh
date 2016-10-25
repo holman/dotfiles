@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
+echo "Installing node version manager"
 
 if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
 	echo "Nvm already installed"
 else
-	echo "Installing nvm"
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 	
 	echo "Activating nvm"
