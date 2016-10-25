@@ -21,7 +21,6 @@ brew 'tmux'
 brew 'reattach-to-user-namespace'
 brew 'neovim'
 brew 'gource'
-
 cask 'docker'
 cask 'firefox'
 cask 'google-chrome'
@@ -35,6 +34,10 @@ cask 'visual-studio-code'
 # cask 'vagrant-manager'
 # cask 'steam'
 # cask 'teamspeak-client'
+
+# Pyenv requirements
+brew 'readline' 
+brew 'xz'
 
 # Must install java before android stuff
 cask 'java'

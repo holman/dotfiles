@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-echo "Installing python versions"
+source ./install/utils.sh
+
+info "installing python versions"
 
 pyenv install 2.7.12
 pyenv install 3.5.2

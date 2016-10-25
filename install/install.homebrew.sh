@@ -4,11 +4,12 @@
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
+source ./install/utils.sh
 
 # Check for Homebrew
 if test ! $(which brew)
 then
-  echo "Installing Homebrew for you."
+  info "installing homebrew for you."
 
   # Install the correct homebrew for each OS type
   if test "$(uname)" = "Darwin"
@@ -18,7 +19,13 @@ then
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
   fi
-
+  success "homebrew installed successfully"	
+else
+  success "homebrew already installed"	
 fi
+
+info "installing from Brewfile"
+xcode-select --install
+brew bundle
 
 exit 0

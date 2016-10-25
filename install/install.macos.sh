@@ -7,7 +7,9 @@
 # The original idea (and a couple settings) were grabbed from:
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
-echo "Configuring sensible OSX defaults"
+source ./install/utils.sh
+
+info "configuring sensible OSX defaults"
 
 # Show hidden files in finder
 defaults write com.apple.finder AppleShowAllFiles YES

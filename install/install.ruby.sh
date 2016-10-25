@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-echo "Installing ruby versions"
+source ./install/utils.sh
+
+info "installing ruby versions"
 
 rbenv install 2.3.1
 rbenv global 2.3.1

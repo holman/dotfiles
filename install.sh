@@ -1,29 +1,12 @@
 #!/usr/bin/env bash
-#
+source ./install/utils.sh
+
 # bootstrap installs things.
 DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
 echo ''
-
-info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
-}
-
-user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
-}
-
-success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
-}
-
-fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
-  exit
-}
 
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
@@ -142,8 +125,12 @@ install_dotfiles
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
-  
+  for src in $(find -H "$DOTFILES_ROOT/install" -maxdepth 2 -name 'install.*.sh' -not -path '*.git*')
+  do
+    # Execute each of the install scripts
+    sh -c "${src}"
+  done
 fi
 
 echo ''
-echo '  All installed!'
+echo 'All installed!'

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-echo "Installing VimPlug"
+source ./install/utils.sh
+
+info "installing VimPlug"
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
