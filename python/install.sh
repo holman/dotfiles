@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 pyenv install 3.5.2
 pyenv global 3.5.2
 

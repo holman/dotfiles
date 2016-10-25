@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
 	echo "Nvm already installed"
 else

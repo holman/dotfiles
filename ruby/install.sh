@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 rbenv install 2.3.1
 rbenv global 2.3.1
 
