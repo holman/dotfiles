@@ -13,8 +13,10 @@ alias chrome="open -a Google\ Chrome --args --disable-web-security --user-data-d
 set -e fish_user_abbreviations
 
 # Misc abbreviations ------------------------------------
+abbr c z
 abbr v nvim
 abbr stt subl .
+abbr r source ~/.config/fish/config.fish
 
 # Git abbreviations ------------------------------------
 # The rest of my fun git aliases
@@ -83,10 +85,11 @@ end
 # python virtual environment
 set -x PIP_REQUIRE_VIRTUALENV true
 function venv
-	source ~/.virtualenv/neo/bin/activate.fish
+    status --is-interactive; and . (pyenv init -|psub)
+    source ~/.virtualenv/neo/bin/activate.fish
 end
 
 # launch tmux automatically
 if test $TERM != "screen-256color"
-    command tmux attach-session -t Muneeb; or command tmux new-session -s Muneeb
+    command tmux attach-session -t (whoami); or command tmux new-session -s (whoami)
 end

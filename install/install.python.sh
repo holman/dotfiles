@@ -19,7 +19,7 @@ else
 	success "python 2.7.12 already installed"
 fi
 
-# set gloval
+# set global
 pyenv global 2.7.12
 
 # enable use of pip to install virtual environments

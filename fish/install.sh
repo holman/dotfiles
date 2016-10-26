@@ -1,4 +1,4 @@
-#!/usr/local/bin/fish
+#!/usr/bin/env fish
 
 # Install fisherman
 # Asynchronous plugin manager for fish shell
