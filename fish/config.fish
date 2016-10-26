@@ -85,3 +85,8 @@ set -x PIP_REQUIRE_VIRTUALENV true
 function venv
 	source ~/.virtualenv/neo/bin/activate.fish
 end
+
+# launch tmux automatically
+if test $TERM != "screen-256color"
+    command tmux attach-session -t Muneeb; or command tmux new-session -s Muneeb
+end

@@ -3,9 +3,6 @@ set -g prefix C-a
 unbind C-b
 bind C-a send-prefix
 
-# # Set shell to zsh instead of bash
-# set-option -g default-shell /bin/zsh
-
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
 

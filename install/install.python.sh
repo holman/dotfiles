@@ -3,8 +3,23 @@ source ./install/utils.sh
 
 info "installing python versions"
 
-pyenv install 2.7.12
-pyenv install 3.5.2
+# only install if not found
+if ! pyenv versions | grep 3.5.2
+then
+	pyenv install 3.5.2
+else
+	success "python 3.5.2 already installed"
+fi
+
+# only install if not found
+if ! pyenv versions | grep 2.7.12
+then
+	pyenv install 2.7.12
+else
+	success "python 2.7.12 already installed"
+fi
+
+# set gloval
 pyenv global 2.7.12
 
 # enable use of pip to install virtual environments
