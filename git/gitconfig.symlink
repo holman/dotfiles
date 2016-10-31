@@ -42,6 +42,9 @@
   # Quick insight of Stash
   shorty = !git status --short --branch
 
+  # Really quick insight
+  s = !git shorty
+
   # Remove whitespace changes
   rws = !git remove-whitespace-changes
 
