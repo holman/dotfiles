@@ -4,11 +4,6 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
-if [[ ! -a ~/.shell_logs ]]; then mkdir ~/.shell_logs; fi
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.shell_logs/shell-history-$(date "+%Y-%m-%d").log; fi'
-prmptcmd() { eval "$PROMPT_COMMAND" }
-precmd_functions=(prmptcmd)
-
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 

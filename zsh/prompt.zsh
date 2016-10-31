@@ -14,22 +14,18 @@ git_branch() {
 }
 
 git_dirty() {
-  if $(! $git status -s &> /dev/null)
+  # Moved to file detection to improve performance. Not fool proof, but its fast
+  if [[ ! -a ./.git ]]
   then
     echo ""
   else
-    if [[ $($git status --porcelain) == "" ]]
-    then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
-    else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
-    fi
+    # Removed dirty checking, again because of performance issues
+    echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
   fi
 }
 
 git_prompt_info () {
  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
 
@@ -46,32 +42,11 @@ need_push () {
   fi
 }
 
-ruby_version() {
-  if (( $+commands[rbenv] ))
-  then
-    echo "$(rbenv version | awk '{print $1}')"
-  fi
-
-  if (( $+commands[rvm-prompt] ))
-  then
-    echo "$(rvm-prompt | awk '{print $1}')"
-  fi
-}
-
-rb_prompt() {
-  if ! [[ -z "$(ruby_version)" ]]
-  then
-    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
-  else
-    echo ""
-  fi
-}
-
 directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\nin $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
@@ -80,3 +55,22 @@ precmd() {
   title "zsh" "%m" "%55<...<%~"
   set_prompt
 }
+
+#
+# Prompt Command
+#
+if [[ ! -a ~/.shell_logs ]]
+  then mkdir ~/.shell_logs
+fi
+
+# Don't record anything by user 0
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; \
+then \
+  echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.shell_logs/shell-history-$(date "+%Y-%m-%d").log; \
+fi'
+
+prmptcmd() {
+  eval "$PROMPT_COMMAND"
+}
+
+precmd_functions=(prmptcmd)
