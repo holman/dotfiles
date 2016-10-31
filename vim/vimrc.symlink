@@ -26,17 +26,13 @@ Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
-" Plug 'ajh17/VimCompletesMe'
-" Plug 'tpope/vim-unimpaired'
-" Plug 'ervandew/supertab' "{{{
-"     let g:SuperTabDefaultCompletionType = '<C-x><c-o>'
-" " }}}
 Plug 'neomake/neomake' "{{{
     "run neomake on the current file on every write:<Paste>
     autocmd! BufWritePost * Neomake
     let g:neomake_javascript_enabled_makers = ['eslint']
 " }}}
-
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
 " Javascript plugins
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
     let g:tern_show_argument_hints = 'on_hold'
@@ -44,10 +40,8 @@ Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
 " }}}"
 Plug 'carlitux/deoplete-ternjs'
 Plug 'pangloss/vim-javascript'
-" Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 " Plug 'heavenshell/vim-jsdoc'
-" Plug '1995eaton/vim-better-javascript-completion'
 
 function! DoRemote(arg)
     UpdateRemotePlugins
@@ -85,8 +79,7 @@ Plug 'tpope/vim-commentary' "{{{
     vnoremap  :Commentary<cr>
 " }}}
 Plug 'ctrlpvim/ctrlp.vim' "{{{
-    noremap <C-b> :CtrlPBuffer<cr>
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
     let g:ctrlp_use_caching = 0
 
     " close prompt on backspace or <c-h>
@@ -156,11 +149,6 @@ augroup dotfiles
     autocmd BufNewFile,BufRead Brewfile set syntax=ruby
 augroup end
 
-" augroup BgHighlight
-"     autocmd!
-"     autocmd WinEnter * set cul
-"     autocmd WinLeave * set nocul
-" augroup END
 " }}}
 " ===========================================================================================================
 " Personal Keybindings
@@ -174,11 +162,22 @@ nnoremap <leader>vs :source $MYVIMRC<cr>
 " Clear the highlighted search results
 nnoremap <leader>/ :nohlsearch<cr>
 
-" Disable arrows. only noobs need arrows anyway
+" Fugitiive mappings
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gb :Gblame<cr>
+
+" Use arrow keys for quickfix window navigation
 noremap <Up> :copen<cr>
 noremap <Down> :cclose<cr>
 noremap <Left> :cp<cr>
 noremap <Right> :cn<cr>
+
+" Disable arrow keys in insert mode
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
 
 " enables magic mode in regular expressions
 " :help /magic
@@ -199,15 +198,6 @@ vnoremap : ;
 " that won't be autoindented
 set pastetoggle=<F2>
 
-" Move lines up and down
-" M is Meta, ie. Alt
-" nnoremap <M-j> :m .+1<cr>==
-" nnoremap <M-k> :m .-2<cr>==
-" inoremap <M-j> <Esc>:m .+1<cr>==gi
-" inoremap <M-k> <Esc>:m .-2<cr>==gi
-" vnoremap <M-j> :m '>+1<cr>gv=gv
-" vnoremap <M-k> :m '<-2<cr>gv=gv
-
 " Reselect previous selection after indenting
 vnoremap > >gv
 vnoremap < <gv
@@ -217,10 +207,6 @@ vnoremap < <gv
 nnoremap <C-S> :w<cr>
 vnoremap <C-S> <C-C>:w<cr>
 inoremap <C-S> <Esc>:w<cr>
-
-" Speed up scrolling of the viewport slightly
-nnoremap <C-e> 5<C-e>
-nnoremap <C-y> 5<C-y>
 
 " ctrl-h is sending backspace<BS> instead of ^H
 " https://github.com/neovim/neovim/issues/2048
@@ -234,8 +220,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 
-" Jump 5 lines at a time. useful for keyboard scrolling the cursor. will
-" eventually get rid of this and enable the panel switching
+" Jump 5 lines at a time. useful for keyboard scrolling the cursor.
 noremap <S-j> 5j
 noremap <S-k> 5k
 

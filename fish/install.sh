@@ -31,6 +31,10 @@ if not test -e ~/.config/fish/config.fish
 	ln -s ~/.dotfiles/fish/config.fish ~/.config/fish/config.fish
 end
 
+if not test -e ~/.config/fish/fishfile
+	ln -s ~/.dotfiles/fish/fishfile ~/.config/fish/fishfile
+end
+
 # Install some plugins
 # z - change directory figure outer
 # fzf - fuzzy finder
