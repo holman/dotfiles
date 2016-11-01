@@ -7,7 +7,17 @@ let mapleader = ","
 call plug#begin('~/.vim/plugged')
 " General development plugins
 
-Plug 'honza/vim-snippets'
+Plug 'mattn/emmet-vim' "{{{
+    let g:user_emmet_leader_key=','
+" }}}
+Plug 'junegunn/vim-peekaboo'
+Plug 'bronson/vim-visual-star-search'
+Plug 'terryma/vim-smooth-scroll' "{{{
+    noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+    noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+    noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+    noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" }}}
 Plug 'vim-airline/vim-airline' "{{{
     " Set colour scheme for airline (powerline alternative)
     let g:airline_theme='powerlineish'
@@ -20,7 +30,11 @@ Plug 'vim-airline/vim-airline' "{{{
     let g:airline#extensions#tabline#buffer_min_count = 0
     let g:airline#extensions#tabline#formatter = 'unique_tail'
 " }}}
+Plug 'Yggdroot/indentLine' "{{{
+    let g:indentLine_enabled = 1
+" }}}
 Plug 'vim-airline/vim-airline-themes'
+Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
@@ -33,34 +47,56 @@ Plug 'neomake/neomake' "{{{
 " }}}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-" Javascript plugins
+" " Javascript plugins
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
     let g:tern_show_argument_hints = 'on_hold'
     let g:tern_show_signature_in_pum = 1
-" }}}"
-Plug 'carlitux/deoplete-ternjs'
+" }}}
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
-" Plug 'heavenshell/vim-jsdoc'
+Plug 'mxw/vim-jsx'
+Plug 'alvan/vim-closetag' "{{{
+    let g:closetag_filenames = "*.html,*.mustache,*.jsx"
+" }}}
+Plug 'Valloric/MatchTagAlways' "{{{
+    let g:mta_filetypes = {
+        \ 'html' : 1,
+        \ 'javascript.jsx' : 1,
+        \ 'xhtml' : 1,
+        \ 'xml' : 1,
+        \}
+" }}}
+" " Plug 'heavenshell/vim-jsdoc'
+
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx']  }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx']  }
 
 function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
-
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } "{{{
+    autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+    set completeopt=longest,menuone,preview
+    let g:deoplete#sources = {}
+    let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#omni#input_patterns = {}
     let g:deoplete#omni_patterns = {}
+    let g:deoplete#omni#functions = {}
+    let g:deoplete#omni#functions.javascript = [
+        \ 'tern#Complete',
+        \ 'jspc#omni'
+        \]
     autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
 
     " Use tab as the autocomplete trigger
-    " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+    inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " }}}
-Plug 'mxw/vim-jsx'
-
-" https://github.com/SirVer/ultisnips/issues/710
 Plug 'SirVer/ultisnips' "{{{
     let g:UltiSnipsEditSplit="vertical"
+    " https://github.com/SirVer/ultisnips/issues/710
     let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
     let g:UltiSnipsExpandTrigger = "<tab>"
     let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -80,16 +116,14 @@ Plug 'tpope/vim-commentary' "{{{
 " }}}
 Plug 'ctrlpvim/ctrlp.vim' "{{{
     let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-    let g:ctrlp_use_caching = 0
 
     " close prompt on backspace or <c-h>
     let g:ctrlp_brief_prompt = 1
     let g:ctrlp_switch_buffer = 'Et'
-
     let g:ctrlp_prompt_mappings = {
         \ 'PrtDeleteEnt()':       ['<C-d>'],
         \ }
-" }}}"
+" }}}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -139,10 +173,6 @@ set number                      " Enable current line number
 " set syntax colour scheme to monokai
 colorscheme molokai
 
-augroup omnifuncs
-    autocmd filetype javascript setlocal omnifunc=tern#Complete
-augroup end
-
 augroup dotfiles
     autocmd BufNewFile,BufRead *.mustache* set syntax=html
     autocmd BufNewFile,BufRead *tmux.conf* set syntax=tmux
@@ -188,10 +218,10 @@ vnoremap / /\v
 " everytime I need to enter command mode
 " pretty sure i do that more than find next occurance
 " of char on line (default semicolon behaviour)
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
+" nnoremap ; :
+" nnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
 
 " when in insert mode, press <F2> to go to
 " paste mode, where you can paste mass data
