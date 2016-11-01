@@ -14,7 +14,7 @@ set -e fish_user_abbreviations
 
 # Misc abbreviations ------------------------------------
 abbr c z
-abbr v nvim
+# abbr v venv; command nvim
 abbr stt subl .
 abbr r source ~/.config/fish/config.fish
 
@@ -70,6 +70,11 @@ function make_completion --argument-names alias command
 end
 
 make_completion v 'nvim'
+
+# nvim
+function v
+    venv; command nvim $argv
+end
 
 # rbenv
 function rb
