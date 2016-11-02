@@ -1,6 +1,6 @@
 alias reload!='. ~/.zshrc'
 alias bu='brew update && brew upgrade --all && brew cleanup'
-alias bb='brew update && brew upgrade && brew bundle --global && brew cleanup'
+alias bb='brew update && brew bundle --global && brew upgrade && brew cleanup'
 alias v='nvim'
 alias gcr="ssh deploy@groove.realtime"
 alias gcrc="gcr \"bash -l -c 'cd /data/groove/current && bundle exec rails c'\""
