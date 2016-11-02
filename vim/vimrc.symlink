@@ -170,6 +170,9 @@ set scrolloff=5                 " keep 4 lines off the edges of the screen when 
 set relativenumber              " Enable relative line numbering
 set number                      " Enable current line number
 
+set splitright                  " Create new vertical splits on the right hand side
+set splitbelow                  " Create new horizontal splits below
+
 " set syntax colour scheme to monokai
 colorscheme molokai
 
