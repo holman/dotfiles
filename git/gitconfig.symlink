@@ -9,7 +9,7 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
-        cleanup = !git checkout master && git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d
+        cleanup = !git checkout master && git pull origin master && git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d
         ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
         lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
@@ -38,6 +38,11 @@
         ss = stash save
         logtree = log --graph --oneline --decorate --all
         datetag = !git tag `date \"+%Y%m%d%H%M\"`
+        rbm = rebase master
+        ri = rebase --interactive
+        rim = rebase --interactive master
+        rc = rebase --continue
+        ra = rebase --abort
 [color]
         diff = auto
         status = auto
