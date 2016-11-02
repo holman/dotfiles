@@ -5,7 +5,7 @@ set eol
 
 set nofoldenable
 
-autocmd BufNewFile,BufRead *.json,*.js,*.feature,*.emblem,*.hbs,*.liquid,*.tag set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufNewFile,BufRead *.json,*.js,*.feature,*.emblem,*.hbs,*.liquid,*.tag,*.jsx set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
 set shell=/bin/sh
 
@@ -36,3 +36,8 @@ set rtp+=/usr/local/Cellar/fzf/HEAD
 au BufNewFile,BufRead *.tag setlocal ft=javascript
 
 au BufNewFile,BufRead *.conf setlocal ft=dosini
+
+set clipboard=unnamed
+
+" Remap jj to escape because Johnny Ive is a stupid fucking idiot
+inoremap jj <ESC>
