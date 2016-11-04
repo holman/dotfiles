@@ -168,6 +168,14 @@ then
   else
     fail "error installing dependencies"
   fi
+else
+  info "installing dependencies"
+  if source bin/dot.linux > /tmp/dotfiles-dot 2>&1
+  then
+    success "dependencies installed"
+  else
+    fail "error installing dependencies"
+  fi
 fi
 
 echo ''
