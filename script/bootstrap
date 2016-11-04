@@ -169,10 +169,7 @@ then
     fail "error installing dependencies"
   fi
 else
-  sudo apt-get install linuxbrew-wrapper
-  echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >> ~/.bash_profile
-  echo 'export PATH="$HOME/.linuxbrew/sbin:$PATH"' >> ~/.bash_profile
-  echo 'export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$xdg_data_dirs"' >> ~/.bash_profile
+  sudo apt-get install -y linuxbrew-wrapper
 fi
 
 echo ''
