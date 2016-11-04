@@ -1,0 +1,3 @@
+compat.version=1.9
+errno.backtrace=true
+compile.invokedynamic=true

@@ -9,6 +9,40 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        cleanup = !git checkout master && git pull origin master && git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d
+        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+        lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+        lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+        ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+        le = log --oneline --decorate
+        f = "!git ls-files | grep -i"
+        gr = grep -Ii
+        la = "!git config -l | grep alias | cut -c 7-"
+        cp = cherry-pick
+        st = status -s
+        cl = clone
+        ci = commit
+        co = checkout
+        br = branch
+        diff = diff --word-diff
+        dc = diff --cached
+        r = reset
+        r1 = reset HEAD^
+        r2 = reset HEAD^^
+        rh = reset --hard
+        rh1 = reset HEAD^ --hard
+        rh2 = reset HEAD^^ --hard
+        sl = stash list
+        sa = stash apply
+        ss = stash save
+        logtree = log --graph --oneline --decorate --all
+        datetag = !git tag `date \"+%Y%m%d%H%M\"`
+        rbm = rebase master
+        ri = rebase --interactive
+        rim = rebase --interactive master
+        rc = rebase --continue
+        ra = rebase --abort
 [color]
         diff = auto
         status = auto
