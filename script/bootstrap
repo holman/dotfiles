@@ -168,8 +168,6 @@ then
   else
     fail "error installing dependencies"
   fi
-else
-  sudo apt-get install -y linuxbrew-wrapper
 fi
 
 echo ''
