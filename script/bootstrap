@@ -142,14 +142,14 @@ install_dotfiles () {
 get_extra_zsh_completions () {
     if [ ! -d ~/zsh-completions ]
     then
-        git clone git@github.com:mattbeedle/zsh-completions.git ~/zsh-completions
+        git clone https://github.com/mattbeedle/zsh-completions.git ~/zsh-completions
     fi
 }
 
 get_zsh_syntax_highlighting () {
     if [ ! -d ~/zsh-syntax-highlighting ]
     then
-        git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/zsh-syntax-highlighting
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/zsh-syntax-highlighting
     fi
 }
 
