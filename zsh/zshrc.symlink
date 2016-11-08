@@ -1,4 +1,5 @@
 eval "$(rbenv init -)"
+export EDITOR='vim'
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
