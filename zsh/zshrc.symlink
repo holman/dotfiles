@@ -30,3 +30,12 @@ zstyle ':vcs_info:git:*' formats '[%b]'
 # case-insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# tmuxinator completion
+source ~/.dotfiles/tmux/tmuxinator.zsh
+
+# kill process(es) on certain port
+function killport() {
+  kill `lsof -t -i:"$1"`
+}
+
+
