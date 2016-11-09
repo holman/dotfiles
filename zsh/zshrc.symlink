@@ -8,6 +8,11 @@ export DOTFILES=$HOME/.dotfiles
 export PROJECTS=~/Code
 export CONFLUENT_HOME=~/Applications/confluent-1.0
 
+# env variables for kafka
+export ZOOKEEPER_ADDRESS=localhost:2181
+export SCHEMA_REGISTRY_URL=http://localhost:8081
+
+
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.

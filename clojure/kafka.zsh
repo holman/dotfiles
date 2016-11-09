@@ -1,6 +1,5 @@
 
-export KAFKA_HOME="$HOME/Applications/confluent-1.0.1"
-alias kafka='cd $HOME/Code/kafka-compose/ && docker-compose'
+export KAFKA_HOME="$HOME/Applications/confluent-3.0.0"
 alias kafka-topics='$KAFKA_HOME/bin/kafka-topics --zookeeper localhost:2181'
 alias kafka-producer='$KAFKA_HOME/bin/kafka-console-producer --broker-list localhost:9092 --topic'
 alias kafka-avro-producer='$KAFKA_HOME/bin/kafka-avro-console-producer --broker-list localhost:9092 --property schema.registry.url=http://$docker-machine ip default):8081 --topic'

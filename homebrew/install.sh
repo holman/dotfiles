@@ -23,4 +23,6 @@ then
 
 fi
 
+export HOMEBREW_CASK_OPTS=/usr/local/Caskroom
+
 exit 0
