@@ -1,1 +1,3 @@
 git/gitconfig.local.symlink
+sublime3/User/Package Control.*
+sublime3/User/oscrypto-ca-bundle.crt

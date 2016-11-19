@@ -1,7 +1,21 @@
-// Settings in here override those in "Default/Preferences.sublime-settings",
-// and are overridden in turn by file type specific settings.
 {
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		".git",
+		".hg",
+		".svn",
+		"bower_components",
+		"CVS",
+		"dist",
+		"node_modules",
+		"tmp"
+	],
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
