@@ -19,3 +19,6 @@ brew update
 # Install software
 echo "› $ZSH/script/install"
 $ZSH/script/install
+
+# Setup ST3
+$ZSH/sublime3/setup.sh
