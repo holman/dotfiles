@@ -6,6 +6,12 @@
 # to make sure you're on the latest and greatest.
 export ZSH=$HOME/.dotfiles
 
+# Ensure that zsh is the default shell
+if [[ "$SHELL" != "/bin/zsh" ]]
+then
+  chsh -s $(which zsh)
+fi
+
 # Set macOS defaults
 $ZSH/macos/set-defaults.sh
 
