@@ -39,3 +39,6 @@ do
 done
 
 unset config_files
+
+# Set the number of open files to be 10000
+ulimit -S -n 10000
