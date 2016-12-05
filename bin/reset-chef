@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ $# -lt 2 ]; then
+    echo "Need to specify project and user (respectively)"
+    exit 1
+fi
+pushd $HOME/Development/chef-repo/
+echo "y" | knife node delete vagrant-$1-worker-$2
+echo "y" | knife client delete vagrant-$1-worker-$2
+popd

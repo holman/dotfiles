@@ -1,0 +1,10 @@
+alias gs='git status'
+alias gd='git diff'
+alias gf='git fetch'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"

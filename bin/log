@@ -1,0 +1,26 @@
+#!/bin/sh
+
+log=$HOME/Documents/log2.txt
+lm=$(date -r $log +%d)
+now=$(date +%d)
+
+if [ $now -gt $lm ]; then
+    echo '' >> $log
+    echo $(date -I) >> $log
+    echo '' >> $log
+fi
+
+# echo $(date --rfc-3339=seconds) >> $log
+echo $(date +%T) >> $log
+while [[ -z "$data" ]]
+do
+    read data
+done
+echo $data >> $log
+echo '' >> $log
+
+
+# alternatively:
+# have it append the datestamp and then open in gedit for a more full-featured
+# editing experience
+# gedit $log &

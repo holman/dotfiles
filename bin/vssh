@@ -1,0 +1,4 @@
+#!/bin/bash
+#symlink this to /usr/local/bin/
+cd $HOME/Development/projects/$1
+vagrant ssh $2

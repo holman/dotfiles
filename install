@@ -1,0 +1,6 @@
+#!/bin/sh
+apt install -y git chromium-browser ccsm keepassx
+apt purge -y firefox
+
+cd script
+./bootstrap

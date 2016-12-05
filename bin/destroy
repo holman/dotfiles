@@ -1,0 +1,4 @@
+#!/bin/sh
+pushd $HOME/Development/projects/$1
+vagrant destroy -f
+popd
