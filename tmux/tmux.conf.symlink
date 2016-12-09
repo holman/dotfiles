@@ -25,6 +25,9 @@ set-option -g mouse on
 # don't rename windows automatically
 set-option -g allow-rename off
 
+# automatically renumber windows
+set-option -g renumber-windows on
+
 ####################################
 # Design changes
 # ##################################
