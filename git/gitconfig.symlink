@@ -21,8 +21,11 @@
   # Very verbose graph
   lllgraph = log --graph --oneline --decorate --all
 
-  # Fancy diff
-  fdiff = !git diff --color | diff-highlight | diff-so-fancy | less -R --tabs=3
+  # Pretty diff
+  pdiff = !git diff --color | diff-highlight | diff-so-fancy | less -R --tabs=3
+
+  # Quick and pretty diff
+  pd = !git pdiff
 
   # List aliases
   la = !git config -l | grep alias | cut -c 7-
