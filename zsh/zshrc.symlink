@@ -38,4 +38,7 @@ function killport() {
   kill `lsof -t -i:"$1"`
 }
 
+# instant simple server
+# https://gist.github.com/1525217
+alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
 
