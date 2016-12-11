@@ -1,5 +1,5 @@
 # Environment configs.
-setopt nullglob
+setopt nullglob extendedglob
 
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES="$HOME/.dotfiles"
@@ -9,8 +9,8 @@ export PROJECTS="$HOME/Code"
 
 # path and env zsh files
 typeset -U path_files env_files
-path_files=($DOTFILES/**/path.zsh)
-env_files=($DOTFILES/**/env.zsh)
+path_files=($DOTFILES/**/*path.zsh~**/*fpath.zsh)
+env_files=($DOTFILES/**/*env.zsh)
 
 # load the path files
 for file in ${path_files}; do
@@ -23,4 +23,4 @@ for file in ${env_files}; do
 done
 
 unset path_files env_files
-unsetopt nullglob
+unsetopt nullglob extendedglob

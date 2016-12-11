@@ -5,7 +5,7 @@ setopt nullglob
 
 # all of our profile zsh files
 typeset -U profile_files
-profile_files=($DOTFILES/**/profile.zsh)
+profile_files=($DOTFILES/**/*profile.zsh)
 
 # run all profile files
 for file in ${profile_files}; do

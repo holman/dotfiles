@@ -10,9 +10,15 @@ then
 fi
 
 # all of our non-path/env/profile/login/logout zsh files
-typeset -U interactive_files completion_files
-interactive_files=($DOTFILES/**/*.zsh~**/completion.zsh~**/path.zsh~**/env.zsh~**/profile.zsh~**/login.zsh~**/logout.zsh)
-completion_file=($DOTFILES/**/completion.zsh)
+typeset -U fpath_files interactive_files completion_files
+fpath_files=($DOTFILES/**/*fpath.zsh)
+interactive_files=($DOTFILES/**/*.zsh~**/*completion.zsh~**/*path.zsh~**/*env.zsh~**/*alias.zsh~**/*aliases.zsh~**/*profile.zsh~**/*login.zsh~**/*logout.zsh)
+completion_file=($DOTFILES/**/*completion.zsh)
+
+# load fpath config files
+for file in ${fpath_files}; do
+  source "$file"
+done
 
 # load interactive files (everything but the completion, path, env,
 # profile, login, and logout files)
@@ -29,5 +35,5 @@ for file in ${completion_files}; do
   source "$file"
 done
 
-unset interactive_files completion_files
+unset fpath_files interactive_files completion_files
 unsetopt nullglob extendedglob
