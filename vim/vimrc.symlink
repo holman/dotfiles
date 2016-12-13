@@ -1,72 +1,42 @@
-syntax on
+"===========================================================================
+"                                ~My vimrc~
+"===========================================================================
+" Author:        Chedli BOURGUIBA
+" Source:        https://github.com/chaadow/dotfiles
+"
+" My vimrc, mostly for ruby/rails & javascript development. I have organized
+" all of my vimrc style configurations into individual files organized
+" by functionality. These live in ~/.vim/rcfiles.
+"
+" I am using Vimplug to manage my plugins, which is configured below
+" Each plugin is configured in its own file in ~/.dotfiles/vim/rcplugins
+"---------------------------------------------------------------------
 
-" Use the space key as our leader. Put this near the top of your vimrc
+" Use the space key as mapleader.
  let mapleader = "\<Space>"
 
- nmap 0 ^
- nmap <C-s> :w<cr>
+" This functions allows to source all of the vim files in a given directory
+function! s:SourceConfigFilesIn(directory)
+	let directory_splat = '~/.dotfiles/vim/' . a:directory . '/*'
+	for config_file in split(glob(directory_splat), '\n')
+		if filereadable(config_file)
+			execute 'source' config_file
+		endif
+	endfor
+endfunction
 
-set backspace=2         " backspace in insert mode works like normal editor
-set autoindent          " auto indenting
+" Plugins will be downloaded under the specified directory.
+ call plug#begin('~/.vim/plugged')
+
+" Plugins live in their own files with their own customizations
+ call s:SourceConfigFilesIn('rcplugins')
+
+ call plug#end()
+
+
 filetype plugin indent on      " activates indenting for files
-colorscheme desert      " colorscheme desert
-set nobackup            " get rid of anoying ~file
+syntax on
 
-set number
-set relativenumber      " line numbers
-set nocompatible                " Don't maintain compatibilty with Vi.
-set hidden                      " Allow buffer change w/o saving
-set lazyredraw                  " Don't update while executing macros
-set backspace=indent,eol,start  " Sane backspace behavior
-set history=1000                " Remember last 1000 commands
-set scrolloff=4                 " Keep at least 4 lines below cursor
-
-"Insert mode mapping
-
-imap jk <esc>
-imap kj <esc>
-imap <C-s> <esc>:w<cr>
-" by default, the indent is 2 spaces. 
-
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-
-" for html/rb files, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
-
-" for js/coffee/jade files, 4 spaces
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype coffeescript setlocal ts=4 sw=4 sts=0 expandtab
-autocmd Filetype jade setlocal ts=4 sw=4 sts=0 expandtab
-
-" Leader key shortcuts
-
-" Split edit your vimrc. Type space, v, r in sequence to trigger
- nmap <leader>vr :sp $MYVIMRC<cr>
-
- " Source (reload) your vimrc. Type space, s, o in sequence to trigger
- nmap <leader>so :source $MYVIMRC<cr>
-	
- " Pre-populate a split command with the current directory
-  nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
- 
-  " Edit your vimrc in a new tab
-  nmap <leader>vi :tabedit ~/.vimrc<cr>
- 
-  " Copy the entire buffer into the system register
-  nmap <leader>co ggVG*y
- 
-  " Edit the db/schema.rb Rails file in a split
-  nmap <leader>sc :split db/schema.rb<cr>
- 
-  " Move up and down by visible lines if current line is wrapped
-  nmap j gj
-  nmap k gk
- 
-  " Command aliases for typoed commands (accidentally holding shift too long)
-  command! Q q " Bind :Q to :q
-  command! Qall qall
-  command! QA qall
-  command! E e
+" Vimrc is split accross multiple files, so loop over and source each
+"---------------------------------------------------------------------
+call s:SourceConfigFilesIn('rcfiles')

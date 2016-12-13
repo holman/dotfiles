@@ -1,0 +1,6 @@
+ Plug 'tpope/vim-surround'
+
+ nmap <leader>qw ysiw"
+ nmap <leader>QW ysiW"
+
+ " vim:ft=vim
