@@ -48,3 +48,6 @@
     tool = delta
 [difftool "delta"]
     cmd = delta \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[color "diff"]
+	old = red strike
+	new = green italic

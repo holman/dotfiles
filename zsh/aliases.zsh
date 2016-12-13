@@ -1,6 +1,6 @@
 alias colourify="$commands[grc] -es --colour=auto"
 
-alias reload!=". ~/.zshrc"
+alias reload!="exec $SHELL -l"
 alias dotfiles="$EDITOR ~/.dotfiles"
 alias prezto="$EDITOR ~/.zprezto"
 alias edit="$EDITOR ."
@@ -45,3 +45,11 @@ alias gclean="git checkout master && git branch --merged master | grep -v \"\* m
 alias ip='colourify ipconfig getifaddr en0'
 alias pubip='colourify dig +short myip.opendns.com @resolver1.opendns.com'
 alias uuid="uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]'  | pbcopy && pbpaste && echo"
+
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g;'
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"

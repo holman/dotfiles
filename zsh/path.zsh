@@ -22,4 +22,6 @@ export RBENV_ROOT=$HOME/.rbenv
 
 export PYTHONDONTWRITEBYTECODE=1
 
+export GPG_TTY=$(tty)
+
 ## HOMEBREW_GITHUB_API_TOKEN moved to ~/.localrc
