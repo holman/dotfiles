@@ -1,4 +1,5 @@
 atom.symlink/.node-gyp
+atom.symlink/
 atom.symlink/.storage
 atom.symlink/compile-cache/
 atom.symlink/packages

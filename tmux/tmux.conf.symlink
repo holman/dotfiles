@@ -1,0 +1,90 @@
+# Replace C-b with C-s for the prefix key
+unbind C-b
+set -g prefix C-s
+bind-key -r C-s send-prefix
+
+# Easy reloading of the tmux.conf configuration file
+bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+
+# Seamless aviation using vim-tmux-navigator (github christoomey/vim-tmux-navigator)
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
+bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
+bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
+bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
+bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+
+# Restore clear screen keybind mapped over by tmux-navigator
+bind C-l send-keys C-l
+
+# Use 256 color mode, useful for Vim colorshemes
+set-option -g default-terminal "screen-256color"
+
+# Use emacs / readline key-bindings in the tmux command prompt
+set-option -g status-keys "emacs"
+
+# Allow the session name in status left to display up to 50 characters
+set-option -g status-left-length 50
+
+# More useful status-right with battery percentage and nicely formated datetime
+set -g status-right "#(battery -t -g black)  #(date '+%a, %b %d - %I:%M') "
+
+# More intuitive pane splitting key-bindings, open all in current path
+bind-key - split-window -v  -c '#{pane_current_path}'
+bind-key \ split-window -h  -c '#{pane_current_path}'
+bind c new-window -c '#{pane_current_path}'
+
+# Easy resizing of panes with fine and coarse adjustment
+bind -n S-Left resize-pane -L 2
+bind -n S-Right resize-pane -R 2
+bind -n S-Down resize-pane -D 1
+bind -n S-Up resize-pane -U 1
+bind -n C-Left resize-pane -L 10
+bind -n C-Right resize-pane -R 10
+bind -n C-Down resize-pane -D 5
+bind -n C-Up resize-pane -U 5
+
+# Number windows starting at 1, renumber as windows are added / removed
+set-option -g base-index 1
+set-option -g renumber-windows on
+
+bind-key b break-pane -d
+
+# Use vim keybindings in copy mode
+setw -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Sample quick-pane configurations
+bind-key h split-window -h "htop"
+bind-key t split-window -h -c ~/ "vim todo.md"
+bind-key w split-window -h -c ~/my-wiki "vim +CtrlP"
+
+# Fuzzy matching session navigation via fzf utility
+bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
+
+# Prompted join-pane
+bind-key j command-prompt -p "join pane from: "  "join-pane -h -s '%%'"
+
+# Easily swap a pane (targeted by pane number) with the current pane
+bind-key s display-panes\; command-prompt -p "pane #: "  "swap-pane -t '%%'"
+
+# "break session" and "kill session" without exiting tmux
+bind-key C-b send-keys 'tat && exit' 'C-m'
+bind-key K run-shell 'tmux switch-client -n \; kill-session -t "$(tmux display-message -p "#S")" || tmux kill-session'
+
+# Create a new session from fuzzy project list
+bind C-t split-window -v "source ~/.zshrc && tm-select-session"
+
+# Keep plenty of history for scrollback
+set -g history-limit 10000
+
+# mouse
+set -g mouse on
