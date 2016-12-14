@@ -15,6 +15,7 @@
       "tmp"
       "vendor"
     ]
+    telemetryConsent: "no"
     themes: [
       "unity-ui"
       "glacier-syntax"
