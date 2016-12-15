@@ -20,7 +20,7 @@ else
   emoji='🔌'
 fi
 
-if [[ $time_left == *"(no"* ]]
+if [[ $time_left == *"(no"* || $time_left == *"not"* ]]
 then
   time_left='⌛️ '
 fi
