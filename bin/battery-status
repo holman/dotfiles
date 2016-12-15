@@ -18,11 +18,11 @@ then
   emoji='🔋'
 else
   emoji='🔌'
+fi
 
-  if [[ $time_left == *"(no"* ]]
-  then
-    time_left='⌛️ '
-  fi
+if [[ $time_left == *"(no"* ]]
+then
+  time_left='⌛️ '
 fi
 
 printf "\033[1;92m$emoji  $time_left \033[0m"
