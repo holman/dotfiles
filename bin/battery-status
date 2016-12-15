@@ -25,4 +25,4 @@ else
   fi
 fi
 
-printf "\033[1;92m$emoji  $time_left \033[0m⋯"
+printf "\033[1;92m$emoji  $time_left \033[0m"
