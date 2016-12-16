@@ -1,6 +1,14 @@
 #!/bin/sh
-apt install -y git chromium-browser ccsm keepassx
-apt purge -y firefox
+
+# add repos
+add-apt-repository ppa:webupd8team/atom
+
+apt update
+
+apt install -y git chromium-browser ccsm keepassx atom virtualbox
+
+# install packages for atom
+apm install minimap
 
 cd script
 ./bootstrap

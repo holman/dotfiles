@@ -1,23 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-log=$HOME/Documents/log2.txt
+log=$HOME/Documents/log.txt
 lm=$(date -r $log +%d)
 now=$(date +%d)
 
 if [ $now -gt $lm ]; then
     echo '' >> $log
-    echo $(date -I) >> $log
+    echo $(date -I) $(date +%A) >> $log
     echo '' >> $log
 fi
 
-# echo $(date --rfc-3339=seconds) >> $log
-echo $(date +%T) >> $log
-while [[ -z "$data" ]]
-do
-    read data
-done
-echo $data >> $log
+echo $(date +%T) $(date +%z) >> $log
 echo '' >> $log
+echo '' >> $log
+gedit $log &
+
 
 
 # alternatively:
