@@ -1,4 +1,6 @@
 "*":
+  autosave:
+    enabled: true
   core:
     disabledPackages: [
       "background-tips"
@@ -64,12 +66,12 @@
     telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
-      "base16-tomorrow-dark-theme"
+      "cobalt2-syntax"
     ]
   editor:
     autoIndentOnPaste: false
     fontFamily: "Menlo"
-    fontSize: 15
+    fontSize: 16
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
