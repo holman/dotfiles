@@ -1,0 +1,3 @@
+[submodule "ssh-config"]
+	path = ssh-config
+	url = https://ritcheyer@github.com/ritcheyer/ssh-config.git
