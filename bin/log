@@ -14,10 +14,3 @@ echo $(date +%T) $(date +%z) >> $log
 echo '' >> $log
 echo '' >> $log
 gedit $log &
-
-
-
-# alternatively:
-# have it append the datestamp and then open in gedit for a more full-featured
-# editing experience
-# gedit $log &
