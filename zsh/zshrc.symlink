@@ -12,7 +12,7 @@ fi
 # all of our non-path/env/profile/login/logout zsh files
 typeset -U fpath_files interactive_files completion_files
 fpath_files=($DOTFILES/**/*fpath.zsh)
-interactive_files=($DOTFILES/**/*.zsh~**/*completion.zsh~**/*path.zsh~**/*env.zsh~**/*alias.zsh~**/*aliases.zsh~**/*profile.zsh~**/*login.zsh~**/*logout.zsh)
+interactive_files=($DOTFILES/**/*.zsh~**/*completion.zsh~**/*path.zsh~**/*env.zsh~**/*profile.zsh~**/*login.zsh~**/*logout.zsh)
 completion_files=($DOTFILES/**/*completion.zsh)
 
 # load fpath config files
