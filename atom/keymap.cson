@@ -1,0 +1,3 @@
+'atom-workspace atom-text-editor:not(.mini)':
+   'ctrl-up': 'ctrl-dir-scroll:scroll-up'
+   'ctrl-down': 'ctrl-dir-scroll:scroll-down'
