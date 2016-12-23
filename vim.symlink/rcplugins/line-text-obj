@@ -1,0 +1,5 @@
+" Line - text object for current line
+
+Plug 'kana/vim-textobj-line'
+
+" vim:ft=vim

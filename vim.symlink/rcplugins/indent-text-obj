@@ -1,0 +1,5 @@
+" Indent (text obj) - Custom text object based on current indentation level
+
+Plug 'kana/vim-textobj-indent'
+
+" vim:ft=vim

@@ -1,0 +1,134 @@
+"Prose (blogging, readmes, any other markdown) configurations and spelling
+"------------------------
+
+" Add the i and kspell for dictionary. Useful for writing essays or when you don't know how a certain word is spelled.
+set complete=.,w,b,u,t,i,kspell
+
+" Setup spell checking, and use <Ctrl>s to open spelling completion menu
+au filetype markdown call MarkdownMode()
+
+" function! s:CreateJournalEntryFromBuffer()
+"  write
+"  silent! call system('dayone new < ' . expand('%'))
+"  if !v:shell_error
+"    normal! ggdG
+"    echo "Journal entry created"
+"  endif
+" endfunction
+
+command! CreateJournalEntryFromBuffer call <sid>CreateJournalEntryFromBuffer()
+
+if exists("+spelllang")
+   set spelllang=en_us
+endif
+" set spellfile=~/.vim/spell/en.utf-8.add
+
+function! s:MoreThanOneTmuxPane()
+  return system("tmux list-panes | wc -l | awk '{print $1}'") != "1"
+endfunction
+
+function! s:TmuxPaneIsZoomed()
+  call system("tmux list-panes -F '#F' | grep -q Z")
+  return !v:shell_error
+endfunction
+
+function! s:Focus()
+  Goyo
+  call system("tmux set -g status off")
+  call system('osascript -e "tell application \"iTerm\" to set the transparency of the current session of the current terminal to 0"')
+  if s:MoreThanOneTmuxPane() && !s:TmuxPaneIsZoomed()
+   call system("tmux resize-pane -Z")
+  endif
+  wincmd =
+endfunction
+command! Focus call <sid>Focus()
+nnoremap <leader>F :Focus<cr>
+
+function! s:Unfocus()
+  Goyo!
+  call system("tmux set -g status on")
+  call system('osascript -e "tell application \"iTerm\" to set the transparency of the current session of the current terminal to 0.17"')
+  if s:TmuxPaneIsZoomed()
+    call system("tmux resize-pane -Z")
+  endif
+endfunction
+
+command! Unfocus call <sid>Unfocus()
+nnoremap <leader>U :Unfocus<cr>
+
+function! WrapCurrentWord(format)
+ normal! gv
+ if a:format == 'bold'
+   let wrapping = '**'
+ else
+   let wrapping = '_'
+ endif
+
+ execute 'normal! "ac' . wrapping . 'a' . wrapping
+endfunction
+
+vnoremap <C-b> :call WrapCurrentWord("bold")<cr>
+vnoremap <C-i> :call WrapCurrentWord("italic")<cr>
+
+function! MarkdownMode()
+  setlocal spell        " Enable spell checking
+  setlocal nowrap       " Let long lines scroll off
+  setlocal linebreak    " Use word boundaries to break lines
+  setlocal textwidth=78
+  setlocal isk-=.       " sh.vim syntax file seems to be setting this...
+  " nnoremap <leader>bl :BoldListItems<cr>
+  nnoremap <buffer> <leader>ns ]s
+  " nnoremap <buffer> <leader>sp ea<C-x><C-s>
+  nnoremap <buffer> <leader>sf mm[s1z=`m
+  nnoremap <buffer> <LEADER>more i<!--more--><ESC>
+  nnoremap <buffer> <leader>gf gqip
+  " nnoremap <buffer> <leader>md :call OpenCurrentFileInMarked()<cr>
+  nnoremap <buffer> <leader>bld mm"bciw**b**<esc>`m2l
+  nnoremap <buffer> <leader>em mm"bciw*b*<esc>`m2l
+  " nnoremap <buffer> <cr> :MarkdownAwareGX<cr>
+  " nnoremap <buffer> <leader>dp :call system("open -a Deckset <C-r>%")<cr>
+
+  command! BlockQuotify execute "normal! {jvip\<C-v>I> \<ESC>gqip"
+  nnoremap <buffer> <leader>gq :BlockQuotify<cr>
+  vmap <leader>gq :g/\(^$\n\)\@<=.*/BlockQuotify<cr>
+
+  " Heading / underline funcitons
+  " nnoremap <buffer> <leader>u1 :MH1<cr>
+  " nnoremap <buffer> <leader>u2 :MH2<cr>
+  " nnoremap <buffer> <leader>u1 mmyypVr=`m<cr><esc>
+  " nnoremap <buffer> <leader>u2 mmyypVr-`m<cr><esc>
+  " nnoremap <buffer> <leader>u3 mm0i### <esc>`m4l
+  " nnoremap <buffer> <tab> :JumpToNextLink<cr>
+  " nnoremap <buffer> <S-tab> :JumpToNextLinkBackward<cr>
+  nnoremap <buffer> <leader>fw mm1z=`m
+  nnoremap <buffer> <leader>df :call system('open dict://'. expand('<cword>'))<cr>
+endfunction
+
+" From writing your first plugin talk, by Chris Toomey
+function! MoveEm(position)
+  let saved_cursor = getpos(".")
+  let previous_blank_line = search('^$', 'bn')
+  let target_line = previous_blank_line + a:position - 1
+  execute "move " . target_line
+  call setpos('.', saved_cursor)
+endfunction
+
+for position in range(1, 9)
+  execute "nnoremap m" . position . " :call MoveEm(" . position . ")<cr>"
+endfor
+
+function! s:FixLastSpellingError()
+  let position = getpos('.')[1:3]
+  let current_line_length = len(getline('.'))
+  normal! [s1z=
+  let new_line_length = len(getline('.'))
+  let position[1] += (new_line_length - current_line_length)
+  call cursor(position)
+  silent! call repeat#set("\<Plug>FixLastSpellingError", 0)
+endfunction
+command! FixLastSpellingError call <sid>FixLastSpellingError()
+nnoremap <Plug>FixLastSpellingError :FixLastSpellingError<cr>
+map <leader>sp <Plug>FixLastSpellingError
+imap <C-y> <C-o>:w<cr><C-o><leader>sp
+" nnoremap <leader>SP uea<C-x><C-s>
+" vim:ft=vim

@@ -1,0 +1,12 @@
+" Goyo - Distraction writing mode in vim
+
+Plug 'junegunn/goyo.vim'
+
+nnoremap <leader>go :Goyo<cr>
+
+let g:goyo_margin_bottom = 1
+let g:goyo_margin_top = 1
+let g:goyo_linenr = 1
+let g:goyo_width = 85
+
+" vim:ft=vim

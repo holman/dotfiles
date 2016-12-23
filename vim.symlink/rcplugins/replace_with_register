@@ -1,0 +1,12 @@
+" Replace With Register - Custom operator command for replacing
+" this takes the place of visually selecting then pasting, e.g. `viw"ap`
+" becomes `"agriw`.
+
+Plug 'vim-scripts/ingo-library'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/ReplaceWithSameIndentRegister'
+
+nmap <leader>gr "*gr
+nmap <leader>gR "*gR
+
+" vim:ft=vim

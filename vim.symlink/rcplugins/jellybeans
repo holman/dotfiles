@@ -1,0 +1,5 @@
+" Jellybeans - Colorscheme definition. Dark and contrasty
+
+Plug 'nanotech/jellybeans.vim'
+
+" vim:ft=vim

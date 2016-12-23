@@ -1,0 +1,26 @@
+" Speedup configurations
+"------------------------
+
+" Quick toggle between two files
+nnoremap <leader><leader> <C-^>
+
+" Setup nice command tab completion
+set wildmenu
+set wildmode=list:longest,full
+set wildignore+=*.pyc
+
+" Doesn't seem I'm going to win on this one
+command! W write
+
+"Make Y yank to end of line (like D, or C)
+nmap Y y$
+
+" Leader-; to enter command mode. No more holding shift!
+nnoremap <leader>; :
+vnoremap <leader>; :
+
+" Quickly open a second window to view files side by side
+nmap <leader>vn :split<CR>
+nmap <leader>vs :vsplit<CR>
+
+" vim:ft=vim

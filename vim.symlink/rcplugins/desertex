@@ -1,0 +1,4 @@
+" Desert colorscheme
+
+Plug 'vim-scripts/desertex'
+" vim:ft=vim

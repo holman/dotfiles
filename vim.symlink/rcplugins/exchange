@@ -1,0 +1,7 @@
+" Exchange - Operator for exchanging text. Text-obj & motion aware!
+
+Plug 'tommcdo/vim-exchange'
+
+nmap cX <Plug>(ExchangeLine)
+
+" vim:ft=vim

@@ -1,0 +1,17 @@
+augroup filesetting
+  autocmd!
+
+  autocmd BufNewFile,BufRead *.ru setfiletype ruby
+  autocmd BufNewFile,BufRead *.css.erb,*.spriter setfiletype css
+  autocmd BufNewFile,BufRead *.mkd,*.md,*.markdown setfiletype markdown
+  autocmd BufNewFile,BufRead *.json setfiletype javascript
+  autocmd BufNewFile,BufRead *.ejs,*.hbs setfiletype html
+  autocmd BufNewFile,BufRead *.go setfiletype go
+
+  autocmd Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd Filetype make,automake setlocal noexpandtab
+  autocmd Filetype go setlocal noexpandtab
+  autocmd Filetype gitcommit,mail setlocal spell textwidth=76 colorcolumn=77
+augroup END
+
+" vim:ft=vim

@@ -1,0 +1,16 @@
+" Vim Rspec - Run specs from vim
+
+Plug 'thoughtbot/vim-rspec'
+
+" let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
+
+" map <Leader>t :call RunNearestSpec()<CR>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+
+" vim:ft=vim

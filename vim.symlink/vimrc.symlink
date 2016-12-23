@@ -1,0 +1,42 @@
+"===========================================================================
+"                                ~My vimrc~
+"===========================================================================
+" Author:        Chedli BOURGUIBA
+" Source:        https://github.com/chaadow/dotfiles
+"
+" My vimrc, mostly for ruby/rails & javascript development. I have organized
+" all of my vimrc style configurations into individual files organized
+" by functionality. These live in ~/.vim/rcfiles.
+"
+" I am using Vimplug to manage my plugins, which is configured below
+" Each plugin is configured in its own file in ~/.dotfiles/vim/rcplugins
+"---------------------------------------------------------------------
+
+" Use the space key as mapleader.
+ let mapleader = "\<Space>"
+
+" This functions allows to source all of the vim files in a given directory
+function! s:SourceConfigFilesIn(directory)
+	let directory_splat = '~/.vim/' . a:directory . '/*'
+	for config_file in split(glob(directory_splat), '\n')
+		if filereadable(config_file)
+			execute 'source' config_file
+		endif
+	endfor
+endfunction
+
+" Plugins will be downloaded under the specified directory.
+ call plug#begin('~/.vim/plugged')
+
+" Plugins live in their own files with their own customizations
+ call s:SourceConfigFilesIn('rcplugins')
+
+ call plug#end()
+
+
+filetype plugin indent on      " activates indenting for files
+syntax on
+
+" Vimrc is split accross multiple files, so loop over and source each
+"---------------------------------------------------------------------
+call s:SourceConfigFilesIn('rcfiles')

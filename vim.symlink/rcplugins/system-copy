@@ -1,0 +1,7 @@
+" System Copy - Motion / text obj aware copy to system clipboard
+
+Plug 'christoomey/vim-system-copy'
+
+nnoremap cv "*]p
+
+" vim:ft=vim

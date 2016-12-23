@@ -1,0 +1,41 @@
+" Search configurations
+"------------------------
+
+" Searching stuff
+set hlsearch                    " highlight searches, map below to clear
+set incsearch                   " do incremental searching
+set ignorecase                  " Case insensitive...
+set smartcase                   " ...except if you use UCase
+nmap <F4> :silent noh<CR>
+
+" Mappings for quick search & replace. Global set to default
+" Do a / search first, then leave pattern empty in :s// to use previous
+nnoremap <Leader>sub :%s///g<left><left>
+vnoremap <Leader>sub :s///g<left><left>
+nnoremap <leader>wub :%s//<C-r><C-w>/g<cr>
+
+" quick searching of vimrc files
+function! s:VimrcSearch()
+  echohl String | let text = input("Text to search: ") | echohl None
+  if text == '' | return | endif
+  execute "Ag! ". text ." ~/.dotfiles/vim.symlink/rcfiles/* ~/.dotfiles/vim.symlink/rcplugins/*"
+endfunction
+command! VimrcSearch call <sid>VimrcSearch()
+nnoremap <leader>sr :VimrcSearch<cr>
+
+
+" Search for selected text, forwards or backwards.
+" http://vim.wikia.com/wiki/Search_for_visually_selected_text
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+
+
+" vim:ft=vim
