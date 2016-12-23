@@ -1,6 +1,0 @@
-" To complete with autocommand groups
-
-set spell												" Useful for spelling and autocompletion
-set complete=.,w,b,u,t,i,kspell " Add the i and kspell for dictionary. Useful for writing essays or when you don't know how a certain word is spelled.
-
-" vim:ft=vim

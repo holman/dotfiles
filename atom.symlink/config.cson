@@ -1,10 +1,11 @@
 "*":
-  editor:
-    showIndentGuide: true
-    fontFamily: "Menlo"
-    fontSize: 15
-    invisibles: {}
   core:
+    disabledPackages: [
+      "exception-reporting"
+      "metrics"
+      "vim-mode"
+    ]
+    hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
       ".git"
@@ -13,24 +14,24 @@
       "tmp"
       "vendor"
     ]
+    telemetryConsent: "limited"
     themes: [
       "unity-ui"
       "glacier-syntax"
     ]
-    hideGitIgnoredFiles: true
-    disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
-    ]
+  editor:
+    backUpBeforeSaving: true
+    fontFamily: "Menlo"
+    invisibles: {}
+    showIndentGuide: true
+  "release-notes":
+    viewedVersion: "0.89.0"
   "spell-check":
     grammars: [
       "text.plain"
       "source.gfm"
       "text.git-commit"
     ]
+  "tree-view": {}
   welcome:
     showOnStartup: false
-  "release-notes":
-    viewedVersion: "0.89.0"
-  "tree-view": {}
