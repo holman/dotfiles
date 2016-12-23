@@ -52,3 +52,5 @@
 [color "diff"]
 	old = red strike
 	new = green italic
+[commit]
+	gpgsign = true
