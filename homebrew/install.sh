@@ -12,7 +12,10 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+brew tap Goles/battery
 # Install homebrew packages
-brew install grc coreutils spark git hub gibo
+brew install grc coreutils spark git hub gibo battery fzf zsh-syntax-highlighting vim ag
 
+#install fzf utilities
+/usr/local/opt/fzf/install
 exit 0
