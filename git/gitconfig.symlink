@@ -6,6 +6,7 @@
 [user]
     name = cwardzala
     email = cwardzala@gmail.com
+	signingkey = 842A0F02F354309E
 [credential]
     helper = osxkeychain
 [color]

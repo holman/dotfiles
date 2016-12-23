@@ -19,7 +19,6 @@ alias la='colourify ls -lA'
 alias pubkey="less ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # servers
-alias deathstar='ssh cwardzala@192.168.1.103'
 alias buildbox='ssh ubuntu@ec2-54-172-90-220.compute-1.amazonaws.com'
 
 # vagrant
