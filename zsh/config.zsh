@@ -26,8 +26,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # Zsh-autosuggestions sourcing and variables
-[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # Useful when pasting large texts due to the slowdown caused by autosuggestions after every char
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP

@@ -43,6 +43,8 @@ done
 
 unset config_files
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20  # ( Recommended 20)Useful when pasting large texts due to the slowdown caused by autosuggestions after every char
+#
