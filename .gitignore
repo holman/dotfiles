@@ -1,4 +1,4 @@
 atom.symlink/**/*
 vim.symlink/plugged/
-
+vim.symlink/.netrwhist
 git/gitconfig.symlink

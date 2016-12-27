@@ -4,6 +4,12 @@
 " Quick toggle between two files
 nnoremap <leader><leader> <C-^>
 
+
+" Use j/k to start, then scroll through autocomplete options
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-n>"))
+inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-k>"))
+
+
 " Setup nice command tab completion
 set wildmenu
 set wildmode=list:longest,full

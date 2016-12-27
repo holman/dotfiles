@@ -6,7 +6,7 @@ set hlsearch                    " highlight searches, map below to clear
 set incsearch                   " do incremental searching
 set ignorecase                  " Case insensitive...
 set smartcase                   " ...except if you use UCase
-nmap <F4> :silent noh<CR>
+nmap <F4> :silent! noh<CR>
 
 " Mappings for quick search & replace. Global set to default
 " Do a / search first, then leave pattern empty in :s// to use previous
@@ -18,7 +18,7 @@ nnoremap <leader>wub :%s//<C-r><C-w>/g<cr>
 function! s:VimrcSearch()
   echohl String | let text = input("Text to search: ") | echohl None
   if text == '' | return | endif
-  execute "Ag! ". text ." ~/.dotfiles/vim.symlink/rcfiles/* ~/.dotfiles/vim.symlink/rcplugins/*"
+  execute "Ag! ". text ." ~/.vim/rcfiles/* ~/.vim/rcplugins/*"
 endfunction
 command! VimrcSearch call <sid>VimrcSearch()
 nnoremap <leader>sr :VimrcSearch<cr>
