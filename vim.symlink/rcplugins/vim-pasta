@@ -1,0 +1,5 @@
+" Overrides p and P with niceties.
+
+Plug 'sickill/vim-pasta'
+
+" vim:ft=vim

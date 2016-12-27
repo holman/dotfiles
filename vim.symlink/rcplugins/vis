@@ -1,0 +1,18 @@
+" Visually select a block
+
+" Use V, v, or ctrl-v to visually mark some region.  Then use
+"    :B cmd     (this command will appear as:   :'<,'>B cmd)
+"
+" The command will then be applied to just the visually selected region.
+" For examples:
+"
+"   Use ctrl-v to select a column and then do a substitute on just that column.
+"   ctrl-v ..move.. :B s/pattern/becomes/
+"
+"   Use ctrl-v to select a column, then apply an external filter to just that column.
+"   ctrl-v ..move.. :B !sort
+
+
+Plug 'vim-scripts/vis'
+
+" vim:ft=vim
