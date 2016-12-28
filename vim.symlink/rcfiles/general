@@ -40,7 +40,7 @@ set modelines=1
 " I save constantly and hate swap files in my prject dirs
 set nobackup " get rid of annoying ~file
 set nowritebackup
-" set noswapfile
+set noswapfile
 
 " Persistent undo
 let undodir = expand('~/.undo-vim')

@@ -1,4 +1,5 @@
 atom.symlink/**/*
 vim.symlink/plugged/
+vim.symlink/.base16
 vim.symlink/.netrwhist
 git/gitconfig.symlink

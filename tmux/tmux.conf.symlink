@@ -19,7 +19,8 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 bind C-l send-keys C-l
 
 # Use 256 color mode, useful for Vim colorshemes
-set-option -g default-terminal "screen-256color"
+# set-option -g default-terminal "screen-256color"
+set -ga terminal-overrides ',xterm-256color:Tc'
 
 # Use emacs / readline key-bindings in the tmux command prompt
 set-option -g status-keys "emacs"
