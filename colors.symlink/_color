@@ -1,0 +1,3 @@
+#compdef color
+
+_values 'colors' $(color ls)

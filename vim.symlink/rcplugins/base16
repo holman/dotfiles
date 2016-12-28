@@ -1,0 +1,5 @@
+" Base16.vim plugin + a function that integrates with the current iTerm colorscheme
+
+Plug 'chriskempson/base16-vim'
+
+" vim:ft=vim
