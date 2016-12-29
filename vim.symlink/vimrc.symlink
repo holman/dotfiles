@@ -17,12 +17,12 @@
 
 " This functions allows to source all of the vim files in a given directory
 function! s:SourceConfigFilesIn(directory)
-	let directory_splat = '~/.vim/' . a:directory . '/*'
-	for config_file in split(glob(directory_splat), '\n')
-		if filereadable(config_file)
-			execute 'source' config_file
-		endif
-	endfor
+  let directory_splat = '~/.vim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
 endfunction
 
 " Plugins will be downloaded under the specified directory.
