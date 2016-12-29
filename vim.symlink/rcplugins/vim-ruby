@@ -1,0 +1,5 @@
+" Vim/Ruby Configuration Files
+
+Plug 'vim-ruby/vim-ruby'
+
+" vim:ft=vim

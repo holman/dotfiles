@@ -1,0 +1,7 @@
+" Enhanced terminal integration for Vim
+
+Plug 'wincent/terminus'
+
+let g:TerminusBracketedPaste=0
+let g:TerminusAssumeITerm=1
+" vim:ft=vim

@@ -1,0 +1,6 @@
+" Bundler - wrapper around bundler
+
+Plug 'tpope/vim-bundler'
+
+" vim:ft=vim
+

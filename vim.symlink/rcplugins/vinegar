@@ -1,0 +1,5 @@
+" Vinegar - Tweaks to netrw to make it a little more pleasant
+
+Plug 'tpope/vim-vinegar'
+
+" vim:ft=vim

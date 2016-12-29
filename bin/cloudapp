@@ -3,7 +3,7 @@
 # cloudapp
 # Zach Holman / @holman
 #
-# Uploads a file from the command line to CloudApp, drops it into your 
+# Uploads a file from the command line to CloudApp, drops it into your
 # clipboard (on a Mac, at least).
 #
 # Example:

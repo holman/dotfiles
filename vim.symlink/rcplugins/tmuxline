@@ -1,0 +1,5 @@
+" Tmux line to match airline
+
+ "Plug 'edkolev/tmuxline.vim'
+
+" vim:ft=vim

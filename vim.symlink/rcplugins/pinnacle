@@ -1,0 +1,5 @@
+"Pinnacle provides functions for manipulating :highlight groups.
+
+Plug 'wincent/pinnacle'
+
+" vim:ft=vim
