@@ -12,6 +12,14 @@ augroup filesetting
   autocmd Filetype make,automake setlocal noexpandtab
   autocmd Filetype go setlocal noexpandtab
   autocmd Filetype gitcommit,mail setlocal spell textwidth=76 colorcolumn=77
+
+  " Gitcommit
+  " autocmd FileType gitcommit setl spell
+  " autocmd FileType gitcommit setl diffopt+=vertical
+  autocmd FileType gitcommit nmap <buffer> <S-Tab> <C-p>
+  autocmd FileType gitcommit nmap <buffer> <Tab> <C-n>
+  autocmd BufRead,BufNewFile */.git/COMMIT_EDITMSG wincmd _
 augroup END
+
 
 " vim:ft=vim

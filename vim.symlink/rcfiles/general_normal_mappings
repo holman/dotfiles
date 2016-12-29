@@ -15,8 +15,8 @@ nmap <leader>w :w<cr>
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> ddkP 
-nnoremap <Down> ddp 
+nnoremap <Up> ddkP
+nnoremap <Down> ddp
 
 
 " Split edit your vimrc. Type space, v, r in sequence to trigger

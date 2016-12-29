@@ -5,6 +5,16 @@
 	 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 	 nnoremap <leader>= :wincmd =<cr>
 
+	" set term=screen-256color
+ " 	set t_Co=256
+
+	" vim 8
+	if has('termguicolors')
+  	set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
+	endif
+
+	set guifont=Source\ Code\ Pro\ Light:h15
+
 	" automatically rebalance windows on vim resize
 	autocmd VimResized * :wincmd =
 
