@@ -76,6 +76,8 @@ directory_name() {
 
 PROMPT=$'\n$(rb_prompt)in %{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%}$(need_push)\n› '
 # PROMPT=$'%{${fg[cyan]}%}%B%~%b $(git_dirty)%{${fg[default]}%} '
+# SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+SPROMPT="zsh: correct %{${fg_bold[red]}%}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
