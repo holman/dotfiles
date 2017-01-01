@@ -26,6 +26,8 @@
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
+  "go-plus":
+    panelDisplayMode: "closed"
   "linter-eslint":
     useGlobalEslint: true
   "release-notes":
