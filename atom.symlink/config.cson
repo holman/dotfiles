@@ -26,8 +26,6 @@
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
-  "go-plus":
-    goPath: "/Users/holman/Code/go"
   "linter-eslint":
     useGlobalEslint: true
   "release-notes":
