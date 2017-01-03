@@ -1,8 +1,6 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
