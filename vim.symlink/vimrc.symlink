@@ -34,8 +34,8 @@ endfunction
  call plug#end()
 
 
-filetype plugin indent on      " activates indenting for files
-syntax on
+ "filetype plugin indent on      " activates indenting for files
+ "syntax on
 
 " Vimrc is split accross multiple files, so loop over and source each
 "---------------------------------------------------------------------
