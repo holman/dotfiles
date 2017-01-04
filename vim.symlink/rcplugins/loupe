@@ -1,0 +1,5 @@
+" Add some niceties to normal search by activating very magic mode each time
+
+Plug 'wincent/loupe'
+
+" vim:ft=vim

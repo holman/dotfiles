@@ -1,0 +1,9 @@
+" Cmd+D like (atom/sublime text) search and replace for vim
+
+Plug 'wincent/scalpel'
+
+
+" Use <Leader>d instead of default <Leader>e:
+nmap <Leader>d <Plug>(Scalpel)
+
+" vim:ft=vim
