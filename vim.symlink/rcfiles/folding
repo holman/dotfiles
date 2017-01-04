@@ -1,0 +1,38 @@
+" Folding configurations
+"------------------------
+
+"Enable indent folding
+set foldenable
+set foldmethod=indent  " not as cool as syntax, but faster
+set foldlevel=999
+set foldlevelstart=99               " start unfolded
+
+if has('windows')
+  set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+endif
+
+" Quick fold to level 1, especially useful for Coffeescript class files
+nmap <LEADER>fld :set foldlevel=1<cr>
+
+" So I never use s, and I want a single key map to toggle folds, thus
+" lower s = toggle <=> upper S = toggle recursive
+nnoremap s za
+nnoremap S zA
+
+"Maps for folding, unfolding all
+nnoremap <LEADER>fu zM<CR>
+nnoremap <LEADER>uf zR<CR>
+
+"Maps for setting foldleve
+nnoremap <LEADER>fl1 :set foldlevel=1<cr>
+nnoremap <LEADER>fl2 :set foldlevel=2<cr>
+nnoremap <LEADER>fl3 :set foldlevel=3<cr>
+nnoremap <LEADER>fl4 :set foldlevel=4<cr>
+
+" Focus the current fold by closing all others
+nnoremap <LEADER>flf mzzM`zzv
+
+" Set foldlevel to match current line
+nnoremap <LEADER>flc :execute 'set foldlevel=' . foldlevel('.')<cr>
+
+" vim:ft=vim

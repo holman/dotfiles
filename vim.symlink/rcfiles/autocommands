@@ -1,0 +1,16 @@
+" This is for deferred autocommands for now
+
+augroup filesetting
+  autocmd!
+  autocmd BufRead,BufNewFile */.git/COMMIT_EDITMSG wincmd _
+augroup END
+
+
+augroup BourguibaIdleboot
+  autocmd!
+  if has('vim_starting')
+    autocmd CursorHold,CursorHoldI * call autocmds#idleboot()
+  endif
+augroup END
+
+" vim:ft=vim
