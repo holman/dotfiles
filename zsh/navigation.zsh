@@ -5,7 +5,7 @@ _cdpath_directories() {
       -not -path '*/\.*' \
       -type d \
       -atime -"$modified_in_last_days" \
-      -maxdepth 1
+      -maxdepth 5
   done
 }
 
