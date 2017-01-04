@@ -31,7 +31,8 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_switch_buffer = 0
 
 let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_working_path_mode = 'r'
+" let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_mruf_default_order = 1
 let g:ctrlp_max_height = 45
@@ -65,7 +66,7 @@ let g:ctrlp_prompt_mappings = {
 "
 " nmap <LEADER>rf :CtrlP ~/.vim/rcfiles<cr>
 " nmap <LEADER>rp :CtrlP ~/.vim/rcplugins<cr>
-" nmap <LEADER>ed :CtrlP ~/code/dotfiles<cr>
+" nmap <LEADER>ed :CtrlP ~/code/.dotfiles<cr>
 "
 " nnoremap <leader>cpt :CtrlPTag<cr>
 "

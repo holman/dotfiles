@@ -3,6 +3,9 @@
 
 " Add the i and kspell for dictionary. Useful for writing essays or when you don't know how a certain word is spelled.
 set complete=.,w,b,u,t,i,kspell
+if has('syntax')
+  set spellcapcheck=                  " don't check for capital letters at start of sentence
+endif
 
 " Setup spell checking, and use <Ctrl>s to open spelling completion menu
 au filetype markdown call MarkdownMode()
@@ -21,7 +24,7 @@ command! CreateJournalEntryFromBuffer call <sid>CreateJournalEntryFromBuffer()
 if exists("+spelllang")
    set spelllang=en_us
 endif
-" set spellfile=~/.vim/spell/en.utf-8.add
+set spellfile=~/.vim/spell/en.utf-8.add
 
 function! s:MoreThanOneTmuxPane()
   return system("tmux list-panes | wc -l | awk '{print $1}'") != "1"

@@ -2,6 +2,6 @@
 
 Plug 'christoomey/vim-system-copy'
 
-nnoremap cv "*]p
+nnoremap cv "*p
 
 " vim:ft=vim

@@ -15,6 +15,15 @@ set wildmenu
 set wildmode=list:longest,full
 set wildignore+=*.pyc
 
+set wildcharm=<C-z>                   " substitute for 'wildchar' (<Tab>) in macros
+if v:progname !=# 'vi'
+  set softtabstop=-1                  " use 'shiftwidth' for tab/bs at end of line
+endif
+
+if has('syntax')
+  set spellcapcheck=                  " don't check for capital letters at start of sentence
+endif
+
 " Doesn't seem I'm going to win on this one
 command! W write
 
