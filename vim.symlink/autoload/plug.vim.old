@@ -225,6 +225,7 @@ function! plug#end()
           endif
           call add(s:triggers[name].map, cmd)
         elseif cmd =~# '^[A-Z]'
+          let cmd = substitute(cmd, '!*$', '', '')
           if exists(':'.cmd) != 2
             call s:assoc(lod.cmd, cmd, name)
           endif
@@ -750,7 +751,7 @@ function! s:prepare(...)
   for k in ['<cr>', 'L', 'o', 'X', 'd', 'dd']
     execute 'silent! unmap <buffer>' k
   endfor
-  setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline modifiable
+  setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline modifiable nospell
   setf vim-plug
   if exists('g:syntax_on')
     call s:syntax()
