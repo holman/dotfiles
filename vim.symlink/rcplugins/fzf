@@ -1,0 +1,29 @@
+" Add fzf for Vim
+
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
+
+let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_launcher = "in_a_new_term_function_fzf %s"
+nmap <silent> <leader>r :Buffers<cr>
+nmap <silent> <leader>e :FZF<cr>
+if isdirectory(".git")
+    " if in a git project, use :GFiles
+    nmap <silent> <leader>t :GFiles<cr>
+else
+    " otherwise, use :FZF
+    nmap <silent> <leader>t :FZF<cr>
+endif
+
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" vim:ft=vim
