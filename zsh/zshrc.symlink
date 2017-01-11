@@ -42,3 +42,7 @@ function killport() {
 # https://gist.github.com/1525217
 alias server="open http://localhost:8000 && python -m SimpleHTTPServer"
 
+alias ls="ls -la"
+
+export NVM_DIR="/Users/sbone/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
