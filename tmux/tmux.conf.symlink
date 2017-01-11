@@ -19,7 +19,7 @@ bind C-a send-prefix
 
 # Easier window splitting
 unbind %
-bind | split-window -h
+bind \ split-window -h
 bind - split-window -v
 
 # Pane movement
