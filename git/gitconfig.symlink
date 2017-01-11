@@ -2,6 +2,7 @@
     quotepath = false
     editor = vim
     excludesfile = ~/.gitignore
+    pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [user]
     name = Steven Bone
     email = steven@stevenbone.com
@@ -16,9 +17,14 @@
     dc = diff --cached
     lg = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --name-only
     wd = diff --color-words
+    cp = cherry-pick
     # list local branches, sorted by most recently committed to
     ls = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
     # roll local branch back one commit
-    rollback = git reset --hard HEAD~1
+    rollback = reset --hard HEAD~1
 [push]
   default = tracking
+[grep]
+  lineNumber = true
+  break = true
+  heading = true
