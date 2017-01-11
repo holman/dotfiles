@@ -31,3 +31,6 @@
 [submodule "vim/vim.symlink/bundle/vim-javascript"]
 	path = vim/vim.symlink/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/vim.symlink/bundle/dracula-theme"]
+	path = vim/vim.symlink/bundle/dracula-theme
+	url = git@github.com:dracula/vim.git
