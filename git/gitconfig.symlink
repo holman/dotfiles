@@ -22,8 +22,8 @@
 	excludesfile = /Users/jholguera/.gitignore_global
 [user]
 	name = Javier Holguera
-	email = javier.holguera@fundingcircle.com
-	mail = javier.holguera@fundingcircle.com
+	email = javier.holguera@gmail.com
+	mail = javier.holguera@gmail.com
 [pull]
 	rebase = true
 [alias]
