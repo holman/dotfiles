@@ -52,6 +52,8 @@ Run this:
 ```sh
 git clone https://github.com/holman/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+git submodule update --init
+git submodule update --recursive --remote
 script/bootstrap
 ```
 
