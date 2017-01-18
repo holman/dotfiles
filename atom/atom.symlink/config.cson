@@ -1,11 +1,20 @@
 "*":
-  editor:
-    showIndentGuide: true
-    fontFamily: "Menlo"
-    invisibles: {}
-    fontSize: 15
-    softWrapAtPreferredLineLength: true
+  "activate-power-mode":
+    comboMode: {}
+    particles:
+      colours:
+        type: "random"
+    playAudio: {}
+  "atom-beautify":
+    general:
+      _analyticsUserId: "8a44e412-966a-4efe-8f20-55069061d224"
   core:
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+    ]
+    hideGitIgnoredFiles: false
     ignoredNames: [
       ".bundle"
       ".git"
@@ -13,24 +22,30 @@
       "repositories"
       "tmp"
       "vendor"
+      "node_modules"
     ]
+    telemetryConsent: "limited"
     themes: [
-      "unity-ui"
-      "glacier-syntax"
+      "one-light-ui"
+      "solarized-light-syntax"
     ]
-    hideGitIgnoredFiles: true
-    disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
-    ]
+  editor:
+    fontFamily: "Menlo"
+    invisibles: {}
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+    zoomFontWhenCtrlScrolling: true
+  linter:
+    errorPanelHeight: 74
+  "release-notes":
+    viewedVersion: "0.89.0"
   "spell-check":
     grammars: [
       "text.plain"
       "source.gfm"
       "text.git-commit"
     ]
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
-  "release-notes":
-    viewedVersion: "0.89.0"

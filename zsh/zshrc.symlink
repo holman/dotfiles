@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/code
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -39,3 +39,16 @@ do
 done
 
 unset config_files
+export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:/Users/Donovan/.dotfiles/bin:$HOME/code/go/bin:$HOME/code/lendinghome-monolith/toolbelt:$HOME/code/lendinghome-monolith/bin:$PATH
+eval "$(rbenv init -)"
+export EDITOR="atom -nw"
+export SKIP_DIRTY_CHECK=1
+export CIRCLE_NODE_TOTAL=3
+export DEBUG_CACHE=1
+export CIRCLE_NODE_INDEX=0
+export SHARED_BUNDLE_PATH="$HOME/code/bundles/lendinghome-monolith"
+bindkey -v
+bindkey '\e[3~' delete-char
+bindkey '^R' history-incremental-search-backward
+alias foreman='script /dev/null foreman'
+setopt no_share_history
