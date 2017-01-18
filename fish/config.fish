@@ -5,6 +5,8 @@ set -x EDITOR nvim
 # Set android path for gradle build
 set -x ANDROID_HOME /usr/local/opt/android-sdk
 
+set -x NODE_TLS_REJECT_UNAUTHORIZED 0
+
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias chrome="open -a Google\ Chrome --args --disable-web-security --user-data-dir=/Users/$USER/Library/Application\\ Support/Google/ChromePersonal"
@@ -56,6 +58,7 @@ function a        ; command ag --ignore=.git --ignore=log --ignore=tags --ignore
 function lookbusy ; cat /dev/urandom | hexdump -C | grep --color "ca fe" ; end
 function tree     ; command tree -C $argv ; end
 function tmux     ; command tmux -2 $argv ; end
+function npms     ; command npm start; end
 
 # Completions for custom aliases
 function make_completion --argument-names alias command

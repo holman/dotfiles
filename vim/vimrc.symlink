@@ -103,6 +103,7 @@ Plug 'SirVer/ultisnips' "{{{
     let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " }}}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "{{{
+    noremap <leader>l :NERDTreeFind<cr>
     noremap <leader>k :NERDTreeToggle<cr>
     let NERDTreeChDirMode=1
     let NERDTreeHighlightCursorline=1
