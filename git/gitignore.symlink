@@ -1,3 +1,6 @@
 .DS_Store
 *~
 *.swp
+.byebug_history
+.bundle
+vendor/bundle
