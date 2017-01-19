@@ -76,7 +76,6 @@
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
-    softWrap: true
     softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
   "git-plus":
