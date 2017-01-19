@@ -14,7 +14,8 @@
       "exception-reporting"
       "metrics"
     ]
-    hideGitIgnoredFiles: false
+    followSymlinks: false
+    hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
       ".git"
@@ -24,19 +25,21 @@
       "vendor"
       "node_modules"
     ]
-    telemetryConsent: "limited"
+    telemetryConsent: "no"
     themes: [
-      "one-light-ui"
-      "solarized-light-syntax"
+      "unity-ui"
+      "glacier-syntax"
     ]
   editor:
     fontFamily: "Menlo"
+    fontSize: 15
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
-    zoomFontWhenCtrlScrolling: true
-  linter:
-    errorPanelHeight: 74
+  "go-plus":
+    panelDisplayMode: "closed"
+  "linter-eslint":
+    useGlobalEslint: true
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
@@ -44,6 +47,7 @@
       "text.plain"
       "source.gfm"
       "text.git-commit"
+      "text.html.basic"
     ]
   "tree-view":
     hideVcsIgnoredFiles: true
