@@ -82,6 +82,7 @@ cask 'ccleaner'
 cask 'keka'
 cask 'macs-fan-control'
 cask 'postman'
+cask 'spectacle'
 cask 'flux'
 
 # = Dev =
