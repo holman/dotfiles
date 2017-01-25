@@ -83,7 +83,6 @@ cask 'keka'
 cask 'macs-fan-control'
 cask 'postman'
 cask 'spectacle'
-cask 'flux'
 
 # = Dev =
 cask 'phpstorm'
@@ -100,6 +99,7 @@ cask 'sourcetree'
 cask 'github-desktop'
 cask 'githubpulse'
 cask 'mysqlworkbench'
+cask 'controlplane'
 
 # = Media =
 cask 'vlc'
