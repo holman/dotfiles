@@ -928,5 +928,8 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Transmission" "Tweetbot" "Twitter" "iCal"; do
 	killall "${app}" &> /dev/null
 done
+
+# Allow Apps from Anywhere in macOS Sierra Gatekeeper
+sudo spctl --master-disable
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
-0
