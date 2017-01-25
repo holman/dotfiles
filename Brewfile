@@ -114,3 +114,4 @@ cask 'handbrake'
 # cask 'adobe-photoshop-cc'
 # cask 'microsoft-office'
 # cask 'parallels-desktop'
+# tyme 2
