@@ -15,7 +15,7 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
         editor = vi
 [apply]
         whitespace = nowarn
@@ -37,3 +37,8 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[user]
+	name = Thomas Groch
+	email = thomas.groch@gmail.com
+[commit]
+	template = /Users/tg/.stCommitMsg
