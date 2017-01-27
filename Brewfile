@@ -14,7 +14,7 @@ brew 'grc'
 brew 'imagemagick'
 brew 'jp2a'
 brew 'jq'
-brew 'libcaca', args: ['with-imlib2']
+#brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
 brew 'node'
@@ -30,8 +30,8 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
-
 brew 'heroku'
+cask 'xquartz'
 brew 'wine'
 brew 'winetricks'
 brew 'libevent'
