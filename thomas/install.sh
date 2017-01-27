@@ -8,8 +8,8 @@
 # mkdir Filmes
 
 # DOTFILES_ROOT=$(pwd -P)
-DOTFILES_THOMAS_ROOT="$HOME/dotfiles/thomas"
-whoami
+DOTFILES_THOMAS_ROOT="$HOME/.dotfiles/thomas"
+#whoami
 link_file () {
   local src=$1 dst=$2
 
@@ -117,7 +117,8 @@ install_main () {
     	# Create if not exists
 		  mkdir -p ${array[0]}
 		  # Create link
-    	link_file "${array[0]}" "${array[1]}"
+      # link_file "${array[0]}" "${array[1]}"
+    	ln -s "${array[0]}" "${array[1]}"
 
     done < $src
  	
