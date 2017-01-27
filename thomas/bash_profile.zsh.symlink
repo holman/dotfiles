@@ -6,12 +6,6 @@
 
 
 
-# #alias laratail="tail -f $(find /laravel/storage/logs | tail -n 1)"
-# alias l="ls -lah"
-# alias ll="ls -l"
-# alias la='ls -A'
-
-
 
 
 # alias START_FUNCTION_CDLS="cdls() { cd "$@" && ls && pwd; }"

@@ -1,5 +1,4 @@
 # Thomas aliases
-
 alias calias="vi ~/.aliases"
 alias cconfig="vi ~/.zshrc"
 
@@ -34,4 +33,4 @@ alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyad
 
 alias router='dig | grep "SERVER: "'
 alias ww="which"
-alias laratail="tail -f $(find /laravel/storage/logs | tail -n 1)"
+# alias laratail="tail -f $(find /laravel/storage/logs | tail -n 1)"
