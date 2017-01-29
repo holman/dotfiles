@@ -1,4 +1,304 @@
+set nocompatible
 syntax on
 
-" Wrap gitcommit file types at the appropriate length
+filetype off
+
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+" github
+Plugin 'chauncey/vim-bbxplugin'
+Plugin 'chauncey/vim-jellycc'
+Plugin 'chauncey/vim-yui'
+Plugin 'chauncey/vim-powerline'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-dispatch'
+Plugin 'mattn/emmet-vim'
+Plugin 'ervandew/snipmate.vim'
+Plugin 'ervandew/supertab'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'pangloss/vim-javascript'
+Plugin 'sjl/gundo.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'juvenn/mustache.vim'
+Plugin 'othree/html5-syntax.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+
 filetype indent plugin on
+
+
+"Set mapleader
+let mapleader = ","
+
+set noea " set no equal always for splits
+set autoindent
+set smartindent
+set smartcase
+set expandtab
+set ts=4
+set softtabstop=4
+set sw=4
+set nojoinspaces
+set modeline
+set hidden
+set history=1000
+set undolevels=1000
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title
+set pastetoggle=<F2> " paste mode for sane right click pasting
+set lsp=0 " space it out a little more (easier to read)
+set wildmenu " turn on wild menu
+set ruler " Always show current positions along the bottom
+set number " turn on line numbers
+set lz " do not redraw while running macros (much faster) (LazyRedraw)
+set hid " you can change buffer without saving
+set whichwrap+=<,>,h,l  " backspace and cursor keys wrap to
+set mouse=a " use mouse everywhere
+"set fillchars=vert:\ ,stl:\ ,stlnc:
+set backspace=indent,eol,start
+set showmatch " show matching brackets
+set mat=5 " how many tenths of a second to blink matching brackets for
+set hlsearch " highlight searched for phrases
+set incsearch " BUT do highlight as you type you search phrase
+set t_vb= " stop with the beeps
+
+set laststatus=2 " always show the status line
+
+set background=dark
+set shortmess=filnxtToO
+set t_Co=256
+
+" Fix tmux
+let loaded_matchparen = 1
+
+" powerline - status bar twinks
+set encoding=utf-8
+let g:Powerline_symbols='fancy'
+
+so ~/github.vim
+
+" ~~~~~ Mappings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+inoremap jj <Esc>
+
+map <right> <ESC>:MBEbn<RETURN> " right arrow (normal mode) switches buffers  (excluding minibuf)
+map <left> <ESC>:MBEbp<RETURN> " left arrow (normal mode) switches buffers (excluding minibuf)
+"map <up> <ESC>:Sex<RETURN><ESC><C-W><C-W> " up arrow (normal mode) brings up a file list
+"map <A-i> i <ESC>r " alt-i (normal mode) inserts a single char, and then switches back to normal
+nnoremap <silent> <F11> :YRShow<CR>
+map T :TaskList<CR>
+map <F7> :TlistToggle<CR>
+map <F8> :NERDTree<CR>
+map <Leader>w <C-w>w
+noremap <Leader>n :NERDTreeToggle<CR>
+noremap <Leader>v :vsp^M^W^W<cr>
+noremap <Leader>r :vertical res
+noremap <Leader>fm :set foldmethod=manual<cr>
+
+" No longer have to hit Shift :w for save
+nnoremap ; :
+nnoremap <silent> ,/ :nohlsearch<CR> " clear search highlights
+
+" don't skip over wrapped line
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader><space> :noh<cr> " clear highlight
+nnoremap <leader>t    :set t_Co=8<cr> :colorscheme ir_black<cr> " bloody Terminal.app and it's broken color support
+nnoremap <F5> :GundoToggle<cr>
+
+cmap w!! w !sudo tee % >/dev/null " forgot to open file with root, use w!!
+
+" Quickly edit/reload the vimrc file
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+
+"Smart way to move btw. windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <leader>cd :cd %:p:h<cr>
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>iw :vert resize +1
+
+"Cut/Copy/Paste
+vnoremap <C-c> "+yi
+vnoremap <C-x> "+c
+vnoremap <C-v> c<ESC>"+p
+inoremap <C-v> <ESC>"+pa
+
+" Clear indentation
+nnoremap <F9> :setl noai nocin nosi inde=<CR>
+
+" Android build
+nnoremap <F7> :!~/bin/andapp.sh
+
+" ~~~~~ NERDTree ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+map <F8> :NERDTree<CR>
+noremap <Leader>n :NERDTreeToggle<CR>
+let NERDTreeMouseMode=1 " Single click for everything
+
+
+" ~~~~~ Buffer  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+autocmd BufEnter * :syntax sync fromstart " ensure every file does syntax highlighting (full)
+au BufNewFile,BufRead *.pt :set ft=xml " all my .pt files ARE xml
+au BufNewFile,BufRead *.txt :set ft=txt
+autocmd BufWritePre *.py :%s/\s\+$//e "
+autocmd BufWritePre *.js :%s/\s\+$//e "
+autocmd BufWritePre *.pt :%s/\s\+$//e "
+autocmd BufWritePre *.xml :%s/\s\+$//e "
+
+" highligth > 80 chars line
+"au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+"au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
+" ~~~~~ Omni  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+set completeopt=menu
+au Filetype * let &l:ofu = (len(&ofu) ? &ofu : 'syntaxcomplete#Complete')
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>" " supertab
+"let g:SuperTabDefaultCompletionType = "context" " supertab
+
+" ~~~~~ Jedi-vim ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+let g:jedi#use_tabs_not_buffers = 0
+let g:SuperTabDefaultCompletionType = "<C-space>" " supertab
+
+
+" ~~~~~ Filetype settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+autocmd BufRead *.py let python_highlight_builtins = 1
+autocmd BufRead *.py let python_highlight_numbers = 1
+au FileType html,xml,xhtml,pt,javascript,css,htmldjango setl shiftwidth=2 tabstop=2 softtabstop=2
+au FileType python,java,php setl shiftwidth=4 tabstop=4
+
+
+" ~~~~~ For javascript folding  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function! JavaScriptFold()
+    setl foldmethod=syntax
+    setl foldlevelstart=1
+    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+
+    function! FoldText()
+        return "+--  " . substitute(getline(v:foldstart), '{.*', '{...}', '')
+    endfunction
+    setl foldtext=FoldText()
+endfunction
+au FileType javascript call JavaScriptFold()
+au FileType javascript setl fen
+
+
+" ~~~~~ Python  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+python << EOF
+import os
+import sys
+import vim
+for p in sys.path:
+    if os.path.isdir(p):
+        vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+EOF
+
+
+" ~~~~~ GUI and OS specific stuff  ~~~~~~~~~~~~~~~~~~~~~~~~~
+let os = substitute(system('uname'), "\n", "", "")
+if os == "AIX"
+    colorscheme jellycc
+	au BufRead,BufNewFile *.lst set filetype=bbx
+    au FileType bbx setl nonumber
+	nnoremap <F4> :execute BBXListSave()<CR>
+	nnoremap bo :execute BBXLoadInput()<CR>
+	nnoremap bs :execute BBXSave()<CR>
+endif
+
+if os == "Linux"
+    if has("gui_running")
+        colorscheme jellycc "colorscheme darkbone "colorscheme solarized "colorscheme ir_black
+    else
+        colorscheme jellycc
+    endif
+	au BufRead,BufNewFile *.lst set filetype=vb
+    set guioptions-=m
+    set guioptions-=T
+    set guifont=Source\ Code\ Pro\ 11
+endif
+
+if &t_Co >= 256 || has("gui_running")
+    " No toolbar
+    set go-=T
+    " Omni menu colors
+    if has("gui_running")
+        hi Pmenu guibg=#333333
+        hi PmenuSel guibg=#555555 guifg=#ffffff
+    else
+        hi Pmenu ctermbg=238
+    endif
+    " Mac specific
+    if has("gui_mac") || has("gui_macvim")
+        set guioptions=egmrt
+        colorscheme ir_black
+        try
+            set transparency=2
+        catch
+        endtry
+    endif
+else
+    colorscheme ir_black
+endif
+
+
+" ~~~~~  Misc  ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if &term =~ "xterm"
+    " restore screen after quitting
+    " set t_ti=ESC7ESC[rESC[?47h t_te=ESC[?47lESC8
+    if has("terminfo")
+        let &t_Sf="\ESC[3%p1%dm"
+        let &t_Sb="\ESC[4%p1%dm"
+    else
+        let &t_Sf="\ESC[3%dm"
+        let &t_Sb="\ESC[4%dm"
+    endif
+endif
+
+" highlighting groups
+nmap ,sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+function! Paste(mode)
+  if a:mode == "v"
+    normal gv
+    normal "+P
+    normal l
+  elseif a:mode == "i"
+    set virtualedit=all
+    normal `^"+gP
+    let &virtualedit = ""
+  endif
+endfunction
+
+vnoremap <C-X> "+d
+vnoremap <C-C> "+y
+nnoremap <C-V> "+gPl
+vnoremap <C-V> :<C-U>call Paste("v")<CR>
+inoremap <C-V> <C-O>:call Paste("i")<CR>
