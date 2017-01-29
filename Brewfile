@@ -37,6 +37,7 @@ brew 'winetricks'
 brew 'libevent'
 brew 'mackup'
 brew 'stormssh'
+brew 'composer'
 
 # Server
 
@@ -58,6 +59,7 @@ cask 'skype'
 cask 'discord'
 cask 'srware-iron'
 cask 'firefox'
+cask 'opera-developer'
 cask 'transmission'
 cask 'torbrowser'
 
