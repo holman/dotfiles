@@ -19,7 +19,7 @@ if [ "$OS" = "Darwin" ]; then
 else
   if [ "$OS" = "Linux" ]; then
     echo "› pacup"
-    pacup
+    sudo pacman -Syu && cower -uv
   fi
 fi
 
