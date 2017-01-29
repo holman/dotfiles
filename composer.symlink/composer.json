@@ -1,0 +1,8 @@
+{
+    "require": {
+        "laravel/installer": "^1.3",
+        "laravel/lumen-installer": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.0",
+        "laravel/valet": "^2.0"
+    }
+}
