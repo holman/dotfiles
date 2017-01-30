@@ -1,4 +1,6 @@
 [storage]
 engine = file_system
-path = ~/.dotfiles/mackup/
+path = .dotfiles/mackup/
 directory = backup
+[applications_to_ignore]
+ssh
