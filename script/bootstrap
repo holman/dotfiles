@@ -129,11 +129,12 @@ install_dotfiles () {
   info 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
-
+  # For Loop File Names With Spaces
+  IFS=$(echo -en "\n\b")
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+    #link_file "$src" "$dst"
   done
 }
 
@@ -143,14 +144,14 @@ install_dotfiles
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
+  info "install dependencies running: dot"
+  # if source bin/dot > /tmp/dotfiles-dot 2>&1
+  # then
+  #   success "dependencies installed"
+  # else
+  #   fail "error installing dependencies"
+  # fi
 fi
 
-echo ''
-echo '  All installed!'
+# echo ''
+# echo '  All installed!'

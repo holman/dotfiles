@@ -1,1 +1,1 @@
-# Add any auto-loaded Atom code on init here.
+/Users/tg/Dropbox/Mackup/.atom/init.coffee
