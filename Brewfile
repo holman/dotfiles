@@ -2,7 +2,11 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 tap 'puma/puma'
+tap 'homebrew/core'
+tap 'homebrew/services'
+tap 'homebrew/php'
 
+# Utilities
 brew 'ack'
 brew 'coreutils'
 brew 'go'
@@ -10,7 +14,7 @@ brew 'grc'
 brew 'imagemagick'
 brew 'jp2a'
 brew 'jq'
-brew 'libcaca', args: ['with-imlib2']
+#brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
 brew 'node'
@@ -26,18 +30,92 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+brew 'heroku'
+cask 'xquartz'
+brew 'wine'
+brew 'winetricks'
+brew 'libevent'
+brew 'mackup'
+brew 'stormssh'
+brew 'composer'
 
-cask '1password'
+# Server
+
+# DEV
+brew 'php71'
+brew 'mongodb'
+brew 'mariadb', restart_service: true
+brew 'homebrew/php/php71'
+brew 'homebrew/php/php71-mcrypt'
+brew 'homebrew/php/phpunit'
+
+
+
+# Applications
+# = Web =
 cask 'adium'
-cask 'atom'
+cask 'franz'
+cask 'skype'
+cask 'discord'
+cask 'srware-iron'
 cask 'firefox'
-cask 'garmin-express'
-cask 'google-chrome'
-cask 'handbrake'
-cask 'mapbox-studio'
-cask 'seashore'
-cask 'slack'
-cask 'steam'
+cask 'opera-developer'
 cask 'transmission'
-cask 'tunnelbear'
+cask 'torbrowser'
+
+# = Game =
+cask 'steam'
+cask 'battle-net'
+cask 'playonmac'
+cask 'openemu'
+cask 'witgui'
+cask 'battle-net'
+cask 'steam'
+cask 'steamcmd'
+
+# = Utilities =
+cask 'subtitle-master'
+#cask 'tunnelbear'
+cask 'teamviewer'
+cask 'dropbox'
+cask 'qbittorrent'
+cask 'jdownloader'
+cask 'appcleaner'
+cask 'ccleaner'
+cask 'keka'
+cask 'macs-fan-control'
+cask 'postman'
+cask 'spectacle'
+
+# = Dev =
+cask 'phpstorm'
+cask 'osxfuse'
+cask 'iterm2'
+cask 'atom'
+cask 'sublime-text'
+cask 'cakebrew'
+cask 'slack'
+cask 'gitter'
+cask 'robomongo'
+cask 'sequel-pro'
+cask 'sourcetree'
+cask 'github-desktop'
+cask 'githubpulse'
+cask 'mysqlworkbench'
+cask 'controlplane'
+
+# = Media =
 cask 'vlc'
+cask 'handbrake'
+
+# Manual stuffs
+# cask 'transmit'
+# cask 'divvy'
+# cask 'cleanmymac'
+# cask 'keyboard-maestro'
+# cask 'alfred'
+# cask 'adobe-photoshop-cc'
+# cask 'microsoft-office'
+# cask 'parallels-desktop'
+# screaming-frog-seo-spider
+# tyme 2

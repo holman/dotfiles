@@ -1,0 +1,1 @@
+/Users/tg/.dotfiles/oh-my-zsh/zshrc.symlink

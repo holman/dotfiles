@@ -129,11 +129,30 @@ install_dotfiles () {
   info 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
-
+  # For Loop File Names With Spaces
+  IFS=$'\n'
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+    dst_mackup="$DOTFILES_ROOT/mackup/backup/.$(basename "${src%.*}")"
+    dst_home="$HOME/.$(basename "${src%.*}")"
+
+    # Mackup Logic
+    file="${dst_mackup}"
+    if [ -f "$file" ] # FILE exists and is a regular file
+    then
+      # Se existir o arquivo na pasta do mackup
+      # dotfiles -> mackup
+      info "[mackup] $file -> $dst_mackup [Recommended: overwrite]"
+      # Link 1
+      link_file "$src" "$dst_mackup"
+    else
+      # Se não existir o arquivo na pasta do mackup
+      # dotfiles -> HOME
+      info "[HOME] $file -> $dst_home"
+      # Link 2
+      link_file "$src" "$dst_home"
+    fi
+
   done
 }
 
@@ -143,14 +162,14 @@ install_dotfiles
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
+  info "install dependencies running: dot"
+  # if source bin/dot > /tmp/dotfiles-dot 2>&1
+  # then
+  #   success "dependencies installed"
+  # else
+  #   fail "error installing dependencies"
+  # fi
 fi
 
-echo ''
-echo '  All installed!'
+# echo ''
+# echo '  All installed!'
