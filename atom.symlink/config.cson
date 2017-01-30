@@ -1,4 +1,7 @@
 "*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#5b36ae"
   core:
     disabledPackages: [
       "background-tips"
@@ -17,11 +20,11 @@
     ]
     telemetryConsent: "no"
     themes: [
-      "unity-ui"
-      "glacier-syntax"
+      "atom-material-ui"
+      "base16-tomorrow-dark-theme"
     ]
   editor:
-    fontFamily: "Menlo"
+    fontFamily: "Fira Code"
     fontSize: 15
     invisibles: {}
     showIndentGuide: true

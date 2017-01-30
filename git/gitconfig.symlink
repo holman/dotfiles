@@ -1,33 +1,42 @@
 # Local/private config goes in the include
 [include]
-        path = ~/.gitconfig.local
+    path = ~/.gitconfig.local
 [hub]
-        protocol = https
+    protocol = https
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+    st = status -sb
+    co = checkout
+    cob = checkout -b
+    can = commit --amend --no-edit
+    unadd = reset HEAD
+    br = branch
+    ci = commit
+    fa = fetch --all
+    clean-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
+    promote = !$ZSH/bin/git-promote
+    wtf = !$ZSH/bin/git-wtf
+    rank-contributors = !$ZSH/bin/git-rank-contributors
+    count = !git shortlog -sn
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+    diff = auto
+    status = auto
+    branch = auto
+    interative = auto
+    ui = true
+    autocrlf = input
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
+    excludesfile = ~/.gitignore
+    editor = vim
 [apply]
-        whitespace = nowarn
+    whitespace = nowarn
 [mergetool]
-        keepBackup = false
+    keepBackup = false
 [difftool]
-        prompt = false
+    prompt = false
 [help]
-        autocorrect = 1
+    autocorrect = 1
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+    default = simple
+[user]
+	email = cchauncey@gmail.com
+	name = chauncey
