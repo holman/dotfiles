@@ -117,4 +117,5 @@ cask 'handbrake'
 # cask 'adobe-photoshop-cc'
 # cask 'microsoft-office'
 # cask 'parallels-desktop'
+# screaming-frog-seo-spider
 # tyme 2
