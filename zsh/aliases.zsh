@@ -8,6 +8,7 @@ alias hist='history | grep $1' #Requires one input
 alias home='cd ~'
 
 # Alias to multiple ls commands
+alias ls='ls --color'
 alias la='ls -Al'               # show hidden files
 alias lx='ls -lXB'              # sort by extension
 alias lk='ls -lSr'              # sort by size
