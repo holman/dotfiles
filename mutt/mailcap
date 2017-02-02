@@ -1,0 +1,2 @@
+text/html;  /usr/bin/firefox %s >/dev/null 2>&1; needsterminal
+text/html;  elinks -dump %s; nametemplate=%s.html; copiousoutput

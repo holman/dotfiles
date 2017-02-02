@@ -1,10 +1,12 @@
 #!/usr/bin/sh
 dir=$HOME/Development/projects/$1
+editor=atom
 
 cd $dir
 vagrant up
 
-sublime-text $dir &
+$editor $dir &
+
 if [ $1 == 'ashley' ]; then
 	gnome-terminal --window-with-profile=Default \
 	--tab-with-profile=Webserver -e "vagrant ssh web"\
