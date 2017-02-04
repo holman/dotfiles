@@ -268,8 +268,8 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
-    -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    -- Prompt Had issues with mouse screen bits, so it always shows up on 1 now
+    awful.key({ modkey },            "r",     function () mypromptbox[1]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
