@@ -1,0 +1,6 @@
+log
+tmp
+coverage
+node_modules
+bower_components
+/.git/
