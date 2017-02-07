@@ -1,0 +1,5 @@
+" Vim sugar for the UNIX shell commands that need it the most
+
+Plug 'tpope/vim-eunuch'
+
+" vim:ft=vim

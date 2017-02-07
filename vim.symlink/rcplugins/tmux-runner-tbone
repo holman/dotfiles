@@ -1,0 +1,26 @@
+" VTR - Vim tmux integration
+
+Plug 'christoomey/vim-tmux-runner'
+Plug 'tpope/vim-tbone'
+
+let g:VtrUseVtrMaps = 1
+let g:VtrGitCdUpOnOpen = 0
+let g:VtrPercentage = 30
+
+nmap <leader>fs :VtrFlushCommand<cr>:VtrSendCommandToRunner<cr>
+nmap <C-f> :VtrSendLinesToRunner<cr>
+vmap <C-f> :VtrSendLinesToRunner<cr>
+
+nmap <leader>osr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50 }<cr>
+nmap <leader>opr :VtrOpenRunner { 'orientation': 'h', 'percentage': 50, 'cmd': 'pry' }<cr>
+
+nnoremap <leader>sd :VtrSendCtrlD<cr>
+nnoremap <leader>sq :VtrSendCommandToRunner q<cr>
+nnoremap <leader>sl :VtrSendCommandToRunner <cr>
+
+" let g:vtr_filetype_runner_overrides = {
+"       \ 'haskell': 'ghci {file}',
+"       \ 'applescript': 'osascript {file}'
+"       \ }
+
+" vim:ft=vim

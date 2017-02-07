@@ -2,4 +2,6 @@
 
 Plug 'vim-ruby/vim-ruby'
 
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
+"let g:ruby_path = system('rbenv prefix')
 " vim:ft=vim

@@ -1,0 +1,14 @@
+" Unobtrusive scratch window
+
+Plug 'mtth/scratch.vim'
+
+let g:scratch_no_mappings = 1
+nnoremap <silent> <plug>(scratch-preview) :call scratch#preview()<cr>
+
+nmap <leader>gs <plug>(scratch-insert-reuse)
+nmap <leader>gS <plug>(scratch-insert-clear)
+xmap <leader>gs <plug>(scratch-selection-reuse)
+xmap <leader>gS <plug>(scratch-selection-clear)
+nmap <leader>gps <plug>(scratch-preview)
+
+" vim:ft=vim

@@ -2,8 +2,10 @@
 
 Plug 'wincent/scalpel'
 
+" let g:ScalpelMap=0
 
 " Use <Leader>d instead of default <Leader>e:
 nmap <Leader>d <Plug>(Scalpel)
+vmap <Leader>d <Plug>(ScalpelVisual)
 
 " vim:ft=vim

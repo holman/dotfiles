@@ -1,5 +1,5 @@
 " Sort Motion - Linewise sort base don text motion
 
-Plug 'christoomey/vim-sort-motion'
+" Plug 'christoomey/vim-sort-motion'
 
 " vim:ft=vim

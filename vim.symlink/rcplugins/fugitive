@@ -7,24 +7,24 @@ Plug 'tpope/vim-fugitive'
 " nmap <LEADER>gd :call <sid>GdiffWorkingOrParent()<cr>
 " nmap <LEADER>gb :Gblame<CR>
 
-function! s:GdiffWorkingOrParent()
-  if system("git diff --name-only " . expand("%")) == ""
-    Gdiff HEAD^1
-  else
-    Gdiff
-  endif
-endfunction
-
-function! s:SaveSessionAndShowGitStatus()
-  let session_name = split(getcwd(), "/")[-1]
-  execute "silent! mksession! ~/.vim/sessions/" . session_name
-  silent tabonly | silent only | Gstatus
-endfunction
-
-function! s:RestoreSession()
-  let session_name = split(getcwd(), "/")[-1]
-  execute "source ~/.vim/sessions/" . session_name
-endfunction
+" function! s:GdiffWorkingOrParent()
+"   if system("git diff --name-only " . expand("%")) == ""
+"     Gdiff HEAD^1
+"   else
+"     Gdiff
+"   endif
+" endfunction
+"
+" function! s:SaveSessionAndShowGitStatus()
+"   let session_name = split(getcwd(), "/")[-1]
+"   execute "silent! mksession! ~/.vim/sessions/" . session_name
+"   silent tabonly | silent only | Gstatus
+" endfunction
+"
+" function! s:RestoreSession()
+"   let session_name = split(getcwd(), "/")[-1]
+"   execute "source ~/.vim/sessions/" . session_name
+" endfunction
 
 " set diffopt+=vertical
 

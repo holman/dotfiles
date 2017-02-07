@@ -1,0 +1,7 @@
+" Abolish - Advanced substitutions"
+
+Plug 'tpope/vim-abolish'
+
+call defer#defer('call plugins#abolish()')
+
+" vim:ft=vim

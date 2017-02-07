@@ -1,0 +1,52 @@
+" Completion functionality, unifying supertab, ultisnips, and YouCompleteMe
+" via http://stackoverflow.com/a/22253548/1626737
+
+"-----------------------------------------------------------
+" YouCompleteMe - Intelligent completion with fuzzy matching
+"-----------------------------------------------------------
+
+" Bundle 'Valloric/YouCompleteMe'
+
+" let g:ycm_dont_warn_on_startup = 0
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_complete_in_strings = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"
+" let g:ycm_filetype_blacklist = {}
+"
+" let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+
+" make YCM compatible with UltiSnips (using supertab)
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" Enable Scratch Window Descriptions
+" let g:ycm_add_preview_to_completeopt = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+
+"--------------------------------------------------
+" Supertab - enhanced tab behavior based on context
+"--------------------------------------------------
+
+Plug 'ervandew/supertab'
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+
+"----------------------------------------
+" UltiSnips - Fancy snippet functionality
+"----------------------------------------
+
+Plug 'SirVer/ultisnips'
+
+let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+
+nnoremap <leader>ue :UltiSnipsEdit<cr>
+
+" vim:ft=vim
