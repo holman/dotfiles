@@ -15,6 +15,17 @@ set wildmenu
 set wildmode=list:longest,full
 set wildignore+=*.pyc
 
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
+set wildignore+=*.spl                            " compiled spelling word lists
+
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+
 set wildcharm=<C-z>                   " substitute for 'wildchar' (<Tab>) in macros
 if v:progname !=# 'vi'
   set softtabstop=-1                  " use 'shiftwidth' for tab/bs at end of line
@@ -23,6 +34,12 @@ endif
 if has('syntax')
   set spellcapcheck=                  " don't check for capital letters at start of sentence
 endif
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
 
 " Doesn't seem I'm going to win on this one
 command! W write
@@ -37,5 +54,18 @@ vnoremap <leader>; :
 " Quickly open a second window to view files side by side
 nmap <leader>vn :split<CR>
 nmap <leader>vs :vsplit<CR>
+
+" Kill window
+nnoremap K :q<cr>
+
+" Save
+nnoremap s :w<cr>
+
+" Man
+nnoremap M K
+
+" Inserting blank lines
+" I never use the default behavior of <cr> and this saves me a keystroke...
+nnoremap <cr> o<esc>
 
 " vim:ft=vim

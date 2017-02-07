@@ -1,37 +1,46 @@
 " Windows mappings and autocommands
 " And visual settings
 
-	" zoom a vim pane, <C-w>= to re-balance
-	 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-	 nnoremap <leader>= :wincmd =<cr>
+  " zoom a vim pane, <C-w>= to re-balance
+   nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+   nnoremap <leader>= :wincmd =<cr>
 
-	" set term=screen-256color
- " 	set t_Co=256
+  " Window Resizing {{{
+    " right/up : bigger
+    " left/down : smaller
+    nnoremap <m-right> :vertical resize +3<cr>
+    nnoremap <m-left> :vertical resize -3<cr>
+    nnoremap <m-up> :resize +3<cr>
+    nnoremap <m-down> :resize -3<cr>
+  " }}}
+
+  " set term=screen-256color
+ "  set t_Co=256
 
  if &term =~ '256color'
-	 " disable background color erase
-	 set t_ut=
+   " disable background color erase
+   set t_ut=
 endif
 
-	" vim 8
-	if has('termguicolors')
-  	set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
-	endif
+  " vim 8
+  if has('termguicolors')
+    set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
+  endif
 
-	set guifont=Source\ Code\ Pro\ Light:h15
+  set guifont=Source\ Code\ Pro\ Light:h15
 
-	" automatically rebalance windows on vim resize
-	autocmd VimResized * :wincmd =
+  " automatically rebalance windows on vim resize
+  autocmd VimResized * :wincmd =
 
-	" more natural splits
-	set splitbelow
-	set splitright
+  " more natural splits
+  set splitbelow
+  set splitright
 
-	" Easy access to maximizing
-	nnoremap <C-_> <C-w>_
+  " Easy access to maximizing
+  nnoremap <C-_> <C-w>_
 
-	" Use visual bell instead of beeping"
-	 set vb
+  " Use visual bell instead of beeping"
+   set vb
 
  set list                              " show whitespace
  " Listchars settings
@@ -43,59 +52,62 @@ endif
  set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
  set nojoinspaces                      " don't autoinsert two spaces after '.', '?', '!' for join command
 
-	 if v:version > 703
-	   set formatoptions+=j                " remove comment leader when joining comment lines
-	 endif
-	 set formatoptions+=n                  " smart auto-indenting inside numbered lists
-	 set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
-	 set highlight+=N:DiffText             " make current line number stand out a little
-	 set highlight+=c:LineNr               " blend vertical separators with line numbers
-	 set laststatus=2                      " always show status line
+   if v:version > 703
+     set formatoptions+=j                " remove comment leader when joining comment lines
+   endif
+   set formatoptions+=n                  " smart auto-indenting inside numbered lists
+   set highlight+=@:ColorColumn          " ~/@ at end of window, 'showbreak'
+   set highlight+=N:DiffText             " make current line number stand out a little
+   set highlight+=c:LineNr               " blend vertical separators with line numbers
+   set laststatus=2                      " always show status line
 
-	" highlight ColorColumn ctermbg=25625625
-	set textwidth=80
+  " highlight ColorColumn ctermbg=25625625
+  set textwidth=80
 
-	if has('virtualedit')
-  	set virtualedit=block               " allow cursor to move where there is no text in visual block mode
-	endif
-	set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
-	" set wildcharm=<C-z>                   " substitute for 'wildchar' (<Tab>) in macros
+  " Don't try to highlight lines longer than 800 characters.
+  set synmaxcol=800
 
-	" set colorcolumn=+1,+2,+3,+4
+  if has('virtualedit')
+    set virtualedit=block               " allow cursor to move where there is no text in visual block mode
+  endif
+  set whichwrap=b,h,l,s,<,>,[,],~       " allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries
+  " set wildcharm=<C-z>                   " substitute for 'wildchar' (<Tab>) in macros
 
-	"https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/.vimrc#L1415
+  " set colorcolumn=+1,+2,+3,+4
 
-
-	set shortmess+=A                      " ignore annoying swapfile messages
-	set shortmess+=I                      " no splash screen
-	" set shortmess+=O                      " file-read message overwrites previous
-	" set shortmess+=T                      " truncate non-file messages in middle
-	set shortmess+=W                      " don't echo "[w]"/"[written]" when writing
-	set shortmess+=a                      " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
-	" set shortmess+=o                      " overwrite file-written messages
-	" set shortmess+=t                      " truncate file messages at start
+  "https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/.vimrc#L1415
 
 
-	augroup MarkMargin
-	    autocmd!
-			autocmd  BufEnter  *  call defer#defer('call autocmds#MarkMargin(1)')
-			if exists('+colorcolumn')
-				autocmd BufEnter,FocusGained,VimEnter,WinEnter * if autocmds#should_colorcolumn() | let &l:colorcolumn='+' . join(range(0, 254), ',+') | endif
-				autocmd FocusLost,WinLeave * if autocmds#should_colorcolumn() | let &l:colorcolumn=join(range(1, 255), ',') | endif
-				endif
-	    "autocmd  BufEnter  *.vp*   :call MarkMargin(0)
-	augroup END
+  set shortmess+=A                      " ignore annoying swapfile messages
+  set shortmess+=I                      " no splash screen
+  set shortmess+=O                      " file-read message overwrites previous
+  set shortmess+=T                      " truncate non-file messages in middle
+  set shortmess+=W                      " don't echo "[w]"/"[written]" when writing
+  set shortmess+=a                      " use abbreviations in messages eg. `[RO]` instead of `[readonly]`
+  set shortmess+=o                      " overwrite file-written messages
+  set shortmess+=t                      " truncate file messages at start
 
-	" change this for switching between colorschemes. and not background, if necessary
-	" for now, it's commented
 
-	" map <leader>b :call ToggleBackground()<CR>
-	" function! ToggleBackground()
-	"     if &background == "light"
-	"         set background=dark
-	"     else
-	"         set background=light
-	"     endif
-	" endfunction
+  augroup MarkMargin
+      autocmd!
+      autocmd  BufEnter  *  call defer#defer('call autocmds#MarkMargin(1)')
+      if exists('+colorcolumn')
+        autocmd BufEnter,FocusGained,VimEnter,WinEnter * if autocmds#should_colorcolumn() | let &l:colorcolumn='+' . join(range(0, 254), ',+') | endif
+        autocmd FocusLost,WinLeave * if autocmds#should_colorcolumn() | let &l:colorcolumn=join(range(1, 255), ',') | endif
+        endif
+      "autocmd  BufEnter  *.vp*   :call MarkMargin(0)
+  augroup END
+
+  " change this for switching between colorschemes. and not background, if necessary
+  " for now, it's commented
+
+  " map <leader>b :call ToggleBackground()<CR>
+  " function! ToggleBackground()
+  "     if &background == "light"
+  "         set background=dark
+  "     else
+  "         set background=light
+  "     endif
+  " endfunction
 
 " vim:ft=vim

@@ -3,8 +3,33 @@
 augroup filesetting
   autocmd!
   autocmd BufRead,BufNewFile */.git/COMMIT_EDITMSG wincmd _
+
+  " Reset the cursor to the last known position when opening file
+  autocmd BufReadPost *
+      \ if &ft != 'gitcommit' && line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif"`'")"'")
 augroup END
 
+augroup Tmux
+  autocmd!
+" Automatic rename of tmux window
+  if exists('$TMUX') && !exists('$NORENAME')
+    au BufEnter * if empty(&buftype) | call system('tmux rename-window '.expand('%:t:S')) | endif
+    au VimLeave * call system('tmux set-window automatic-rename on')
+  endif
+augroup END
+
+" Cursorline {{{
+" Only show cursorline in the current window and in normal mode.
+
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
+
+" }}}
 
 augroup BourguibaIdleboot
   autocmd!

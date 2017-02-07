@@ -8,16 +8,28 @@ nmap <C-s> :w<CR>
 " Move up and down by visible lines if current line is wrapped
 nmap j gj
 nmap k gk
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
 
 " Write file"
 nmap <leader>w :w<cr>
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> ddkP
-nnoremap <Down> ddp
-
+nnoremap <Right> :echoa "Use l"<CR>
+nmap <Up> [e
+nmap <Down> ]e
+" Bubble multiple lines
+vmap <Up> [egv
+vmap <Down> ]egv
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
 
 " Split edit your vimrc. Type space, v, r in sequence to trigger
 nmap <leader>vr :sp $MYVIMRC<cr>
@@ -28,6 +40,19 @@ nmap <leader>so :source $MYVIMRC<cr>
 " Pre-populate a split command with the current directory
 nmap <leader>v :vnew <C-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
+" Originally, this was with :h only, but i prefer to see what is the name
+" of the directory I am in. (instead of './')
+cnoremap %% <C-R>=fnameescape(expand('%:p:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
+
+" Second version, with :p:h and withoth the full path
+" map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+" map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+" map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+" map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Edit your vimrc in a new tab
 nmap <leader>vi :tabedit ~/.vimrc<cr>
 
@@ -39,9 +64,10 @@ nmap <leader>sc :split db/schema.rb<cr>
 
 
 " Command aliases for typoed commands (accidentally holding shift too long)
-command! Q q " Bind :Q to :q
-command! Qall qall
+"command! Q q " Bind :Q to :q
+command! Q q! " Bind :Q to :q
 command! QA qall
+command! Qall qall
 command! E e
 
 " vim:ft=vim
