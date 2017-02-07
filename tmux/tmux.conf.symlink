@@ -4,6 +4,9 @@ set -g prefix C-s
 bind-key -r C-s send-prefix
 
 
+# Provide access to the clipboard for pbpaste, pbcopy (details: http://goo.gl/DN82E)
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
 # Useful for switching to escape mode in vim
  set -sg escape-time 0
 # Easy reloading of the tmux.conf configuration file
@@ -84,7 +87,7 @@ bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 # Sample quick-pane configurations
 bind-key h split-window -h "htop"
 bind-key t split-window -h -c ~/ "vim todo.md"
-bind-key w split-window -h -c ~/.dotfiles "reattach-to-user-namespace vim +FZF"
+bind-key w split-window -h "reattach-to-user-namespace vim +FZF"
 
 # Fuzzy matching session navigation via fzf utility
 bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"
