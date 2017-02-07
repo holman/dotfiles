@@ -1,0 +1,7 @@
+#!/bin/sh
+
+set -e
+
+if [ -d .git ]; then
+  ctags -R -f .git/tags.temp && mv .git/tags.temp .git/tags
+fi
