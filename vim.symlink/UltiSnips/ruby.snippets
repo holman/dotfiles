@@ -1,0 +1,19 @@
+snippet bpry
+require 'pry'; binding.pry
+endsnippet
+
+snippet todo "Adds a timestamped TODO comment" b
+# TODO: (${2:`date +%Y-%m-%d`}) chedli => ${1}
+endsnippet
+
+snippet note "Adds a timestamped NOTE comment" b
+# NOTE: (${2:`date +%Y-%m-%d`}) chedli => ${1}
+endsnippet
+
+snippet fixme "Adds a timestamped FIXME comment" b
+# FIXME: (${2:`date +%Y-%m-%d`}) chedli => ${1}
+endsnippet
+
+snippet allowrec "Allow receive" b
+allow(${1:subject}).to receive(:${2:method})${3: \{ true \} }
+endsnippet

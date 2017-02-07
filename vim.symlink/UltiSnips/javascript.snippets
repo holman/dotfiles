@@ -1,0 +1,30 @@
+snippet rcc "React Class Component" b
+import React, { Component } from 'react';
+
+class ${1:ClassName} extends Component {
+  $2
+}
+
+export default $1;
+endsnippet
+
+snippet rcn "React Container" b
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+// import { someAction } from '../actions/index';
+
+class ${1:ClassName} extends Component {
+  $2
+}
+
+function mapStateToProps({ propName }) {
+  return { propName };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ someAction }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1);
+endsnippet

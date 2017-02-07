@@ -39,7 +39,7 @@ function s:CheckColorScheme()
   " Allow for overrides:
   " - `statusline.vim` will re-set User1, User2 etc.
   " - `after/plugin/loupe.vim` will override Search.
-  " doautocmd ColorScheme
+  "  doautocmd ColorScheme
 endfunction
 
 if v:progname !=# 'vi'
@@ -53,6 +53,11 @@ if v:progname !=# 'vi'
       " endif
     augroup END
   endif
-  doautocmd FocusGained " This is more performant than calling directly CheckColorScheme. 100ms less
+  if !($TMUX != '')
+    " This is more performant than calling directly CheckColorScheme.
+    " 100ms less
+    doautocmd FocusGained
+  endif
  " call s:CheckColorScheme()
+
 endif
