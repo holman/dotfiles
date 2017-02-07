@@ -20,3 +20,9 @@ _rbenv() {
 
   reply=("${(ps:\n:)completions}")
 }
+
+if (( $+commands[rbenv] ))
+then
+  # eval "$(rbenv init - zsh)"
+  eval "$(rbenv init -)"
+fi
