@@ -1,6 +1,7 @@
 atom.symlink/**/*
 
-vim.symlink/plugged/*
+
+vim.symlink/plugged
 vim.symlink/.base16
 vim.symlink/.netrwhist
 vim.symlink/tmp/viminfo

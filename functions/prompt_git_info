@@ -1,25 +1,28 @@
-if [ -n "$__CURRENT_GIT_BRANCH" ]; then
-    local s="("
-    s+="$__CURRENT_GIT_BRANCH"
-    case "$__CURRENT_GIT_BRANCH_STATUS" in
-        ahead)
-        s+="↑"
-        ;;
-        diverged)
-        s+="↕"
-        ;;
-        behind)
-        s+="↓"
-        ;;
-    esac
-    if [ -n "$__CURRENT_GIT_BRANCH_IS_DIRTY" ]; then
-        s+="⚡"
-    fi
-    s+=")"
-
-    printf " on %s%s" "%{${fg[yellow]}%}" $s
-fi
-# git_super_status() {
+# prompt_git_info() {
+#   if [ -n "$__CURRENT_GIT_BRANCH" ]; then
+#       local s="("
+#       s+="$__CURRENT_GIT_BRANCH"
+#       case "$__CURRENT_GIT_BRANCH_STATUS" in
+#           ahead)
+#           s+="↑"
+#           ;;
+#           diverged)
+#           s+="↕"
+#           ;;
+#           behind)
+#           s+="↓"
+#           ;;
+#       esac
+#       if [ -n "$__CURRENT_GIT_BRANCH_IS_DIRTY" ]; then
+#           # s+="⚡"
+#           s+="⚡️ "
+#       fi
+#       s+=")"
+#
+#       printf " on %s%s" "%{${fg[yellow]}%}" $s
+#   fi
+# }
+# # git_super_status() {
 # 	precmd_update_git_vars
 #     if [ -n "$__CURRENT_GIT_STATUS" ]; then
 # 	  STATUS="$ZSH_THEME_GIT_PROMPT_PREFIX$ZSH_THEME_GIT_PROMPT_BRANCH$GIT_BRANCH%{${reset_color}%}"
