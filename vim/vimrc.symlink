@@ -46,8 +46,8 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'rking/ag.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'rdnetto/YCM-Generator'
 Plugin 'lyuts/vim-rtags'
 " Plugin 'xolox/vim-easytags'
 " Needed for vim-easytags
@@ -430,6 +430,35 @@ function! RtagsShowHierarchy()
 endfunction
 
 noremap <Leader>rh :call RtagsShowHierarchy()<CR>
+
+
+"" Toggle between .h and .cpp with F4.
+function! ToggleBetweenHeaderAndSourceFile()
+  let bufname = bufname("%")
+  let bufname_base = fnamemodify(bufname, ":r") . "."
+  let ext = fnamemodify(bufname, ":e")
+  if ext == "h" || ext == "hpp"
+    let ext = "cpp"
+  elseif ext == "cpp"
+    if filereadable(bufname_base . "hpp")
+      let ext = "hpp"
+    else
+      let ext = "h"
+    endif
+  else
+    return
+  endif
+  let bufname_new = bufname_base . ext
+
+  let bufname_alt = bufname("#")
+  if bufname_new == bufname_alt
+    execute ":e#"
+  else
+    execute ":e " . bufname_new
+  endif
+endfunction
+
+map <silent> <Leader>q :call ToggleBetweenHeaderAndSourceFile()<CR>
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
