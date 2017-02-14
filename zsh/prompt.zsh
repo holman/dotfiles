@@ -41,9 +41,9 @@ need_push () {
 }
 
 rb_prompt(){
-  if $(which rbenv &> /dev/null)
+  if $(which nvmv &> /dev/null)
   then
-    echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
+    echo "%{$fg_bold[yellow]%}$(nvm version | awk '{print $1}')%{$reset_color%}"
   else
     echo ""
   fi
