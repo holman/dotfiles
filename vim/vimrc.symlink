@@ -46,8 +46,8 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'rking/ag.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'ludovicchabant/vim-gutentags'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'rdnetto/YCM-Generator'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 Plugin 'lyuts/vim-rtags'
 " Plugin 'xolox/vim-easytags'
 " Needed for vim-easytags
@@ -56,6 +56,7 @@ Plugin 'lyuts/vim-rtags'
 syntax enable
 
 set background=dark
+let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
 colorscheme pencil
 
 
