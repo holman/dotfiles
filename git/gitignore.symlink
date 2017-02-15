@@ -5,7 +5,6 @@
 *.swp
 *.swo
 *.un~
-core
 notify_*.txt
 *.pyc
 .p4config
