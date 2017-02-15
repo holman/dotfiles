@@ -10,6 +10,7 @@ notify_*.txt
 .p4config
 .gitreview
 tags
+!tags/
 .vimrc
 # For vim-gutentags
 tags.temp
