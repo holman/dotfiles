@@ -1,4 +1,21 @@
 {
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"*.map"
+	],
 	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
@@ -6,9 +23,11 @@
 		".git",
 		".hg",
 		".svn",
+		"benches",
 		"bower_components",
 		"CVS",
 		"dist",
+		"doc",
 		"node_modules",
 		"tmp"
 	],
