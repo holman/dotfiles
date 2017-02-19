@@ -112,6 +112,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         zenburn
                          railscasts
                          spacemacs-dark
                          spacemacs-light
@@ -120,8 +121,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("Sauce Code Powerline"
+                               :size 11
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -290,6 +291,7 @@ you should place your code here."
     (when buffer-file-name (save-buffer)))
   (defadvice windmove-right (before other-window-now activate)
     (when buffer-file-name (save-buffer)))
+  (setq powerline-default-separator 'nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -314,7 +316,7 @@ you should place your code here."
  '(evil-normal-state-cursor (quote ("#FFEE58" box)) t)
  '(evil-visual-state-cursor (quote ("#C5E1A5" box)) t)
  '(evil-want-Y-yank-to-eol t)
- '(fci-rule-color "#20240E")
+ '(fci-rule-color "#20240E" t)
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
  '(highlight-symbol-colors
    (--map
