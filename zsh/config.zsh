@@ -38,7 +38,6 @@ setopt HIST_REDUCE_BLANKS
 #   like: git comm-[tab]
 setopt complete_aliases
 
-zle -N newtab
 
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
@@ -46,7 +45,6 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey 'e[3~' delete-char
-bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 
 set -o emacs
