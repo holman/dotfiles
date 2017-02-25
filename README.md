@@ -1,16 +1,18 @@
-# holman does dotfiles
+These fork from [holman does dotfiles](https://github.com/holman/dotfiles/fork).
 
-Your dotfiles are how you personalize your system. These are mine.
+# My Things
 
-I was a little tired of having long alias files and everything strewn about
-(which is extremely common on other dotfiles projects, too). That led to this
-project being much more topic-centric. I realized I could split a lot of things
-up into the main areas I used (Ruby, git, system libraries, and so on), so I
-structured the project accordingly.
+## emacs / spacemacs
 
-If you're interested in the philosophy behind why projects like these are
-awesome, you might want to [read my post on the
-subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+### Github layer
+
+* To get the Github layer working you need to set a Github Oauth Token:
+
+````
+git config --global github.oauth-token <token>
+```
+
+# Things from original project
 
 ## topical
 
