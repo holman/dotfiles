@@ -28,6 +28,7 @@ values."
      better-defaults
      emacs-lisp
      git
+     github
      markdown
      (org :variables org-enable-github-support t)
      (shell :variables
@@ -166,7 +167,7 @@ values."
    ;; (default 'cache)
    dotspacemacs-auto-save-file-location 'original
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
-   dotspacemacs-max-rollback-slots 5
+   dotspacemacs-max-rollback-slots 25
    ;; If non nil then `ido' replaces `helm' for some commands. For now only
    ;; `find-files' (SPC f f), `find-spacemacs-file' (SPC f e s), and
    ;; `find-contrib-file' (SPC f e c) are replaced. (default nil)
@@ -181,7 +182,7 @@ values."
    dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-enable-paste-micro-state t
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -196,7 +197,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -292,6 +293,15 @@ you should place your code here."
   (defadvice windmove-right (before other-window-now activate)
     (when buffer-file-name (save-buffer)))
   (setq powerline-default-separator 'nil)
+
+  ;; Org mode
+  (with-eval-after-load 'org
+    ;; Set path to ditta. This is where homebrew install it.
+    (setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.10/libexec/ditaa0_10.jar")
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((ditaa . t))) ; this line activates ditaa
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -347,7 +357,7 @@ you should place your code here."
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help csv-mode railscasts-reloaded-theme monokai-theme solarized-theme railscasts-theme apropospriate-theme ample-theme reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl ws-butler window-numbering volatile-highlights vi-tilde-fringe toc-org slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode robe rbenv ranger rainbow-delimiters popwin org-present log4e gntp org-bullets ob-elixir mmm-mode magit-gitflow lorem-ipsum linum-relative less-css-mode json-mode json-snatcher json-reformat js-doc ido-vertical-mode highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-mode-manager helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-gutter-fringe+ fringe-helper git-gutter+ gh-md pos-tip flx-ido flx fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-search-highlight-persist evil-numbers evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu goto-chg undo-tree eval-sexp-fu elisp-slime-nav f diminish define-word company-web web-completion-data company-tern s dash-functional clean-aindent-mode bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile packed pkg-info epl adaptive-wrap ace-jump-helm-line avy ac-ispell popup yaml-mode web-mode web-beautify uuidgen tagedit spaceline powerline smeargle rubocop rspec-mode restart-emacs pug-mode projectile-rails rake inflections persp-mode paradox spinner ox-gfm orgit org-projectile org-pomodoro alert org-plus-contrib org-download open-junk-file org neotree mwim move-text minitest markdown-toc markdown-mode macrostep livid-mode skewer-mode simple-httpd link-hint js2-refactor multiple-cursors js2-mode info+ indent-guide hydra hungry-delete htmlize hl-todo hide-comnt help-fns+ helm-projectile helm-make projectile helm-flx helm-company helm-ag google-translate git-timemachine git-messenger git-link git-gutter-fringe git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck-mix feature-mode eyebrowse expand-region exec-path-from-shell evil-visual-mark-mode evil-unimpaired evil-surround evil-nerd-commenter evil-mc evil-matchit evil-magit evil-ediff erlang emmet-mode dumb-jump diff-hl company-statistics column-enforce-mode coffee-mode chruby alchemist elixir-mode aggressive-indent ace-window ace-link auto-complete tern company anzu iedit smartparens highlight flycheck yasnippet request helm helm-core magit magit-popup git-commit with-editor dash async inf-ruby pcre2el haml-mode flycheck-elm elm-mode quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme)))
+    (magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help csv-mode railscasts-reloaded-theme monokai-theme solarized-theme railscasts-theme apropospriate-theme ample-theme reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl ws-butler window-numbering volatile-highlights vi-tilde-fringe toc-org slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode robe rbenv ranger rainbow-delimiters popwin org-present log4e gntp org-bullets ob-elixir mmm-mode magit-gitflow lorem-ipsum linum-relative less-css-mode json-mode json-snatcher json-reformat js-doc ido-vertical-mode highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-mode-manager helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-gutter-fringe+ fringe-helper git-gutter+ gh-md pos-tip flx-ido flx fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-search-highlight-persist evil-numbers evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu goto-chg undo-tree eval-sexp-fu elisp-slime-nav f diminish define-word company-web web-completion-data company-tern s dash-functional clean-aindent-mode bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile packed pkg-info epl adaptive-wrap ace-jump-helm-line avy ac-ispell popup yaml-mode web-mode web-beautify uuidgen tagedit spaceline powerline smeargle rubocop rspec-mode restart-emacs pug-mode projectile-rails rake inflections persp-mode paradox spinner ox-gfm orgit org-projectile org-pomodoro alert org-plus-contrib org-download open-junk-file org neotree mwim move-text minitest markdown-toc markdown-mode macrostep livid-mode skewer-mode simple-httpd link-hint js2-refactor multiple-cursors js2-mode info+ indent-guide hydra hungry-delete htmlize hl-todo hide-comnt help-fns+ helm-projectile helm-make projectile helm-flx helm-company helm-ag google-translate git-timemachine git-messenger git-link git-gutter-fringe git-gutter flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck-mix feature-mode eyebrowse expand-region exec-path-from-shell evil-visual-mark-mode evil-unimpaired evil-surround evil-nerd-commenter evil-mc evil-matchit evil-magit evil-ediff erlang emmet-mode dumb-jump diff-hl company-statistics column-enforce-mode coffee-mode chruby alchemist elixir-mode aggressive-indent ace-window ace-link auto-complete tern company anzu iedit smartparens highlight flycheck yasnippet request helm helm-core magit magit-popup git-commit with-editor dash async inf-ruby pcre2el haml-mode flycheck-elm elm-mode quelpa package-build use-package which-key bind-key bind-map evil spacemacs-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
