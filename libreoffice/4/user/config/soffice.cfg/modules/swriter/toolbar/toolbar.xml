@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toolbar:toolbar PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "toolbar.dtd">
+<toolbar:toolbar xmlns:toolbar="http://openoffice.org/2001/toolbar" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <toolbar:toolbaritem xlink:href=".uno:InsertCtrl" toolbar:helpid="52822"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:ShadowCursor" toolbar:helpid="22204"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Hyphenate" toolbar:helpid="20605"/>
+ <toolbar:toolbaritem xlink:href=".uno:ThesaurusDialog" toolbar:visible="false" toolbar:helpid="20603"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:ShowGraphics" toolbar:helpid="20213"/>
+ <toolbar:toolbaritem xlink:href=".uno:BrowseView" toolbar:helpid="6313"/>
+</toolbar:toolbar>

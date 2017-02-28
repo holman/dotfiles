@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toolbar:toolbar PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "toolbar.dtd">
+<toolbar:toolbar xmlns:toolbar="http://openoffice.org/2001/toolbar" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <toolbar:toolbaritem xlink:href=".uno:StyleApply" toolbar:visible="false"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:AnchorMenu"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:WrapOff"/>
+ <toolbar:toolbaritem xlink:href=".uno:WrapOn"/>
+ <toolbar:toolbaritem xlink:href=".uno:WrapIdeal"/>
+ <toolbar:toolbaritem xlink:href=".uno:WrapLeft"/>
+ <toolbar:toolbaritem xlink:href=".uno:WrapRight"/>
+ <toolbar:toolbaritem xlink:href=".uno:WrapThrough"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:AlignLeft" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:AlignHorizontalCenter" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:AlignRight" toolbar:visible="false"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:AlignTop"/>
+ <toolbar:toolbaritem xlink:href=".uno:AlignVerticalCenter"/>
+ <toolbar:toolbaritem xlink:href=".uno:AlignBottom"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:BringToFront"/>
+ <toolbar:toolbaritem xlink:href=".uno:ObjectForwardOne"/>
+ <toolbar:toolbaritem xlink:href=".uno:ObjectBackOne"/>
+ <toolbar:toolbaritem xlink:href=".uno:SendToBack"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:SetObjectToForeground"/>
+ <toolbar:toolbaritem xlink:href=".uno:SetObjectToBackground"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:SetBorderStyle"/>
+ <toolbar:toolbaritem xlink:href=".uno:LineStyle"/>
+ <toolbar:toolbaritem xlink:href=".uno:FrameLineColor"/>
+ <toolbar:toolbaritem xlink:href=".uno:BackgroundColor" toolbar:visible="false"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:ChainFrames"/>
+ <toolbar:toolbaritem xlink:href=".uno:UnhainFrames"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:FrameDialog" toolbar:helpid="20458"/>
+</toolbar:toolbar>

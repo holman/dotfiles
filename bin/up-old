@@ -1,0 +1,47 @@
+#!/usr/bin/sh
+dir=$HOME/Development/projects/$1
+editor=atom
+
+cd $dir
+vagrant up
+
+$editor $dir &
+
+if [ $1 == 'ashley' ]; then
+	gnome-terminal --window-with-profile=Default \
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Database -e "vagrant ssh db"\
+	--tab-with-profile=Broker -e "vagrant ssh broker"\
+	--tab-with-profile=Worker -e "vagrant ssh worker"
+fi
+
+if [ $1 == 'jenna' ]; then
+	gnome-terminal --window-with-profile=Default \
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Database -e "vagrant ssh db"\
+	--tab-with-profile=Broker -e "vagrant ssh broker"\
+	--tab-with-profile=Worker -e "vagrant ssh worker"
+fi
+
+if [ $1 == 'scarlett' ]; then
+	gnome-terminal --window-with-profile=Default \
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Database -e "vagrant ssh db"\
+	--tab-with-profile=Broker -e "vagrant ssh broker"\
+	--tab-with-profile=Worker -e "vagrant ssh worker"
+fi
+
+if [ $1 == 'vanessa' ]; then
+	gnome-terminal --window-with-profile=Default \
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Webserver -e "vagrant ssh web"\
+	--tab-with-profile=Database -e "vagrant ssh db"\
+	--tab-with-profile=Broker -e "vagrant ssh broker"\
+	--tab-with-profile=Worker -e "vagrant ssh worker"
+fi
+
+exit

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toolbar:toolbar PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "toolbar.dtd">
+<toolbar:toolbar xmlns:toolbar="http://openoffice.org/2001/toolbar" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <toolbar:toolbaritem xlink:href=".uno:AddDirect" toolbar:helpid="5537"/>
+ <toolbar:toolbaritem xlink:href=".uno:OpenFromWriter"/>
+ <toolbar:toolbaritem xlink:href=".uno:Save" toolbar:helpid="5505"/>
+ <toolbar:toolbaritem xlink:href=".uno:ExportDirectToPDF" toolbar:helpid="6674"/>
+ <toolbar:toolbaritem xlink:href=".uno:Print"/>
+ <toolbar:toolbaritem xlink:href=".uno:PrintPreview" toolbar:helpid="5325"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Undo" toolbar:helpid="5701"/>
+ <toolbar:toolbaritem xlink:href=".uno:Redo" toolbar:helpid="5700"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:SearchDialog"/>
+ <toolbar:toolbaritem xlink:href=".uno:FormatPaintbrush" toolbar:helpid="5715"/>
+ <toolbar:toolbaritem xlink:href=".uno:SpellingAndGrammarDialog" toolbar:helpid="20622"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Bold" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:Italic" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:Underline"/>
+ <toolbar:toolbaritem xlink:href=".uno:Strikeout"/>
+ <toolbar:toolbaritem xlink:href=".uno:FontColor"/>
+ <toolbar:toolbaritem xlink:href=".uno:BackColor"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:LeftPara"/>
+ <toolbar:toolbaritem xlink:href=".uno:CenterPara"/>
+ <toolbar:toolbaritem xlink:href=".uno:RightPara"/>
+ <toolbar:toolbaritem xlink:href=".uno:JustifyPara"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:StyleApply"/>
+ <toolbar:toolbaritem xlink:href=".uno:StyleUpdateByExample"/>
+ <toolbar:toolbaritem xlink:href=".uno:StyleNewByExample"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:CharFontName"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:FontHeight"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:LineSpacing"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:DefaultBullet"/>
+ <toolbar:toolbaritem xlink:href=".uno:DefaultNumbering"/>
+ <toolbar:toolbaritem xlink:href=".uno:IncrementIndent"/>
+ <toolbar:toolbaritem xlink:href=".uno:DecrementIndent"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertTable" toolbar:helpid="20330"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertGraphic" toolbar:helpid="10241"/>
+ <toolbar:toolbaritem xlink:href=".uno:HyperlinkDialog" toolbar:helpid="5678"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertAnnotation" toolbar:helpid="20329"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:TrackChanges" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:ControlCodes"/>
+ <toolbar:toolbaritem xlink:href=".uno:Zoom"/>
+</toolbar:toolbar>

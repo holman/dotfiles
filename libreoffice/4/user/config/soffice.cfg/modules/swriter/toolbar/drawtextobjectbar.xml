@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toolbar:toolbar PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "toolbar.dtd">
+<toolbar:toolbar xmlns:toolbar="http://openoffice.org/2001/toolbar" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <toolbar:toolbaritem xlink:href=".uno:CharFontName"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:FontHeight"/>
+ <toolbar:toolbaritem xlink:href=".uno:Grow"/>
+ <toolbar:toolbaritem xlink:href=".uno:Shrink"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Bold" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:Italic" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:Underline"/>
+ <toolbar:toolbaritem xlink:href=".uno:Strikeout"/>
+ <toolbar:toolbaritem xlink:href=".uno:Overline"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:SuperScript"/>
+ <toolbar:toolbaritem xlink:href=".uno:SubScript"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Shadowed"/>
+ <toolbar:toolbaritem xlink:href=".uno:OutlineFont"/>
+ <toolbar:toolbaritem xlink:href=".uno:ResetAttributes"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Color"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:LeftPara"/>
+ <toolbar:toolbaritem xlink:href=".uno:CenterPara"/>
+ <toolbar:toolbaritem xlink:href=".uno:RightPara"/>
+ <toolbar:toolbaritem xlink:href=".uno:JustifyPara"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:CellVertTop"/>
+ <toolbar:toolbaritem xlink:href=".uno:CellVertCenter"/>
+ <toolbar:toolbaritem xlink:href=".uno:CellVertBottom"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:LineSpacing"/>
+ <toolbar:toolbaritem xlink:href=".uno:SpacePara1" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:SpacePara15" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:SpacePara2" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:ParaspaceIncrease"/>
+ <toolbar:toolbaritem xlink:href=".uno:ParaspaceDecrease"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:TextdirectionLeftToRight" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:TextdirectionTopToBottom"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:FontDialog"/>
+ <toolbar:toolbaritem xlink:href=".uno:ParagraphDialog"/>
+ <toolbar:toolbaritem xlink:href=".uno:SelectAll"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:ParaLeftToRight" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:ParaRightToLeft"/>
+</toolbar:toolbar>

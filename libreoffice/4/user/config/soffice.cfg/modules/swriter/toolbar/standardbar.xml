@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toolbar:toolbar PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "toolbar.dtd">
+<toolbar:toolbar xmlns:toolbar="http://openoffice.org/2001/toolbar" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <toolbar:toolbaritem xlink:href=".uno:OpenUrl" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:AddDirect" toolbar:helpid="5537"/>
+ <toolbar:toolbaritem xlink:href=".uno:NewDoc" toolbar:helpid="5500"/>
+ <toolbar:toolbaritem xlink:href=".uno:OpenFromWriter"/>
+ <toolbar:toolbaritem xlink:href=".uno:OpenRemote"/>
+ <toolbar:toolbaritem xlink:href=".uno:Save" toolbar:helpid="5505"/>
+ <toolbar:toolbaritem xlink:href=".uno:SaveAs" toolbar:visible="false" toolbar:helpid="5502"/>
+ <toolbar:toolbaritem xlink:href=".uno:SendMail" toolbar:helpid="5331"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:EditDoc" toolbar:visible="false" toolbar:helpid="6312"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:ExportDirectToPDF" toolbar:helpid="6674"/>
+ <toolbar:toolbaritem xlink:href=".uno:Print"/>
+ <toolbar:toolbaritem xlink:href=".uno:PrintDefault" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:PrintPreview" toolbar:helpid="5325"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Cut" toolbar:visible="false" toolbar:helpid="5710"/>
+ <toolbar:toolbaritem xlink:href=".uno:Copy" toolbar:visible="false" toolbar:helpid="5711"/>
+ <toolbar:toolbaritem xlink:href=".uno:Paste" toolbar:helpid="5712"/>
+ <toolbar:toolbaritem xlink:href=".uno:FormatPaintbrush" toolbar:helpid="5715"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Undo" toolbar:helpid="5701"/>
+ <toolbar:toolbaritem xlink:href=".uno:Redo" toolbar:helpid="5700"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:SearchDialog"/>
+ <toolbar:toolbaritem xlink:href=".uno:Navigator" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:SpellingAndGrammarDialog" toolbar:helpid="20622"/>
+ <toolbar:toolbaritem xlink:href=".uno:SpellOnline" toolbar:visible="false" toolbar:helpid="12021"/>
+ <toolbar:toolbaritem xlink:href=".uno:ControlCodes" toolbar:helpid="20224"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertTable" toolbar:visible="false" toolbar:helpid="20330"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertGraphic" toolbar:visible="false" toolbar:helpid="10241"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertObjectChart" toolbar:visible="false" toolbar:helpid="10140"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertObjectStarMath" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:DrawText" toolbar:helpid="10253"/>
+ <toolbar:toolbaritem xlink:href=".uno:VerticalText" toolbar:visible="false" toolbar:helpid="10905"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertPagebreak"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertFieldCtrl" toolbar:visible="false" toolbar:helpid="52824"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertSymbol" toolbar:visible="false" toolbar:helpid="20328"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:HyperlinkDialog" toolbar:helpid="5678"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertFootnote" toolbar:helpid="20399"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertEndnote"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertBookmark" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertReferenceField"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertIndexesEntry" toolbar:visible="false"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertAnnotation" toolbar:visible="false" toolbar:helpid="20329"/>
+ <toolbar:toolbaritem xlink:href=".uno:ShowTrackedChanges" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:TrackChanges" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:TrackChangesBar"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:Line" toolbar:helpid="10102"/>
+ <toolbar:toolbaritem xlink:href=".uno:BasicShapes" toolbar:helpid="11002"/>
+ <toolbar:toolbaritem xlink:href=".uno:InsertDraw" toolbar:helpid="10244"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:ViewDataSourceBrowser" toolbar:visible="false" toolbar:helpid="6660"/>
+ <toolbar:toolbaritem xlink:href=".uno:Zoom"/>
+ <toolbar:toolbarseparator/>
+ <toolbar:toolbaritem xlink:href=".uno:HelpIndex" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:ExtendedHelp" toolbar:visible="false" toolbar:helpid="5402"/>
+</toolbar:toolbar>
