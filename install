@@ -14,7 +14,7 @@ add-apt-repository ppa:webupd8team/atom
 
 apt update
 
-apt install -y git chromium-browser ccsm keepassx atom virtualbox tmux
+apt install -y atom chromium-browser ccsm keepassx tmux virtualbox
 # for mutt
 apt install -y mutt elinks
 
@@ -22,7 +22,7 @@ apt install -y mutt elinks
 apm install minimap
 
 # remove junk
-apt remove aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori simple-scan swell-foop
+apt remove aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori swell-foop
 
 cd script
 ./bootstrap
