@@ -11,6 +11,7 @@ gsettings set org.gnome.desktop.interface enable-animations "false"
 
 # add repos
 add-apt-repository ppa:webupd8team/atom
+add-apt-repository ppa:webupd8team/sublime-text-3
 
 apt update
 
