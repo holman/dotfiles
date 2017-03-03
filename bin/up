@@ -51,9 +51,10 @@ broker_pos=4
 worker_pos=5
 new=true
 
+cd $directory
+vagrant up
 tmux start-server
 tmux new-session -c $directory -n 'bash' -s $session -A -d
-tmux send-keys -t $session:0 'vagrant up' Enter
 tmux new-window -t $session -n 'web-test' -c $directory
 tmux new-window -t $session -n 'web' -c $directory
 tmux new-window -t $session -n 'db' -c $directory
