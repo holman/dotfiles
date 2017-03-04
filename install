@@ -14,20 +14,25 @@ add-apt-repository ppa:webupd8team/atom
 add-apt-repository ppa:webupd8team/sublime-text-3
 
 # spotify
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt update
 
-apt update
-
-apt install -y atom chromium-browser ccsm keepassx spotify-client tmux virtualbox
+sudo apt install -y atom chromium-browser keepassx spotify-client tmux virtualbox
 # for mutt
-apt install -y mutt elinks
+sudo apt install -y mutt elinks
 
 # install packages for atom
 apm install minimap
 
+# install rust
+curl https://sh.rustup.rs -sSf | sh
+
 # remove junk
-apt remove aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori swell-foop
+sudo apt remove aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori swell-foop
+sudo apt autoremove
 
 cd script
 ./bootstrap
+
+sudo apt install steam
