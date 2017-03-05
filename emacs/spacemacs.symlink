@@ -31,7 +31,12 @@ values."
      git
      github
      markdown
-     (org :variables org-enable-github-support t)
+     (org :variables
+          org-enable-github-support t
+          org-agenda-files (list "~/Dropbox/org/work.org"
+                                 "~/Dropbox/org/home.org"
+                            )
+          )
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
@@ -268,9 +273,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; When shifting text with `>>` or `<<` don't round to nearest nth numbers
   ;; Where n is indent space setting
-  (setq-default 
+  (setq-default
    evil-shift-round nil
-   
+
    ;; Smart Parens
    sp-highlight-pair-overlay nil
    sp-highlight-wrap-overlay nil
