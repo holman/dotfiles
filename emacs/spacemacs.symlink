@@ -38,7 +38,9 @@ values."
             shell-default-shell 'eshell)
      spell-checking
      syntax-checking
-     version-control
+     (version-control :variables
+                      version-control-global-margin t
+                      version-control-diff-tool 'git-gutter)
      elixir
      erlang
      (ruby :variables
@@ -229,7 +231,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -273,7 +275,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
    sp-highlight-pair-overlay nil
    sp-highlight-wrap-overlay nil
    sp-highlight-wrap-tag-overlay nil
-  ))
+
+   ;; format line numbers for better handling git gutter
+   linum-format "%4d \u2502"
+   linum-relative-format "%4s \u2502"
+   ))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -309,6 +315,18 @@ you should place your code here."
      'org-babel-load-languages
      '((ditaa . t))) ; this line activates ditaa
     )
+  ;; Git Gutter
+  (progn
+    (set-face-attribute
+     'git-gutter:added nil :background nil :foreground "green")
+    (set-face-attribute
+     'git-gutter:deleted nil :background nil :foreground "red")
+    (set-face-attribute
+     'git-gutter:modified nil :background nil :foreground "yellow")
+
+    (setq-default
+     git-gutter:modified-sign "!"
+     ))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
