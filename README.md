@@ -8,8 +8,18 @@ These fork from [holman does dotfiles](https://github.com/holman/dotfiles/fork).
 
 * To get the Github layer working you need to set a Github Oauth Token:
 
-````
+```
 git config --global github.oauth-token <token>
+```
+
+## Additional things to download
+
+These are things that need to be isntalled downloaded that are not installed via the bootstrap script.
+
+### Node Things
+
+```
+npm install -g tern
 ```
 
 # Things from original project
