@@ -1,8 +1,0 @@
---pager=less -R
-
---type-set=scss=.scss
---type-set=erb=.erb
-
---smart-case
---ignore-dir=log
---ignore-dir=tmp
