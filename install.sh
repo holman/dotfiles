@@ -14,3 +14,5 @@ ln -s $HOME/.dotfiles/vim/vim.symlink $HOME/.vim
 ln -s $HOME/.dotfiles/git/gitconfig.symlink $HOME/.gitconfig
 ln -s $HOME/.dotfiles/git/gitignore.symlink $HOME/.gitignore
 ln -s $HOME/.dotfiles/git/githelpers.symlink $HOME/.githelpers
+
+ln -s $HOME/.dotfiles/gemrc.symlink $HOME/.gemrc
