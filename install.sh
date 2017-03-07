@@ -3,12 +3,8 @@
 echo "Symlinking dotfiles..."
 
 
-ln -s $HOME/.dotfiles/bash_profile.symlink $HOME/.bash_profile
-ln -s $HOME/.dotfiles/bashrc.symlink $HOME/.bashrc
-
-ln -s $HOME/.dotfiles/ackrc.symlink $HOME/.ackrc
-
-ln -s $HOME/.dotfiles/gemrc.symlink $HOME/.gemrc
+ln -s $HOME/.dotfiles/bash/bash_profile.symlink $HOME/.bash_profile
+ln -s $HOME/.dotfiles/bash/bashrc.symlink $HOME/.bashrc
 
 ln -s $HOME/.dotfiles/tmux/tmux.conf.symlink $HOME/.tmux.conf
 
