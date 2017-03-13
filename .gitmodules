@@ -31,3 +31,6 @@
 [submodule "vim/vim.symlink/bundle/dracula-theme"]
 	path = vim/vim.symlink/bundle/dracula-theme
 	url = git@github.com:dracula/vim.git
+[submodule "vim/vim.symlink/bundle/vim-coffee-script"]
+	path = vim/vim.symlink/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
