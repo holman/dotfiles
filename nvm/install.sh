@@ -2,7 +2,10 @@
 
 export NVM_DIR="$HOME/.nvm"
 
-git clone https://github.com/creationix/nvm.git $NVM_DIR
+if [ ! -d "$NVM_DIR" ]; then
+  git clone https://github.com/creationix/nvm.git $NVM_DIR
+fi
+
 cd $NVM_DIR
 git checkout `git describe --abbrev=0 --tags`
 
