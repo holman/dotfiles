@@ -1,9 +1,9 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
-export ADOTDIR=$HOME/.antigen_workdir
+export ADOTDIR=$HOME/.antigen_workdir/
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Development
+export PROJECTS=$HOME/Development
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
