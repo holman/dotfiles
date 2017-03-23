@@ -18,7 +18,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB31
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt update
 
-sudo apt install -y atom chromium-browser keepassx spotify-client tmux virtualbox
+sudo apt install -y atom calibre chromium-browser keepassx spotify-client tmux vim virtualbox
 # for mutt
 sudo apt install -y mutt elinks
 
