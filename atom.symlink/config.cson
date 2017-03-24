@@ -1,4 +1,6 @@
 "*":
+  "atom-clock":
+    showClockIcon: true
   autosave:
     enabled: true
   core:
@@ -7,8 +9,10 @@
       "exception-reporting"
       "metrics"
       "minimap"
+      "linter-ui-default"
+      "linter"
+      "linter-docker"
     ]
-    excludeVcsIgnoredPaths: false
     hideGitIgnoredFiles: false
     ignoredNames: [
       "README*"
@@ -98,6 +102,8 @@
     ]
   "svg-preview":
     openPreviewAutomatically: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "webbox-color":
     fillColorAsBackground: false
   welcome:
@@ -107,6 +113,9 @@
     autoIndentOnPaste: true
     showInvisibles: true
     tabLength: 4
+".css.source.twig":
+  editor:
+    autoIndentOnPaste: false
 ".diff.source":
   editor:
     scrollPastEnd: true
