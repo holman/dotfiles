@@ -32,6 +32,6 @@ alias switch56="brew-php-switcher 56;php -v"
 
 # editor of choice -- Follow tutorial here: https://www.sublimetext.com/docs/2/osx_command_line.html
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-export EDITOR='subl -w'
-export SVN_EDITOR='subl -w'
-export VISUAL='subl -w'
+# export EDITOR='subl'
+# export SVN_EDITOR='subl'
+# export VISUAL='subl'
