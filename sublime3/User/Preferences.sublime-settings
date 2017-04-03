@@ -25,12 +25,14 @@
 		".svn",
 		"benches",
 		"bower_components",
+		"coverage",
 		"CVS",
 		"dist",
 		"doc",
 		"node_modules",
 		"tmp"
 	],
+	"font_size": 12,
 	"ignored_packages":
 	[
 		"Vintage"
