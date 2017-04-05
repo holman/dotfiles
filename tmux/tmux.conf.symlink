@@ -60,7 +60,7 @@ setw -g mode-fg colour15
 
 # window status
 setw -g window-status-format "#[fg=colour15]#[bg=colour244] #I:#[bg=colour244]#[fg=colour15] #W "
-setw -g window-status-current-format "#[fg=clour244]#[bg=colour0] #W "
+setw -g window-status-current-format "#[fg=colour231]#[bg=colour25] #W "
 
 # loud or quiet?
 set-option -g visual-activity on

@@ -46,9 +46,10 @@
   " Git wrapper plugin
   Plugin 'tpope/vim-fugitive'
 
-  Plugin 'morhetz/gruvbox'
-    set background=dark
-    colorscheme gruvbox
+  Plugin 'altercation/vim-colors-solarized'
+  set background=dark
+  colorscheme solarized
+  let g:solarized_termcolors = 256
 
   " All of your Plugins must be added before the following line
   call vundle#end()
