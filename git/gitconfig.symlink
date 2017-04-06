@@ -1,12 +1,7 @@
-# Sample gitconfig
-#
-
-[hub]
-    protocol = https
 [user]
     name = cwardzala
     email = cwardzala@gmail.com
-	signingkey = 842A0F02F354309E
+    signingkey = 842A0F02F354309E
 [credential]
     helper = osxkeychain
 [color]
@@ -18,39 +13,40 @@
 [core]
     excludesfile = /Users/cwardzala/.gitignore
     editor = vim
+    ignorecase = false
 [apply]
     whitespace = nowarn
 [mergetool]
     keepBackup = false
-[difftool]
-    prompt = false
 [help]
     autocorrect = 1
 [push]
-    # See `git help config` (search for push.default)
-    # for more information on different options of the below setting.
-    #
-    # Setting to git 2.0 default to surpress warning message
     default = simple
+    followTags = true
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
-[mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+[diff]
+    tool = icdiff
+[difftool]
+    prompt = false
+[difftool "icdiff"]
+    cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [filter "lfs"]
     required = true
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
-[diff]
-    tool = delta
-[difftool "delta"]
-    cmd = delta \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [color "diff"]
-	old = red strike
-	new = green italic
+    old = red strike
+    new = green italic
 [commit]
-	gpgsign = true
+    gpgsign = true
+[alias]
+    up = pull --rebase --autostash
+    prune = fetch --prune
+    undo = reset --soft HEAD^
+    stash-all = stash save --include-untracked
+[gpg]
+    program = /usr/local/bin/gpg
+[status]
+    showUntrackedFiles = all
