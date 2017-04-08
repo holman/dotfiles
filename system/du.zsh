@@ -12,9 +12,5 @@ alias disk-left='sudo df -h'
 
 du-d1() {
   echo "Computing size of $1"
-  sudo du -hx -d 1 "$1" | du-sort
-}
-
-du-sort() {
-  perl -e 'sub h{%h=(K=>10,M=>20,G=>30);($n,$u)=shift=~/([0-9.]+)(\D)/;return $n*2**$h{$u}}print sort{h($b)<=>h($a)}<>;'
+  sudo du -hx -d 1 "$1" | gsort -rh
 }
