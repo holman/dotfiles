@@ -39,7 +39,7 @@ git_prompt_info () {
 need_push () {
   if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
   then
-    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) | wc -l | bc)
+    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
 
     if [[ $number == 0 ]]
     then
