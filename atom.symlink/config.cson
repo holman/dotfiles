@@ -26,6 +26,9 @@
     panelDisplayMode: "closed"
   "linter-eslint":
     useGlobalEslint: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
