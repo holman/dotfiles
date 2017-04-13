@@ -5,8 +5,9 @@ function init_web() {
 	local position=$2
 	tmux send-keys -t $session:$position 'vagrant ssh web' Enter 'cd /vagrant/src' Enter
 	if $new && [ $position = '2' ]; then
-		tmux send-keys -t $1:2 'cd /vagrant/ && make clean install;' . ~/venvs/$1/bin/activate; cd src Enter
+		tmux send-keys -t $1:2 'cd /vagrant/ && make clean install' Enter
 	fi
+	tmux send-keys -t $session:$position cd src; . ~/venvs/$1/bin/activate; Enter
 }
 
 function init_db() {
@@ -28,9 +29,9 @@ function init_worker() {
 
 	tmux send-keys -t $session:$position 'vagrant ssh worker' Enter 'cd /vagrant/src' Enter
 	if $new ; then
-		tmux send-keys -t $1:$position 'cd /vagrant/ && make clean install;' . ~/venvs/$1/bin/activate; 'cd src' Enter
+		tmux send-keys -t $1:$position 'cd /vagrant/ && make clean install' Enter
 	fi
-	tmux send-keys 'python manage.py '
+	tmux send-keys '. ~/venvs/$1/bin/activate; cd src' Enter 'python manage.py '
 }
 
 function init_es() {

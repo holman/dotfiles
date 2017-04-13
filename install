@@ -20,6 +20,13 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 apt update
 
 apt install -y atom chromium-browser ccsm keepassx spotify-client tmux virtualbox
+
+# discord
+sudo apt install -y libc++1
+wget -O discord.deb https://discordapp.com/api/download?platform=linux&format=deb
+sudo dpkg -i discord.deb
+rm discord.deb
+                           
 # for mutt
 apt install -y mutt elinks
 

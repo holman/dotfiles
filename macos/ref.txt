@@ -1,0 +1,57 @@
+Documents
+#Convert File to HTML
+
+#Supported formats are plain text, rich text (rtf) and Microsoft Word (doc/docx).
+
+textutil -convert html file.ext
+
+#Files, Disks and Volumes
+#Create an Empty File
+
+#Creates an empty 10 gigabyte test file.
+
+mkfile 10g /path/to/file
+
+
+#Eject All Mountable Volumes
+#The only reliable way to do this is by sending an AppleScript command to Finder.
+osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true)'
+
+
+#Repair File Permissions
+#You don't have to use the Disk Utility GUI for this.
+sudo diskutil repairPermissions /
+
+
+#Set Boot Volume
+bless --mount "/path/to/mounted/volume" --setBoot
+
+#Show All Attached Disks and Partitions
+
+diskutil list
+
+View File System Usage
+
+A continuous stream of file system access info.
+
+sudo fs_usage
+
+
+Disk Images
+Create Disk Image From Folder Contents
+
+hdiutil create -volname "Volume Name" -srcfolder /path/to/folder -ov diskimage.dmg
+
+If you'd like to encrypt the disk image:
+
+hdiutil create -encryption -stdinpass -volname "Volume Name" -srcfolder /path/to/folder -ov encrypted.dmg
+
+By default, you'll be prompted for a password. You can automate that by piping in a password:
+
+echo -n YourPassword | hdiutil create -encryption -stdinpass -volname "Volume Name" -srcfolder /path/to/folder -ov encrypted.dmg
+
+Burn Disk Images to DVD
+
+This command applies to .iso, .img and .dmg images.
+
+hdiutil burn /path/to/image_file
