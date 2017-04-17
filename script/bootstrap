@@ -137,8 +137,16 @@ install_dotfiles () {
   done
 }
 
+link_binaries () {
+  for src in $DOTFILES_ROOT/bin; do
+    dst="$HOME/$(basename "${src%.*}")"
+    link_file "$src" "$dst"
+  done
+}
+
 setup_gitconfig
 install_dotfiles
+link_binaries
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
