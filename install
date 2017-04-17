@@ -1,5 +1,7 @@
 #!/bin/sh
 
+work=${$1:-false}
+
 # write sane gnome 3 defaults
 
 # workspaces span monitors (otherwise one is static)
@@ -11,38 +13,19 @@ gsettings set org.gnome.desktop.interface enable-animations "false"
 
 # add repos
 
-# work
-add-apt-repository ppa:webupd8team/atom
-add-apt-repository ppa:webupd8team/sublime-text-3
-
-# personal
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+if $work ; then
+	add-apt-repository ppa:webupd8team/atom
+	add-apt-repository ppa:webupd8team/sublime-text-3
+else
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+fi
 
 sudo apt update
 
 # install packages
 
-# global
-sudo apt install -y atom calibre keepassx spotify-client tmux vim
-sudo apt install -y atom chromium-browser keepassx spotify-client tmux vim virtualbox
-sudo apt install -y atom calibre chromium-browser keepassx spotify-client tmux vim virtualbox
-
-# personal
-
-# discord
-sudo apt install -y libc++1
-wget -O discord.deb https://discordapp.com/api/download?platform=linux&format=deb
-sudo dpkg -i discord.deb
-rm discord.deb
-
-sudo apt install steam
-
-# work
-
-sudo apt install chromium-browser keepassx tmux vagrant vim virtualbox
-
-
+sudo apt install -y atom chromium-browser keepassx spotify-client tmux vim
 
 # for mutt
 sudo apt install -y mutt elinks
@@ -50,17 +33,21 @@ sudo apt install -y mutt elinks
 # install packages for atom
 apm install minimap
 
-# install rust
-curl https://sh.rustup.rs -sSf | sh
+if $work ; then
+	sudo apt install -y vagrant virtualbox
+else
+	# install rust
+	curl https://sh.rustup.rs -sSf | sh
+	sudo apt install calibre steam
+fi
 
 # remove junk
 sudo apt remove aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori swell-foop
 
 # remove junk (work)
-#sudo apt remove gnome-maps
-
-# remove junk (personal)
-
+if $work ; then
+	sudo apt remove gnome-maps
+fi
 
 sudo apt autoremove
 
