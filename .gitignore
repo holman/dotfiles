@@ -12,3 +12,4 @@ antigen.symlink/repos
 git/gitconfig.symlink
 
 .idea
+cache
