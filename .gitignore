@@ -1,3 +1,9 @@
 sublime2/User/Package\ Control.sublime-settings
 vim/vim.symlink/.netrwhist
 .DS_Store
+
+Package\ Control.cache
+Package\ Control.last-run
+Package\ Control.merged-ca-bundle
+Package\ Control.user-ca-bundle
+oscrypto-ca-bundle.crt

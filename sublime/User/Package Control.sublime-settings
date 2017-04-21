@@ -1,0 +1,13 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"CoffeeScript",
+		"Dracula Color Scheme",
+		"Package Control",
+		"Theme - Soda SolarizedDark"
+	]
+}
