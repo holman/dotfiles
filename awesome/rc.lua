@@ -200,6 +200,7 @@ for s = 1, screen.count() do
     handle:close()
     package.path = package.path .. ';.local/lib/python'.. result .. '/site-packages/powerline/bindings/awesome/powerline.lua'
     require('powerline')
+    powerline_widget:set_font('Ubuntu Mono derivative Powerline')
     right_layout:add(powerline_widget)
 
     -- Now bring it all together (with the tasklist in the middle)

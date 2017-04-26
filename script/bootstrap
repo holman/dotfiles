@@ -139,8 +139,8 @@ install_dotfiles () {
   update_submodules
   run_vundle
   download_powerline_symbols
-  # I think the font-config symbols stuff means I don't need to call this
-  # generate_font_cache
+  # We need to generate to font cache so that we can use the patched fonts in the awesome widget
+  generate_font_cache
   init_command_t
   setup_oh_my_zsh
   install_powerline
