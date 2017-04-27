@@ -13,14 +13,15 @@ git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
-git_dirty() {
+git_info() {
   # Moved to file detection to improve performance. Not fool proof, but its fast
-  if [[ ! -a ./.git ]]
+  GIT_DIR=`findup .git`
+  if [[ -z $GIT_DIR ]]
   then
     echo ""
   else
     # Removed dirty checking, again because of performance issues
-    echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}$(need_push)"
   fi
 }
 
@@ -46,7 +47,7 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\nin $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\nin $(directory_name) $(git_info)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
