@@ -67,7 +67,7 @@ fi
 # Don't record anything by user 0
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; \
 then \
-  echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.shell_logs/shell-history-$(date "+%Y-%m-%d").log; \
+  echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1 | tail -n 1)" >> ~/.shell_logs/shell-history-$(date "+%Y-%m-%d").log; \
 fi'
 
 prmptcmd() {
