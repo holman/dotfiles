@@ -145,6 +145,7 @@ install_dotfiles () {
   setup_oh_my_zsh
   install_powerline
   install_the_fuck
+  install_aws_cli
 
   success 'laid down dotfiles'
 }
@@ -278,7 +279,12 @@ install_the_fuck () {
   info 'installing the fuck'
   local_pip_install 'thefuck'
   success 'installed the fuck'
-  
+}
+
+install_aws_cli () {
+  info 'installing aws cli'
+  local_pip_install 'awscli'
+  success 'installed aws cli'
 }
 
 os_name () {
