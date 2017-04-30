@@ -14,7 +14,7 @@ git config --global github.oauth-token <token>
 
 ## Additional things to download
 
-These are things that need to be isntalled downloaded that are not installed via the bootstrap script.
+These are things that need to be installed downloaded that are not installed via the bootstrap script.
 
 ### Node Things
 
