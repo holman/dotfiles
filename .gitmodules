@@ -1,6 +1,3 @@
-[submodule "vim/vim.symlink/bundle/ctrlp.vim"]
-	path = vim/vim.symlink/bundle/ctrlp.vim
-	url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/vim.symlink/bundle/solarized"]
 	path = vim/vim.symlink/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
