@@ -146,6 +146,7 @@ install_dotfiles () {
   install_powerline
   install_the_fuck
   install_aws_cli
+  install_virtualenv
 
   success 'laid down dotfiles'
 }
@@ -279,6 +280,12 @@ install_the_fuck () {
   info 'installing the fuck'
   local_pip_install 'thefuck'
   success 'installed the fuck'
+}
+
+install_virtualenv () {
+  info 'installing virtualenv'
+  local_pip_install 'virtualenv'
+  success 'installed virtualenv'
 }
 
 install_aws_cli () {
