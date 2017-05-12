@@ -14,63 +14,11 @@
       "linter-docker"
     ]
     hideGitIgnoredFiles: false
-    ignoredNames: [
-      "README*"
-      "config.rb"
-      "settings.*"
-      ".commandrc*"
-      ".fabrc*"
-      ".bin"
-      ".bundle"
-      ".git"
-      ".DS_Store"
-      ".sass-cache"
-      "command*"
-      "fabfile*"
-      "log"
-      "repositories"
-      "tmp"
-      "vendor"
-      "build"
-      "conf"
-      "exports"
-      "info"
-      "patches"
-      "scripts"
-      "tests"
-      "pressflow-6.30.113"
-      "drupal-7.41"
-      "profiles"
-      "misc"
-      "___AKAM___"
-      "modules"
-      "sites_d7"
-      ".sass-cache"
-      "build"
-      "conf"
-      "contrib"
-      "contrib_patched"
-      "development"
-      "drupal-*"
-      "exports"
-      "host_config"
-      "info"
-      "patches"
-      "pressflow-*"
-      "pyfire"
-      "scripts"
-      "sites"
-      "sites_d7/all/modules/pending_deletion"
-      "sites_d7/default"
-      "tesla_files"
-      "tesla_utils"
-      "tests"
-    ]
     projectHome: "~/bin"
     telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
-      "cobalt2-syntax"
+      "atom-dark-syntax"
     ]
   editor:
     autoIndentOnPaste: false
@@ -82,6 +30,7 @@
     showInvisibles: true
     softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
+    tabLength: 4
   "git-plus":
     pullBeforePush: "pull"
     tabLength: 4
