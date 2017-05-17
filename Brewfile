@@ -27,7 +27,7 @@ brew 'reattach-to-user-namespace'
 # Android
 cask 'java'
 brew 'gradle'
-brew 'android-sdk'
+#brew 'android-sdk'
 cask 'android-studio'
 
 # development
