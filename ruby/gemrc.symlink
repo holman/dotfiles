@@ -4,3 +4,5 @@
 :backtrace: false
 :benchmark: false
 gem: --no-document
+:sources:
+- https://ruby.taobao.org/
