@@ -1,4 +1,8 @@
+# Fix integer error on fish prompt rendering
+set -g CMD_DURATION 0
+
 set fish_greeting ""
+set pure_user_host_location 1
 
 set -x EDITOR nvim
 
@@ -42,7 +46,8 @@ abbr ta tmux attach -t
 abbr tns tmux new-session -s
 
 # # Paths
-# test -d /usr/local/share/npm/bin ; and set PATH /usr/local/share/npm/bin $PATH
+test -d $ANDROID_HOME/tools ; and set PATH $ANDROID_HOME/tools $PATH
+test -d $ANDROID_HOME/platform-tools ; and set PATH $ANDROID_HOME/platform-tools $PATH
 # test -d /usr/local/racket/bin    ; and set PATH /usr/local/racket/bin $PATH
 
 # Navigation

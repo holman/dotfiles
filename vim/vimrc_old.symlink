@@ -1,26 +1,13 @@
-let mapleader = "\<Space>"
+let mapleader = ","
+
 " ===========================================================================================================
 " Plugins
 " ===========================================================================================================
 " {{{
 call plug#begin('~/.vim/plugged')
-
-" General utilities
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
-Plug 'svermeulen/vim-easyclip'
-Plug 'jiangmiao/auto-pairs'
+" General development plugins
+Plug 'jmcantrell/vim-virtualenv'
 Plug 'bronson/vim-visual-star-search'
-Plug 'justinmk/vim-sneak'
-Plug 'neomake/neomake' "{{{
-    "run neomake on the current file on every write:<Paste>
-    autocmd! BufWritePost * Neomake
-    let g:neomake_javascript_enabled_makers = ['eslint']
-" }}}
-Plug 'tpope/vim-fugitive'
-
-"Visual utilities
 Plug 'vim-airline/vim-airline' "{{{
     " Set colour scheme for airline (powerline alternative)
     let g:airline_theme='powerlineish'
@@ -34,47 +21,49 @@ Plug 'vim-airline/vim-airline' "{{{
     let g:airline#extensions#tabline#formatter = 'unique_tail'
 " }}}
 Plug 'vim-airline/vim-airline-themes'
-
-" File browsing
-Plug 'scrooloose/nerdtree', "{{{
-    noremap <leader>kl :NERDTreeFind<cr>
-    noremap <leader>kk :NERDTreeToggle<cr>
-    let NERDTreeChDirMode=1
-    let NERDTreeHighlightCursorline=1
-    let NERDTreeMapActivateNode='<space>'
-    let NERDTreeMinimalUI=1
-    let NERDTreeShowHidden=1
-" }}}
-Plug 'ctrlpvim/ctrlp.vim' "{{{
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-    " close prompt on backspace or <c-h>
-    let g:ctrlp_brief_prompt = 1
-    let g:ctrlp_switch_buffer = 'Et'
-    let g:ctrlp_prompt_mappings = {
-        \ 'PrtDeleteEnt()':       ['<C-d>'],
-        \ }
-" }}}
-Plug 'mileszs/ack.vim'
-
-" Tmux pane interaction
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
-"Code level utilities
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'svermeulen/vim-easyclip'
+Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
-Plug 'ervandew/supertab'
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips' "{{{
-    let g:UltiSnipsEditSplit="vertical"
-    " https://github.com/SirVer/ultisnips/issues/710
-    let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
-    let g:UltiSnipsExpandTrigger = "<tab>"
-    let g:UltiSnipsJumpForwardTrigger = "<tab>"
-    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+Plug 'neomake/neomake' "{{{
+    "run neomake on the current file on every write:<Paste>
+    autocmd! BufWritePost * Neomake
+    let g:neomake_javascript_enabled_makers = ['eslint']
 " }}}
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' } "{{{
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+" " Javascript plugins
+Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
+    let g:tern_show_argument_hints = 'on_hold'
+    let g:tern_show_signature_in_pum = 1
+" }}}
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
+Plug 'alvan/vim-closetag' "{{{
+    let g:closetag_filenames = "*.html,*.mustache,*.jsx"
+" }}}
+Plug 'Valloric/MatchTagAlways' "{{{
+    let g:mta_filetypes = {
+        \ 'html' : 1,
+        \ 'javascript.jsx' : 1,
+        \ 'xhtml' : 1,
+        \ 'xml' : 1,
+        \}
+" }}}
+" " Plug 'heavenshell/vim-jsdoc'
+
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx']  }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx']  }
+
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } "{{{
     autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     set completeopt=longest,menuone,preview
     let g:deoplete#sources = {}
@@ -92,33 +81,42 @@ Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' } "{{{
     " Use tab as the autocomplete trigger
     inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " }}}
+Plug 'SirVer/ultisnips' "{{{
+    let g:UltiSnipsEditSplit="vertical"
+    " https://github.com/SirVer/ultisnips/issues/710
+    let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger = "<tab>"
+    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" }}}
+Plug 'scrooloose/nerdtree', "{{{
+    noremap <leader>l :NERDTreeFind<cr>
+    noremap <leader>k :NERDTreeToggle<cr>
+    let NERDTreeChDirMode=1
+    let NERDTreeHighlightCursorline=1
+    let NERDTreeMapActivateNode='<space>'
+    let NERDTreeMinimalUI=1
+    let NERDTreeShowHidden=1
+" }}}
 Plug 'tpope/vim-commentary' "{{{
-    if has("gui_vimr")
-        " VIMR allows binding to cmd"
-        nnoremap <D-/> :Commentary<cr>
-        vnoremap <D-/> :Commentary<cr>
-    else 
-        " Terminal keybinding, iterm sends ctrl-s for cmd-s
-        nnoremap <C-/> :Commentary<cr>
-        vnoremap <C-/> :Commentary<cr>
-    endif
+    nnoremap <D-/> :Commentary<cr>
+    vnoremap <D-/> :Commentary<cr>
 " }}}
 
+Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim' "{{{
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-" Javascript utilities
-" Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript', 'javascript.jsx']  }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx']  }
-Plug 'ternjs/tern_for_vim', {'do': 'npm install'} "{{{
-    let g:tern#command = ['tern']
-    let g:tern#arguments = ['--persistent']
-    let g:tern_show_argument_hints = 'on_hold'
-    let g:tern_show_signature_in_pum = 1
+    " close prompt on backspace or <c-h>
+    let g:ctrlp_brief_prompt = 1
+    let g:ctrlp_switch_buffer = 'Et'
+    let g:ctrlp_prompt_mappings = {
+        \ 'PrtDeleteEnt()':       ['<C-d>'],
+        \ }
 " }}}
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx']  }
-
-
-
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 " }}}
 " ===========================================================================================================
@@ -181,6 +179,51 @@ augroup end
 " ===========================================================================================================
 " {{{
 
+" Edit and load .vimrc
+nnoremap <leader>ve :tabedit $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+" Clear the highlighted search results
+nnoremap <leader>/ :nohlsearch<cr>
+
+" Fugitiive mappings
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gl :Glog<cr>
+nnoremap <leader>gb :Gblame<cr>
+
+" Move hjkl navigation to touch type rest position
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+noremap h ;
+
+" Use arrow keys for quickfix window navigation
+" noremap <Up> :copen<cr>
+" noremap <Down> :cclose<cr>
+" noremap <Left> :cp<cr>
+" noremap <Right> :cn<cr>
+
+" Disable arrow keys in insert mode
+" inoremap <Up> <nop>
+" inoremap <Down> <nop>
+" inoremap <Left> <nop>
+" inoremap <Right> <nop>
+
+" enables magic mode in regular expressions
+" :help /magic
+nnoremap / /\v
+vnoremap / /\v
+
+" Remap colon and semicolon, saves pressing shift
+" everytime I need to enter command mode
+" pretty sure i do that more than find next occurance
+" of char on line (default semicolon behaviour)
+" nnoremap ; :
+" nnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
+
 " when in insert mode, press <F2> to go to
 " paste mode, where you can paste mass data
 " that won't be autoindented
@@ -190,52 +233,39 @@ set pastetoggle=<F2>
 vnoremap > >gv
 vnoremap < <gv
 
-" Edit and load .vimrc
-nnoremap <leader>ve :tabedit $MYVIMRC<cr>
-nnoremap <leader>vs :source $MYVIMRC<cr>
+" General ease of use
+" Save on cmd-s. Iterm sending as ctrl s
+nnoremap <D-s> :w<cr>
+vnoremap <D-s> <C-C>:w<cr>
+inoremap <D-s> <Esc>:w<cr>
 
-" Clear the highlighted search results
-nnoremap <leader>/ :nohlsearch<cr>
-
-" Move hjkl navigation to touch type rest position
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
-noremap h ;
+" ctrl-h is sending backspace<BS> instead of ^H
+" https://github.com/neovim/neovim/issues/2048
+if has('nvim')
+    nmap <BS> <C-h>
+endif
 
 "Switch between panels left and right.
-nnoremap <leader>j <C-w>h
-nnoremap <leader>; <C-w>l
-nnoremap <leader>k <C-w>j
-nnoremap <leader>l <C-w>k
-
-" enables magic mode in regular expressions
-" :help /magic
-nnoremap / /\v
-vnoremap / /\v
+nnoremap <C-J> <C-w>h
+nnoremap <C-;> <C-w>l
+nnoremap <C-k> <C-w>j
+nnoremap <C-l> <C-w>k
 
 " Jump 5 lines at a time. useful for keyboard scrolling the cursor.
 noremap <S-k> 5j
 noremap <S-l> 5k
 
+" Scroll horizontally 5 lines at a time
+" one line just isnt enough
+" nnoremap zl z5l
+" nnoremap zh z5h
+
 " Tab controls. Awesomeness engaged.
+" Shift H and Shift L to switch tabs
+" nnoremap <S-T> :tabnew<cr>
+" nnoremap <S-W> :tabclose<cr>
 nnoremap <left> :tabprevious<cr>
 nnoremap <right> :tabnext<cr>
-
-" General ease of use
-" Save on cmd-s. 
-if has("gui_vimr")
-    " VIMR allows binding to cmd"
-    nnoremap <D-s> :w<cr>
-    vnoremap <D-s> <C-C>:w<cr>
-    inoremap <D-s> <Esc>:w<cr>
-else 
-    " Terminal keybinding, iterm sends ctrl-s for cmd-s
-    nnoremap <C-s> :w<cr>
-    vnoremap <C-s> <C-C>:w<cr>
-    inoremap <C-s> <Esc>:w<cr>
-endif
 
 " Let escape leave terminal buffer
 " Returns to normal mode, making all vim keybindings come back to life
@@ -251,5 +281,5 @@ nnoremap N Nzz
 
 if executable('ag')
     " Use ag over grep
-    let g:ackprg = 'ag --nogroup --nocolor --vimgrep --smart-case'
+    let g:ackprg = 'ag --nogroup --nocolor --vimgrep'
 endif
