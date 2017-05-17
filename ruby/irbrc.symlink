@@ -1,7 +1,10 @@
 #!/usr/bin/ruby
+require 'irb'
 require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems'
+require 'irbtools'
+require 'interactive_editor'
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
@@ -29,6 +32,11 @@ class Object
     end
     puts `ri '#{method}'`
   end
+
+  def subl(method_name)
+    file, line = method(method_name).source_location
+    `subl '#{file}:#{line}'`
+  end
 end
 
 # Copies the result of the last operation you ran in IRB to the system
@@ -45,4 +53,15 @@ end
 
 def r
   reload!
+end
+
+def c
+  clear
+end
+
+# Uncomment the following line if you want to remove SQL query output:
+# ActiveRecord::Base.logger.level = 1 if defined? ActiveRecord::Base
+
+def y(obj)
+  puts obj.to_yaml
 end

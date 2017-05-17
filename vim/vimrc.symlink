@@ -1,4 +1,185 @@
-syntax on
+"Load Vundle config
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" Have :sh source .bashrc
+" http://stackoverflow.com/questions/1694599/how-do-i-get-vims-sh-command-to-source-my-bashrc
+set shell=bash\ --login
+
+set nocompatible      " We're running Vim, not Vi!
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
+set autowrite     " Automatically :write before running commands
+set ruler         " show the cursor position all the time
+set backspace=2   " Backspace deletes like most programs in insert mode
+set number
+
+" Copy to system clipboard
+vmap <C-c> "+y
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
+
+" Make it obvious where 100 characters is
+set textwidth=100
+set colorcolumn=+1
+
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+
+" Use sexy railscasts color scheme
+colorscheme sexy-railscasts-256
+
+" Make search nicer
+set incsearch
+set ignorecase
+set smartcase " worry about case if specified
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Highlight current line of cursor
+set cursorline
+
+" Copy to system clipboard
+set clipboard=unnamed
+
+" Relative Numbers
+:set rnu
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+augroup vimrcEx
+  autocmd!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+  " Enable spellchecking for Markdown
+  autocmd FileType markdown setlocal spell
+  autocmd FileType markdown setlocal textwidth=0
+
+  " Automatically wrap at 72 characters and spell check git commit messages
+  autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType gitcommit setlocal spell
+
+  " Allow stylesheets to autocomplete hyphenated words
+  autocmd FileType css,scss,sass setlocal iskeyword+=-
+
+  " Remove trailing white space on save
+  autocmd BufWritePre * :%s/\s\+$//e
+
+  " Remove extra lines at EOF
+  autocmd BufWritePre * :%s/\n\{1,}\%$//e
+
+  " Source the vimrc after saving
+  autocmd bufwritepost .vimrc source $MYVIMRC
+
+  " Handle coffeescript JSX files
+  au BufNewFile,BufRead *.cjsx set filetype=jsx
+augroup END
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" This will execute the update command on leaving vim to a tmux pane.
+let g:tmux_navigator_save_on_switch = 1
+
+" Settings from vim-rspec
+" https://github.com/thoughtbot/vim-rspec
+
+" Use Zeus
+let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" Settings for vim-airline
+let g:airline_theme='bubblegum'
+set laststatus=2
+
+" Settings for CtrlP
+
+" Ignoring Directories
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+" Close NERDTree window
+let g:ctrlp_dont_split = 'NERD'
+
+" Settings for NERDTree
+
+" Toggle NERDTree like Sublime's sidebar
+nmap <Leader>kb :NERDTreeToggle<CR>
+
+" Seetings for Gundo
+nmap <Leader>gu :GundoToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" " Indent if we're at the beginning of a line. Else, do completion.
+" Stolen from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
+
+" Various Mappings
+
+" Save on exit insert mode
+" noremap <C-[> <ESC>:w<CR>
+
+" Leader command to easily edit vimrc
+nmap <leader>ev :vsplit $MYVIMRC<CR>
+
+" Leader to Rubocop current file
+nmap <leader>rc :call RubocopCurrentFile()<CR>
+
+function! RubocopCurrentFile()
+  execute "Dispatch rubocop " . bufname("%")
+endfunction
