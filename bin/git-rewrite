@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Rewrite the last commit message
+
+git commit --amend -m "$1"
