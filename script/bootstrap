@@ -135,6 +135,19 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+
+  for app in */
+  do
+    app=${app%/}
+    for file in $(find "$app" -mindepth 1 -maxdepth 1 -name '*.config' -printf '%f ')
+    do
+      src="$DOTFILES_ROOT/$app/$file"
+      appdir="${XDG_CONFIG_HOME:-$HOME/.config}/$app"
+      dst="$appdir/$(basename "${src%.*}")"
+      mkdir -p "$appdir"
+      link_file "$src" "$dst"
+    done
+  done
 }
 
 setup_gitconfig
