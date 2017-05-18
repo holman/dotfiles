@@ -1,0 +1,1 @@
+export PYTHONSTARTUP="$HOME/.pythonrc"
