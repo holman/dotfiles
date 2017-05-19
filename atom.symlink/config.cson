@@ -16,7 +16,12 @@
       beautify_on_save: true
     ruby:
       default_beautifier: "Ruby Beautify"
+  "autocomplete-modules":
+    babelPluginModuleResolver: true
+    webpack: true
   core:
+    closeDeletedFileTabs: true
+    closeEmptyWindows: false
     disabledPackages: [
       "background-tips"
       "exception-reporting"
@@ -62,3 +67,7 @@
 ".js.jsx.react.source":
   editor:
     autoIndent: true
+".js.jsx.source":
+  editor:
+    autoIndent: false
+    autoIndentOnPaste: false
