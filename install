@@ -1,6 +1,7 @@
 #!/bin/sh
 
 work=${$1:-false}
+icon_dir="$HOME/.icons/"
 
 # write sane gnome 3 defaults
 
@@ -10,6 +11,22 @@ gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 # disable animations - speeds up workspace switching
 gsettings set org.gnome.desktop.interface enable-animations "false"
+
+sudo apt install -y git
+
+# remove junk
+sudo apt remove aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori libreoffice* swell-foop
+
+# install snaps for trendyness
+sudo snap install keepassxc libreoffice
+
+# add icon theme
+mkdir $icon_dir
+git clone https://github.com/keeferrourke/la-capitaine-icon-theme.git $icon_dir
+
+# fix gnome's handling of wallpapers
+rm -r ~/.cache/gnome-control-center/backgrounds
+ln -s $HOME/Pictures/Wallpapers/ $HOME/.cache/gnome-control-center/backgrounds
 
 # add repos
 
@@ -25,7 +42,7 @@ sudo apt update
 
 # install packages
 
-sudo apt install -y atom chromium-browser keepassx spotify-client tmux vim
+sudo apt install -y atom chromium-browser spotify-client tmux vim
 
 # for mutt
 sudo apt install -y mutt elinks
@@ -41,8 +58,6 @@ else
 	sudo apt install calibre steam
 fi
 
-# remove junk
-sudo apt remove aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori swell-foop
 
 # remove junk (work)
 if $work ; then

@@ -49,7 +49,7 @@ web=2
 db_pos=3
 broker_pos=4
 worker_pos=5
-new=${$2:-false}
+new=${2:=false}
 
 cd $directory
 vagrant up
