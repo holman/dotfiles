@@ -42,6 +42,8 @@ function init_es() {
 
 
 session=$1
+new=$2
+new=${new:=false}
 directory=$HOME/Development/projects/$session
 
 web_test=1
@@ -49,7 +51,6 @@ web=2
 db_pos=3
 broker_pos=4
 worker_pos=5
-new=${2:=false}
 
 cd $directory
 vagrant up
