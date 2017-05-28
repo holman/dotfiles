@@ -38,9 +38,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Cpp11-Syntax-Support'
 Plugin 'majutsushi/tagbar'
 Plugin 'vimwiki/vimwiki'
-" Forked to add more clean diff highlighting
-" Pull-request is pending
-Plugin 'kaihowl/vim-colors-pencil'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'rking/ag.vim'
@@ -55,15 +54,15 @@ Plugin 'lyuts/vim-rtags'
 
 syntax enable
 
-let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
-colorscheme pencil
+" let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
+colorscheme solarized
 
 
 " configure airline
 " set laststatus=2 " use if status line is not showing
 " set to use no special symbols at all
 " this avoids having to patch fonts!
-let g:airline_theme = 'pencil'
+let g:airline_theme = 'solarized'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
