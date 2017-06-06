@@ -1,3 +1,6 @@
 [submodule "external/prezto"]
 	path = external/prezto
 	url = git@github.com:sorin-ionescu/prezto.git
+[submodule "external/todo.txt-cli"]
+	path = external/todo.txt-cli
+	url = https://github.com/ginatrapani/todo.txt-cli.git
