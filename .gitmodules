@@ -1,3 +1,0 @@
-[submodule "prezto"]
-	path = prezto/prezto_git
-	url = git@github.com:sorin-ionescu/prezto.git
