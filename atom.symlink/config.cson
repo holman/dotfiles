@@ -40,7 +40,7 @@
     telemetryConsent: "no"
   editor:
     fontFamily: "Menlo"
-    fontSize: 15
+    fontSize: 12
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
