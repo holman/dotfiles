@@ -1,4 +1,17 @@
 function get_host_from_ssh() {
+  ssh -G &> /dev/null
+  if [ $? -eq 0 ]; then
+    get_host_from_ssh_config "$@"
+  else
+    get_host_from_ssh_legacy "$@"
+  fi
+}
+
+function get_host_from_ssh_legacy() {
+  echo "$1"
+}
+
+function get_host_from_ssh_config() {
   local command
   local head
   local tail
