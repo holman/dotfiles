@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# When I develop new branches, I often forget their names. With this script,
+# as long as you know the current month, you can start typing it, and then
+# use tabbed autocomplete to get the rest of the way there.
+#
+# git-new-branch myNewBranch  ---> 10202016-myNewBranch
+# To find it again, tab complete on the month October by typing 10<tab>
+
+DATE=`date +%m%d%Y`
+git checkout -b "${DATE}-$*"
+
