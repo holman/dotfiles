@@ -460,5 +460,16 @@ endfunction
 
 map <silent> <Leader>q :call ToggleBetweenHeaderAndSourceFile()<CR>
 
+" Explicitly set preferred order of handlers for dispatch to exclude the JOB
+" handler
+let g:dispatch_handlers = [
+      \ 'tmux',
+      \ 'screen',
+      \ 'windows',
+      \ 'iterm',
+      \ 'x11',
+      \ 'headless',
+      \ ]
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
