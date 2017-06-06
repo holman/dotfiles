@@ -1,0 +1,63 @@
+# command prefix (like screen)
+unbind C-b
+set -g prefix C-a
+bind-key a send-prefix
+
+# if prefix is 'C-a'
+bind C-a send-prefix
+bind a last-window
+
+# zoom this pane to full screen
+bind + \
+  new-window -d -n tmux-zoom 'clear && echo TMUX ZOOM && read' \;\
+  swap-pane -s tmux-zoom.0 \;\
+  select-window -t tmux-zoom
+
+# restore this pane
+bind - \
+  last-window \;\
+  swap-pane -s tmux-zoom.0 \;\
+  kill-window -t tmux-zoom
+
+# address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -s escape-time 0
+
+# increase scrollback buffer size
+set -g history-limit 50000
+
+# tmux messages are displayed for 4 seconds
+set -g display-time 4000
+
+# refresh 'status-left' and 'status-right' more often
+set -g status-interval 5
+
+# upgrade $TERM
+set -g default-terminal "screen-256color"
+
+# emacs key bindings in tmux command prompt (prefix + :) are better than
+# vi keys, even for vim users
+set -g status-keys emacs
+
+# super useful when using "grouped sessions" and multi-monitor setup
+setw -g aggressive-resize on
+
+# source .tmux.conf as suggested in `man tmux`
+bind R source-file '~/.tmux.conf'
+
+# easier and faster switching between next/prev window
+bind C-p previous-window
+bind C-n next-window
+
+# tmux pane-navigation bindings
+bind-key h   select-pane -L
+bind-key C-h select-pane -L
+bind-key j   select-pane -D
+bind-key C-j select-pane -D
+bind-key k   select-pane -U
+bind-key C-k select-pane -U
+bind-key l   select-pane -R
+bind-key C-l select-pane -R
+
+# Window move bindings
+bind-key -r "<" swap-window -t -1
+bind-key -r ">" swap-window -t +1
