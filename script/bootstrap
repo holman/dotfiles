@@ -137,9 +137,8 @@ install_dotfiles () {
   done
 }
 
-
+setup_gitconfig
 install_dotfiles
-update_modules
 
 echo ''
 echo '  All installed!'
