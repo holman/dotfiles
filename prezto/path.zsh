@@ -1,4 +1,4 @@
 # Source Prezto
-if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/prezto/prezto_git/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.dotfiles/prezto/prezto_git/init.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/external/prezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.dotfiles/external/prezto/init.zsh"
 fi
