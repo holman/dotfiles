@@ -1,1 +1,1 @@
-alias todo="${ZDOTDIR:-$HOME}/.dotfiles/external/todo.txt-cli/todo.sh"
+alias todo="$ZSH/external/todo.txt-cli/todo.sh"

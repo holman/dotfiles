@@ -4,7 +4,7 @@ export ZSH=$HOME/.dotfiles
 setopt extendedglob
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Projects
+export PROJECTS=/mnt/c/Users/Benjamin/drive/code
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -35,5 +35,7 @@ for file in ${(M)config_files:#*/completion.zsh}
 do
   source $file
 done
+
+export PATH="/home/bhillmann/toolkits/miniconda3/bin:$PATH"
 
 unset config_files
