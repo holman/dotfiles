@@ -137,12 +137,11 @@ install_dotfiles () {
   done
 }
 
-# Pull the latest changes and update all submodules
-git submodule update --init --recursive
-
 setup_gitconfig
 install_dotfiles
 
+# Pull the latest changes and update all submodules
+git submodule update --init --recursive
 
 echo ''
 echo '  All installed!'
