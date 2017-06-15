@@ -2,7 +2,7 @@ syntax on
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'tpope/vim-fugitive'
 Plugin 'valloric/youcompleteme'
