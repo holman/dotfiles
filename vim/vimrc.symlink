@@ -4,17 +4,12 @@ syntax on
 filetype indent plugin on
 set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'tpope/vim-fugitive'
-Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
-Plugin 'posva/vim-vue'
-Plugin 'stanangeloff/php.vim'
-Plugin 'xolox/vim-misc'
 Plugin 'fatih/vim-go'
 call vundle#end()
 
