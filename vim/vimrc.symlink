@@ -1,5 +1,13 @@
 syntax on
 
+let iCanHazVundle=1
+let vundle_readme=expand('~/.dotfiles/vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme) 
+  silent !mkdir -p ~/.dotfiles/vim/bundle/Vundle.vim
+  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.dotfiles/vim/bundle/Vundle.vim
+  let iCanHazVundle=0
+endif
+
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
@@ -20,10 +28,11 @@ set autoread
 au CursorHold * checktime  
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" disable syntastic on the statusline
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
