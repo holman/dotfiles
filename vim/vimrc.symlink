@@ -12,6 +12,7 @@ endif
 filetype indent plugin on
 set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
@@ -72,7 +73,7 @@ set pastetoggle=<f5>
 set wildmode=list:longest,full
 set backspace=indent,eol,start
 set number
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.dotflies/vim/bundle/ctrlp.vim
 set laststatus=2
 set directory=$HOME/.vim/swapfiles//
 

@@ -47,4 +47,12 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
+<<<<<<< HEAD
 bindkey "^[[B" down-line-or-beginning-search # Down
+=======
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+>>>>>>> c6ab20f... added control p to vim
