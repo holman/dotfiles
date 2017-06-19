@@ -9,6 +9,7 @@ noremap <leader>p :action PhpListenDebugAction<CR>
 noremap <leader><leader> :action GotoFile<CR>
 noremap <leader>r :action Refactorings.QuickListPopupAction<CR>
 noremap <leader>a :action Annotate<CR>
+noremap <leader>t :action ToggleDistractionFreeMode<CR>
 
 noremap <leader>i :action GotoDeclaration<CR>
 noremap <leader>o :action Back<CR>

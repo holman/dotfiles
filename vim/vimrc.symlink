@@ -87,6 +87,8 @@ map <Leader>x :x<CR>
 map <Leader>p :CtrlP<CR>
 map <Leader>h :bp<CR>
 map <Leader>l :bn<CR>
+map <Leader>v :vsp<CR>
+map <Leader>h :sp<CR>
 map <Leader><Leader> :CtrlP<CR>
 noremap <Leader>w <C-w>
 noremap <C-J> <C-W><C-J>
