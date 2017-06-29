@@ -7,6 +7,9 @@ atom.symlink/packages
 atom.symlink/storage
 atom.symlink/themes
 
+# Hammerspoon scripts that are installed
+hammerspoon/hammerspoon.symlink/anycomplete
+
 git/gitconfig.local.symlink
 ### Vim template
 # swap
