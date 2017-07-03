@@ -6,6 +6,7 @@
 [user]
         name = AUTHORNAME
         email = AUTHOREMAIL
+        signingkey = AUTHORGPGKEY
 [credential]
         helper = GIT_CREDENTIAL_HELPER
 [alias]
@@ -39,6 +40,7 @@
         default = simple
 [commit]
 	     template = /Users/he8us/.gitmessage.txt
+       gpgsign = true
 
 [diff]
         tool = pstorm
@@ -60,3 +62,11 @@
 	    trustExitCode = true
 [fetch]
 	prune = true
+
+[gpg]
+	program = gpg2
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	required = true
+	clean = git-lfs clean -- %f

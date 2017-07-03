@@ -8,10 +8,6 @@ tap 'homebrew/php'
 brew 'ack'
 brew 'coreutils'
 brew 'dnsmasq'
-brew 'grc'
-brew 'gnupg2'
-brew 'gpg-agent'
-brew 'pinentry-mac'
 brew 'imagemagick'
 brew 'libgit2'
 brew 'openssl'
@@ -43,3 +39,12 @@ cask 'transmission'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'vlc'
+
+# Coloring for commands
+brew 'grc'
+
+# GPG Related
+brew 'gnupg'
+brew 'gnupg2'
+brew 'gpg-agent'
+brew 'pinentry-mac'
