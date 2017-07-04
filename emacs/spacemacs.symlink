@@ -60,6 +60,8 @@ values."
 >>>>>>> Sets up Org file paths.
      spell-checking
      syntax-checking
+            shell-default-shell 'ansi-term
+            shell-default-term-shell "/usr/local/bin/fish")
      version-control
      elixir
      erlang
@@ -411,6 +413,8 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#bcbcbc" "#d70008" "#5faf00" "#875f00" "#268bd2" "#800080" "#008080" "#5f5f87"])
  '(beacon-color "#ec4780")
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
@@ -459,8 +463,6 @@ you should place your code here."
  '(pos-tip-foreground-color "#272822")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(tabbar-background-color "#353535")
- '(term-default-bg-color "#002b36")
- '(term-default-fg-color "#839496")
  '(vc-annotate-background nil)
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
