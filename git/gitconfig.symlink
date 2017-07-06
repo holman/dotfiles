@@ -4,11 +4,43 @@
 [hub]
         protocol = https
 [alias]
-        co = checkout
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+
+        co = checkout
+        cob = checkout -b
+        st = status -sb
+        ci = commit -am
+        b = branch
+        ds = diff --staged
+        fup = log --since '1 day ago' --oneline --author <%= @user_email %>
+        lg = log --color --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)%C(reset)' --abbrev-commit
+        # pretty one-line log with tags, branches and authors
+        ls = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
+        # a verbose ls, shows changed files too
+        lsv = log --pretty=format:'%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short --numstat
+        r = reset
+        r1 = reset HEAD^
+        r2 = reset HEAD^^
+        rh = reset --hard
+        rh1 = reset HEAD^ --hard
+
+        # basic shortcuts
+        cp = cherry-pick
+        cl = clone
+        co = checkout
+        br = branch
+        diff = diff --word-diff
+        dc = diff --cached
+
+        # stash shortcuts
+        sl = stash list
+        sa = stash apply
+        ss = stash save
+
+        rh2 = reset HEAD^^ --hard
 [color]
         diff = auto
         status = auto
@@ -19,6 +51,13 @@
         editor = vim
 [apply]
         whitespace = nowarn
+[format]
+  pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+
+[github]
+  user = pattonjp
+  token =
+
 [mergetool]
         keepBackup = false
 [difftool]
@@ -30,4 +69,11 @@
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to suppress warning message
-        default = simple
+        default = current
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

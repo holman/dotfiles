@@ -1,0 +1,3 @@
+cpDir() {
+  pwd | pbcopy
+}
