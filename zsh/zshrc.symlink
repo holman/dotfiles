@@ -1,3 +1,4 @@
+zmodload zsh/zprof 
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
@@ -29,8 +30,15 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
+# autoload -U compinit
+# compinit -d
 autoload -U compinit
 compinit
+# if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+#   compinit
+# else
+#   compinit -C
+# fi
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
