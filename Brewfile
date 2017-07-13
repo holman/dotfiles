@@ -12,6 +12,7 @@ brew 'findutils'
 brew 'gource'
 brew 'wget'
 brew 'tree'
+brew 'nasm'
 
 # vim
 brew 'neovim'
@@ -27,11 +28,10 @@ brew 'reattach-to-user-namespace'
 # Android
 cask 'java'
 brew 'gradle'
-#brew 'android-sdk'
+cask 'android-sdk'
 cask 'android-studio'
 
 # development
-brew 'leiningen'
 brew 'openssl'
 cask 'firefox'
 cask 'google-chrome'
@@ -49,6 +49,7 @@ cask 'virtualbox'
 
 # pyenv requirements
 brew 'pyenv'
+brew 'pyenv-virtualenv'
 brew 'readline' 
 brew 'xz'
 

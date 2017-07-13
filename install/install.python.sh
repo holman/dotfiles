@@ -22,19 +22,19 @@ fi
 # set global
 pyenv global 2.7.12
 
-# enable use of pip to install virtual environments
-export PIP_REQUIRE_VIRTUALENV=false
+# # enable use of pip to install virtual environments
+# export PIP_REQUIRE_VIRTUALENV=false
 
-if ! which virtualenv; then
-	# install venv globally if it does not exist
-	pip install virtualenv
-fi
+# if ! which virtualenv; then
+# 	# install venv globally if it does not exist
+# 	pip install virtualenv
+# fi
 
-# prevent usage of pip outside of virtual environment
-export PIP_REQUIRE_VIRTUALENV=true
+# # prevent usage of pip outside of virtual environment
+# export PIP_REQUIRE_VIRTUALENV=false
 
-# create directory to store virtual environment things
-mkdir -p ~/.virtualenv
+# # create directory to store virtual environment things
+# mkdir -p ~/.virtualenv
 
 # create and activate our default python environment
 # cd ~/.virtualenv/

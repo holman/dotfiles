@@ -1,15 +1,11 @@
-# Fix integer error on fish prompt rendering
-set -g CMD_DURATION 0
-
 set fish_greeting ""
-set pure_user_host_location 1
 
 set -x EDITOR nvim
 
 # Set android path for gradle build
-set -x ANDROID_HOME /usr/local/opt/android-sdk
-
-set -x NODE_TLS_REJECT_UNAUTHORIZED 0
+set -x ANDROID_HOME /usr/local/share/android-sdk
+set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
+set -x PIP_REQUIRE_VIRTUALENV false
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
@@ -20,7 +16,7 @@ set -e fish_user_abbreviations
 
 # Misc abbreviations ------------------------------------
 abbr c z
-# abbr v venv; command nvim
+abbr v nvim
 abbr stt subl .
 abbr r source ~/.config/fish/config.fish
 
@@ -46,8 +42,7 @@ abbr ta tmux attach -t
 abbr tns tmux new-session -s
 
 # # Paths
-test -d $ANDROID_HOME/tools ; and set PATH $ANDROID_HOME/tools $PATH
-test -d $ANDROID_HOME/platform-tools ; and set PATH $ANDROID_HOME/platform-tools $PATH
+test -d ~/.pyenv/shims ; and set PATH ~/.pyenv/shims $PATH
 # test -d /usr/local/racket/bin    ; and set PATH /usr/local/racket/bin $PATH
 
 # Navigation
@@ -63,7 +58,6 @@ function a        ; command ag --ignore=.git --ignore=log --ignore=tags --ignore
 function lookbusy ; cat /dev/urandom | hexdump -C | grep --color "ca fe" ; end
 function tree     ; command tree -C $argv ; end
 function tmux     ; command tmux -2 $argv ; end
-function npms     ; command npm start; end
 
 # Completions for custom aliases
 function make_completion --argument-names alias command
@@ -79,11 +73,6 @@ end
 
 make_completion v 'nvim'
 
-# nvim
-function v
-    venv; command nvim $argv
-end
-
 # rbenv
 function rb
 	status --is-interactive; and . (rbenv init -|psub)
@@ -97,12 +86,13 @@ end
 
 # python virtual environment
 set -x PIP_REQUIRE_VIRTUALENV true
-function venv
+function py
     status --is-interactive; and . (pyenv init -|psub)
-    source ~/.virtualenv/neo/bin/activate.fish
+    status --is-interactive; and . (pyenv virtualenv-init -|psub)
+    pyenv activate py
 end
 
 # launch tmux automatically
 if test $TERM != "screen-256color"
-    command tmux attach-session -t (whoami); or command tmux new-session -s (whoami)
+    command tmux attach-session -t 'default'; or command tmux new-session -s 'default'
 end

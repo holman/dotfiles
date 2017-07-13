@@ -31,13 +31,18 @@ if not test -e ~/.config/fish/config.fish
 	ln -s ~/.dotfiles/fish/config.fish ~/.config/fish/config.fish
 end
 
-if not test -e ~/.config/fish/fishfile
-	ln -s ~/.dotfiles/fish/fishfile ~/.config/fish/fishfile
-end
-
 # Install some plugins
 # z - change directory figure outer
 # fzf - fuzzy finder
 # pure - prompt
 # bass - use bash scripts in fish (eg. source files)
-fisher z fzf rafaelrinaldi/pure edc/bass
+
+echo "-----------------------------"
+echo " To get fish plugins, run this in terminal"
+echo " Executing these from a script creates a sandbox"
+echo " that is inaccessible to your interactive shell."
+echo ""
+echo ""
+echo "    fisher z fzf rafaelrinaldi/pure edc/bass     "
+echo ""
+echo ""
