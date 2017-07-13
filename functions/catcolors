@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Usage: catcolors <file>
+# Description: Outputs the content of a file with colors. Used to see the output of cli commands logs
+
+echo "$(cat $1)"
