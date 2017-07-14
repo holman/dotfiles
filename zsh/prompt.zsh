@@ -60,8 +60,13 @@ battery_status() {
     $ZSH/bin/battery-status
   fi
 }
-
-export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
+beerTime()  {
+  if [[ $(date +%k) -gt 14 ]]
+  then
+    echo 🍺
+  fi
+}
+export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push) $(beerTime)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
@@ -69,4 +74,14 @@ set_prompt () {
 precmd() {
   title "zsh" "%m" "%55<...<%~"
   set_prompt
+  stt_both `pwd`
 }
+
+setTerminalText () {
+    # echo works in bash & zsh
+    local mode=$1 ; shift
+    echo -ne "\033]$mode;$@\007"
+}
+stt_both  () { setTerminalText 0 $@; }
+stt_tab   () { setTerminalText 1 $@; }
+stt_title () { setTerminalText 2 $@; }
