@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Usage: mysql2pstorm CONTAINER_NAME
+
+datasource='.idea/dataSources.xml'
+
+source $ZSH/bin/helpers/colors.sh
+
+if [ ! -n "$1" ]; then
+    fail "\"mysql2pstorm\" requires minimum 1 argument"
+fi
+
+if ! [ -e ${datasource} ];
+then
+    fail "You are not in a folder containing an Intellij project with a configured datasource"
+fi
+
+info "Configuring the Intellij project datasources with the dockerized mysql port"
+
+question "What is the name of your docker machine?" dockerMachine "default"
+mysqlPort=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "3306/tcp") 0).HostPort}}' $1)
+dockerMachineIp=$(docker-machine ip ${dockerMachine})
+
+# For IP addresses
+sed -i -e "s#jdbc:mysql://[0-9.]*:[0-9]*/\([_a-zA-Z]*\)#jdbc:mysql://${dockerMachineIp}:${mysqlPort}/\1#g" ${datasource}
+
+# For domain names ending in .dev
+sed -i -e "s#jdbc:mysql://[a-zA-Z0-9.-]*\.dev:[0-9]*/\([_a-zA-Z]*\)#jdbc:mysql://${dockerMachineIp}:${mysqlPort}/\1#g" ${datasource}
+
+success "Replaced Intellij config with correct url"
