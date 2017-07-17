@@ -38,10 +38,10 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.dotfiles/awesome/theme/theme.lua")
+beautiful.init(awful.util.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "dbus-launch gnome-terminal"
+terminal = "xterm"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -56,31 +56,21 @@ modkey = "Mod4"
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    --awful.layout.suit.tile.left,
-    --awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
-    -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    -- awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier
-    -- awful.layout.suit.corner.nw,
+    awful.layout.suit.max.fullscreen,
+    awful.layout.suit.magnifier,
+    awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- }}}
-
--- {{{ Tags
--- Define a tag table which hold all screen tags.
--- Don't need this in 4.0?
--- tags = {}
--- for s = 1, screen.count() do
-    -- Each screen has its own tag table.
-    -- tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
--- end
 -- }}}
 
 -- {{{ Helper functions
@@ -212,14 +202,6 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
     -- Add widgets to the wibox
-    -- powerline set it up before we add to the wibox
-    local handle = io.popen('python -c "import sys;sys.stdout.write(sys.version[0:3])"')
-    local result = handle:read("*a")
-    handle:close()
-    package.path = package.path .. ';.local/lib/python'.. result .. '/site-packages/powerline/bindings/awesome/powerline.lua'
-    require('powerline')
-    powerline_widget:set_font('Ubuntu Mono derivative Powerline')
-
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
@@ -233,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
-            powerline_widget,
+            mytextclock,
             s.mylayoutbox,
         },
     }
@@ -250,11 +232,11 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    -- awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              -- {description="show help", group="awesome"}),
-    awful.key({ modkey, "Control"     }, "h",   awful.tag.viewprev,
+    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
+              {description="show help", group="awesome"}),
+    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey, "Control"     }, "l",  awful.tag.viewnext,
+    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
@@ -310,9 +292,9 @@ globalkeys = awful.util.table.join(
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control", "Shift" }, "h", function () awful.tag.incncol( 1, nil, true) end,
+    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control", "Shift" }, "l", function () awful.tag.incncol(-1, nil, true) end,
+    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
@@ -330,8 +312,7 @@ globalkeys = awful.util.table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
-    -- Prompt (3.5) Had issues with mouse screen bits, so it always shows up on 1 now
-    -- awful.key({ modkey },            "r",     function () mypromptbox[1]:run() end),
+    -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
@@ -347,14 +328,7 @@ globalkeys = awful.util.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
-    -- Added by me
-    awful.key({ modkey }, "\\", function() awful.util.spawn('xterm -e top') end,
-              {description = "launch top", group = "launcher"}),
-    awful.key({ modkey }, "c", function() awful.util.spawn('playerctl play-pause') end,
-              {description = "play pause media", group = "media"}),
-    awful.key({ modkey,           }, "s", function () awful.util.spawn('xscreensaver-command -lock') end,
-              {description = "lock screen", group = "media"})
+              {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = awful.util.table.join(
@@ -475,10 +449,8 @@ awful.rules.rules = {
           "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.
-          "MPlayer",
           "Sxiv",
           "Wpa_gui",
-          "gimp",
           "pinentry",
           "veromix",
           "xtightvncviewer"},
