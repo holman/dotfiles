@@ -42,6 +42,7 @@ abbr ta tmux attach -t
 abbr tns tmux new-session -s
 
 # # Paths
+test -d $HOME/.rbenv/shims ; and set PATH $HOME/.rbenv/shims $PATH
 # test -d /usr/local/share/npm/bin ; and set PATH /usr/local/share/npm/bin $PATH
 # test -d /usr/local/racket/bin    ; and set PATH /usr/local/racket/bin $PATH
 
@@ -98,6 +99,7 @@ function venv
 end
 
 # launch tmux automatically
+# command bash
 if test $TERM != "screen-256color"
     command tmux attach-session -t (whoami); or command tmux new-session -s (whoami)
 end

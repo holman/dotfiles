@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " ===========================================================================================================
 " Plugins
@@ -7,17 +7,22 @@ let mapleader = ","
 call plug#begin('~/.vim/plugged')
 " General development plugins
 
+Plug 'terryma/vim-expand-region' "{{{
+    vmap v <Plug>(expand_region_expand)
+    vmap <C-v> <Plug>(expand_region_shrink)
+" }}}
+Plug 'digitaltoad/vim-pug'
 Plug 'mattn/emmet-vim' "{{{
     let g:user_emmet_leader_key=','
 " }}}
 Plug 'junegunn/vim-peekaboo'
 Plug 'bronson/vim-visual-star-search'
-Plug 'terryma/vim-smooth-scroll' "{{{
-    noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-    noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-    noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-    noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-" }}}
+" Plug 'terryma/vim-smooth-scroll' "{{{
+"     noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+"     noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+"     noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+"     noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" " }}}
 Plug 'vim-airline/vim-airline' "{{{
     " Set colour scheme for airline (powerline alternative)
     let g:airline_theme='powerlineish'
@@ -30,11 +35,12 @@ Plug 'vim-airline/vim-airline' "{{{
     let g:airline#extensions#tabline#buffer_min_count = 0
     let g:airline#extensions#tabline#formatter = 'unique_tail'
 " }}}
-Plug 'Yggdroot/indentLine' "{{{
-    let g:indentLine_enabled = 1
-" }}}
+" Plug 'Yggdroot/indentLine' "{{{
+"     let g:indentLine_enabled = 1
+" " }}}
 Plug 'vim-airline/vim-airline-themes'
 Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
@@ -112,22 +118,25 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } "{{{
     let NERDTreeShowHidden=1
 " }}}
 Plug 'tpope/vim-commentary' "{{{
-    nnoremap  :Commentary<cr>
-    vnoremap  :Commentary<cr>
+    nnoremap <D-/> :Commentary<cr>
+    vnoremap <D-/> :Commentary<cr>
 " }}}
 Plug 'ctrlpvim/ctrlp.vim' "{{{
     let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
     " close prompt on backspace or <c-h>
+    let g:ctrlp_map = '<d-p>'
     let g:ctrlp_brief_prompt = 1
     let g:ctrlp_switch_buffer = 'Et'
     let g:ctrlp_prompt_mappings = {
+        \ 'PrtSelectMove("k")':   ['<C-l>', '<up>'],
+        \ 'PrtSelectMove("j")':   ['<C-k>', '<down>'],
         \ 'PrtDeleteEnt()':       ['<C-d>'],
         \ }
 " }}}
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'tmux-plugins/vim-tmux-focus-events'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'tmux-plugins/vim-tmux'
+" Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 " }}}
 " ===========================================================================================================
@@ -135,12 +144,13 @@ call plug#end()
 " ===========================================================================================================
 " {{{
 
-" Save whenever switching windows or leaving vim. This is useful when running
-" the tests inside vim without having to save all files first.
+" Save whenever switching windows or leaving vim. This is useful when running the tests inside vim without having to save all files first.
 au FocusLost,WinLeave * :silent! wa
 " Trigger autoread when changing buffers or coming back to vim.
 au FocusGained,BufEnter * :silent! !
 
+set ttyfast
+set lazyredraw
 set nobackup
 set noswapfile
 set autoread                    " automatically reload files changed outside of Vim
@@ -201,36 +211,24 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gl :Glog<cr>
 nnoremap <leader>gb :Gblame<cr>
 
-" Use arrow keys for quickfix window navigation
-noremap <Up> :copen<cr>
-noremap <Down> :cclose<cr>
-noremap <Left> :cp<cr>
-noremap <Right> :cn<cr>
+nnoremap <leader>j :tabprevious<cr>
+nnoremap <leader>; :tabnext<cr>
 
-" Disable arrow keys in insert mode
-inoremap <Up> <nop>
-inoremap <Down> <nop>
-inoremap <Left> <nop>
-inoremap <Right> <nop>
+" Use arrow keys for quickfix window navigation
+" noremap <Up> :copen<cr>
+" noremap <Down> :cclose<cr>
+" noremap <Left> :cp<cr>
+" noremap <Right> :cn<cr>
 
 " enables magic mode in regular expressions
 " :help /magic
 nnoremap / /\v
 vnoremap / /\v
 
-" Remap colon and semicolon, saves pressing shift
-" everytime I need to enter command mode
-" pretty sure i do that more than find next occurance
-" of char on line (default semicolon behaviour)
-" nnoremap ; :
-" nnoremap : ;
-" vnoremap ; :
-" vnoremap : ;
-
 " when in insert mode, press <F2> to go to
 " paste mode, where you can paste mass data
 " that won't be autoindented
-set pastetoggle=<F2>
+" set pastetoggle=<F2>
 
 " Reselect previous selection after indenting
 vnoremap > >gv
@@ -244,37 +242,34 @@ inoremap <C-S> <Esc>:w<cr>
 
 " ctrl-h is sending backspace<BS> instead of ^H
 " https://github.com/neovim/neovim/issues/2048
-if has('nvim')
-    nmap <BS> <C-h>
-endif
+" if has('nvim')
+"     nmap <BS> <C-h>
+" endif
 
 "Switch between panels left and right.
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>h
+nnoremap <C-;> <C-w>l
+nnoremap <C-k> <C-w>j
+nnoremap <C-l> <C-w>k
+nnoremap <C-t> <C-w>T
+
+" Navigate with jkl; instead of hjkl
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
 
 " Jump 5 lines at a time. useful for keyboard scrolling the cursor.
-noremap <S-j> 5j
-noremap <S-k> 5k
-
-" Scroll horizontally 5 lines at a time
-" one line just isnt enough
-nnoremap zl z5l
-nnoremap zh z5h
-
-" Tab controls. Awesomeness engaged.
-" Shift H and Shift L to switch tabs
-nnoremap <S-T> :tabnew<cr>
-nnoremap <S-W> :tabclose<cr>
-nnoremap <S-H> :tabprevious<cr>
-nnoremap <S-L> :tabnext<cr>
+noremap <S-k> 5j
+noremap <S-l> 5k
 
 " Let escape leave terminal buffer
 " Returns to normal mode, making all vim keybindings come back to life
 " neovim only
 if(has('nvim'))
     tnoremap <Esc> <C-\><C-n>
+    tnoremap <S-H> <C-\><C-n>:tabprevious<cr>
+    tnoremap <S-L> <C-\><C-n>:tabnext<cr>
 endif
 
 " Scroll screen so tht cursor is in the center after searches
