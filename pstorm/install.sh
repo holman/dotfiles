@@ -1,6 +1,6 @@
 #!/bin/sh
 theme='Material Peacock Optimized.icls'
-target="${HOME}/Library/Preferences/PhpStorm2017.1/colors/"
+target="${HOME}/Library/Preferences/PhpStorm2017.2/colors/"
 
 if [ ! -d "${target}" ]
 then
@@ -9,5 +9,5 @@ fi
 
 if [ ! -L "${target}${theme}" ]
 then
-  ln -s "./pstorm/${theme}" "${target}"
+  cp "./pstorm/${theme}" "${target}"
 fi
