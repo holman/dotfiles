@@ -24,7 +24,7 @@ alias drmv='printf "\n>>> Deleting dangling volumes\n\n" && docker volume rm $(d
 
 
 # Delete all volumes
-alias drmv='printf "\n>>> Deleting all volumes\n\n" && docker volume rm $(docker volume ls -q)'
+alias drmva='printf "\n>>> Deleting all volumes\n\n" && docker volume rm $(docker volume ls -q)'
 
 
 # Delete all stopped containers, untagged images and dangling volumes
