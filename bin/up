@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function init_web() {
-	local $session=$1
+	local session=$1
 	local position=$2
 	tmux send-keys -t $session:$position 'vagrant ssh web' Enter
 	if $new && [ $position = '2' ]; then
@@ -11,13 +11,13 @@ function init_web() {
 }
 
 function init_db() {
-	local $session=$1
+	local session=$1
 	local position=$2
-	tmux send-keys -t $session:$position 'vagrant ssh db' Enter 'sudo -u postgres psql -d' $1 Enter
+	tmux send-keys -t $session:$position 'vagrant ssh db' Enter 'sudo -u postgres psql -d ' ${1,,} Enter
 }
 
 function init_broker() {
-	local $session=$1
+	local session=$1
 	local position=$2
 	tmux send-keys -t $session:$position 'vagrant ssh broker' Enter
 }
@@ -44,7 +44,7 @@ function init_es() {
 session=$1
 new=$2
 new=${new:=false}
-directory=$HOME/Development/projects/$session
+directory=$HOME/Development/Projects/$session
 
 web_test=1
 web=2
@@ -68,7 +68,9 @@ init_db $session $db_pos
 init_broker $session $broker_pos
 init_worker $session $worker_pos $new
 
-if [ $session == 'vanessa' ]; then
+echo $session
+
+if [ $session == 'Vanessa' ]; then
 	tmux new-window -t $session 'es' -c $directory
 	init_es $session 6
 fi

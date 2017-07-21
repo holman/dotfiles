@@ -1,0 +1,10 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
+	"rulers": [80, 100],
+	"scroll_past_end": false,
+	"ensure_newline_at_eof_on_save": true,
+	"drag_text": false,
+	"animation_enabled": false,
+	"show_encoding": true,
+	"auto_match_enabled": false,
+}
