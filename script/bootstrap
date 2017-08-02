@@ -137,7 +137,8 @@ install_dotfiles () {
   done
 }
 
-setup_gitconfig
+# Skip for now as it would be handled by YADR
+#setup_gitconfig
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.

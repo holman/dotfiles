@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find $1 -type d \( -name "node_modules" -o -name "bower_modules" \) -exec touch "{}/.metadata_never_index" \;
