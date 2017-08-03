@@ -21,7 +21,7 @@ git_info() {
     echo ""
   else
     # Removed dirty checking, again because of performance issues
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}$(need_push)"
+      echo " on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}$(need_push)"
   fi
 }
 
@@ -37,9 +37,18 @@ unpushed () {
 need_push () {
   if [[ $(unpushed) == "" ]]
   then
-    echo " "
+    echo ""
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%}"
+  fi
+}
+
+virtualenv_info (){ 
+  if [[ -z $VIRTUAL_ENV ]]
+  then
+    echo ""
+  else
+    echo " using venv %{$fg_bold[magenta]%}"`basename $VIRTUAL_ENV`"/%{$reset_color%}"
   fi
 }
 
@@ -47,7 +56,7 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\nin $(directory_name) $(git_info)\n› '
+export PROMPT=$'\n%{$(iterm2_prompt_mark)%}in $(directory_name)$(git_info)$(virtualenv_info)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
