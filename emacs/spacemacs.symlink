@@ -78,9 +78,7 @@ values."
      (org :variables
           org-enable-github-support t
           org-agenda-files (list "~/Dropbox/org/work.org"
-                                 "~/Dropbox/org/home.org"
-                            )
-          )
+                                 "~/Dropbox/org/home.org"))
 
      ;; Testing
      ;;
