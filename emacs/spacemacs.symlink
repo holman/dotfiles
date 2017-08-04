@@ -88,6 +88,7 @@ values."
      (org :variables
           org-enable-github-support t
           org-agenda-files (list "~/Dropbox/org/work.org"
+<<<<<<< HEAD
                                  "~/Dropbox/org/home.org"
                             )
           )
@@ -115,6 +116,9 @@ values."
      osx
 =======
 >>>>>>> Changes spacemacs layers config.
+=======
+                                 "~/Dropbox/org/home.org"))
+>>>>>>> Format change for spacemacs org variables.
 
      ;; Testing
      ;;
