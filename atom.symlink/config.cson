@@ -1,4 +1,11 @@
 "*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "e426b16e-4437-4291-a506-5fa5465e114d"
+    scss:
+      beautify_on_save: true
+      convert_quotes: "single"
+      preserve_newlines: true
   "atom-clock":
     showClockIcon: true
   autosave:
@@ -9,21 +16,29 @@
       "exception-reporting"
       "metrics"
       "minimap"
-      "linter-ui-default"
       "linter"
       "linter-docker"
+      "autocompiler-pug-jade"
+      "linter-pug"
+      "git-plus"
+      "Sublime-Style-Column-Selection"
+      "duplicate-line-or-selection"
+      "emmet"
+      "emmet-jsx-css-modules"
+      "language-babel"
+      "language-jade"
     ]
     hideGitIgnoredFiles: false
     projectHome: "~/bin"
+    restorePreviousWindowsOnStart: "no"
     telemetryConsent: "limited"
     themes: [
-      "one-dark-ui"
-      "atom-dark-syntax"
+      "atom-material-ui"
+      "atom-material-syntax-dark"
     ]
   editor:
-    autoIndentOnPaste: false
     fontFamily: "Menlo"
-    fontSize: 16
+    fontSize: 18
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -31,11 +46,16 @@
     softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
     tabLength: 4
+    tabType: "soft"
   "git-plus":
     pullBeforePush: "pull"
     tabLength: 4
   "go-plus":
     goPath: "/Users/holman/Code/go"
+  "linter-tidy":
+    grammarScopes: [
+      "text.html.basic text.html.twig"
+    ]
   "merge-conflicts": {}
   minimap:
     absoluteMode: true
@@ -51,12 +71,19 @@
     ]
   "svg-preview":
     openPreviewAutomatically: true
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "sync-settings":
+    _lastBackupHash: "950d73b1a98c19a3913bf056ddd134c4337475e9"
+    gistId: "08a0a2cd9d4cecf260bb8683eab060a7"
+    personalAccessToken: "f2df5e29c7d56086c7a7703e37bf7e3cb7aafefe"
+  "tree-view": {}
   "webbox-color":
     fillColorAsBackground: false
   welcome:
     showOnStartup: false
+".aem.htl":
+  editor:
+    commentEnd: " */-->"
+    commentStart: "<!--/* "
 ".coffee.jsx.source":
   editor:
     autoIndentOnPaste: true

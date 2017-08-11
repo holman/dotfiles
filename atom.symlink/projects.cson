@@ -1,5 +1,37 @@
-"teslamotors.com":
-  title: "teslamotors.com"
-  paths: [
-    "/Users/eritchey/bin/tesla/tesla.com"
-  ]
+[
+  {
+    title: "tesla.com"
+    group: "Tesla"
+    paths: [
+      "/Users/eritchey/bin/tesla/tesla.com"
+    ]
+  }
+  {
+    title: "S/X Redesign"
+    group: "Tesla"
+    paths: [
+      "/Users/eritchey/bin/tesla/sx-redesign"
+    ]
+  }
+  {
+    title: "Tesla Commerce"
+    group: "Tesla"
+    paths: [
+      "/Users/eritchey/bin/tesla/tesla-commerce"
+    ]
+  }
+  {
+    title: "ElasticPath Commerce"
+    group: "Tesla"
+    paths: [
+      "/Users/eritchey/bin/tesla/ep-commerce"
+    ]
+  }
+  {
+    title: "Tesla Particles"
+    group: "Tesla"
+    paths: [
+      "/Users/eritchey/bin/tesla/particles"
+    ]
+  }
+]

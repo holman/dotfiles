@@ -8,3 +8,5 @@ atom.symlink/storage
 atom.symlink/themes
 
 git/gitconfig.symlink
+atom.symlink/local-history
+atom.symlink/recovery

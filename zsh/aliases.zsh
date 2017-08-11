@@ -37,4 +37,5 @@ alias switch56="brew-php-switcher 56;php -v"
 # export VISUAL='subl'
 
 
-alias startaem="cd ~/bin/tesla/aem-startup && java -Xms1024M -Xmx1256M -XX:MaxPermSize=256M -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=30303,server=y,suspend=n -jar aem6-author-p4502.jar -r author local -gui"
+alias startaemauthor="ttab -a iterm -t 'AEM Author' && cd ~/bin/tesla/aem-startup/author; java -Xmx1024M -Xmx1256M -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=30303,server=y,suspend=n -jar aem6-author-p4502.jar -r local,author -gui; sleep 5s; exit;"
+alias startaempublish="ttab -a iterm -t 'AEM Publisher' && cd ~/bin/tesla/aem-startup/publish; java -Xmx1024M -Xmx1256M -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=30303,server=y,suspend=n -jar aem6-publish-p4503.jar -r local,author -gui; sleep 5s; exit;"
