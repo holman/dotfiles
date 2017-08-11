@@ -1,3 +1,5 @@
+source /usr/local/share/antigen/antigen.zsh
+
 ## Antigen
 antigen use oh-my-zsh
 

@@ -5,6 +5,7 @@ tap 'homebrew/bundle'
 tap 'caskroom/versions'
 tap 'homebrew/php'
 
+brew 'antigen'
 brew 'ack'
 brew 'coreutils'
 brew 'dnsmasq'
