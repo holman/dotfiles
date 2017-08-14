@@ -22,7 +22,7 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontFamily: "Menlo"
+    fontFamily: "FuraCode Nerd Font"
     fontSize: 13
     invisibles: {}
     showIndentGuide: true

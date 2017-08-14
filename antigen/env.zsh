@@ -22,9 +22,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 
 ### Theme
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm battery time)
+source $ZSH/antigen/theme_config.sh
 
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
