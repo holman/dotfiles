@@ -6,6 +6,7 @@ atom.symlink/compile-cache/
 atom.symlink/packages
 atom.symlink/storage
 atom.symlink/themes
+atom.symlink/projects.cson
 
 antigen.symlink/repos
 

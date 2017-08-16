@@ -1,12 +1,22 @@
 "*":
+  "atom-autocomplete-php":
+    gotoKey: "cmd"
+    insertNewlinesForUseStatements: true
+  "atom-material-ui":
+    tabs:
+      compactTabs: true
+    ui:
+      panelContrast: true
+  autosave:
+    enabled: true
   core:
     disabledPackages: [
       "background-tips"
       "exception-reporting"
       "metrics"
       "language-gfm"
+      "markdown-preview"
     ]
-    followSymlinks: false
     hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
@@ -18,8 +28,8 @@
     ]
     telemetryConsent: "no"
     themes: [
-      "atom-dark-ui"
-      "solarized-dark-syntax"
+      "atom-material-ui"
+      "atom-material-syntax"
     ]
   editor:
     fontFamily: "FuraCode Nerd Font"
@@ -27,6 +37,7 @@
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
+    tabLength: 4
   "go-plus":
     goPath: "/Users/holman/Code/go"
   "markdown-writer":
