@@ -380,15 +380,13 @@ you should place your code here."
     (when buffer-file-name (save-buffer)))
   (setq powerline-default-separator 'nil)
 
-  ;; Disable current line highlight
-  (global-hl-line-mode -1)
 
   ;; Follow symlinks by default
   (setq vc-follow-symlinks 't)
 
   ;; Adds padding after numbers for terminal mode
-  (unless (display-graphic-p)
-    (setq linum-relative-format " %3s  "))
+  ;; (unless (display-graphic-p)
+  ;;   (setq linum-relative-format "%3s "))
 
   ;; Org mode
   (with-eval-after-load 'org
@@ -417,7 +415,11 @@ you should place your code here."
       (setq-default
        git-gutter:modified-sign "!")
       ))
-  )
+
+  ;; JS
+  (setq js2-basic-offet 2)
+  (setq-default js-indent-level 2)
+  (setq js2-strict-missing-semi-warning nil))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
