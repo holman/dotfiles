@@ -3,9 +3,9 @@ set fish_greeting ""
 set -x EDITOR nvim
 
 # Set android path for gradle build
-set -x ANDROID_HOME /usr/local/opt/android-sdk
-
-set -x NODE_TLS_REJECT_UNAUTHORIZED 0
+set -x ANDROID_HOME /usr/local/share/android-sdk
+set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
+set -x ANDROID_NDK_HOME /usr/local/share/android-ndk
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
@@ -16,7 +16,6 @@ set -e fish_user_abbreviations
 
 # Misc abbreviations ------------------------------------
 abbr c z
-# abbr v venv; command nvim
 abbr stt subl .
 abbr r source ~/.config/fish/config.fish
 
@@ -43,8 +42,7 @@ abbr tns tmux new-session -s
 
 # # Paths
 test -d $HOME/.rbenv/shims ; and set PATH $HOME/.rbenv/shims $PATH
-# test -d /usr/local/share/npm/bin ; and set PATH /usr/local/share/npm/bin $PATH
-# test -d /usr/local/racket/bin    ; and set PATH /usr/local/racket/bin $PATH
+test -d ~/.pyenv/shims ; and set PATH ~/.pyenv/shims $PATH
 
 # Navigation
 function ..    ; cd .. ; end
@@ -59,7 +57,6 @@ function a        ; command ag --ignore=.git --ignore=log --ignore=tags --ignore
 function lookbusy ; cat /dev/urandom | hexdump -C | grep --color "ca fe" ; end
 function tree     ; command tree -C $argv ; end
 function tmux     ; command tmux -2 $argv ; end
-function npms     ; command npm start; end
 
 # Completions for custom aliases
 function make_completion --argument-names alias command
@@ -73,11 +70,10 @@ function make_completion --argument-names alias command
     complete -c $alias -a "(__alias_completion_$alias)"
 end
 
-make_completion v 'nvim'
-
-# nvim
+# open new vimr instances on launch
+# set cwd to current directory
 function v
-    venv; command nvim $argv
+    vimr -s --cwd .
 end
 
 # rbenv
@@ -85,21 +81,24 @@ function rb
 	status --is-interactive; and . (rbenv init -|psub)
 end
 
+function node
+    nvm use 7.0.0
+end
+
 # nvm
 function nvm
   	bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 end
-# nvm > /dev/null
 
 # python virtual environment
-set -x PIP_REQUIRE_VIRTUALENV true
-function venv
+set -x PIP_REQUIRE_VIRTUALENV false
+function py
     status --is-interactive; and . (pyenv init -|psub)
-    source ~/.virtualenv/neo/bin/activate.fish
+    status --is-interactive; and . (pyenv virtualenv-init -|psub)
 end
 
 # launch tmux automatically
-# command bash
 if test $TERM != "screen-256color"
-    command tmux attach-session -t (whoami); or command tmux new-session -s (whoami)
+    command tmux attach-session -t 'default'; or command tmux new-session -s 'default'
 end
+

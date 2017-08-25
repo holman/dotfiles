@@ -3,38 +3,51 @@ source ./install/utils.sh
 
 info "installing python versions"
 
+set PYTHON3_VERSION 3.5.2
+set PYTHON2_VERSION 2.7.12
+
 # only install if not found
-if ! pyenv versions | grep 3.5.2
+if ! pyenv versions | grep $PYTHON3_VERSION
 then
-	pyenv install 3.5.2
+	pyenv install $PYTHON3_VERSION
 else
-	success "python 3.5.2 already installed"
+	success "python $PYTHON3_VERSION already installed"
 fi
 
 # only install if not found
-if ! pyenv versions | grep 2.7.12
+if ! pyenv versions | grep $PYTHON2_VERSION
 then
-	pyenv install 2.7.12
+	pyenv install $PYTHON2_VERSION
 else
-	success "python 2.7.12 already installed"
+	success "python $PYTHON2_VERSION already installed"
 fi
 
 # set global
-pyenv global 2.7.12
+pyenv global $PYTHON2_VERSION
 
-# enable use of pip to install virtual environments
-export PIP_REQUIRE_VIRTUALENV=false
+pyenv virtualenv $PYTHON2_VERSION neovim2
+pyenv activate neovim2
+pip install neovim
+pyenv which python  # Note the path
 
-if ! which virtualenv; then
-	# install venv globally if it does not exist
-	pip install virtualenv
-fi
+pyenv virtualenv $PYTHON3_VERSION neovim3
+pyenv activate neovim3
+pip install neovim
+pyenv which python  # Note the path
 
-# prevent usage of pip outside of virtual environment
-export PIP_REQUIRE_VIRTUALENV=true
+# # enable use of pip to install virtual environments
+# export PIP_REQUIRE_VIRTUALENV=false
 
-# create directory to store virtual environment things
-mkdir -p ~/.virtualenv
+# if ! which virtualenv; then
+# 	# install venv globally if it does not exist
+# 	pip install virtualenv
+# fi
+
+# # prevent usage of pip outside of virtual environment
+# export PIP_REQUIRE_VIRTUALENV=false
+
+# # create directory to store virtual environment things
+# mkdir -p ~/.virtualenv
 
 # create and activate our default python environment
 # cd ~/.virtualenv/

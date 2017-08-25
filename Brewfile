@@ -12,6 +12,7 @@ brew 'findutils'
 brew 'gource'
 brew 'wget'
 brew 'tree'
+brew 'nasm'
 
 # vim
 brew 'neovim'
@@ -27,20 +28,24 @@ brew 'reattach-to-user-namespace'
 # Android
 cask 'java'
 brew 'gradle'
-brew 'android-sdk'
+cask 'android-ndk'
+cask 'android-sdk'
 cask 'android-studio'
 
 # development
-brew 'leiningen'
 brew 'openssl'
 cask 'firefox'
 cask 'google-chrome'
 cask 'slack'
+cask 'haskell-platform'
 cask 'sourcetree'
 cask 'sublime-text'
 cask 'visual-studio-code'
 # cask 'steam'
 # cask 'teamspeak-client'
+
+# Environment switching
+brew direnv
 
 # virtualization
 cask 'docker'
@@ -49,6 +54,7 @@ cask 'virtualbox'
 
 # pyenv requirements
 brew 'pyenv'
+brew 'pyenv-virtualenv'
 brew 'readline' 
 brew 'xz'
 

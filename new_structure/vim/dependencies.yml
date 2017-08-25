@@ -1,0 +1,7 @@
+{
+    "personal": [
+        "python:personal",
+        "powerline",
+        "tmux",
+    ]
+}

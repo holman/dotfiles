@@ -7,6 +7,12 @@ atom.symlink/packages
 atom.symlink/storage
 atom.symlink/themes
 
+emacs/elpa
+emacs/auto-save-list
+emacs/custom.el
+emacs/network-security.data
+emacs/projectile-bookmarks.eld
+
 git/gitconfig.local.symlink
 npm-debug.log
 .DS_Store

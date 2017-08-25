@@ -46,3 +46,5 @@
 	email = mbaderoen@gmail.com
 [commit]
 	template = /Users/muneeb/.stCommitMsg
+	autocrlf = input
+
