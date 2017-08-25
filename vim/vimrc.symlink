@@ -4,6 +4,7 @@ let mapleader = "\<Space>"
 " Plugins
 " ===========================================================================================================
 " {{{
+
 call plug#begin('~/.vim/plugged')
 
 " General utilities
@@ -19,11 +20,13 @@ Plug 'neomake/neomake' "{{{
     autocmd! BufWritePost * Neomake
     let g:neomake_javascript_enabled_makers = ['eslint']
 " }}}
+
 Plug 'tpope/vim-fugitive', "{{{
     nnoremap gb :Gblame<cr>
     nnoremap gs :Gstatus<cr>
     nnoremap gd :Gdiff<cr>
 " }}}
+
 
 "Visual utilities
 Plug 'vim-airline/vim-airline' "{{{
@@ -52,13 +55,13 @@ Plug 'scrooloose/nerdtree' "{{{
         noremap <C-k><C-b> :NERDTreeToggle<cr>
     endif
 
-
     let NERDTreeChDirMode=1
     let NERDTreeHighlightCursorline=1
     let NERDTreeMapActivateNode='<space>'
     let NERDTreeMinimalUI=1
     let NERDTreeShowHidden=1
 " }}}
+
 Plug 'tyok/nerdtree-ack'
 Plug 'ctrlpvim/ctrlp.vim' "{{{
     if has("gui_vimr")
@@ -250,6 +253,7 @@ noremap l k
 noremap ; l
 noremap h ;
 
+
 " enables magic mode in regular expressions
 " :help /magic
 nnoremap / /\v
@@ -266,6 +270,7 @@ nnoremap <C-a><C-p> :tabprevious<cr>
 nnoremap <C-a>p :tabprevious<cr>
 nnoremap <C-a><C-n> :tabnext<cr>
 nnoremap <C-a>n :tabnext<cr>
+
 
 " General ease of use
 " Save on cmd-s. 
