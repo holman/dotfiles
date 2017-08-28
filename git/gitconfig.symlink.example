@@ -22,7 +22,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = atom
+        editor = vim
         autocrlf = input
 [apply]
         whitespace = nowarn
@@ -64,7 +64,7 @@
 	prune = true
 
 [gpg]
-	program = gpg2
+	program = gpg
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f

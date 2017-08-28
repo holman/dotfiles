@@ -40,8 +40,14 @@
     tabLength: 4
   "go-plus":
     goPath: "/Users/holman/Code/go"
+  "markdown-image-assistant":
+    prependTargetFileName: false
+  "markdown-preview-plus":
+    breakOnSingleNewline: true
   "markdown-writer":
     fileExtension: ".md"
+    relativeImagePath: true
+    siteImagesDir: "img/{year}/{month}/"
   "release-notes":
     viewedVersion: "0.89.0"
   "spell-check":
@@ -52,3 +58,7 @@
     ]
   welcome:
     showOnStartup: false
+".md.text":
+  editor:
+    softWrap: false
+    softWrapAtPreferredLineLength: false

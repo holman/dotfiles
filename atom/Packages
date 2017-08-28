@@ -11,8 +11,10 @@ file-icons
 git-plus
 highlight-selected
 language-markdown
+markdown-format
 markdown-pdf
 markdown-preview-plus
+markdown-scroll-sync
 markdown-themeable-pdf
 markdown-writer
 open-recent
