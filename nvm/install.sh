@@ -8,9 +8,8 @@ export NVM_DIR="$HOME/.nvm" && (
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-nvm install stable
-nvm alias default stable
-nvm use stable
+nvm install lts/*
+nvm alias default lts/*
+nvm use lts/*
 
-npm install npm@latest -g
-npm install bower grunt-cli gulp-cli webpack webpack-dev-server yarn -g
+yarn global add npm@latest bower grunt-cli gulp-cli webpack webpack-dev-server ghost-cli
