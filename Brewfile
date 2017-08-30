@@ -26,7 +26,7 @@ brew 'php-cs-fixer'
 brew 'thefuck'
 brew 'tig'
 brew 'wget'
-brew 'yarn'
+brew 'yarn', args: ["without-node"]
 brew 'youtube-dl'
 brew 'zsh'
 brew 'zsh-completions'
