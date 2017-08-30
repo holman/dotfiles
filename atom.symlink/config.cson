@@ -22,10 +22,25 @@
   core:
     closeDeletedFileTabs: true
     closeEmptyWindows: false
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "background-tips"
       "exception-reporting"
       "metrics"
+      "react"
+      "linter-rubocop"
+      "tree-view"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -38,16 +53,29 @@
       "vendor"
     ]
     telemetryConsent: "no"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
   editor:
     fontFamily: "Menlo"
-    fontSize: 15
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
   "go-plus":
+    panel:
+      currentHeight: "24.11111111111111vh"
     panelDisplayMode: "closed"
+    test: {}
   "linter-eslint":
     useGlobalEslint: true
+  "linter-rubocop": {}
+  "linter-ui-default":
+    panelHeight: 301
+  nuclide:
+    "atom-ide-code-format":
+      formatOnType: false
+    "nuclide-flow": {}
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true
