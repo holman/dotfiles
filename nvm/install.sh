@@ -6,8 +6,6 @@ export NVM_DIR="$HOME/.nvm" && (
   git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
 ) && . "$NVM_DIR/nvm.sh"
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
 nvm install lts/*
 nvm install stable
 nvm alias default stable
