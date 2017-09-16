@@ -5,7 +5,7 @@ zshBrew=${brew}/bin/zsh
 
 if ! grep -Fxq "${zshBrew}" /etc/shells
 then
-  sudo sh -c 'echo "${zshBrew}" >> /etc/shells'
+  sudo sh -c "echo '${zshBrew}' >> /etc/shells"
 fi
 
-chsh -s $(brew --prefix zsh)/bin/zsh
+chsh -s ${zshBrew}

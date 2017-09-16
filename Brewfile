@@ -70,6 +70,7 @@ cask 'musicbrainz-picard'
 cask 'nextcloud'
 cask 'onyx'
 cask 'openemu'
+cask 'phpstorm'
 cask 'postman'
 cask 'skype'
 cask 'sourcetree'
@@ -87,7 +88,6 @@ cask 'xld'
 
 
 # GPG Related
-brew 'gnupg'
 brew 'gnupg2'
 brew 'gpg-agent'
 brew 'pinentry-mac'
