@@ -2,7 +2,7 @@
 alias dme='eval $(docker-machine env default)'
 
 #Start the default docker machine env
-alias dms='docker-machine start default && dme'
+alias dms='docker-machine start default || true && dme'
 
 # Get docker container IP
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
