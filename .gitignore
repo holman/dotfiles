@@ -8,6 +8,7 @@ atom.symlink/storage
 atom.symlink/themes
 atom.symlink/projects.cson
 atom.symlink/dev
+atom.symlink/split-diff
 
 antigen.symlink/repos
 

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+gpull () {
+
+    if [ -z $1 ]; then
+        git gpull
+    else
+        local current_branch=$(git branch-name)
+
+        git checkout $1
+        git gpull
+        git checkout $current_branch
+    fi
+}
