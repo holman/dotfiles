@@ -1,3 +1,4 @@
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -32,7 +33,3 @@ compinit
 
 export NVM_DIR="/Users/cwardzala/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export PATH="$HOME/.yarn/bin:$PATH"

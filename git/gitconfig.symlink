@@ -1,5 +1,5 @@
 [user]
-    name = cwardzala
+    name = Cameron Wardzala
     email = cwardzala@gmail.com
     signingkey = 842A0F02F354309E
 [credential]
@@ -46,6 +46,7 @@
     prune = fetch --prune
     undo = reset --soft HEAD^
     stash-all = stash save --include-untracked
+    leaderboard = shortlog -sn
 [gpg]
     program = /usr/local/bin/gpg
 [status]

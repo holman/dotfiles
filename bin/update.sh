@@ -1,16 +1,22 @@
 #!/bin/bash
 
 echo "Updating macOS..."
-sudo softwareupdate -i -a;
+sudo softwareupdate -i -a
 
 echo "Updating Homebrew and its installed packages..."
-brew update; brew upgrade; brew cleanup; brew prune; brew cask cleanup;
+brew update
+brew upgrade
+brew cleanup
+brew prune
+brew cask cleanup
 
 echo "Updating npm and its installed packages..."
-npm install npm -g; npm update -g; 
+npm install npm -g
+npm update -g 
 
 echo "Updating installed Ruby gems..."
-gem update; gem cleanup;
+sudo gem update
+sudogem cleanup
 
 echo "Updating installed pip packages..."
 pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U;
