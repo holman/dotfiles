@@ -1,0 +1,98 @@
+###############################################################################
+#
+# Copyright 2006 - 2016, Paul Beckingham, Federico Hernandez.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# http://www.opensource.org/licenses/mit-license.php
+#
+###############################################################################
+
+rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
+
+# General decoration
+color.label=
+color.label.sort=
+color.alternate=on gray2
+color.header=color0 on gray11
+color.footnote=on gray5
+color.warning=bold red
+color.error=white on red
+color.debug=blue
+
+# Task state
+color.completed=
+color.deleted=
+color.active=black on gray18
+color.recurring=
+color.scheduled=on gray8
+color.until=
+color.blocked=gray13
+color.blocking=bold white
+
+# Project
+color.project.none=
+
+# Priority
+color.uda.priority.H=gray21
+color.uda.priority.M=gray18
+color.uda.priority.L=gray12
+
+# Tags
+color.tag.next=bold white
+color.tag.none=
+color.tagged=
+
+# Due
+color.due=on gray3
+color.due.today=on gray4
+color.overdue=on gray6
+
+# Report: burndown
+color.burndown.pending=gray15 on gray5
+color.burndown.started=black on gray10
+color.burndown.done=gray5 on gray23
+
+# Report: history
+color.history.add=gray15 on gray5
+color.history.delete=black on gray10
+color.history.done=gray5 on gray23
+
+# Report: summary
+color.summary.bar=on gray12
+color.summary.background=on gray5
+
+# Command: calendar
+color.calendar.due=on gray8
+color.calendar.due.today=black on gray15
+color.calendar.holiday=black on gray20
+color.calendar.overdue=gray2 on gray10
+color.calendar.today=bold white
+color.calendar.weekend=on gray2
+color.calendar.weeknumber=gray6
+
+# Command: sync
+color.sync.added=gray15 on gray5
+color.sync.changed=black on gray10
+color.sync.rejected=gray5 on gray23
+
+# Command: undo
+color.undo.before=white on black
+color.undo.after=black on white
+

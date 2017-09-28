@@ -1,0 +1,98 @@
+###############################################################################
+#
+# Copyright 2006 - 2016, Paul Beckingham, Federico Hernandez.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# http://www.opensource.org/licenses/mit-license.php
+#
+###############################################################################
+
+rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
+
+# General decoration
+color.label=
+color.label.sort=
+color.alternate=on gray2
+color.header=rgb013
+color.footnote=rgb013
+color.warning=bold red
+color.error=white on red
+color.debug=rgb013
+
+# Task state
+color.completed=
+color.deleted=
+color.active=rgb045 on rgb015
+color.recurring=rgb115
+color.scheduled=on rgb012
+color.until=
+color.blocked=white on rgb001
+color.blocking=white on rgb002
+
+# Project
+color.project.none=
+
+# Priority
+color.uda.priority.H=rgb035
+color.uda.priority.L=rgb015
+color.uda.priority.M=rgb025
+
+# Tags
+color.tag.next=rgb550
+color.tag.none=
+color.tagged=color246
+
+# Due
+color.due.today=color252
+color.due=color249
+color.overdue=color255
+
+# Report: burndown
+color.burndown.done=on gray4
+color.burndown.pending=on rgb004
+color.burndown.started=on rgb015
+
+# Report: history
+color.history.add=color0 on rgb015
+color.history.delete=color0 on rgb035
+color.history.done=color0 on rgb025
+
+# Report: summary
+color.summary.background=on rgb001
+color.summary.bar=on rgb114
+
+# Command: calendar
+color.calendar.due.today=color0 on color252
+color.calendar.due=color0 on color249
+color.calendar.holiday=color255 on rgb013
+color.calendar.overdue=color0 on color255
+color.calendar.today=color0 on rgb115
+color.calendar.weekend=on color235
+color.calendar.weeknumber=rgb015
+
+# Command: sync
+color.sync.added=gray4
+color.sync.changed=rgb015
+color.sync.rejected=rgb004
+
+# Command: undo
+color.undo.after=rgb035
+color.undo.before=rgb013
+

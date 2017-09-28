@@ -6,7 +6,6 @@ tap 'caskroom/versions'
 tap 'caskroom/fonts'
 tap 'homebrew/php'
 
-brew 'antigen'
 brew 'ack'
 brew 'coreutils'
 brew 'dnsmasq'
@@ -25,14 +24,16 @@ brew 'php71-apcu-bc'
 brew 'php71-intl'
 brew 'php71-mcrypt'
 brew 'php-cs-fixer'
+brew 'reattach-to-user-namespace'
+brew 'task'
 brew 'thefuck'
 brew 'tig'
+brew 'tmux'
 brew 'wget'
 brew 'yarn', args: ["without-node"]
 brew 'youtube-dl'
 brew 'zsh'
-brew 'zsh-completions'
-
+brew 'zplug'
 
 # Coloring for commands
 brew 'grc'
@@ -85,6 +86,7 @@ cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'vivaldi'
 cask 'vlc'
+cask 'wire'
 cask 'xld'
 
 

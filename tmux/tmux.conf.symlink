@@ -1,0 +1,104 @@
+#### TMUX CONFIG ####
+
+# Map Tmux prefix as Ctrl-a
+set-option -g prefix C-a
+unbind-key C-b
+bind-key C-a send-prefix
+
+# Set term color properly
+set -g default-terminal "screen-256color"
+
+
+
+## Copy/Paste
+# Enable pbcopy, pbpaste & co under tmux
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
+setw -g mode-keys vi
+
+# Copy to global clipboard
+# for sierra use: brew install reattach-to-user-namespace --with-wrap-pbcopy-and-pbpaste
+bind-key -Tcopy-mode-vi Y send -X copy-pipe "pbcopy"
+bind-key P run "pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+
+# Start at 1 rather than 0
+set -g base-index 1
+setw -g pane-base-index 1
+set -g pane-border-bg green
+
+
+# use PREFIX | to split window horizontally and PREFIX - to split vertically
+bind | split-window -h
+bind - split-window -v
+
+# and use C-h and C-l to cycle thru panes
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# Be as large as you can be
+setw -g aggressive-resize on
+
+# Colorize the messages in the command
+set-option -g message-bg colour235
+set-option -g message-fg red
+
+# visual notification of activity in other windows
+setw -g monitor-activity on
+
+#Status
+set -g status-position top
+#set -g status-interval 5 # set update frequencey (default 15 seconds)
+set -g status-justify centre # center window list for clarity
+set -g visual-activity on
+set -g status-attr dim
+set -g status-right '#{tasks_status} | #{battery_icon} #{battery_percentage} #{battery_remain} | Online: #{online_status} | %H:%m'
+set -g status-right-length 100
+
+set-option -g status-bg colour235 #base02
+set-option -g status-fg green
+set-option -g status-attr dim
+
+# set window list colors - red for active and cyan for inactive
+set-window-option -g window-status-fg brightblue #base0
+set-window-option -g window-status-bg colour236
+set-window-option -g window-status-attr dim
+
+set-window-option -g window-status-current-fg brightred #orange
+set-window-option -g window-status-current-bg colour236
+set-window-option -g window-status-current-attr bright
+
+# Reload tmux config on
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+
+# auto rename windows
+set -g automatic-rename on
+
+
+# Mouse config
+set -g mouse on
+
+bind-key -T copy-mode-vi WheelUpPane send -X scroll-up
+bind-key -T copy-mode-vi WheelDownPane send -X scroll-down
+
+
+# Task manager
+set -g @tasks_manager 'taskwarrior'
+
+# Icons
+set -g @tasks_icon_urgent '⧗ '
+set -g @tasks_icon_outstanding '+ '
+
+#Battery plugin config
+set -g @batt_remain_short true
+
+#Plugins
+set -g @plugin tmux-plugins/tpm
+set -g @plugin chriszarate/tmux-tasks
+set -g @plugin tmux-plugins/tmux-battery
+set -g @plugin tmux-plugins/tmux-resurrect
+set -g @plugin tmux-plugins/tmux-online-status
+set -g @plugin soyuka/tmux-current-pane-hostname
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

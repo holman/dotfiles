@@ -1,0 +1,115 @@
+################################################################################
+#
+# Copyright 2006 - 2016, Paul Beckingham, Federico Hernandez.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# http://www.opensource.org/licenses/mit-license.php
+#
+###############################################################################
+
+# Colors used are based on the Solarized palette created by Ethan Schoonover
+# <http://ethanschoonover.com/solarized>
+#
+# This theme was designed to work with a terminal application that is using a
+# Solarized "Dark" color theme, otherwise colors will look odd. Solarized
+# includes themes for iTerm2, OSX Terminal.app, and Xresources. Others are also
+# available, i.e.:
+#
+#   Gnome Terminal <https://github.com/sigurdga/gnome-terminal-colors-solarized>
+#
+# Colors 0 through 15 in this theme are based on the 16 color positions defined
+# in the Xresources file distributed with the Solarized color palette.  Some
+# of the colors used are "named" in order to use the bold feature.  The color
+# "name" is based on the color's original name as the terminal understands it.
+#
+# Taskwarrior solarized-dark-256 theme created by Stefan A. Keel.
+
+rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
+
+# General decoration
+color.label=
+color.label.sort=
+color.alternate=on color7
+color.header=color2
+color.footnote=color2
+color.warning=color7 on color3
+color.error=color2
+color.debug=color3
+
+# Task state
+color.completed=
+color.deleted=
+color.active=color9
+color.recurring=color4
+color.scheduled=
+color.until=
+color.blocked=color0 on color14
+color.blocking=color15 on color0
+
+# Project
+color.project.none=
+
+# Priority
+color.uda.priority.H=bold color0
+color.uda.priority.M=bold color11
+color.uda.priority.L=bold color14
+
+# Tags
+color.tag.next=
+color.tag.none=
+color.tagged=color14
+
+# Due
+color.due=color9
+color.due.today=color1
+color.overdue=color5
+
+# Report: burndown
+color.burndown.done=color0 on color6
+color.burndown.pending=color0 on color1
+color.burndown.started=color0 on color3
+
+# Report: history
+color.history.add=color0 on color1
+color.history.delete=color0 on color3
+color.history.done=color0 on color6
+
+# Report: summary
+color.summary.background=on color7
+color.summary.bar=color0 on color6
+
+# Command: calendar
+color.calendar.due=color7 on color9
+color.calendar.due.today=color7 on color1
+color.calendar.holiday=color7 on color3
+color.calendar.overdue=color7 on color5
+color.calendar.today=color7 on color4
+color.calendar.weekend=on color7
+color.calendar.weeknumber=color14
+
+# Command: sync
+color.sync.added=color10
+color.sync.changed=color9
+color.sync.rejected=color13
+
+# Command: undo
+color.undo.after=color2
+color.undo.before=color1
+

@@ -1,7 +1,7 @@
 #!/bin/zsh
 POWERLEVEL9K_INSTALLATION_PATH=$HOME/.antigen/bundles/bhilburn/powerlevel9k
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir dir_writable vcs symfony2_version)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm battery ram load time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_SHORTEN_STRATEGY=truncate_with_package_name
 POWERLEVEL9K_DIR_PACKAGE_FILES=(package.json composer.json)

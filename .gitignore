@@ -20,3 +20,6 @@ cache
 gnupg.symlink/*
 !gnupg.symlink/gpg.conf
 !gnupg.symlink/gpg-agent.conf
+
+task.symlink/*
+!task.symlink/*.theme
