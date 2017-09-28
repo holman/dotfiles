@@ -1,4 +1,4 @@
-zmodload zsh/zprof 
+zmodload zsh/zprof
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 

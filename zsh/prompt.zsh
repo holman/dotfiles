@@ -27,6 +27,11 @@ git_dirty() {
   fi
 }
 
+repo_name() {
+  repo=$(basename `git rev-parse --show-toplevel`) || return
+  echo "%{$fg_bold[cyan]%}$repo%{$reset_color%}"
+}
+
 git_prompt_info () {
  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
 # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
@@ -51,7 +56,14 @@ need_push () {
 }
 
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  if $($git status -s &> /dev/null)
+  then
+    path="$(basename `git rev-parse --show-toplevel`)/$(git rev-parse --show-prefix)"
+    echo "repo: %{$fg_bold[cyan]%}$path%{$reset_color%}"
+  else
+    path=`pwd`
+    echo "%{$fg_bold[cyan]%}$path%{$reset_color%}"
+  fi
 }
 
 battery_status() {
