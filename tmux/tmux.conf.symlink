@@ -12,6 +12,9 @@ bind-key C-a send-prefix
 ## Reload tmux config with PREFIX r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
+## Tmux messages are displayed for 4 seconds
+set -g display-time 2000
+
 ## Be as large as you can be
 setw -g aggressive-resize on
 
@@ -40,13 +43,13 @@ set -g mouse on
 set -g default-command "reattach-to-user-namespace -l ${SHELL}"
 setw -g mode-keys vi
 
+### Setup 'v' to begin selection as in Vim
+bind-key -Tcopy-mode-vi v send -X begin-selection
+bind-key -Tcopy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
-### Copy to global clipboard
-bind-key -Tcopy-mode-vi Y send -X copy-pipe "pbcopy"
-bind-key P run "pbpaste | tmux load-buffer - && tmux paste-buffer"
-
-
-
+## Update default binding of `Enter` to also use copy-pipe
+unbind -Tcopy-mode-vi Enter
+bind -Tcopy-mode-vi Enter send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
 
 # Tmux global Colors / Theming
@@ -59,13 +62,14 @@ setw -g monitor-activity on
 
 ## Status bar
 set -g status-position top
-set -g status-interval 5 # set update frequency (default 15 seconds)
+set -g status-interval 2 # set update frequency (default 15 seconds)
 set -g status-justify centre
 set -g visual-activity on
-set -g status-right '#{tasks_status} | #{battery_icon} #{battery_percentage}#{?battery_remain, #{battery_remain},} | Online: #{online_status} | %H:%M'
 
 set -g status-left-length 100
+set -g status-left ''
 set -g status-right-length 100
+set -g status-right '#{tasks_status} | #{battery_icon} #{battery_percentage}#{?battery_remain, #{battery_remain},} | Online: #{online_status} | %H:%M'
 
 set-option -g status-bg default
 set-option -g status-fg white
@@ -97,13 +101,14 @@ set -g @offline_icon "#[fg=red]#[fg=default]"
 set -g @route_to_ping "he8us.be"
 
 
+
 ## Load Plugins
 set -g @plugin tmux-plugins/tpm
 set -g @plugin chriszarate/tmux-tasks
 set -g @plugin tmux-plugins/tmux-battery
 set -g @plugin tmux-plugins/tmux-resurrect
 set -g @plugin tmux-plugins/tmux-online-status
-set -g @plugin soyuka/tmux-current-pane-hostname
+
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+run "${TMUX_DIR}/plugins/tpm/tpm"

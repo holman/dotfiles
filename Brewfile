@@ -7,6 +7,7 @@ tap 'caskroom/fonts'
 tap 'homebrew/php'
 
 brew 'ack'
+brew 'asciinema'
 brew 'coreutils'
 brew 'dnsmasq'
 brew 'docker'
