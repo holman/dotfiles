@@ -14,11 +14,8 @@ zplug "zsh-users/zsh-autosuggestions"
 source $ZSH/zsh/theme.sh
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+if ! zplug check; then
+    zplug install
 fi
 
 zplug load
