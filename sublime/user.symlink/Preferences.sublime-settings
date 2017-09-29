@@ -1,7 +1,10 @@
 {
 	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
-	"font_size": 12.0,
-	"ignored_packages": [],
-	"vintage_start_in_command_mode": true,
-	"show_minimap": false
+	"detect_indentation": true,
+	"font_size": 15.0,
+	"ignored_packages":
+	[
+	],
+	"show_minimap": true,
+	"vintage_start_in_command_mode": true
 }
