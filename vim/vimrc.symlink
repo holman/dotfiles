@@ -14,7 +14,9 @@ set expandtab             " tab in insert mode uses spaces
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_files = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif,*.woff,*.ttf,*.dump,*/node_modules/*,*.scssc
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " color settings
 set background=dark
