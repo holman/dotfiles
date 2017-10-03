@@ -20,6 +20,7 @@ These are things that need to be installed downloaded that are not installed via
 
 ```
 npm install -g tern
+npm install -g js-beautify
 ```
 
 # Things from original project
