@@ -14,12 +14,10 @@ gsettings set org.gnome.desktop.interface enable-animations "false"
 sudo apt install -y git
 
 # remove junk
-sudo apt remove -y aisleriot cheese gnome-clocks gnome-dictionary gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hitori libreoffice* simple-scan swell-foop thunderbird xfburn xfce4-notes
+sudo apt remove -y aisleriot brasero-* cheese five-or-more four-in-a-row gnome-clocks gnome-dictionary gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sound-recorder gnome-sudoku hexchat hitori iagno inkscape lightsoff simple-scan swell-foop tali thunderbird xfburn xfce4-notes
 
 # install snaps for trendyness
-sudo snap install cannonical-livepatch keepassxc libreoffice
-# sudo snap install --classic vscode
-# sudo snap install atom
+sudo snap install cannonical-livepatch chromium docker
 
 # add icon theme
 mkdir $icon_dir
@@ -30,6 +28,9 @@ rm -r ~/.cache/gnome-control-center/backgrounds
 ln -s $HOME/Pictures/Wallpapers/ $HOME/.cache/gnome-control-center/backgrounds
 
 # add repos
+
+# papirus icon theme
+sudo add-apt-repository ppa:papirus/papirus
 
 # sublime-text
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -43,7 +44,7 @@ sudo apt update
 
 # install packages
 
-sudo apt install -y chromium-browser docker docker-compose firefox spotify-client sublime-text tmux vagrant vim virtualbox
+sudo apt install -y docker-compose firefox papirus-icon-theme spotify-client sublime-text tmux transmission vagrant vim virtualbox xrdp
 
 # rust
 curl https://sh.rustup.rs -sSf | sh

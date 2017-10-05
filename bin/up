@@ -7,7 +7,7 @@ function init_web() {
 	if $new && [ $position = '2' ]; then
 		tmux send-keys -t $1:2 'make clean install' Enter
 	fi
-	tmux send-keys 'workon $session' Enter 'src/python manage.py '
+	tmux send-keys 'workon ' $session Enter 'src/python manage.py '
 }
 
 function init_db() {
@@ -29,9 +29,9 @@ function init_worker() {
 
 	tmux send-keys -t $session:$position 'vagrant ssh worker' Enter
 	if $new ; then
-		tmux send-keys -t $1:$position 'make clean install' Enter
+		tmux send-keys -t $session:$position 'make clean install' Enter
 	fi
-	tmux send-keys 'workon $session' Enter 'src/python manage.py '
+	tmux send-keys 'workon ' $session Enter
 }
 
 function init_es() {

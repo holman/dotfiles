@@ -15,6 +15,7 @@
 	pl = pull
 	sts = status
 	st = status
+        git = !exec git
 [color]
         diff = auto
         status = auto
