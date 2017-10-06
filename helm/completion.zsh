@@ -1,0 +1,1 @@
+source <(helm completion zsh)
