@@ -106,3 +106,4 @@ tags.lock
 .stl
 .stm
 .st*
+CMakeLists.txt.user
