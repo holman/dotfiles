@@ -45,7 +45,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'rking/ag.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'ludovicchabant/vim-gutentags'
+" Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'lyuts/vim-rtags'
@@ -390,10 +390,10 @@ au BufEnter *.sls set ft=yaml
 
 " Configure gutentags status line
 " set statusline+=%{gutentags#statusline()}
-function! GutentagsAirline(...)
-  let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#syntastic#get_warnings(),0)} %{airline#util#wrap(airline#extensions#whitespace#check(),0)} %{gutentags#statusline()}'
-endfunction
-autocmd VimEnter * call GutentagsAirline()
+" function! GutentagsAirline(...)
+"   let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#syntastic#get_warnings(),0)} %{airline#util#wrap(airline#extensions#whitespace#check(),0)} %{gutentags#statusline()}'
+" endfunction
+" autocmd VimEnter * call GutentagsAirline()
 
 autocmd FileType groovy set sw=4 ts=4 sta et fo=croql
 
