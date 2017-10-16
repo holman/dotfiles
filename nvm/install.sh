@@ -11,7 +11,7 @@ nvm install stable
 nvm alias default stable
 nvm use lts/*
 
-npm install -g npm@latest bower grunt-cli gulp-cli webpack webpack-dev-server ghost-cli
+npm install -g npm@latest bower grunt-cli gulp-cli webpack webpack-dev-server ghost-cli lock-cli
 
 nvm use stable
 nvm reinstall-packages lts/*

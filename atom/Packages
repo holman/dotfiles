@@ -23,3 +23,7 @@ project-manager
 rst-preview
 split-diff
 set-syntax
+mjml-preview
+linter
+language-mjml
+linter-mjml
