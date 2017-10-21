@@ -1,0 +1,23 @@
+# Local/private config goes in the include
+[include]
+    path = ./.gitconfig-local
+[alias]
+    promote = !$ZSH/bin/git-promote
+    wtf     = !$ZSH/bin/git-wtf
+    co = checkout
+    br = branch
+    ci = commit
+    pu = pull -p
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[core]
+    editor = /usr/bin/vim
+[mergetool]
+    keepBackup = false
+[diff]
+    tool = vimdiff
+[push]
+    default = simple

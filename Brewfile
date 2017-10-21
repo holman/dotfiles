@@ -17,6 +17,7 @@ brew 'the_silver_searcher'
 brew 'tmux'
 
 cask 'firefox'
+cask 'flycut'
 cask 'intellij-idea'
 cask 'iterm2'
 cask 'google-chrome'
