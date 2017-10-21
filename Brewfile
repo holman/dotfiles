@@ -23,4 +23,5 @@ cask 'iterm2'
 cask 'google-chrome'
 cask 'slack'
 cask 'spotify'
-cask 'sublime'
+cask 'sublime-text'
+

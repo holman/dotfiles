@@ -1,0 +1,13 @@
+{
+	"auto_complete": false,
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"find_selected_text": true,
+	"font_size": 10,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_definitions": false,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true
+}
