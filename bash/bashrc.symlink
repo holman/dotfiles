@@ -9,3 +9,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 set -o vi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source /usr/local/opt/asdf/asdf.sh
