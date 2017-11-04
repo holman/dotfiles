@@ -29,8 +29,7 @@ values."
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
-   dotspacemacs-configuration-layers
-   '(
+   dotspacemacs-configuration-layers '(
      ;;
      ;; Languages
      ;; These are layers languages that I regularly use or look at
@@ -118,7 +117,11 @@ values."
 >>>>>>> Changes spacemacs layers config.
 =======
                                  "~/Dropbox/org/home.org"))
+<<<<<<< HEAD
 >>>>>>> Format change for spacemacs org variables.
+=======
+     helm
+>>>>>>> Adds `helm` to spacemacs layers.
 
      ;; Testing
      ;;
