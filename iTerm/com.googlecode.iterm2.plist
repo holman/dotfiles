@@ -184,7 +184,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 90 599 505 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>478 482 796 473 0 0 1680 1027 </string>
+	<string>-3 480 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>39 0 490 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -801,6 +801,10 @@
 	<string>FCE836C2-840C-4B6D-B79E-CCA906FF119A</string>
 	<key>NoSyncLastTipTime</key>
 	<real>522163224.77378303</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -875,7 +879,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-10-20T13:20:22Z</date>
+	<date>2017-11-06T14:18:33Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -902,9 +906,11 @@
 	<string></string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.3</string>
+	<string>3.1.4</string>
 </dict>
 </plist>
