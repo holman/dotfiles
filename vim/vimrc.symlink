@@ -1,7 +1,25 @@
-" vim-pathogen: https://github.com/tpope/vim-pathogen
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+" vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'dracula/vim'
+Plug 'vim-airline/vim-airline'
+Plug 'kien/ctrlp.vim'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-surround'
+
+Plug 'tpope/vim-rails'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'elmcast/elm-vim'
+
+call plug#end()
 
 set noswapfile
 

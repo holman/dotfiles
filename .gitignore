@@ -1,5 +1,6 @@
 sublime2/User/Package\ Control.sublime-settings
 vim/vim.symlink/.netrwhist
+vim/vim.symlink/plugged
 .DS_Store
 
 Package\ Control.cache
