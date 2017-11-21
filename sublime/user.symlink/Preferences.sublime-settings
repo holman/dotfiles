@@ -4,6 +4,7 @@
 	"font_size": 15.0,
 	"ignored_packages":
 	[
+		"Vintage"
 	],
 	"show_minimap": true,
 	"vintage_start_in_command_mode": true
