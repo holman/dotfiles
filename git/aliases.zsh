@@ -23,3 +23,6 @@ alias grbed='git rebase ES/development'
 alias gfo='git fetch origin'
 alias gfu='git fetch upstream'
 alias ga.='git add .'
+function gta() {
+  git tag -s $1 -m "$1"
+}
