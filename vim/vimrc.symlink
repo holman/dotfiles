@@ -107,6 +107,7 @@ match Todo /\s\+$/
 " For syntastic
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_python_checkers = ['pylint']
 
 " For nerdcommenter
 let g:NERDSpaceDelims=1

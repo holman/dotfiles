@@ -316,12 +316,12 @@ local_pip_install () {
   os=$(os_name)
   if [[ $os = "OSX" ]]
   then
-    ~/Library/Python/2.7/bin/pip install --user $1
+    ~/Library/Python/2.7/bin/pip install --user $1 --upgrade
   elif [[ $os = "Debian" ]]
   then
-    /usr/bin/pip install --user $1
+    /usr/bin/pip install --user $1 --upgrade
   else
-    ~/.local/bin/pip install --user $1
+    ~/.local/bin/pip install --user $1 --upgrade
   fi
 }
 
