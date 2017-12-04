@@ -24,6 +24,6 @@ cask 'intellij-idea'
 cask 'iterm2'
 cask 'google-chrome'
 cask 'slack'
+cask 'spectacle'
 cask 'spotify'
 cask 'sublime-text'
-
