@@ -63,7 +63,7 @@ There's a few special files in the hierarchy.
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/tmr08c/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 git submodule update --init
 git submodule update --recursive --remote
