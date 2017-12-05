@@ -418,10 +418,17 @@ you should place your code here."
        git-gutter:modified-sign "!")
       ))
 
-  ;; JS
-  (setq js2-basic-offet 2)
+  ;; JS Layer Config
+  (setq js2-strict-missing-semi-warning nil)
+  (setq js2-missing-semi-one-line-override nil)
+  (setq-default js2-basic-offset 2)
   (setq-default js-indent-level 2)
-  (setq js2-strict-missing-semi-warning nil))
+
+  ;; (Hopefully) Temporary Fixes
+
+  ;; https://github.com/magit/magit/issues/3158
+  (require 'helm-bookmark)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
