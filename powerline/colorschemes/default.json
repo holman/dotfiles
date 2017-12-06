@@ -1,0 +1,6 @@
+{
+  "groups": {
+    "kubernetes":                { "fg": "gray8",           "bg": "darkestblue", "attrs": [] },
+    "kubernetes:divider":        { "fg": "gray4",           "bg": "darkestblue", "attrs": [] }
+  }
+}

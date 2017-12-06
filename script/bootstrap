@@ -345,6 +345,7 @@ install_powerline () {
   install_pip
 
   local_pip_install 'powerline-status'
+  local_pip_install 'powerline-kubernetes'
 
   set_tmux_powerline_config
 
