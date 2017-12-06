@@ -12,6 +12,22 @@ These fork from [holman does dotfiles](https://github.com/holman/dotfiles/fork).
 git config --global github.oauth-token <token>
 ```
 
+## Additional macOS setup
+
+_There may be better ways to do this with plist magic_
+
+* Updates keyboard shortcuts for moving between spaces to `CMD + H` and `CMD + L`
+
+This can be found under `System Preferences` --> `Keyboard` --> `Shortcuts` --> `Mission Control`. The options are `Mission Contol / Move left a space` and `Mission Contol / Move right a space`. 
+
+* Set up Nightshfit 
+
+`System Preferences` --> `Displays` --> `Night Shift` 
+
+* Change Caps Lock to Control
+
+`System Preferences` --> `Keyboard` --> `Keyboard Tab` --> `Modifier Keys` button
+
 ## Additional things to download
 
 These are things that need to be installed downloaded that are not installed via the bootstrap script.
@@ -22,6 +38,25 @@ These are things that need to be installed downloaded that are not installed via
 npm install -g tern
 npm install -g js-beautify
 ```
+
+### Alfred
+
+Alfred will be install through homebrew.
+
+To use instead of spotlight, you need to disable the spotlight keyboard shortcut:
+
+`System Preferences` --> `Spotlight` --> `Keyboard Shortcuts` button 
+
+You can then update the Alfred settings to `CMD + Space` 
+
+### Third-party applications
+
+* [Spectacles](https://www.spectacleapp.com)
+
+### Style Prefernces
+
+* Remove stuff from the dock
+* Add the `HOME/Pictures/ScreenShots` direcotry to the dock
 
 # Things from original project
 
