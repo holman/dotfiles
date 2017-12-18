@@ -47,6 +47,7 @@
   Plugin 'tpope/vim-fugitive'
 
   Plugin 'altercation/vim-colors-solarized'
+  Plugin 'hashivim/vim-terraform'
   Plugin 'faith/vim-go'
 
   set background=dark
@@ -64,6 +65,9 @@
   autocmd! BufEnter *.pp set filetype=puppet
   autocmd! BufEnter *.sls set filetype=sls
 
+  " Remove all trailing whitespace on :w
+  autocmd BufWritePre * %s/\s\+$//e
+
 " Vim Settings
 " ============
 
@@ -79,7 +83,7 @@
   set tabstop=2
   " set nowrap
   " set number
-  set expandtab 
+  set expandtab
   set nowritebackup
   set noswapfile
   set nobackup
@@ -155,6 +159,10 @@
 " Plugin Settings
 " ===============
 
+  " HashiVim terraform
+  let g:terraform_align=1
+  let g:terraform_remap_spacebar=1
+
   " NERDTree
   nmap <leader>n :NERDTreeToggle<CR>
   let NERDTreeHighlightCursorline=1
@@ -208,3 +216,26 @@
   "syntax sync minlines=256
   "set syntaxcol=256
 
+" little trick that uses terminal's backeted paste mode to automatically set/unset paste mode
+" https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+  function! WrapForTmux(s)
+    if !exists('$TMUX')
+      return a:s
+    endif
+
+    let tmux_start = "\<Esc>Ptmux;"
+    let tmux_end = "\<Esc>\\"
+
+    return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+  endfunction
+
+  let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+  let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+  function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
+  endfunction
+
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
