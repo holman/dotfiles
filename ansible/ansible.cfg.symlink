@@ -1,0 +1,7 @@
+[defaults]
+roles_path = $PROJECTS/ansible/roles
+# controls default policy of facts gathering (smart = new hosts will be scanned but only once)
+gathering = smart
+# don't create .retry file
+retry_files_enabled = False
+host_key_checking = True
