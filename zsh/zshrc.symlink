@@ -36,10 +36,11 @@ do
   source $file
 done
 
-# export PATH="/home/bhillmann/toolkits/miniconda3/bin:$PATH"
-
 unset config_files
 
 # Load up the PURE prompt
 autoload -U promptinit; promptinit
 prompt pure
+
+# SYNTAX HIGHLIGHTING MUST BE SOURCED LAST
+source zsh-syntax-highlighting

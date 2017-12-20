@@ -11,3 +11,6 @@ atom.symlink/recovery
 
 git/gitconfig.local.symlink
 todo/completion.zsh
+
+pure/async
+pure/prompt_pure_setup
