@@ -39,3 +39,7 @@ done
 # export PATH="/home/bhillmann/toolkits/miniconda3/bin:$PATH"
 
 unset config_files
+
+# Load up the PURE prompt
+autoload -U promptinit; promptinit
+prompt pure
