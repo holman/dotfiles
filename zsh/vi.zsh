@@ -1,7 +1,10 @@
 # Vi mode
 bindkey -v
+zstyle ':completion:*' menu select
 
 zmodload zsh/complist
+# Group results by category
+zstyle ':completion:*' group-name ''
 
 # use the vi navigation keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char
