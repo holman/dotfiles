@@ -1,4 +1,4 @@
-# vim: ts=4 sw=4
+
 # Initialize completion
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion::complete:*' cache-path $ZSH_CACHE

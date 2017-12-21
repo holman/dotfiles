@@ -1,4 +1,4 @@
-fpath=( "$HOME/.zfunctions" $fpath )
+fpath=( "$HOME/.zprompt" $fpath )
 autoload -U promptinit; promptinit
 
 # optionally define some options

@@ -1,15 +1,11 @@
-if [[ ! -s "$HOME/.zfunctions" ]]; then
-  mkdir "$HOME/.zfunctions"
+if [[ ! -s "$HOME/.zprompt" ]]; then
+  mkdir "$HOME/.zprompt"
 fi
 
 if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/external/pure/pure.zsh" ]]; then
-  ln -s "${ZDOTDIR:-$HOME}/.dotfiles/external/pure/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
+  ln -s "${ZDOTDIR:-$HOME}/.dotfiles/external/pure/pure.zsh" "$HOME/.zprompt/prompt_pure_setup"
 fi
 
 if [[ -s "${ZDOTDIR:-$HOME}/.dotfiles/external/pure/async.zsh" ]]; then
-  ln -s "${ZDOTDIR:-$HOME}/.dotfiles/external/pure/async.zsh" "$HOME/.zfunctions/async"
+  ln -s "${ZDOTDIR:-$HOME}/.dotfiles/external/pure/async.zsh" "$HOME/.zprompt/async"
 fi
-
-if [[ -d "${ZDOTDIR:-$HOME}/.dotfiles/external/zsh-completions/src" ]]; then
-  ln -s "${ZDOTDIR:-$HOME}/.dotfiles/external/zsh-completions/src/*" "$HOME/.zfunctions/"
-fi 
