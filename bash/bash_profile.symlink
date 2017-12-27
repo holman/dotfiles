@@ -70,3 +70,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+# asdf
+source /usr/local/opt/asdf/asdf.sh
+source /usr/local/etc/bash_completion.d/asdf.bash
