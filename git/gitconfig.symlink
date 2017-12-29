@@ -1,13 +1,7 @@
-# Sample gitconfig
-#
-
+[include]
+        path = .gitconfig_credentials
 [hub]
         protocol = https
-[user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
-[credential]
-        helper = GIT_CREDENTIAL_HELPER
 [alias]
         co = checkout
         promote = !$DOTS/bin/git-promote
@@ -17,8 +11,8 @@
         s = status -sb
         f = fetch
         tree = log --graph --decorate --pretty=oneline --abbrev-commit
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	p = push
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        p = push
 [color]
         diff = auto
         status = auto
