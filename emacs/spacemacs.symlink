@@ -400,7 +400,8 @@ you should place your code here."
     (setq org-tag-alist '((:startgroup . nil)
                           ("work" . ?w) ("home" . ?h)
                           (:endgroup . nil)
-                          ("computer" . ?c) ("project" . ?p) ("errand" . ?e)))
+                          ("computer" . ?c) ("project" . ?p) ("errand" . ?e)
+                          ("phone" . ?h) ("email" . ?m)))
 
     ;; TODO Sequence
     (setq org-todo-keywords
