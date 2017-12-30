@@ -5,4 +5,4 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 alias p4s="git p4 submit -M"
-alias gvim="gvim --remote-tab"
+alias gvim="gvim --remote-tab-silent"
