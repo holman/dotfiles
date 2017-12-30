@@ -44,5 +44,3 @@
 [git-p4]
 	detectRename = true
   allowSubmit = master
-[oh-my-zsh]
-  hide-dirty = 1
