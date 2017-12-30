@@ -478,6 +478,14 @@ you should place your code here."
      '(org-level-8 ((t (:inherit outline-3 :height 1.0 ))))
      )
 
+    ;; Agenda
+    (setq org-deadline-warning-days 14)
+    (setq org-agenda-ndays 7)
+    (setq org-agenda-show-all-dates t)
+    (setq org-agenda-skip-deadline-if-done t)
+    (setq org-agenda-skip-scheduled-if-done t)
+    (setq org-agenda-start-on-weekday nil)
+
     ;; Tags
     (setq org-tag-alist '((:startgroup . nil)
                           ("work" . ?w) ("home" . ?h)
