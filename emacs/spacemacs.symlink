@@ -513,7 +513,8 @@ you should place your code here."
     ;; Refile
     (setq org-refile-targets '(
                                ("~/Dropbox/org/tasks.org" :maxlevel . 1)
-                               ("~/Dropbox/org/projects.org" :maxlevel . 2)))
+                               ("~/Dropbox/org/projects.org" :maxlevel . 2)
+                               ("~/Dropbox/org/reference.org" :maxlevel . 2)))
 
     ;; Set path to ditta. This is where homebrew install it.
     (setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.10/libexec/ditaa0_10.jar")
