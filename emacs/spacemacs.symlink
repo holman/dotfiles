@@ -501,12 +501,11 @@ you should place your code here."
              "DONE(d)" "CANCELED(c)" "DEFERRED(f)")))
 
     ;; Capture
-    ;; (setq org-default-notes-file  "~/Dropbox/org/refile.org")
     (setq org-capture-templates
           '(("t" "Todo" entry (file "~/Dropbox/org/refile.org")
              "* TODO %?\n  %i\n  %U\n %a")
             ("p" "New Project" entry (file+headline "~/Dropbox/org/projects.org" "Projects")
-             "* %? :project:\nEntered on %U\n  %i\n  %a")
+             "* %? [/] :project:\nEntered on %U\n  %i\n  %a")
             ("a" "Example of ROI Attribute" entry (file+datetree "~/Dropbox/org/attributes.org")
              "* %?%^g\n")))
 
