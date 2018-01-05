@@ -7,25 +7,32 @@
 function aws_login() {
   [[ ! -d $OKTA_AWS_CLI_HOME ]] && echo "$OKTA_AWS_CLI_HOME doesn't exist, did you install the tools?" && return 255
 
+  # delete current credentials file
+  rm -f ~/.aws/credentials
+
   # classpath is relative
   pushd $OKTA_AWS_CLI_HOME/out
   ./awscli sts get-caller-identity
   popd
 
   # fix ~/.aws/credentials default profile so terragrunt/terraform will work
-  line_count=`wc -l < ~/.aws/credentials`
-  if [[ $line_count -gt 5 ]]; then
-    # remove last 4 lines (which should be the default profile
-    sed -e :a -e '$d;N;2,4ba' -e 'P;D' ~/.aws/credentials > /tmp/aws.creds.tmp
-  else
-    cp ~/.aws/credentials /tmp/aws.creds.tmp
-  fi
+  sed '1 s/^.*$/[default]/' ~/.aws/credentials > /tmp/aws.creds.default
+
+  #line_count=`wc -l < ~/.aws/credentials`
+  #if [[ $line_count -gt 5 ]]; then
+  #  # remove last 4 lines (which should be the default profile
+  #  sed -e :a -e '$d;N;2,4ba' -e 'P;D' ~/.aws/credentials > /tmp/aws.creds.tmp
+  #else
+  #  cp ~/.aws/credentials /tmp/aws.creds.tmp
+  #fi
 
   # now clone the active profile
-  sed '1 s/^.*$/[default]/' /tmp/aws.creds.tmp > /tmp/aws.creds.default.tmp
+  #sed '1 s/^.*$/[default]/' /tmp/aws.creds.tmp > /tmp/aws.creds.default.tmp
 
   # combine the two files
-  cat /tmp/aws.creds.tmp /tmp/aws.creds.default.tmp > ~/.aws/credentials
+  cp ~/.aws/credentials /tmp/aws.creds
+  cat  /tmp/aws.creds /tmp/aws.creds.default > ~/.aws/credentials
+  rm -f /tmp/aws.creds /tmp/aws.creds.default
 }
 
 ssh() {
