@@ -21,7 +21,7 @@ okta_expired() {
     EXPIRY=`grep OKTA_AWS_CLI_EXPIRY $OKTA_AWS_CLI_HOME/out/.okta-aws-cli-session | awk -F= '{print $2}'`
     EPOCH=`date -j -f "%Y-%m-%dT%H\:%M\:%S" "${EXPIRY%%.*}" "+%s"`
     if [[ $CURR_TIME -gt EPOCH ]]; then
-      echo " [%{$fg_bold[red]%}okta: expired%{$rest_color%}]"
+      echo " [%{$fg_bold[red]%}okta: expired%{$reset_color%}]"
     else
       # figure out how many minutes are left
       T_LEFT=`date -j -f "%Y-%m-%dT%H\:%M\:%S" "${EXPIRY%%.*}" +"%M"`
