@@ -158,7 +158,7 @@ values."
      ;; New layers that are being tested
      ;;
 
-     ;; spell-checking
+     spell-checking
      ;; syntax-checking
      ;; elm
      ;; (auto-completion :variables
