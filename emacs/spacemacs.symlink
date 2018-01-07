@@ -491,7 +491,7 @@ you should place your code here."
                           ("work" . ?w) ("home" . ?h)
                           (:endgroup . nil)
                           ("computer" . ?c) ("project" . ?p) ("errand" . ?e)
-                          ("phone" . ?h) ("email" . ?m)))
+                          ("phone" . ?o) ("email" . ?m)))
 
     ;; TODO Sequence
     (setq org-todo-keywords
