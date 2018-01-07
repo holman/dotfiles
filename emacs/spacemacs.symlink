@@ -78,7 +78,8 @@ values."
           org-enable-github-support t
           org-agenda-files (list "~/Dropbox/org/tasks.org"
                                  "~/Dropbox/org/projects.org"
-                                 "~/Dropbox/org/refile.org"))
+                                 "~/Dropbox/org/refile.org")
+          org-startup-truncated nil)
 
      helm
 
