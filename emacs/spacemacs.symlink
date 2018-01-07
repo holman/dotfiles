@@ -141,7 +141,8 @@ values."
 =======
           org-agenda-files (list "~/Dropbox/org/tasks.org"
                                  "~/Dropbox/org/projects.org"
-                                 "~/Dropbox/org/refile.org"))
+                                 "~/Dropbox/org/refile.org")
+          org-startup-truncated nil)
 
 >>>>>>> Updates spacemacs config for org-mode.
      helm
