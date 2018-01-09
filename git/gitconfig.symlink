@@ -1,6 +1,5 @@
-[user]
-	name = "Harry Grillo"
-	email = harry@redbassett.com
+[include]
+	path = ~/.gitconfig.local
 [core]
 	editor = nano
 [alias]
