@@ -39,3 +39,8 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 #defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 #defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 #defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Save screenshots to a specified directory
+mkdir ~/Pictures/Screenshots
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
+killall SystemUIServer
