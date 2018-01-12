@@ -21,7 +21,7 @@ else
         echo " [%{$fg_bold[red]%}vault: expired%{$reset_color%}]"
       else
         # calculate how many minutes we have left
-        echo " %{$reset_color%}[%{$fg_bold[red]%}vault: $(( ($E_EPOCH - $C_EPOCH + 30) / 60 ))m%{$reset_color%}]"
+        echo " %{$reset_color%}%{$fg_bold[yellow]%}[%{$reset_color%}vault: %{$fg_bold[green]%}$(( ($E_EPOCH - $C_EPOCH + 30) / 60 ))m%{$reset_color%}%{$fg_bold[yellow]%}]%{$reset_color%}"
       fi
     fi
   }

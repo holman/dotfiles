@@ -21,7 +21,7 @@ okta_expired() {
         echo " [%{$fg_bold[red]%}okta: expired%{$reset_color%}]"
       else
         # calculate how many minutes we have left
-        echo " %{$reset_color%}[%{$fg_bold[red]%}okta: $(( ($E_EPOCH - $C_EPOCH + 60) / 60 ))m%{$reset_color%}]"
+        echo " %{$reset_color%}%{$fg_bold[yellow]%}[%{$reset_color%}okta: %{$fg_bold[green]%}$(( ($E_EPOCH - $C_EPOCH + 60) / 60 ))m%{$reset_color%}%{$fg_bold[yellow]%}]%{$reset_color%}"
       fi
     fi
   fi
