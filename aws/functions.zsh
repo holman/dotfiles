@@ -4,6 +4,29 @@
 # return 0;
 #fi
 
+okta_expired() {
+  if [[ ! -z $OKTA_AWS_CLI_HOME ]]; then
+    # work in UTC TIME
+    export TZ=UTC
+
+    # check current okta session expiration
+    T_TIME=`grep OKTA_AWS_CLI_EXPIRY $OKTA_AWS_CLI_HOME/out/.okta-aws-cli-session 2> /dev/null | awk -F= '{print $2}'`
+    if [[ -z $T_TIME ]]; then
+      echo " [%{$fg_bold[red]%}okta: expired%{$reset_color%}]"
+    else
+      # compare to current time
+      E_EPOCH=`date -j -f "%Y-%m-%dT%H\:%M\:%S" "${T_TIME%%.*}" "+%s"`
+      C_EPOCH=`date "+%s"`
+      if [[ $C_EPOCH -gt $E_EPOCH ]]; then
+        echo " [%{$fg_bold[red]%}okta: expired%{$reset_color%}]"
+      else
+        # calculate how many minutes we have left
+        echo " %{$reset_color%}[%{$fg_bold[red]%}okta: $(( ($E_EPOCH - $C_EPOCH + 60) / 60 ))m%{$reset_color%}]"
+      fi
+    fi
+  fi
+}
+
 function aws_login() {
   [[ ! -d $OKTA_AWS_CLI_HOME ]] && echo "$OKTA_AWS_CLI_HOME doesn't exist, did you install the tools?" && return 255
 

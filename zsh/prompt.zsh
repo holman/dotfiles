@@ -13,26 +13,6 @@ git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
-okta_expired() {
-  if [[ ! -z $OKTA_AWS_CLI_HOME ]]; then
-    CURR_TIME=`date "+%s"`
-
-    # parse okta session token
-    EXPIRY=`grep OKTA_AWS_CLI_EXPIRY $OKTA_AWS_CLI_HOME/out/.okta-aws-cli-session | awk -F= '{print $2}'`
-    EPOCH=`date -j -f "%Y-%m-%dT%H\:%M\:%S" "${EXPIRY%%.*}" "+%s"`
-    if [[ $CURR_TIME -gt EPOCH ]]; then
-      echo " [%{$fg_bold[red]%}okta: expired%{$reset_color%}]"
-    else
-      # figure out how many minutes are left
-      T_LEFT=`date -j -f "%Y-%m-%dT%H\:%M\:%S" "${EXPIRY%%.*}" +"%M"`
-      C_MIN=`date +"%M"`
-      echo " %{$reset_color%}[%{$fg_bold[red]%}okta: $((60 + $T_LEFT - $C_MIN))m%{$reset_color%}]"
-    fi
-  else
-    echo ""
-  fi
-}
-
 git_dirty() {
   if $(! $git status -s &> /dev/null)
   then
@@ -104,7 +84,7 @@ hostname() {
   fi
 }
 
-export PROMPT=$'\n%{$fg[magenta]%}%n%{$reset_color%}$(hostname)$(directory_name)$(okta_expired)$(git_dirty)$(need_push)$(date_and_time)\n› '
+export PROMPT=$'\n%{$fg[magenta]%}%n%{$reset_color%}$(hostname)$(directory_name)$(vault_expired)$(okta_expired)$(git_dirty)$(need_push)$(date_and_time)\n› '
 
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
