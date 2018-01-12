@@ -44,3 +44,6 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 mkdir ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
 killall SystemUIServer
+
+# Stop spaces from rearranging based on last use
+defaults write com.apple.dock mru-spaces -bool false
