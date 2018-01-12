@@ -27,7 +27,7 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig_credentials.symlink ]
+  if ! [ -f ~/.gitconfig_credentials ]
   then
     info 'setup gitconfig'
 
@@ -42,7 +42,7 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig_credentials.symlink.example > git/gitconfig_credentials.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig_credentials.example > ~/.gitconfig_credentials
 
     success 'gitconfig'
   fi
