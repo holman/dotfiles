@@ -1,5 +1,5 @@
 # Vi mode
-bindkey -v
+#bindkey -v
 zstyle ':completion:*' menu select
 
 zmodload zsh/complist

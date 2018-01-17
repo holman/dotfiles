@@ -1,6 +1,9 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
+# Set bindkey
+bindkey -v
+
 setopt extendedglob
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
