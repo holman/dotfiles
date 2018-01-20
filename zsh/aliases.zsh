@@ -6,4 +6,4 @@ fi
 
 alias p4s="git p4 submit -M"
 alias gvim="gvim --remote-tab-silent"
-alias cdtmp="cd $(mktemp -d)"
+alias cdtmp='cd $(mktemp -d)'
