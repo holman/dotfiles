@@ -734,6 +734,13 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 #defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
+# iTunes                                                                    #
+###############################################################################
+
+# Enable Half-Star Rating in ITunes
+defaults write com.apple.iTunes allow-half-stars -bool TRUE
+
+###############################################################################
 # Google Chrome & Google Chrome Canary                                        #
 ###############################################################################
 
