@@ -13,3 +13,10 @@ if test "$(uname)" = "Darwin"; then
     alias desktop="cd $HOME/Desktop"
     alias download="cd $HOME/Downloads"
 fi
+
+## Laravel aliases
+alias pa='php artisan'
+alias pal='php artisan list'
+
+alias yrd='yarn run dev'
+alias yw='yarn run watch'
