@@ -1,2 +1,2 @@
-eval "$(~/Dropbox/Dev/csd/bin/csd init -)"
-eval "$(~/Dropbox/Dev/sp/bin/sp init -)"
+eval "$(~/Dev/csd/bin/csd init -)"
+eval "$(~/Dev/sp/bin/sp init -)"
