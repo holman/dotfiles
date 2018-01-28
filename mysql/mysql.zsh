@@ -1,5 +1,18 @@
+function m {
+  $(mysql_login)
+}
+
+function mysql_login {
+  echo mysql $(mlogin)
+}
+
+function mlogin {
+ # Defined in ~/.env-vars like: MYSQL_LOGIN="-u$MYSQL_USER -pMYSQL_PASSWORD"
+ echo $MYSQL_LOGIN
+}
+
 function mpurge-older-than7 {
-  mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -e "PURGE BINARY LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 7 DAY);"
+  $(mysql_login) -e "PURGE BINARY LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 7 DAY);"
 }
 
 function msw {
@@ -25,34 +38,34 @@ function mrefresh {
 
   echo "Dropping database, creating, collating '$database'"
   echo "drop database if exists \`$database\`; create database \`$database\`; ALTER DATABASE  \`$database\` DEFAULT CHARACTER SET utf8 COLLATE
-   utf8_unicode_ci;" | mysql -u$MYSQL_USER -p$MYSQL_PASSWORD
+   utf8_unicode_ci;" | $(mysql_login) 
 
   case $dump in
     *\.gz )
        echo "Importing sql.gz dump: $dump"
-       gunzip -c $dump | mysql -u$MYSQL_USER -p$MYSQL_PASSWORD --default-character-set=utf8 $database
+       gunzip -c $dump | $(mysql_login) --default-character-set=utf8 $database
        ;;
     *\.zip )
        echo "Importing zip file: $dump"
-       unzip -p $dump | mysql -u$MYSQL_USER -p$MYSQL_PASSWORD --default-character-set=utf8 $database
+       unzip -p $dump | $(mysql_login)--default-character-set=utf8 $database
        ;;
     *\.sql )
        echo "Importing sql dump: $dump"
-       mysql -u$MYSQL_USER -p$MYSQL_PASSWORD --default-character-set=utf8 $database < $dump
+       $(mysql_login) --default-character-set=utf8 $database < $dump
        ;;
     *\.schema )
        echo "Importing schema file: $dump"
-       mysql -u$MYSQL_USER -p$MYSQL_PASSWORD --default-character-set=utf8 $database < $dump
+       $(mysql_login) --default-character-set=utf8 $database < $dump
        ;;
     *)
        echo "Importing data from existing mysql db: $dump"
-       mysqldump -u$MYSQL_USER -p$MYSQL_PASSWORD -e --add-drop-table --default-character-set=utf8 $dump | mysql -u$MYSQL_USER -p$MYSQL_PASSWORD --default-character-set=utf8 $database
+       mysqldump $(mlogin) -e --add-drop-table --default-character-set=utf8 $dump | $(mysql_login) --default-character-set=utf8 $database
        ;;
   esac
 }
 
 function mlist {
-  mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -e 'show databases;'
+  $(mysql_login) -e 'show databases;'
 }
 
 function mdrop {
@@ -66,7 +79,7 @@ function mdrop {
   fi
 
   database=$1
-  echo "drop database if exists \`$database\`;" | mysql -u$MYSQL_USER -p$MYSQL_PASSWORD
+  echo "drop database if exists \`$database\`;" | $(mysql_login)
 }
 
 function mbak {
