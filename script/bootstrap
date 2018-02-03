@@ -200,7 +200,7 @@ init_command_t () {
   fi
 
   start_dir=`pwd`
-  cd ~/.vim/bundle/Command-T/ruby/command-t
+  cd ~/.vim/bundle/Command-T/ruby/command-t/ext/command-t
   # Add rvm
   if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
 
