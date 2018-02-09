@@ -39,6 +39,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("~/.dotfiles/awesome/theme/theme.lua")
+-- beautiful.init(awful.util.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "dbus-launch gnome-terminal"
@@ -231,7 +232,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            -- mykeyboardlayout,
             wibox.widget.systray(),
             powerline_widget,
             s.mylayoutbox,
@@ -349,11 +350,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     -- Added by me
-    awful.key({ modkey }, "\\", function() awful.util.spawn('xterm -e top') end,
+    awful.key({ modkey }, "\\", function() awful.spawn('xterm -e top') end,
               {description = "launch top", group = "launcher"}),
-    awful.key({ modkey }, "c", function() awful.util.spawn('playerctl play-pause') end,
+    awful.key({ modkey }, "c", function() awful.spawn('playerctl play-pause') end,
               {description = "play pause media", group = "media"}),
-    awful.key({ modkey,           }, "s", function () awful.util.spawn('xscreensaver-command -lock') end,
+    awful.key({ modkey,           }, "s", function () awful.spawn('xscreensaver-command -lock') end,
               {description = "lock screen", group = "media"})
 )
 
