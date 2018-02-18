@@ -24,7 +24,7 @@ if code
   code = "-F code=#{code}"
 end
 
-output = `curl -i http://git.io -F 'url=#{url}' #{code} 2> /dev/null`
+output = `curl -i https://git.io -F 'url=#{url}' #{code} 2> /dev/null`
 if output =~ /Location: (.+)\n?/
   puts $1
   `echo #$1 | pbcopy`

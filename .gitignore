@@ -6,7 +6,11 @@ atom.symlink/compile-cache/
 atom.symlink/packages
 atom.symlink/storage
 atom.symlink/themes
-
+atom.symlink/blob-store
+atom.symlink/recovery
 git/gitconfig.symlink
 atom.symlink/local-history
 atom.symlink/recovery
+git/gitconfig.local.symlink
+atom.symlink/local-history
+ssh-config

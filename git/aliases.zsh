@@ -10,7 +10,10 @@ fi
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
-alias gd='git diff'
+
+# Remove `+` and `-` from start of diff lines; just rely upon color.
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+
 alias gc='git commit'
 alias gca='git commit -a'
 alias gco='git checkout'
@@ -42,6 +45,9 @@ alias wow='git status'
 alias dailytask="gco master && pull && git fetch --prune"
 alias deletelocal="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 alias deleteremote="git push --delete origin"
+
+alias gac='git add -A && git commit -m'
+alias ge='git-edit-new'
 
 # found at: http://stackoverflow.com/a/35324551/2503968
 # function gitdelete(){

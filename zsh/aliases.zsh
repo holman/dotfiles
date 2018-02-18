@@ -48,6 +48,8 @@ alias startaempublish="ttab -a iterm -t 'AEM Publisher' && cd ~/bin/tesla/aem-st
 alias core="cd ~/bin/tesla/particles/particles-core"
 alias playground="cd ~/bin/tesla/particles/particles-component-playground"
 
+alias cls='clear' # Good 'ol Clear Screen command
+
 
 # a function to copy code using Highlight:
 # https://gist.github.com/jimbojsb/1630790#gistcomment-1207389
