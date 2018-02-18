@@ -51,7 +51,8 @@ alias playground="cd ~/bin/tesla/particles/particles-component-playground"
 
 # a function to copy code using Highlight:
 # https://gist.github.com/jimbojsb/1630790#gistcomment-1207389
-
+# Further Documentation:
+# http://www.andre-simon.de/doku/highlight/en/highlight.php
 function light() {
   if [ -z "$2" ]
     then src="pbpaste"
