@@ -5,6 +5,9 @@
     scss:
       beautify_on_save: true
       convert_quotes: "single"
+      force_indentation: true
+      indent_size: 2
+      no_lead_zero: true
       preserve_newlines: true
   "atom-clock":
     showClockIcon: true
@@ -27,25 +30,42 @@
       "emmet-jsx-css-modules"
       "language-babel"
       "language-jade"
+      "teletype"
     ]
-    hideGitIgnoredFiles: false
+    hideGitIgnoredFiles: true
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "*node_modules*"
+      "ui.content"
+      "target"
+      "META-INF"
+      "api.apps"
+      "config"
+      "core"
+      ""
+    ]
     projectHome: "~/bin"
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "limited"
     themes: [
-      "atom-material-ui"
-      "atom-material-syntax-dark"
+      "city-lights-ui"
+      "city-lights-syntax"
     ]
   editor:
-    fontFamily: "Menlo"
-    fontSize: 18
+    fontFamily: "Fira Code"
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
     softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
-    tabLength: 4
     tabType: "soft"
   "git-plus":
     pullBeforePush: "pull"
@@ -56,6 +76,8 @@
     grammarScopes: [
       "text.html.basic text.html.twig"
     ]
+  "markdown-preview":
+    useGitHubStyle: true
   "merge-conflicts": {}
   minimap:
     absoluteMode: true
@@ -75,7 +97,11 @@
     _lastBackupHash: "950d73b1a98c19a3913bf056ddd134c4337475e9"
     gistId: "08a0a2cd9d4cecf260bb8683eab060a7"
     personalAccessToken: "f2df5e29c7d56086c7a7703e37bf7e3cb7aafefe"
-  "tree-view": {}
+  "tree-view":
+    alwaysOpenExisting: true
+    autoReveal: true
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   "webbox-color":
     fillColorAsBackground: false
   welcome:

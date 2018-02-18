@@ -34,4 +34,19 @@
       "/Users/eritchey/bin/tesla/particles"
     ]
   }
+  {
+    title: "AEM - Tesla.com"
+    group: "Tesla"
+    paths: [
+      "/Users/eritchey/bin/tesla/aem/aem-parent/tesla-site"
+      "/Users/eritchey/bin/tesla/aem/aem-parent/commons-ui"
+    ]
+  }
+  {
+    title: "Particles Component Playground"
+    group: "Particles"
+    paths: [
+      "/Users/eritchey/bin/tesla/particles/particles-component-playground"
+    ]
+  }
 ]
