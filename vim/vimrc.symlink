@@ -211,7 +211,7 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 " Syntastic settings
 " Ignore certain syntastic latex warnings
 let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
-let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
+let g:syntastic_python_checkers = ['python', 'pyflakes', 'flake8']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_java_checkers = []
 " Syntastic / Eclim
