@@ -49,11 +49,11 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 zstyle ':vcs_info:*' enable git
 
-_vcs_info_wrapper {
+_vcs_info_wrapper() {
   vcs_info 2> /dev/null
 }
 
-precmd_functions+=() { vcs_info 2> /dev/null }
+precmd_functions+=(_vcs_info_wrapper)
 
 RPROMPT="%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
 PROMPT=$'%{\e]0;%d\a%}\n%F{green}%n@%m %F{yellow}%d%f\nλ '
