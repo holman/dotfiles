@@ -64,7 +64,7 @@ RPROMPT=$'$(vcs_info_wrapper)'
 precmd () { vcs_info_wrapper }
 #PROMPT='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_} %f%# '
 
-PROMPT='$'%{\e]0;%d\a%}\n%F{green}%n@%m %F{yellow}%d%f\n%λ '
+PROMPT=$'%{\e]0;%d\a%}\n%F{green}%n@%m %F{yellow}%d%f\n%# '
 
 # PS1='\[\033]0;$MSYSTEM:${PWD//[^[:ascii:]]/?}\007\]' # set window title
 # # PS1="$PS1"'\n'                 # new line
