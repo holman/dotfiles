@@ -61,4 +61,4 @@ precmd() {vcs_info 2> /dev/null}
 
 #RPROMPT=$'$(vcs_info_wrapper)'
 
-PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f}|%D{%L:%M:%S} %n@%m %d%f ${vcs_info_msg_0_}\nλ '
+PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{7}:%f %F{green}%n@%m %F{7}:%f %F{green}%d%f ${vcs_info_msg_0_}\n%F{7}λ%f '
