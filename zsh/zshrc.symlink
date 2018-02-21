@@ -49,7 +49,44 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 zstyle ':vcs_info:*' enable git
 
-precmd () { vcs_info 2> /dev/null }
+_vcs_info_wrapper {
+  vcs_info 2> /dev/null
+}
+
+precmd_functions+=() { vcs_info 2> /dev/null }
 
 RPROMPT="%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-PROMPT=$'%{\e]0;%d\a%}\n%F{green}%n@%m %F{yellow}%d%f\nλ# '
+PROMPT=$'%{\e]0;%d\a%}\n%F{green}%n@%m %F{yellow}%d%f\nλ '
+
+_command_time_preexec() {
+  timer=${timer:-$SECONDS}
+  export ZSH_COMMAND_TIME=""
+}
+
+_command_time_precmd() {
+  if [ $timer ]; then
+    timer_show=$(($SECONDS - $timer))
+    if [ -n "$TTY" ] && [ $timer_show -ge ${ZSH_COMMAND_TIME_MIN_SECONDS:-3} ]; then
+      export ZSH_COMMAND_TIME="$timer_show"
+      if [ -n ${ZSH_COMMAND_TIME_ECHO+1} ] && [ -n "$ZSH_COMMAND_TIME_ECHO" ]; then
+        zsh_command_time
+      fi
+    fi
+    unset timer
+  fi
+}
+
+zsh_command_time() {
+  if [ -n "$ZSH_COMMAND_TIME" ]; then
+    echo "time: $ZSH_COMMAND_TIME"
+  fi
+}
+
+precmd_functions+=(_command_time_precmd)
+preexec_functions+=(_command_time_preexec)
+
+# If command execution time above min. time, plugins will not output time.
+ZSH_COMMAND_TIME_MIN_SECONDS=3
+
+# Set it to "" for disable echo `time: xx`.
+ZSH_COMMAND_TIME_ECHO=1
