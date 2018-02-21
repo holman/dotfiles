@@ -49,7 +49,7 @@ RPROMPT=\$vcs_info_msg_0_
 # PROMPT=\$vcs_info_msg_0_'%# '
 zstyle ':vcs_info:git:*' formats '%b'
 
-PS1=$'%{\e]0;%d\a%}\n%F{green}%n@%m %F{yellow}%d%f\n%λ '
+PROMPT="$'%{\e]0;%d\a%}\n%F{green}%n@%m %F{yellow}%d%f\n%λ '"
 
 # PS1='\[\033]0;$MSYSTEM:${PWD//[^[:ascii:]]/?}\007\]' # set window title
 # # PS1="$PS1"'\n'                 # new line
