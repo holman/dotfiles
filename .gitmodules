@@ -10,6 +10,3 @@
 [submodule "external/zsh-autosuggestions"]
 	path = external/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "external/pure"]
-	path = external/pure
-	url = https://github.com/intelfx/pure.git
