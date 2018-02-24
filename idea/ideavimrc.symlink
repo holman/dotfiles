@@ -22,28 +22,6 @@ noremap <C-l> :action VimWindowRight<CR>
 noremap <C-k> :action VimWindowUp<CR>
 noremap <C-j> :action VimWindowDown<CR>
 
-noremap <C-0> "0p
-noremap <C-1> "1p
-noremap <C-2> "2p
-noremap <C-3> "3p
-noremap <C-4> "4p
-noremap <C-5> "5p
-noremap <C-6> "6p
-noremap <C-7> "7p
-noremap <C-8> "8p
-noremap <C-9> "9p
-
-inoremap <C-0> <C-o>"0p
-inoremap <C-1> <C-o>"1p
-inoremap <C-2> <C-o>"2p
-inoremap <C-3> <C-o>"3p
-inoremap <C-4> <C-o>"4p
-inoremap <C-5> <C-o>"5p
-inoremap <C-6> <C-o>"6p
-inoremap <C-7> <C-o>"7p
-inoremap <C-8> <C-o>"8p
-inoremap <C-9> <C-o>"9p
-
 inoremap <C-n> <C-o>:action HippieCompletion<CR>
 inoremap <C-p> <C-o>:action HippieBackwardCompletion<CR>
 

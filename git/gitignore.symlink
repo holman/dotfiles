@@ -1,3 +1,13 @@
 .DS_Store
 *~
 *.swp
+.vscode/
+jsconfig.json
+
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*

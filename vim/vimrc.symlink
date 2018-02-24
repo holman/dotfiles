@@ -1,4 +1,5 @@
-syntax on
+set nocompatible
+filetype off
 
 let iCanHazVundle=1
 let vundle_readme=expand('~/.dotfiles/vim/bundle/Vundle.vim/README.md')
@@ -8,8 +9,6 @@ if !filereadable(vundle_readme)
   let iCanHazVundle=0
 endif
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
 set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'kien/ctrlp.vim'
@@ -21,10 +20,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'fatih/vim-go'
 Plugin 'sbdchd/neoformat'
+Plugin 'rust-lang/rust.vim'
 call vundle#end()
-
+filetype plugin indent  on
 syntax on
-filetype plugin on
+
 " check one time after 4s of inactivity in normal mode
 set autoread                                                                                                                                                                                    
 au CursorHold * checktime  
@@ -42,6 +42,8 @@ autocmd BufWritePre *.js Neoformat
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin
 " Use formatprg when available
 let g:neoformat_run_all_formatters = 1
+let g:rustfmt_autosave = 1
+let g:rust_clip_command = 'pbcopy'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
@@ -71,7 +73,7 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
-autocmd BufNewFile,BufRead *.js setlocal nocompatible|set expandtab tabstop=4 shiftwidth=2 autoindent smartindent
+autocmd BufNewFile,BufRead *.js setlocal nocompatible|set expandtab tabstop=2 shiftwidth=2 autoindent smartindent
 autocmd BufNewFile,BufRead *{.c,.php} setlocal tabstop=4 shiftwidth=4 expandtab autoindent smartindent
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 
@@ -103,6 +105,7 @@ noremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/](\.git|node_modules|\.sass-cache|public|bower_components|bui‌​ld)$',
