@@ -145,7 +145,10 @@ values."
           org-agenda-files (list "~/Dropbox/org/tasks.org"
                                  "~/Dropbox/org/projects.org"
                                  "~/Dropbox/org/refile.org")
-          org-startup-truncated nil)
+          org-startup-truncated nil
+          org-projectile-file "TODOs.org")
+
+
 
 >>>>>>> Updates spacemacs config for org-mode.
      helm
@@ -489,6 +492,15 @@ you should place your code here."
     (setq org-agenda-skip-deadline-if-done t)
     (setq org-agenda-skip-scheduled-if-done t)
     (setq org-agenda-start-on-weekday nil)
+    (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+
+    ;; Automatically mark parent as DONE when all children are
+    (defun org-summary-todo (n-done n-not-done)
+      "Switch entry to DONE when all subentries are done, to TODO otherwise."
+      (let (org-log-done org-log-states)   ; turn off logging
+        (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+    (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
     ;; Tags
     (setq org-tag-alist '((:startgroup . nil)
@@ -667,4 +679,11 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-4 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-5 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-6 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-7 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-8 ((t (:inherit outline-3 :height 1.0)))))
