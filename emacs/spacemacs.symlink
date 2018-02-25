@@ -44,6 +44,9 @@ values."
            ruby-version-manager 'rvm
            ruby-test-runner 'rspec)
      ruby-on-rails
+     (typescript :variables
+                 typescript-fmt-on-save t
+                 typescript-fmt-tool 'typescript-formatter)
 
      ;; Programming Utilities 
      ;;
