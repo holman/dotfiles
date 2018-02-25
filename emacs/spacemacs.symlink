@@ -167,8 +167,8 @@ values."
      spell-checking
      ;; syntax-checking
      ;; elm
-     ;; (auto-completion :variables
-     ;;                  auto-completion-enable-snippets-in-popup t)
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t)
 
      )
    ;; List of additional packages that will be installed without being
