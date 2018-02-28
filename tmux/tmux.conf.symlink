@@ -22,7 +22,7 @@ setw -g aggressive-resize on
 set -g default-terminal "screen-256color"
 
 ## Auto rename windows
-set -g automatic-rename on
+set -g automatic-rename off
 
 ## Window & Pane index
 set -g base-index 1

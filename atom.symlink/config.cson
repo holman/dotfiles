@@ -7,6 +7,8 @@
       compactTabs: true
     ui:
       panelContrast: true
+  "autocomplete-python":
+    useKite: false
   autosave:
     enabled: true
   core:
@@ -40,6 +42,9 @@
     tabLength: 4
   "go-plus":
     goPath: "/Users/holman/Code/go"
+  "linter-ui-default":
+    panelHeight: 300
+    showPanel: true
   "markdown-image-assistant":
     prependTargetFileName: false
   "markdown-preview-plus":

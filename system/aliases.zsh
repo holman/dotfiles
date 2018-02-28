@@ -25,11 +25,11 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 # Hub wrapper
-hub_path=$(which hub)
-if (( $+commands[hub] ))
-then
-  alias git=$hub_path
-fi
+#hub_path=$(which hub)
+#if (( $+commands[hub] ))
+#then
+#  alias git=$hub_path
+#fi
 
 #Git log alias
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
@@ -73,3 +73,5 @@ alias dclean='drm || true && drmi || true && drmv'
 
 # Delete all containers, all images and all volumes
 alias dcleanall='dkill || true && drm || true && drmia || true && drmva'
+
+alias gclean="git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"

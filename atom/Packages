@@ -27,3 +27,6 @@ mjml-preview
 linter
 language-mjml
 linter-mjml
+linter-ui-default
+intentions
+busy-signal

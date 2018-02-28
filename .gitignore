@@ -13,6 +13,7 @@ atom.symlink/split-diff
 antigen.symlink/repos
 
 git/gitconfig.symlink
+youtube-dl/netrc.symlink
 
 .idea
 cache
