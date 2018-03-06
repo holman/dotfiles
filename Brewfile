@@ -1,7 +1,11 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
+tap 'caskroom/versions'
 tap 'homebrew/bundle'
+
+# Dependency for sbt and scala
+cask 'java8'
 
 brew 'coreutils'
 brew 'git'
@@ -27,3 +31,5 @@ cask 'slack'
 cask 'spectacle'
 cask 'spotify'
 cask 'sublime-text'
+cask 'visual-studio-code'
+
