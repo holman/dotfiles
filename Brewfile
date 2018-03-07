@@ -9,6 +9,7 @@ cask 'java8'
 
 brew 'coreutils'
 brew 'git'
+brew 'git-completion'
 brew 'httpie'
 brew 'jq'
 brew 'libyaml'

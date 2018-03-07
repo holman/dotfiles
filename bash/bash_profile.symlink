@@ -43,8 +43,8 @@ alias activate='source env/bin/activate'
 alias wbp='./node_modules/.bin/webpack'
 alias pipupdate='pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
 fi
 
 # pyenv init
