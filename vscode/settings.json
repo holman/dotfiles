@@ -1,0 +1,10 @@
+{
+    "editor.fontSize": 11,
+    "window.zoomLevel": -1,
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "alt",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+    "terminal.integrated.cursorBlinking": true,
+}
+

@@ -1,0 +1,9 @@
+/*
+	User settings for Anaconda
+*/
+{
+	/*
+		Change the PEP8 line length for datamart-portal
+	*/
+	"pep8_max_line_length": 120,
+}

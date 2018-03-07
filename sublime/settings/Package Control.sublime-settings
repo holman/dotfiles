@@ -1,0 +1,22 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"Babel",
+		"Djaneiro",
+		"Dotfiles Syntax Highlighting",
+		"Ensime",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"Material Theme",
+		"Package Control",
+		"SideBarEnhancements",
+		"SqlBeautifier",
+		"SublimeCodeIntel",
+		"Terraform"
+	]
+}
