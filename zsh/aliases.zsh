@@ -7,7 +7,7 @@ alias prune-branches='git branch | grep -v "master" | xargs git branch -D'
 alias yr='rm -rf node_modules && yarn'
 alias ys='yarn start'
 alias ya='rm -rf node_modules && yarn && yarn start'
-
+alias e='emacsclient'
 alias hard="git reset --hard"
 alias 8080="lsof -n -i4TCP:8080"
 alias bdebuild='curl -sH "Accept-encoding: gzip" https://app.dev.wordsearchbible.com/ | gunzip - | ack "(Build: v\d+)" --output="\$1"'
