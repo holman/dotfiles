@@ -1,8 +1,3 @@
-#if test ! $(which spoof)
-#then
-#  sudo npm install spoof -g
-#fi
-
 # Install Node Version Manager
 export NVM_DIR="$HOME/.nvm" && (
   rm -rf "$NVM_DIR"
