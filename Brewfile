@@ -14,9 +14,6 @@ brew 'coreutils'
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew 'findutils'
 
-# Install Zsh
-brew 'zsh'
-
 # Install more recent versions of some macOS tools
 brew 'grep'
 
@@ -45,6 +42,7 @@ cask 'docker-edge'
 cask 'kitematic'
 cask 'sourcetree'
 cask 'visual-studio-code'
+cask 'tunnelblick'
 
 # Apps
 cask 'lastpass'
@@ -57,7 +55,6 @@ cask 'iterm2'
 cask 'slack'
 cask 'vlc'
 cask 'android-file-transfer'
-cask 'gimp'
 
 # Quicklook
 cask 'qlcolorcode'
