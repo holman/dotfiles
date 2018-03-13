@@ -36,6 +36,8 @@ zstyle ':prezto:load' pmodule \
   'docker'\
   'autosuggestions' \
   'syntax-highlighting' \
+  'clipboard-config' \
+  'contrib-prompt' \
   'prompt'
 
 #
