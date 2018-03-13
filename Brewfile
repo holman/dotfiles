@@ -43,10 +43,10 @@ cask 'kitematic'
 cask 'sourcetree'
 cask 'visual-studio-code'
 cask 'tunnelblick'
+cask 'meld'
 
 # Apps
 cask 'lastpass'
-cask 'caffeine'
 cask 'dropbox'
 cask 'firefox'
 cask 'google-chrome'
@@ -55,6 +55,11 @@ cask 'iterm2'
 cask 'slack'
 cask 'vlc'
 cask 'android-file-transfer'
+cask 'vlc'
+cask 'tunnelblick'
+
+# Research
+#cask 'anaconda'
 
 # Quicklook
 cask 'qlcolorcode'
