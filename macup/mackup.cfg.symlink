@@ -1,0 +1,9 @@
+[storage]
+engine = google_drive
+directory = backup
+
+[applications_to_sync]
+ssh
+tunnelblick
+docker
+vscode
