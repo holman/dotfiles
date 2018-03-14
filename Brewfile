@@ -45,6 +45,8 @@ cask 'sourcetree'
 cask 'visual-studio-code'
 cask 'tunnelblick'
 cask 'meld'
+cask 'dotnet-sdk'
+brew 'nuget'
 
 # Apps
 cask 'lastpass'
