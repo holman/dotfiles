@@ -26,6 +26,8 @@ setup_vault () {
 
   grep -q "$vault_addr" $HOME/.bash_profile || echo "$vault_addr" >> $HOME/.bash_profile
   grep -q "$vault_github_token" $HOME/.bash_profile || echo "$vault_github_token" >> $HOME/.bash_profile
+
+  source $HOME/.bash_profile
 }
 
 info  "Running: ./vault/install.sh"
