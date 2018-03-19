@@ -11,4 +11,8 @@ echo "› brew bundle"
 brew bundle
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do echo "Running: ${installer}"; sh -c "${installer}"; done
+installers=`find . -name install.sh`
+for installer in $installers ; do
+  echo "Running: ${installer}";
+  sh -c "${installer}";
+done
