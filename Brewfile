@@ -4,6 +4,10 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
 
+# Upgrade ruby & bash
+brew 'ruby'
+brew 'bash'
+
 # Install ZSH
 brew 'zsh'
 brew 'zsh-completions'
