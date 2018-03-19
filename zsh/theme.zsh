@@ -1,1 +1,1 @@
-prompt noxxious
+prompt spaceship

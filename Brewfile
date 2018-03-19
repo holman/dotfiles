@@ -51,10 +51,10 @@ cask 'tunnelblick'
 cask 'meld'
 cask 'dotnet-sdk'
 brew 'nuget'
+brew 'vault'
 
 # Apps
 cask 'lastpass'
-cask 'dropbox'
 cask 'firefox'
 cask 'google-chrome'
 cask 'google-backup-and-sync'
@@ -62,7 +62,6 @@ cask 'iterm2'
 cask 'slack'
 cask 'vlc'
 cask 'android-file-transfer'
-cask 'vlc'
 cask 'tunnelblick'
 
 # Research

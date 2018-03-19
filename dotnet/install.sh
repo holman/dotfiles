@@ -39,5 +39,5 @@ setup_nuget () {
   ln -s ~/.config/NuGet/NuGet.Config ~/.nuget/NuGet/NuGet.Config
 }
 
-info 'Setting up NuGet'
 setup_nuget
+success "./dotnet/install.sh"

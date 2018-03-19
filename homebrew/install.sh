@@ -6,6 +6,15 @@
 # using Homebrew.
 
 # Check for Homebrew
+
+info () {
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
 if test ! $(which brew)
 then
   echo "  Installing Homebrew for you."
@@ -21,4 +30,4 @@ then
 
 fi
 
-exit 0
+success "./homebrew/install.sh"
