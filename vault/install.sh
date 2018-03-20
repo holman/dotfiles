@@ -19,7 +19,7 @@ setup_vault () {
   grep -q "$vault_addr" $HOME/.bash_profile && return;
 
   info 'setup Vault .bash_profile'
-  user ' - Enter your Git Hub Read-only token for vault:'
+  user ' - Enter your Git Hub Personal access token for vault:'
   read -e github_apikey
   
   vault_github_token='export VAULT_AUTH_GITHUB_TOKEN='$github_apikey
@@ -28,6 +28,8 @@ setup_vault () {
   grep -q "$vault_github_token" $HOME/.bash_profile || echo "$vault_github_token" >> $HOME/.bash_profile
 
   source $HOME/.bash_profile
+
+  vault login -method=github
 }
 
 info  "Running: ./vault/install.sh"
