@@ -16,18 +16,19 @@ setup_vault () {
 
   vault_addr='export VAULT_ADDR=https://vault.trustpilot.com'
 
-  grep -q "$vault_addr" $HOME/.bash_profile && return;
+  touch $HOME/.localrc
+  grep -q "$vault_addr" $HOME/.localrc && return;
 
-  info 'setup Vault .bash_profile'
-  user ' - Enter your Git Hub Personal access token for vault:'
+  info 'setup Vault'
+  user ' - Enter your Git Hub Personal access token for vault (read:org):'
   read -e github_apikey
   
   vault_github_token='export VAULT_AUTH_GITHUB_TOKEN='$github_apikey
 
-  grep -q "$vault_addr" $HOME/.bash_profile || echo "$vault_addr" >> $HOME/.bash_profile
-  grep -q "$vault_github_token" $HOME/.bash_profile || echo "$vault_github_token" >> $HOME/.bash_profile
+  grep -q "$vault_addr" $HOME/.localrc || echo "$vault_addr" >> $HOME/.localrc
+  grep -q "$vault_github_token" $HOME/.localrc || echo "$vault_github_token" >> $HOME/.localrc
 
-  source $HOME/.bash_profile
+  source $HOME/.localrc
 
   vault login -method=github
 }
