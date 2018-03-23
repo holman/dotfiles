@@ -30,7 +30,8 @@ setup_npm () {
       npm login --registry ${registry} --scope=@trustpilot
     fi
 
-    npm install -g @trustpilot/confocto   
+    npm install -g @trustpilot/confocto
+    confocto setup 
 }
 
 setup_npm
