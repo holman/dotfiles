@@ -2,6 +2,7 @@
 *~
 *.swp
 .vscode/
+.idea/
 jsconfig.json
 
 \#*\#

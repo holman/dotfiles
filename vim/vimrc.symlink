@@ -84,7 +84,7 @@ set backspace=indent,eol,start
 set number
 set runtimepath^=~/.dotflies/vim/bundle/ctrlp.vim
 set laststatus=2
-set directory=$HOME/.vim/swapfiles//
+set directory=$HOME/.dotfiles/vim/swapfiles//
 
 
 let mapleader = "\<Space>"
