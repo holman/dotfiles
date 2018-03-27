@@ -11,11 +11,10 @@ brew 'jq'
 brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
-brew 'node'
 brew 'readline'
 brew 'roundup'
 brew 'spaceman-diff'
 brew 'spark'
 brew 'unrar'
 brew 'wget'
-brew 'yarn'
+brew 'yarn' args: ['without-node']
