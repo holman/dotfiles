@@ -124,4 +124,5 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Path
-export PATH=~/flutter/bin:$PATH
+export PATH=~/flutter/bin:~/Library/Android/sdk/platform-tools:$PATH
+
