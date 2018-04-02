@@ -98,6 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # Aliases #
 ###########
 
+# Use Gradle Wrapper
+alias gradle="./gradlew"
+
 # Use GitHub's Hub in place of Git (It's a wrapper).
 # "alias git=hub" previously, was removed to use suggested script from Github
 eval "$(hub alias -s)"
