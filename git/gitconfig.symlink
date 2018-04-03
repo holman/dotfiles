@@ -5,10 +5,10 @@
         protocol = https
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+        # promote = !$ZSH/bin/git-promote
+        # wtf     = !$ZSH/bin/git-wtf
+        # rank-contributors = !$ZSH/bin/git-rank-contributors
+        # count   = !git shortlog -sn
 [color]
         diff = auto
         status = auto
@@ -16,7 +16,13 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+        editor = atom-beta --wait
+[credential]
+		helper = osxkeychain
+
+[user]
+		name = Brian Danielak
+		email = briandaniela.k+github@gmail.com
 [apply]
         whitespace = nowarn
 [mergetool]
