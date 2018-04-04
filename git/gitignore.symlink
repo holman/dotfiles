@@ -19,6 +19,7 @@ tags.lock
 .jira-url
 .gutctags
 .ycm_extra_conf.py
+/compile_commands.json
 .svo
 .svp
 .svq
