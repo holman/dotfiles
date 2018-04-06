@@ -1,5 +1,6 @@
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 # Customize to your needs...
+export PATH="$HOME/.dotfiles/functions:$PATH"
 export PATH="/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 ### Added by the Heroku Toolbelt
@@ -12,6 +13,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/freetds@0.91/bin:$PATH"
 # export PATH="/Users/cwardzala/anaconda2/bin:$PATH"
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
