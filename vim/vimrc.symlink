@@ -101,7 +101,7 @@ endif
 let g:clipbrdDefaultReg = '+'
 
 "Remove trailing whitespace
-autocmd FileType python,ruby,coffee autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType sh,python,ruby,coffee autocmd BufWritePre * :%s/\s\+$//e
 match Todo /\s\+$/
 
 " For syntastic
