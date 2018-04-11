@@ -1,5 +1,5 @@
 alias reload!='. ~/.zshrc'
-#alias f='git grep --heading --break --line-number'
+alias gg='git grep --heading --break --line-number'
 alias f='ack --pager="less -FRSX"'
 
 alias last-hotfix='git ls-remote --heads | grep -iE "\/hotfix-\d{4}$" | cut -d"/" -f3 | tail -n1'
