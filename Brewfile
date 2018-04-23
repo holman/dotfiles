@@ -51,13 +51,14 @@ cask 'tunnelblick'
 cask 'meld'
 cask 'dotnet-sdk'
 brew 'nuget'
-brew 'vault'
+brew 'vault
+cask 'rider'
 
 # Apps
 cask 'lastpass'
 cask 'firefox'
 cask 'google-chrome'
-cask 'google-backup-and-sync'
+cask '
 cask 'iterm2'
 cask 'slack'
 cask 'vlc'
