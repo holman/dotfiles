@@ -33,7 +33,7 @@ zstyle ':prezto:load' pmodule \
   'ssh' \
   'node' \
   'tmux' \
-  'docker'\
+  'docker' \
   'autosuggestions' \
   'syntax-highlighting' \
   'contrib-clipboard' \
@@ -129,5 +129,10 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 #
 
 # Auto start a session when Zsh is launched.
-zstyle ':prezto:module:tmux' auto-start 'yes'
+zstyle ':prezto:module:tmux:auto-start' remote 'no'
+zstyle ':prezto:module:tmux:auto-start' local 'no'
+
+if [[ -s "${0:h}/.zpreztorc.local" ]]; then
+  source "${0:h}/.zpreztorc.local"
+fi
 
