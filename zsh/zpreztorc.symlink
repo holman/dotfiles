@@ -34,7 +34,6 @@ zstyle ':prezto:load' pmodule \
   'node' \
   'tmux' \
   'docker' \
-  'autosuggestions' \
   'syntax-highlighting' \
   'contrib-clipboard' \
   'contrib-prompt' \
