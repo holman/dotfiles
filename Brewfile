@@ -51,6 +51,7 @@ cask 'meld'
 cask 'dotnet-sdk'
 brew 'nuget'
 brew 'vault'
+cask 'mono-mdk'
 cask 'rider'
 # Required by SQLWorkbenchJ
 cask 'java8'
