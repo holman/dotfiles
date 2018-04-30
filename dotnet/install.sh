@@ -36,6 +36,7 @@ setup_nuget () {
 
   # Fix dotnet looking into wrong location for config
   rm -rf ~/.nuget/NuGet/NuGet.Config
+  mkdir -p ~/.nuget/NuGet
   ln -s ~/.config/NuGet/NuGet.Config ~/.nuget/NuGet/NuGet.Config
 }
 
