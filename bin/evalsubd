@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# Wrapper to execute a command(s) in all sub directories
+#
+
+set -e
+
+usage() {
+  cat << EOF
+Usage: $0 <commands to run>
+
+Executes all commands within all subdirectories of 
+the current working directory
+
+OPTIONS:
+   -h             Show this message
+EOF
+}
+
+while getopts “h” OPTION; do
+  case $OPTION in
+    h) usage; exit 1;;
+  esac
+done
+
+for f in $(pwd)/* ;
+do
+	if [[ -d "$f" ]]
+	then 
+		pushd $f > /dev/null
+		eval $@
+		popd > /dev/null
+	fi
+done;
