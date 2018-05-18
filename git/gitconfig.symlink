@@ -10,7 +10,7 @@
 
 [alias]
   # Pretty prints the log with colors
-  plog = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\[%cn]" --decorate
+  plog = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate
 
   # Pretty prints the graph with colors
   lsgraph = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\[%cn]" --decorate
@@ -22,7 +22,8 @@
   lllgraph = log --graph --oneline --decorate --all
 
   # Pretty diff
-  pdiff = !git diff --color | diff-highlight | diff-so-fancy | less -R --tabs=3
+  #pdiff = !git diff --color | diff-highlight | diff-so-fancy | less -R --tabs=3
+  pdiff = !git diff --color | diff-so-fancy | less -R --tabs=3
 
   # Quick and pretty diff
   pd = !git pdiff
@@ -85,4 +86,4 @@
 
 [user]
 	name = Patrick Auld
-	email = pauld@birst.com
+	email = Patrick.Auld@PlanGrid.com
