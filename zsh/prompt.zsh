@@ -48,7 +48,12 @@ virtualenv_info (){
   then
     echo ""
   else
-    echo " using venv %{$fg_bold[magenta]%}"`basename $VIRTUAL_ENV`"/%{$reset_color%}"
+    if [[ ${PWD} == ${VIRTUAL_ENV%/`basename $VIRTUAL_ENV`}* ]];
+    then
+      echo " using %{$fg_bold[magenta]%}local%{$reset_color%} python"
+    else
+      echo " using %{$fg_bold[magenta]%}${VIRTUAL_ENV}/%{$reset_color%} python"
+    fi
   fi
 }
 
