@@ -45,9 +45,9 @@ There's a few special files in the hierarchy.
           second and is expected to setup any additional environment
           (e.g., shell options).
     - Interactive configuration (i.e., `.zshrc`)
-        - **topic/fpath.zsh**: Any file ending with `fpath.zsh` is
-          loaded for interactive shells only.  They are expected to
-          populate `$fpath`.
+        - **topic/fpath.zsh**: Any `fpath.zsh` file is loaded for
+          interactive shells only.  They are expected to populate
+          `$fpath`.
         - **topic/\*.zsh**: Any files ending in `.zsh` (except those
           specified elsewhere) are loaded for interactive shells only.
           Interactive configuration can include aliases, color output,
