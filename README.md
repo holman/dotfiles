@@ -34,19 +34,18 @@ There's a few special files in the hierarchy.
 - **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
   available everywhere.
 - **Brewfile**: This is a list of applications for
-  [Homebrew Cask](http://caskroom.io) to install: things like Chrome and
-  1Password and Adium and stuff. Might want to edit this file before
-  running any initial setup.
+  [Homebrew Cask](http://caskroom.io) to install: things like Chrome
+  and 1Password and Adium and stuff. Might want to edit this file
+  before running any initial setup.
 - **topic/\*.zsh**: configuration files
     - Environment configuration (i.e., `.zshenv`)
-        - **topic/\*path.zsh**: Any file ending with `path.zsh` (except
-          those ending with `fpath.zsh`) is loaded first and is expected
-          to setup `$PATH` or similar.
-        - **topic/\*env.zsh**: Any file ending with `env.zsh` is loaded
+        - **topic/path.zsh**: Any `path.zsh` file is loaded first and
+          is expected to setup `$PATH` or similar.
+        - **topic/env.zsh**: Any `env.zsh` file is loaded
           second and is expected to setup any additional environment
           (e.g., shell options).
     - Interactive configuration (i.e., `.zshrc`)
-        - **topic/\*fpath.zsh**: Any file ending with `fpath.zsh` is
+        - **topic/fpath.zsh**: Any file ending with `fpath.zsh` is
           loaded for interactive shells only.  They are expected to
           populate `$fpath`.
         - **topic/\*.zsh**: Any files ending in `.zsh` (except those
@@ -54,28 +53,27 @@ There's a few special files in the hierarchy.
           Interactive configuration can include aliases, color output,
           prompt configuration, or anything else that should only be
           loaded when a user is interacting with Zsh.
-        - **topic/\*completion.zsh**: Any file ending with
-          `completion.zsh` is loaded last for interactive shells only.
-          They are expected to setup autocomplete.
+        - **topic/*completion.zsh**: Any `completion.zsh` file is
+          loaded last for interactive shells only.  They are expected
+          to setup autocomplete.
     - Login configuration (i.e., `.zprofile`, `.zlogin`, `.zlogout`)
-        - **topic/\*profile.zsh**: Any file ending with `profile.zsh` is
-          loaded for login shells only.  Unlike `.zlogin`, these files
-          are loaded before the interactive files above are loaded.
-        - **topic/\*login.zsh**: Any file ending in `login.zsh` is
-          loaded for login shells only.  Unlike `.zprofile`, they are
-          loaded after your interactive files are loaded above.  This is
-          the ideal place to put anything you want to see when you start
-          up a new login shell (e.g., cowsay, date, todo, fortune).
-        - **topic/\*logout.zsh**: Any file ending in `logout.zsh` is
-          loaded for login shells only and only when you exit/logout the
-          shell.
+        - **topic/profile.zsh**: Any `profile.zsh` file is loaded for
+          login shells only.  Unlike `.zlogin`, these files are loaded
+          before the interactive files above are loaded.
+        - **topic/login.zsh**: Any `login.zsh` file is loaded for login
+          shells only.  Unlike `.zprofile`, they are loaded after your
+          interactive files are loaded above.  This is the ideal place
+          to put anything you want to see when you start up a new login
+          shell (e.g., cowsay, date, todo, fortune).
+        - **topic/logout.zsh**: Any `logout.zsh` file is loaded for
+          login shells only and only when you exit/logout the shell.
 - **topic/install.sh**: Any file named `install.sh` is executed when you
   run `script/install`. To avoid being loaded automatically, its
   extension is `.sh`, not `.zsh`.
 - **topic/\*.symlink**: Any files ending in `*.symlink` get symlinked into
-  your `$HOME`. This is so you can keep all of those versioned in your dotfiles
-  but still keep those autoloaded files in your home directory. These get
-  symlinked in when you run `script/bootstrap`.
+  your `$HOME`. This is so you can keep all of those versioned in your
+  dotfiles but still keep those autoloaded files in your home
+  directory. These get symlinked in when you run `script/bootstrap`.
 
 ## install
 

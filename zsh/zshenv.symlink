@@ -9,8 +9,8 @@ export PROJECTS="$HOME/Code"
 
 # path and env zsh files
 typeset -U path_files env_files
-path_files=($DOTFILES/**/*path.zsh~**/*fpath.zsh)
-env_files=($DOTFILES/**/*env.zsh)
+path_files=($DOTFILES/**/path.zsh~**/fpath.zsh)
+env_files=($DOTFILES/**/env.zsh)
 
 # load the path files
 for file in ${path_files}; do
