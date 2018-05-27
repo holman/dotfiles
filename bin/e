@@ -13,9 +13,4 @@
 #   $ e .
 #   $ e /usr/local
 #   # => opens the specified directory in your editor
-
-if [ "$1" = "" ] ; then
-  exec $EDITOR .
-else
-  exec $EDITOR "$1"
-fi
+exec "$EDITOR" "${1:-.}"
