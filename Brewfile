@@ -56,6 +56,7 @@ cask 'rider'
 cask 'java8'
 cask 'sqlworkbenchj'
 cask 'robo-3t'
+cask 'google-cloud-sdk'
 
 # Apps
 cask 'lastpass'
