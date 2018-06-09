@@ -40,11 +40,12 @@ This should open up a Finder window showing a folder containing the SF fonts. Se
 
 These are things that need to be installed downloaded that are not installed via the bootstrap script.
 
+These are mostly to play nice with the [JS](http://spacemacs.org/layers/+lang/javascript/README.html), [TypeScript](http://spacemacs.org/layers/+lang/typescript/README.html), and [React](http://spacemacs.org/layers/+frameworks/react/README.html) layers in Spacemacs.
+
 ### Node Things
 
 ```
-npm install -g tern
-npm install -g js-beautify
+npm install -g tern js-beautify eslint babel-eslint eslint-plugin-react typescript-formatter javascript-typescript-langserver
 ```
 
 ### Alfred
