@@ -28,6 +28,14 @@ This can be found under `System Preferences` --> `Keyboard` --> `Shortcuts` --> 
 
 `System Preferences` --> `Keyboard` --> `Keyboard Tab` --> `Modifier Keys` button
 
+* Install [SF fonts](https://medium.com/@deepak.gulati/using-sf-mono-in-emacs-6712c45b2a6d)
+
+```bash
+open /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/
+```
+
+This should open up a Finder window showing a folder containing the SF fonts. Select all, right click, and open. This should let you add them to Font Book.
+
 ## Additional things to download
 
 These are things that need to be installed downloaded that are not installed via the bootstrap script.
