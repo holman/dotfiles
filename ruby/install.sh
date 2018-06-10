@@ -17,12 +17,12 @@ then
   echo
   echo "Installing Ruby tools and Ruby 2.3.3"
   eval "$(rbenv init -)"
-  rbenv install 2.3.3 --skip-existing
-  rbenv global 2.3.3
+  rbenv install 2.5.1 --skip-existing
+  rbenv global 2.5.1
   gem install bundler
 
   # this is for using vim in irb.
   gem install interactive_editor
-  
+
   rbenv rehash
 fi
