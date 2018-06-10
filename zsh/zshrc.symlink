@@ -46,7 +46,7 @@ unset config_files
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -f /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh ] && source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
+[ -f /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh ] && source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20  # ( Recommended 20)Useful when pasting large texts due to the slowdown caused by autosuggestions after every char
 
       bindkey '^[[A' history-substring-search-up
