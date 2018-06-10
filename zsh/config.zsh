@@ -50,7 +50,8 @@ setopt auto_cd
 cdpath=($HOME/code)
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
-setopt complete_aliases
+# compdef g='git'
+# setopt complete_aliases
 
 
 zle -N newtab
