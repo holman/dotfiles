@@ -58,6 +58,15 @@ You can then update the Alfred settings to `CMD + Space`
 * Remove stuff from the dock
 * Add the `HOME/Pictures/ScreenShots` direcotry to the dock
 
+
+## asdf
+
+### nodejs
+
+```
+bash /usr/local/opt/asdf/plugins/nodejs/bin/import-release-team-keyring
+```
+
 # Things from original project
 
 ## topical
