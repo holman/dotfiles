@@ -1,0 +1,20 @@
+Host bastion*.githubapp.com vault-bastion*.githubapp.com
+  ForwardAgent yes
+  User crimsonknave
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%r@%h-%p
+  ControlPersist 600
+Host github.com *.github.net *.githubapp.com
+  ForwardAgent no
+  User crimsonknave
+host shell
+   hostname shell.service.cp1-iad.github.net
+   ForwardAgent yes
+   ProxyJump bastion.githubapp.com
+host bastion
+   hostname bastion.githubapp.com
+   ForwardAgent yes
+host vault
+   hostname vault-bastion.githubapp.com
+   ForwardAgent yes
+

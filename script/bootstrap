@@ -147,6 +147,7 @@ install_dotfiles () {
   install_the_fuck
   install_aws_cli
   install_virtualenv
+  install_github_stuffs
 
   success 'laid down dotfiles'
 }
@@ -253,6 +254,15 @@ setup_oh_my_zsh () {
   success 'oh my zsh installed'
 }
 
+install_github_stuffs () {
+  info 'installing ssh config for GitHub'
+
+  src="$(pwd)/github/ssh_config"
+  dst="$HOME/.ssh/config"
+  link_file "$src" "$dst"
+  success "linked $src to $dst"
+}
+
 install_awesome_config () {
   info 'installing rc.lua for awesome'
 
@@ -296,7 +306,7 @@ install_aws_cli () {
 
 os_name () {
   set +e
-  uname -a |grep 'Darwin' > /dev/null 
+  uname -a |grep 'Darwin' > /dev/null
   mac=$?
   uname -a |grep 'Debian' > /dev/null
   deb=$?
