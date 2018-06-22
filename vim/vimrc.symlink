@@ -101,10 +101,11 @@ endif
 let g:clipbrdDefaultReg = '+'
 
 "Remove trailing whitespace
-autocmd FileType python,ruby,coffee autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType sh,python,ruby,coffee autocmd BufWritePre * :%s/\s\+$//e
 match Todo /\s\+$/
 
 " For syntastic
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['html'] }
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_python_checkers = ['pylint']
