@@ -36,6 +36,8 @@ do
 end
 -- }}}
 
+awful.spawn.with_shell('~/.config/awesome/autorun.sh')
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("~/.dotfiles/awesome/theme/theme.lua")
