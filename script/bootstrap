@@ -254,19 +254,16 @@ setup_oh_my_zsh () {
 }
 
 install_awesome_config () {
-  info 'installing rc.lua for awesome'
+  info 'installing awesome config files'
 
   mkdir -p ~/.config/awesome
   src="$(pwd)/awesome/rc.lua"
   dst="$HOME/.config/awesome/rc.lua"
   link_file "$src" "$dst"
-  success "linked $src to $dst"
 
   src="$(pwd)/awesome/autorun.sh"
   dst="$HOME/.config/awesome/autorun.sh"
   link_file "$src" "$dst"
-  success "linked $src to $dst"
-
 }
 
 install_pip () {
