@@ -21,7 +21,6 @@
     webpack: true
   core:
     closeDeletedFileTabs: true
-    closeEmptyWindows: false
     customFileTypes:
       "source.ini": [
         ".buckconfig"
