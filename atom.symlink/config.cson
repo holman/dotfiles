@@ -35,7 +35,7 @@
     ]
   editor:
     fontFamily: "FuraCode Nerd Font"
-    fontSize: 13
+    fontSize: 10
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
@@ -48,7 +48,8 @@
   "markdown-image-assistant":
     prependTargetFileName: false
   "markdown-preview-plus":
-    breakOnSingleNewline: true
+    markdownItConfig:
+      breakOnSingleNewline: true
   "markdown-writer":
     fileExtension: ".md"
     relativeImagePath: true

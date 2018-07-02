@@ -2,10 +2,7 @@
 
 source $ZSH/bin/helpers/colors.sh
 
-info 'Delete all git branches but master an develop.'
-question "If your some branch is not pushed you WILL LOST data. Continue ? [yes/No]" eraseBranches "no"
+info 'Delete all gone branches.'
 
 
-if [ "${eraseBranches}" == 'yes' ] || [ "${eraseBranches}" == 'y' ]; then
-  git branch | grep -v '\*\|master\|develop' | xargs -n 1 git branch -D
-fi
+git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done

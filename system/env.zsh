@@ -10,6 +10,9 @@ export PYTHON_USER_DIR="$(python3 -m site --user-base)/bin"
 
 source "$NVM_DIR/nvm.sh"
 
+export PATH="$PATH:$HOME/.rvm/bin"
+
+
 source $(brew --prefix)/etc/grc.bashrc
 
 fpath=($WD_HOME $fpath)

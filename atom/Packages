@@ -20,13 +20,9 @@ markdown-writer
 open-recent
 pigments
 project-manager
-rst-preview
 split-diff
 set-syntax
-mjml-preview
 linter
-language-mjml
-linter-mjml
 linter-ui-default
 intentions
 busy-signal
