@@ -1,6 +1,6 @@
 #!/bin/sh
 theme='Material Peacock Optimized.icls'
-target="${HOME}/Library/Preferences/PhpStorm2017.2/colors/"
+target="${HOME}/Library/Preferences/PhpStorm2018.1/colors/"
 
 if [ ! -d "${target}" ]
 then

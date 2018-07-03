@@ -145,11 +145,15 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
+
+# Ask for the administrator password upfront
+sudo -v
+
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
+  if source bin/dot
   then
     success "dependencies installed"
   else

@@ -1,0 +1,5 @@
+set nocompatible        " Utilise les défauts Vim (bien mieux !)
+set bs=2                " autorise l'effacement de tout en mode insertion
+set ai                  " toujours utiliser l'auto-indentation
+set backup              " Conserver un fichier de sauvegarde
+ 
