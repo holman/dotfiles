@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source $HOME/.localrc
+
+vault login -method=github
