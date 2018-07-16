@@ -25,6 +25,6 @@ export FLEX_HOME=$HOME/tools/flex-sdk
 export RBENV_ROOT=$HOME/.rbenv
 
 export PYTHONDONTWRITEBYTECODE=1
-# export GPG_TTY=$(D)
+# export GPG_TTY=$(tty)
 
 ## HOMEBREW_GITHUB_API_TOKEN moved to ~/.localrc

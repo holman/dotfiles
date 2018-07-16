@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
+  'syntax-highlighting' \
   'history-substring-search' \
   'autosuggestions' \
   'git' \
@@ -40,7 +41,6 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'python' \
   'osx' \
-  'syntax-highlighting' \
   'prompt'
 
 #
