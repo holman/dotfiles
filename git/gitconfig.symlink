@@ -44,3 +44,5 @@
 [git-p4]
 	detectRename = true
   allowSubmit = master
+[fetch]
+  prune = true
