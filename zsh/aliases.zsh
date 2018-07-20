@@ -17,3 +17,8 @@ alias YUNO='eval $(thefuck $(fc -ln -1))'
 alias fucking='sudo'
 alias please='sudo'
 alias yolo='sudo'
+
+function set-title() {
+  echo -ne "\033]0;$1\007"
+}
+
