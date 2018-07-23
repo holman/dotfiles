@@ -22,6 +22,7 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+brew 'hub'
 
 cask 'adium'
 cask 'atom'

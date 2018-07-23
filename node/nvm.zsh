@@ -1,16 +1,16 @@
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# function chpwd() {
-#   emulate -L zsh
-#   if [[ -f .nvmrc ]] then
-#     nvm use `cat .nvmrc`
-#   fi
-# }
+function chpwd() {
+  emulate -L zsh
+  if [[ -f .nvmrc ]] then
+    nvm use `cat .nvmrc`
+  fi
+}
 
 # place this after nvm initialization!
-autoload -U add-zsh-hook
+# autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
@@ -29,4 +29,7 @@ load-nvmrc() {
   fi
 }
 # add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+# load-nvmrc
+
+alias node='unalias node ; unalias npm ; nvm use default ; node $@'
+alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'

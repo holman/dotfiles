@@ -20,9 +20,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "branch: %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo "branch: %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -78,7 +78,12 @@ beerTime()  {
     echo 🍺
   fi
 }
-export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push) $(beerTime)\n› '
+kubeContext() {
+  kube=$(kubectl config current-context) || return
+  kubefile=$(basename $(readlink ~/.kube/config))
+  echo "kube: %{$fg_bold[blue]%}$kube%{$reset_color%} from: $kubefile\n"
+}
+export PROMPT=$'\n$(battery_status) $(directory_name) $(git_dirty)$(need_push) $(beerTime) \n $(kubeContext) \n›'
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
