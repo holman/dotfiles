@@ -79,6 +79,9 @@ beerTime()  {
   fi
 }
 kubeContext() {
+  if ! type "$kubectl" > /dev/null; then
+    return
+  fi
   kube=$(kubectl config current-context) || return
   kubefile=$(basename $(readlink ~/.kube/config))
   echo "kube: %{$fg_bold[blue]%}$kube%{$reset_color%} from: $kubefile\n"
