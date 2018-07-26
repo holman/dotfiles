@@ -26,6 +26,11 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+brew docker
+brew docker-compose
+brew docker-machine
+brew xhyve
+brew docker-machine-driver-xhyve
 #brew 'Gradle'
 
 #cask '1password'
