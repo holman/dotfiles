@@ -30,6 +30,7 @@ brew 'youtube-dl'
 
 #cask '1password'
 cask 'xquartz'
+cask 'visual-studio-code'
 brew 'libcaca', args: ['with-imlib2']
 cask 'adium'
 cask 'atom'

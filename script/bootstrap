@@ -151,6 +151,6 @@ then
     fail "error installing dependencies"
   fi
 fi
-
+chsh -s $(which zsh)
 echo ''
 echo '  All installed!'
