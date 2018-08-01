@@ -5,6 +5,8 @@ alias dotfiles="$EDITOR ~/.dotfiles"
 alias edit="$EDITOR ."
 alias hosts!="$EDITOR /etc/hosts"
 
+alias gst="gss"
+
 alias fw="~/Findaway"
 alias proj="~/Projects"
 
