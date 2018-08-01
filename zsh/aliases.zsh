@@ -2,7 +2,6 @@ alias colourify="$commands[grc] -es --colour=auto"
 
 alias reload!="exec $SHELL -l"
 alias dotfiles="$EDITOR ~/.dotfiles"
-alias prezto="$EDITOR ~/.zprezto"
 alias edit="$EDITOR ."
 alias hosts!="$EDITOR /etc/hosts"
 
@@ -35,7 +34,7 @@ alias vr='vagrant reload'
 alias vrp='vagrant reload --provision'
 alias vssh='vagrant ssh'
 
-alias gst='gws'
+# alias gst='gws'
 
 alias nwjs="/Applications/nwjs.app/Contents/MacOS/nwjs"
 
