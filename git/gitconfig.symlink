@@ -14,7 +14,6 @@
     excludesfile = /Users/cwardzala/.gitignore
     editor = vim
     ignorecase = false
-    symlinks = false
 [apply]
     whitespace = nowarn
 [mergetool]
