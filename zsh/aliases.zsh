@@ -6,6 +6,7 @@ alias edit="$EDITOR ."
 alias hosts!="$EDITOR /etc/hosts"
 
 alias gst="gss"
+alias gbc="gcb"
 
 alias fw="~/Findaway"
 alias proj="~/Projects"
