@@ -30,8 +30,11 @@ alias gsp="git-stash-push"
 alias grm="git rm"
 alias gru="git rebase @{u}"
 alias gdt="git difftool"
-# Source: https://stackoverflow.com/a/17029936
-alias gbprune!="git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -D"
+# Source: http://erikaybar.name/git-deleting-old-local-branches
+function delete_gone_local_branches() {
+  git branch -vv | egrep '\[origin/[^\*]*: gone\]' | awk '{print $1}' | xargs git branch -D
+}
+alias gbprune!="delete_gone_local_branches"
 function git_rebase_interactive() {
   if [[ -n $1 ]]; then
     git rebase -i $1
