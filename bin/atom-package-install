@@ -10,4 +10,4 @@
 
 set -e
 
-apm install --packages-file ~/.dotfiles/atom.symlink/packages.txt
+apm install --packages-file ~/.dotfiles/atom/atom.symlink/packages.txt
