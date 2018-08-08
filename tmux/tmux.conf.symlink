@@ -62,7 +62,7 @@ set -g window-status-current-format '#[fg=colour234,bg=colour39]⮀#[fg=black,bg
 set-option -g status-interval 2
 
 # Patch for OS X pbpaste and pbcopy under tmux.
-set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
+#set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
 
 # Screen like binding
 unbind C-b
