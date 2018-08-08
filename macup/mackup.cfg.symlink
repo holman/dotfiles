@@ -1,6 +1,8 @@
 [storage]
-engine = google_drive
-directory = backup
+#engine = google_drive
+#directory = backup
+engine = file_system
+path = /Volumes/GoogleDrive/My Drive
 
 [applications_to_sync]
 ssh
