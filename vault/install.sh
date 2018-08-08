@@ -33,6 +33,11 @@ setup_vault () {
   vault login -method=github
 }
 
+setup_aws_role () {
+  go get github.com/trustpilot/aws-role
+}
+
 info  "Running: ./vault/install.sh"
 setup_vault
+setup_aws_role
 success "./vault/install.sh"
