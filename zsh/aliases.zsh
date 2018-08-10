@@ -2,6 +2,7 @@ alias colourify="$commands[grc] -es --colour=auto"
 
 alias reload!="exec $SHELL -l"
 alias dotfiles="$EDITOR ~/.dotfiles"
+alias dots="dotfiles"
 alias edit="$EDITOR ."
 alias hosts!="$EDITOR /etc/hosts"
 
@@ -34,5 +35,9 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias android-studio="open -a /Applications/Android\ Studio.app/"
 
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
+
+alias server="npx http-server"
+
