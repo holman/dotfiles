@@ -28,7 +28,8 @@ alias grf='git review -f'
 alias gsl="git stash list --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias gsp="git-stash-push"
 alias grm="git rm"
-alias gru="git rebase @{u}"
+alias grbu="git rebase @{u}"
+alias gru!="git reset --hard @{u}"
 alias gdt="git difftool"
 # Source: http://erikaybar.name/git-deleting-old-local-branches
 function delete_gone_local_branches() {
