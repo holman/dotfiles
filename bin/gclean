@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/bin/zsh
 
 source $ZSH/bin/helpers/colors.sh
 
 info 'Delete all gone branches.'
-
-
-git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
+git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+git gc --auto

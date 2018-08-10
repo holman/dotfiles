@@ -1,0 +1,11 @@
+#Tweaks
+-Xms2048m
+-Xmx4096m
+
+-XX:+UseG1GC
+-XX:-UseParNewGC
+-XX:-UseConcMarkSweepGC
+
+-Dawt.useSystemAAFontSettings=lcd
+-Dawt.java2d.opengl=true
+-Dapple.awt.graphics.UseQuartz=true

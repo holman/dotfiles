@@ -77,6 +77,9 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 
@@ -363,6 +366,6 @@ for app in "Activity Monitor" \
 	"Terminal" \
 	"Transmission";
 do
-	#killall "${app}" &> /dev/null
+	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

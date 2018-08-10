@@ -11,3 +11,6 @@ if [ ! -L "${target}${theme}" ]
 then
   cp "./pstorm/${theme}" "${target}"
 fi
+
+echo "It might be a good idea to tweak PSTORM memory"
+echo "Check https://github.com/FoxxMD/intellij-jvm-options-explained"

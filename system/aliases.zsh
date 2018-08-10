@@ -73,5 +73,3 @@ alias dclean='drm || true && drmi || true && drmv'
 
 # Delete all containers, all images and all volumes
 alias dcleanall='dkill || true && drm || true && drmia || true && drmva'
-
-alias gclean="git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"

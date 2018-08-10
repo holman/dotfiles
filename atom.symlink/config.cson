@@ -1,70 +1,16 @@
 "*":
-  "atom-autocomplete-php":
-    gotoKey: "cmd"
-    insertNewlinesForUseStatements: true
-  "atom-material-ui":
-    tabs:
-      compactTabs: true
-    ui:
-      panelContrast: true
-  "autocomplete-python":
-    useKite: false
-  autosave:
-    enabled: true
   core:
-    disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
-      "language-gfm"
-      "markdown-preview"
-    ]
-    hideGitIgnoredFiles: true
-    ignoredNames: [
-      ".bundle"
-      ".git"
-      "log"
-      "repositories"
-      "tmp"
-      "vendor"
-    ]
     telemetryConsent: "no"
     themes: [
-      "atom-material-ui"
-      "atom-material-syntax"
+      "atom-dark-ui"
+      "atom-dark-syntax"
     ]
   editor:
     fontFamily: "FuraCode Nerd Font"
-    fontSize: 10
-    invisibles: {}
+    fontSize: 12
     showIndentGuide: true
-    softWrapAtPreferredLineLength: true
     tabLength: 4
-  "go-plus":
-    goPath: "/Users/holman/Code/go"
-  "linter-ui-default":
-    panelHeight: 300
-    showPanel: true
-  "markdown-image-assistant":
-    prependTargetFileName: false
-  "markdown-preview-plus":
-    markdownItConfig:
-      breakOnSingleNewline: true
-  "markdown-writer":
-    fileExtension: ".md"
-    relativeImagePath: true
-    siteImagesDir: "img/{year}/{month}/"
-  "release-notes":
-    viewedVersion: "0.89.0"
-  "spell-check":
-    grammars: [
-      "text.plain"
-      "source.gfm"
-      "text.git-commit"
-    ]
+  "exception-reporting":
+    userId: "c5c565b7-6f94-4f78-a50a-61560f84b52f"
   welcome:
     showOnStartup: false
-".md.text":
-  editor:
-    softWrap: false
-    softWrapAtPreferredLineLength: false
