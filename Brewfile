@@ -57,6 +57,7 @@ cask 'java8'
 cask 'sqlworkbenchj'
 cask 'robo-3t'
 cask 'google-cloud-sdk'
+brew 'go'
 
 # Apps
 cask 'lastpass'
