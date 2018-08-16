@@ -27,6 +27,8 @@ brew 'yarn'
 brew 'kubectl'
 brew 'docker-completion'
 brew 'pipenv'
+cask 'java'
+brew 'mvnvm
 
 cask 'atom'
 cask 'google-chrome'
