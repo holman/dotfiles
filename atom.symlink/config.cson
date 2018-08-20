@@ -1,5 +1,23 @@
 "*":
+  autosave:
+    enabled: true
   core:
+    disabledPackages: [
+      "language-gfm"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      ".pioenvs"
+      ".piolibdeps"
+      ".clang_complete"
+      ".gcc-flags.json"
+    ]
     telemetryConsent: "no"
     themes: [
       "atom-dark-ui"
@@ -12,5 +30,10 @@
     tabLength: 4
   "exception-reporting":
     userId: "c5c565b7-6f94-4f78-a50a-61560f84b52f"
+  "linter-ui-default": {}
+  "tool-bar":
+    position: "Left"
+  "tree-view":
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false

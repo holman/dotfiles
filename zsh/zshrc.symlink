@@ -13,8 +13,9 @@ then
 fi
 
 # all of our zsh files
+# restrained to some folders since it take a long time to read
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSH/(system|zplug|zsh)/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
