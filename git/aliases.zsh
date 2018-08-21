@@ -9,6 +9,7 @@
 # The rest of my fun git aliases
 alias gc='git commit -v -S'
 alias gm='git merge -S' 
+alias ggpull='git pull origin $(git_current_branch) -S'
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
