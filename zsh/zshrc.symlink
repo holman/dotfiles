@@ -99,7 +99,28 @@ source $ZSH/oh-my-zsh.sh
 ###########
 
 # Use Gradle Wrapper
-alias gradle="./gradlew"
+#alias gradle="./gradlew"
+gradle() {
+  current_path="$(pwd)"
+
+  while [[ $current_path != / ]]
+  do
+    if [[ -n $(find $current_path -maxdepth 1 -name gradlew) ]]
+    then
+      break
+    fi
+    current_path="$(dirname "$current_path")"
+  done
+
+  if [[ $current_path != / ]]
+  then
+    echo "Using $current_path/gradlew"
+    "$current_path/gradlew $@"
+  else
+    echo "Using gradle found in path"
+    "command gradle $@"
+  fi
+}
 
 # Use GitHub's Hub in place of Git (It's a wrapper).
 # "alias git=hub" previously, was removed to use suggested script from Github
@@ -128,4 +149,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Path
 export PATH=~/flutter/bin:~/Library/Android/sdk/platform-tools:$PATH
-
