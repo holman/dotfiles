@@ -32,6 +32,7 @@ alias grm="git rm"
 alias grbu="git rebase @{u}"
 alias gru!="git reset --hard @{u}"
 alias gdt="git difftool"
+alias gmb="git merge-base"
 # Source: http://erikaybar.name/git-deleting-old-local-branches
 function delete_gone_local_branches() {
   git branch -vv | egrep '\[origin/[^\*]*: gone\]' | awk '{print $1}' | xargs git branch -D
