@@ -1,4 +1,4 @@
-switch-kubes(){
+kubes-switch(){
   local kube_path="$HOME/.kube/$1"
   if [ -f $kube_path ]; then
     echo "using $HOME/.kube/$1"
@@ -6,4 +6,8 @@ switch-kubes(){
   else
     echo "cannot find config::: $kube_path"
   fi
+}
+
+kubes-list(){
+  l $HOME/.kube
 }
