@@ -1,3 +1,4 @@
+src/config/local.json
 .DS_Store
 *~
 *.swp

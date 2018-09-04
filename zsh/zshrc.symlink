@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/development
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -12,9 +12,12 @@ then
   source ~/.localrc
 fi
 
+setopt extendedglob
+setopt NO_NOMATCH
+
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSH/^*symlink/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -28,6 +31,11 @@ do
   source $file
 done
 
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
@@ -39,3 +47,23 @@ do
 done
 
 unset config_files
+
+# enable fasd https://github.com/clvv/fasd
+eval "$(fasd --init auto)"
+
+# Set prompt pattern
+# export PS1='[craigkj %~] '
+
+# link gpg-agent and pinentry
+#if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
+#  source ~/.gnupg/.gpg-agent-info
+#  export GPG_AGENT_INFO
+#else
+#  eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+#fi
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/usr/local/opt/gettext/bin:$PATH"

@@ -1,33 +1,104 @@
-# Local/private config goes in the include
-[include]
-        path = ~/.gitconfig.local
-[hub]
-        protocol = https
 [alias]
+        c = commit -am
+        up = pull
+        p = push
+        s = status -s
+        st = status -s
+        brv = branch -v
+        sclone = clone --depth=1
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+        df = diff --color --color-words --abbrev
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+        # Show the diff between the latest commit and the current state
+        d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+        reup = rebase-update # depot_tools specific
+
 [core]
+        untrackedCache = true # https://news.ycombinator.com/item?id=11388479
         excludesfile = ~/.gitignore
-        editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
+        attributesfile = ~/.gitattributes
+
+[pager]
+        # insanely beautiful diffs ==> npm install -g diff-so-fancy
+        diff = diff-so-fancy | less --tabs=4 -RFX
+        show = diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+        diffFilter = "diff-so-fancy"
+
+# so much color
+[color]
+        ui = always
+[color "diff"]
+        meta = yellow bold
+        commit = green bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+        whitespace = red reverse
+[color "diff-highlight"]
+        oldNormal = red bold
+        oldHighlight = "red bold 52"
+        newNormal = "green bold"
+        newHighlight = "green bold 22"
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+[color "status"]
+        added = green
+        changed = yellow
+        untracked = cyan
+
+# git mergetool
+[merge]
+        tool = opendiff
+
+# rewrites of repo paths
+[url "git@github.com:"]
+        insteadOf = "gh:"
+        insteadOf = "git://github.com"
+        pushInsteadOf = "github:"
+        pushInsteadOf = "git://github.com/"
+        pushInsteadOf = "https://github.com/"
+[url "git@gist.github.com:"]
+        insteadOf = "gst:"
+        pushInsteadOf = "gist:"
+        pushInsteadOf = "git://gist.github.com/"
+        pushInsteadOf = "https://gist.github.com/"
+
+# correct typos
 [help]
         autocorrect = 1
+
+# push easily. http://stackoverflow.com/a/23918418/89484
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+        default = current
+
+# use separate file for username / github token / etc
+[include]
+        path = ~/.gitconfig.local
+
+[init]
+        # templatedir = ~/.git_template
+
+[filter "lfs"]
+        clean = git-lfs clean %f
+        smudge = git-lfs smudge %f
+        required = true
+[http]
+[user]
+	name = Craig Jones
+	email = craigkjones@gmail.com
+[http]
+[http]
+[http]
+[http]
+[http]
+[http]
+[http]
+[http]
+[http]
+[http]
