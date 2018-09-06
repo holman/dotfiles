@@ -18,14 +18,33 @@ fi
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
+# Load any user environment customizations prior to load
+for file in ${(M)config_files:#*/*env.zsh}
+do
+  source $file
+done
+
 # load the path files
 for file in ${(M)config_files:#*/*path.zsh}
 do
   source $file
 done
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+# path, the 0 in the filename causes this to load first
+
+pathAppend() {
+  # Only adds to the path if it's not already there
+  if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
+    PATH=$PATH:$1
+  fi
+}
+
+# Remove duplicate entries from PATH
+PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
+pathAppend "$ZSH/bin"
+
+# load everything but the path, environment and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh:#*/env.zsh}
 do
   source $file
 done
