@@ -1,6 +1,8 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'dart-lang/dart'
+tap 'caskroom/fonts'
 
 brew 'zsh'
 brew 'zsh-completions'
@@ -10,6 +12,7 @@ brew 'unrar'
 brew 'wget'
 brew 'youtube-dl'
 brew 'hub'
+brew 'dart'
 
 cask 'atom'
 cask 'firefox'
@@ -24,3 +27,4 @@ cask 'spectacle'
 cask 'steam'
 cask 'istat-menus'
 cask 'flux'
+cask 'font-fira-code'
