@@ -9,6 +9,9 @@ success () {
 }
 
 info "Installing golang tools"
+
+source $(dirname $0)/path.zsh
+
 go get -v \
   github.com/mdempsky/gocode \
   github.com/uudashr/gopkgs/cmd/gopkgs \
@@ -21,4 +24,4 @@ go get -v \
   github.com/sqs/goreturns \
   github.com/golang/lint/golint
 
-success "./go/install.sh"
+success "Installed golang tools"
