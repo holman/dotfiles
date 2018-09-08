@@ -1,5 +1,3 @@
-if (( ! $+commands[helm] ))
-then
- return 0;
+if [ $+commands[helm] ]; then
+  source <(helm completion zsh)
 fi
-source <(helm completion zsh)

@@ -1,5 +1,3 @@
-if (( ! $+commands[kubectl] ))
-then
- return 0;
+if (( $+commands[kubectl] )); then
+  source <(kubectl completion zsh)
 fi
-source <(kubectl completion zsh)
