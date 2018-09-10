@@ -12,10 +12,6 @@
 				"function": "powerline.segments.common.env.user",
 				"priority": 30
 			},
-      {
-        "function": "powerline_kubernetes.kubernetes",
-        "priority": 40
-      },
 			{
 				"function": "powerline.segments.common.env.virtualenv",
 				"priority": 50

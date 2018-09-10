@@ -1,4 +1,4 @@
-if [ $MAC -eq 0 ]
+if [[ $MAC -eq 0 ]]
 then
   PATH="$PATH:$HOME/Library/Python/2.7/bin"
 else

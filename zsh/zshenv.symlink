@@ -1,0 +1,25 @@
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES=$HOME/.dotfiles
+
+# your project folder that we can `c [tab]` to
+export PROJECTS=~/code
+
+# Is this a mac? 0 is yes
+uname -a |grep 'Darwin' > /dev/null
+MAC=$?
+
+# Can we run powerline?
+python -c 'import sys; sys.version_info < (2,6) and sys.exit(1)'
+POWERLINE_CAPABLE=$?
+
+# all of our zsh files
+typeset -U config_files
+# Don't use ** to avoid hitting the .zsh files in zsh-syntax-highlighting
+config_files=($DOTFILES/*/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
