@@ -1,0 +1,32 @@
+# brew cask install dev tools
+iterm2
+sublime-text3
+vagrant
+virtualbox
+java
+atom
+kitematic
+sourcetree
+# brew cask install apps
+adium
+alfred
+caffeine
+cakebrew
+#dropbox
+evernote
+google-drive
+google-hangouts
+hipchat
+joinme
+skype
+the-unarchiver
+ringcentral
+transmission
+vlc
+popcorn-time
+projectlibre
+spotify
+# brew cask install browsers
+firefox
+google-chrome
+#torbrowser
