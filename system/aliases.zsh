@@ -68,7 +68,7 @@ alias drmva='printf "\n>>> Deleting all volumes\n\n" && docker volume rm $(docke
 
 
 # Delete all stopped containers, untagged images and dangling volumes
-alias dclean='drm || true && drmi || true && drmv'
+alias dclean='docker system prune -a --volumes'
 
 
 # Delete all containers, all images and all volumes
