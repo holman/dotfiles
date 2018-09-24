@@ -8,3 +8,10 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+# cd
+alias ..="cd .."
+alias cdd="cd -"
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'

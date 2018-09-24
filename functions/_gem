@@ -1,0 +1,32 @@
+#compdef gem
+
+local curcontext="$curcontext" state line ret=1
+
+_arguments -C \
+  '(- 1 *)'{-h,--help}'[display help information]' \
+  '(- 1)--version[display version information]' \
+  '1: :->cmds' \
+  '*: :->args' && ret=0
+
+case $state in
+  cmds)
+    if (( ! $+_gem_cmds )) ; then
+      typeset -gH _gem_cmds
+      _gem_cmds=( $(gem help commands | grep '^    [a-z]' | cut -d " " -f 5) )
+    fi
+    compadd $_gem_cmds && ret=0
+  ;;
+  args)
+    case $line[1] in
+      (dependency|open|read|uninstall|unpack|update)
+        if (( ! $+_gem_installed )) ; then
+          typeset -gH _gem_installed
+          _gem_installed=( $(gem list | grep '^[A-Za-z]' | cut -d " " -f 1) )
+        fi
+        compadd $_gem_installed && ret=0
+      ;;
+    esac
+  ;;
+esac
+
+return ret
