@@ -63,7 +63,8 @@ battery_status() {
 
 export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export RPROMPT='%{$fg_no_bold[green]%}gcloud:%{$fg_no_bold[yellow]%} $(uc-current-env)%{$reset_color%} %{$fg_no_bold[green]%}kube: %{$fg_no_bold[yellow]%}$(uc-current-cluster)%{$reset_color%}'
+
 }
 
 precmd() {
