@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # Set bindkey
-bindkey -v
+bindkey -e
 
 setopt extendedglob
 
@@ -61,4 +61,30 @@ precmd() {vcs_info 2> /dev/null}
 
 #RPROMPT=$'$(vcs_info_wrapper)'
 
-PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green}%n@%m %F{242}:%f %F{green}%d%f ${vcs_info_msg_0_}\n%F{242}λ%f '
+PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green}%n@%m %F{242}:%f %F{green}%d%f ${vcs_info_msg_0_}\n'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+bindkey -s "^P" 'nvim +Files;^M'
+bindkey -s "^G" 'nvim +Rg;^M'
+
+tm() {   
+	[[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+	if [ $1 ]; then
+		tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+	fi   
+	session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found." 
+}
+
+fzf_log() {
+   hash=$(git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |  fzf | awk '{print $1}')
+   echo $hash | xclip
+   git showtool $hash 
+}
+
+export FZF_ALT_C_COMMAND="fd -t d"
+
+export TERM='xterm-256color'

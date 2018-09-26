@@ -1,3 +1,5 @@
+set-option -g default-shell /bin/zsh
+
 # command prefix (like screen)
 unbind C-b
 set -g prefix C-a
