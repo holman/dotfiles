@@ -1,6 +1,6 @@
 let mapleader=' '
 
-set relativenumber
+"" set relativenumber
 set number
 set surround
 
