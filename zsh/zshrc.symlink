@@ -61,7 +61,7 @@ precmd() {vcs_info 2> /dev/null}
 
 #RPROMPT=$'$(vcs_info_wrapper)'
 
-PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green}%n@%m %F{242}:%f %F{green}%d%f ${vcs_info_msg_0_}\n'
+PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green}%n@%m:%d%f ${vcs_info_msg_0_}\n'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -88,3 +88,7 @@ fzf_log() {
 export FZF_ALT_C_COMMAND="fd -t d"
 
 export TERM='xterm-256color'
+
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion

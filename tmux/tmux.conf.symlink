@@ -1,6 +1,13 @@
-set-option -g default-shell /bin/zsh
+set-option -g default-shell /bin/zsh 
 
-# command prefix (like screen)
+
+
+# disable mouse control by default - change 'off' to 'on' to enable by default.
+setw -g mode-mouse on
+set-option -g mouse-resize-pane off
+set-option -g mouse-select-pane off
+set-option -g mouse-select-window off
+
 unbind C-b
 set -g prefix C-a
 bind-key a send-prefix
