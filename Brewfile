@@ -3,6 +3,7 @@ tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
+tap 'azure/draft'
 
 # Upgrade ruby & bash
 brew 'ruby'
@@ -58,6 +59,9 @@ cask 'sqlworkbenchj'
 cask 'robo-3t'
 cask 'google-cloud-sdk'
 brew 'go'
+brew 'kubernetes-cli'
+brew 'kubernetes-helm'
+brew 'azure/draft/draft'
 
 # Apps
 cask 'lastpass'
