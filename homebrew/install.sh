@@ -13,6 +13,19 @@ then
 fi
 
 # Install homebrew packages
-brew install coreutils spark ssh-copy-id libdvdcss grc jq fasd csvfix
+brew install ack
+brew install coreutils
+brew install csvfix
+brew install fasd
+brew install git
+brew install git-lfs
+brew install grc
+brew install jq
+brew install libdvdcss
+brew install rbenv
+brew install spark
+brew install ssh-copy-id
+brew install the_silver_searcher
+brew install tree
 
 exit 0
