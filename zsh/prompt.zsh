@@ -83,7 +83,7 @@ kubeContext() {
     return
   fi
   kube=$(kubectl config current-context 2> /dev/null ) || return
-  kubefile=$(basename $(readlink ~/.kube/config))
+  kubefile=$(readlink ~/.kube/config)
   echo "kube: %{$fg_bold[blue]%}$kube%{$reset_color%} from: $kubefile\n"
 }
 export PROMPT=$'\n$(battery_status) $(directory_name) $(git_dirty)$(need_push) $(beerTime) \n $(kubeContext) \n›'

@@ -23,7 +23,12 @@ brew 'wget'
 brew 'yarn'
 brew 'yq'
 brew 'youtube-dl'
+brew 'git'
 brew 'hub'
+
+brew 'dnsmasq'
+
+brew 'rbenv'
 
 # cask 'adium'
 cask 'atom'

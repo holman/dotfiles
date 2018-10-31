@@ -86,3 +86,12 @@ weight of my changes and tweaks inspired me to finally roll my own. But Ryan's
 dotfiles were an easy way to get into bash customization, and then to jump ship
 to zsh a bit later. A decent amount of the code in these dotfiles stem or are
 inspired from Ryan's original project.
+
+pfix=$(brew --prefix)
+mkdir -pv ${pfix}/etc/
+echo ‘address=/.kube/127.0.0.1’ >> ${pfix}/etc/dnsmasq.conf
+echo ‘port=53’ >> ${pfix}/etc/dnsmasq.conf
+sudo brew services stop dnsmasq
+sudo brew services start dnsmasq
+sudo mkdir -v /etc/resolver
+sudo bash -c ‘sudo echo “nameserver 127.0.0.1” > /etc/resolver/kube’
