@@ -84,7 +84,8 @@ kubeContext() {
   fi
   kube=$(kubectl config current-context 2> /dev/null ) || return
   kubefile=$(readlink ~/.kube/config)
-  echo "kube: %{$fg_bold[blue]%}$kube%{$reset_color%} from: $kubefile\n"
+  kubeNS="$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)"
+  echo "\u2638 %{$fg_bold[blue]%} $kube:$kubeNS%{$reset_color%} from: $kubefile\n"
 }
 export PROMPT=$'\n$(battery_status) $(directory_name) $(git_dirty)$(need_push) $(beerTime) \n $(kubeContext) \n›'
 set_prompt () {
