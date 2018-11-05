@@ -5,7 +5,7 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 function disas_impl() {
-  objdump -drwCS -Mintel $1 || gobjdump -drwCS -Mintel $1;
+  objdump -dlrwCS -Mintel $1 || gobjdump -dlrwCS -Mintel $1;
 }
 
 func horizontal_divider() {
