@@ -55,7 +55,7 @@ directory_name() {
 }
 
 battery_status() {
-  if [[ $(sysctl -n hw.model) == *"Book"* ]]
+	if (( $+commands[sysctl] )) && [[ $(sysctl -n hw.model) == *"Book"* ]]
   then
     $ZSH/bin/battery-status
   fi
