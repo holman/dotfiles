@@ -49,3 +49,5 @@
   allowSubmit = master
 [fetch]
   prune = true
+[gpg]
+	program = gpg2
