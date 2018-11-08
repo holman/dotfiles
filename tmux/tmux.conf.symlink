@@ -3,6 +3,7 @@ new-session
 set-window-option -g mode-mouse on  
 set -g history-limit 30000  
 
+set-option -g default-shell /usr/local/bin/zsh
 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
