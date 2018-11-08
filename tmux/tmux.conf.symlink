@@ -20,9 +20,9 @@ bind-key h select-pane -L
 unbind-key l
 bind-key l select-pane -R
 
-bind \ split-window -h
-bind | split-window -h
-bind - split-window -v
+bind \ split-window -c "#{pane_current_path}" -h
+bind | split-window -c "#{pane_current_path}" -h
+bind - split-window -c "#{pane_current_path}" -v
 
 bind m last-window
 
@@ -40,3 +40,5 @@ set-option -g renumber-windows on
 
 # use vim-tmuxline as powerline replacement
 if-shell "test -f $DOTS/tmux/tmuxline-snapshot.conf" "source-file $DOTS/tmux/tmuxline-snapshot.conf"
+
+bind c new-window -c "#{pane_current_path}"
