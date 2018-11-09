@@ -35,7 +35,7 @@ There's a few special files in the hierarchy.
   available everywhere.
 - **Brewfile**: This is a list of applications for [Homebrew Cask](https://caskroom.github.io) to install: things like Chrome and 1Password and Adium and stuff. Might want to edit this file before running any initial setup.
 - **topic/\*.zsh**: Any files ending in `.zsh` get loaded into your
-  environment.
+  environment. Note these files will only be loaded if they are in a top-level topic folder.
 - **topic/path.zsh**: Any file named `path.zsh` is loaded first and is
   expected to setup `$PATH` or similar.
 - **topic/completion.zsh**: Any file named `completion.zsh` is loaded
