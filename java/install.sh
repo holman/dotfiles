@@ -1,4 +1,5 @@
 #!/bin/sh
+echo " About to install java"
 
 if test ! $(which jenv)
 then

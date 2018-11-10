@@ -67,11 +67,27 @@ rb_prompt() {
   fi
 }
 
+node_version() {
+  if (( $+commands[node] )) then
+    echo "$(node --version)"
+  fi
+}
+
+node_prompt() {
+  if ! [[ -z "$(node_version)" ]] then
+    echo "%{$fg_bold[yellow]%}$(node_version)%{$reset_color%} "
+  else
+    echo ""
+  fi
+}
+
 directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+# Don't need to have ruby version
+# export PROMPT=$' $(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$' $(node_prompt)in $(directory_name) $(git_dirty)$(need_push)› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }

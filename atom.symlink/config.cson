@@ -1,10 +1,14 @@
 "*":
-  editor:
-    showIndentGuide: true
-    fontFamily: "Monaco"
-    invisibles: {}
-    scrollPastEnd: true
+  "atom-beautify":
+    _analyticsUserId: "b2fd3f78-10ca-43ea-94b0-69b5606e924a"
+  "autocomplete-plus":
+    autoActivationDelay: 1
   core:
+    disabledPackages: [
+      "exception-reporting"
+      "metrics"
+    ]
+    hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
       ".git"
@@ -13,16 +17,21 @@
       "tmp"
       ".tmp"
     ]
-    hideGitIgnoredFiles: true
-    disabledPackages: [
-      "exception-reporting"
-      "metrics"
-    ]
     projectHome: "~/Code"
     themes: [
       "seti-ui"
       "base16-tomorrow-dark-theme"
     ]
+  editor:
+    fontFamily: "Monaco"
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+  linter: {}
+  minimap: {}
+  react: {}
+  "release-notes":
+    viewedVersion: "0.89.0"
   "spell-check":
     grammars: [
       "text.plain"
@@ -31,15 +40,6 @@
     ]
   welcome:
     showOnStartup: false
-  "release-notes":
-    viewedVersion: "0.89.0"
-  "autocomplete-plus":
-    autoActivationDelay: 1
-  "atom-beautify":
-    _analyticsUserId: "b2fd3f78-10ca-43ea-94b0-69b5606e924a"
-  react: {}
-  linter: {}
-  minimap: {}
 ".coffee.jsx.source":
   editor:
     autoIndentOnPaste: true
