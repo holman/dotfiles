@@ -1,15 +1,30 @@
 #!/bin/sh
 
-# if test ! $(which node)
-# then
-#   echo "  Installing node for you."
-#   brew install node
-# fi
+# Install NVM and then Node
+if [ ! -d "$NVM_DIR" ]; then
+  # Install manually: https://github.com/creationix/nvm#manual-install
+  echo "› Installing nvm (Node Version Manager)"
 
-if test ! $(which n)
+  export NVM_DIR="$HOME/.nvm" && (
+    git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+    cd "$NVM_DIR"
+    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+  ) && \. "$NVM_DIR/nvm.sh"
+
+  echo " Installing latest Node LTS as default"
+  nvm install --lts
+else
+  echo "› Upgrading NVM (Node Version Manager)"
+   # Upgrade manually: https://github.com/creationix/nvm#manual-upgrade
+  (
+    cd "$NVM_DIR"
+    git fetch --tags origin
+    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+  ) && \. "$NVM_DIR/nvm.sh"
+fi
+
+# https://www.npmjs.com/package/spoof
+if test ! $(which spoof)
 then
-  echo " Installing n for node version management."
-
-  # https://github.com/mklement0/n-install
-  curl -L http://git.io/n-install | bash -s -- -y lts 0.12
+  npm install spoof -g
 fi

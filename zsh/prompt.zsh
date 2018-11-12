@@ -28,42 +28,36 @@ git_dirty() {
 }
 
 git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
+  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
+  # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
+  echo "${ref#refs/heads/}"
 }
 
-unpushed () {
-  $git cherry -v @{upstream} 2>/dev/null
-}
-
+# This assumes that you always have an origin named `origin`, and that you only
+# care about one specific origin. If this is not the case, you might want to use
+# `$git cherry -v @{upstream}` instead.
 need_push () {
-  if [[ $(unpushed) == "" ]]
+  if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
   then
-    echo " "
-  else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
+
+    if [[ $number == 0 ]]
+    then
+      echo " "
+    else
+      echo " with %{$fg_bold[magenta]%}$number unpushed%{$reset_color%}"
+    fi
   fi
 }
 
-ruby_version() {
-  if (( $+commands[rbenv] ))
-  then
-    echo "$(rbenv version | awk '{print $1}')"
-  fi
-
-  if (( $+commands[rvm-prompt] ))
-  then
-    echo "$(rvm-prompt | awk '{print $1}')"
-  fi
+directory_name() {
+  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-rb_prompt() {
-  if ! [[ -z "$(ruby_version)" ]]
+battery_status() {
+  if [[ $(sysctl -n hw.model) == *"Book"* ]]
   then
-    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
-  else
-    echo ""
+    $ZSH/bin/battery-status
   fi
 }
 
@@ -81,13 +75,7 @@ node_prompt() {
   fi
 }
 
-directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
-}
-
-# Don't need to have ruby version
-# export PROMPT=$' $(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
-export PROMPT=$' $(node_prompt)in $(directory_name) $(git_dirty)$(need_push)› '
+export PROMPT=$'\n$(battery_status)$(node_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
