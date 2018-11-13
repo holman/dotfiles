@@ -57,6 +57,7 @@ syntax enable
 
 " let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
 colorscheme solarized
+set background=dark
 
 
 " configure airline
