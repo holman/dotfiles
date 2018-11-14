@@ -1,7 +1,7 @@
 [user]
     name = Cameron Wardzala
     email = cwardzala@fastmail.com
-    signingkey = 842A0F02F354309E
+    signingkey = E781E78D754CD875
 [credential]
     helper = osxkeychain
 [color]

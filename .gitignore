@@ -1,1 +1,5 @@
 !bin/
+
+gnupg.symlink/*
+!gnupg.symlink/gpg-agent.conf
+!gnupg.symlink/gpg.conf
