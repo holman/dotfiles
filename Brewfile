@@ -62,9 +62,9 @@ brew 'go'
 brew 'kubernetes-cli'
 brew 'kubernetes-helm'
 brew 'azure/draft/draft'
+brew 'lastpass-cli'
 
 # Apps
-cask 'lastpass'
 cask 'firefox'
 cask 'google-chrome'
 cask 'google-backup-and-sync'
