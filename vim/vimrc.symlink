@@ -23,10 +23,10 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
-Plug 'sheerun/vim-wombat-scheme'
-Plug 'jnurmine/Zenburn'
 Plug 'godlygeek/tabular'
 Plug 'thoughtbot/vim-rspec'
+Plug 'kaicataldo/material.vim'
+
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -44,12 +44,14 @@ set noswapfile " don't create .swp files
 filetype indent plugin on
 
 set background=dark
+colorscheme material
 
-if filereadable(expand("$HOME/.vim/plugged/vim-wombat-scheme/colors/wombat.vim"))
-  colorscheme wombat
-  let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ }
+let g:lightline = { 'colorscheme': 'material_vim' }
+
+let g:material_theme_style = 'default'
+
+if (has("termguicolors"))
+ set termguicolors
 endif
 
 "  ---------------------------------------------------
@@ -181,8 +183,16 @@ map <Leader>rs :call RunNearestSpec()<CR>
 map <Leader>rl :call RunLastSpec()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
 
-let g:rspec_runner = "os_x_iterm"
+let g:rspec_runner = "os_x_iterm2"
 let g:rspec_command = "!bundle exec rspec -I . -f d -c {spec}"
+
+if has("gui_macvim")
+  let g:rspec_runner = "os_x_iterm2"
+  let g:rspec_command = "bundle exec rspec {spec}"
+else
+  let g:rspec_runner = "os_x_iterm2"
+  let g:rspec_command = "!bundle exec rspec {spec}"
+endif
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
