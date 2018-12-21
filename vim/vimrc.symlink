@@ -175,6 +175,15 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Rspec
+map <Leader>rt :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
+
+let g:rspec_runner = "os_x_iterm"
+let g:rspec_command = "!bundle exec rspec -I . -f d -c {spec}"
+
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
