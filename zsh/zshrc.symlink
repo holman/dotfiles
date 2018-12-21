@@ -42,3 +42,5 @@ export TERM=xterm-256color
 
 unset config_files
 eval $(dircolors -b $HOME/.dircolors)
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
