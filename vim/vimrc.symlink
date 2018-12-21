@@ -24,6 +24,9 @@ Plug 'tpope/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'thoughtbot/vim-rspec'
 Plug 'kaicataldo/material.vim'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
+Plug 'itchyny/lightline.vim'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
