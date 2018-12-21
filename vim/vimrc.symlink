@@ -210,3 +210,14 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" --- Tabular.vim ---
+noremap <silent> <leader>t: :Tabularize /:<CR>
+noremap <silent> <leader>t= :abularize /=<CR>
+noremap <silent> <leader>t, :Tabularize /,<CR>
+noremap <silent> <leader>t{ :Tabularize /{<CR>
+noremap <silent> <leader>t" :Tabularize /"<CR>
+noremap <silent> <leader>t' :Tabularize /'<CR>
+noremap <silent> <leader>t[ :Tabularize /[<CR>
+noremap <silent> <leader>t/ :Tabularize ///<CR>
+noremap <silent> <leader>t\| :Tabularize /\|<CR>
