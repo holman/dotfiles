@@ -50,3 +50,4 @@ this script in `bin/`.
 NOTE: Once completed open up vim and run :PlugInstall
 
 Thanks to @holman for his original dotfiles.
+

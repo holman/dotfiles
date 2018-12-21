@@ -22,6 +22,7 @@ brew 'spark'
 brew 'unrar'
 brew 'wget'
 brew 'youtube-dl'
+brew 'elixir'
 
 cask '1password'
 cask 'google-chrome'

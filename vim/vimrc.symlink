@@ -16,8 +16,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tomtom/tcomment_vim'
-Plug 'itchyny/lightline.vim'
-
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
@@ -26,7 +24,6 @@ Plug 'tpope/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'thoughtbot/vim-rspec'
 Plug 'kaicataldo/material.vim'
-
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -213,4 +210,3 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
