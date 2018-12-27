@@ -85,7 +85,7 @@ inoremap jj <ESC>
 noremap <Leader>nn :NERDTreeToggle<cr>
 
 " reload vim <Leader>s
-map <leader>s :source ~/.vimrc<CR>
+map <leader>rld :source ~/.vimrc<CR>
 
 " Movement around panes CTRL-<letter>
 nnoremap <C-J> <C-W><C-J>
@@ -132,7 +132,7 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
 " CTRL-P"
-nnoremap <silent> ,t :CtrlP<CR>
+nnoremap <silent> ,s :CtrlP<CR>
 nnoremap <silent> ,b :CtrlPBuffer<CR>
 let g:ctrlp_by_filename = 1
 let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -184,15 +184,7 @@ map <Leader>rl :call RunLastSpec()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
 
 let g:rspec_runner = "os_x_iterm2"
-let g:rspec_command = "!bundle exec rspec -I . -f d -c {spec}"
-
-if has("gui_macvim")
-  let g:rspec_runner = "os_x_iterm2"
-  let g:rspec_command = "bundle exec rspec {spec}"
-else
-  let g:rspec_runner = "os_x_iterm2"
-  let g:rspec_command = "!bundle exec rspec {spec}"
-endif
+let g:rspec_command = "!bundle exec rspec {spec}"
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -216,7 +208,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " --- Tabular.vim ---
 noremap <silent> <leader>t: :Tabularize /:<CR>
-noremap <silent> <leader>t= :abularize /=<CR>
+noremap <silent> <leader>t= :Tabularize /=<CR>
 noremap <silent> <leader>t, :Tabularize /,<CR>
 noremap <silent> <leader>t{ :Tabularize /{<CR>
 noremap <silent> <leader>t" :Tabularize /"<CR>
