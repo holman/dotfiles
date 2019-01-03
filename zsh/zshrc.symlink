@@ -63,6 +63,6 @@ if [[ -a ~/.docker_env ]]
 then
   source ~/.docker_env
 fi
-export PATH="/usr/local/opt/go@1.10/bin:$PATH"
+#export PATH="/usr/local/opt/go@1.10/bin:$PATH"
 
 eval "$(rbenv init - )"
