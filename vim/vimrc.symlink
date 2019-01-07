@@ -158,7 +158,7 @@ nnoremap <leader>gp :Disp git push<cr>
 nnoremap <leader>gf :Disp git fetch<cr>
 
 " Git mapping for finding conflict markers
-nnoremap <leader>c /\m\(<<<<\\|====\\|>>>>\)<cr>
+nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 
 " Git review mapping
 nnoremap <leader>r :Disp git review -R<cr>
