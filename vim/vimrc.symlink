@@ -24,9 +24,11 @@ Plug 'tpope/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'thoughtbot/vim-rspec'
 Plug 'kaicataldo/material.vim'
+Plug 'caksoylar/vim-mysticaltutor'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'itchyny/lightline.vim'
+Plug 'rizzatti/dash.vim'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -44,7 +46,7 @@ set noswapfile " don't create .swp files
 filetype indent plugin on
 
 set background=dark
-colorscheme material
+colorscheme mysticaltutor
 
 let g:lightline = { 'colorscheme': 'material_vim' }
 
@@ -216,3 +218,7 @@ noremap <silent> <leader>t' :Tabularize /'<CR>
 noremap <silent> <leader>t[ :Tabularize /[<CR>
 noremap <silent> <leader>t/ :Tabularize ///<CR>
 noremap <silent> <leader>t\| :Tabularize /\|<CR>
+
+" --- Dash.vim ---
+:nmap <silent> <leader>d <Plug>DashSearch
+set clipboard+=unnamed
