@@ -222,3 +222,7 @@ noremap <silent> <leader>t\| :Tabularize /\|<CR>
 " --- Dash.vim ---
 :nmap <silent> <leader>d <Plug>DashSearch
 set clipboard+=unnamed
+
+" --- ctags ---
+set tags=./tags;~/Development
+nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags<cr>
