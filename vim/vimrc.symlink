@@ -195,7 +195,7 @@ if executable("ag")
       \ --ignore .DS_Store
       \ --ignore "**/*.pyc"
       \ --ignore "node_modules"
-      \ --hidden -g ""'
+      \ -g ""'
 endif
 
 nnoremap <c-l> :CtrlPLine<cr>
