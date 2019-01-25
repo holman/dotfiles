@@ -136,6 +136,7 @@ install_dotfiles () {
   done
 
   install_awesome_config
+  install_alacritty_config
   update_submodules
   run_vundle
   download_powerline_symbols
@@ -262,6 +263,15 @@ install_github_stuffs () {
   dst="$HOME/.ssh/config"
   link_file "$src" "$dst"
   success "linked $src to $dst"
+}
+
+install_alacritty_config () {
+  info 'installing alacritty config file'
+
+  mkdir -p ~/.config/alacritty
+  src="$(pwd)/alacritty/alacritty.yml"
+  dst="$HOME/.config/alacritty/alacritty.yml"
+  link_file "$src" "$dst"
 }
 
 install_awesome_config () {
