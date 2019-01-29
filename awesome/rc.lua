@@ -44,8 +44,9 @@ beautiful.init("~/.dotfiles/awesome/theme/theme.lua")
 -- beautiful.init(awful.util.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "dbus-launch alacritty"
--- terminal = "dbus-launch gnome-terminal"
+-- alacritty works well, but freezes on my work machine (likely due to it not having a real graphics card)
+-- terminal = "dbus-launch alacritty"
+terminal = "dbus-launch gnome-terminal"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
