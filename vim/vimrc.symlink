@@ -7,7 +7,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-bundler'
@@ -29,6 +29,8 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'itchyny/lightline.vim'
 Plug 'rizzatti/dash.vim'
+Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -226,3 +228,6 @@ set clipboard+=unnamed
 " --- ctags ---
 set tags=./tags;~/Development
 nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags<cr>
+
+" --- ale ---
+let g:airline#extensions#ale#enabled = 1
