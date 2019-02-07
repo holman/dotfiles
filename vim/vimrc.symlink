@@ -7,13 +7,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-bundler'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'rking/ag.vim'
 Plug 'tpope/vim-endwise'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-rails'
@@ -31,6 +29,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
+Plug 'mileszs/ack.vim'
+Plug 'benmills/vimux'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -43,6 +43,7 @@ endtry
 call plug#end()
 
 set noswapfile " don't create .swp files
+set nocompatible
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
@@ -181,15 +182,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Rspec
-map <Leader>rt :call RunCurrentSpecFile()<CR>
-map <Leader>rs :call RunNearestSpec()<CR>
-map <Leader>rl :call RunLastSpec()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>
-
-let g:rspec_runner = "os_x_iterm2"
-let g:rspec_command = "!bundle exec rspec {spec}"
-
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -231,3 +223,19 @@ nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude
 
 " --- ale ---
 let g:airline#extensions#ale#enabled = 1
+
+" Ack.vim
+let g:ackhighlight = 1 " Highlight the current ack search
+let g:ack_autofold_results = 1 " Folds by filename until stepping through the quick fix list
+let g:ack_use_cword_for_empty_search = 0 " Search for cword on blank :Ack
+if executable('ag')
+  " Use the silver searcher when available
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
+" Commands to run tests with vimux
+map <Leader>rt :call VimuxRunCommand("clear; bundle exec rails test " . bufname("%"))<CR>
+map <Leader>rp :call VimuxRunCommand("clear; bin/pronto run")<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vs :VimuxInterruptRunner<CR>

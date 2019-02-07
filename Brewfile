@@ -32,6 +32,7 @@ brew 'libsodium'
 brew 'docker'
 brew 'docker-compose'
 brew 'docker-machine'
+brew 'the_silver_searcher'
 
 
 cask '1password'
