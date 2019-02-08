@@ -1,8 +1,5 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
-
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+# Interactive environment configs.
+setopt nullglob extendedglob
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -12,20 +9,21 @@ then
   source ~/.localrc
 fi
 
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+# all of our non-path/env/profile/login/logout zsh files
+typeset -U fpath_files interactive_files completion_files
+fpath_files=($DOTFILES/**/fpath.zsh)
+interactive_files=($DOTFILES/**/*.zsh~**/completion.zsh~**/path.zsh~**/env.zsh~**/profile.zsh~**/fpath.zsh~**/login.zsh~**/logout.zsh)
+completion_files=($DOTFILES/**/completion.zsh)
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
+# load fpath config files
+for file in ${fpath_files}; do
+  source "$file"
 done
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
+# load interactive files (everything but the completion, path, env,
+# profile, login, and logout files)
+for file in ${interactive_files}; do
+  source "$file"
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
@@ -33,12 +31,12 @@ autoload -U compinit
 compinit
 
 # load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
+for file in ${completion_files}; do
+  source "$file"
 done
 
-unset config_files
+unset fpath_files interactive_files completion_files
+unsetopt nullglob extendedglob
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
