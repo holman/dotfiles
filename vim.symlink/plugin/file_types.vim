@@ -7,3 +7,4 @@ au BufRead,BufNewFile Guardfile setf ruby
 " Enable settings for specific filetypes
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
+autocmd FileType gitcommit setlocal spell
