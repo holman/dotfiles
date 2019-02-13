@@ -2,3 +2,5 @@
 *~
 *.swp
 .ruby-version
+.tags
+tags

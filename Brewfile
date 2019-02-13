@@ -33,7 +33,10 @@ brew 'docker'
 brew 'docker-compose'
 brew 'docker-machine'
 brew 'the_silver_searcher'
-
+brew 'elasticsearch'
+brew 'yarn'
+brew 'ghostscript'
+brew 'exiftool'
 
 cask '1password'
 cask 'google-chrome'
