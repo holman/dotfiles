@@ -8,6 +8,7 @@
 if test ! "$(uname)" = "Darwin"
   then
   printf ""
+  exit 0
 fi
 
 battstat=$(pmset -g batt)
