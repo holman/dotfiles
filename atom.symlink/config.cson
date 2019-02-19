@@ -32,6 +32,9 @@
     userId: "c5c565b7-6f94-4f78-a50a-61560f84b52f"
   "linter-ui-default":
     panelHeight: 300
+  "platformio-ide":
+    advanced:
+      useBuiltinPIOCore: true
   "tool-bar":
     position: "Left"
   "tree-view":

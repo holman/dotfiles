@@ -359,8 +359,6 @@ for app in "Activity Monitor" \
 	"Contacts" \
 	"Dock" \
 	"Finder" \
-	"Google Chrome Canary" \
-	"Google Chrome" \
 	"Safari" \
 	"SystemUIServer" \
 	"Terminal" \

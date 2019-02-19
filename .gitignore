@@ -25,3 +25,5 @@ gnupg.symlink/*
 task.symlink/*
 !task.symlink/*.theme
 atom.symlink/recovery
+
+system/env.local.zsh

@@ -18,4 +18,9 @@ if ! zplug check; then
     zplug install
 fi
 
+#if ! zplug status; then
+#    zplug update
+#fi
+
+
 zplug load

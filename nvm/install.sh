@@ -11,7 +11,7 @@ nvm install stable
 nvm alias default stable
 nvm use lts/*
 npm config set python python2.7
-npm install -g npm@latest bower grunt-cli gulp-cli webpack webpack-dev-server ghost-cli lock-cli
+npm install -g npm@latest
 
 nvm use stable
 npm config set python python2.7
