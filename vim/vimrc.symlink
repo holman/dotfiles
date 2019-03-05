@@ -1,4 +1,76 @@
-syntax on
+set shell=/bin/bash
+"Install plugins
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline'
+call plug#end()
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+let mapleader = ","
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {'javascript.jsx' : {'extends' : 'jsx', }, }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set autowrite
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+set undofile
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+noremap \ ,
+set splitbelow
+set splitright
+set rtp+=/usr/local/opt/fzf
+" Open Nerdtree
+map <C-n> :NERDTreeToggle<CR>
+" vv to generate new vertical split
+nnoremap <silent> vv <C-w>v
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+" Zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
+nmap j gj
+nmap k gk
+syntax enable
+set background=dark
+colorscheme solarized
+filetype plugin indent on
