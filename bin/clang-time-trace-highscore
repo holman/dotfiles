@@ -11,7 +11,7 @@ TRACE_EVENTS_KEY = 'traceEvents'
 
 # Dictionary of trace type and dictionary mapping the trace name and duration
 # stats['Source']['my_file'] == duration sum across all files
-stats = defaultdict(lambda: defaultdict(lambda: 0))
+stats = defaultdict(lambda: defaultdict(lambda: {"count": 0, "sum": 0}))
 
 def append(trace_events):
     for event in trace_events:
@@ -19,7 +19,8 @@ def append(trace_events):
         if not 'detail' in event['args']:
             continue
         file_name = event['args']['detail']
-        stats[event_name][file_name] += event['dur']
+        stats[event_name][file_name]["sum"] += event['dur']
+        stats[event_name][file_name]["count"] += 1
 
 def fill_stats(args):
     for json_file in glob.glob("%s/**/*.json" % args.json_dir, recursive=True):
@@ -38,10 +39,10 @@ def print_stats():
         if not first:
             print("\n\n")
         first=False
-        print("---- Event: %s -- Top 10 Sums" % event)
-        for name, duration in sorted(trace_sums.items(), key=lambda kv: kv[1],
+        print("---- Event: %s -- Top 10 Counts, Sums" % event)
+        for name, stat_entry in sorted(trace_sums.items(), key=lambda kv: kv[1]["sum"],
                 reverse=True)[0:10]:
-            print("  %s\t%d" % (name, duration))
+            print("  %s\t%d\t%d" % (name, stat_entry["count"], stat_entry["sum"]))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Print out compile statistics based on clang time tracing json files")
