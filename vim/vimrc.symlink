@@ -4,7 +4,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
@@ -20,7 +19,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
 Plug 'godlygeek/tabular'
-Plug 'caksoylar/vim-mysticaltutor'
+" Plug 'caksoylar/vim-mysticaltutor'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'itchyny/lightline.vim'
@@ -29,6 +28,8 @@ Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux'
+Plug 'arcticicestudio/nord-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -40,7 +41,6 @@ endtry
 
 call plug#end()
 
-
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
@@ -48,7 +48,8 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-colorscheme mysticaltutor
+colorscheme nord
+
 
 "  ---------------------------------------------------
 "  TEXT FORMATTING
@@ -77,8 +78,6 @@ let mapleader = ','
 " exit to normal mode with jj
 inoremap jj <ESC>
 
-" map NERDTreeToggle to nn
-noremap <Leader>nn :NERDTreeToggle<cr>
 
 " reload vim <Leader>s
 map <leader>rld :source ~/.vimrc<CR>
@@ -134,6 +133,9 @@ let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
+
+" map NERDTreeToggle to nn
+noremap <Leader>nn :NERDTreeToggle<cr>
 
 " CTRL-P"
 nnoremap <silent> ,s :CtrlP<CR>
@@ -245,3 +247,15 @@ map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vs :VimuxInterruptRunner<CR>
 
 " Misc maps
+set laststatus=2
+let g:nord_comment_brightness = 18
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }

@@ -16,3 +16,11 @@ bind-key C-a send-prefix
 # bind-key -T copy-mode-vi C-k select-pane -U
 # bind-key -T copy-mode-vi C-l select-pane -R
 # bind-key -T copy-mode-vi C-\ select-pane -l
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'arcticicestudio/nord-tmux'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'

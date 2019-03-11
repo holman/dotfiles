@@ -4,3 +4,4 @@
 .ruby-version
 .tags
 tags
+**/puma.rb
