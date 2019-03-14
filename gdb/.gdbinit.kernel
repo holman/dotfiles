@@ -1,0 +1,5 @@
+source .gdbinit
+# https://www.kernel.org/doc/html/v4.11/dev-tools/gdb-kernel-debugging.html
+source /home/gnaddaf/build/kernel/kernel-4.19.11-amd64/vmlinux-gdb.py
+set auto-load safe-path /
+
