@@ -1,6 +1,8 @@
 source .gdbinit.cocoabeans
 source .gdbinit.py
 
+set substitute-path /data/jenkins/workspace/MASTER-Debian_Appliance-Make-Cpp/ /home/gnaddaf/src/pvc-appliance/
+
 set print pretty on
 set print object on
 set print static-members on
