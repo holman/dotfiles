@@ -1,3 +1,6 @@
+# NOTE
+Add the oh my zsh plugin to the branch [custom](https://github.com/chengcx1019/dotfiles/tree/custom), as well as some settings that are more personal.
+
 # holman does dotfiles
 
 Your dotfiles are how you personalize your system. These are mine.
