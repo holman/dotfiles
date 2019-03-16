@@ -1,8 +1,16 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+# load oh my zsh
+export ZSH=/Users/changxin.cheng/.oh-my-zsh
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+# shortcut to this dotfiles path is $ZSH_DOT
+export ZSH_DOT=$HOME/.dotfiles
+
+
+
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/StartUp
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -14,7 +22,7 @@ fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSH_DOT/**/*.zsh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}

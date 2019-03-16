@@ -5,10 +5,18 @@
         protocol = https
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
+        promote = !$ZSH_DOT/bin/git-promote
+        wtf     = !$ZSH_DOT/bin/git-wtf
+        rank-contributors = !$ZSH_DOT/bin/git-rank-contributors
         count   = !git shortlog -sn
+        pr = !sh -c \"git fetch upstream pull/${1}/head:pr/${1} && git checkout pr/${1}\"
+        st = status
+        br = branch
+        ci = commit
+        cf = config
+        unstage = reset HEAD --
+        last = log -1 HEAD
+        logod = log --oneline --decorate
 [color]
         diff = auto
         status = auto
