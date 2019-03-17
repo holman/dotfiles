@@ -472,5 +472,45 @@ let g:dispatch_handlers = [
       \ 'headless',
       \ ]
 
+"" Source: https://github.com/tpope/vim-fugitive/issues/425#issuecomment-323814297
+function! Get_git_root()
+    if exists('*fugitive#repo')
+	try
+	    return fugitive#repo().tree()
+	catch
+	endtry
+    endif
+    let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+    return v:shell_error ? '' : root
+endfunction
+function! DiffFile()
+    let winheight = winheight(winnr())
+    let branchname=b:branchName
+    let filename = substitute(getline('.'), '^\w*\s*\(.*\)', '\1', '')
+    let gitroot = b:gitroot
+    only
+    wincmd s
+    execute 'resize '.winheight
+    wincmd j
+    execute 'cd '.gitroot
+    execute 'edit '.filename
+    execute 'Gdiff '.branchname
+endfunction
+function! GDiffBranch(branchName)
+    let gitroot = Get_git_root()
+    let tmpfile = tempname()
+    execute 'pedit '.tmpfile
+    wincmd P
+    let b:branchName=a:branchName
+    let b:gitroot = gitroot
+    nmap <buffer> q :q<cr>
+    execute 'silent read! git diff --name-status '.a:branchName
+    normal! ggdd
+    resize 12
+    setlocal nomodifiable
+    nmap <buffer> gd :call DiffFile()<cr>
+endfunction
+command! -nargs=1 GDiffBranch call GDiffBranch(<q-args>)
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
