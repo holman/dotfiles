@@ -509,9 +509,15 @@ function! s:get_diff_files(rev)
   nmap <buffer> D :call <SID>diff_file_to_branch()<cr>
 endfunction
 
+function! s:get_diff_file_master_merge()
+  let revision = system('git merge-base origin/master HEAD')
+  echom revision
+  call s:get_diff_files(revision)
+endfunction
+
 command! -nargs=1 DiffRev call s:get_diff_files(<q-args>)
 
-nnoremap <leader>gD :DiffRev origin/master<cr>
+nnoremap <leader>gD :call <SID>get_diff_file_master_merge()<cr>
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
