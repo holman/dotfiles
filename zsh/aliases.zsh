@@ -19,3 +19,4 @@ alias gvim="gvim --remote-tab-silent"
 alias cdtmp='cd $(mktemp -d)'
 alias disas='disas_impl'
 alias div='horizontal_divider'
+alias lt='echo Last 10 modified; ls -ltrh | tail'
