@@ -14,6 +14,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let mapleader = ","
@@ -71,6 +73,12 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 nmap j gj
 nmap k gk
+" Find files in git tracked files
+map <Leader>f :GFiles<CR>
+" Find files in all files
+map <Leader>F :Files<CR>
+" Find word in current buffer
+map <Leader>l :BLines<CR>
 syntax enable
 set background=dark
 colorscheme solarized
