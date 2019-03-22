@@ -16,7 +16,7 @@ alias flush='sudo killall -HUP mDNSResponder'
 # Add a function for Homestead
 # @see https://laravel.com/docs/5.2/homestead#daily-usage
 homestead() {
-	(cd ~/Homestead && vagrant $*); unset -f __homestead;
+	(cd ~/Homestead && vagrant $*)
 }
 
 # Launch homestead and ssh into the box
