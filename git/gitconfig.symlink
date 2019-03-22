@@ -16,11 +16,11 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+	editor = nano
 [apply]
         whitespace = nowarn
 [mergetool]
-        keepBackup = false
+	keepBackup = true
 [difftool]
         prompt = false
 [help]
@@ -31,3 +31,11 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[user]
+	email = 777522+jwcobb@users.noreply.github.com
+	name = J Cobb
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

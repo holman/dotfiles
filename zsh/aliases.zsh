@@ -20,3 +20,6 @@ alias pal='php artisan list'
 
 alias yrd='yarn run dev'
 alias yw='yarn run watch'
+
+# https://superuser.com/a/975878/9551
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
