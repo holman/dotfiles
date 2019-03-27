@@ -11,6 +11,7 @@
         count   = !git shortlog -sn
         lg = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --graph
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an-%cn]" --decorate --numstat
+        ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 [color]
         diff = auto
         status = auto
@@ -36,3 +37,5 @@
 [user]
 	email = andrew.holman@n2pub.com
 	name = Andy Holman
+[init]
+	templatedir = ~/.git_template

@@ -224,7 +224,7 @@ set clipboard+=unnamed
 
 " --- ctags ---
 set tags=./tags;~/Development
-nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags<cr>
+nnoremap <leader>ct :silent ! ctags -R --languages=-sql --exclude=.git --exclude=log --exclude=node_modules --exclude=tmp -f tags<cr>
 
 " --- ale ---
 let g:airline#extensions#ale#enabled = 1
@@ -259,3 +259,4 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
