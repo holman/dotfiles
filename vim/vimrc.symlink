@@ -19,11 +19,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
 Plug 'godlygeek/tabular'
-" Plug 'caksoylar/vim-mysticaltutor'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'itchyny/lightline.vim'
-Plug 'rizzatti/dash.vim'
+" Plug 'rizzatti/dash.vim'
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
@@ -48,6 +47,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
+set background=dark
 colorscheme nord
 
 
