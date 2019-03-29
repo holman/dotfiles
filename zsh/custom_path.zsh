@@ -1,5 +1,10 @@
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# encoding
+export PYTHONIOENCODING=UTF-8
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+
 # maven
 export M2_HOME=/module/maven
 export M2=$M2_HOME/bin
