@@ -1,0 +1,44 @@
+#  ChengChangxin's tmux configuration
+
+# -- base setting -- #
+set -g default-terminal "screen-256color"
+
+# Use Ctrl+a as the prefix key
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+
+# -- bind keys -- #
+# Set source-file
+bind r source-file ~/.tmux.conf \; display ".tmux.conf Reloaded!"
+# Split pane.
+unbind '"'
+bind | splitw -h
+unbind '%'
+bind - splitw -v
+
+# Copy mode
+# copy-mode to vi mode
+setw -g mode-keys vi
+
+# Map panel switch.
+# Up
+bind-key k select-pane -U
+# Down
+bind-key j select-pane -D
+# left
+bind-key h select-pane -L
+# right
+bind-key l select-pane -R
+
+# Resize panel size.
+bind < resize-pane -L 10
+bind > resize-pane -R 10
+bind _ resize-pane -D 10
+bind + resize-pane -U 10
+
+# Use mouse to resize panel.
+
+# roll screen with mouse
+set-option -g mouse on
+# set-window-option -g mode-keys vi
