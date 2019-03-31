@@ -14,7 +14,7 @@ export ORACLE_HOME=/opt/instantclient_12_1/
 export DYLD_LIBRARY_PATH=$ORACLE_HOME
 export PATH=ORACLE_HOME:$PATH
 # pyenv
-export PYENV_HOME=/Users/changxin/.pyenv
+export PYENV_HOME=~/.pyenv
 PATH=$PYENV_HOME/bin:$PATH
 
 export PATH="/opt/geth1.8.1:/usr/local/opt/gettext/bin:$PATH"
