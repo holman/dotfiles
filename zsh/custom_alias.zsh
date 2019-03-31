@@ -3,6 +3,9 @@ alias vim='/usr/local/bin/mvim -v'
 alias vi='vim'
 alias ls='ls -GFh'
 
+# update dotfiles
+alias upd="cd ~/.dotfiles && git checkout master && git pull && cd -"
+
 #alias for cnpm
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --cache=$HOME/.npm/.cache/cnpm \
@@ -16,6 +19,7 @@ alias set dm='docker-machine'
 alias jnl='jupyter notebook list'
 alias jn='jupyter notebook'
 alias jns="jupyter_note() {nohup jupyter notebook --port 9101 &}; jupyter_note"
+alias jnroot="cd $SU && nohup jupyter notebook --port 9101 &"
 
 # git
 # alias gcianoe ='git commit --no-edit --amend'
@@ -28,6 +32,7 @@ alias gusb="git branch --set-upstream-to=origin/$1 $2"
 alias sjump='ssh -i ~/.ssh/changxin.cheng.private_key -p 2222 10.128.253.29'
 alias devdb='mysql -upxc_test -paySu0myNHkh -P3306 -h10.125.252.77'
 alias cdb='cqlsh.py 10.125.235.51 9042'
+alias vps='ssh -p 26050 changxin@144.34.218.98'
 
 # connect for work
 alias go="python /Users/changxin.cheng/py.py"
@@ -41,6 +46,7 @@ alias pmmm="python manage.py makemigrations"
 alias pmm="python manage.py migrate"
 alias pipi="pip install"
 alias pmspn="python manage.py shell_plus --notebook"
+alias pipu="pip install --upgrade pip"
 
 # pyenv
 alias py="pyenv"
@@ -60,3 +66,6 @@ alias bsrsn="brew services restart nginx"
 
 # http
 alias https="http --default-scheme=https"
+
+# docker
+alias ss="docker run -d -p 9101:9101 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 9101 -k ccx1993wo -m aes-256-cfb"
