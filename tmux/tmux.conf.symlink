@@ -24,6 +24,10 @@ set -ga terminal-overrides ",*256col*:Tc"
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'arcticicestudio/nord-tmux'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'pwittchen/tmux-plugin-spotify'
+
+set -g status-right "♫ #{spotify_status} #{spotify_artist}: #{spotify_song}"
+
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
