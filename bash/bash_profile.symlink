@@ -72,5 +72,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # asdf
-source /usr/local/opt/asdf/asdf.sh
-source /usr/local/etc/bash_completion.d/asdf.bash
+
+## Fix homebrew install (https://github.com/asdf-vm/asdf/issues/425)
+export ASDF_DIR=$(brew --prefix asdf)
+
+. $ASDF_DIR/asdf.sh
+. $ASDF_DIR/etc/bash_completion.d/asdf.bash
