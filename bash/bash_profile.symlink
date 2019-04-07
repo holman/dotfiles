@@ -78,3 +78,8 @@ export ASDF_DIR=$(brew --prefix asdf)
 
 . $ASDF_DIR/asdf.sh
 . $ASDF_DIR/etc/bash_completion.d/asdf.bash
+
+# go 
+
+# set gopath to be in `code` dir 
+export GOPATH=$HOME/code/go
