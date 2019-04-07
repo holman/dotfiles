@@ -1,5 +1,5 @@
 # Make mouse useful in copy mode
-setw -g mode-mouse on
+setw -g mouse on
 
 # Allow xterm titles in terminal window, terminal scrolling with scrollbar
 set -g terminal-overrides 'xterm-256color:smcup@:rmcup@'
@@ -18,6 +18,7 @@ set -g status-bg colour235
 set -g status-fg white
 
 # Easily source conf file
+# https://devel.tech/tips/n/tMuXm4vP/reloading-config-from-inside-tmux/
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
 # Status Bar Settings
@@ -53,17 +54,14 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
 
-# Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+# TPM
+# https://github.com/tmux-plugins/tpm
 
-# Update default binding of `Enter` to also use copy-pipe
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 
-# These options shold stop tmux from locking up when
-# dumping out a bunch of text
-#
-# From: https://stelfox.net/blog/2014/03/preventing-tmux-lockups/
-setw -g c0-change-interval 50
-setw -g c0-change-trigger  75
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'
