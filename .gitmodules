@@ -1,3 +1,9 @@
 [submodule "emacs/emacs.d.symlink"]
 	path = emacs/emacs.d.symlink
 	url = https://github.com/syl20bnr/spacemacs
+[submodule "tmux.symlink/tmux.symlink/plugins"]
+	path = tmux.symlink/tmux.symlink/plugins
+	url = https://github.com/tmux-plugins/tpm
+[submodule "tmux.symlink/plugins"]
+	path = tmux.symlink/plugins
+	url = https://github.com/tmux-plugins/tpm
