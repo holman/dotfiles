@@ -54,6 +54,13 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
 
+# Vi copypaste
+setw -g mode-keys vi
+unbind p
+bind p paste-buffer
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
 # TPM
 # https://github.com/tmux-plugins/tpm
 
