@@ -21,6 +21,15 @@ set -g status-fg white
 # https://devel.tech/tips/n/tMuXm4vP/reloading-config-from-inside-tmux/
 bind-key r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
 
+# Numbering
+
+# Start tabs at index 1
+# (they usually start at 0, which is too far from where my fingers usually are)
+set -g base-index 1
+
+# Make pane numbering consistent with windows
+setw -g pane-base-index 1
+
 # Status Bar Settings
 
 # Color of bar
@@ -31,7 +40,6 @@ set-window-option -g window-status-current-bg green
 
 # Allow session name to be longer (default 10)
 set-option -g status-left-length 50
-
 
 # Right Side Display
 set-option -g status-right " #(date '+%a, %b %d - %I:%M %p') "
