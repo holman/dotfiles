@@ -27,6 +27,9 @@ export PATH=${JAVA_HOME}/bin:${PATH}
 export CASSANDRA_HOME=/module/apache-cassandra
 export PATH=${CASSANDRA_HOME}/bin:${PATH}
 
+# go
+export PATH=$GOPATH/bin:$PATH
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
