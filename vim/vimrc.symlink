@@ -22,7 +22,7 @@ Plug 'godlygeek/tabular'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'itchyny/lightline.vim'
-" Plug 'rizzatti/dash.vim'
+Plug 'KabbAmine/zeavim.vim'
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
@@ -218,8 +218,10 @@ noremap <silent> <leader>t[ :Tabularize /[<CR>
 noremap <silent> <leader>t/ :Tabularize ///<CR>
 noremap <silent> <leader>t\| :Tabularize /\|<CR>
 
-" --- Dash.vim ---
-:nmap <silent> <leader>d <Plug>DashSearch
+" --- Zeal.vim ---
+" :nmap <silent> <leader>d <Plug>Zeavim
+nmap <leader>d <Plug>Zeavim
+nmap <leader><leader>z <Plug>ZVKeyDocset
 set clipboard+=unnamed
 
 " --- ctags ---
@@ -248,7 +250,6 @@ map <Leader>vs :VimuxInterruptRunner<CR>
 
 " Misc maps
 set laststatus=2
-let g:nord_comment_brightness = 18
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
