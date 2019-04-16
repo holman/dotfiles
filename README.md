@@ -1,5 +1,7 @@
 # NOTE
-Add the oh my zsh plugin to the branch [custom](https://github.com/chengcx1019/dotfiles/tree/custom), as well as some settings that are more personal.
+before install [dotfiles](https://github.com/chengcx1019/dotfiles), you should install [pyenv](https://github.com/pyenv/pyenv), [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv), [oh my zsh](https://ohmyz.sh/), more references see[plugins_intro](./PluginsIntro.md).
+
+Add the oh my zsh plugin to the branch [custom](https://github.com/chengcx1019/dotfiles/tree/custom)(merged in master now), as well as some settings that are more personal.
 
 # holman does dotfiles
 
