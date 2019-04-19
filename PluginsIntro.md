@@ -130,3 +130,13 @@ tmux kill-session -t 会话名
 tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill
 ```
 
+
+
+## oh my zsh
+
+###  plugins
+
+- zsh-autosuggestions 自动建议填充
+
+   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+

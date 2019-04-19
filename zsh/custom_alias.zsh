@@ -20,12 +20,14 @@ alias jnl='jupyter notebook list'
 alias jn='jupyter notebook'
 alias jns="jupyter_note() {nohup jupyter notebook --port 9101 &}; jupyter_note"
 alias jnroot="cd $SU && nohup jupyter notebook --port 9101 &"
+alias jlab="cd $SU && nohup jupyter lab --port 6808 &"
 
 # git
 # alias gcianoe ='git commit --no-edit --amend'
 alias gciae='git commit --amend -m'
 alias gpo="git push origin"
 alias gusb="git branch --set-upstream-to=origin/$1 $2"
+alias pmom='git merge origin/master'
 
 
 # remote SSH
