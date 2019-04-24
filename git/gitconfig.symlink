@@ -1,7 +1,5 @@
 [include]
         path = .gitconfig_credentials
-[hub]
-        protocol = https
 [alias]
         co = checkout
         promote = !$DOTS/bin/git-promote
