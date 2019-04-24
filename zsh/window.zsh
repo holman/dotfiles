@@ -57,10 +57,6 @@ function title() {
   esac
 }
 
-if [[ -n $TMUX ]]; then
-  export TMUX_SESSION="$(tmux display-message -p '#S')"
-fi
-
 function restore_vim_title() {
   print -Pn "\ek$VIM_TITLE\e\\" # screen title (in ^A")
 }
