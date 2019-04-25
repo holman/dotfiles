@@ -48,3 +48,19 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+# golang
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# GCP
+export PATH=$PATH:$HOME/google-cloud-sdk/platform/google_appengine
+
+[[ -s "/Users/iinotadashinozomi/.gvm/scripts/gvm" ]] && source "/Users/iinotadashinozomi/.gvm/scripts/gvm"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/iinotadashinozomi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/iinotadashinozomi/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/iinotadashinozomi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/iinotadashinozomi/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/openssl/bin:$PATH"

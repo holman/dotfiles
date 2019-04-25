@@ -1,4 +1,70 @@
-syntax on
-
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+"------ Encode ------"
+" エンコードを utf8 に設定
+set encoding=utf-8
+if has('unix')
+  set fileformat=unix
+  set fileformats=unix,dos,mac
+  set fileencoding=utf-8
+  set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp
+  set termencoding=
+elseif has('win32')
+  set fileformat=dos
+  set fileformats=dos,unix,mac
+  set fileencoding=utf-8
+  set fileencodings=iso-2022-jp,utf-8,euc-jp,cp932
+  set termencoding=
+endif
+" ステータスラインを 2 行表示
+set laststatus=2
+" ステータスラインに情報を表示
+set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P\
+ 
+ 
+"------ keymap ------"
+inoremap <C-c> <ESC>
+inoremap <C-b> <left>
+inoremap <C-f> <right>
+inoremap <C-p> <up>
+inoremap <C-n> <down>
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-e> <END>
+inoremap <C-a> <HOME>
+inoremap <C-k> <ESC><RIGHT>Da
+" Backspace keyの設定
+set backspace=start,eol,indent
+" C-g で編集しているファイルのパスを表示
+nnoremap <C-g> 1<C-g>
+" C-r で置換
+noremap <C-r> :%s/
+cnoremap <C-r> :%s/
+inoremap <C-r> <ESC>:%s/
+nnoremap <F5> :<C-u>edit $MYVIMRC<Enter>
+nnoremap <F6> :<C-u>source $MYVIMRC<Enter>
+" paste モードの切り替え
+set pastetoggle=<F10>
+ 
+"------ Search ------"
+" インクリメンタルサーチ
+set incsearch
+" 検索時に大文字小文字を区別しない
+set ignorecase
+" 小文字で検索すると大文字と小文字を無視, 大文字が入ると ignorecase が無効になる
+set smartcase
+" 検索がファイル末尾まで進んだら、ファイル先頭から再び検索する
+set wrapscan
+" 検索結果のハイライト
+set hlsearch
+" EscEsc でハイライトを消す
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+ 
+"------ Format ------"
+" 行番号を表示
+set number
+" コマンドモードの表示
+set showcmd
+" シンタックスハイライト
+syntax on
