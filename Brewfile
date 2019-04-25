@@ -27,6 +27,7 @@ brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
 
+cask '1password'
 cask 'dropbox'
 cask 'alfred'
 cask 'firefox'
