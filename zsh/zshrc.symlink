@@ -1,6 +1,6 @@
 # load oh my zsh
 export ZSH=~/.oh-my-zsh
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # shortcut to this dotfiles path is $ZSH_DOT

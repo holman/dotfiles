@@ -130,3 +130,23 @@ tmux kill-session -t 会话名
 tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill
 ```
 
+
+
+## oh my zsh
+
+###  plugins
+
+- zsh-autosuggestions 自动建议填充
+
+   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+## vim
+
+以管理员用户保存只读文件：`w ! sudo tee %`
+
+
+
+## ss
+
+sudo docker run -d -p 9101:9101 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 9101 -k ccx1993wo -m aes-256-cfb
+

@@ -27,6 +27,11 @@ export PATH=${JAVA_HOME}/bin:${PATH}
 export CASSANDRA_HOME=/module/apache-cassandra
 export PATH=${CASSANDRA_HOME}/bin:${PATH}
 
+# anaconda
+# export ANACONDA_HOME=/anaconda3
+# export PATH=${ANACONDA_HOME}/bin:${PATH}
+
+
 # go
 export PATH=$GOPATH/bin:$PATH
 

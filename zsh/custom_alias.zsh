@@ -20,13 +20,16 @@ alias jnl='jupyter notebook list'
 alias jn='jupyter notebook'
 alias jns="jupyter_note() {nohup jupyter notebook --port 9101 &}; jupyter_note"
 alias jnroot="cd $SU && nohup jupyter notebook --port 9101 &"
+alias jlab="cd $SU && nohup jupyter lab --port 6808 &"
 
 # git
 # alias gcianoe ='git commit --no-edit --amend'
 alias gciae='git commit --amend -m'
 alias gpo="git push origin"
 alias gusb="git branch --set-upstream-to=origin/$1 $2"
-
+alias pmom='git merge origin/master'
+alias lg1="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias lg2="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 
 # remote SSH
 alias sjump='ssh -i ~/.ssh/aws_key -p 2222 10.128.253.29'
@@ -70,6 +73,7 @@ alias https="http --default-scheme=https"
 
 # docker
 alias ss="docker run -d -p 9101:9101 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 9101 -k ccx1993wo -m aes-256-cfb"
+alias drun="docker run -d -it --rm"
 
 # sim-cloud
 alias psm="python sim_server/manage.py"
