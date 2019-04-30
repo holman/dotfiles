@@ -1,0 +1,9 @@
+" Greplace.vim VIM Plugin for doing a search and replace across many files.
+
+Plug 'skwp/greplace.vim'
+
+" set grepprg=ag
+
+" let g:grep_cmd_opts = '--line-numbers --noheading'
+
+" vim:ft=vim

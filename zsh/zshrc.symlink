@@ -55,3 +55,7 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20  # ( Recommended 20)Useful when pasting large
        # bindkey -M emacs '^N' history-substring-search-down
 #       bindkey -M vicmd 'k' history-substring-search-up
 # bindkey -M vicmd 'j' history-substring-search-down
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/Chedli/.travis/travis.sh ] && source /Users/Chedli/.travis/travis.sh

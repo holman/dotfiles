@@ -66,6 +66,6 @@ nnoremap M K
 
 " Inserting blank lines
 " I never use the default behavior of <cr> and this saves me a keystroke...
-nnoremap <cr> o<esc>
+" nnoremap <cr> o<esc>
 
 " vim:ft=vim

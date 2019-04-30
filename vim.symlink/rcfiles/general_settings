@@ -11,6 +11,7 @@ set lazyredraw                  " Don't update while executing macros
 set backspace=indent,eol,start  " Sane backspace behavior
 set history=1000                " Remember last 1000 commands
 set scrolloff=4                 " Keep at least 4 lines below cursor
+set cpoptions+=$
 
 set list  " Shows invisible characters
 " set showcmd  " Show the current command in the footer
@@ -96,6 +97,11 @@ if has('viminfo')
       endif
     endif
   endif
+endif
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
 endif
 
 " vim:ft=vim

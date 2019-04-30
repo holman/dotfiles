@@ -1,6 +1,7 @@
 " Bundler - wrapper around bundler
 
 "Too slow for now, so do not source it...
-"Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rbenv'
 
 " vim:ft=vim

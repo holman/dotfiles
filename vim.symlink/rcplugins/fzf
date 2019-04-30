@@ -58,7 +58,7 @@ nnoremap <leader>gv :Files app/views/<cr>
 nnoremap <leader>gc :Files app/controllers/<cr>
 nnoremap <leader>gy :Files app/assets/stylesheets/<cr>
 nnoremap <leader>gj :Files app/assets/javascripts/<cr>
-nnoremap <leader>gs :Files spec/<cr>
+nnoremap <leader>gt :Files test/<cr>
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)

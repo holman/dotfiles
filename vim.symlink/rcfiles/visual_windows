@@ -67,6 +67,13 @@ endif
   " Don't try to highlight lines longer than 800 characters.
   set synmaxcol=800
 
+  " Use thoughtbot width/height configs for splits
+  " set winwidth=84
+  " set winheight=5
+  " set winminheight=5
+  " set winheight=999
+
+
   if has('virtualedit')
     set virtualedit=block               " allow cursor to move where there is no text in visual block mode
   endif

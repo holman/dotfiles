@@ -19,9 +19,9 @@ nmap <D-0> g^
 
 " Write file"
 nmap <leader>w :w<cr>
+nnoremap <Left> :echoe "Use h"<CR>
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoa "Use l"<CR>
 nmap <Up> [e
 nmap <Down> ]e
@@ -62,6 +62,8 @@ nmap <leader>co ggVG*y
 " Edit the db/schema.rb Rails file in a split
 nmap <leader>sc :split db/schema.rb<cr>
 
+" Indent all file
+map <leader>i mmgg=G`m
 
 " Command aliases for typoed commands (accidentally holding shift too long)
 "command! Q q " Bind :Q to :q

@@ -1,5 +1,10 @@
 " Base16.vim plugin + a function that integrates with the current iTerm colorscheme
 
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+
+function FixupBase16(info)
+    !gsed -i '/Base16hi/\! s/a:\(attr\|guisp\)/l:\1/g' ~/.vim/plugged/base16-vim/colors/*.vim
+endfunction
+Plug 'chriskempson/base16-vim', { 'do': function('FixupBase16') }
 
 " vim:ft=vim

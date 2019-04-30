@@ -7,6 +7,7 @@ let g:VtrUseVtrMaps = 1
 let g:VtrGitCdUpOnOpen = 0
 let g:VtrPercentage = 30
 
+nnoremap <leader>va :VtrAttachToPane<cr>
 nmap <leader>fs :VtrFlushCommand<cr>:VtrSendCommandToRunner<cr>
 nmap <C-f> :VtrSendLinesToRunner<cr>
 vmap <C-f> :VtrSendLinesToRunner<cr>

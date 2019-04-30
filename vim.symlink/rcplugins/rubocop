@@ -1,0 +1,5 @@
+" Rubocop - wrapper around rubocop
+
+Plug 'deepredsky/vim-rubocop'
+
+" vim:ft=vim

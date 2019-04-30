@@ -3,10 +3,6 @@ unbind C-b
 set -g prefix C-s
 bind-key -r C-s send-prefix
 
-
-# Provide access to the clipboard for pbpaste, pbcopy (details: http://goo.gl/DN82E)
-set-option -g default-command "reattach-to-user-namespace -l zsh"
-
 # Useful for switching to escape mode in vim
  set -sg escape-time 0
 # Easy reloading of the tmux.conf configuration file
@@ -25,6 +21,7 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 bind C-l send-keys C-l
 
 # Use 256 color mode + TrueColors, useful for Vim colorshemes
+# set-option -g default-terminal "xterm-256color"
 set-option -g default-terminal "xterm-256color"
 set -ga terminal-overrides ',xterm-256color:Tc'
 
@@ -33,13 +30,13 @@ set-option -g status-keys "emacs"
 
 # Allow the session name in status left to display up to 50 characters
 set-option -g status-left-length 50
-tm_session_name="#[bold]$tm_icon #S"
+# tm_session_name="#[bold]$tm_icon #S"
 set -g status-right-length 150
 # set -g status-left $tm_session_name' '
 set -g status-left '#S #I:#P #[default]'
 tm_tunes="#[bold]#(spotify)"
 # More useful status-right with battery percentage and nicely formated datetime
-set -g status-right "$tm_tunes #(battery -t -g black)  #(date '+%a, %b %d - %I:%M') "
+set -g status-right "$tm_tunes #(battery -t -g black) #(date '+%a, %b %d - %I:%M')"
 
 set -g status-interval 5
 
@@ -77,17 +74,20 @@ set -g focus-events on
 setw -g mode-keys vi
 
 # Setup 'v' to begin selection as in Vim
-bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel  "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 
 # Update default binding of `Enter` to also use copy-pipe
 unbind -T copy-mode-vi Enter
-bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel "pbcopy"
+unbind -T copy-mode-vi Space
+bind -T copy-mode-vi Space send -X jump-again
+bind-key -T copy-mode-vi 0 send -X back-to-indentation
 
 # Sample quick-pane configurations
 bind-key h split-window -h "htop"
 bind-key t split-window -h -c ~/ "vim todo.md"
-bind-key w split-window -h "reattach-to-user-namespace vim +FZF"
+bind-key w split-window -h "vim +FZF"
 
 # Fuzzy matching session navigation via fzf utility
 bind C-j split-window -v "tmux list-sessions | sed -E 's/:.*$//' | grep -v \"^$(tmux display-message -p '#S')\$\" | fzf --reverse | xargs tmux switch-client -t"

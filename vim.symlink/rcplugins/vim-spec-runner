@@ -1,17 +1,17 @@
 " Spec Runner - Generic spec runner for rspec and JS
 
-Plug 'gabebw/vim-spec-runner'
+" Plug 'gabebw/vim-spec-runner'
 
 " let g:spec_runner_dispatcher = "call VtrSendCommand('{command}')"
-let g:spec_runner_dispatcher = "VtrSendCommand! bundle exec {command}"
+" let g:spec_runner_dispatcher = "VtrSendCommand! bundle exec rails test"
 
-" Use <Leader>t to run the current spec file.
-map <Leader>t <Plug>RunCurrentSpecFile
+" " Use <Leader>t to run the current spec file.
+" map <Leader>t <Plug>RunCurrentSpecFile
 
-" Use <Leader>u to run the current line in a spec.
-map <Leader>u <Plug>RunFocusedSpec
+" " Use <Leader>u to run the current line in a spec.
+" map <Leader>u <Plug>RunFocusedSpec
 
-" Use <Leader>v to explicitly run the most recent spec.
-map <Leader>l <Plug>RunMostRecentSpec
+" " Use <Leader>v to explicitly run the most recent spec.
+" map <Leader>l <Plug>RunMostRecentSpec
 
-" vim:ft=vim
+" " vim:ft=vim

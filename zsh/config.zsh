@@ -47,7 +47,7 @@ setopt HIST_REDUCE_BLANKS
 
 
 setopt auto_cd
-cdpath=($HOME/code)
+cdpath=($HOME/code $HOME/code/koba)
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
 # compdef g='git'
