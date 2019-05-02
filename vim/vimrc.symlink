@@ -220,9 +220,12 @@ let g:syntastic_java_checkers = []
 let g:EclimJavaValidate = 1
 let g:EclimXmlValidate = 0
 
-" Make mappings
+" Make
+" We explicitly use a separate makefile to drive make to be able to switch make
+" commands by editing the makefile without having to reload vimrc
+let &makeprg = 'make -f .VimMakefile'
 if filereadable('/proc/cpuinfo')
-  let &makeprg = 'make -j'.(system('grep -c ^processor /proc/cpuinfo')+1)
+  let &makeprg = &makeprg.' -j '.(system('grep -c ^processor /proc/cpuinfo')+1)
 endif
 nnoremap <leader>mm :Make<cr>
 nnoremap <leader>mc :Make clean<cr>
