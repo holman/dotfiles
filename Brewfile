@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 tap 'puma/puma'
+tap 'caskroom/fonts'
 
 brew 'ack'
 brew 'coreutils'
@@ -40,3 +41,4 @@ cask 'torguard'
 cask 'transmission'
 cask 'vlc'
 cask 'visual-studio-code'
+cask 'font-fira-code'
