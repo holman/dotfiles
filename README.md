@@ -1,4 +1,17 @@
-# holman does dotfiles
+# Rebecca's version of holman does dotfiles
+
+## quick reminders
+
+### where do I put aliases?
+
+General purpose aliases can go in `zsh/aliases.zsh`, i.e. `ll`
+
+Work specific aliases should go under `work/aliases.zsh`, i.e. cd into work related directories
+
+Otherwise, aliases should go under topics.
+
+
+## about
 
 Your dotfiles are how you personalize your system. These are mine.
 
