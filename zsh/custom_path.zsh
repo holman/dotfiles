@@ -30,7 +30,7 @@ export PATH=${CASSANDRA_HOME}/bin:${PATH}
 # anaconda
 # export ANACONDA_HOME=/anaconda3
 # export PATH=${ANACONDA_HOME}/bin:${PATH}
-
+export ALL_PROXY=socks5://127.0.0.1:1086
 
 # go
 export PATH=$GOPATH/bin:$PATH

@@ -36,7 +36,8 @@ alias sjump='ssh -i ~/.ssh/aws_key -p 2222 10.128.253.29'
 alias devdb='mysql -upxc_test -paySu0myNHkh -P3306 -h10.125.252.77'
 alias cdb='cqlsh.py 10.125.235.51 9042'
 
-alias vps='ssh -p 26050 changxin@144.34.218.98'
+alias vps='ssh -p 22780 changxin@144.34.218.239'
+alias vpsc='ssh -p 26050 changxin@104.129.180.117'
 
 # connect for work
 alias qgo="python /Users/changxin.cheng/py.py"
@@ -51,6 +52,7 @@ alias pmm="python manage.py migrate"
 alias pipi="pip install"
 alias pmspn="python manage.py shell_plus --notebook"
 alias pipu="pip install --upgrade pip"
+alias pipr="pip install -r requirements.txt"
 
 # pyenv
 alias py="pyenv"
