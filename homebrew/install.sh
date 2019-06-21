@@ -6,7 +6,7 @@
 # using Homebrew.
 
 # Check for Homebrew
-if test ! $(which brew)
+if test ! "$(which brew)"
 then
   echo "  Installing Homebrew for you."
 
@@ -18,7 +18,23 @@ then
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
   fi
+fi
 
+# Turn off brew analytics
+brew analytics off
+brew bundle --file="$DOTFILES/homebrew/universal_cli.brewfile"
+
+# install universal casks on mac
+if test "$(uname)" = "Darwin"
+then
+  brew bundle --file="$DOTFILES/homebrew/universal_cask.brewfile"
+
+  echo "  Install personal casks? (y/n) "
+  read answer
+  if [ "$answer" != "${answer#[Yy]}" ]
+  then
+    brew bundle --file="$DOTFILES/homebrew/personal_cask.brewfile"
+  fi
 fi
 
 exit 0

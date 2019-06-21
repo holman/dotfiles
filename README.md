@@ -42,8 +42,10 @@ There's a few special files in the hierarchy.
 - **topic/install.sh**: Any file named `install.sh` is executed when you run `script/install`. To avoid being loaded automatically, its extension is `.sh`, not `.zsh`.
 - **topic/\*.symlink**: Any file ending in `*.symlink` gets symlinked into
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
-  but still keep those autoloaded files in your home directory. These get
-  symlinked in when you run `script/bootstrap`.
+  but still keep those autoloaded files in your home directory. To further nest
+  symlinks into subdirectories under `$HOME`, use `+` signs to signify additional
+  directory delimiters. So for example, the file `topic/config+topic.symlink`
+  would get symlinked to `$HOME/.config/topic` when you run `script/bootstrap`.
 
 ## install
 

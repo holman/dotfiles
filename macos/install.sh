@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if test ! "$(uname)" = "Darwin"
   then
   exit 0
@@ -10,3 +12,11 @@ fi
 
 echo "› sudo softwareupdate -i -a"
 sudo softwareupdate -i -a
+
+# Run all macos defaults
+set -e
+
+cd "$(dirname $0)"/..
+
+# find default settings for mac apps and run them iteratively
+find . -name "defaults-*.sh" | while read installer ; do sh -c "${installer}" ; done

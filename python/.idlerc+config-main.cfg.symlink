@@ -1,0 +1,11 @@
+[Theme]
+default = False
+name = Obsidian
+
+[EditorWindow]
+font = courier new
+font-size = 12
+font-bold = False
+
+[General]
+autosave = 1

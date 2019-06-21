@@ -1,0 +1,26 @@
+cask 'alfred'
+cask 'atom' # Text editor
+# cask 'dropbox' # Install first
+cask 'coderunner'
+cask 'cyberduck' # remote file access
+cask 'dash' # Documentation
+cask 'docker'
+# cask 'github-desktop' # GUI for github
+cask 'google-chrome'
+cask 'keycastr' # Key casting
+cask 'kitematic' # docker
+cask 'licecap' # Screenrecording software
+# cask 'postgres'
+cask 'pycharm' # Python IDE
+cask 'spectacle' # Window manager
+
+# Not in Application Folder
+cask 'java'
+cask 'qlcolorcode' # Colorize QL
+cask 'qlmarkdown' # QL for .md
+cask 'qlstephen' # QL for plain text files
+cask 'quicklook-csv' # QL for csv
+
+#Dupes
+#tap 'homebrew/dupes'
+#brew 'homebrew/dupes/nano' # depreciated but left syntax guide

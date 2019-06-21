@@ -1,0 +1,11 @@
+# Application Folder
+cask 'discord'
+cask 'handbrake'
+cask 'transmission'
+cask 'tunnelblick'
+
+# Mac App Store
+# mas '1Password', id: 443987910 standalone allow direct purchase
+# mas 'CodeBox', id: 412536790
+mas 'MacFamilyTree 7', id: 572280828
+mas 'Dark Mode for Safari', id: 1397180934

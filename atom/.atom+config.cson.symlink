@@ -1,0 +1,80 @@
+"*":
+  "atom-beautify":
+    json:
+      indent_size: 2
+      keep_array_indentation: true
+  "autocomplete-python":
+    useKite: false
+    useSnippets: "required"
+  "bracket-matcher":
+    highlightMatchingLineNumber: true
+  core:
+    customFileTypes:
+      "source.dotfiles": [
+        "nanorc"
+        "brewfile"
+        "macos"
+      ]
+      "source.git-config": [
+        "cfg"
+        "ini"
+      ]
+      "source.shell": [
+        "extra"
+        "completions"
+      ]
+      "source.sql": [
+        "psqlrc"
+        "tdload"
+        "tbuild"
+      ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "an-old-hope-syntax"
+    ]
+  editor:
+    autoIndentOnPaste: false
+    invisibles: {}
+    preferredLineLength: 120
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabType: "soft"
+  "git-diff-details":
+    closeAfterCopy: true
+    enableSyntaxHighlighting: true
+  "git-plus":
+    experimental: {}
+    general:
+      messageTimeout: 7
+      splitPane: "Right"
+  "line-ending-selector":
+    defaultLineEnding: "LF"
+  "linter-flake8":
+    maxLineLength: 88
+  "linter-ui-default":
+    panelHeight: 300
+  "merge-conflicts": {}
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+  "one-dark-ui": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
+  welcome:
+    showOnStartup: false
+".diff.source":
+  editor:
+    preferredLineLength: 120
+".protobuf.source":
+  editor:
+    preferredLineLength: 120

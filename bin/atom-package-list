@@ -1,8 +1,8 @@
 #!/bin/sh
 #
-# Usage: atom-package-install
+# Usage: atom-package-list
 #
-# Installs the atom packages listed in your packages.txt file
+# Lists the currently installed atom packages
 # located at ~/.dotfiles/atom/.atom+packages.txt.symlink
 #
 # You can generate a new list based on currently installed
@@ -10,4 +10,4 @@
 
 set -e
 
-apm install --packages-file ~/.dotfiles/atom/.atom+packages.txt.symlink
+apm list --installed --bare | grep '^[^@]\+' -o

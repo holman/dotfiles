@@ -1,0 +1,20 @@
+brew 'diff-so-fancy' # https://github.com/so-fancy/diff-so-fancy
+brew 'dockutil'
+brew 'git'
+brew 'git-lfs'
+brew 'git-extras' # https://github.com/tj/git-extras
+brew 'git-open' # https://github.com/jeffreyiacono/git-open
+brew 'grep'
+brew 'gnu-sed'
+brew 'hugo' # https://gohugo.io
+brew 'insect' # https://github.com/sharkdp/insect
+brew 'mas' # https://github.com/mas-cli/mas
+brew 'nmap' # port tool
+brew 'npm'
+brew 'python' # This is now python 3 :D
+brew 'pipenv'
+brew 'shellcheck' # https://github.com/koalaman/shellcheck
+brew 'trash'
+brew 'tree'
+brew 'unixodbc'
+brew 'nano'

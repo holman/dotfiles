@@ -2,9 +2,17 @@
 #
 # Run all dotfiles installers.
 
+# Ask for the administrator password upfront
+sudo -v
+
 set -e
 
 cd "$(dirname $0)"/..
 
-# find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+
+if test ! "$(uname)" = "Darwin"
+  then
+  find . -not -path './macos/*' -name install.sh | while read installer ; do sh -c "${installer}" ; done
+  else
+  find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+fi
