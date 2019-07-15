@@ -1,0 +1,4 @@
+#!/usr/local/bin/zsh
+tree_directory() {
+  tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}

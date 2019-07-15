@@ -1,20 +1,24 @@
+brew 'antigen'
+brew 'bat'
 brew 'diff-so-fancy' # https://github.com/so-fancy/diff-so-fancy
 brew 'dockutil'
-brew 'git'
-brew 'git-lfs'
 brew 'git-extras' # https://github.com/tj/git-extras
+brew 'git-lfs'
 brew 'git-open' # https://github.com/jeffreyiacono/git-open
-brew 'grep'
+brew 'git'
 brew 'gnu-sed'
+brew 'grep'
 brew 'hugo' # https://gohugo.io
 brew 'insect' # https://github.com/sharkdp/insect
 brew 'mas' # https://github.com/mas-cli/mas
+brew 'nano'
 brew 'nmap' # port tool
 brew 'npm'
-brew 'python' # This is now python 3 :D
 brew 'pipenv'
+brew 'python' # This is now python 3 :D
+brew 'ripgrep'
 brew 'shellcheck' # https://github.com/koalaman/shellcheck
 brew 'trash'
 brew 'tree'
 brew 'unixodbc'
-brew 'nano'
+brew 'zsh'

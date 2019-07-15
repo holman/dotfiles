@@ -6,7 +6,7 @@ cask 'cyberduck' # remote file access
 cask 'dash' # Documentation
 cask 'docker'
 # cask 'github-desktop' # GUI for github
-cask 'google-chrome'
+cask 'firefox'
 cask 'keycastr' # Key casting
 cask 'kitematic' # docker
 cask 'licecap' # Screenrecording software
@@ -20,6 +20,10 @@ cask 'qlcolorcode' # Colorize QL
 cask 'qlmarkdown' # QL for .md
 cask 'qlstephen' # QL for plain text files
 cask 'quicklook-csv' # QL for csv
+
+# Fonts
+tap 'homebrew/cask-fonts'
+cask 'font-hack-nerd-font', args: { fontdir: "/Library/Fonts" }
 
 #Dupes
 #tap 'homebrew/dupes'

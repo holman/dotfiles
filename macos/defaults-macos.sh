@@ -192,10 +192,10 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Cusomize Dock Apps
 dockutil --no-restart --remove all;
-dockutil --no-restart --add "/Applications/Finder.app";
+# dockutil --no-restart --add "/Applications/Finder.app"; # Added by default
 dockutil --no-restart --add "/Applications/Launchpad.app";
 dockutil --no-restart --add "/Applications/Safari.app";
-dockutil --no-restart --add "/Applications/Google Chrome.app";
+dockutil --no-restart --add "/Applications/Firefox.app";
 dockutil --no-restart --add "/Applications/Mail.app";
 dockutil --no-restart --add "/Applications/Contacts.app";
 dockutil --no-restart --add "/Applications/Calendar.app";
@@ -296,13 +296,12 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # Kill affected applications                                                  #
 ###############################################################################
 
-echo "Sleeping for 5 seconds to display any errors"
-sleep 5
+sleep 2
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
+  "Dock" "Finder" "Firefox" "Mail" "Messages" \
   "Photos" "Safari" "Spectacle" "SystemUIServer"\
   "iCal"; do
   killall "${app}" &> /dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+echo " finished defaults-macos."

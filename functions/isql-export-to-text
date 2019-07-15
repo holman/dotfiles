@@ -1,0 +1,17 @@
+#!/usr/local/bin/zsh
+
+source $DOTFILES/functions/replace-new-lines-with-spaces
+
+# export data from odbc source using sql file to .txt file
+function isql-export-to-text () {
+  if [ "$#" -ne 3 ]; then
+    echo "Illegal number of parameters";
+    echo "Should be isql-export-to-text odbc_dsn_name sql_file text_file";
+    return 1;
+  fi;
+  replace-new-lines-with-spaces $2;
+  isql -v -b -3 -d"|" $1 < $2 > $3;
+}
+
+#https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
+isql-export-to-text "$@"

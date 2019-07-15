@@ -1,9 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
-# Homebrew
-#
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
+# Homebrew Installation
 
 # Check for Homebrew
 if test ! "$(which brew)"
@@ -14,8 +11,7 @@ then
   if test "$(uname)" = "Darwin"
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-  then
+  else
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
   fi
 fi
@@ -29,10 +25,11 @@ if test "$(uname)" = "Darwin"
 then
   brew bundle --file="$DOTFILES/homebrew/universal_cask.brewfile"
 
-  echo "  Install personal casks? (y/n) "
-  read answer
+  echo " - Install personal casks? (y/n) "
+  read -n 1 answer
   if [ "$answer" != "${answer#[Yy]}" ]
   then
+    echo '  Installing personal casks...' # new line
     brew bundle --file="$DOTFILES/homebrew/personal_cask.brewfile"
   fi
 fi

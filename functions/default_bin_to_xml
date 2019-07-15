@@ -1,0 +1,12 @@
+#!/usr/local/bin/zsh
+#
+# useful for converting .plist files
+#
+# Type:
+#
+#   default_bin_to_xml foo.plist
+#
+# Will confit the plist to xml
+# See default_xml_to_bin for the reverse
+
+plutil -convert xml1 $1

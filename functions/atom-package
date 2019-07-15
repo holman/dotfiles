@@ -1,0 +1,29 @@
+#!/usr/local/bin/zsh
+#
+# Usage: atom-package <option>
+#
+# 'backup : Backs up your installed packages to ~/.atom/packages.txt'
+# 'install : Installs packages not installed that are listed in ~/.atom/packages.txt'
+# 'install-all : Installs or Reinstalls all packages listed in ~/.atom/packages.txt'
+# 'list : Lists all installed packages'
+# 'list-missing : Lists packages not installed that are in ~/.atom/packages.txt'
+# 'list-new : Lists installed packages that are not saved to ~/.atom/packages.txt'
+# 'remove-new : Removes installed packages that are not saved to ~/.atom/packages.txt'
+#
+atom-package () {
+  case $1 in
+    backup) apm list --installed --bare | grep '^[^@]\+' -o > ~/.atom/packages.txt  ;;
+    install)
+      if [[ $(atom-package list-missing) == "" ]]; then
+        echo "All .Dotfile synced Atom Packages already installed"
+      else
+        atom-package install
+      fi; ;;
+    install-all) apm install --packages-file "$HOME"/.atom/packages.txt             ;;
+    list) apm list --installed --bare | grep '^[^@]\+' -o                           ;;
+    list-missing) comm -2 -3 <(cat "$HOME"/.atom/packages.txt) <(atom-package list) ;;
+    list-new) comm -2 -3 <(atom-package list) <(cat "$HOME"/.atom/packages.txt)     ;;
+    remove-new) apm uninstall $(atom-package list-new)                              ;;
+    *) echo 'Please pass a valid option' ;;
+  esac
+}

@@ -1,0 +1,24 @@
+# Show line and column numbers in status bar
+set constantshow
+
+# Show line number
+set linenumbers
+
+## disables hard wrapping
+## https://unix.stackexchange.com/questions/122795/long-line-wrapping-in-nano
+set nowrap
+
+# enable soft wrap for easier viewing
+set softwrap
+
+# Smooth scrolling
+set smooth
+
+## Soft tabs
+set tabstospaces
+## Width 2
+set tabsize 2
+
+# comes with brew but below is better
+#include /usr/local/share/nano/*.nanorc
+include ~/.nano/*.nanorc

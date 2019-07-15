@@ -1,0 +1,137 @@
+[alias]
+  # list all aliases https://github.com/tj/git-extras/blob/master/bin/git-alias
+  # sorting from git-extra breaks with a long alias
+  aalias = "!git config --get-regexp 'alias.*' | sed 's/^alias.//' | sed 's/[ ]/ = /';"
+
+  # additiona list abbreviations http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate -n20 # hash/message/author
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat -n5 # shows files changed in each
+  la = log --all --pretty=format:'%C(auto,magenta)% G? %C(yellow)%h %C(auto,red)%>(12,trunc)%ad %Cblue%an%Cgreen%d %Creset%s' --date=relative
+
+  # who am i?
+  whoami = "!git config user.name && git config user.email"
+
+  co = checkout
+  promote = !$DOTFILES/bin/git-promote
+  wtf = !$DOTFILES/bin/git-wtf
+  rank-contributors = !$DOTFILES/bin/git-rank-contributors
+  count = !git shortlog -sn
+
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+
+  # Credit an author on the latest commit
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+
+  # Remove branches that have already been merged with master
+  # a.k.a. ‘delete merged’
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  # Force Pull Repo the rightway (doesn't change untracked) http://stackoverflow.com/a/8888015
+  pull-force-master = "!read -p \"This will overwrite tracked files in your repo. Are you sure? (y/n) \" -n 1; \
+  echo \"\"; \
+  if [[ $REPLY =~ ^[Yy]$ ]]; then \
+  git fetch --all && git reset --hard origin/master; \
+  fi;"
+
+[apply]
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  # Use colors in Git commands that are capable of colored output when
+  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+  ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[core]
+  excludesfile = ~/.gitignore
+  # attributesfile = ~/.gitattributes
+  # editor = nano # something keeps changing this
+  editor = /usr/local/bin/atom --wait
+
+  # play nice with windows (if windows set to true)
+  autocrlf = input
+
+  # Use atom as commit editor if exists else nano see .exports
+
+  # Use diff so fancy as default diff
+  pager = diff-so-fancy | less --tabs=4 -RFX
+
+  # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+  # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+  precomposeunicode = false
+
+  # Make `git rebase` safer on macOS
+  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
+
+  # Treat spaces before tabs and all kinds of trailing whitespace as an error
+  # [default] trailing-space: looks for spaces at the end of a line
+  # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+[diff]
+  # Detect copies as well as renames
+  renames = copies
+
+[diff "bin"]
+  # Use `hexdump` to diff binary files
+  textconv = hexdump -v -C
+
+[hub]
+  protocol = https
+
+# Local/private config goes in the include
+[include]
+  path = ~/.gitconfig.local
+
+[merge]
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
+
+[pull]
+  # rebase on pull instead of merge
+  rebase = true
+
+[push]
+  # simple is the default in git 2+ but lets be explicit
+  default = simple
+  # Make `git push` push relevant annotated tags when pushing branches out.
+  followTags = true
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+### imported settings
+[mergetool]
+  keepBackup = false
+
+[difftool]
+  prompt = false
+[user]
+	name = r-richmond
+	email = rrichmond.gh@gmail.com

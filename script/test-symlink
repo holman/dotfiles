@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+DOTFILES_ROOT=~/.dotfiles
+for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name 'symlink*' -not -path '.git/')
+do
+  dst=$(basename "$src")
+  dst="${dst:7}"
+  dst="$HOME/${dst//+//}"
+  echo "good--" "$src" "->" "$dst"
+done
+
+for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '.git/')
+do
+  echo "bad--" "$src"
+done

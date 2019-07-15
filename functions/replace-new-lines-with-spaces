@@ -1,0 +1,9 @@
+#!/usr/local/bin/zsh
+
+# replaces new lines with spaces in a file
+function replace-new-lines-with-spaces() {
+  sed -i ':a;N;$!ba;s/\n/ /g' "$@";
+  sed -i 's/ \+/ /g' "$@";
+}
+
+replace-new-lines-with-spaces "$@"

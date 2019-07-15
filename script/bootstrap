@@ -29,8 +29,15 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.local.symlink ]
-  then
+  local_git_config="$HOME"/dropbox/config/dotfiles/git/symlink.gitconfig.local
+  if [ -f "$local_git_config" ] && ! [ -f "$HOME"/.gitconfig.local ]; then
+    src=local_git_config
+    dst="$HOME"/.gitconfig.local
+    link_file "$src" "$dst"
+    success "Linked personal $src to $dst"
+  fi
+
+  if ! [ -f git/symlink.gitconfig.local ] && ! [ -f ~/.gitconfig.local ]; then
     info 'setup gitconfig'
 
     git_credential='cache'
@@ -44,7 +51,7 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/symlink.gitconfig.local.example > git/symlink.gitconfig.local
 
     success 'gitconfig'
   fi
@@ -109,7 +116,8 @@ link_file () {
 
     if [ "$backup" == "true" ]
     then
-      mv "$dst" "${dst}.backup"
+      mkdir -p "$HOME"/backup-dot-files"$dst"
+      mv "$dst" "$HOME"/backup-dot-files"$dst"
       success "moved $dst to ${dst}.backup"
     fi
 
@@ -136,9 +144,12 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name 'symlink-*' -not -path '.git/')
   do
-    dst=$(basename "${src%.*}")
+    # http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+    # ignores first 7 characters 0-based
+    dst=$(basename "$src")
+    dst="${dst:7}"
     dst="$HOME/${dst//+//}"
     link_file "$src" "$dst"
   done
@@ -147,17 +158,23 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
+# Lets run install files
+if source bin/dot | while read -r data; do info "$data"; done
+then
+  success "dependencies installs"
+else
+  fail "error installing dependencies"
+fi
+
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "installing dependencies"
-  if source bin/dot | while read -r data; do info "$data"; done
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
+  info "Running on mac"
 fi
 
+info 'changing shell'
+sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+success "All new sessions will use $SHELL"
+
 echo ''
-echo '  All installed!'
+success '  All installed!'

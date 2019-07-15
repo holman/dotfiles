@@ -2,7 +2,7 @@
 
 # Set a blazingly fast keyboard repeat rate
 # lower is faster
-defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Set mouse and scrolling speed

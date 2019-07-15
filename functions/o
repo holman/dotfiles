@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Usage: o
+# Description: opens the current directory in Finder
+#
+# Usage: o <directory>
+# Description: opens the specified directory in Finder
+#
+
+if [ $# -eq 0 ]; then
+  open .;
+else
+  open "$@";
+fi;

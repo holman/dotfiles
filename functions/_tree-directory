@@ -1,0 +1,5 @@
+#compdef tree-directory
+_arguments -S -A '-*' \
+  "-h[Submit a file or directory to tree]" \
+  '*::arg:->args'
+_files

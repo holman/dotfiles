@@ -1,0 +1,16 @@
+#compdef isql-export-to-text
+
+# https://unix.stackexchange.com/questions/94250/how-can-i-autocomplete-each-parameter-in-a-different-way
+_odbc_names () {
+  compadd $(echo odbc1 odbc2)
+}
+
+# still can't figure out how to display usage on first tab
+_isql-export-to-text () {
+  _arguments -s \
+    "1:'ODBC Name':_odbc_names" \
+    "2:'SQL File to Source':_files -g '*.sql'" \
+    "3:'Output text file':"
+}
+
+_isql-export-to-text "$@"

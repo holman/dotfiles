@@ -1,0 +1,16 @@
+#compdef atom-package
+
+# atom-package ZSH completion function
+# https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
+
+local -a subcmds
+subcmds=(
+  'backup:Backs up your installed packages to ~/.atom/packages.txt'
+  'install:Installs packages not installed that are listed in ~/.atom/packages.txt'
+  'install-all:Installs or Reinstalls all packages listed in ~/.atom/packages.txt'
+  'list:Lists all installed packages'
+  'list-missing:Lists packages not installed that are in ~/.atom/packages.txt'
+  'list-new:Lists installed packages that are not saved to ~/.atom/packages.txt'
+  'remove-new:Removes installed packages that are not saved to ~/.atom/packages.txt'
+)
+_describe 'atom-package' subcmds

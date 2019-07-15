@@ -9,10 +9,20 @@ set -e
 
 cd "$(dirname $0)"/..
 
+# run homebrew first
+sh ./homebrew/install.sh
 
 if test ! "$(uname)" = "Darwin"
   then
-  find . -not -path './macos/*' -name install.sh | while read installer ; do sh -c "${installer}" ; done
+    echo "Running install.sh except ./macos/*"
+    find . -not -path './macos/*' -not -path './homebrew/*' -name install.sh | while read installer ; do
+      echo " runnning ${installer}"
+      sh -c "${installer}" ;
+      done
   else
-  find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+    echo "Running install.sh including ./macos/*"
+    find . -not -path './homebrew/*' -name install.sh | while read installer ; do
+      echo " runnning ${installer}"
+      sh -c "${installer}" ;
+      done
 fi

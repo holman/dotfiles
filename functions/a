@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Usage: a
+# Description: opens the current directory in Atom Editor
+#
+# Usage: a <directory>
+# Description: opens the specified directory in Atom Editor
+#
+
+if [ $# -eq 0 ]; then
+  atom .;
+else
+  atom "$@";
+fi;

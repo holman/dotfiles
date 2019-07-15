@@ -1,0 +1,126 @@
+\set QUIET 1
+
+--customize prompt
+-- http://i-dba.blogspot.se/2014/02/colorizing-psql-prompt-guide.html
+-- %m -> short hostname; %M -> full hostname
+\set PROMPT1 '%[%033[31;1m%]%n%[%033[0m%]@%[%033[32m%]%M %[%033[37;1m%]%/ %[%033[0m%]%[%033[31m%](%[%033[0m%]psql%[%033[31m%]) %[%033[0m%]%R%# '
+\set PROMPT2 '%[%033[32m%][%[%033[35;1m%]more%[%033[32;0m%]%[%033[32m%]] %[%033[0m%]%R> '
+-- consider: http://petereisentraut.blogspot.com/2009/09/how-to-set-xterm-titles-in-psql.html
+
+--pager settings to support color
+\pset pager always
+
+-- By default, NULL displays as an empty space. Is it actually an empty
+-- string, or is it null? This makes that distinction visible.
+\pset null '[NULL]'
+
+-- border drawing style
+-- values:ascii,old-ascii,unicode
+\pset linestyle unicode
+-- same values?
+\encoding unicode
+
+-- number of borders and lines for the tables
+-- values:number
+\pset border 1
+
+-- HISTCONTROL
+-- Values: ignorespace,ignoredups,ignoreboth
+\set HISTCONTROL ignoreboth
+
+-- HISTFILE
+-- File used to store history list
+\set HISTFILE ~/.history/psql/history- :USER - :HOST - :PORT - :DBNAME
+
+-- HISTSIZE
+-- Values: numeric, defaults to 500
+\set HISTSIZE 2000
+
+--the above command in which statements are piped into psql(1) non-interactively is treated like off,
+--but if you type them into the interactive prompt it is treated like on
+\set ON_ERROR_ROLLBACK interactive
+
+-- allow pasting of values to avoid stupid indenting
+\set paste
+
+-- SINGLELINE
+-- newline terminates an SQL command
+\set SINGLELINE
+
+-- Print the time each query took
+-- Values: on off (or without values, toggles)
+\timing on
+
+-- for error reports
+-- Values: default,verbose,terse
+\set VERBOSITY verbose
+
+-- Extended display
+-- Values auto (>=9.2), on, off
+\x auto
+
+-- COMP_KEYWORD_CASE
+-- Values: lower,upper,preserve-lower,preserve-upper
+\set COMP_KEYWORD_CASE lower
+
+-- not sure
+\set ECHO_HIDDEN ON
+
+--------------------------------------------
+-- Custom variables and shortcuts
+\set eav 'EXPLAIN ANALYZE VERBOSE'
+--------------------------------------------
+
+\set QUIET OFF
+
+-- what do I do?
+--\set ECHO_HIDDEN ON
+
+\echo '\nCurrent Host Server Date Time : '`date` '\n'
+
+\echo 'Administrative queries:'
+\echo '\t:activity\t\t\t-- Server activity'
+\echo '\t:buffer_cache_hit_ratio \t-- cache hit ratio'
+\echo '\t:conninfo\t\t\t-- Server connections'
+\echo '\t:dbsize\t\t\t\t-- Database Size'
+\echo '\t:kill_old_transactions\t\t-- Kill older than 5'
+\echo '\t:locks\t\t\t\t-- Lock info'
+\echo '\t:running_queries\t\t-- Whats running'
+\echo '\t:tablesize\t\t\t-- Tables Size'
+\echo '\t:uselesscol\t\t\t-- Useless columns'
+\echo '\t:uptime\t\t\t\t-- Server uptime'
+\echo '\t:waits\t\t\t\t-- Waiting queries\n'
+
+\echo 'Development queries:'
+\echo '\t:sp\t-- Current Search Path'
+\echo '\t:clear\t-- Clear screen'
+\echo '\t:ll\t-- List\n'
+
+\echo 'Console Commands:'
+\echo '\t:menu\t\t-- Help Menu'
+\echo '\t:settings\t-- Server Settings'
+\echo '\t\\e\t\t-- View and edit your last run query '
+\echo '\t\\h\t\t-- Help with SQL commands'
+\echo '\t\\?\t\t-- Help with psql commands'
+\echo '\t\\q\t\t-- Quit\n'
+
+-- Administration queries
+\set menu '\\i ~/.psqlrc'
+\set settings 'select name, setting,unit,context from pg_settings;'
+\set activity 'select datname, pid, usename, application_name,client_addr, client_hostname, client_port, query, state from pg_stat_activity;'
+\set buffer_cache_hit_ratio 'select datname, blks_hit::float/(blks_hit+blks_read) as hit_ratio from pg_stat_database where blks_read+blks_hit <> 0;'
+\set conninfo 'select usename, count(*) from pg_stat_activity group by usename;'
+\set dbsize 'SELECT datname, pg_size_pretty(pg_database_size(datname)) db_size FROM pg_database ORDER BY db_size;'
+\set kill_old_transactions 'select count(pg_terminate_backend(pid)) as nb_killed_proc from pg_stat_activity where query = \'<IDLE> in transaction\' and current_timestamp - query_start > \'5 min\';'
+\set locks  'SELECT bl.pid AS blocked_pid, a.usename AS blocked_user, kl.pid AS blocking_pid, ka.usename AS blocking_user, a.query AS blocked_statement FROM pg_catalog.pg_locks bl JOIN pg_catalog.pg_stat_activity a ON bl.pid = a.pid JOIN pg_catalog.pg_locks kl JOIN pg_catalog.pg_stat_activity ka ON kl.pid = ka.pid ON bl.transactionid = kl.transactionid AND bl.pid != kl.pid WHERE NOT bl.granted;'
+\set running_queries  'select current_timestamp - query_start as runtime,pid,datname,usename,query from pg_stat_activity where query != \'<IDLE>\' order by 1 desc;'
+\set tablesize 'SELECT nspname || \'.\' || relname AS \"relation\", pg_size_pretty(pg_relation_size(C.oid)) AS "size" FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN (\'pg_catalog\', \'information_schema\') ORDER BY pg_relation_size(C.oid) DESC LIMIT 40;'
+\set uselesscol 'SELECT nspname, relname, attname, typname, (stanullfrac*100)::int AS null_percent, case when stadistinct >= 0 then stadistinct else abs(stadistinct)*reltuples end AS \"distinct\", case 1 when stakind1 then stavalues1 when stakind2 then stavalues2 end AS \"values\" FROM pg_class c JOIN pg_namespace ns ON (ns.oid=relnamespace) JOIN pg_attribute ON (c.oid=attrelid) JOIN pg_type t ON (t.oid=atttypid) JOIN pg_statistic ON (c.oid=starelid AND staattnum=attnum) WHERE nspname NOT LIKE E\'pg\\\\_%\' AND nspname != \'information_schema\' AND relkind=\'r\' AND NOT attisdropped AND attstattarget != 0 AND reltuples >= 100 AND stadistinct BETWEEN 0 AND 1 ORDER BY nspname, relname, attname;'
+\set uptime 'select now() - pg_postmaster_start_time() AS uptime;'
+\set uselesscol 'SELECT nspname, relname, attname, typname, (stanullfrac*100)::int AS null_percent, case when stadistinct >= 0 then stadistinct else abs(stadistinct)*reltuples end AS \"distinct\", case 1 when stakind1 then stavalues1 when stakind2 then stavalues2 end AS \"values\" FROM pg_class c JOIN pg_namespace ns ON (ns.oid=relnamespace) JOIN pg_attribute ON (c.oid=attrelid) JOIN pg_type t ON (t.oid=atttypid) JOIN pg_statistic ON (c.oid=starelid AND staattnum=attnum) WHERE nspname NOT LIKE E\'pg\\\\_%\' AND nspname != \'information_schema\' AND relkind=\'r\' AND NOT attisdropped AND attstattarget != 0 AND reltuples >= 100 AND stadistinct BETWEEN 0 AND 1 ORDER BY nspname, relname, attname;'
+\set waits 'SELECT pg_stat_activity.pid, pg_stat_activity.query, pg_stat_activity.waiting, now() - pg_stat_activity.query_start AS \"totaltime\", pg_stat_activity.backend_start FROM pg_stat_activity WHERE pg_stat_activity.query !~ \'%IDLE%\'::text AND pg_stat_activity.waiting = true;'
+
+-- Development queries:
+\set sp 'SHOW search_path;'
+\set clear '\\! clear;'
+\set ll '\\! ls -lrt;'

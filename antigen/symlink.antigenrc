@@ -1,0 +1,30 @@
+source /usr/local/share/antigen/antigen.zsh
+
+# example of long form
+antigen bundle https://github.com/robbyrussell/oh-my-zsh.git plugins/ripgrep
+
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+POWERLEVEL9K_MODE='nerdfont-complete'
+antigen theme bhilburn/powerlevel9k powerlevel9k
+
+antigen use oh-my-zsh
+
+antigen bundle docker
+antigen bundle docker-compose
+
+antigen bundle git
+antigen bundle git-extras
+
+# python
+antigen bundle pip
+antigen bundle pipenv
+antigen bundle python
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+# Fish-like auto suggestions
+antigen bundle zsh-users/zsh-autosuggestions
+# Extra zsh completions
+antigen bundle zsh-users/zsh-completions
+
+antigen apply
