@@ -1,0 +1,215 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+## Personal Projects
+#    - map: /Users/jcobb/Sites/admin.kotickets.com
+#      to: /home/vagrant/admin.kotickets.com
+#
+#    - map: /Users/jcobb/Sites/fastticket.io
+#      to: /home/vagrant/fastticket.io
+#
+#    - map: /Users/jcobb/Sites/harvester.ticket.tools
+#      to: /home/vagrant/harvester.ticket.tools
+
+    - map: /Users/jcobb/Sites/jcobb.org
+      to: /home/vagrant/jcobb.org
+
+    - map: /Users/jcobb/Sites/rickhouse
+      to: /home/vagrant/rickhouse
+
+    - map: /Users/jcobb/Sites/tevo-site
+      to: /home/vagrant/tevo-site
+
+    - map: /Users/jcobb/Sites/ticket.tools
+      to: /home/vagrant/ticket.tools
+
+#    - map: /Users/jcobb/Sites/tm-harvester
+#      to: /home/vagrant/tm-harvester
+
+
+## Ticket Evolution Projects
+    - map: /Users/jcobb/Sites/backstage.ticketevolution.com
+      to: /home/vagrant/backstage.ticketevolution.com
+
+#    - map: /Users/jcobb/Sites/camouflage.ticketevolution.com
+#      to: /home/vagrant/camouflage.ticketevolution.com
+#
+#    - map: /Users/jcobb/Sites/comparasaurus.ticketevolution.com
+#      to: /home/vagrant/comparasaurus.ticketevolution.com
+
+    - map: /Users/jcobb/Sites/demo.ticketevolution-php
+      to: /home/vagrant/demo.ticketevolution-php
+
+    - map: /Users/jcobb/Sites/developer.ticketevolution.com
+      to: /home/vagrant/developer.ticketevolution.com
+
+    - map: /Users/jcobb/Sites/dispensary.ticketevolution.com
+      to: /home/vagrant/dispensary.ticketevolution.com
+
+    - map: /Users/jcobb/Sites/fixmymarkups.com
+      to: /home/vagrant/fixmymarkups.com
+
+#    - map: /Users/jcobb/Sites/howmuchamigettingpaid.com
+#      to: /home/vagrant/howmuchamigettingpaid.com
+
+    - map: /Users/jcobb/Sites/order-pender
+      to: /home/vagrant/order-pender
+
+#    - map: /Users/jcobb/Sites/stagefront-order-fixer
+#      to: /home/vagrant/stagefront-order-fixer
+#
+#    - map: /Users/jcobb/Sites/tdcdemo.ticketevolution.com
+#      to: /home/vagrant/tdcdemo.ticketevolution.com
+#
+
+    - map: /Users/jcobb/Sites/tevo-harvester
+      to: /home/vagrant/tevo-harvester
+
+    - map: /Users/jcobb/Sites/tickpick-harvester
+      to: /home/vagrant/tickpick-harvester
+#needed for harvester
+    - map: /Users/jcobb/Sites/tickpick-php
+      to: /home/vagrant/tickpick-php
+
+  #    - map: /Users/jcobb/Sites/tevo-webhooks-catcher
+  #      to: /home/vagrant/tevo-webhooks-catcher
+
+    - map: /Users/jcobb/Sites/weatheralert.ticketevolution.com
+      to: /home/vagrant/weatheralert.ticketevolution.com
+
+
+sites:
+## Personal Projects
+#    - map: admin.kotickets.local
+#      to: /home/vagrant/admin.kotickets.com/public
+#      php: "7.3"
+#
+#    - map: fastticket.io.local
+#      to: /home/vagrant/fastticket.io/public
+#      php: "7.3"
+#
+#    - map: harvester.ticket.tools.local
+#      to: /home/vagrant/harvester.ticket.tools/public
+#      php: "7.3"
+
+    - map: jcobb.org.local
+      to: /home/vagrant/jcobb.org/public
+      php: "7.3"
+
+    - map: rickhouse.local
+      to: /home/vagrant/rickhouse/public
+      php: "7.3"
+
+    - map: tevo-site.local
+      to: /home/vagrant/tevo-site/public
+      php: "7.3"
+
+    - map: ticket.tools.local
+      to: /home/vagrant/ticket.tools/public
+      php: "7.3"
+
+#    - map: tm-harvester.local
+#      to: /home/vagrant/tm-harvester/public
+#      php: "7.3"
+#      schedule: false
+
+
+## Ticket Evolution Projects
+    - map: backstage.ticketevolution.local
+      to: /home/vagrant/backstage.ticketevolution.com/public
+      php: "7.3"
+
+#    - map: camouflage.ticketevolution.local
+#      to: /home/vagrant/camouflage.ticketevolution.com/public
+#      php: "7.3"
+#
+#    - map: comparasaurus.ticketevolution.local
+#      to: /home/vagrant/comparasaurus.ticketevolution.com/public
+#      php: "7.3"
+
+    - map: demo.ticketevolution-php.local
+      to: /home/vagrant/demo.ticketevolution-php/public
+      php: "7.3"
+
+    - map: developer.ticketevolution.local
+      to: /home/vagrant/developer.ticketevolution.com/public
+      php: "7.3"
+
+    - map: dispensary.ticketevolution.local
+      to: /home/vagrant/dispensary.ticketevolution.com/public
+      php: "7.3"
+
+    - map: fixmymarkups.local
+      to: /home/vagrant/fixmymarkups.com/public
+      php: "7.3"
+
+#    - map: howmuchamigettingpaid.local
+#      to: /home/vagrant/howmuchamigettingpaid.com/public
+#      php: "7.3"
+
+    - map: order-pender.local
+      to: /home/vagrant/order-pender/public
+      php: "7.3"
+
+#    - map: stagefront-order-fixer.local
+#      to: /home/vagrant/stagefront-order-fixer/public
+#      php: "7.3"
+#
+#    - map: tdcdemo.ticketevolution.local
+#      to: /home/vagrant/tdcdemo.ticketevolution.com/public
+#      php: "7.3"
+
+    - map: tevo-harvester.local
+      to: /home/vagrant/tevo-harvester/public
+      schedule: false
+      php: "7.3"
+
+    - map: tickpick-harvester.local
+      to: /home/vagrant/tickpick-harvester/public
+      schedule: false
+      php: "7.3"
+
+#    - map: tevo-webhooks-catcher.local
+#      to: /home/vagrant/tevo-webhooks-catcher/public
+#      php: "7.3"
+
+    - map: weatheralert.ticketevolution.local
+      to: /home/vagrant/weatheralert.ticketevolution.com/public
+      php: "7.3"
+
+
+databases:
+    - homestead
+
+features:
+    - mariadb: false
+    - ohmyzsh: true
+    - webdriver: false
+
+#variables:
+#    - key: APP_ENV
+#      value: local
+#    - key: fastcgi_send_timeout
+#      value: 2400
+
+blackfire:
+    - id: "c9ae77b0-de43-4f5a-b77c-d8275bc0cfeb"
+      token: "2df11783b3d3ff5ca4a5bb473511089833260b1e0ba535d88a5a8d1683b0dc15"
+      client-id: "7a6895f3-1050-4dc9-8183-24ac335dde39"
+      client-token: "efe9276ef711fdad9f1b1210b2b3ada3cbac607500dbef92a6218c4b18622765"
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
