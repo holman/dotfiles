@@ -11,22 +11,23 @@
   core:
     customFileTypes:
       "source.dotfiles": [
-        "nanorc"
+        "antigenrc"
         "brewfile"
         "macos"
+        "nanorc"
       ]
       "source.git-config": [
         "cfg"
         "ini"
       ]
       "source.shell": [
-        "extra"
         "completions"
+        "extra"
       ]
       "source.sql": [
         "psqlrc"
-        "tdload"
         "tbuild"
+        "tdload"
       ]
     disabledPackages: [
       "exception-reporting"
