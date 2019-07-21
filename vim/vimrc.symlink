@@ -290,7 +290,10 @@ function! FoldToScreen()
   endwhile
 endfunction
 
-autocmd BufWinEnter *.tex call FoldToScreen()
+augroup tex_fold_function
+  autocmd!
+  autocmd BufWinEnter *.tex call FoldToScreen()
+augroup END
 
 " Function to break lines in tex files on period(.) and wrap to colorcolumn
 " This makes version control for latex files easier since git is line-based
@@ -396,7 +399,10 @@ au BufEnter *.sls set ft=yaml
 " endfunction
 " autocmd VimEnter * call GutentagsAirline()
 
-autocmd FileType groovy set sw=4 ts=4 sta et fo=croql
+augroup groovy_filetype
+  autocmd!
+  autocmd FileType groovy set sw=4 ts=4 sta et fo=croql
+augroup END
 
 " https://github.com/tommcdo/vimfiles/blob/master/config/diffopt.vim
 " Provide a function to toggle iwhite (ignore whitespace)
