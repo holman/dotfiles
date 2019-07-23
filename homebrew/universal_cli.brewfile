@@ -10,6 +10,7 @@ brew 'gnu-sed'
 brew 'grep'
 brew 'hugo' # https://gohugo.io
 brew 'insect' # https://github.com/sharkdp/insect
+brew 'kubectl'
 brew 'mas' # https://github.com/mas-cli/mas
 brew 'nano'
 brew 'nmap' # port tool
@@ -22,3 +23,6 @@ brew 'trash'
 brew 'tree'
 brew 'unixodbc'
 brew 'zsh'
+
+# Note: zsh completition scripts installed here
+# /usr/local/share/zsh/site-functions
