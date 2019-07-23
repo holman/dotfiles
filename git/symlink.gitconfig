@@ -12,9 +12,7 @@
   whoami = "!git config user.name && git config user.email"
 
   co = checkout
-  promote = !$DOTFILES/bin/git-promote
-  wtf = !$DOTFILES/bin/git-wtf
-  rank-contributors = !$DOTFILES/bin/git-rank-contributors
+  diff-unpushed = !$DOTFILES/bin/git-unpushed
   count = !git shortlog -sn
 
   # Show verbose output about tags, branches or remotes
@@ -35,6 +33,15 @@
   if [[ $REPLY =~ ^[Yy]$ ]]; then \
   git fetch --all && git reset --hard origin/master; \
   fi;"
+
+  # Get the current branch name (not so useful in itself, but used in
+  # other aliases) https://gist.github.com/robmiller/6018582
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  # Push the current branch to the remote "origin", and set it to track
+  # the upstream branch
+  publish = "!git push -u origin $(git branch-name)"
+  # Delete the remote version of the current branch
+  unpublish = "!git push origin :$(git branch-name)"
 
 [apply]
   # Detect whitespace errors when applying a patch

@@ -45,6 +45,8 @@ unset config_files
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+# Search through history for previous commands matching everything up to current cursor
+# position. Move the cursor to the end of line after each match.
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
