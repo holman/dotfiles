@@ -139,6 +139,3 @@
 
 [difftool]
   prompt = false
-[user]
-	name = r-richmond
-	email = rrichmond.gh@gmail.com
