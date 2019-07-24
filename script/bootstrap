@@ -61,13 +61,16 @@ setup_gitconfig () {
 link_file () {
   local src=$1 dst=$2
 
-  local overwrite= backup= skip=
+  local overwrite=
+  local backup=
+  local absorb=
+  local skip=
   local action=
 
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
 
-    if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
+    if [ "$overwrite_all" != "true" ] && [ "$backup_all" != "true" ] && [ "$absorb_all" != "true" ] && [ "$skip_all" != "true" ]
     then
 
       local currentSrc="$(readlink $dst)"
@@ -80,7 +83,7 @@ link_file () {
       else
 
         user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
-        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [a]bsorb, [A]bsorb all, [b]ackup, [B]ackup all?"
         read -n 1 action
 
         case "$action" in
@@ -92,6 +95,10 @@ link_file () {
             backup=true;;
           B )
             backup_all=true;;
+          a )
+            absorb=true;;
+          A )
+            absorb_all=true;;
           s )
             skip=true;;
           S )
@@ -107,6 +114,7 @@ link_file () {
     overwrite=${overwrite:-$overwrite_all}
     backup=${backup:-$backup_all}
     skip=${skip:-$skip_all}
+    absorb=${absorb:-$absorb_all}
 
     if [ "$overwrite" == "true" ]
     then
@@ -119,6 +127,12 @@ link_file () {
       mkdir -p "$HOME"/backup-dot-files"$dst"
       mv "$dst" "$HOME"/backup-dot-files"$dst"
       success "moved $dst to ${dst}.backup"
+    fi
+
+    if [ "$absorb" == "true" ]
+    then
+      mv "$dst" "$src"
+      success "review changes in git - absorbed $dst to $src"
     fi
 
     if [ "$skip" == "true" ]
