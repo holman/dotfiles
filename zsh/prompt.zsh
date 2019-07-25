@@ -11,10 +11,10 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   vcs  # git status
 )
 
+DEFAULT_USER=$USER # hide user if not ssh or root for (context)
 POWERLEVEL9K_DATE_FORMAT="%D"
 POWERLEVEL9K_DATE_BACKGROUND='deepskyblue3'
 POWERLEVEL9K_TIME_BACKGROUND='deepskyblue3'
-DEFAULT_USER=$USER # hide user if not ssh or root
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
   status                  # exit code of the last command
   command_execution_time  # duration of the last command
