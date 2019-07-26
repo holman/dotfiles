@@ -57,6 +57,15 @@ setup_gitconfig () {
   fi
 }
 
+backup_file () {
+  local dst=$1 print=$2
+  mkdir -p "$HOME"/backup-dot-files"$dst"
+  mv "$dst" "$HOME"/backup-dot-files"$dst"
+  if [ "$print" == "true" ]
+  then
+    success "moved $dst to ${dst}.backup"
+  fi
+}
 
 link_file () {
   local src=$1 dst=$2
@@ -124,16 +133,14 @@ link_file () {
 
     if [ "$backup" == "true" ]
     then
-      mkdir -p "$HOME"/backup-dot-files"$dst"
-      mv "$dst" "$HOME"/backup-dot-files"$dst"
-      success "moved $dst to ${dst}.backup"
+      backup_file $dst "true"
     fi
 
     if [ "$absorb" == "true" ]
     then
       true > "$src"
       cat "$dst" >> "$src"
-      rm "$dst"
+      backup_file $dst "false"
       success "review changes in git - absorbed $dst to $src"
     fi
 
