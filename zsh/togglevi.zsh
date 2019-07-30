@@ -9,5 +9,5 @@ zle -N foreground-vi
 bindkey '^Z' foreground-vi
 
 function is-vi-suspended() {
-  jobs %?"vim " &> /dev/null
+  jobs %?vim  &> /dev/null
 }
