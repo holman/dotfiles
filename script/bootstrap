@@ -138,6 +138,7 @@ install_dotfiles () {
   install_awesome_config
   update_submodules
   run_vundle
+  install_emoji_font
   download_powerline_symbols
   # We need to generate to font cache so that we can use the patched fonts in the awesome widget
   generate_font_cache
@@ -377,6 +378,12 @@ download_powerline_symbols () {
 
   curl -o ~/.local/share/fonts/PowerLineSymbols.otf 'https://raw.githubusercontent.com/Lokaltog/powerline/develop/font/PowerlineSymbols.otf'
   curl -o ~/.config/fontconfig/conf.d/10-powerline-symbols.conf 'https://raw.githubusercontent.com/Lokaltog/powerline/develop/font/10-powerline-symbols.conf'
+}
+
+install_emoji_font () {
+  src="$(pwd)/fonts/20-emoji.conf"
+  dst="$HOME/.config/fontconfig/conf.d/20-emoji.conf"
+  link_file "$src" "$dst"
 }
 
 
