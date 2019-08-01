@@ -135,6 +135,9 @@ install_dotfiles () {
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+
+  # fish config is not in $HOME/config
+  ln -s ~/.dotfiles/fish ~/.config
 }
 
 setup_gitconfig
