@@ -136,6 +136,7 @@ install_dotfiles () {
   done
 
   install_awesome_config
+  install_alacritty_config
   update_submodules
   run_vundle
   install_emoji_font
@@ -149,6 +150,7 @@ install_dotfiles () {
   install_aws_cli
   install_virtualenv
   install_github_stuffs
+  install_shodan
 
   success 'laid down dotfiles'
 }
@@ -264,6 +266,15 @@ install_github_stuffs () {
   success "linked $src to $dst"
 }
 
+install_alacritty_config () {
+  info 'installing alacritty config file'
+
+  mkdir -p ~/.config/alacritty
+  src="$(pwd)/alacritty/alacritty.yml"
+  dst="$HOME/.config/alacritty/alacritty.yml"
+  link_file "$src" "$dst"
+}
+
 install_awesome_config () {
   info 'installing awesome config files'
 
@@ -305,6 +316,12 @@ install_aws_cli () {
   info 'installing aws cli'
   local_pip_install 'awscli'
   success 'installed aws cli'
+}
+
+install_shodan () {
+  info 'installing shodan cli'
+  local_pip_install 'shodan'
+  success 'installed shodan cli'
 }
 
 os_name () {
