@@ -2,6 +2,23 @@ These fork from [holman does dotfiles](https://github.com/holman/dotfiles/fork).
 
 # My Things
 
+## Shell
+
+I am currently experimenting with using [fish](https://fishshell.com/) for my shell.
+
+It can be `brew install`ed. After that, we need to:
+
+```bash
+sudo echo '/usr/bin/local/fish' >> /etc/shells
+chsh -s /usr/local/bin/fish
+```
+
+If I still with it, this should probably be added to the setup scripts.
+
+### oh-my-fish
+
+While testing fish, I will be also testing [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish). It looks like switching to fish will require some changes from assumptions in this repo, and I may want to use [someone else's dotifles](https://github.com/sagebind/dotfiles/blob/master/install.fish) for inspiration.
+
 ## emacs / spacemacs
 
 ### Github layer
