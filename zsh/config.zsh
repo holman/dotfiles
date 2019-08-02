@@ -23,8 +23,8 @@ setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
 setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
+setopt HIST_IGNORE_ALL_DUPS # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 # don't expand aliases _before_ completion has finished
@@ -32,9 +32,12 @@ setopt HIST_REDUCE_BLANKS
 # https://stackoverflow.com/a/20643204
 # setopt complete_aliases
 
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line
-bindkey '^[[3~' delete-char
-bindkey '^?' backward-delete-char
+# http://zshwiki.org/home/
+# https://stackoverflow.com/questions/18042685/list-of-zsh-bindkey-commands
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Movement
+bindkey '^[^[[D' backward-word # control-left conflicts with spaces
+bindkey '^[^[[C' forward-word # control-right conflicts with spaces
+bindkey '^[[H' beginning-of-line # home-key
+bindkey '^[[F' end-of-line # end-key
+bindkey '^[[3~' delete-char # del-key
+bindkey '^?' backward-delete-char # backspace-key
