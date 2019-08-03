@@ -12,3 +12,6 @@ if [ -f '/Users/troy/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/troy
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [ -f /Users/troy/.asdf/installs/nodejs/10.15.1/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]; and . /Users/troy/.asdf/installs/nodejs/10.15.1/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
+
+# Turn on VI mode
+fish_vi_key_bindings
