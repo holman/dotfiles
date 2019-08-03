@@ -14,4 +14,6 @@ if [ -f '/Users/troy/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/troy
 [ -f /Users/troy/.asdf/installs/nodejs/10.15.1/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish ]; and . /Users/troy/.asdf/installs/nodejs/10.15.1/.npm/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.fish
 
 # Turn on VI mode
-fish_vi_key_bindings
+# Redirects stderr to /dev/null to avoid [this issue](https://github.com/syl20bnr/spacemacs/issues/12221)
+# in spacemaces and projectile
+fish_vi_key_bindings 2>/dev/null
