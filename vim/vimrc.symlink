@@ -136,6 +136,7 @@ command! -nargs=1 RestoreCurPos
 
 " Fugitive mappings
 nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gl :RestoreCurPos Silent Glog -n 20<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :RestoreCurPos Gedit<cr>
