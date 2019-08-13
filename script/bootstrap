@@ -167,7 +167,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name 'symlink-*' -not -path '.git/')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name 'symlink*' -not -path '.git/')
   do
     # http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
     # ignores first 7 characters 0-based

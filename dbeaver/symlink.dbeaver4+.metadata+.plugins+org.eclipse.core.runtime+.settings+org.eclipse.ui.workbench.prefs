@@ -1,7 +1,6 @@
 //org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
 ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.ui.workbenchMisc\tTorg.jkiss.dbeaver.ui.presentation.results\tTorg.jkiss.dbeaver.ui.presentation.erd\tTorg.jkiss.dbeaver.ui.presentation.sql\tTorg.eclipse.compare.contentmergeviewer.TextMergeViewer\tTorg.eclipse.ui.presentation.default
 ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.ui.workbench.TAB_TEXT_FONT
-RUN_IN_BACKGROUND=false
 eclipse.preferences.version=1
 editors=<?xml version\="1.0" encoding\="UTF-8"?>\n<editors>\n<descriptor class\="org.jkiss.dbeaver.ext.erd.editor.ERDEditorStandalone" id\="org.jkiss.dbeaver.ext.erd.editor.ERDEditorStandalone" image\="icons/erd.png" internal\="true" label\="ERD Editor" openMode\="1" open_in_place\="false" plugin\="org.jkiss.dbeaver.ext.erd"/>\n<descriptor class\="org.jkiss.dbeaver.ui.editors.sql.SQLEditor" id\="org.jkiss.dbeaver.ui.editors.sql.SQLEditor" image\="icons/sql/sql_script.png" internal\="true" label\="SQL Editor" openMode\="1" open_in_place\="false" plugin\="org.jkiss.dbeaver.core"/>\n</editors>
 org.eclipse.jface.bannerfont=1|Monaco|11.0|0|COCOA|1|Monaco;

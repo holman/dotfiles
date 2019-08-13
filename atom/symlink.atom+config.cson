@@ -46,6 +46,9 @@
     showInvisibles: true
     softWrap: true
     tabType: "soft"
+  "fuzzy-finder":
+    scoringSystem: "fast"
+    useRipGrep: true
   "git-diff-details":
     closeAfterCopy: true
     enableSyntaxHighlighting: true

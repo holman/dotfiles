@@ -25,6 +25,6 @@ resultset.read.references=false
 sample.database.canceled=true
 sql.format.keywordCase=LOWER
 sql.parameter.prefix=$
-ui.auto.update.check.time=1560529638605
+ui.auto.update.check.time=1563580948024
 ui.drivers.version.update=true
 ui.show.tip.of.the.day.on.startup=true
