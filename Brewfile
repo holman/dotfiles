@@ -6,6 +6,7 @@ tap 'caskroom/fonts'
 
 brew 'ack'
 brew 'coreutils'
+brew 'ffmpeg'
 brew 'go'
 brew 'grc'
 brew 'imagemagick'
