@@ -9,6 +9,7 @@ atom.symlink/themes
 
 # Hammerspoon scripts that are installed
 hammerspoon/hammerspoon.symlink/anycomplete
+hammerspoon/hammerspoon.symlink/EmojiComplete
 
 git/gitconfig.local.symlink
 ### Vim template
