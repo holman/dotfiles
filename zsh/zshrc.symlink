@@ -41,3 +41,6 @@ done
 unset config_files
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Ruby Env init section
+eval "$(rbenv init -)"
