@@ -3,10 +3,7 @@ source /usr/local/share/antigen/antigen.zsh
 # example of long form
 antigen bundle https://github.com/robbyrussell/oh-my-zsh.git plugins/ripgrep
 
-
 POWERLEVEL9K_MODE='nerdfont-complete'
-# POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
-# antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen theme romkatv/powerlevel10k
 
 antigen use oh-my-zsh
