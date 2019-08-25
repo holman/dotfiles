@@ -5,7 +5,7 @@
 # That breaks latex-suite mac specifics
 if [ "$(uname -s)" = "Darwin" ]; then
   brew reinstall macvim --HEAD --with-cscope --with-lua --with-override-system-vim
-  # To make sure that ycm has the correct python version
+  # Ensure that vim and python are compiled with the same version
   brew install python
 fi
 

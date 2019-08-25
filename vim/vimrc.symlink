@@ -44,8 +44,6 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'rking/ag.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 " Plugin 'ludovicchabant/vim-gutentags'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
 " Plugin 'xolox/vim-easytags'
 " Needed for vim-easytags
 " Plugin 'xolox/vim-misc'
@@ -343,12 +341,6 @@ nnoremap <leader>i :JavaImport<cr>
 nnoremap <leader>d :JavaDocSearch -x declarations<cr>
 nnoremap <leader>s :JavaSearchContext<cr>
 nnoremap <leader>p :ProjectProblems!<cr>
-
-" integrate eclim and youcompleteme
-let g:EclimCompletionMethod = 'omnifunc'
-
-" map YcmCompleter GoTo
-nnoremap <leader>g :YcmCompleter GoTo<cr>
 
 " Disable auto completion of log statements in java eclim
 let g:EclimLoggingDisabled = 1
