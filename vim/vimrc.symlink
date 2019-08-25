@@ -417,21 +417,6 @@ nnoremap ]oD :call <SID>toggle_iwhite(-1)<CR>
 " Netrw settings to show linenumbers abs/rel by default
 let g:netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
-" Do not use the location but the quickfix list for rtags
-let g:rtagsUseLocationList = 0
-
-" Additional function to print class hierarchy in rtags
-function! RtagsShowHierarchy()
-  let &l:grepprg = rtags#getRcCmd()." --class-hierarchy ".rtags#getCurrentLocation()
-  let &l:grepformat = "%.%#\t%f:%l:%c:\t%m"
-  grep
-  copen
-  redraw!
-endfunction
-
-noremap <Leader>rh :call RtagsShowHierarchy()<CR>
-
-
 "" Toggle between .h and .cpp with F4.
 function! ToggleBetweenHeaderAndSourceFile()
   let bufname = bufname("%")
