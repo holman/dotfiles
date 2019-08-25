@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/zsh -e
 
 # Run all test scripts
 
@@ -8,5 +8,5 @@ cd "$(dirname $0)"/..
 tests=$(find . -name test.sh)
 for test in ${tests}; do
   echo -e "Running \e[32m${test}\e[0m"
-  zsh -c "${test}"
+  zsh -i -c "env"
 done

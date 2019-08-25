@@ -7,4 +7,5 @@ copy ./ /root/.dotfiles
 workdir /root/.dotfiles
 run yes | /root/.dotfiles/script/bootstrap
 run yes | /root/.dotfiles/script/install
+# TODO This does not work as the shell is not properly recognized as interactive
 run /root/.dotfiles/script/test
