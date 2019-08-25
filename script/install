@@ -1,11 +1,12 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 #
 # Run all dotfiles installers.
 
 cd "$(dirname $0)"/..
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer; do
+installers=$(find . -name install.sh)
+for installer in ${installers}; do
   echo -e "Running \e[32m${installer}\e[0m"
   sh -c "${installer}"
 done
