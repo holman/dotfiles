@@ -16,10 +16,3 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
 fi
 zsh -c 'source $ZSH/plugins/vundle/vundle.plugin.zsh; vundle'
 
-# Additional steps necessary for you-complete-me
-# Added in this file to ensure that vundle + you-complete-me where installed
-# first
-echo "Installing you-complete-me native extensions"
-cd ~/.vim/bundle/YouCompleteMe || exit 1
-git submodule update --init --recursive
-./install.py --clang-completer
