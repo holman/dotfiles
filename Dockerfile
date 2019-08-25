@@ -7,3 +7,4 @@ copy ./ /root/.dotfiles
 workdir /root/.dotfiles
 run yes | /root/.dotfiles/script/bootstrap
 run yes | /root/.dotfiles/script/install
+run /root/.dotfiles/script/test
