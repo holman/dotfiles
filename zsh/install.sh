@@ -1,7 +1,13 @@
-#!/bin/zsh
+#!/bin/bash
 set -e
 
 checkout_path=~/.oh-my-zsh
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  brew install zsh
+elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+  sudo apt-get install -y zsh
+fi
 
 if [ -d "$checkout_path" ]; then
   if [[ "x${ZSH}" == "x" ]]; then
