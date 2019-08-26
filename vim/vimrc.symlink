@@ -42,10 +42,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'FelikZ/ctrlp-py-matcher'
-" Plugin 'ludovicchabant/vim-gutentags'
-" Plugin 'xolox/vim-easytags'
-" Needed for vim-easytags
-" Plugin 'xolox/vim-misc'
 
 syntax enable
 
@@ -335,14 +331,6 @@ nnoremap <leader>p :ProjectProblems!<cr>
 " Disable auto completion of log statements in java eclim
 let g:EclimLoggingDisabled = 1
 
-" Configure vim-easytags / tags in general
-set tags=./tags
-" Use tags file relative to current working directory
-set cpo+=d
-" Only us project specific tag files
-" let g:easytags_dynamic_files = 2
-" let g:easytags_auto_highlight = 0
-
 " Set smart case for rg
 if executable("rg")
   let g:rg_command="rg --vimgrep" . " " . '--smart-case'
@@ -352,13 +340,6 @@ noremap <leader>r :Rg<cr>
 
 " Add yaml file type for salt sls files
 au BufEnter *.sls set ft=yaml
-
-" Configure gutentags status line
-" set statusline+=%{gutentags#statusline()}
-" function! GutentagsAirline(...)
-"   let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#syntastic#get_warnings(),0)} %{airline#util#wrap(airline#extensions#whitespace#check(),0)} %{gutentags#statusline()}'
-" endfunction
-" autocmd VimEnter * call GutentagsAirline()
 
 augroup groovy_filetype
   autocmd!
