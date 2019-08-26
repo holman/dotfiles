@@ -156,9 +156,6 @@ nnoremap <leader>gf :Disp git fetch<cr>
 " Git mapping for finding conflict markers
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 
-" Git review mapping
-nnoremap <leader>r :Disp git review -R<cr>
-
 " customize ctrlp plugin
 let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_map = '<c-p>'
@@ -181,7 +178,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Set no file limit, we are building a big project
 let g:ctrlp_max_files = 0
 
-" If ag is available use it as filename list generator instead of 'find'
+" If rg is available use it as filename list generator instead of 'find'
 if executable('rg')
     set grepprg=rg\ --nocolor
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
@@ -347,34 +344,12 @@ set cpo+=d
 " let g:easytags_dynamic_files = 2
 " let g:easytags_auto_highlight = 0
 
-let ag_additional_options = '--smart-case'
-" Set smart case for Ag
-if executable("ag")
-  " Copied from source for destinction between ag version from 0.25.0 onward
-  if split(system("ag --version"), "[ \n\r\t]")[2] =~ '\d\+.\(\(2[5-9]\)\|\([3-9][0-9]\)\)\(.\d\+\)\?'
-    let g:ag_prg="ag --vimgrep" . " " . ag_additional_options
-  else
-    " --noheading seems odd here, but see https://github.com/ggreer/the_silver_searcher/issues/361
-    let g:ag_prg="ag --column --nogroup --noheading" . " " . ag_additional_options
-  endif
+" Set smart case for rg
+if executable("rg")
+  let g:rg_command="rg --vimgrep" . " " . '--smart-case'
 endif
 
-" Ag short cut to search with current and parent directories
-" Basic idea: http://vim.wikia.com/wiki/Invoke_a_function_with_a_count_prefix
-" http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
-" The count supplies how many parent directories should be included
-" 1 indicates the current directory, 2 would include .., and so on.
-" 0 indicates to start the search at the cwd instead.
-function! AgParentSearch(parents)
-  let command = 'Ag -w '.shellescape(expand("<cword>"))
-  if a:parents > 0
-    let command .= ' %'.(repeat(':h', a:parents))
-  endif
-  execute command
-endfunction
-
-command! -nargs=1 AgParentSearch call AgParentSearch(<args>)
-noremap <leader>a :<C-U>AgParentSearch(v:count)<CR>
+noremap <leader>r :Rg<cr>
 
 " Add yaml file type for salt sls files
 au BufEnter *.sls set ft=yaml
