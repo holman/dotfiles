@@ -14,6 +14,7 @@ fi
 # update packages in vundle
 # install vundle if not already installed
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+  $(dirname $0)/../git/install.sh
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 vim +BundleInstall +qall
