@@ -74,6 +74,7 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 filetype indent plugin on
 
 set wildignore+=*/node_modules/*,*.aux,*.d,*.o,*.pyc
+set wildignorecase
 
 " Enable indent guides per default
 let g:indent_guides_enable_on_vim_startup = 1
