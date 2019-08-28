@@ -47,6 +47,12 @@ setup_gitconfig () {
 
     success 'gitconfig'
   fi
+
+  # Make sure to set verbose, gpgsign and mergetool to catch anything that already has got the gitconfig laid down
+  # It's ignored as it's generated from the template and
+  git config --global commit.gpgsign true
+  git config --global commit.verbose true
+  git config --global merge.tool vimdiff
 }
 
 
