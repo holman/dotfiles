@@ -1,4 +1,3 @@
-Hydrogen
 an-old-hope-syntax
 atom-beautify
 autocomplete-python
@@ -6,9 +5,7 @@ autocomplete-swift
 busy-signal
 dash
 file-icons
-git-plus
 git-time-machine
-hyperclick
 intentions
 language-crontab
 language-docker
@@ -20,7 +17,6 @@ linter-docker
 linter-flake8
 linter-shellcheck
 linter-ui-default
-merge-conflicts
 minimap
 minimap-find-and-replace
 minimap-git-diff

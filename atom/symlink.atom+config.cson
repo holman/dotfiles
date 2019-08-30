@@ -63,6 +63,7 @@
     maxLineLength: 88
   "linter-ui-default":
     panelHeight: 300
+    showPanel: true
   "merge-conflicts": {}
   minimap:
     plugins:
