@@ -2,3 +2,4 @@ vim.symlink/
 git/gitconfig.local.symlink
 .netrwhist
 .vim.symlink/*
+nord-iterm2
