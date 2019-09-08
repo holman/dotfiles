@@ -110,3 +110,4 @@ tags.lock
 .st*
 CMakeLists.txt.user
 .rgignore
+/v/
