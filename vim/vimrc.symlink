@@ -1,4 +1,82 @@
-syntax on
+"turn on spell check and auto wrap for md files
+autocmd BufRead,BufNewFile *.md setlocal spell
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+filetype plugin on " needed for nerdcommenter
+
+" Set the leader to comma **** Don't move this as mappings defined before it
+" will use the stadard leader (\).
+let mapleader=","
+
+" Copied as recommended from https://github.com/scrooloose/syntastic
+"Only worked on hal after downloading pathogen and syntastic new
+"So don't include .vim/ in repo, only .vimrc
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height=5
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_html_checkers = ['tidy']
+let g:syntastic_css_checkers = ['prettycss']
+let g:syntastic_javascript_checkers = ['jslint']
+let g:syntastic_python_checkers = ['pyflakes'] "when pylint gives too many errors
+let g:syntastic_python_pep8_args='--ignore=E501'
+let g:syntastic_python_flake8_args='--ignore=E501'
+
+let g:SuperTabDefaultCompletionType = "context" "autocomplete path if '/' present
+
+"" Pathogen load
+execute pathogen#infect()
+
+syntax enable " enables syntax highlighting
+set number " line numbers
+set ruler " status bar
+set wildmenu
+set splitright
+set statusline+=%F "show full path of file
+set laststatus=2 " always show status line
+set nocompatible " disable old vi stuff
+set complete-=i " turn off search of included files for autocomplete
+set colorcolumn=79 "limit the line length
+set vb t_vb= " turn off bell
+set backspace=indent,eol,start
+                    " allow backspacing over everything in insert mode
+set hlsearch " highlight search terms
+set clipboard=unnamed "clipboard goes to register
+set showmatch    " highlight matching braces
+set incsearch    " immidiately show matches from searches
+set nowrap       " don't wrap long lines
+set tabstop=4 " how many spaces in a tab
+set softtabstop=4 " how many spaces used when tab is used in insert mode
+set shiftwidth=4 " how much to indent with << or >>
+set expandtab    " and to actually use spaces instead of tabs
+set bg=dark
+
+" key mappings
+imap <C-c> <plug>NERDCommenterInsert
+nnoremap <leader>ln :lnext<Esc>
+nnoremap <leader>lp :lprevious<Esc>
+nmap t o<Esc>k
+nmap T O<Esc>j
+nmap <leader>ev :vsp ~/.dotfiles/vimrc.symlink<CR> " open vimrc
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+map yc :w !pbcopy<Return> " after higlighting yank to clipboard
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> "Remove all trailing whitespace by pressing F5
+
+" let vim do indentation
+filetype indent on "used instead of 2 lines below to avoid # issue in python
+au FileType python setlocal formatprg=autopep8\ - "highlight and gq to auto pep8
+"set autoindent
+"set smartindent
+
+highlight Normal term=none cterm=none ctermfg=White ctermbg=Black gui=none guifg=White guibg=Black
+highlight DiffAdd cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+highlight DiffDelete cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+highlight DiffChange cterm=none ctermfg=fg ctermbg=Blue gui=none guifg=fg guibg=Blue
+highlight DiffText cterm=none ctermfg=bg ctermbg=White gui=none guifg=bg guibg=White
