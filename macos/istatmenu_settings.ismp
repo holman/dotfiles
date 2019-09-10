@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>build</key>
+	<real>734</real>
+	<key>license</key>
+	<string>1155-5918-3971-5945-5244</string>
+	<key>preferences</key>
+	<dict>
+		<key>Battery_MenubarMode</key>
+		<string>1</string>
+		<key>CPU_MenubarMode</key>
+		<string>0</string>
+		<key>CombinedMenubarDisplayMode</key>
+		<string></string>
+		<key>Diagnostics_Enabled</key>
+		<integer>0</integer>
+		<key>Disks_MenubarMode</key>
+		<string>8</string>
+		<key>DropdownTheme-Dark</key>
+		<integer>1</integer>
+		<key>Memory_DisplayFormat</key>
+		<integer>1</integer>
+		<key>Memory_IgnoreInactive</key>
+		<integer>1</integer>
+		<key>Memory_MenubarGraphCustomColors</key>
+		<integer>1</integer>
+		<key>Memory_MenubarMode</key>
+		<string>0</string>
+		<key>MenubarTheme</key>
+		<integer>0</integer>
+		<key>Network_DecimalLevel</key>
+		<integer>1</integer>
+		<key>Network_GraphMode</key>
+		<integer>0</integer>
+		<key>Network_MenubarMode</key>
+		<string>0,1</string>
+		<key>Sensors-Limits-Updated</key>
+		<true/>
+		<key>Sensors_MenubarMode</key>
+		<string></string>
+		<key>StatusItems-Order</key>
+		<array>
+			<integer>3</integer>
+			<integer>1</integer>
+			<integer>4</integer>
+			<integer>2</integer>
+			<integer>6</integer>
+		</array>
+		<key>Theme-SeperateStyles</key>
+		<integer>1</integer>
+	</dict>
+	<key>version</key>
+	<real>5.320000171661377</real>
+</dict>
+</plist>
