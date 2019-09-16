@@ -1,0 +1,10 @@
+## uninstall dependencies
+
+https://gist.github.com/ChristopherA/3448ed55657766eeaab809dc1416849f
+
+Remove package's dependencies (does not remove package):
+`brew deps [FORMULA] | xargs brew remove --ignore-dependencies`
+Remove package:
+`brew remove [FORMULA]`
+Reinstall missing libraries:
+`brew missing | cut -d: -f2 | sort | uniq | xargs brew install`
