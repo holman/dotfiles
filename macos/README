@@ -8,7 +8,8 @@ sudo tmutil associatedisk -a / /Volumes/DISKNAME/Backups.backupdb/COMPUTERNAME/L
 better to manually set exclusions while viewing old exclusions since there is 
 no obvious way to dump these. There is an option to show hidden files during 
 exclusion. Best to exclude repo `.git` and data folders, `Desktop`, `Downloads`
-`temp`.
+`temp`; drag `/System` to exclude all system files; `/usr` to ensure homebrew
+files are not backed up.
 
 ## duplicati
 copy `~/.config/Duplicati` to new machine and open duplicati.
