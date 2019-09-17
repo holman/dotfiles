@@ -1,0 +1,50 @@
+IMPORTS
+
+import pandas as pd
+#pd.set_option("display.notebook_repr_html", False)
+import numpy as np
+np.random.seed(1)
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:100% !important; }</style>"))
+
+from notebook.services.config import ConfigManager
+c = ConfigManager()
+c.update('notebook', {"CodeCell": {"cm_config": {"autoCloseBrackets": False}}})
+
+import geopandas as gpd
+import pickle
+
+%load_ext autoreload
+put this before import statement?
+%autoreload 2
+
+GEOPANDAS
+gdf.crs = CITY_PARAMETERS['crs']['frankfurt']
+gdf = gdf.to_crs({'init' :'epsg:4326'})
+
+LOGGING
+
+import sys
+import logging
+logger = logging.getLogger()
+logFormatter = logging.Formatter("%(asctime)s [%(name)40.40s] [%(funcName)10.10s] [%(levelname)-5.5s]  %(message)s")
+logger.setLevel(logging.INFO)
+                                                                                 
+consoleHandler = logging.StreamHandler(sys.stdout)
+consoleHandler.setFormatter(logFormatter)
+logger.addHandler(consoleHandler)
+
+SCATTER PLOT WITH COLOURS
+
+import seaborn
+fg = seaborn.FacetGrid(data=df, size=7, hue="run_consistency")
+fg.map(plt.scatter, 'prob_hu', 'prob_st').add_legend()
+
+PRINT LONG STRINGS
+with pd.option_context('display.max_colwidth', 1000):
+
+TURN OFF SCIENTIFIC NOTATION ON AXES
+plt.ticklabel_format(useOffset=False)
