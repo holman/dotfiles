@@ -16,7 +16,7 @@ then
   fi
 
   if ! git --no-pager diff --exit-code master..origin/master > /dev/null; then
-    printf '\033[0;31m%s\033[0m\n' 'You have pending, local changes. Use dot-export.'
+    printf '\033[0;31m%s\033[0m\n' 'You have pending, local changes. Use dot-export or push them.'
   fi
 else
   printf '\033[0;31m%s\033[0m\n' 'There was an error updating. Try again later?'
