@@ -7,12 +7,12 @@
         prompt = false                                                             
 [alias]                                                                        
         d = difftool   
-#[filter "lfs"]
-        #clean = git-lfs clean -- %f
-        #smudge = git-lfs smudge -- %f
-        #process = git-lfs filter-process
-        #required = true
 [credential]
 	    helper = osxkeychain
 [apply]
         whitespace = nowarn
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
