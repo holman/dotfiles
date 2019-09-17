@@ -25,3 +25,7 @@ scp ~/Library/Keychains/login.keychain NEWCP:~/Library/Keychains/oldlogin.keycha
 scp ~/Library/Keychains/login.keychain-db NEWCP:~/Library/Keychains/oldlogin.keychain-db
 ```
 then in keychain app; `file->Add Keychain`; drag and drop anything you want to keep.
+
+## kmymoney
+config is in $HOME/Library/Preferences/kmymoney/kmymoneyrc. File is stored in
+private repo.
