@@ -8,7 +8,6 @@
 
 # The rest of my fun git aliases
 alias gl='git pull --prune'
-alias gls='git ls-tree -r HEAD --name-only'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push origin HEAD'
 # Remove `+` and `-` from start of diff lines; just rely upon color.

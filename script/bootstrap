@@ -137,8 +137,21 @@ install_dotfiles () {
   done
 }
 
+install_launchagents () {
+  info 'installing launchagents'
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  for src in $(find -H "$DOTFILES_ROOT/macos" -maxdepth 1 -name '*.plist')
+  do
+    dst="$HOME/Library/LaunchAgents/$(basename "$src")"
+    link_file "$src" "$dst"
+  done
+}
+
 setup_gitconfig
 install_dotfiles
+install_launchagents
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]

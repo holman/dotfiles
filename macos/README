@@ -1,0 +1,31 @@
+## time machine
+
+```
+sudo tmutil inheritbackup /Volumes/DISKNAME/Backups.backupdb/COMPUTERNAME
+sudo tmutil setdestination /Volumes/DISKNAME
+sudo tmutil associatedisk -a / /Volumes/DISKNAME/Backups.backupdb/COMPUTERNAME/Latest/Macintosh\ HD
+```
+better to manually set exclusions while viewing old exclusions since there is 
+no obvious way to dump these. There is an option to show hidden files during 
+exclusion. Best to exclude repo `.git` and data folders, `Desktop`, `Downloads`
+`temp`; drag `/System` to exclude all system files; `/usr` to ensure homebrew
+files are not backed up.
+
+## duplicati
+copy `~/.config/Duplicati` to new machine and open duplicati.
+
+## mail backup
+link google account
+Download attachments: all
+
+## keychain
+not much important was copied but you can:
+```
+scp ~/Library/Keychains/login.keychain NEWCP:~/Library/Keychains/oldlogin.keychain
+scp ~/Library/Keychains/login.keychain-db NEWCP:~/Library/Keychains/oldlogin.keychain-db
+```
+then in keychain app; `file->Add Keychain`; drag and drop anything you want to keep.
+
+## kmymoney
+config is in $HOME/Library/Preferences/kmymoney/kmymoneyrc. File is stored in
+private repo.
