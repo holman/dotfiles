@@ -1,0 +1,295 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "f3",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "f3",
+        "command": "-editor.action.goToDeclaration",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "f12",
+        "command": "workbench.action.debug.continue",
+        "when": "inDebugMode"
+    },
+    {
+        "key": "f8",
+        "command": "-workbench.action.debug.continue",
+        "when": "inDebugMode"
+    },
+    {
+        "key": "alt+f9",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "f8",
+        "command": "-editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+f3",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "f3",
+        "command": "editor.gotoNextSymbolFromResult",
+        "when": "hasSymbols && config.editor.gotoLocation.multiple == 'goto'"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.gotoNextSymbolFromResult",
+        "when": "hasSymbols && config.editor.gotoLocation.multiple == 'goto'"
+    },
+    {
+        "key": "f8",
+        "command": "workbench.action.terminal.findNext",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "f3",
+        "command": "-workbench.action.terminal.findNext",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "f8",
+        "command": "editor.action.nextMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "f3",
+        "command": "-editor.action.nextMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "f8",
+        "command": "workbench.action.terminal.findNextTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "f3",
+        "command": "-workbench.action.terminal.findNextTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "f3",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "cmd+f12",
+        "command": "-editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "cmd+l",
+        "command": "workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+    {
+        "key": "cmd+f3",
+        "command": "editor.action.goToTypeDefinition"
+    },
+    {
+        "key": "alt+cmd+f3",
+        "command": "editor.action.revealDeclaration"
+    },
+    {
+        "key": "cmd+f11",
+        "command": "workbench.action.debug.start",
+        "when": "!inDebugMode"
+    },
+    {
+        "key": "shift+cmd+f11",
+        "command": "-workbench.action.debug.start",
+        "when": "!inDebugMode"
+    },
+    {
+        "key": "cmd+q",
+        "command": "workbench.action.navigateToLastEditLocation"
+    },
+    {
+        "key": "cmd+k cmd+q",
+        "command": "-workbench.action.navigateToLastEditLocation"
+    },
+    {
+        "key": "ctrl+shift+q",
+        "command": "workbench.action.quit"
+    },
+    {
+        "key": "cmd+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "alt+f8",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+.",
+        "command": "-editor.action.marker.next",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+f9",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+f8",
+        "command": "-editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+t",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.gotoSymbol"
+    },
+    {
+        "key": "cmd+t",
+        "command": "workbench.action.gotoSymbol",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+o",
+        "command": "-workbench.action.gotoSymbol",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+cmd+f3",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "shift+cmd+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "alt+x",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+.",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+.",
+        "command": "editor.debug.action.goToNextBreakpoint"
+    },
+    {
+        "key": "shift+cmd+,",
+        "command": "editor.debug.action.goToPreviousBreakpoint"
+    },
+    {
+        "key": "alt+cmd+,",
+        "command": "editor.action.inPlaceReplace.up",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+,",
+        "command": "-editor.action.inPlaceReplace.up",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+g shift+=",
+        "command": "go.import.add"
+    },
+    {
+        "key": "cmd+g i",
+        "command": "go.impl.cursor"
+    },
+    {
+        "key": "cmd+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "home",
+        "command": "workbench.action.terminal.moveToLineStart",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+left",
+        "command": "-workbench.action.terminal.moveToLineStart",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "home",
+        "command": "cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+left",
+        "command": "-cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+cmd+down",
+        "command": "list.collapseAll",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "cmd+left",
+        "command": "-list.collapseAll",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "cmd+left",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "alt+cmd+left",
+        "command": "-workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.navigateBack"
+    },
+    {
+        "key": "cmd+right",
+        "command": "workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "alt+cmd+right",
+        "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "shift+cmd+i",
+        "command": "editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+]",
+        "command": "-editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+]",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+\\",
+        "command": "-editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    }
+]

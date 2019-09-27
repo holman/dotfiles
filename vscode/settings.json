@@ -1,0 +1,8 @@
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.quickSuggestionsDelay": 30,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Inconsolata, Monaco, 'Courier New', monospace, Menlo",
+    "editor.fontSize": 14
+}
