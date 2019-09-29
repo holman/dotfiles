@@ -1,5 +1,5 @@
 alias reload='. ~/.zshrc'
 
-alias cls='clear' # Good 'ol Clear Screen command
+alias cls='clear'
 
-alias p='cd ~/Dropbox/Projects'
+alias p='cd ~/Projects'
