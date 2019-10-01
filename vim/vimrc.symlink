@@ -142,8 +142,8 @@ nnoremap <leader>g+ :Silent Git stash pop<cr>:windo e<cr>
 " Git snapshot (stash everything, and apply again immediately)
 nnoremap <leader>g0 :Silent ! git-stash-push ""<left>
 
-" Git diff mapping 'accept and next'
-nnoremap <leader>n do]c
+" Git diff mapping 'push and next'
+nnoremap <leader>n dp]c
 
 " Dispatch mappings
 nnoremap <leader>gp :Disp git push<cr>
