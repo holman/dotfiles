@@ -129,9 +129,9 @@ command! -nargs=1 RestoreCurPos
       \ | call setpos('.', save_cursor)
 
 " Fugitive mappings
-nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gs :G<cr>
 nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gl :RestoreCurPos Silent Glog -n 20<cr>
+nnoremap <leader>gl :RestoreCurPos Silent 0Glog -n 20<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :RestoreCurPos Gedit<cr>
 nnoremap <leader>gb :Gblame<cr>
