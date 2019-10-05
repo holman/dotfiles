@@ -6,7 +6,9 @@
     <string>com.mine.homebrewdump</string>
     <key>ProgramArguments</key>
     <array>
-        <string>~/.dotfiles/macos/homebrewdump.sh</string>
+        <string>/bin/sh</string>
+        <string>-c</string>
+        <string>$HOME/.dotfiles/macos/homebrewdump.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>21600</integer>

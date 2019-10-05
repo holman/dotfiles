@@ -10,3 +10,9 @@ fi
 
 echo "› sudo softwareupdate -i -a"
 sudo softwareupdate -i -a
+
+# setup services
+launchctl unload -w $HOME/.dotfiles/macos/com.mine.syncgmail.plist
+launchctl load -w $HOME/.dotfiles/macos/com.mine.syncgmail.plist
+launchctl unload -w $HOME/.dotfiles/macos/com.mine.homebrewdump.plist
+launchctl load -w $HOME/.dotfiles/macos/com.mine.homebrewdump.plist

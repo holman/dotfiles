@@ -8,8 +8,9 @@
         <string>com.mine.syncgmail</string>
         <key>ProgramArguments</key>
         <array>
-            <string>osascript</string>
-            <string>~/.dotfiles/macos/sync_gmail.scpt</string>
+            <string>/bin/sh</string>
+            <string>-c</string>
+            <string>$HOME/.dotfiles/macos/sync_gmail.sh</string>
         </array>
         <key>StartInterval</key>
         <integer>21600</integer>
