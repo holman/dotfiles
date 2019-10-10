@@ -8,7 +8,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
   # Ensure that vim and python are compiled with the same version
   brew install python
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo apt-get install -y vim
+  sudo apt-get install -y vim-gtk3
 fi
 
 # update packages in vundle
