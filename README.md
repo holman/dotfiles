@@ -6,7 +6,7 @@
 
 General purpose aliases can go in `zsh/aliases.zsh`, i.e. `ll`
 
-Work specific aliases should go under `work/aliases.zsh`, i.e. cd into work related directories
+Work specific aliases should go under `work/aliases.zsh`, i.e. cd into work related directories 
 
 Otherwise, aliases should go under topics.
 
@@ -52,7 +52,7 @@ There's a few special files in the hierarchy.
   expected to setup `$PATH` or similar.
 - **topic/completion.zsh**: Any file named `completion.zsh` is loaded
   last and is expected to setup autocomplete.
-- **topic/install.sh**: Any file named `install.sh` is executed when you run `script/install`. To avoid being loaded automatically, its extension is `.sh`, not `.zsh`.
+- **topic/install.sh**: Any file named `install.sh` is executed when you run `script/install`. To avoid being loaded automatically, its extension is `.sh`, not `.zsh`.  To set the correct permissions, run `chmod 755 install.sh` from within the topic directory.
 - **topic/\*.symlink**: Any file ending in `*.symlink` gets symlinked into
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory. These get
