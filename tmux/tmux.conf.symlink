@@ -1,6 +1,3 @@
-# Silence all output
-set -s quiet on
-
 set -g default-terminal "screen-256color"
 
 set -g base-index 1
