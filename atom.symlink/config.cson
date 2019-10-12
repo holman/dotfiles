@@ -25,13 +25,14 @@
     ]
   editor:
     fontFamily: "FuraCode Nerd Font"
-    fontSize: 13
+    fontSize: 12
     showIndentGuide: true
     tabLength: 4
   "exception-reporting":
     userId: "c5c565b7-6f94-4f78-a50a-61560f84b52f"
   "linter-ui-default":
     panelHeight: 300
+    showPanel: true
   "platformio-ide":
     advanced:
       useBuiltinPIOCore: true
