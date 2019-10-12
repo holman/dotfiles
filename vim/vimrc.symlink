@@ -46,8 +46,11 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 syntax enable
 
 " let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
+" Detect background color automatically from COLORFGBG
+" Set default value for explicitness
+set background&
 colorscheme solarized
-set background=light
+
 
 
 " configure airline
