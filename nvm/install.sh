@@ -6,12 +6,11 @@ export NVM_DIR="$HOME/.nvm" && (
   git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
 ) && . "$NVM_DIR/nvm.sh"
 
-nvm install lts/*
-nvm install stable
+nvm install lts/* --latest-npm
+nvm install stable --latest-npm
 nvm alias default stable
 nvm use lts/*
 npm config set python python2.7
-npm install -g npm@latest
 
 nvm use stable
 npm config set python python2.7
