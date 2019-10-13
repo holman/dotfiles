@@ -1,10 +1,7 @@
 # Idea from https://babushk.in/posts/renew-environment-tmux.html
 function _refresh_envvariable_from_tmux() {
-  export $(tmux show-environment | grep "^$1") &> /dev/null
+  # Update *all* environment variables
+  # This is an expensive call we want to only do _once_ per preexec()
+  export $(tmux show-environment) &> /dev/null
 }
 
-function refresh_environment() {
-  _refresh_envvariable_from_tmux "SSH_AUTH_SOCK"
-  _refresh_envvariable_from_tmux "DISPLAY"
-  _refresh_envvariable_from_tmux "COLORFGBG"
-}

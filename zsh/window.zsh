@@ -50,7 +50,7 @@ function title() {
       fi
       print -Pn "\ek$formatted_title\e\\" # screen title (in ^A")
       # TODO disentangle from the reset
-      refresh_environment
+      _refresh_envvariable_from_tmux
     }
     ;;
   xterm*|rxvt)
