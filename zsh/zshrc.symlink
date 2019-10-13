@@ -13,6 +13,11 @@ fi
 
 DISABLE_UPDATE_PROMPT="true"
 
+# Cache the brew prefix for other tools (like autojump) to pick up
+if which brew &> /dev/null; then
+  export BREW_PREFIX=$(brew --prefix)
+fi
+
 # Periodically (typically once a day), update from github
 source $DOTS/script/check_for_upgrade.sh
 
