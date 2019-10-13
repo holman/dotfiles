@@ -1,3 +1,8 @@
 .DS_Store
 *~
 *.swp
+
+
+# VS Code
+.vscode
+.elixir_ls
