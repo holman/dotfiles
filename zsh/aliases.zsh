@@ -1,6 +1,6 @@
 alias reload!='. ~/.zshrc'
 
-if [[ "$(uname -s)" == "Linux" ]]; then
+if which xdg-open &> /dev/null; then
   alias open="xdg-open"
 fi
 
