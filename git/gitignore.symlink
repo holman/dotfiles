@@ -21,6 +21,7 @@ tags.lock
 .gutctags
 .ycm_extra_conf.py
 /compile_commands.json
+/find_all_symbols_db.yaml
 .svo
 .svp
 .svq
