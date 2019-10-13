@@ -3,7 +3,9 @@
 # Shamelessly copied from oh-my-zsh
 
 function _current_epoch() {
-  echo $(($(date +%s) / 60 / 60 / 24))
+  local current_time
+  current_time=$(print -P '%D{%s}')
+  echo $(($current_time / 60 / 60 / 24))
 }
 
 function _update_dots_update() {
