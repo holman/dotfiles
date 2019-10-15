@@ -151,7 +151,6 @@ install_launchagents () {
 
 setup_gitconfig
 install_dotfiles
-install_launchagents
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
@@ -163,6 +162,7 @@ then
   else
     fail "error installing dependencies"
   fi
+  install_launchagents
 fi
 
 echo ''
