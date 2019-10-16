@@ -2,6 +2,9 @@
 
 ## quick reminders
 
+Reload: `reload!`
+Check up: `dot`
+
 ### where do I put aliases?
 
 General purpose aliases can go in `zsh/aliases.zsh`, i.e. `ll`
