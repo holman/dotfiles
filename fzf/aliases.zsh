@@ -62,6 +62,15 @@ fzf-key-gr() {
   cut -d$'\t' -f1
 }
 
+fzf-key-gl() {
+  is_in_git_repo || return
+  git reflog --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --color=always |
+  fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+    --header 'Press CTRL-S to toggle sort' \
+    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
+  grep -o "[a-f0-9]\{7,\}"
+}
+
 join-lines() {
   local item
   while read item; do
@@ -77,6 +86,6 @@ bind-git-helper() {
     eval "bindkey '^g^$c' fzf-g$c-widget"
   done
 }
-bind-git-helper f b t r h
+bind-git-helper f b t r h l
 unset -f bind-git-helper
 # ----------
