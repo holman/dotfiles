@@ -63,7 +63,6 @@
     maxLineLength: 88
   "linter-ui-default":
     panelHeight: 300
-    showPanel: true
   "merge-conflicts": {}
   minimap:
     plugins:
@@ -86,3 +85,6 @@
 ".protobuf.source":
   editor:
     preferredLineLength: 120
+".python.regexp.source":
+  editor:
+    tabLength: 2
