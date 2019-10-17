@@ -52,3 +52,7 @@ done
 unset config_files
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# We don't want this and oh-my-zsh has no way to turn it off
+# Hence, we brute-force this back
+unsetopt autocd
