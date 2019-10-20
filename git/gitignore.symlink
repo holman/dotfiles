@@ -1,3 +1,12 @@
 .DS_Store
 *~
 *.swp
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# VS Code Artifacts
+.vscode
+.elixir_ls
