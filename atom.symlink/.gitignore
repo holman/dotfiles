@@ -8,3 +8,4 @@ packages
 .node-gyp
 .npm
 .punchclock
+.atom-socket-*

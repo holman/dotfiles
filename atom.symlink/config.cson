@@ -37,6 +37,8 @@
       "exception-reporting"
       "linter"
       "ide-typescript"
+      "emmet"
+      "teletype"
     ]
     packagesWithKeymapsDisabled: [
       "sass-autocompile"
