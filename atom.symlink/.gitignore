@@ -1,0 +1,10 @@
+blob-store
+compile-cache
+dev
+storage
+recovery
+packages
+.apm
+.node-gyp
+.npm
+.punchclock

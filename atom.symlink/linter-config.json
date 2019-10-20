@@ -1,0 +1,8 @@
+{
+  "disabled": [],
+  "greeter": {
+    "shown": [
+      "V2_WELCOME_MESSAGE"
+    ]
+  }
+}

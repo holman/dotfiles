@@ -1,0 +1,72 @@
+"*":
+  "atom-ide-ui":
+    use:
+      "atom-ide-busy-signal": "default"
+      "atom-ide-code-actions": "default"
+      "atom-ide-code-format": "default"
+      "atom-ide-code-highlight": "default"
+      "atom-ide-console": "default"
+      "atom-ide-datatip": "default"
+      "atom-ide-debugger": "default"
+      "atom-ide-definitions": "default"
+      "atom-ide-diagnostics": "default"
+      "atom-ide-diagnostics-ui": "default"
+      "atom-ide-find-references": "default"
+      "atom-ide-global": "default"
+      "atom-ide-outline-view": "default"
+      "atom-ide-signature-help": "default"
+      "atom-ide-terminal": "default"
+      hyperclick: "default"
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "atom-beautify"
+      "open-recent"
+      "exception-reporting"
+      "linter"
+      "ide-typescript"
+    ]
+    packagesWithKeymapsDisabled: [
+      "sass-autocompile"
+    ]
+    telemetryConsent: "no"
+  editor:
+    fontSize: 13
+  "file-icons": {}
+  "language-babel":
+    autoIndentJSX: true
+  "linter-pylint": {}
+  "linter-ui-default":
+    panelHeight: 300
+  "markdown-preview":
+    breakOnSingleNewline: true
+  minimap: {}
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+  punchclock:
+    autoEnableTimeTrackingOnLoad: true
+  "sass-autocompile":
+    compileFiles: "Only with first-line-comment"
+  "tool-bar":
+    position: "Left"
+    visible: false
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
+".mdxjs.source":
+  editor:
+    softWrap: true
+    softWrapAtPreferredLineLength: true
