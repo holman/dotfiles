@@ -41,3 +41,8 @@ done
 unset config_files
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+### Added by IBM Cloud CLI
+source /usr/local/Bluemix/bx/zsh_autocomplete
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
