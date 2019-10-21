@@ -318,8 +318,8 @@ vnoremap <leader>is :call g:IndentSentence()<cr>
 
 " gitgutter configuration
 " explicitly set hunk navigation commands
-nmap [h <Plug>GitGutterPrevHunk
-nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap ]h <Plug>(GitGutterNextHunk)
 
 " open tagbar (and focus) (or jump to if open)
 nnoremap <leader>t :TagbarOpen fj<cr>
