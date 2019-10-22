@@ -5,6 +5,12 @@
 # A quick little indicator for battery status on your Mac laptop, suitable for
 # display in your prompt.
 
+if test ! "$(uname)" = "Darwin"
+  then
+  printf ""
+  exit 0
+fi
+
 battstat=$(pmset -g batt)
 time_left=$(echo $battstat |
   tail -1 |
