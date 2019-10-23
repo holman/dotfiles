@@ -84,3 +84,7 @@ export NODE_OPTIONS=--max-old-space-size=4096
 
 # Composer for PHP
 alias composer="php /usr/local/bin/composer.phar"
+
+# chruby for ruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
