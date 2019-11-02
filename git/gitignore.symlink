@@ -2,7 +2,11 @@
 *~
 *.swp
 
-
 # VS Code
 .vscode
 .elixir_ls
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
