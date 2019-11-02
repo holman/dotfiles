@@ -54,7 +54,12 @@
     panelHeight: 300
   "markdown-preview":
     breakOnSingleNewline: true
-  minimap: {}
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true
