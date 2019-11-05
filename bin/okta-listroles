@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -n "$https_proxy" ]; then
+    readonly URI_REGEX='^(([^:/?#]+):)?(//((([^:/?#]+)@)?([^:/?#]+)(:([0-9]+))?))?(/([^?#]*))(\?([^#]*))?(#(.*))?'
+    [[ $https_proxy =~ ${URI_REGEX} ]] && PROXY_CONFIG="-Dhttps.proxyHost=${BASH_REMATCH[7]} -Dhttps.proxyPort=${BASH_REMATCH[9]}"
+fi
+java ${PROXY_CONFIG} -classpath /Users/dxhodge/.okta/okta-aws-cli.jar com.okta.tools.ListRoles
