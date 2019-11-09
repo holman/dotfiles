@@ -57,6 +57,7 @@ colorscheme solarized
 " set laststatus=2 " use if status line is not showing
 " set to use no special symbols at all
 " this avoids having to patch fonts!
+let g:airline_highlighting_cache = 1
 let g:airline_theme = 'solarized'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
