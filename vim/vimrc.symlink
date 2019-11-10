@@ -425,6 +425,14 @@ function! s:diff_file_to_branch()
   resize 12
 endfunction
 
+function! s:all_files_diff()
+  let branchname=b:branchname
+  for d in getqflist()
+    execute 'Gtabedit '.bufname(d.bufnr)
+    execute 'Gdiffsplit '.branchname
+  endfor
+endfunction
+
 let s:git_status_dictionary = {
             \ "A": "Added",
             \ "B": "Broken",
@@ -445,12 +453,25 @@ function! s:get_diff_files(rev)
   call setqflist(list)
   copen
   let b:branchname=a:rev
-  nmap <buffer> D :call <SID>diff_file_to_branch()<cr>
+  let b:filelist=list
+  nmap <buffer> dd :call <SID>diff_file_to_branch()<cr>
+  nmap <buffer> D :call <SID>all_files_diff()<cr>
+endfunction
+
+function! s:get_default_branch()
+  " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
+  let defaultbranch = systemlist('git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/@@"')[0]
+  if v:shell_error || defaultbranch =~ 'fatal: .*'
+    echoerr 'Could not detect default branch, using origin/master'
+    echoerr 'Maybe .git/refs/remotes/origin/HEAD is missing as this repo has not been cloned?'
+    let defaultbranch = 'origin/master'
+  endif
+  return defaultbranch
 endfunction
 
 function! s:get_diff_file_master_merge()
-  let revision = system('git merge-base origin/master HEAD')
-  echom revision
+  let defaultbranch = s:get_default_branch()
+  let revision = system('git merge-base ' . defaultbranch . ' HEAD')
   call s:get_diff_files(revision)
 endfunction
 
