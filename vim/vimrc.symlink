@@ -464,6 +464,7 @@ function! s:get_default_branch()
   if v:shell_error || defaultbranch =~ 'fatal: .*'
     echoerr 'Could not detect default branch, using origin/master'
     echoerr 'Maybe .git/refs/remotes/origin/HEAD is missing as this repo has not been cloned?'
+    echoerr 'Set symbolic ref manually: git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master'
     let defaultbranch = 'origin/master'
   endif
   return defaultbranch
