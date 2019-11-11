@@ -8,8 +8,10 @@ brew 'coreutils'
 brew 'go'
 brew 'jq'
 brew 'ruby-build'
-brew 'wget'
 brew 'rbenv'
+brew 'wget'
+brew 'yarn', args: ['ignore-dependencies']
+brew 'youtube-dl'
 
 cask 'caffeine'
 cask 'dbvisualizer'
@@ -36,8 +38,6 @@ cask 'visual-studio-code'
 # brew 'spaceman-diff'
 # brew 'spark'
 # brew 'unrar'
-# brew 'yarn', args: ['without-node']
-# brew 'youtube-dl'
 
 # Possible other cask installs:
 # cask 'brave-browser'
