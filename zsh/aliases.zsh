@@ -7,6 +7,7 @@ alias cls='clear' # Good 'ol Clear Screen command
 #########################
 
 ### General
+alias cat='bat '
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
