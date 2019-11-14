@@ -91,8 +91,8 @@ function mbak {
   file="${2}.sql.gz"
   fi
 
-  echo "Backing up MySQL db: $db to file: $file"
-  mysqldump -u$MYSQL_USER -p$MYSQL_PASSWORD -e --add-drop-table --default-character-set=utf8 $db | gzip > ${file}
+  echo "Backing up MySQL db: $db to file: $file with creds: $(mysql_login)"
+  mysqldump $(mlogin) -e --add-drop-table --default-character-set=utf8 $db | gzip > ${file}
 }
 
 function mrefreshtest {
