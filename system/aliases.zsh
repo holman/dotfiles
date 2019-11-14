@@ -9,6 +9,7 @@ then
   alias la='gls -A --color'
 fi
 
+alias llcount='ll | wc -l'
 alias md5-deep='find -s . -type f -exec md5 {} \; >> file.md5'
 alias dnscacheclear='sudo killall -HUP mDNSResponder'
 alias uninstall-gems='gem list | cut -d" " -f1 | xargs sudo gem uninstall -aIx'
