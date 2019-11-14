@@ -1,2 +1,2 @@
-MYSQL_HOME=`brew --prefix mysql55`
+MYSQL_HOME=`brew --prefix ${MYSQL_HOMEBREW_VERSION}`
 #export PATH="$MYSQL_HOME/bin:$PATH"
