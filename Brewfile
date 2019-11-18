@@ -24,6 +24,7 @@ brew 'libdvdcss'
 brew 'python'
 brew 'python@2'
 brew 'rbenv'
+brew 'ruby-build'
 brew 'spark'
 brew 'ssh-copy-id'
 brew 'the_silver_searcher'
@@ -40,7 +41,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 cask 'alfred'
-cask 'bartender'
 cask 'docker'
 cask 'dropbox'
 cask 'firefox'
@@ -72,19 +72,15 @@ cask 'webpquicklook'
 mas "Bear", id: 1091189122
 mas "Disk Diag", id: 672206759
 mas "Frank DeLoupe", id: 530458789
-mas "GarageBand", id: 682658836
 mas "GIF Brewery 3", id: 1081413713
 mas "iA Writer", id: 775737590
 mas "Jira", id: 1475897096
 mas "JSON Helper", id: 453114608
 mas "Keynote", id: 409183694
-mas "Microsoft Remote Desktop", id: 715768417
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
-mas "ProximityMines", id: 1230757649
 mas "Snappy", id: 512617038
 mas "SonicWall Mobile Connect", id: 822514576
 mas "Speedtest", id: 1153157709
-mas "The Unarchiver", id: 425424353
 mas "Twitter", id: 1482454543
