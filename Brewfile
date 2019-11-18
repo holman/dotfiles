@@ -29,7 +29,7 @@ brew 'spark'
 brew 'ssh-copy-id'
 brew 'the_silver_searcher'
 brew 'tree'
-brew 'yarn' args: ['--without-node']
+brew 'yarn', args: ['--without-node']
 brew 'youtube-dl'
 brew 'python'
 brew 'python@2'
