@@ -1,7 +1,7 @@
 [user]
     name = Cameron Wardzala
     email = cwardzala@fastmail.com
-    signingkey = BDE191B1
+    signingkey = 9ECF121CBDE191B1
 [credential]
     helper = osxkeychain
 [color]
@@ -40,7 +40,7 @@
     old = red strike
     new = green italic
 [commit]
-    gpgsign = true
+	gpgsign = true
 [alias]
     up = pull --rebase --autostash
     prune = fetch --prune
