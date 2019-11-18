@@ -7,7 +7,7 @@ export ZSH="/Users/cwardzala/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,9 +67,8 @@ plugins=(
     brew
     yarn
     jsontools
-    javascript
-    zsh-syntax-highlighting
     colored-man-pages
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -145,3 +144,11 @@ export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/cwardzala/Findaway/com-findaway-mailer/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/cwardzala/Findaway/com-findaway-mailer/node_modules/tabtab/.completions/slss.zsh
+
+autoload -U promptinit; promptinit
+prompt pure
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

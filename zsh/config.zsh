@@ -16,3 +16,5 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 # export GPG_TTY=$(tty)
 
 ## HOMEBREW_GITHUB_API_TOKEN moved to ~/.localrc
+
+export AWS_PROFILE="default"
