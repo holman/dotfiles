@@ -22,7 +22,7 @@ FileUsage   =
 CPTimeout   =
 CPReuse     =
 ```
-1. update `odbc.ini` to add
+1. Update `odbc.ini` to add
 ```
 [ODBC Data Sources]
 {dsn_name} = [Oracle ODBC Driver]
@@ -66,5 +66,5 @@ UseOCIDescribeAny=F
 UserID={username}
 Password={password}
 ```
-1. verify `isql -v {dsn_name}`
-1. on macOS Catalina or later you may have to "system preferences>security>allow" multiple files
+1. Verify `isql -v {dsn_name}`
+1. Note: on macOS Catalina or later you may have to "system preferences>security>allow" multiple files
