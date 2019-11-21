@@ -13,5 +13,5 @@ function isql-export-to-text () {
   isql -v -b -3 -d"|" $1 < $2 > $3;
 }
 
-#https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
+# https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
 isql-export-to-text "$@"

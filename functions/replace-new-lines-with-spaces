@@ -6,4 +6,5 @@ function replace-new-lines-with-spaces() {
   sed -i 's/ \+/ /g' "$@";
 }
 
-replace-new-lines-with-spaces "$@"
+# this breaks isql-export-to-text for some reason
+# replace-new-lines-with-spaces "$@"
