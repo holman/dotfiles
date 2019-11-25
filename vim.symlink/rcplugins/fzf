@@ -4,7 +4,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so m
 
 " let g:fzf_layout = { 'down': '~25%' }
 let g:fzf_launcher = "in_a_new_term_function_fzf %s"
-let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --ignore .git'
 
 " let g:fzf_files_options =
 "   \ '--reverse ' .
