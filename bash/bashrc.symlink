@@ -1,18 +1,19 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 #
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
 
 # ignore duplicate history and history that starts with whitespace
 HISTCONTROL=ignoreboth
