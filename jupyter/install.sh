@@ -10,5 +10,5 @@ if cd $(jupyter --data-dir)/nbextensions
     git pull
   else
     git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
+    chmod -R go-w vim_binding
 fi
-chmod -R go-w vim_binding

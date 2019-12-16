@@ -66,6 +66,8 @@ defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
+NB: you may need to do `./bin/dot`.
+
 ## bugs
 
 I want this to work for everyone; that means when you clone it down it should
