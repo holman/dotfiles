@@ -39,6 +39,7 @@
         sl = stash list
         sa = stash apply
         ss = stash save
+        sp = stash pop
 
         rh2 = reset HEAD^^ --hard
 [color]
@@ -80,3 +81,8 @@
 	clean = git-lfs clean -- %f
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[user]
+	signingkey = 3BED5EE979E5506D
+	email = jpatton@pinpoint.com
+[commit]
+	gpgsign = true

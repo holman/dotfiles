@@ -1,0 +1,7 @@
+# Go
+\bgo.* test\b
+conf.gotest
+
+# Kubernetes
+\bkubectl help\b
+conf.kubectlhelp

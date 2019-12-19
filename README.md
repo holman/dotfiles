@@ -94,4 +94,5 @@ echo ‘port=53’ >> ${pfix}/etc/dnsmasq.conf
 sudo brew services stop dnsmasq
 sudo brew services start dnsmasq
 sudo mkdir -v /etc/resolver
+sudo touch /etc/resolver/kube
 sudo bash -c ‘sudo echo “nameserver 127.0.0.1” > /etc/resolver/kube’

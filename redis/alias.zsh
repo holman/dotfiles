@@ -1,0 +1,1 @@
+alias rc='redis-cli'

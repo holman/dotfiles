@@ -9,5 +9,5 @@ kubes-switch(){
 }
 
 kubes-list(){
-  l $HOME/.kube
+  ls -alh $HOME/.kube
 }
