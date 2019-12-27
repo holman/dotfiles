@@ -19,8 +19,13 @@ homestead() {
 	(cd ~/Homestead && vagrant $*)
 }
 
+# Launch homestead
+alias hu='homestead up'
+alias hh='homestead halt'
+
 # Launch homestead and ssh into the box
-alias work='homestead up && homestead ssh'
+#alias work='homestead up && homestead ssh -- -t "cd Sites; /usr/bin/zsh"'
+alias work='~/bin/work'
 
 # An alias for the Behat testing framework
 alias behat='vendor/bin/behat'

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Set your local code directory
+local_code_dirname=/Users/jcobb/Sites
+
+# Set your remote code directory
+remote_code_dirname=/home/vagrant/Sites
+
+# get current directory name
+current_dirname=${PWD##*/}
+
+# Check that we are in a subfolder of local_code_dirname but not in local_code_dirname itself
+if [[ $PWD = $local_code_dirname* ]] && [[ $PWD != $local_code_dirname ]];
+then
+
+	# bring Homestead up, ssh in to it and then cd to the corresponding directory
+	cd ~/Homestead && vagrant up && vagrant ssh -- -t "cd $remote_code_dirname/$current_dirname; /usr/bin/zsh"
+
+else
+
+	# bring Homestead up and ssh in to it
+	cd ~/Homestead && vagrant up && vagrant ssh
+
+fi
