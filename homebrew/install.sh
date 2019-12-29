@@ -20,12 +20,6 @@ then
   fi
 
 fi
-
-exit 0
-brew tap Goles/battery
-# Install homebrew packages
-brew install grc coreutils spark git hub gibo battery fzf zsh-syntax-highlighting vim ag
-
-#install fzf utilities
-/usr/local/opt/fzf/install
-exit 0
+# Upgrade homebrew
+echo "› brew update"
+brew update

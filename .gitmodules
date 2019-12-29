@@ -1,3 +1,6 @@
 [submodule "colors.symlink/base16-shell"]
 	path = colors.symlink/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
+[submodule "fonts"]
+	path = fonts
+	url = git@github.com:powerline/fonts.git

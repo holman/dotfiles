@@ -58,4 +58,4 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20  # ( Recommended 20)Useful when pasting large
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
 # added by travis gem
-[ -f /Users/Chedli/.travis/travis.sh ] && source /Users/Chedli/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh

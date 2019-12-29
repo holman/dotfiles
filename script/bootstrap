@@ -5,7 +5,7 @@
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
-set -e
+# set -e
 
 echo "      _       _         __ _ _"
 echo "   __| | ___ | |_      / _(_) | ___  ___"
@@ -153,18 +153,13 @@ install_dotfiles
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
+  if source bin/dot | while read -r data; do info "$data"; done
   then
     success "dependencies installed"
   else
     fail "error installing dependencies"
   fi
 fi
-
-# echo "Installing zsh-syntax-highlighting..."
-# if [ ! -d ~/.zsh-plugins/zsh-syntax-highlighting ]; then
-#   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-plugins/zsh-syntax-highlighting
-# fi
 
 echo "Installing Vim packages..."
 vim +PlugInstall +qa

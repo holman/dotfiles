@@ -84,8 +84,8 @@ color() {
         if [ -n "$BG" -a -n "$CC" ]; then
           command tmux set -a window-active-style "bg=#$BG"
           command tmux set -a window-style "bg=#$CC"
-          command tmux set -g pane-active-border-bg "#$CC"
-          command tmux set -g pane-border-bg "#$CC"
+          command tmux set -g pane-active-border-style "bg=#$CC"
+          command tmux set -g pane-border-style "bg=#$CC"
         fi
       fi
     else

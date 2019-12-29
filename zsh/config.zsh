@@ -46,8 +46,8 @@ setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 
-setopt auto_cd
-cdpath=($HOME/code $HOME/code/koba)
+# unsetopt auto_cd # with cdpath enabled, auto_cd gives too many false positives
+# cdpath=($HOME/code)
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
 # compdef g='git'

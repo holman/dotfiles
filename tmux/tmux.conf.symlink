@@ -15,7 +15,7 @@ bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
 bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
 bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
 bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
-bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+bind -n 'C-\' if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 # Restore clear screen keybind mapped over by tmux-navigator
 bind C-l send-keys C-l
@@ -35,14 +35,15 @@ set -g status-right-length 150
 # set -g status-left $tm_session_name' '
 set -g status-left '#S #I:#P #[default]'
 tm_tunes="#[bold]#(spotify)"
-# More useful status-right with battery percentage and nicely formated datetime
-set -g status-right "$tm_tunes #(battery -t -g black) #(date '+%a, %b %d - %I:%M')"
+# # More useful status-right with battery percentage and nicely formated datetime
+# set -g status-right "#(battery -t) #(date '+%a, %b %d - %I:%M')"
+set -g status-right "$tm_tunes #(date '+%a, %b %d - %I:%M')"
 
 set -g status-interval 5
 
 # More intuitive pane splitting key-bindings, open all in current path
 bind-key - split-window -v  -c '#{pane_current_path}'
-bind-key \ split-window -h  -c '#{pane_current_path}'
+bind-key '\' split-window -h  -c '#{pane_current_path}'
 bind c new-window -c '#{pane_current_path}'
 
 # Easy resizing of panes with fine and coarse adjustment
@@ -65,8 +66,6 @@ setw -g automatic-rename on
 # Quick session switching back and forth. I never use the built in layouts
 # (default mapping for Space), so I reclaimed the key for this
 bind-key Space switch-client -l
-
-
 
 # Enable focus events (For vim to be able to intercept the FocusGained autocmd)
 set -g focus-events on
@@ -105,7 +104,7 @@ bind-key b break-pane -d
 bind-key ! run-shell '(tmux switch-client -l || tmux switch-client -n) && tmux kill-session -t "#S" || tmux kill-session'
 
 # Create a new session from fuzzy project list
-bind C-t split-window -v "source ~/.zshrc && tm-select-session"
+bind C-t split-window -v "source ~/.dotfiles/tmux/config.zsh && tm-select-session"
 
 # Keep plenty of history for scrollback
 set -g history-limit 10000
