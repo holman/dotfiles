@@ -147,11 +147,11 @@ sudo systemsetup -setrestartfreeze on
 sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
-sudo rm /Private/var/vm/sleepimage
-# # Create a zero-byte file instead…
-sudo touch /Private/var/vm/sleepimage
-# # …and make sure it can’t be rewritten
-sudo chflags uchg /Private/var/vm/sleepimage
+# sudo rm /Private/var/vm/sleepimage
+# # # Create a zero-byte file instead…
+# sudo touch /Private/var/vm/sleepimage
+# # # …and make sure it can’t be rewritten
+# sudo chflags uchg /Private/var/vm/sleepimage
 
 # Disable the sudden motion sensor as it’s not useful for SSDs
 sudo pmset -a sms 0
@@ -534,7 +534,7 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreade
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 # Change indexing order and disable some search results
 # Yosemite-specific search results (remove them if your are using OS X 10.9 or older):
@@ -647,7 +647,7 @@ defaults write org.x.X11 wm_ffm -bool true
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+# hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Activity Monitor                                                            #
