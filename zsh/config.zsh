@@ -1,3 +1,4 @@
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # rails workaround
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
