@@ -4,6 +4,9 @@ export DOTFILES=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
+# load antigen first so supsequent things can override
+source ~/.antigenrc
+
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -31,9 +34,6 @@ done
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
-
-# load antigen
-source ~/.antigenrc
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}

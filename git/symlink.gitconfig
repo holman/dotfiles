@@ -80,8 +80,6 @@
   # play nice with windows (if windows set to true)
   autocrlf = input
 
-  # Use atom as commit editor if exists else nano see .exports
-
   # Use diff so fancy as default diff
   pager = diff-so-fancy | less --tabs=4 -RFX
 
