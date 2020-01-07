@@ -1,5 +1,6 @@
 # Compiled Python files
 *.pyc
+.mypy_cache/
 
 # Folder view configuration files
 .DS_Store

@@ -7,3 +7,11 @@ if test -f $completion
 then
   source $completion
 fi
+
+completion='/usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh'
+if test -f $completion
+then
+  # to load completions for brew git-extras
+  # git delete-branch not working?
+  source $completion
+fi
