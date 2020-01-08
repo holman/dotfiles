@@ -149,6 +149,10 @@ nnoremap <leader>g0 :Silent ! git-stash-push ""<left>
 " Git diff mapping 'push and next'
 nnoremap <leader>n dp]c
 
+" Git diff compare merge to base
+nnoremap <leader>g2 :Gedit :2<cr>:Gdiff :1<cr>
+nnoremap <leader>g3 :Gedit :3<cr>:Gdiff :1<cr>
+
 " Dispatch mappings
 nnoremap <leader>gp :Disp git push<cr>
 nnoremap <leader>gf :Disp git fetch<cr>
