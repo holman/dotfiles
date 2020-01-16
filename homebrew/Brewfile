@@ -5,7 +5,6 @@
 # Tap sources
 # ================
 tap "phinze/cask"
-tap "AdoptOpenJDK/openjdk"
 tap "homebrew/cask-fonts"
 
 
@@ -28,8 +27,6 @@ cask "alfred"
 cask "charles"
 cask "firefox"
 cask "spotify"
-cask "java" unless system "/usr/libexec/java_home --failfast"
-cask alfred link
 
 # install brew formulae
 brew "git-flow"
@@ -40,3 +37,4 @@ brew "yarn"
 brew "zlib"
 brew "zsh"
 brew "zsh-completions"
+brew "zsh-syntax-highlighting"

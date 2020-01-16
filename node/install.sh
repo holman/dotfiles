@@ -2,7 +2,8 @@
 if test ! $(which n)
 then
   if test $(which npm)
-  then
+  then 
+    echo -e "\033[1;33m› Installing node version manager N..\033[0m"
     sudo npm install -g n
   fi
 fi

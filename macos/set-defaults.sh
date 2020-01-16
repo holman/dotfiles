@@ -6,6 +6,7 @@
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 #
 # Run ./set-defaults.sh and you'll be good to go.
+echo -e "\033[1;33m› Updating default configurations for macOS..\033[0m"
 
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false

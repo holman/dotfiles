@@ -147,6 +147,7 @@ then
   if source bin/dot | while read -r data; do info "$data"; done
   then
     success "dependencies installed"
+    $DOTFILES_ROOT/macos/update.sh
   else
     fail "error installing dependencies"
   fi
