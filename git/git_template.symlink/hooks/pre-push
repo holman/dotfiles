@@ -1,0 +1,12 @@
+#!/bin/sh
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# get computer name to append in Chime message
+username=$USER
+
+# a branch name where you want to prevent git push. In this case, it's "master"
+if [ "$branch" = "master" ]; then
+  echo "You can't commit directly to '"${branch}"' branch" # webstorm or intellij will show this as popup
+  exit 1 # if you remove this line then it won't block push but send message to group and on command line
+fi
