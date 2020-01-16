@@ -1,6 +1,6 @@
-set -g prefix C-a
+set -g prefix `
 unbind-key C-b
-bind-key C-a send-prefix
+bind-key ` send-prefix
 
 # # Smart pane switching with awareness of Vim splits.
 # # See: https://github.com/christoomey/vim-tmux-navigator
@@ -31,3 +31,6 @@ set -g status-right "♫ #{spotify_status} #{spotify_artist}: #{spotify_song}"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
+
+# use mouse to resize panes
+set-option -g mouse on

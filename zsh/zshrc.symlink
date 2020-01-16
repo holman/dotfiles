@@ -50,5 +50,30 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export MINITEST_REPORTER=SpecReporter
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:/usr/local/opt/node@10/bin:$PATH"
+
+source_env() {
+  if [[ -f $ZSH_DOTENV_FILE ]]; then
+    # test .env syntax
+    zsh -fn $ZSH_DOTENV_FILE || echo "dotenv: error when sourcing '$ZSH_DOTENV_FILE' file" >&2
+
+    if [[ -o a ]]; then
+      source $ZSH_DOTENV_FILE
+    else
+      set -a
+      source $ZSH_DOTENV_FILE
+      set +a
+    fi
+  fi
+}
+
+if [[ -z $ZSH_DOTENV_FILE ]]; then
+    ZSH_DOTENV_FILE=.env
+fi
+
+source_env
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

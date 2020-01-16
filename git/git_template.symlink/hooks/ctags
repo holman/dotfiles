@@ -1,10 +1,11 @@
 #!/bin/sh
-
 set -e
+PATH="$HOME/bin:/usr/local/bin:$PATH"
 
-PATH="/usr/local/bin:$PATH"
-dir="`git rev-parse --git-dir`"
-trap 'rm -f "$dir/$$.tags"' EXIT
-git ls-files | \
-  "${CTAGS:-ctags}" --tag-relative=yes -L - -f"$dir/$$.tags" --languages=-sql
-mv "$dir/$$.tags" "$dir/tags"
+mkdir .git/tags_lock 2>/dev/null || exit 0
+trap 'rmdir .git/tags_lock; if [ -f .git/tags.$$  ]; then rm .git/tags.$$; fi' EXIT
+
+# Assumes universal-ctags is on the path
+ctags --tag-relative=yes -R -f .git/tags.$$ --languages=-sql --exclude=node_modules
+--exclude=vendor --exclude=log --exclude=.git
+mv .git/tags.$$ .git/tags

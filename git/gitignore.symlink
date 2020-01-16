@@ -5,3 +5,4 @@
 .tags
 tags
 **/puma.rb
+.npmrc

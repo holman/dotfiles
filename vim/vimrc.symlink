@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
+Plug 'KabbAmine/zeavim.vim'
 Plug 'tpope/vim-bundler'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -22,13 +23,15 @@ Plug 'godlygeek/tabular'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'itchyny/lightline.vim'
-Plug 'KabbAmine/zeavim.vim'
 Plug 'w0rp/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux'
 Plug 'arcticicestudio/nord-vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'posva/vim-vue'
+Plug 'majutsushi/tagbar'
+Plug 'rizzatti/dash.vim'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -124,6 +127,7 @@ syntax on
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <silent> <C-D> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
 " ------- PLUGIN CONFIGS ------- "
 
@@ -207,6 +211,8 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
+autocmd BufWritePre * :%s#\($\n\s*\)\+\%$##e"
+
 " --- Tabular.vim ---
 noremap <silent> <leader>t: :Tabularize /:<CR>
 noremap <silent> <leader>t= :Tabularize /=<CR>
@@ -219,14 +225,12 @@ noremap <silent> <leader>t/ :Tabularize ///<CR>
 noremap <silent> <leader>t\| :Tabularize /\|<CR>
 
 " --- Zeal.vim ---
-" :nmap <silent> <leader>d <Plug>Zeavim
-nmap <leader>d <Plug>Zeavim
-nmap <leader><leader>z <Plug>ZVKeyDocset
-set clipboard+=unnamed
+:nmap <silent> <leader>d <Plug>DashSearch
+nmap <leader>d <Plug>DashSearch
 
 " --- ctags ---
-" set tags=./tags;~/Development
-" nnoremap <leader>ct :silent ! ctags -R --languages=-sql --exclude=.git --exclude=log --exclude=node_modules --exclude=tmp -f tags<cr>
+set tags=./.git/tags;~/Development
+nnoremap <leader>ct :silent ! ctags -R --languages=-sql --exclude=.git --exclude=log --exclude=node_modules --exclude=tmp -f .git/tags<cr>
 
 " --- ale ---
 let g:airline#extensions#ale#enabled = 1
@@ -241,8 +245,10 @@ if executable('ag')
 endif
 
 " Commands to run tests with vimux
+" Remove current local dir from bufname?
 map <Leader>rs :call VimuxRunCommand("clear; bundle exec rspec s . bufname("%"))<CR>
 map <Leader>rt :call VimuxRunCommand("clear; bundle exec rails test " . bufname("%"))<CR>
+map <Leader>dt :call VimuxRunCommand("clear; docker-compose exec test bin/rails test " . fnamemodify(expand("%"), ":~:."))<CR>
 map <Leader>rp :call VimuxRunCommand("clear; bin/pronto run")<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
@@ -260,4 +266,3 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
-
