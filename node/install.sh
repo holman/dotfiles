@@ -1,7 +1,8 @@
-if test ! $(which spoof)
+# installs node version management
+if test ! $(which n)
 then
   if test $(which npm)
   then
-    sudo npm install spoof -g
+    sudo npm install -g n
   fi
 fi
