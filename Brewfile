@@ -23,6 +23,7 @@ brew 'openssl'
 brew 'node'
 brew 'readline'
 brew 'postgresql', restart_service: true
+brew 'redis', restart_service: true
 brew 'ruby-build'
 brew 'rbenv'
 brew 'rbenv-ctags'
