@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
@@ -50,45 +52,30 @@ zstyle ':vcs_info:git*' formats "(%b)"
 
 zstyle ':vcs_info:*' enable git cvs svn
 
-# or use precmd, see man zshcontrib
-vcs_info_wrapper() {
-  if [ -n "$vcs_info_msg_0_" ]; then
-    return "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
-}
-
 precmd() {vcs_info 2> /dev/null}
 
-#RPROMPT=$'$(vcs_info_wrapper)'
+# # or use precmd, see man zshcontrib
+# vcs_info_wrapper() {
+#   if [ -n "$vcs_info_msg_0_" ]; then
+#     return "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+#   fi
+# }
+# RPROMPT=$'$(vcs_info_wrapper)'
 
 PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green}%n@%m:%d%f ${vcs_info_msg_0_}\n'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+######## fzf configuration
+
+# Removed no longer using neovim
+# bindkey -s "^P" 'nvim +Files;^M'
+# bindkey -s "^G" 'nvim +Rg;^M'
+
+# Source files for configuration
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-bindkey -s "^P" 'nvim +Files;^M'
-bindkey -s "^G" 'nvim +Rg;^M'
-
-tm() {   
-	[[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
-	if [ $1 ]; then
-		tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
-	fi   
-	session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found." 
-}
-
-fzf_log() {
-   hash=$(git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |  fzf | awk '{print $1}')
-   echo $hash | xclip
-   git showtool $hash 
-}
-
 export FZF_ALT_C_COMMAND="fd -t d"
-
-export TERM='xterm-256color'
-
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion
-bindkey '^I' $fzf_default_completion
+export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"
+export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-window noborder --preview '($FZF_PREVIEW_COMMAND) 2> /dev/null'"
