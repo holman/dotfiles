@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
+<<<<<<< HEAD
 let g:netrw_dirhistcnt =1
 let g:netrw_dirhist_1='/Users/troy/.dotfiles/vim/vim.symlink/bundle/vim-airline'
+=======
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/troyrosenberg/.dotfile'
+let g:netrw_dirhist_2='/Users/troyrosenberg/code/tmr08c.github.io'
+let g:netrw_dirhist_3='/Users/troyrosenberg/code/tmr08c.github.io/_posts'
+let g:netrw_dirhist_4='/Users/troyrosenberg/code/tmr08c.github.io'
+let g:netrw_dirhist_5='/Users/troyrosenberg/code/tmr08c.github.io/_posts'
+>>>>>>> master
