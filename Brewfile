@@ -1,15 +1,10 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/cask'
-tap 'homebrew/bundle'
-tap 'caskroom/versions'
-tap 'caskroom/fonts'
 
 brew 'ack'
-brew 'asciinema'
+#brew 'asciinema'
 brew 'coreutils'
 brew 'dnsmasq'
-brew 'docker-machine-driver-xhyve', args: ["without-docker-machine"]
 brew 'imagemagick'
 brew 'kubernetes-cli'
 brew 'kubernetes-helm'
@@ -22,7 +17,6 @@ brew 'python3'
 brew 'reattach-to-user-namespace'
 brew 'task'
 brew 'terraform'
-brew 'thefuck'
 brew 'tig'
 brew 'tmux'
 brew 'wget'
@@ -36,7 +30,7 @@ brew 'gnupg'
 brew 'pinentry-mac'
 
 # Coloring for commands
-brew 'grc'
+#brew 'grc'
 
 
 
