@@ -13,3 +13,7 @@ if cd vim_binding
     git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
     chmod -R go-w vim_binding
 fi
+cd $(jupyter --data-dir)/nbextensions
+
+echo "copying jupyter config"
+cp ~/.dotfiles/jupyter/jupyter_notebook_config.py ~/.jupyter/
