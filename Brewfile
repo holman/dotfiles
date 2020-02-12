@@ -1,3 +1,4 @@
+cask_args appdir: '/Applications'
 tap "azure/functions"
 tap "d12frosted/emacs-plus"
 tap "heroku/brew"
