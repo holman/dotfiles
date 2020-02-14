@@ -11,8 +11,22 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Make sure you use single quotes
 
+" =================
+" Style
+" =================
+
+" color scheme
+Plug 'jpo/vim-railscasts-theme'
+
+
+" =================
+" Programming
+" =================
+
+" all language plugins
+Plug 'sheerun/vim-polyglot'
+
 " Intellisense
-" https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
