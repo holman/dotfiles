@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/troy/code/weekly-summary-typescript/src'
+let g:netrw_dirhist_2='/Users/troy/code/weekly-summary-typescript'
+let g:netrw_dirhist_1='/Users/troy/code/weekly-summary-typescript/src'
+let g:netrw_dirhist_0='/Users/troy/code/weekly-summary-typescript'
+let g:netrw_dirhist_9='/Users/troy/code/send/src/tasks/low BITS transactions or leads'
+let g:netrw_dirhist_8='/Users/troy/code/send/src/tasks'
+let g:netrw_dirhist_7='/Users/troy/code/send/src'
+let g:netrw_dirhist_6='/Users/troy/code/send/src/tasks/ASP Keyword Conflicts'
+let g:netrw_dirhist_5='/Users/troy/code/send/src/tasks'
+let g:netrw_dirhist_4='/Users/troy/code/send/src'
