@@ -1,2 +1,8 @@
+# git
 git/gitconfig.local.symlink
+
+# tmux
 tmux.symlink/resurrect
+
+# vim
+config.symlink/nvim/.netrwhist
