@@ -1,8 +1,12 @@
 # Make mouse useful in copy mode
 setw -g mouse on
 
+# Terminal type config
+
+# Help with colors
+set -g default-terminal "xterm-kitty"
 # Allow xterm titles in terminal window, terminal scrolling with scrollbar
-set -g terminal-overrides 'xterm-256color:smcup@:rmcup@'
+set -ga terminal-overrides ',xterm-256color:Tc:smcup@:rmcup@'
 
 # Scroll History
 set -g history-limit 100000
