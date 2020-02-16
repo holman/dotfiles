@@ -7,3 +7,7 @@
 [submodule "tmux.symlink/plugins"]
 	path = tmux.symlink/plugins
 	url = https://github.com/tmux-plugins/tpm
+	url = git@github.com:dexpota/kitty-themes.git
+[submodule "config.symlink/kitty/kitty-themes"]
+	path = config.symlink/kitty/kitty-themes
+	url = git@github.com:dexpota/kitty-themes.git
