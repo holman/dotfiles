@@ -9,5 +9,5 @@ if cd ~/.vim/bundle/syntastic;
   else git clone --depth=1 https://github.com/vim-syntastic/syntastic.git; 
 fi
 # get checkers for syntastic
-pip install pyflakes
+pip install pyflakes --user
 cd ~/.dotfiles
