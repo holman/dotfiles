@@ -8,4 +8,6 @@ if cd ~/.vim/bundle/syntastic;
   then git pull; 
   else git clone --depth=1 https://github.com/vim-syntastic/syntastic.git; 
 fi
+# get checkers for syntastic
+pip install pyflakes
 cd ~/.dotfiles
