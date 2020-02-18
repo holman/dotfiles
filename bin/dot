@@ -41,9 +41,11 @@ done
 export ZSH=$HOME/.dotfiles
 
 # Set macOS defaults
+echo "›  setting defaults for macOS"
 $ZSH/macos/set-defaults.sh
 
 # Install homebrew
+echo "› installing homebrew"
 $ZSH/homebrew/install.sh 2>&1
 
 # Upgrade homebrew
