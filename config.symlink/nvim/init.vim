@@ -11,6 +11,15 @@ endif
 " Customize keybindings
 let mapleader="\<SPACE>"
 
+" Generally configure tabs to 2, and convert to spaces
+set tabstop=2
+set backspace=2
+set softtabstop=2
+set expandtab
+set shiftwidth=2
+set shiftround
+set nojoinspaces
+
 " Style
 
 syntax on
@@ -40,6 +49,8 @@ else
 endif
 
 
+set number relativenumber
+
 " Leader key settings
 
 " v(im)
@@ -50,7 +61,5 @@ nmap <leader>vtd :call DarkMode()<CR>
 
 " r(eload)
 nmap <leader>vr :source $MYVIMRC<CR>
-
-
 
 " end v(im) section
