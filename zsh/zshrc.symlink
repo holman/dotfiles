@@ -70,6 +70,10 @@ PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green
 # bindkey -s "^P" 'nvim +Files;^M'
 # bindkey -s "^G" 'nvim +Rg;^M'
 
+# Can't seem to get this working
+bindkey -s "^P" "s;^M"
+bindkey -s "^G" "sc;^M"
+
 # Source files for configuration
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
