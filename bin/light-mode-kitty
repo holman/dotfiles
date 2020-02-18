@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Usage: kitty-light-mode
+#
+# Sets Kitty to use light mode colors
+set -e 
+
+kitty @ set-colors --all --configured ~/.config/kitty/kitty-themes/themes/Tomorrow.conf
+

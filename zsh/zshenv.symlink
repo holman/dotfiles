@@ -1,0 +1,14 @@
+# From the docs:
+#
+# `.zshenv' is sourced on all invocations of the shell, unless
+# the -f option is set. It should contain commands to set the
+# command search path, plus other important environment
+# variables. `.zshenv' should not contain commands that produce
+# output or assume the shell is attached to a tty.
+#
+# One example where this is useful is setting up 
+# aliases to work with Vim
+if [[ `uname` == "Darwin" ]]
+then
+  alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
+fi

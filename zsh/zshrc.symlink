@@ -55,3 +55,12 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source /usr/local/Bluemix/bx/zsh_autocomplete
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Kitty and light/dark mode
+if [[ $TERM =~ 'kitty' ]];then 
+  if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
+    light-mode-kitty
+  else
+    dark-mode-kitty
+  fi
+fi
