@@ -1,0 +1,2 @@
+export FLUTTERPATH=$PROJECTS/flutter
+export PATH="$FLUTTERPATH/bin:$PATH"

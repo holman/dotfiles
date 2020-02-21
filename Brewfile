@@ -55,5 +55,6 @@ cask 'vlc'
 cask 'dash'
 cask 'tunnelblick'
 cask 'evernote'
+cask 'android-studio'
 
 # vim: filetype=ruby
