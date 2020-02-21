@@ -39,6 +39,9 @@ brew 'yarn'
 brew 'youtube-dl'
 brew 'z'
 
+# ios setup
+brew 'cocoapods'
+
 tap 'homebrew/cask'
 
 cask 'alfred'
