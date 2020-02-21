@@ -30,15 +30,11 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-# autoload -U compinit
-# compinit -d
-autoload -U compinit
-compinit
-# if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-#   compinit
-# else
-#   compinit -C
-# fi
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
