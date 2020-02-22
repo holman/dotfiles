@@ -42,9 +42,9 @@ This function should only modify configuration layer settings."
      auto-completion
      better-defaults
      emacs-lisp
-     ;;ivy
+     ivy
      git
-     helm
+    ;;  helm
      lsp
      markdown
      multiple-cursors
@@ -67,8 +67,8 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages
    '(
-     helm-rg
-     el-patch
+    ;;  helm-rg
+    ;;  el-patch
      )
 
    ;; A list of packages that cannot be updated.
@@ -464,16 +464,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
 dump."
-  )
-
-(defun dotspacemacs/user-config ()
- (load-file "~/.dotfiles/emacs/user-config.el")
-  "Configuration for user code:
-This function is called at the very end of Spacemacs startup, after layer
-configuration.
-Put your configuration code here, except for variables that should be set
-before packages are loaded."
-  )
+  ) (defun dotspacemacs/user-config () (load-file "~/.dotfiles/emacs/user-config.el") "Configuration for user code: This function is called at the very end of Spacemacs startup, after layer configuration. Put your configuration code here, except for variables that should be set before packages are loaded.")
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

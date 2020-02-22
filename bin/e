@@ -15,15 +15,15 @@ ARGS=(
  -a ''
 
  # open a new fram on the current terminal  
- -nw
+#  -nw
  # spawn new GUI window, otherwise it tries to launch client in terminal
-#  --create-frame 
-#  --frame-parameters="'(fullscreen . maximized)"
+ --create-frame 
+ --frame-parameters="'(fullscreen . maximized)"
 
-  # process rest of arguments as elisp code
- --eval
-  # bring focus to the window
- '(select-frame-set-input-focus (selected-frame))'
+#   # process rest of arguments as elisp code
+#  --eval
+#   # bring focus to the window
+#  '(select-frame-set-input-focus (selected-frame))'
 )
 
 # without any extra args it just invokes the daemon instance, otherwise executes the args
