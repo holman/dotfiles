@@ -1,6 +1,8 @@
 zmodload zsh/zprof
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export ZSH=$HOME/dotfiles
+
+source $HOME/.iterm2_shell_integration.zsh
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/code

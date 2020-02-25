@@ -9,20 +9,20 @@ else
   git="/usr/bin/git"
 fi
 
-git_branch() {
+__git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
-git_dirty() {
+__git_dirty() {
   if $(! $git status -s &> /dev/null)
   then
     echo ""
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "branch: %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "branch: %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo "%{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -41,10 +41,10 @@ git_prompt_info () {
 # This assumes that you always have an origin named `origin`, and that you only
 # care about one specific origin. If this is not the case, you might want to use
 # `$git cherry -v @{upstream}` instead.
-need_push () {
-  if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
+__need_push () {
+  if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) ]
   then
-    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
+    number=$(git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
 
     if [[ $number == 0 ]]
     then
@@ -55,54 +55,62 @@ need_push () {
   fi
 }
 
-directory_name() {
+__directory_name() {
+  local dirPath
+  dirPath=`pwd`
   if $($git status -s &> /dev/null)
   then
-    path="$(basename `git rev-parse --show-toplevel`)/$(git rev-parse --show-prefix)"
-    echo "repo: %{$fg_bold[cyan]%}$path%{$reset_color%}"
-  else
-    path=`pwd`
-    echo "%{$fg_bold[cyan]%}$path%{$reset_color%}"
+     dirPath="$(basename `$git rev-parse --show-toplevel`)/$($git rev-parse --show-prefix)"
   fi
+  echo $(__colorize cyan "$dirPath")
+  
 }
 
-battery_status() {
+__battery_status() {
   if [[ $(sysctl -n hw.model) == *"Book"* ]]
   then
     $ZSH/bin/battery-status
   fi
 }
-beerTime()  {
+__beerTime()  {
   if [[ $(date +%k) -gt 14 ]]
   then
     echo 🍺
   fi
 }
-kubeContext() {
+__colorize() {
+  echo "%{$fg_bold[$1]%} $2 %{$reset_color%}"
+}
+__kubeContext() {
+  ico='\u2388'
   if ! type "kubectl" > /dev/null; then
     return
   fi
   kube=$(kubectl config current-context 2> /dev/null ) || return
   kubefile=$(readlink ~/.kube/config)
   kubeNS="$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)"
-  echo "\u2638 %{$fg_bold[blue]%} $kube:$kubeNS%{$reset_color%} from: $kubefile\n"
+  # echo "$ico $(__colorize blue $kube ) $(__colorize purple $kubeNS ) from: $(__colorize yellow $kubefile ) \n"
+  iterm2_set_user_var kube_ctx "$kube"
+  iterm2_set_user_var kube_ns "$kubeNS"
 }
-export PROMPT=$'\n$(battery_status) $(directory_name) $(git_dirty)$(need_push) $(beerTime) \n $(kubeContext) \n›'
+# export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime) \n $(__kubeContext) \n›'
+export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime)\n›'
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
 
 precmd() {
+  __kubeContext
   title "zsh" "%m" "%55<...<%~"
   set_prompt
   stt_both `pwd`
 }
 
-setTerminalText () {
+__setTerminalText () {
     # echo works in bash & zsh
     local mode=$1 ; shift
     echo -ne "\033]$mode;$@\007"
 }
-stt_both  () { setTerminalText 0 $@; }
-stt_tab   () { setTerminalText 1 $@; }
-stt_title () { setTerminalText 2 $@; }
+stt_both  () { __setTerminalText 0 $@; }
+stt_tab   () { __setTerminalText 1 $@; }
+stt_title () { __setTerminalText 2 $@; }

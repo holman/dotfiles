@@ -3,3 +3,4 @@
 # Sets macOS defaults by running $ZSH/macos/set-defaults.sh.
 
 exec $ZSH/macos/set-defaults.sh
+exec $ZSH/iterm2/set-defaults.sh
