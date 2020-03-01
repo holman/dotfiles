@@ -56,10 +56,10 @@ fzf-key-gh() {
 
 fzf-key-gr() {
   is_in_git_repo || return
-  git remote -v | awk '{print $1 "\t" $2}' | uniq |
-  fzf-down --tac \
-    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {1} | head -200' |
-  cut -d$'\t' -f1
+  git reflog --color=always "$@" |
+  fzf-down --no-multi --ansi --no-sort \
+    --preview 'git show --color=always {1}' |
+  cut -d' ' -f1
 }
 
 fzf-key-gl() {
