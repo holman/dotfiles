@@ -7,7 +7,7 @@
 # marks: lists all marks
 #
 export MARKPATH=$HOME/.marks
-
+mkdir -p $MARKPATH
 jump() {
 	cd -P "$MARKPATH/$1" 2>/dev/null || {echo "No such mark: $1"; return 1}
 }
