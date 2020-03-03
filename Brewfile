@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 tap 'puma/puma'
+tap 'nektos/tap'
 
 brew 'ack'
 brew 'coreutils'
