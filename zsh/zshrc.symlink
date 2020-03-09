@@ -12,6 +12,8 @@ export ZSH_DOT=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export SU=~/Documents/StartUp
 export NIO=~/Documents/projects/nio
+export TIDB=$GOPATH/src/github.com/pingcap
+
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -57,3 +59,7 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR=~/.sdkman"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"

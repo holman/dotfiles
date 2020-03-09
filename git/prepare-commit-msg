@@ -1,0 +1,6 @@
+#!/bin/sh
+
+jira=`git config branch.$(git rev-parse --abbrev-ref HEAD).description|egrep -io "SAS-[[:digit:]]{1,6}"`
+if [ $jira ]; then
+    echo "($jira)" >> "$1"
+fi

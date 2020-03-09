@@ -17,6 +17,7 @@
         unstage = reset HEAD --
         last = log -1 HEAD
         logod = log --oneline --decorate
+        squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
 [color]
         diff = auto
         status = auto
@@ -25,6 +26,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+        autocrlf = input
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -45,3 +47,14 @@
 	proxy = socks5://127.0.0.1:1086
 [https]
 	proxy = socks5://127.0.0.1:1086
+[merge]
+	tool = kdiff3
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+	trustExitCode = false
+[diff]
+	guitool = kdiff3
+[difftool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+	trustExitCode = false

@@ -36,7 +36,7 @@ set-option -g mouse on
 
 set -g base-index         1     # 窗口编号从 1 开始计数
 set -g display-panes-time 10000 # PREFIX-Q 显示编号的驻留时长，单位 ms
-set -g mouse              on    # 开启鼠标
+# set -g mouse              on    # 开启鼠标
 set -g pane-base-index    1     # 窗格编号从 1 开始计数
 set -g renumber-windows   on    # 关掉某个窗口后，编号重排
 
