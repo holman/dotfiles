@@ -36,7 +36,8 @@ alias sjump='ssh -i ~/.ssh/aws_key -p 2222 10.128.253.29'
 alias devdb='mysql -upxc_test -paySu0myNHkh -P3306 -h10.125.252.77'
 alias cdb='cqlsh.py 10.125.235.51 9042'
 
-alias vps='ssh -p 26050 changxin@144.34.218.98'
+alias vps='ssh -p 22780 changxin@144.34.218.239'
+alias vpsc='ssh -p 26050 changxin@176.122.160.198'
 
 # connect for work
 alias qgo="python /Users/changxin.cheng/py.py"
