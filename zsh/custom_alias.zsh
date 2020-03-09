@@ -52,6 +52,7 @@ alias pmm="python manage.py migrate"
 alias pipi="pip install"
 alias pmspn="python manage.py shell_plus --notebook"
 alias pipu="pip install --upgrade pip"
+alias pipr="pip install -r requirements.txt"
 
 # pyenv
 alias py="pyenv"
