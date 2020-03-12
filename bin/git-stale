@@ -1,0 +1,18 @@
+#!/bin/bash
+
+base="origin/master"
+
+printTableRow(){
+  printf " %-60s %-50s \n" $1 $2
+}
+max_behind=500
+printTableRow "branch" "commits_behind"
+for br in $(git branch -r); do 
+  if [[ "$br" == "" ]] || [[ $br == "->" ]] || [[ $br == *"$base"* ]]; then 
+  continue 
+  fi
+  behind=$(git rev-list --left-right --count $base...$br | awk '{print $1}')
+  if [ $behind -gt $max_behind ]; then 
+    printTableRow $br $behind
+  fi
+done
