@@ -16,7 +16,7 @@ brew 'mas' # https://github.com/mas-cli/mas
 brew 'nano'
 brew 'nmap' # port tool
 brew 'npm'
-brew 'pipenv'
+brew 'openjdk' # java
 brew 'python' # This is now python 3 :D
 brew 'ripgrep'
 brew 'scala'
