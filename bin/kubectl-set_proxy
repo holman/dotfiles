@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+# determine the current context
+CURRENT_CONTEXT=`kubectl config current-context`
+
+if [[ -z $CURRENT_CONTEXT ]]; then
+  echo ** current contexti is blank, exiting ..
+  exit 1
+fi
+
+# from current context determine AWS_PROFILE which indicates the environment (non-prod or prod)
+PROFILE=$(kubectl config view -o json | jq -r --arg currentContext "$CURRENT_CONTEXT" '.users[] | select(.name==$currentContext) | .user.exec.env[] | select(.name=="AWS_PROFILE") | .value')
+
+ENVIRONMENT=${PROFILE%-*}
+
+PROXY=
+if [[ $PROFILE = "non-prod" || $ENVIRONMENT = "non-prod" ]]; then
+  # set proxy for non-prod environment
+  PROXY=http://squid-01a.nprod.dat.internal:3128
+else
+  # set proxy for prod environment
+  echo "prod"
+  PROXY=http://squid-01a.prod.dat.internal:3128
+fi
+
+http_proxy=$PROXY kubectl "$@"
