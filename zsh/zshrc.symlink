@@ -51,6 +51,7 @@ eval "$(rbenv init -)"
 
 export MINITEST_REPORTER=SpecReporter
 export PATH="/usr/local/opt/imagemagick@6/bin:/usr/local/opt/node@10/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 source_env() {
   if [[ -f $ZSH_DOTENV_FILE ]]; then
