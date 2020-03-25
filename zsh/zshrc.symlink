@@ -17,7 +17,7 @@ typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
 # load the path files
-for file in ${config_files:#*/path.zsh}
+for file in ${(M)config_files:#*/path.zsh}
 do
   source $file
 done
@@ -40,7 +40,3 @@ done
 
 unset config_files
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Ruby Env init section
-eval "$(rbenv init -)"
