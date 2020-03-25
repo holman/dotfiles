@@ -3,18 +3,19 @@
 # editor
 apm i highlight-selected
 apm i autoclose-html
-apm i atom-beautify
+# apm i atom-beautify
 apm i color-picker
 apm i pigments
-apm i emmet
 apm i sort-lines
 apm i trailing-spaces
+apm install prettier-atom
+
 
 #ide
-apm i atom-ide-ui
-apm i ide-css
-apm i ide-json
-apm i ide-python
+# apm i atom-ide-ui
+# apm i ide-css
+# apm i ide-json
+# apm i ide-python
 
 # tabs
 apm i new-tab
@@ -26,10 +27,9 @@ apm i linter-csslint
 apm i linter-eslint
 
 # syntax highlighting
-apm i stylus
 apm i language-dots
 apm i language-babel
-apm i atom-jade
+
 
 # big features
 apm i merge-conflicts

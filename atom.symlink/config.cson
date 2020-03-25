@@ -40,6 +40,8 @@
       "teletype"
       "sort-lines"
       "wordcount"
+      "github"
+      "git-diff"
     ]
     packagesWithKeymapsDisabled: [
       "sass-autocompile"
