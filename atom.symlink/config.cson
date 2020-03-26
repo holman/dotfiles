@@ -42,6 +42,14 @@
       "wordcount"
       "github"
       "git-diff"
+      "open-on-github"
+      "language-typescript"
+      "language-ruby-on-rails"
+      "language-objective-c"
+      "language-hyperlink"
+      "language-coffee-script"
+      "go-to-line"
+      "background-tips"
     ]
     packagesWithKeymapsDisabled: [
       "sass-autocompile"
