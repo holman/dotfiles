@@ -16,14 +16,18 @@ fi
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+# NOTE: Looping through the path files has been moved below loading everything
+# (above) in order to get custom PATH settings to take precedence over
+# /usr/local/bin 
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
 do
   source $file
 done
@@ -48,3 +52,10 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+# TODO: Add the following four lines to a google folder for setting up gsutil (https://cloud.google.com/storage/docs/gsutil_install)
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/eddieleffler/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/eddieleffler/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/eddieleffler/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/eddieleffler/google-cloud-sdk/completion.zsh.inc'; fi

@@ -1,0 +1,1 @@
+eval "$(direnv hook zsh)"

@@ -5,12 +5,13 @@ tap 'puma/puma'
 
 brew 'ack'
 brew 'coreutils'
+brew 'direnv'
 brew 'go'
 brew 'jq'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'wget'
-brew 'yarn', args: ['ignore-dependencies']
+brew 'yarn'
 brew 'youtube-dl'
 
 cask 'caffeine'
