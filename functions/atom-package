@@ -12,18 +12,23 @@
 #
 atom-package () {
   case $1 in
-    backup) apm list --installed --bare | grep '^[^@]\+' -o > ~/.atom/packages.txt  ;;
+    backup) apm list --installed --bare | grep '^[^@]\+' -o > ~/.atom/packages.txt     ;;
     install)
       if [[ $(atom-package list-missing) == "" ]]; then
-        echo "All .Dotfile synced Atom Packages already installed"
+        echo "All .dotfile synced Atom Packages already installed"
       else
-        atom-package install
+        atom-package install-all
       fi; ;;
-    install-all) apm install --packages-file "$HOME"/.atom/packages.txt             ;;
-    list) apm list --installed --bare | grep '^[^@]\+' -o                           ;;
-    list-missing) comm -2 -3 <(cat "$HOME"/.atom/packages.txt) <(atom-package list) ;;
-    list-new) comm -2 -3 <(atom-package list) <(cat "$HOME"/.atom/packages.txt)     ;;
-    remove-new) apm uninstall $(atom-package list-new)                              ;;
+    install-all) apm install --packages-file "$HOME"/.atom/packages.txt                ;;
+    list) apm list --installed --bare | grep '^[^@]\+' -o                              ;;
+    list-missing) comm -i -2 -3 <(cat "$HOME"/.atom/packages.txt) <(atom-package list) ;;
+    list-new) comm -i -2 -3 <(atom-package list) <(cat "$HOME"/.atom/packages.txt)     ;;
+    remove-new)
+      if [[ $(atom-package list-new) == "" ]]; then
+        echo "There were no new packages detected"
+      else
+        apm uninstall $(atom-package list-new)
+      fi;                                                                              ;;
     *) echo 'Please pass a valid option' ;;
   esac
 }

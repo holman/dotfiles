@@ -1,0 +1,11 @@
+christian-kohler.path-intellisense
+DavidAnson.vscode-markdownlint
+deerawan.vscode-dash
+dustinsanders.an-old-hope-theme-vscode
+eamodio.gitlens
+esbenp.prettier-vscode
+foxundermoon.shell-format
+ms-python.python
+timonwong.shellcheck
+vscode-icons-team.vscode-icons
+zxh404.vscode-proto3

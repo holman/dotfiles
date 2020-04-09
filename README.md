@@ -40,10 +40,10 @@ There's a few special files in the hierarchy.
 - **topic/symlink**: Any file starting with `symlink` gets symlinked into
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory.
-  * To further nest symlinks into subdirectories under `$HOME`, use `+` signs
-  to signify additional directory delimiters. So for example, the file
-  `topic/symlink.folder_name+file_name`
-  would get symlinked to `$HOME/.folder_name/file_name` when you run `script/bootstrap`.
+  - To further nest symlinks into subdirectories under `$HOME`, use `+` signs
+    to signify additional directory delimiters. So for example, the file
+    `topic/symlink.folder_name+file_name`
+    would get symlinked to `$HOME/.folder_name/file_name` when you run `script/bootstrap`.
 
 ## install
 
@@ -84,25 +84,27 @@ I forked [Holman's](http://github.com/holman)' excellent
 stem or are inspired from Holman's original project.
 
 ## Python troubles post updates
-* Fix Hydrogen
-  * `python3 -m jupyter kernelspec remove python3`
-  * `python3 -m ipykernel install`
-* Fix Virtual envs
-  * `pipenv --rm`
-  * `pipenv sync`
+
+- Fix Hydrogen
+  - `python3 -m jupyter kernelspec remove python3`
+  - `python3 -m ipykernel install`
+- Fix Virtual envs
+  - `pipenv --rm`
+  - `pipenv sync`
 
 ## things left to do
-* updated keyboard shortcuts
-  * change caps to esc-key - system preferences > keyboard > modifier keys
-  * add notification to option-` - system preferences > keyboard > shortcuts > mission control
-  * change keyboard ctrl-option-cmd-space - system preferences > keyboard > shortcuts > input sources
-* replace siri button with lock button on touchbar
-  * system preferences > keyboard > customize control strip
-* turnoff mission control key settings for ctrl-up/down
-  * system preferences > mission control > mission control, application windows
-* add mouse settings for buttons 4, 5, 3
-  * system preferences > mission control >
-* configure alfred powerpack
-  * setup powerpack & link to sync folder & setup theme
-* Figure out how to safe misc system preferences
-  * keyboard shortcuts defined via macos
+
+- updated keyboard shortcuts
+  - change caps to esc-key - system preferences > keyboard > modifier keys
+  - add notification to option-` - system preferences > keyboard > shortcuts > mission control
+  - change keyboard ctrl-option-cmd-space - system preferences > keyboard > shortcuts > input sources
+- replace siri button with lock button on touchbar
+  - system preferences > keyboard > customize control strip
+- turnoff mission control key settings for ctrl-up/down
+  - system preferences > mission control > mission control, application windows
+- add mouse settings for buttons 4, 5, 3
+  - system preferences > mission control >
+- configure alfred powerpack
+  - setup powerpack & link to sync folder & setup theme
+- Figure out how to safe misc system preferences
+  - keyboard shortcuts defined via macos

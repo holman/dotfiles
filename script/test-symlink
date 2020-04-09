@@ -8,6 +8,16 @@ do
   dst="$HOME/${dst//+//}"
   echo "good--" "$src" "->" "$dst"
 done
+echo ""
+
+# more correct form but it doesn't retain function definitions
+find -H "$DOTFILES_ROOT" -maxdepth 2 -name 'symlink*' -not -path '.git/' -exec sh -c '
+  for src do
+    dst=$(basename "$src")
+    dst="${dst:7}"
+    dst="$HOME/${dst//+//}"
+    echo "good--" "$src" "->" "$dst"
+  done' sh {} +
 
 for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '.git/')
 do

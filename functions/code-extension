@@ -1,0 +1,34 @@
+#!/usr/local/bin/zsh
+#
+# Usage: code-extension <option>
+#
+# 'backup : Backs up your installed extensions to $DOTFILES/vscode/extensions.txt'
+# 'install : Installs extensions not installed that are listed in $DOTFILES/vscode/extensions.txt'
+# 'install-all : Installs or Reinstalls all extensions listed in $DOTFILES/vscode/extensions.txt'
+# 'list : Lists all installed extensions'
+# 'list-missing : Lists extensions not installed that are in $DOTFILES/vscode/extensions.txt'
+# 'list-new : Lists installed extensions that are not saved to $DOTFILES/vscode/extensions.txt'
+# 'remove-new : Removes installed extensions that are not saved to $DOTFILES/vscode/extensions.txt'
+#
+code-extension () {
+  case $1 in
+    backup) code --list-extensions > "$DOTFILES/vscode/extensions.txt"                          ;;
+    install)
+      if [[ $(code-extension list-missing) == "" ]]; then
+        echo "All .dotfile synced vscode extensions already installed"
+      else
+        code-extension list-missing | xargs -L1 code --install-extension
+      fi;                                                                                           ;;
+    list) code --list-extensions                                                                    ;;
+    install-all) cat "$DOTFILES/vscode/extensions.txt" | xargs -L1 code --force --install-extension ;;
+    list-missing) comm -i -1 -3 <(code-extension list) <(cat "$DOTFILES/vscode/extensions.txt")     ;;
+    list-new) comm -i -1 -3 <(cat "$DOTFILES/vscode/extensions.txt") <(code-extension list)         ;;
+    remove-new)
+      if [[ $(code-extension list-new) == "" ]]; then
+        echo "There were no new extensions detected"
+      else
+        code-extension list-new | xargs -L1 code --uninstall-extension
+      fi;                                                                                           ;;
+    *) echo 'Please pass a valid option'                                                            ;;
+  esac
+}

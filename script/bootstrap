@@ -63,7 +63,7 @@ backup_file () {
   mv "$dst" "$HOME"/backup-dot-files"$dst"
   if [ "$print" == "true" ]
   then
-    success "moved $dst to ${dst}.backup"
+    success "moved $dst to $HOME/backup-dot-files"
   fi
 }
 
@@ -76,6 +76,7 @@ link_file () {
   local skip=
   local action=
 
+  # check if target exists and is symlink
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
 

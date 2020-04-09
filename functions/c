@@ -1,16 +1,14 @@
-#!/bin/zsh
+#!/bin/sh
 #
-# This lets you quickly jump into a project directory.
+# Usage: c
+# Description: opens the current directory in VSCode Editor
 #
-# Type:
+# Usage: c <directory>
+# Description: opens the specified directory in VSCode Editor
 #
-#   c <tab>
-#
-# ...to autocomplete on all of your projects in the directories specified in
-# `functions/_c`. Typically I'm using it like:
-#
-#    c holm<tab>/bo<tab>
-#
-# ...to quickly jump into holman/boom, for example.
 
-cd "$PROJECTS/$1"
+if [ $# -eq 0 ]; then
+  code .;
+else
+  code "$@";
+fi;

@@ -1,0 +1,35 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "workbench.iconTheme": "vscode-icons",
+    "gitlens.hovers.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm:ss",
+    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+    "python.linting.flake8Enabled": true,
+    "python.pythonPath": "python3",
+    "python.formatting.provider": "black",
+    "workbench.colorTheme": "An Old Hope",
+    "editor.multiCursorModifier": "alt",
+    "files.associations": {
+        "*.json": "jsonc",
+        // this looks best
+        "*.brewfile": "pip-requirements"
+    },
+    "path-intellisense.showHiddenFiles": true,
+    "prettier.printWidth": 88,
+    "shellcheck.customArgs": [
+        "-e SC1071"
+    ],
+    "editor.fontFamily": "'Hack Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "python.linting.mypyEnabled": true,
+    "editor.formatOnSave": true,
+    "python.experiments.enabled": false,
+    "python.jediEnabled": false,
+    "python.linting.flake8Args": [
+        "--ignore=E203,E266,E501,W503,F403,F401",
+        "--max-line-length=89",
+        "--max-complexity=18",
+        "--select=B,C,E,F,W,T4,B9"
+    ]
+}
