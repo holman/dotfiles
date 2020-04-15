@@ -1,6 +1,6 @@
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
-hub_path=$(which hub)
+hub_path=$(command -v hub)
 if (( $+commands[hub] ))
 then
   alias git=$hub_path
@@ -23,8 +23,9 @@ alias gpr='git pull --rebase'
 # COMMIT
 alias gc='git commit'
 alias gca='git commit -a'
+alias gcm='git commit -m'
 alias gac='git add -A && git commit'
-alias gwip='git add -A . && git commit -m "wip"' 
+alias gwip='git add -A . && git commit -m "wip"'
 
 # Checkout, branches etc
 alias gco='git checkout'
