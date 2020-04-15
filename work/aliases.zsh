@@ -1,4 +1,3 @@
-workdir='~/MasteryCode'
-alias mcode='cd '$workdir
-alias mapi='cd '$workdir'/mastery-api'
-alias mfront='cd '$workdir'/mastery-frontend'
+workdir='~/EQcode'
+alias eqcode='cd '$workdir
+alias eqwp='cd '$workdir'/equilibria'
