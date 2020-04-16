@@ -1,4 +1,23 @@
+" vimrc for the mac with black backgrounds.
+" for colordemo :e $VIMRUNTIME/syntax/colortest.vim; :so %
+set incsearch
+set hlsearch
+set showcmd
+set ignorecase 	" ignore case in searches
+set smartcase 	" ignore ignorecase if search includes capitals
+set ruler	" show line number in lower right
+set showmatch 	" when typing a bracket briefly jump to the other one
+set title       " 2008-04-07: to display filename in titlebar of terminal
+:syntax enable
+:hi normal ctermfg=gray
+:hi comment ctermfg=red
+:hi constant ctermfg=darkcyan
+:hi type ctermfg=brown
+:hi search ctermbg=blue ctermfg=white
+" :let fortran_have_tabs=1
+" :map <Up> gk
+" :imap <Up> <C-o>gk
+" :map <Down> gj
+" :imap <Down> <C-o>gj
 syntax on
-
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+filetype on
