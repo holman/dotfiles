@@ -6,4 +6,4 @@ php -r "unlink('composer-setup.php');"
 mv composer.phar /usr/local/bin/composer;
 
 
-pecl install xdebug apcu apcu-bc intl mcrypt
+sudo pecl install xdebug apcu

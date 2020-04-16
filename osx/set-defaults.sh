@@ -361,7 +361,6 @@ for app in "Activity Monitor" \
 	"Finder" \
 	"Safari" \
 	"SystemUIServer" \
-	"Terminal" \
 	"Transmission";
 do
 	killall "${app}" &> /dev/null

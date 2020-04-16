@@ -2,3 +2,4 @@ export PATH="/usr/local/bin:/usr/local/sbin:$ZSH/bin:$PATH:$ANDROID_HOME/tools:$
 export PATH="/usr/local/opt/python/libexec/bin:$PATH:$PYTHON_USER_DIR"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.symfony/bin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"

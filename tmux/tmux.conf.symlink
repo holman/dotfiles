@@ -54,8 +54,8 @@ bind -Tcopy-mode-vi Enter send -X copy-pipe-and-cancel "reattach-to-user-namespa
 
 # Tmux global Colors / Theming
 ## Colorize the messages in the command
-set-option -g message-bg default
-set-option -g message-fg colour1
+#set-option -g message-bg default
+#set-option -g message-fg colour1
 
 ## Visual notification of activity in other windows
 setw -g monitor-activity on

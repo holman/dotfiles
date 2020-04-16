@@ -30,9 +30,12 @@
     tabLength: 4
   "exception-reporting":
     userId: "c5c565b7-6f94-4f78-a50a-61560f84b52f"
+  "file-icons":
+    coloured: false
   "linter-ui-default":
     panelHeight: 300
     showPanel: true
+    useBusySignal: false
   "platformio-ide":
     advanced:
       useBuiltinPIOCore: true
