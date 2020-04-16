@@ -1,0 +1,238 @@
+# echo "I'm executing .bash_profile now!"
+
+if [ -n "$BASH_VERSION" ]; then
+  if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+  fi
+fi
+
+UNAME=`uname`
+
+if [ -x "$(command -v gdate)" ]; then
+  GDATE_EXISTS=1
+else
+#  if [ -n "$ZSH_VERSION" ]; then
+#    rcfile=".zshrc"
+#  else
+    rcfile=".bash_profile"
+#  fi
+  echo "This $rcfile needs gdate for subsecond timing." >&2
+  echo "Install with: brew install coreutils" >&2
+  echo "Falling back to imprecise timing." >&2
+fi
+
+# in iterm2, set the badge to `\(user.iterm2environment)`
+function set_iterm2_environment() {
+  export iterm2environment=$1
+  export iterm2environmentshort=$2
+  printf "\033]1337;SetUserVar=%s=%s\007" iterm2environment `echo -n $iterm2environmentshort | base64`
+}
+export -f set_iterm2_environment 1>/dev/null
+
+# get current branch in git repo
+function parse_git_branch() {
+  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  if [ ! "${BRANCH}" == "" ]
+  then
+    STAT=`parse_git_dirty`
+    echo "[${BRANCH}${STAT}]"
+  else
+    echo ""
+  fi
+}
+
+# get current status of git repo
+function parse_git_dirty {
+  status=`git status 2>&1 | tee`
+  dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+  untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+  ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+  newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+  renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+  deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+  bits=''
+  if [ "${renamed}" == "0" ]; then
+    bits=">${bits}"
+  fi
+  if [ "${ahead}" == "0" ]; then
+    bits="*${bits}"
+  fi
+  if [ "${newfile}" == "0" ]; then
+    bits="+${bits}"
+  fi
+  if [ "${untracked}" == "0" ]; then
+    bits="?${bits}"
+  fi
+  if [ "${deleted}" == "0" ]; then
+    bits="x${bits}"
+  fi
+  if [ "${dirty}" == "0" ]; then
+    bits="!${bits}"
+  fi
+  if [ ! "${bits}" == "" ]; then
+    echo " ${bits}"
+  else
+    echo ""
+  fi
+}
+
+# https://stackoverflow.com/questions/1862510/how-can-the-last-commands-wall-time-be-put-in-the-bash-prompt/1862762#1862762
+function timer_now {
+  if [ "$UNAME" = "Darwin" ]; then
+    if [ -n "$GDATE_EXISTS" ]; then
+      gdate +%s%N
+    else
+      date +%s000000000
+    fi
+  else #elif [ "$UNAME" == "Linux" ]; then
+    date +%s%N
+  fi
+}
+
+function timer_start {
+  timer_start=${timer_start:-$(timer_now)}
+}
+
+function timer_stop {
+  local delta_us=$((($(timer_now) - $timer_start) / 1000))
+  local us=$((delta_us % 1000))
+  local ms=$(((delta_us / 1000) % 1000))
+  local s=$(((delta_us / 1000000) % 60))
+  local m=$(((delta_us / 60000000) % 60))
+  local h=$((delta_us / 3600000000))
+
+  if [ -n "$GDATE_EXISTS" ]; then
+    timer_show=$(printf "%02d:%02d.%03d" $m $s $ms)
+  else
+    timer_show=$(printf "%02d:%02d" $m $s)
+  fi
+
+  if ((h > 0)); then
+    timer_show=${h}:${timer_show}
+  fi
+
+  if ((delta_us < 1000000)); then timer_color=0  # 1s
+  elif ((delta_us < 5000000)); then timer_color=1 # 5s
+  elif ((delta_us < 30000000)); then timer_color=2 # 30s
+  elif ((delta_us < 300000000)); then timer_color=3 # 300s
+  else timer_color=4
+  fi
+
+  unset timer_start
+}
+
+set_prompt () {
+  LastExitCodeValue=$? # Must come first!
+  if [ -n "$ZSH_VERSION" ]; then
+    Blue=$'%{\e[01;34m%}'
+    White=$'%{\e[01;37m%}'
+    Yellow=$'%{\e[01;33m%}'
+    Cyan=$'%{\e[01;40m%}'
+    Red=$'%{\e[01;31m%}'
+    RedBackground=$'%{\e[37;41m%}'
+    Green=$'%{\e[01;32m%}'
+    Reset=$'%{\e[00m%}'
+    FancyX='\342\234\227'
+    Checkmark='\342\234\223'
+    Time='%*'
+    Pwd='%1~'
+    LastExitCode='%?'
+  else
+    Blue='\[\e[01;34m\]'
+    White='\[\e[01;37m\]'
+    Yellow='\[\e[01;33m\]'
+    Cyan='\[\e[01;40m\]'
+    Red='\[\e[01;31m\]'
+    RedBackground='\[\e[37;41m\]'
+    Green='\[\e[01;32m\]'
+    Reset='\[\e[00m\]'
+    FancyX='\342\234\227'
+    Checkmark='\342\234\223'
+    Time='\t'
+    Pwd='\W'
+    LastExitCode='$?'
+  fi
+
+  # If the last command was successful, print a green check mark. Otherwise, print a red X.
+  # Or actually just print the exit code itself as an integer.
+  if [ $LastExitCodeValue = "0" ]; then
+    #PS1+="$Green$Checkmark "
+    PS1="$Green$LastExitCode "
+  else
+    #PS1+="$Red$FancyX "
+    PS1="$Red$LastExitCode "
+  fi
+
+  # Add the elapsed time and current date
+  timer_stop
+  if [[ $timer_color == 0 ]]; then
+    PS1+="$White"
+  elif [[ $timer_color == 1 ]]; then
+    PS1+="$Yellow"
+  elif [[ $timer_color == 2 ]]; then
+    PS1+="$Cyan"
+  elif [[ $timer_color == 3 ]]; then
+    PS1+="$Red"
+  else
+    PS1+="$RedBackground"
+  fi
+
+  PS1+="[$timer_show]$Reset $Time "
+
+# If root, just print the host in red. Otherwise, print the current user and host in green.
+#  if [[ $EUID == 0 ]]; then
+#    PS1+="$Red\\u$Green@\\h "
+#  else
+#    PS1+="$Green\\u@\\h "
+#  fi
+
+  # set iterm2 environments for Skyrise/Vagrant/GHES inner loops
+  if [[ $(hostname) =~ ^[0-9]+-[0-9]+-[0-9]+-[0-9]+$ ]]; then # e.g., "172-28-128-7"
+    set_iterm2_environment "macos>vagrant>ghes" ghes
+  elif [[ $(hostname) == "enterprise2" ]]; then
+    set_iterm2_environment "macos>vagrant" vagrant
+  else
+    set_iterm2_environment macos macos
+  fi
+  PS1+="$Green$iterm2environment: "
+
+  # Print the working directory and prompt marker in blue
+  PS1+="$Blue$Pwd"
+
+  # Git status
+  #PS1+=" $Red$(parse_git_branch)"
+
+  # Reset propt color
+  PS1+="$Reset> "
+
+  # Set the title of the window in bash
+  if [ -n "$BASH_VERSION" ]; then
+    case "$TERM" in
+    xterm*|rxvt*)
+      PS1="\[\e]0;$iterm2environment: \w\a\]$PS1"
+      ;;
+    esac
+  fi
+}
+
+trap 'timer_start' DEBUG
+PROMPT_COMMAND='set_prompt'
+
+if [ -n "$ZSH_VERSION" ]; then
+  precmd() { 
+    # Set the prompt first because the first thing it does is check the last error code.
+    eval "$PROMPT_COMMAND" 
+    # Set the title of the window in zsh
+    echo -ne "\e]1;$iterm2environment: ${PWD/#"$HOME"/~}\a"
+  }
+fi
+
+if [ "$UNAME" = "Darwin" ]; then
+  # https://www.cyberciti.biz/faq/apple-mac-osx-terminal-color-ls-output-option/
+  export CLICOLOR=1
+  export LSCOLORS=ExFxCxDxBxegedabagaced
+else
+  LS_COLORS="ow=01;34:*.cs=35:*.csproj=1;33:*.proj=1;33:ex=0"
+  export LS_COLORS
+fi
+
