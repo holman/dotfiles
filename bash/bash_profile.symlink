@@ -186,11 +186,13 @@ set_prompt () {
 #    PS1+="$Green\\u@\\h "
 #  fi
 
-  # set iterm2 environments for Skyrise/Vagrant/GHES inner loops
+  # set iterm2 environments for Skyrise/Vagrant/bp-dev/GHES inner loops
   if [[ $(hostname) =~ ^[0-9]+-[0-9]+-[0-9]+-[0-9]+$ ]]; then # e.g., "172-28-128-7"
-    set_iterm2_environment "macos>vagrant>ghes" ghes
+    set_iterm2_environment "macos>bp-dev>ghes" ghes
   elif [[ $(hostname) == "enterprise2" ]]; then
     set_iterm2_environment "macos>vagrant" vagrant
+  elif [[ $(hostname) =~ ^ip-[0-9]+-[0-9]+-[0-9]+-[0-9]+$ ]]; then # e.g., "ip-10-212-1-152"
+    set_iterm2_environment "macos>bp-dev" bp-dev 
   else
     set_iterm2_environment macos macos
   fi
