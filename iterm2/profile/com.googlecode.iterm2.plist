@@ -14,6 +14,8 @@
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
+	<key>ApplePressAndHoldEnabled</key>
+	<false/>
 	<key>AppleScrollAnimationEnabled</key>
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
@@ -24551,11 +24553,9 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~</string>
+	<string>~/dotfiles/iterm2/profile</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{799, 448}</string>
-	<key>NSNavPanelExpandedSizeForSaveMode</key>
-	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -24576,7 +24576,7 @@
 	dWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAKgA3TFA0OFRkdV05TLmtleXOj
 	FhcYgAOABIAFoxobHIAGgAeACIAJWklkZW50aWZpZXJVV2lkdGhWSGlkZGVuUTAjQGjA
 	AAAAAAAI0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0RpY3Rpb25hcnmiJylYTlNP
-	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0B0oAAAAAAA0iUmNzhe
+	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0B0oZ2yLQ5W0iUmNzhe
 	TlNNdXRhYmxlQXJyYXmjNzkpV05TQXJyYXkACAARABoAJAApADIANwBJAEwAUgBUAGMA
 	aQBuAHkAgACDAIUAhwCJAJAAmACcAJ4AoACiAKYAqACqAKwArgC5AL8AxgDIANEA0gDX
 	AOIA6wD4APsBBAELAQ8BEQETARUBGQEbAR0BHwEhASMBLAExAUABRAAAAAAAAAIBAAAA
@@ -24597,42 +24597,16 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>3969 110 445 103 1920 -93 2560 1417 </string>
+	<key>NSWindow Frame NSColorPanel</key>
+	<string>0 163 224 275 0 0 1440 877 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>-1833 464 799 448 -2560 -267 2560 1417 </string>
-	<key>NSWindow Frame Preferences</key>
-	<string>925 717 606 456 0 0 1920 1177 </string>
-	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
-	<string>-4148 665 616 174 -5120 -267 2560 1417 </string>
-	<key>NSWindow Frame SUStatusFrame</key>
-	<string>3000 873 400 129 1920 -93 2560 1417 </string>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>2890 528 620 392 1920 -240 2560 1417 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>-2160 -16 606 469 -2560 -240 2560 1417 </string>
-	<key>NSWindow Frame SharedPreferences</key>
-	<string>724 679 796 486 0 0 1920 1177 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>155 593 592 584 0 0 1920 1177 </string>
+	<string>-1680 308 799 448 -2560 -418 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-2557 -266 1018 707 -2560 -267 2560 1417 </string>
+	<string>-5117 -594 1018 1417 -5120 -594 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>388 10 1529 1160 0 0 1920 1177 </string>
+	<string>-1690 -296 1137 452 -2560 -418 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1923 876 570 339 1920 267 1920 1057 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1921 289 766 1034 1920 267 1920 1057 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>1921 272 766 1048 1920 267 1920 1057 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>1 22 766 1034 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 6</key>
-	<string>769 7 1151 1048 0 0 1920 1177 </string>
-	<key>NSWindow Frame iTerm Window 7</key>
-	<string>1921 289 766 1034 1920 267 1920 1057 </string>
-	<key>NSWindow Frame iTerm Window 8</key>
-	<string>1920 272 1053 1048 1920 267 1920 1057 </string>
+	<string>-1105 -360 570 452 -2560 -418 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -25277,7 +25251,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 12</string>
+			<string>ArialMT 12</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -26105,11 +26079,11 @@
 			<key>Name</key>
 			<string>Custom1</string>
 			<key>Non Ascii Font</key>
-			<string>MesloLGLNerdFontCompleteM-Regular 30</string>
+			<string>Menlo-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>FiraCodeNerdFontComplete-Retina 12</string>
+			<string>DroidSansMonoNerdFontComplete- 11</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Place Prompt at First Column</key>
@@ -26553,56 +26527,28 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.2.9</string>
-		<string>3.3.0</string>
-		<string>3.3.6</string>
+		<string>3.3.9</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>FiraCode Nerd Font</string>
+		<string>DroidSansMono Nerd Font</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
-	<key>NoSyncConfirmRunOpenFile</key>
-	<true/>
-	<key>NoSyncConfirmRunOpenFile_selection</key>
-	<integer>0</integer>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
-	<integer>0</integer>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
-	<integer>1</integer>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{-2560, -267}, {2560, 1440}}</string>
+		<string>{{-2560, -418}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{-1538, 871}</string>
+		<string>{-1991, 474}</string>
 	</dict>
-	<key>NoSyncHaveShownPromoWithId_4</key>
-	<true/>
-	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
-	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>124F5804-5EA9-4AE3-A1F4-69D0DCD03CA4</string>
-	<key>NoSyncLastTipTime</key>
-	<real>480522903.43175</real>
+	<string>9A9A9CCD-3940-4A7D-B4F7-1069209D23D0</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>6</integer>
-	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
+	<integer>4</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>592852365.06847405</real>
+	<real>605033508.28138399</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
-	<true/>
-	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
@@ -26720,22 +26666,6 @@
 				<true/>
 				<key>name</key>
 				<string>triggerName</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>user.kube_ns</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>user.kube_ctx</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -26915,14 +26845,6 @@
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
-				<string>user.kctx</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
 		</array>
 		<key>16</key>
 		<array>
@@ -26970,7 +26892,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentTab.currentSession.terminalIconName</string>
+				<string>currentTab.currentSession.termid</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -26979,6 +26901,14 @@
 				<true/>
 				<key>name</key>
 				<string>currentTab.currentSession.terminalWindowName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.terminalIconName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27026,14 +26956,6 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>titleOverride</string>
-				<key>nonterminalContext</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
-				<true/>
-				<key>name</key>
 				<string>currentTab.currentSession.name</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -27042,7 +26964,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentTab.currentSession.commandLine</string>
+				<string>titleOverride</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27066,7 +26988,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentTab.currentSession.user.kube_ctx</string>
+				<string>currentTab.currentSession.commandLine</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27074,7 +26996,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentTab.currentSession.user.kube_ns</string>
+				<string>currentTab.currentSession.hostname</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27083,6 +27005,14 @@
 				<true/>
 				<key>name</key>
 				<string>currentTab.currentSession.tty</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.username</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27110,17 +27040,17 @@
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
+		</array>
+		<key>2</key>
+		<array>
 			<dict>
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentTab.currentSession.user.kctx</string>
+				<string>currentSession.terminalWindowName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
-		</array>
-		<key>2</key>
-		<array>
 			<dict>
 				<key>isTerminal</key>
 				<true/>
@@ -27205,7 +27135,7 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>window</string>
+				<string>currentSession.tty</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27214,6 +27144,30 @@
 				<true/>
 				<key>name</key>
 				<string>currentSession.jobName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.name</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>window</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.lastCommand</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27230,6 +27184,22 @@
 				<true/>
 				<key>name</key>
 				<string>titleOverride</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.username</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.termid</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27253,7 +27223,15 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
-				<string>currentSession.terminalWindowName</string>
+				<string>currentSession.hostname</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentSession.path</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -27275,19 +27253,19 @@
 			</dict>
 			<dict>
 				<key>isTerminal</key>
-				<false/>
-				<key>name</key>
-				<string>currentSession</string>
-				<key>nonterminalContext</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
 				<string>currentSession</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<false/>
+				<key>name</key>
+				<string>currentSession</string>
+				<key>nonterminalContext</key>
+				<integer>1</integer>
 			</dict>
 		</array>
 		<key>4</key>
@@ -27318,50 +27296,10 @@
 			</dict>
 		</array>
 	</dict>
-	<key>NoSyncSearchHistory2</key>
-	<array>
-		<string>filetr</string>
-		<string>filetr </string>
-		<string>icon</string>
-		<string>[[layers]]   name = "lang#go"</string>
-		<string>SUCC</string>
-		<string>course</string>
-		<string>course id</string>
-		<string>flex</string>
-		<string>url </string>
-		<string>begin</string>
-	</array>
-	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>477780121.13253099</real>
-	<key>NoSyncTimeOfLastPromo</key>
-	<real>477770008.038899</real>
-	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>477777038.92753798</real>
-	<key>NoSyncTipsDisabled</key>
+	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
+	<real>604860708.28120506</real>
+	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
 	<true/>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-		<string>0004</string>
-		<string>0005</string>
-		<string>0006</string>
-		<string>0007</string>
-		<string>0008</string>
-		<string>0009</string>
-		<string>0010</string>
-		<string>0011</string>
-		<string>0012</string>
-		<string>0013</string>
-		<string>0014</string>
-		<string>0015</string>
-		<string>0016</string>
-		<string>0017</string>
-		<string>0018</string>
-	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -27412,7 +27350,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/dotfiles/iterm2/profile</string>
+	<string>/Users/jeremypatton/dotfiles/iterm2/profile</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -27423,19 +27361,17 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final_new.xml?shard=65</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=35</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-08T15:02:08Z</date>
-	<key>SUUpdateRelaunchingMarker</key>
+	<date>2020-03-22T13:57:18Z</date>
+	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
@@ -27474,8 +27410,6 @@
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1437506816</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -27503,7 +27437,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.6</string>
+	<string>3.3.9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

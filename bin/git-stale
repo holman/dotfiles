@@ -1,18 +1,64 @@
 #!/bin/bash
 
 base="origin/master"
+max_behind=500
+delete_branches=false
+
+help(){
+  echo "help"
+}
+while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
+  -v | --version )
+    echo $version
+    exit
+    ;;
+  -h | --help )
+    help
+    exit
+    ;;
+  -b | --base )
+    shift; base=$1
+    ;;
+  -m | --max-behind )
+    shift; max_behind=$1
+    ;;
+  -d | --delete )
+    delete_branches=true
+    ;;
+esac; shift; done
+if [[ "$1" == '--' ]]; then shift; fi
+
 
 printTableRow(){
+  if $delete_branches ; then 
+    return
+  fi
   printf " %-60s %-50s \n" $1 $2
 }
-max_behind=500
-printTableRow "branch" "commits_behind"
-for br in $(git branch -r); do 
-  if [[ "$br" == "" ]] || [[ $br == "->" ]] || [[ $br == *"$base"* ]]; then 
-  continue 
-  fi
-  behind=$(git rev-list --left-right --count $base...$br | awk '{print $1}')
-  if [ $behind -gt $max_behind ]; then 
-    printTableRow $br $behind
-  fi
-done
+
+deleteRemote(){
+  fullBranch=$1
+  blank=""
+  branch=${fullBranch/origin\//$blank}
+  git push origin --delete $branch
+  echo "deleted $branch it was behind $base by $2 commits"
+}
+
+run(){
+
+  printTableRow "branch" "commits_behind"
+  for br in $(git branch -r); do 
+    if [[ "$br" == "" ]] || [[ $br == "->" ]] || [[ $br == *"$base"* ]]; then 
+    continue 
+    fi
+    behind=$(git rev-list --left-right --count $base...$br | awk '{print $1}')
+    if [ $behind -gt $max_behind ]; then 
+      printTableRow $br $behind
+      if $delete_branches ; then 
+        deleteRemote $br $behind
+      fi
+    fi
+  done
+}
+
+run
