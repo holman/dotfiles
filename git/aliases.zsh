@@ -25,6 +25,7 @@ alias gc='git commit'
 alias gca='git commit -a'
 alias gcm='git commit -m'
 alias gac='git add -A && git commit'
+alias gacm='git add -A && git commit'
 alias gwip='git add -A . && git commit -m "wip"'
 
 # Checkout, branches etc
