@@ -9,6 +9,9 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+	elog = log --date=local --abbrev-commit --pretty=format:'%Cred%h%Creset : %C(yellow)%<(15)%p%Creset %Cgreen(%cd)%Creset %C(blue bold)%an%Creset %C(yellow)%d%Creset %s'
+	elog2 = log --date=local --abbrev-commit --pretty=format:'%C(bold red)%h%Creset : %C(bold magenta)%<(15)%p%Creset %C(green)(%cd)%Creset %C(bold blue)%an%Creset %C(yellow)%d%Creset %n%s%n%b'
+	elog3 = log --date=local --abbrev-commit --pretty=format:'%C(bold red)%h ----------------------------------------------------------------%Creset %n        : %C(bold magenta)%<(15)%p%Creset %C(green)(%cd)%Creset %C(bold blue)%an%Creset %C(yellow)%d%Creset %n%C(cyan)%s%n%C(cyan)%b%Creset' --stat=190 --stat-graph-width=20
 [color]
         diff = auto
         status = auto
@@ -33,3 +36,26 @@
         default = simple
 [credential]
 	helper = osxkeychain
+# Windows diff/merge
+#[diff]
+#	tool = winmerge
+#[merge]
+#	tool = araxis
+#[mergetool "araxis"]
+#	path = C:\\Program Files\\Araxis\\Araxis Merge\\Compare.exe
+# Mac diff/merge
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = Kaleidoscope
+[mergetool]
+	prompt = false
+#[mergetool "araxis"]
+#	cmd = '/Applications/Araxis Merge.app/Contents/Utilities/compare' \"/Users/esirko/repos/github/enterprise2/$LOCAL\" \"$BASE\" \"$REMOTE\" \"/Users/esirko/repos/github/enterprise2/$MERGED\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true

@@ -38,10 +38,12 @@ setup_gitconfig () {
       git_credential='osxkeychain'
     fi
 
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
+#    user ' - What is your github author name?'
+#    read -e git_authorname
+#    user ' - What is your github author email?'
+#    read -e git_authoremail
+    git_authorname='Edwin Sirko'
+    git_authoremail='esirko@github.com'
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
 
@@ -128,7 +130,7 @@ link_file () {
 install_dotfiles () {
   info 'installing dotfiles'
 
-  local overwrite_all=false backup_all=false skip_all=false
+  local overwrite_all=true backup_all=false skip_all=false
 
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
