@@ -236,5 +236,6 @@ if [ "$UNAME" = "Darwin" ]; then
 else
   LS_COLORS="ow=01;34:*.cs=35:*.csproj=1;33:*.proj=1;33:ex=0"
   export LS_COLORS
+  alias ls='ls --color=auto'
 fi
 
