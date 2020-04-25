@@ -2,12 +2,12 @@
 #
 # bootstrap installs things.
 
-if [ -z "${LOGGING_DOTFILES_SETUP:-}" ] ; then
-  echo "# $(date)" > "$HOME/.dotfiles-setup.log"
-  LOGGING_DOTFILES_SETUP=1 exec "$0" >> "$HOME/.dotfiles-setup.log" 2>&1
-fi
+#if [ -z "${LOGGING_DOTFILES_SETUP:-}" ] ; then
+#  echo "# $(date)" > "$HOME/.dotfiles-setup.log"
+#  LOGGING_DOTFILES_SETUP=1 exec "$0" >> "$HOME/.dotfiles-setup.log" 2>&1
+#fi
 
-set -x
+#set -x
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
@@ -144,7 +144,7 @@ install_dotfiles () {
   done
 }
 
-setup_gitconfig
+#setup_gitconfig # Not needed for bp-dev, and the interactivity makes the bootstrap never complete when bp-dev runs it
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
