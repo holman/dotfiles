@@ -187,7 +187,7 @@ set_prompt () {
 #  fi
 
   # set iterm2 environments for Skyrise/Vagrant/bp-dev/GHES inner loops
-  if [[ $(hostname) =~ ^.*bpdev.*github-net$ ]]; then
+  if [[ $(hostname) =~ ^.*bpdev.*github-net$ || $(hostname) =~ ^[0-9]+-[0-9]+-[0-9]+-[0-9]+$ ]]; then
     set_iterm2_environment "macos>bp-dev>ghes" ghes
   elif [[ $(hostname) == "enterprise2" ]]; then
     set_iterm2_environment "macos>vagrant" vagrant
