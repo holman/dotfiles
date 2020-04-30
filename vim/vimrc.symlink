@@ -503,5 +503,9 @@ endif
 " Source https://vim.fandom.com/wiki/Search_for_visually_selected_text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+setglobal commentstring=//\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
+
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
