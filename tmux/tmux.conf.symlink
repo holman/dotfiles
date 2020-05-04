@@ -27,6 +27,7 @@ bind m last-window
 
 set -g set-titles on
 set -g set-titles-string "#h/#S"
+set -g allow-rename on
 
 # Enable copy paste in vim with system clipboard in OSX
 # Uses the safe-* version in order to run on *NIX as well.
