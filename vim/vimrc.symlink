@@ -42,6 +42,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'tpope/vim-abolish'
 
 syntax enable
 
