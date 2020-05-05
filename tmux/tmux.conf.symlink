@@ -19,7 +19,7 @@ bind-key h select-pane -L
 unbind-key l
 bind-key l select-pane -R
 
-bind \\ split-window -c "#{pane_current_path}" -h
+bind '\' split-window -c "#{pane_current_path}" -h
 bind | split-window -c "#{pane_current_path}" -h
 bind - split-window -c "#{pane_current_path}" -v
 
