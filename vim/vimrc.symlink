@@ -4,37 +4,39 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle 'gmarik/vundle'
-Bundle 'msanders/snipmate.vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'ap/vim-css-color'
-Bundle 'wincent/Command-T'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'yaymukund/vim-rabl'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mileszs/ack.vim'
-Bundle 'briancollins/vim-jst'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'puppetlabs/puppet-syntax-vim'
-Bundle 'gcmt/wildfire.vim'
-Bundle 'wesQ3/vim-windowswap'
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-abolish'
-Bundle 'Keithbsmiley/rspec.vim'
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'msanders/snipmate.vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'ap/vim-css-color'
+Plugin 'wincent/Command-T'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'yaymukund/vim-rabl'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mileszs/ack.vim'
+Plugin 'briancollins/vim-jst'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-abolish'
+Plugin 'Keithbsmiley/rspec.vim'
+Plugin 'dense-analysis/ale'
 call vundle#end()
 
 syntax on
@@ -101,7 +103,7 @@ endif
 let g:clipbrdDefaultReg = '+'
 
 "Remove trailing whitespace
-autocmd FileType sh,python,ruby,coffee autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType md,sh,python,ruby,coffee autocmd BufWritePre * :%s/\s\+$//e
 match Todo /\s\+$/
 
 " For syntastic

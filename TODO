@@ -1,0 +1,5 @@
+* Update to fish
+* Move from syntastic to ALE
+* Add npm support to script/bootstrap
+  * Add package.json with alex
+* Ensure alex and other syntax highlighting works in ALE
