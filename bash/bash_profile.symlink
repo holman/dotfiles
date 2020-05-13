@@ -239,3 +239,6 @@ else
   alias ls='ls --color=auto'
 fi
 
+# For bp-dev instances
+export ENABLE_ACTIONS=1
+
