@@ -31,5 +31,6 @@
         "--max-line-length=89",
         "--max-complexity=18",
         "--select=B,C,E,F,W,T4,B9"
-    ]
+    ],
+    "editor.tabSize": 2
 }
