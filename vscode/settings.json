@@ -32,5 +32,9 @@
         "--max-complexity=18",
         "--select=B,C,E,F,W,T4,B9"
     ],
-    "editor.tabSize": 2
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true
 }
