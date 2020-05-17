@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+mkdir -p build
+cd build
+conan install ..
+CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
