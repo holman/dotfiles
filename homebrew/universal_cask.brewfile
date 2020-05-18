@@ -1,5 +1,4 @@
 cask 'alfred'
-cask 'atom' # Text editor
 # cask 'dropbox' # Install first
 cask 'coderunner'
 cask 'cyberduck' # remote file access

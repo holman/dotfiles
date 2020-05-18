@@ -8,7 +8,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Open With Atom</string>
+				<string>Open With Visual Studio Code</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>

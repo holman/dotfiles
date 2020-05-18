@@ -212,7 +212,7 @@ dockutil --no-restart --add "/Applications/App Store.app";
 dockutil --no-restart --add "/Applications/Utilities/Terminal.app";
 dockutil --no-restart --add "/Applications/System Preferences.app";
 dockutil --no-restart --add "/Applications/Utilities/Console.app";
-dockutil --no-restart --add "/Applications/Atom.app";
+dockutil --no-restart --add "/Applications/Visual Studio Code.app";
 
 # add a recent item stack
 defaults write com.apple.dock persistent-others -array-add '{"tile-data" = {"list-type" = 1;}; "tile-type" = "recents-tile";}';
