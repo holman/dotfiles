@@ -36,5 +36,8 @@
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
     "editor.tabSize": 2,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "gitlens.blame.dateFormat": "YYYY-MM-DD",
+    "gitlens.currentLine.dateFormat": "YYYY-MM-DD",
+    "gitlens.statusBar.dateFormat": "YYYY-MM-DD"
 }
