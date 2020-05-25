@@ -1,3 +1,5 @@
+# Setup new machine from scratch
+
 ## time machine
 
 ```
@@ -29,3 +31,18 @@ then in keychain app; `file->Add Keychain`; drag and drop anything you want to k
 ## kmymoney
 config is in $HOME/Library/Preferences/kmymoney/kmymoneyrc. File is stored in
 private repo.
+
+## Launch Agents
+are in ~/Library/LaunchAgents/
+`sudo launchctl load SOME_SERVICE.plist` to load service
+`sudo launchctl unload SOME_SERVICE.plist` to unload
+
+# Setup machine from time machine backup
+You don't back up system files so don't do system restore:  
+- use migration assistant to restore files and computer settings
+- `./.dotfiles/bootstrap`
+- `brew bundle --file homebrew/Brewfile`  
+- git clone hwpl (since data/ and .git are not backed up)  
+- set iterm shell to ...
+
+

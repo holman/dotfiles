@@ -1,4 +1,4 @@
 #!/bin/sh
-cd ~/.dotfiles/macos
+cd ~/.dotfiles/homebrew
 rm Brewfile
 /usr/local/bin/brew bundle dump

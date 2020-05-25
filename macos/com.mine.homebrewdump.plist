@@ -8,7 +8,7 @@
     <array>
         <string>/bin/sh</string>
         <string>-c</string>
-        <string>$HOME/.dotfiles/macos/homebrewdump.sh</string>
+        <string>$HOME/.dotfiles/homebrew/homebrewdump.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>21600</integer>
