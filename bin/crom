@@ -2,5 +2,9 @@
 
 mkdir -p build
 cd build
-conan install ..
-CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
+conan install --build=missing ..
+if [[ -f ../conanfile.py ]]; then
+  CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
+else
+  cmake -G Ninja ..
+fi
