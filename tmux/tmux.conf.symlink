@@ -41,4 +41,7 @@ set-option -g renumber-windows on
 # use vim-tmuxline as powerline replacement
 if-shell "test -f $DOTS/tmux/tmuxline-snapshot.conf" "source-file $DOTS/tmux/tmuxline-snapshot.conf"
 
+setw -g window-status-current-format "#[fg=colour7,bg=colour14,nobold,nounderscore,noitalics]#[fg=colour7,bg=colour14] #I | #{?window_zoomed_flag,#[fg=red](,#[fg=colour7]}#[bg=colour14] #W #{?window_zoomed_flag,#[fg=red]),} #[fg=colour14,bg=colour7,nobold,nounderscore,noitalics]"
+
+
 bind c new-window -c "#{pane_current_path}"
