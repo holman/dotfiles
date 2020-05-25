@@ -28,4 +28,7 @@ fi
 # Install python3
 brew install python3
 
+# Work-around brew sandbox for KMyMoney
+"$(brew --repo kde-mac/kde)/tools/do-caveats.sh"
+
 exit 0
