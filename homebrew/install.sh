@@ -25,4 +25,7 @@ then
 
 fi
 
+# Install python3
+brew install python3
+
 exit 0
