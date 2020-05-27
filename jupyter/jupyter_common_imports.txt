@@ -18,12 +18,8 @@ import geopandas as gpd
 import pickle
 
 %load_ext autoreload
-put this before import statement?
 %autoreload 2
 
-GEOPANDAS
-gdf.crs = CITY_PARAMETERS['crs']['frankfurt']
-gdf = gdf.to_crs({'init' :'epsg:4326'})
 
 LOGGING
 
