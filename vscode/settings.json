@@ -39,5 +39,6 @@
     "files.insertFinalNewline": true,
     "gitlens.blame.dateFormat": "YYYY-MM-DD",
     "gitlens.currentLine.dateFormat": "YYYY-MM-DD",
-    "gitlens.statusBar.dateFormat": "YYYY-MM-DD"
+    "gitlens.statusBar.dateFormat": "YYYY-MM-DD",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh"
 }
