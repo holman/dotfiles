@@ -6,10 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-flake8 = "*"
 black = "*"
-pipenv = "*"
+flake8 = "*"
 mypy = "*"
+pipenv = "*"
+setuptools = "*"
 
 [requires]
 python_version = "3.7"
