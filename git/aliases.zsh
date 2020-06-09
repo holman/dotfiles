@@ -20,6 +20,8 @@ alias grd='git review -d'
 alias grf='git review -f'
 alias gsl="git stash list --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 alias gsp="git-stash-push"
+alias gstaa="git stash --include-untracked"
+alias gstaaa="git stash --all"
 alias grm="git rm"
 alias grbu="git rebase @{u}"
 alias gru!="git reset --hard @{u}"
