@@ -2,7 +2,11 @@
 
 mkdir -p build
 cd build
-conan install --update --build=missing ..
+update=""
+if [ $# -eq 1 ]; then
+  update="--update"
+fi
+conan install $update --build=missing ..
 if [[ -f ../conanfile.py ]]; then
   CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
 else
