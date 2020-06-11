@@ -343,7 +343,7 @@ let g:EclimLoggingDisabled = 1
 
 " Set smart case for rg
 if executable("rg")
-  let g:rg_command="rg --vimgrep" . " " . '--smart-case'
+  let g:rg_command="rg --vimgrep" . " " . '--smart-case --hidden'
   let g:rg_derive_root='true'
 endif
 
