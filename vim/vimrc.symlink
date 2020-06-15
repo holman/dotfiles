@@ -186,7 +186,7 @@ let g:ctrlp_max_files = 0
 " If rg is available use it as filename list generator instead of 'find'
 if executable('rg')
     set grepprg=rg\ --nocolor
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_user_command = 'rg %s --hidden --files --color=never --glob ""'
     let g:ctrlp_use_caching = 0
 endif
 
