@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Prints the "default" branch for the repo
+#
+# Examples
+#
+#   git default-branch
+
+git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
