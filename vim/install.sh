@@ -17,13 +17,6 @@ if cd ~/.vim/bundle/supertab;
   else git clone --depth=1 git@github.com:ervandew/supertab.git;
 fi
 
-echo "installing vim easygrep"
-cd ~/.vim/bundle
-if cd ~/.vim/bundle/vim-easygrep; 
-  then git pull; 
-  else git clone --depth=1 git@github.com:dkprice/vim-easygrep.git;
-fi
-
 # get checkers for syntastic
 pip install pyflakes --user
 cd ~/.dotfiles

@@ -61,13 +61,15 @@ nnoremap <leader>ln :lnext<Esc>
 nnoremap <leader>lp :lprevious<Esc>
 nmap t o<Esc>k
 nmap T O<Esc>j
-nmap <leader>ev :vsp ~/.dotfiles/vimrc.symlink<CR> " open vimrc
+nmap <leader>ev :vsp ~/.dotfiles/vim/vimrc.symlink<CR> " open vimrc
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 map yc :w !pbcopy<Return> " after higlighting yank to clipboard
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> "Remove all trailing whitespace by pressing F5
+nnoremap <Leader>vv :execute "vimgrep /" . expand("<cword>") . "/j ./**/*.py" <Bar> cw<CR>
+set wildignore+=**/notebooks/**,*venv/**
 
 " let vim do indentation
 filetype indent on "used instead of 2 lines below to avoid # issue in python
