@@ -75,4 +75,4 @@ PROMPT="$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 # pyenv switches automatically
 # https://www.freecodecamp.org/news/manage-multiple-python-versions-and-virtual-environments-venv-pyenv-pyvenv-a29fb00c296f/
 # do `pyenv install 3.4.0` then `pyenv local 3.6.4` in your repo
-eval "$(pyenv init -)"
+#eval "$(pyenv init -)"
