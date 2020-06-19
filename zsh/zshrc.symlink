@@ -40,6 +40,11 @@ do
   source $file
 done
 
+# Load Git completion since zsh autocomplete extremely slow 
+# https://medium.com/@oliverspryn/adding-git-completion-to-zsh-60f3b0e7ffbc
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
