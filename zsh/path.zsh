@@ -18,3 +18,6 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # export PATH="$HOME/.pyenv/shims:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
+
+export DENO_INSTALL="/Users/cwardzala/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

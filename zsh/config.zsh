@@ -1,5 +1,5 @@
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export CLICOLOR=true
+# export LSCOLORS="exfxcxdxbxegedabagacad"
+# export CLICOLOR=1
 export EDITOR='code'
 
 export WORKON_HOME="$HOME/.virtualenvs"

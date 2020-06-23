@@ -11,6 +11,7 @@ alias gbc="gcb"
 
 alias fw="~/Findaway"
 alias proj="~/Projects"
+alias icd="~/Library/Mobile\ Documents/com\~apple\~CloudDocs"
 
 # List direcory contents
 alias lsa='colourify ls -lah'
@@ -20,9 +21,6 @@ alias la='colourify ls -lA'
 
 # Pipe my public key to my clipboard.
 alias pubkey="less ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
-
-# servers
-alias buildbox='ssh ubuntu@ec2-54-172-90-220.compute-1.amazonaws.com'
 
 alias gclean="git checkout master && git branch --merged master | grep -v \"\* master\" | xargs -n 1 git branch -d"
 
@@ -41,3 +39,8 @@ alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 alias server="npx http-server"
 
+alias homeserver="ssh cwardzala@192.168.68.144 -p 25705"
+alias homeserver-public="ssh cwardzala@23.28.174.57 -p 25705"
+
+alias dl-video="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1"
+alias dl-audio="youtube-dl -f 'bestaudio[ext=m4a]/best' $1"
