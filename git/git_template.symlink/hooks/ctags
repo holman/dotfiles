@@ -1,11 +1,7 @@
 #!/bin/sh
 set -e
-PATH="$HOME/bin:/usr/local/bin:$PATH"
-
-mkdir .git/tags_lock 2>/dev/null || exit 0
-trap 'rmdir .git/tags_lock; if [ -f .git/tags.$$  ]; then rm .git/tags.$$; fi' EXIT
-
-# Assumes universal-ctags is on the path
-ctags --tag-relative=yes -R -f .git/tags.$$ --languages=-sql --exclude=node_modules
---exclude=vendor --exclude=log --exclude=.git
-mv .git/tags.$$ .git/tags
+PATH="/usr/local/bin:$PATH"
+trap 'rm -f "$$.tags"' EXIT
+git ls-files | \
+  ctags --tag-relative -L - -f"$$.tags" --languages=-sql --exclude=node_modules
+mv "$$.tags" "tags"

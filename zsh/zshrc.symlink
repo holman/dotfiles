@@ -49,7 +49,7 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-export MINITEST_REPORTER=SpecReporter
+export MINITEST_REPORTER=DefaultReporter
 export PATH="/usr/local/opt/imagemagick@6/bin:/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 

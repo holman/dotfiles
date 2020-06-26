@@ -5,10 +5,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
-Plug 'KabbAmine/zeavim.vim'
 Plug 'tpope/vim-bundler'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -17,7 +14,6 @@ Plug 'tomtom/tcomment_vim'            " Commentor
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'pangloss/vim-javascript'
-Plug 'elixir-lang/vim-elixir'
 Plug 'tpope/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'elzr/vim-json'
@@ -29,14 +25,13 @@ Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'posva/vim-vue'
-Plug 'majutsushi/tagbar'
 Plug 'rizzatti/dash.vim'
 Plug 'othree/yajs.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/html5.vim'
-
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'vimwiki/vimwiki'
+Plug 'arcticicestudio/nord-vim'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -47,6 +42,9 @@ catch
 endtry
 
 call plug#end()
+
+" Paste the text from standup.md into the current file
+nmap <Space>s :r ~/.dotfiles/vim//standup.md<CR>
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
@@ -69,14 +67,15 @@ if (empty($TMUX))
   endif
 endif
 
-if (has("termguicolors"))
- set termguicolors
-endif
-
 set background=dark
 let g:enable_bold_font = 1
 let g:hybrid_transparent_background = 1
-colorscheme hybrid_material
+colorscheme nord
+
+augroup nord-overrides
+  autocmd!
+  autocmd ColorScheme nord highlight Comment ctermfg=68
+augroup END
 
 
 "  ---------------------------------------------------
@@ -150,50 +149,48 @@ set encoding=UTF-8
 syntax on
 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-nmap <silent> <C-D> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
-" ------- PLUGIN CONFIGS ------- "
+function ToggleNetRW()
+    if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
+        exe "bd".g:netrw_buffer | unlet g:netrw_buffer
+    else
+        Vexplore | let g:netrw_buffer=bufnr("%")
+    endif
+endfunction
 
-" NERDTREE
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp']
-let NERDTreeQuitOnOpen=1
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
+"Set default width of explorer to make it appear like a sidebar. Also defaults to tree style.
+let g:netrw_liststyle=3
+let g:netrw_winsize=13
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_fastbrowse = 0
+autocmd FileType netrw setl bufhidden=wipe
 
-" map NERDTreeToggle to nn
-noremap <Leader>nn :NERDTreeToggle<cr>
+nnoremap <silent> <leader>nn :call ToggleNetRW()<cr>
 
-" CTRL-P"
-nnoremap <silent> ,s :CtrlP<CR>
-nnoremap <silent> ,b :CtrlPBuffer<CR>
-let g:ctrlp_by_filename = 1
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-" MAPPINGS FOR RAILS APPS "
-map ,ja :CtrlP app/assets<CR>
-map ,jc :CtrlP app/controllers<CR>
-map ,jh :CtrlP app/helpers<CR>
-map ,ji :CtrlP app/interactors<CR>
-map ,jb :CtrlP app/jobs<CR>
-map ,jm :CtrlP app/models<CR>
-map ,jp :CtrlP app/policies<CR>
-map ,jP :CtrlP app/presenters<CR>
-map ,js :CtrlP app/services<CR>
-map ,jt :CtrlP app/tasks<CR>
-map ,jv :CtrlP app/views<CR>
-map ,jC :CtrlP config<CR>
-map ,jD :CtrlP db<CR>
-map ,jF :CtrlP factories<CR>
-map ,jL :CtrlP lib<CR>
-map ,jS :CtrlP spec<CR>
-map ,jT :CtrlP test<CR>
-map ,jV :CtrlP vendor<CR>
+" Always enable preview window on the right with 60% width
+let g:fzf_layout = { 'up': '~25%' }
+nnoremap <silent> <leader>s :FZF<cr>
+nnoremap <silent> <leader>S :FZF ~<cr>
+nnoremap <silent> <Leader>ja :FZF app/assets<CR>
+nnoremap <silent> <Leader>jc :FZF app/controllers<CR>
+nnoremap <silent> <Leader>jC :FZF config<CR>
+nnoremap <silent> <Leader>jh :FZF app/helpers<CR>
+nnoremap <silent> <Leader>ji :FZF app/interactors<CR>
+nnoremap <silent> <Leader>jb :FZF app/jobs<CR>
+nnoremap <silent> <Leader>jm :FZF app/models<CR>
+nnoremap <silent> <Leader>jp :FZF app/policies<CR>
+nnoremap <silent> <Leader>jP :FZF app/presenters<CR>
+nnoremap <silent> <Leader>js :FZF app/services<CR>
+nnoremap <silent> <Leader>jt :FZF app/tasks<CR>
+nnoremap <silent> <Leader>jv :FZF app/views<CR>
+nnoremap <silent> <Leader>jD :FZF db<CR>
+nnoremap <silent> <Leader>jF :FZF test/factories<CR>
+nnoremap <silent> <Leader>jL :FZF lib<CR>
+nnoremap <silent> <Leader>jS :FZF spec<CR>
+nnoremap <silent> <Leader>jT :FZF test<CR>
+nnoremap <silent> <Leader>jV :FZF vendor<CR>
 
 " Easier rails movement
 nnoremap ,vv :Eview<cr>
@@ -249,13 +246,14 @@ noremap <silent> <leader>t[ :Tabularize /[<CR>
 noremap <silent> <leader>t/ :Tabularize ///<CR>
 noremap <silent> <leader>t\| :Tabularize /\|<CR>
 
-" --- Zeal.vim ---
+" --- Dash.vim ---
 :nmap <silent> <leader>d <Plug>DashSearch
 nmap <leader>d <Plug>DashSearch
 
 " --- ctags ---
-set tags=./.git/tags;~/Development
-nnoremap <leader>ct :silent ! ctags -R --languages=-sql --exclude=.git --exclude=log --exclude=node_modules --exclude=tmp -f .git/tags<cr>
+set tags=./tags;~/Development
+nnoremap <leader>ct :silent ! ctags --tag-relative -L -f"$$.tags" --languages=-sql --exclude=.git --exclude=log --exclude=node_modules --exclude=tmp<cr>
+let g:fzf_tags_command = 'ctags --tag-relative -L -f"$$.tags" --languages=-sql --exclude=.git --exclude=log --exclude=nodule_modules --exclude=tmp'
 
 " --- ale ---
 let g:airline#extensions#ale#enabled = 1
@@ -273,9 +271,10 @@ endif
 " Commands to run tests with vimux
 " Remove current local dir from bufname?
 map <Leader>rs :call VimuxRunCommand("clear; bundle exec rspec s . bufname("%"))<CR>
-map <Leader>rt :call VimuxRunCommand("clear; bundle exec rails test " . bufname("%"))<CR>
+" map <Leader>rt :call VimuxRunCommand("clear; bundle exec ruby -I test " . bufname("%"))<CR>
+map <Leader>rt :call VimuxRunCommand("clear; bundle exec rails test -f -c " . bufname("%"))<CR>
 map <Leader>dt :call VimuxRunCommand("clear; docker-compose exec test bin/rails test " . fnamemodify(expand("%"), ":~:."))<CR>
-map <Leader>rp :call VimuxRunCommand("clear; bin/pronto run")<CR>
+map <Leader>rp :call VimuxRunCommand("clear; bin/prontoci run")<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vs :VimuxInterruptRunner<CR>

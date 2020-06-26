@@ -6,3 +6,4 @@
 tags
 **/puma.rb
 .npmrc
+docker-compose.yml.local
