@@ -3,6 +3,9 @@ export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Projects
+export PROJECTS_DI=~/Projects/DI
+
+fpath+=$HOME/.zsh/pure
 
 # Load the pure theme
 # first run npm install --global pure-prompt
@@ -82,9 +85,5 @@ load-nvmrc
 
 export NODE_OPTIONS=--max-old-space-size=4096
 
-# Composer for PHP
-alias composer="php /usr/local/bin/composer.phar"
-
-# chruby for ruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+# zsh syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

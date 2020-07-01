@@ -1,0 +1,5 @@
+#compdef d
+_files -W $PROJECTS_DI -/
+_files -W $GOPATH/src/github.com -/
+
+# See further documentation in `functions/c`.
