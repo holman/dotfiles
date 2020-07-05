@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 black = "*"
 flake8 = "*"
+isort = "*"
 mypy = "*"
 pipenv = "*"
 setuptools = "*"
