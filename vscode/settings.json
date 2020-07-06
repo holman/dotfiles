@@ -41,5 +41,5 @@
     "gitlens.currentLine.dateFormat": "YYYY-MM-DD",
     "gitlens.statusBar.dateFormat": "YYYY-MM-DD",
     "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "python.languageServer": "Microsoft"
+    "python.languageServer": "Pylance"
 }
