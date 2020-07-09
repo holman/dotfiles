@@ -11,6 +11,9 @@ if cd ~/.vim/bundle/syntastic;
   then git pull; 
   else git clone --depth=1 https://github.com/vim-syntastic/syntastic.git; 
 fi
+# get checkers for python
+pip3 install pylint --user
+pip3 install pyflakes --user
 
 echo "installing vim supertab"
 cd ~/.vim/bundle
