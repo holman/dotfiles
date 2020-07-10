@@ -22,3 +22,9 @@ set tabsize 2
 # comes with brew but below is better
 #include /usr/local/share/nano/*.nanorc
 include ~/.nano/*.nanorc
+
+# set spell checker
+set speller "ispell"
+
+# Allow nano to be suspended with ^Z
+set suspend

@@ -15,5 +15,6 @@ ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vsliveshare.vsliveshare
 timonwong.shellcheck
+VisualStudioExptTeam.vscodeintellicode
 vscode-icons-team.vscode-icons
 zxh404.vscode-proto3

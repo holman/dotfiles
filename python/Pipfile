@@ -11,6 +11,7 @@ flake8 = "*"
 isort = "*"
 mypy = "*"
 pipenv = "*"
+pre-commit = "*"
 setuptools = "*"
 
 [requires]

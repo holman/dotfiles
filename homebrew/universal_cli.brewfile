@@ -10,6 +10,7 @@ brew 'gnu-sed'
 brew 'grep'
 brew 'hugo' # https://gohugo.io
 brew 'insect' # https://github.com/sharkdp/insect
+brwe 'ispell' # spell checker for nano
 brew 'kubectl'
 brew 'lsd'
 brew 'mas' # https://github.com/mas-cli/mas

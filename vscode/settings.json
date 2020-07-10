@@ -39,5 +39,7 @@
   "workbench.colorTheme": "An Old Hope Classic",
   "workbench.iconTheme": "vscode-icons",
   "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false
+  "telemetry.enableTelemetry": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
