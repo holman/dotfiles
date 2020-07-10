@@ -1,45 +1,43 @@
 {
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "workbench.iconTheme": "vscode-icons",
-    "gitlens.hovers.enabled": false,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm:ss",
-    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
-    "python.linting.flake8Enabled": true,
-    "python.pythonPath": "python3",
-    "python.formatting.provider": "black",
-    "editor.multiCursorModifier": "alt",
-    "files.associations": {
-        "*.json": "jsonc",
-        // this looks best
-        "*.brewfile": "pip-requirements"
-    },
-    "path-intellisense.showHiddenFiles": true,
-    "prettier.printWidth": 88,
-    "shellcheck.customArgs": [
-        "-e SC1071"
-    ],
-    "editor.fontFamily": "'Hack Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-    "python.linting.mypyEnabled": true,
-    "editor.formatOnSave": true,
-    "python.experiments.enabled": false,
-    "python.jediEnabled": false,
-    "python.linting.flake8Args": [
-        "--ignore=E203,E266,E501,W503,F403,F401",
-        "--max-line-length=89",
-        "--max-complexity=18",
-        "--select=B,C,E,F,W,T4,B9"
-    ],
-    "[dockerfile]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "editor.tabSize": 2,
-    "files.insertFinalNewline": true,
-    "gitlens.blame.dateFormat": "YYYY-MM-DD",
-    "gitlens.currentLine.dateFormat": "YYYY-MM-DD",
-    "gitlens.statusBar.dateFormat": "YYYY-MM-DD",
-    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-    "python.languageServer": "Pylance",
-    "workbench.colorTheme": "An Old Hope Classic"
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "editor.multiCursorModifier": "alt",
+  "editor.fontFamily": "'Hack Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    "*.json": "jsonc",
+    // this looks best
+    "*.brewfile": "pip-requirements"
+  },
+  "gitlens.blame.dateFormat": "YYYY-MM-DD",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.dateFormat": "YYYY-MM-DD",
+  "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm:ss",
+  "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+  "gitlens.hovers.enabled": false,
+  "gitlens.statusBar.dateFormat": "YYYY-MM-DD",
+  "path-intellisense.showHiddenFiles": true,
+  "prettier.printWidth": 88,
+  "python.linting.flake8Enabled": true,
+  "python.pythonPath": "python3",
+  "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+  "python.linting.mypyEnabled": true,
+  "python.experiments.enabled": false,
+  "python.jediEnabled": false,
+  "python.linting.flake8Args": [
+    "--ignore=E203,E266,E501,W503,F403,F401",
+    "--max-line-length=89",
+    "--max-complexity=18",
+    "--select=B,C,E,F,W,T4,B9"
+  ],
+  "shellcheck.customArgs": ["-e SC1071"],
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "workbench.colorTheme": "An Old Hope Classic",
+  "workbench.iconTheme": "vscode-icons",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false
 }
