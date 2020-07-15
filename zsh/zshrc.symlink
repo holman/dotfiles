@@ -3,6 +3,8 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
+export TERMINFO=/usr/share/terminfo
+
 # Set bindkey
 bindkey -e
 
@@ -71,15 +73,15 @@ PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green
 # bindkey -s "^G" 'nvim +Rg;^M'
 
 # Can't seem to get this working
-bindkey -s "^P" "s;^M"
-bindkey -s "^G" "sc;^M"
+#bindkey -s "^P" "fif;^M"
+#bindkey -s "^G" "sc;^M"
 
 # Source files for configuration
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d"
-export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always {} || cat {} || tree -C {}"
+export FZF_ALT_C_COMMAND="fdfind -t d"
+export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always --line-range :500 {}"
 export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-window noborder --preview '($FZF_PREVIEW_COMMAND) 2> /dev/null'"
