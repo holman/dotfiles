@@ -2,6 +2,7 @@ brew 'antigen'
 brew 'bat'
 brew 'diff-so-fancy' # https://github.com/so-fancy/diff-so-fancy
 brew 'dockutil'
+brew 'fd' # find alternative
 brew 'git'
 brew 'git-extras' # https://github.com/tj/git-extras
 brew 'git-lfs'
