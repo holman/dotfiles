@@ -40,7 +40,7 @@ set statusline+=%F "show full path of file
 set laststatus=2 " always show status line
 set nocompatible " disable old vi stuff
 set complete-=i " turn off search of included files for autocomplete
-set colorcolumn=79 "limit the line length
+set colorcolumn=88 "limit the line length
 set vb t_vb= " turn off bell
 set backspace=indent,eol,start
                     " allow backspacing over everything in insert mode
