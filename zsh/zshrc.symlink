@@ -72,7 +72,8 @@ export EDITOR="$VISUAL"
 #user@hostname
 PROMPT="$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
-# pyenv switches automatically
-# https://www.freecodecamp.org/news/manage-multiple-python-versions-and-virtual-environments-venv-pyenv-pyvenv-a29fb00c296f/
-# do `pyenv install 3.4.0` then `pyenv local 3.6.4` in your repo
-#eval "$(pyenv init -)"
+# pyenv switches python versions automatically on mac
+# do `pyenv install 3.4.0` then `pyenv local 3.6.4` in your repo to make a .python-version
+if test "$(uname)" = "Darwin"; then
+    eval "$(pyenv init -)"
+fi
