@@ -1,63 +1,72 @@
-cask_args appdir: '/Applications'
+tap "goles/battery"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "universal-ctags/universal-ctags"
 
-tap 'homebrew/bundle'
-tap 'Goles/battery'
-tap 'universal-ctags/universal-ctags'
+brew "ack"
+brew "bat"
+brew "cocoapods"
+brew "coreutils"
+brew "ctags", link: false
+brew "fzf"
+brew "gibo"
+brew "git"
+brew "glib"
+brew "goles/battery/battery"
+brew "graphviz"
+brew "grc"
+brew "hub"
+brew "imagemagick"
+brew "libgit2"
+brew "macvim", link: false
+brew "mas"
+brew "node"
+brew "node@10"
+brew "node@12"
+brew "nvm"
+brew "openssl@1.1"
+brew "postgresql", restart_service: true
+brew "python"
+brew "rbenv"
+brew "rbenv-ctags"
+brew "rbenv-default-gems"
+brew "re2"
+brew "readline"
+brew "redis", restart_service: true
+brew "rg"
+brew "ruby-build"
+brew "spaceman-diff"
+brew "spark"
+brew "the_silver_searcher"
+brew "tldr"
+brew "tmux"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+brew "vim"
+brew "wget"
+brew "yarn", link: false
+brew "youtube-dl"
+brew "z"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
 
-brew 'zsh-syntax-highlighting'
-brew 'zsh-autosuggestions'
-brew  'zsh-history-substring-search'
-brew 'ack'
-brew 'ag'
-brew 'battery'
-brew 'coreutils'
-brew 'ctags'
-brew 'universal-ctags', args: ["HEAD"]
-brew 'gibo'
-brew 'git'
-brew 'hub'
-brew 'grc'
-brew 'imagemagick'
-brew 'libgit2'
-brew 'openssl'
-brew 'node'
-brew 'readline'
-brew 'postgresql', restart_service: true
-brew 'redis', restart_service: true
-brew 'ruby-build'
-brew 'rbenv'
-brew 'rbenv-ctags'
-brew 'rbenv-default-gems'
-brew 'tmux'
-# brew 'roundup'
-brew 'spaceman-diff'
-brew 'spark'
-# brew 'unrar'
-brew 'vim'#, args: ['with-lua', 'with-luajit', 'with-python3']
-brew 'wget'
-brew 'yarn'
-brew 'youtube-dl'
-brew 'z'
+# Casks
+cask "alfred"
+cask "android-studio"
+cask "dash"
+cask "discord"
+cask "docker"
+cask "evernote"
+cask "firefox"
+cask "slack"
+cask "spectacle"
+cask "tunnelblick"
+cask "vlc"
 
-# ios setup
-brew 'cocoapods'
+# MacOs Apps that are not listed in casks
 
-tap 'homebrew/cask'
-
-cask 'alfred'
-# cask 'dropbox'
-cask 'firefox'
-# cask 'iterm2'
-# cask 'google-chrome'
-cask 'slack'
-cask 'spectacle'
-cask 'discord'
-cask 'docker'
-#cask 'tunnelbear' Might add in the future ( VPN)
-cask 'vlc'
-cask 'dash'
-cask 'tunnelblick'
-cask 'evernote'
-cask 'android-studio'
-
-# vim: filetype=ruby
+mas "Amphetamine", id: 937984704
+mas "Pocket", id: 568494494
+mas "Xcode", id: 497799835
