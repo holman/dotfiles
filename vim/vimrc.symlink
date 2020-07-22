@@ -416,53 +416,6 @@ let g:dispatch_handlers = [
       \ 'headless',
       \ ]
 
-" ----------------------------------------------------------------------------
-" DiffRev
-" Inspired by
-" https://github.com/tpope/vim-fugitive/issues/132#issuecomment-290644034
-" ----------------------------------------------------------------------------
-function! s:diff_file_to_branch()
-  let branchname=b:branchname
-  only
-  .cc
-  execute 'Gdiff '.branchname
-  copen
-  resize 12
-endfunction
-
-function! s:all_files_diff()
-  let branchname=b:branchname
-  for d in getqflist()
-    execute 'Gtabedit '.bufname(d.bufnr)
-    execute 'Gdiffsplit '.branchname
-  endfor
-endfunction
-
-let s:git_status_dictionary = {
-            \ "A": "Added",
-            \ "B": "Broken",
-            \ "C": "Copied",
-            \ "D": "Deleted",
-            \ "M": "Modified",
-            \ "R": "Renamed",
-            \ "T": "Changed",
-            \ "U": "Unmerged",
-            \ "X": "Unknown"
-            \ }
-
-function! s:get_diff_files(rev)
-  let list = map(split(system(
-              \ 'git diff --name-status '.a:rev), '\n'),
-              \ '{"filename":matchstr(v:val, "\\S\\+$"),"text":s:git_status_dictionary[matchstr(v:val, "^\\w")]}'
-              \ )
-  call setqflist(list)
-  copen
-  let b:branchname=a:rev
-  let b:filelist=list
-  nmap <buffer> dd :call <SID>diff_file_to_branch()<cr>
-  nmap <buffer> D :call <SID>all_files_diff()<cr>
-endfunction
-
 function! s:get_default_branch()
   " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
   let defaultbranch = systemlist('git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/@@"')[0]
@@ -477,13 +430,10 @@ endfunction
 
 function! s:get_diff_file_master_merge()
   let defaultbranch = s:get_default_branch()
-  let revision = system('git merge-base ' . defaultbranch . ' HEAD')
-  call s:get_diff_files(revision)
+  return systemlist('git merge-base ' . defaultbranch . ' HEAD')[0]
 endfunction
 
 command! -nargs=1 DiffRev call s:get_diff_files(<q-args>)
-
-nnoremap <leader>gD :call <SID>get_diff_file_master_merge()<cr>
 
 "" Source: https://stackoverflow.com/a/22676189/522251
 " Put plugins and dictionaries in this dir (also on Windows)
@@ -507,6 +457,48 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 setglobal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 
+nnoremap <leader>gD :call <SID>view_merge_request()<cr>
+command! DiffHistory call s:view_merge_request()
+
+" Source / Inspiration
+" https://github.com/tpope/vim-fugitive/issues/132#issuecomment-649516204
+function! s:view_merge_request()
+  let revision = s:get_diff_file_master_merge()
+  execute 'Git difftool ' . revision . '..HEAD --find-renames=50%'
+  call s:diff_current_quickfix_entry()
+  " Bind <CR> for current quickfix window to properly set up diff split layout after selecting an item
+  " There's probably a better way to map this without changing the window
+  copen
+  nnoremap <buffer> <CR> <CR><BAR>:call <sid>diff_current_quickfix_entry()<CR>
+  wincmd p
+endfunction
+
+function s:diff_current_quickfix_entry()
+  " Cleanup windows
+  for window in getwininfo()
+    if window.winnr !=? winnr() && bufname(window.bufnr) =~? '^fugitive:'
+      exe 'bdelete' window.bufnr
+    endif
+  endfor
+  cc
+  call s:add_mappings()
+  let qf = getqflist({'context': 0, 'idx': 0})
+  if get(qf, 'idx') && type(get(qf, 'context')) == type({}) && type(get(qf.context, 'items')) == type([])
+    let diff = get(qf.context.items[qf.idx - 1], 'diff', [])
+    for i in reverse(range(len(diff)))
+      exe (i ? 'rightbelow' : 'leftabove') 'vert diffsplit' fnameescape(diff[i].filename)
+      call s:add_mappings()
+    endfor
+  endif
+endfunction
+
+function! s:add_mappings()
+  nnoremap <buffer>]q :cnext <BAR> :call <sid>diff_current_quickfix_entry()<CR>
+  nnoremap <buffer>[q :cprevious <BAR> :call <sid>diff_current_quickfix_entry()<CR>
+  " Reset quickfix height. Sometimes it messes up after selecting another item
+  11copen
+  wincmd p
+endfunction
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
