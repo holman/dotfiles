@@ -24,5 +24,5 @@ if test $(command -v brew); then
   echo 'Rehash rbenv and update rubygems'
   rbenv rehash
   gem update --system
-  gem install rails
+  sudo gem install rails
 fi
