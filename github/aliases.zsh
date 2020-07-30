@@ -22,3 +22,10 @@ function vaultme() {
   ssh vault
   set-title 'SSH Enabled'
 }
+
+function jumpme() {
+  ssh-setup
+  set-title 'Jump Host'
+  ssh bastion
+  set-title 'SSH Enabled'
+}
