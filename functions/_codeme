@@ -1,0 +1,2 @@
+#compdef codeme
+_files -W $PROJECTS -/
