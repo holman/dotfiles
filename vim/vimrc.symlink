@@ -464,7 +464,7 @@ command! DiffHistory call s:view_merge_request()
 " https://github.com/tpope/vim-fugitive/issues/132#issuecomment-649516204
 function! s:view_merge_request()
   let revision = s:get_diff_file_master_merge()
-  execute 'Git difftool ' . revision . '..HEAD --find-renames=50%'
+  execute 'Git difftool ' . revision . '..HEAD --find-renames=50% '
   call s:diff_current_quickfix_entry()
   " Bind <CR> for current quickfix window to properly set up diff split layout after selecting an item
   " There's probably a better way to map this without changing the window
