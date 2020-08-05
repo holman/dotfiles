@@ -1,0 +1,1 @@
+alias gw='`findup gradlew`'

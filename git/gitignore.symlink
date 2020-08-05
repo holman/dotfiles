@@ -1,3 +1,7 @@
+# Mac Things
 .DS_Store
 *~
 *.swp
+
+# Python Virtual Env
+.venv/

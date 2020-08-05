@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Handy up FS search
+
+x=`pwd`
+while [ "$x" != "/" ]
+  do if [ -a "$x/$1" ]
+    then
+      echo "$x/$1"
+      break
+  fi
+  x=`dirname "$x"`
+done

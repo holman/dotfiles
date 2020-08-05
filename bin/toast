@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Get Title option if it exists
+while getopts ":t:m:" opt; do
+  case $opt in
+    t) title="$OPTARG"
+    ;;
+    m) message="$OPTARG"
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+/usr/bin/osascript -e "display notification \"${message}\" with title \"${title-Toast}\""

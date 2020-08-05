@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+sort | uniq -c | awk '{print $2" "$1}' | perl -pe 's/(\d+)$/"|"x$1/e'

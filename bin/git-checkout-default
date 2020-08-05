@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Moves to the "default" branch for the repo
+#
+# Examples
+#
+#   git checkout-default
+
+git checkout $(git default-branch)

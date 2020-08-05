@@ -9,27 +9,33 @@ else
   git="/usr/bin/git"
 fi
 
+# check if the special iterm2 mark function exists. If not then stub it for '>'
+if type iterm2_prompt_mark > /dev/null; then
+  # iterm prompt mark exists, no worries
+else
+  iterm2_prompt_mark() { echo "> " }
+fi
+
+# Prints the current working branch
 git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
-git_dirty() {
-  if $(! $git status -s &> /dev/null)
+#
+git_info() {
+  # Moved to file detection to improve performance. Not fool proof, but its fast
+  GIT_DIR=`findup .git`
+  if [[ -z $GIT_DIR ]]
   then
     echo ""
   else
-    if [[ $($git status --porcelain) == "" ]]
-    then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
-    else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
-    fi
+    # Removed dirty checking, again because of performance issues
+      echo " on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}$(need_push)"
   fi
 }
 
 git_prompt_info () {
  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
 
@@ -54,19 +60,26 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-battery_status() {
-  if test ! "$(uname)" = "Darwin"
+virtualenv_info (){ 
+  if [[ -z $VIRTUAL_ENV ]]
   then
-    exit 0
-  fi
-
-  if [[ $(sysctl -n hw.model) == *"Book"* ]]
-  then
-    $ZSH/bin/battery-status
+    echo ""
+  else
+    if [[ ${PWD} == ${VIRTUAL_ENV%/`basename $VIRTUAL_ENV`}* ]];
+    then
+      echo " using %{$fg_bold[magenta]%}local%{$reset_color%} python"
+    else
+      echo " using %{$fg_bold[magenta]%}${VIRTUAL_ENV}/%{$reset_color%} python"
+    fi
   fi
 }
 
-export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
+directory_name() {
+  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+}
+
+export PROMPT=$'\n%{$(iterm2_prompt_mark)%}in $(directory_name)$(git_info)$(virtualenv_info)\n› '
+
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
@@ -75,3 +88,22 @@ precmd() {
   title "zsh" "%m" "%55<...<%~"
   set_prompt
 }
+
+#
+# Prompt Command
+#
+if [[ ! -a ~/.shell_logs ]]
+  then mkdir ~/.shell_logs
+fi
+
+# Don't record anything by user 0
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; \
+then \
+  echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1 | tail -n 1)" >> ~/.shell_logs/shell-history-$(date "+%Y-%m-%d").log; \
+fi'
+
+prmptcmd() {
+  eval "$PROMPT_COMMAND"
+}
+
+precmd_functions=(prmptcmd)

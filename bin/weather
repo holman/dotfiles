@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+#
+# Shows weather information in the terminal
+#
+
+set -e
+
+usage() {
+  cat << EOF
+Usage: $0 <location. Default 94110>
+
+Queries the weather report for a given location. This
+can be a zipcode or city.
+
+OPTIONS:
+   -h             Show this message
+EOF
+}
+
+while getopts “h” OPTION; do
+  case $OPTION in
+    h) usage; exit 1;;
+  esac
+done
+
+LOCATION=${1:-94110}
+curl "wttr.in/$LOCATION"

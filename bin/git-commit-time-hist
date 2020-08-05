@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+usage() {
+  cat << EOF
+Usage: $0 <Git log options>
+
+Gets timestamp of git commits given passed arguments and creates a histogram.
+Any 'git log' may be used.
+
+EXAMPLE OPTIONS:
+  --author
+  --since
+  --before
+EOF
+}
+
+if [[ $# -eq 0 ]] ; then
+  usage  
+  exit 1
+fi
+
+git log $@ --pretty=format:%aD | awk '{print $5}' | sed 's/:/ /' | awk '{ print $1":00"}' | simplehist
