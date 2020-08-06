@@ -22,6 +22,8 @@
 	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
+	<key>CGFontRenderingFontSmoothingDisabled</key>
+	<false/>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -96,6 +98,8 @@
 	<string>~/.iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
+	<key>NSOverlayScrollersFallBackForAccessoryViews</key>
+	<false/>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -142,13 +146,13 @@
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>521 624 735 382 0 0 1680 1050 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>1080 983 400 129 0 0 2560 1417 </string>
+	<string>640 703 400 129 0 0 1680 1050 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>930 596 700 622 0 0 2560 1417 </string>
+	<string>490 303 700 622 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>1020 534 1018 447 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>90 453 1610 498 0 0 2560 1417 </string>
+	<string>55 272 1625 498 0 0 3008 1692 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>778 326 570 452 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_5AF40A64-7293-4946-A6D2-2BFDF9D42D8E</key>
@@ -2735,39 +2739,52 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
+		<string>3.3.12beta3</string>
+		<string>3.3.12beta2</string>
+		<string>3.3.12beta1</string>
 		<string>3.3.3beta1</string>
 		<string>3.3.8beta3</string>
+		<string>3.3.10beta3</string>
 		<string>3.3.5beta2</string>
 		<string>3.3.7beta1</string>
 		<string>3.3.2beta1</string>
 		<string>3.3.8beta5</string>
-		<string>3.3.0beta13</string>
+		<string>3.3.10beta4</string>
 		<string>3.3.8beta2</string>
 		<string>3.3.5beta1</string>
 		<string>3.3.0beta16</string>
+		<string>3.3.0beta13</string>
 		<string>3.3.8beta4</string>
 		<string>3.3.7beta2</string>
+		<string>3.3.9beta1</string>
 		<string>3.3.4beta1</string>
 		<string>3.3.7beta4</string>
+		<string>3.3.10beta2</string>
+		<string>3.3.10beta1</string>
 		<string>3.2.0beta4</string>
+		<string>3.3.11beta1</string>
+		<string>3.4.0beta1</string>
+		<string>3.4.0beta2</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
+		<string>{{0, 0}, {3008, 1692}}</string>
 		<key>topLeft</key>
-		<string>{159, 724}</string>
+		<string>{537, 1098}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>5ABF07B5-5E27-4B60-8E26-F3F84FFC2110</string>
+	<key>NoSyncLastOSVersion</key>
+	<string>Version 10.15.6 (Build 19G73)</string>
 	<key>NoSyncLastTipTime</key>
-	<real>589764166.42762303</real>
+	<real>616953594.69889295</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>25</integer>
+	<integer>43</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2885,6 +2902,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>selectionLength</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>path</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -2896,6 +2921,14 @@
 				<string>triggerName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<false/>
+				<key>name</key>
+				<string>parentSession</string>
+				<key>nonterminalContext</key>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>isTerminal</key>
@@ -3021,6 +3054,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>selection</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>autoNameFormat</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -3097,6 +3138,14 @@
 				<true/>
 				<key>name</key>
 				<string>style</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>currentTab.currentSession.jobPid</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3500,90 +3549,93 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncRestoreWindowsCount</key>
+	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>520193606.16540802</real>
 	<key>NoSyncTipsToNotShow</key>
 	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-		<string>0004</string>
-		<string>0005</string>
-		<string>0006</string>
-		<string>0007</string>
-		<string>0008</string>
 		<string>0009</string>
-		<string>0010</string>
-		<string>0011</string>
-		<string>0012</string>
-		<string>0013</string>
-		<string>0014</string>
-		<string>0015</string>
 		<string>0016</string>
-		<string>0017</string>
-		<string>0018</string>
-		<string>0019</string>
-		<string>0020</string>
-		<string>0021</string>
-		<string>0022</string>
 		<string>0023</string>
-		<string>0024</string>
-		<string>0025</string>
-		<string>0026</string>
-		<string>0027</string>
-		<string>0028</string>
-		<string>0029</string>
 		<string>0030</string>
-		<string>0031</string>
-		<string>0032</string>
-		<string>0033</string>
-		<string>0034</string>
-		<string>0035</string>
-		<string>0036</string>
-		<string>0037</string>
-		<string>0038</string>
-		<string>0039</string>
-		<string>0040</string>
-		<string>0041</string>
-		<string>0042</string>
-		<string>0043</string>
-		<string>0044</string>
-		<string>0045</string>
-		<string>0046</string>
-		<string>0047</string>
-		<string>0048</string>
-		<string>0049</string>
-		<string>0050</string>
-		<string>0051</string>
-		<string>0052</string>
-		<string>0053</string>
-		<string>0054</string>
-		<string>0055</string>
-		<string>0056</string>
-		<string>0057</string>
-		<string>0058</string>
 		<string>0059</string>
-		<string>0060</string>
-		<string>0061</string>
-		<string>0062</string>
-		<string>0063</string>
-		<string>0064</string>
-		<string>0065</string>
 		<string>0066</string>
-		<string>0067</string>
-		<string>0068</string>
-		<string>0069</string>
-		<string>0070</string>
-		<string>0071</string>
-		<string>0072</string>
 		<string>0073</string>
+		<string>0002</string>
+		<string>0038</string>
+		<string>0045</string>
+		<string>0052</string>
+		<string>0017</string>
+		<string>0024</string>
+		<string>0031</string>
+		<string>0067</string>
 		<string>0074</string>
+		<string>0003</string>
+		<string>0010</string>
+		<string>0039</string>
+		<string>0046</string>
+		<string>0053</string>
+		<string>0060</string>
+		<string>0018</string>
+		<string>0025</string>
+		<string>0032</string>
+		<string>0068</string>
 		<string>0075</string>
+		<string>0004</string>
+		<string>0011</string>
+		<string>0047</string>
+		<string>0054</string>
+		<string>0061</string>
+		<string>0019</string>
+		<string>0026</string>
+		<string>0033</string>
+		<string>0040</string>
+		<string>0069</string>
 		<string>0076</string>
+		<string>0005</string>
+		<string>0012</string>
+		<string>0048</string>
+		<string>0055</string>
+		<string>0062</string>
+		<string>0027</string>
+		<string>0034</string>
+		<string>0041</string>
 		<string>0077</string>
+		<string>0006</string>
+		<string>0013</string>
+		<string>0020</string>
+		<string>0049</string>
+		<string>0056</string>
+		<string>0063</string>
+		<string>0070</string>
+		<string>0028</string>
+		<string>0035</string>
+		<string>0042</string>
 		<string>0078</string>
+		<string>0007</string>
+		<string>0014</string>
+		<string>0021</string>
+		<string>0057</string>
+		<string>0064</string>
+		<string>0071</string>
+		<string>0000</string>
+		<string>0029</string>
+		<string>0036</string>
+		<string>0043</string>
+		<string>0050</string>
+		<string>0008</string>
+		<string>0015</string>
+		<string>0022</string>
+		<string>0058</string>
+		<string>0065</string>
+		<string>0072</string>
+		<string>0001</string>
+		<string>0037</string>
+		<string>000</string>
+		<string>0044</string>
+		<string>0051</string>
+		<string>0079</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -3653,13 +3705,15 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing_new.xml?shard=67</string>
+	<string>https://iterm2.com/appcasts/testing_modern.xml?shard=67</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-01-28T00:40:09Z</date>
+	<date>2020-08-03T16:00:33Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>3575068407</integer>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3679,7 +3733,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.40000000596046448</real>
+	<real>0.27130153521578371</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -3724,7 +3778,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.8beta5</string>
+	<string>3.4.0beta2</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
