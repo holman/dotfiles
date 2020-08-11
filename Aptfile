@@ -1,0 +1,9 @@
+# apt packages to install
+docker-ce
+docker-compose
+gradle
+gparted
+npm
+vim
+veracrypt
+zsh

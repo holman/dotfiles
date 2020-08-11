@@ -13,5 +13,10 @@ then
   brew bundle
 fi
 
+if [ "$(uname)" == "Linux" ]; then
+  echo "› sudo apt install"
+  grep -vE "^\s*#" Aptfile  | tr "\n" " " | xargs sudo apt install
+fi
+
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
