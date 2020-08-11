@@ -9,11 +9,11 @@ else
   git="/usr/bin/git"
 fi
 
-# check if the special iterm2 mark function exists. If not then stub it for '>'
+# check if the special iterm2 mark function exists. If not then stub it for '›'
 if type iterm2_prompt_mark > /dev/null; then
   # iterm prompt mark exists, no worries
 else
-  iterm2_prompt_mark() { echo "> " }
+  iterm2_prompt_mark() { echo "› " }
 fi
 
 # Prints the current working branch
