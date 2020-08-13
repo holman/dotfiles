@@ -4,18 +4,16 @@
 # Furthermore has('macunix') does not work in apple vim
 # That breaks latex-suite mac specifics
 if [ "$(uname -s)" = "Darwin" ]; then
-  brew reinstall macvim --HEAD --with-cscope --with-lua --with-override-system-vim
-  # Ensure that vim and python are compiled with the same version
-  brew install python
+  brew reinstall neovim
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo apt-get install -y vim-gtk3
+  sudo snap install --beta nvim --classic
 fi
 
 # update packages in vundle
 # install vundle if not already installed
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-  $(dirname $0)/../git/install.sh
+  "$(dirname "$0")/../git/install.sh"
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
-vim +PluginInstall +qall
+nvim +BundleInstall +qall
 

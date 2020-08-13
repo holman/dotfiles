@@ -1,6 +1,14 @@
 set nocompatible
 set modelines=0
 
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
+
+set lazyredraw
+
+let g:matchparen_timeout = 2
+let g:matchparen_insert_timeout = 2
+
 " Always display the statusline in all windows
 set laststatus=2
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
@@ -17,8 +25,10 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'preservim/nerdtree'
 Plugin 'kaihowl/vim-indent-sentence'
 Plugin 'kien/ctrlp.vim'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dispatch'
@@ -26,52 +36,30 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-abolish'
+
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'scrooloose/syntastic'
+" Plugin 'dense-analysis/ale'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kaihowl/vim-latex'
+
 Plugin 'godlygeek/tabular'
 Plugin 'justinmk/vim-sneak'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Cpp11-Syntax-Support'
 Plugin 'majutsushi/tagbar'
-Plugin 'reedes/vim-colors-pencil'
+" Plugin 'reedes/vim-colors-pencil'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'edkolev/tmuxline.vim'
 Plugin 'jremmen/vim-ripgrep'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'tpope/vim-abolish'
 
 syntax enable
 
 " let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
-" Detect background color automatically from COLORFGBG
-" Set default value for explicitness
-set background&
+
+" Detect background color automatically from COLORFGBG (BROKEN IN NVIM)
+" Set default value as workaround
+set background=light
+
 colorscheme solarized
-
-
-
-" configure airline
-" set laststatus=2 " use if status line is not showing
-" set to use no special symbols at all
-" this avoids having to patch fonts!
-let g:airline_highlighting_cache = 1
-let g:airline_theme = 'solarized'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-" unicode symbols
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
-
-" configure tmuxline
-let g:tmuxline_powerline_separators = 0
-
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
@@ -83,7 +71,6 @@ set wildignorecase
 
 " Enable indent guides per default
 let g:indent_guides_enable_on_vim_startup = 1
-
 
 " Shamelessly copied from Steve Losh's vimrc
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
@@ -166,15 +153,9 @@ let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 't' " Do not switch to other tabs on <cr>
-" PyMatcher for CtrlP
-if !has('python') && !has('python3')
-    echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-    let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
 
 " Set delay to prevent extra search
-let g:ctrlp_lazy_update = 200
+let g:ctrlp_lazy_update = 350
 
 " Do not clear filenames cache, to improve CtrlP startup
 " You can manualy clear it by <F5>
@@ -464,7 +445,7 @@ command! DiffHistory call s:view_merge_request()
 " https://github.com/tpope/vim-fugitive/issues/132#issuecomment-649516204
 function! s:view_merge_request()
   let revision = s:get_diff_file_master_merge()
-  execute 'Git difftool ' . revision . '..HEAD --find-renames=50% '
+  execute 'Git difftool ' . revision . '..HEAD --find-renames=50\%'
   call s:diff_current_quickfix_entry()
   " Bind <CR> for current quickfix window to properly set up diff split layout after selecting an item
   " There's probably a better way to map this without changing the window
@@ -500,5 +481,23 @@ function! s:add_mappings()
   wincmd p
 endfunction
 
+" ------ Status line (source: https://shapeshed.com/vim-statuslines) ------
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
+" -----
+
+
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
+

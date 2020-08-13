@@ -62,7 +62,11 @@ install_dotfiles () {
 
   for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
   do
-    dest="$HOME/.`basename \"${source%.*}\"`"
+    filename=$(basename "${source%.*}")
+    filename_with_dir=${filename//--/\/}
+    dest="$HOME/.${filename_with_dir}"
+
+    mkdir -p "$(dirname "$dest")"
 
     if [ -f $dest ] || [ -d $dest ]
     then
@@ -73,7 +77,7 @@ install_dotfiles () {
 
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
-        user "File already exists: `basename $source`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
+        user "File already exists: ${filename_with_dir}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
 
         case "$action" in
