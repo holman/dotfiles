@@ -27,7 +27,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'preservim/nerdtree'
 Plugin 'kaihowl/vim-indent-sentence'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
