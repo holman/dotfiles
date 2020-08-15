@@ -39,9 +39,9 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-abolish'
 
 Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'dense-analysis/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'kaihowl/vim-latex'
+" Plugin 'kaihowl/vim-latex'
 
 Plugin 'godlygeek/tabular'
 Plugin 'justinmk/vim-sneak'
