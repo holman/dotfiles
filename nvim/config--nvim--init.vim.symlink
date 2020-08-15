@@ -153,6 +153,8 @@ let g:ctrlp_extensions = ['line', 'mixed']
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 't' " Do not switch to other tabs on <cr>
+let g:ctrlp_by_filename = 1
+
 
 " Set delay to prevent extra search
 let g:ctrlp_lazy_update = 350
