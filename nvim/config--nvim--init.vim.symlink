@@ -2,7 +2,7 @@ set nocompatible
 set modelines=0
 
 let g:loaded_python_provider = 0
-let g:loaded_python3_provider = 0
+" let g:loaded_python3_provider = 1
 
 set lazyredraw
 
@@ -28,6 +28,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'kaihowl/vim-indent-sentence'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
@@ -154,6 +155,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 't' " Do not switch to other tabs on <cr>
 let g:ctrlp_by_filename = 1
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
 
 
 " Set delay to prevent extra search
