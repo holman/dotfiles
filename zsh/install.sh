@@ -9,3 +9,4 @@ then
 fi
 
 chsh -s ${zshBrew}
+compaudit | xargs chmod go-w

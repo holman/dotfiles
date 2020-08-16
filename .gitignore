@@ -1,5 +1,5 @@
 atom.symlink/.apm
-
+atom.symlink/.atom-socket-secret-*
 atom.symlink/.node-gyp
 atom.symlink/.storage
 atom.symlink/blob-store
@@ -11,7 +11,6 @@ atom.symlink/projects.cson
 atom.symlink/dev
 atom.symlink/split-diff
 
-antigen.symlink/repos
 
 git/gitconfig.symlink
 youtube-dl/netrc.symlink
@@ -28,3 +27,4 @@ task.symlink/*
 atom.symlink/recovery
 
 system/env.local.zsh
+Brewfile.lock.json
