@@ -42,5 +42,8 @@
   "telemetry.enableTelemetry": false,
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "sqltools.highlightQuery": false
+  "sqltools.highlightQuery": false,
+  "python.sortImports.path": "isort",
+  "python.analysis.memory.keepLibraryAst": true,
+  "python.analysis.memory.keepLibraryLocalVariables": true
 }
