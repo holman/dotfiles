@@ -6,4 +6,12 @@ if test $(command -v brew); then
     echo 'Installing php & composer ...'
     brew install php composer
   fi
+
+  if test $(command -v wp-cli); then
+    echo 'Upgrade wp-cli'
+    brew upgrade wp-cli
+  else
+    echo 'Installing wp-cli'
+    brew install wp-cli
+  fi
 fi
