@@ -502,6 +502,9 @@ set statusline+=\ %l:%c
 set statusline+=\ 
 " -----
 
+" Make nerdtree
+let g:NERDTreeMapUpdir = '-'
+
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
