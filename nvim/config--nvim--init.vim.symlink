@@ -1,5 +1,5 @@
 set nocompatible
-set modelines=0
+set modelines=1
 
 let g:loaded_python_provider = 0
 " let g:loaded_python3_provider = 1
@@ -506,3 +506,4 @@ set statusline+=\
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
 
+" vi: ft=vim :
