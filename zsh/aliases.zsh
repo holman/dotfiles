@@ -9,9 +9,9 @@ alias hosts!="$EDITOR /etc/hosts"
 alias gst="gss"
 alias gbc="gcb"
 
-alias fw="~/Findaway"
-alias proj="~/Projects"
-alias icd="~/Library/Mobile\ Documents/com\~apple\~CloudDocs"
+alias fw="pushd ~/Findaway"
+alias proj="pushd ~/Projects"
+alias icd="pushd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs"
 
 # List direcory contents
 alias lsa='colourify ls -lah'
