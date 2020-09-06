@@ -505,6 +505,14 @@ set statusline+=\
 " Make nerdtree
 let g:NERDTreeMapUpdir = '-'
 
+" Configure ALE
+let g:ale_linters = {'cpp': ['clangd']}
+let g:ale_set_balloons=1
+let g:ale_completion_enabled=1
+set omnifunc=ale#completion#OmniFunc
+nmap gd :ALEGoToDefinition -tab<CR>
+nmap gr :ALEFindReferences<CR>
+nmap K :ALEHover<CR>
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
