@@ -486,7 +486,9 @@ set statusline+=\
 let g:NERDTreeMapUpdir = '-'
 
 " Configure ALE
-let g:ale_linters = {'cpp': ['clangd']}
+let g:ale_linters = {'cpp': ['clangd'], 'rust': ['analyzer', 'rls', 'cargo']}
+let g:ale_fixers = {'cpp': ['clang-format'], 'rust': ['rustfmt']}
+let g:ale_fix_on_save=1
 let g:ale_set_balloons=1
 let g:ale_completion_enabled=1
 set omnifunc=ale#completion#OmniFunc
