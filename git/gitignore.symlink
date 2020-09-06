@@ -112,3 +112,4 @@ tags.lock
 CMakeLists.txt.user
 .rgignore
 /v/
+/.clangd/
