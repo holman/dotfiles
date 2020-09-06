@@ -187,17 +187,6 @@ inoremap JJ <esc>Ji
 " python pep8 compliance
 au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 
-" Syntastic settings
-" Ignore certain syntastic latex warnings
-let g:syntastic_quiet_messages={"regex": "Do not use @ in LaTeX macro names."}
-let g:syntastic_python_checkers = ['python', 'pyflakes', 'flake8']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_java_checkers = []
-" Syntastic / Eclim
-" Only Java validation is done by Eclim
-let g:EclimJavaValidate = 1
-let g:EclimXmlValidate = 0
-
 " Make
 " We explicitly use a separate makefile to drive make to be able to switch make
 " commands by editing the makefile without having to reload vimrc
@@ -317,15 +306,6 @@ nmap ]h <Plug>(GitGutterNextHunk)
 nnoremap <leader>t :TagbarOpen fj<cr>
 " show line numbers in tagbar
 let g:tagbar_show_linenumbers=-1
-
-" some java eclim mappings
-nnoremap <leader>i :JavaImport<cr>
-nnoremap <leader>d :JavaDocSearch -x declarations<cr>
-nnoremap <leader>s :JavaSearchContext<cr>
-nnoremap <leader>p :ProjectProblems!<cr>
-
-" Disable auto completion of log statements in java eclim
-let g:EclimLoggingDisabled = 1
 
 " Set smart case for rg
 if executable("rg")
