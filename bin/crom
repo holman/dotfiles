@@ -6,7 +6,10 @@ update=""
 if [ $# -eq 1 ]; then
   update="--update"
 fi
-conan install $update --build=missing ..
+
+profile_switch=${CROM_DEFAULT_PROFILE:+-pr $CROM_DEFAULT_PROFILE}
+
+conan install $update $profile_switch --build=missing ..
 if [[ -f ../conanfile.py ]]; then
   CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
 else
