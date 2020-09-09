@@ -494,6 +494,7 @@ let g:ale_completion_enabled=1
 set omnifunc=ale#completion#OmniFunc
 nmap gd :ALEGoToDefinition -tab<CR>
 nmap gr :ALEFindReferences<CR>
+nmap gR :ALERename<CR>
 nmap K :ALEHover<CR>
 
 set exrc            " enable per-directory .vimrc files
