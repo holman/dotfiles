@@ -482,7 +482,7 @@ set statusline+=\ %l:%c
 set statusline+=\ 
 " -----
 
-" Make nerdtree
+" Make nerdtree work like vim-vinegar
 let g:NERDTreeMapUpdir = '-'
 
 " Configure ALE
