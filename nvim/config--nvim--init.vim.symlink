@@ -36,7 +36,6 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-abolish'
 
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -484,6 +483,7 @@ set statusline+=\
 
 " Make nerdtree work like vim-vinegar
 let g:NERDTreeMapUpdir = '-'
+nmap - :NERDTreeFind<CR>
 
 " Configure ALE
 let g:ale_linters = {'cpp': ['clangd'], 'rust': ['analyzer', 'rls', 'cargo']}
