@@ -173,6 +173,37 @@
 ;;     (concat "--glob=!" pattern)))
 ;; ;;;
 
+
+;; https://www.reddit.com/r/emacs/comments/4gudyw/help_me_with_my_orgmode_workflow_for_notetaking/
+(setq org-ref-default-bibliography '("~/Dropbox/zotero/references.bib")
+      org-ref-pdf-directory "~/Dropbox/zotero/pdfs"
+      org-ref-bibliography-notes "~/Dropbox/zotero/notes.org")
+
+(setq bibtex-completion-bibliography '("~/Dropbox/zotero/references.bib")
+      bibtex-completion-library-path '("~/Dropbox/zotero/pdfs")
+      bibtex-completion-notes-path "~/Dropbox/zotero/notes.org"
+      bibtex-completion-pdf-field "file"
+)
+
+(autoload 'ivy-bibtex "ivy-bibtex" "" t)
+;; ivy-bibtex requires ivy's `ivy--regex-ignore-order` regex builder, which
+;; ignores the order of regexp tokens when searching for matching candidates.
+;; Add something like this to your init file:
+(setq ivy-re-builders-alist
+      '((ivy-bibtex . ivy--regex-ignore-order)
+        (t . ivy--regex-plus)))
+
+;; https://github.com/tmalsburg/helm-bibtex#usage
+(setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes)
+
+
+;; fix error
+;; added on 20.09.03 from this link https://github.com/syl20bnr/spacemacs/issues/5554
+(defun ask-user-about-lock (file other-user)
+  "A value of t says to grab the lock on the file."
+  t)
+
+
 ;; treemacs
 (setq-default dotspacemacs-configuration-layers '(
   (treemacs :variables treemacs-use-follow-mode 'tag))
