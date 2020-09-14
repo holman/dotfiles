@@ -15,41 +15,48 @@ set laststatus=2
 set noshowmode
 
 filetype off
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-" alternatively, pass a path where Vundle should install plugins
-" let path = '~/some/path/here'
-" call vundle#rc(path)
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Specify a directory for plugins
+call plug#begin(stdpath('data') . '/plugged')
 
-Plugin 'preservim/nerdtree'
-Plugin 'kaihowl/vim-indent-sentence'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+" Source: https://github.com/junegunn/vim-plug/issues/424#issuecomment-189343357
+augroup nerd_loader
+  autocmd!
+  autocmd VimEnter * silent! autocmd! FileExplorer
+  autocmd BufEnter,BufNew *
+        \  if isdirectory(expand('<amatch>'))
+        \|   call plug#load('nerdtree')
+        \|   execute 'autocmd! nerd_loader'
+        \| endif
+augroup END
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-abolish'
+Plug 'kaihowl/vim-indent-sentence'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'dense-analysis/ale'
-Plugin 'bronson/vim-trailing-whitespace'
-" Plugin 'kaihowl/vim-latex'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
 
-Plugin 'godlygeek/tabular'
-Plugin 'justinmk/vim-sneak'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'majutsushi/tagbar'
-" Plugin 'reedes/vim-colors-pencil'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jremmen/vim-ripgrep'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'dense-analysis/ale'
+Plug 'bronson/vim-trailing-whitespace'
+" Plug 'kaihowl/vim-latex'
+
+Plug 'godlygeek/tabular'
+Plug 'justinmk/vim-sneak'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+" Plug 'reedes/vim-colors-pencil'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jremmen/vim-ripgrep'
+
+call plug#end()
 
 syntax enable
 
