@@ -22,6 +22,9 @@ chflags nohidden ~/Library
 # Show all hidden files.
 # defaults write com.apple.finder AppleShowAllFiles YES
 
+# Set a really fast key repeat.
+defaults write NSGlobalDomain KeyRepeat -int 1
+
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
@@ -59,7 +62,3 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-
-# Set a blazingly fast keyboard repeat rate
-# defaults write NSGlobalDomain KeyRepeat -int 0
-# defaults write NSGlobalDomain InitialKeyRepeat -int 10
