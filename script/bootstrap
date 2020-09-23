@@ -144,7 +144,7 @@ install_dotfiles
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
-  if source bin/dot > /tmp/dotfiles-dot 2>&1
+  if source bin/dot | while read -r data; do info "$data"; done
   then
     success "dependencies installed"
   else

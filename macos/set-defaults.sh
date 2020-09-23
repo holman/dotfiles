@@ -11,7 +11,7 @@
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Use AirDrop over every interface. srsly this should be a default.
-# defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 # Always open everything in Finder's list view. This is important.
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
@@ -21,6 +21,9 @@ chflags nohidden ~/Library
 
 # Show all hidden files.
 # defaults write com.apple.finder AppleShowAllFiles YES
+
+# Set a really fast key repeat.
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -40,26 +43,5 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-###############################################################################
-# Screen                                                                      #
-###############################################################################
-
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-###############################################################################
-# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
-###############################################################################
-
-# Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-
-# Set a blazingly fast keyboard repeat rate
-# defaults write NSGlobalDomain KeyRepeat -int 0
-# defaults write NSGlobalDomain InitialKeyRepeat -int 10
