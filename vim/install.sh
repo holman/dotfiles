@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e 
+
 echo "installing vim pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 cd ~/.vim/autoload
