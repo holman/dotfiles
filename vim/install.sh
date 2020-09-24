@@ -32,5 +32,5 @@ fi
 #deactivate
 
 # get checkers for syntastic
-pip install pyflakes --user
+pip3 install pyflakes --user
 cd ~/.dotfiles
