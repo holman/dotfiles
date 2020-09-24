@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e 
+
 echo "installing jupyter extensions"
 pip3 install --user jupyter
 pip3 install --user jupyter_contrib_nbextensions
