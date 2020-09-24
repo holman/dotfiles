@@ -74,6 +74,10 @@ PROMPT="$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
 # pyenv switches python versions automatically on mac
 # do `pyenv install 3.4.0` then `pyenv local 3.6.4` in your repo to make a .python-version
-if test "$(uname)" = "Darwin"; then
-    eval "$(pyenv init -)"
-fi
+#if test "$(uname)" = "Darwin"; then
+    #eval "$(pyenv init -)"
+#fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+#pyenv virtualenvwrapper
