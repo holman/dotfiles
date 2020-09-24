@@ -22,4 +22,4 @@ cd $(jupyter --data-dir)/nbextensions
 echo "copying jupyter config"
 cp ~/.dotfiles/jupyter/jupyter_notebook_config.py ~/.jupyter/
 echo "symlink jupyter password setup"
-ln -s ../jupyter_notebook_config.json ../.jupyter/
+ln -s ~/jupyter_notebook_config.json ~/.jupyter/
