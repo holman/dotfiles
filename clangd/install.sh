@@ -5,6 +5,6 @@ if [ "$(uname)" == "Darwin" ]; then
   # Force it into PATH
   sudo ln -sf "$(brew list llvm | grep 'bin/clangd$' | head -n1)" /usr/local/bin
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo apt-get install -y clangd-10
-  sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100
+  sudo apt-get install -y clangd-9
+  sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
 fi
