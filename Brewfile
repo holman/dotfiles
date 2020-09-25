@@ -2,6 +2,8 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 
+brew 'gpg2'
+
 cask '1password'
 cask 'alfred'
 cask 'dropbox'
