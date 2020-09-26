@@ -48,4 +48,5 @@ bind c new-window -c "#{pane_current_path}"
 
 # Advice by nvim checkhealth
 set-option -sg escape-time 10
-set-option -sa terminal-overrides ',xterm-256color:RGB'
+set-option -sa terminal-overrides ',xterm-256color:Tc'
+set-option -g focus-events on
