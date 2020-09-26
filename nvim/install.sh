@@ -5,10 +5,10 @@
 # That breaks latex-suite mac specifics
 if [ "$(uname -s)" = "Darwin" ]; then
   brew reinstall neovim
-  sudo pip3 install neovim
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo snap install --beta nvim --classic
 fi
+sudo pip3 install pynvim
 
 # update packages in Plug
 # install plug if not already installed
