@@ -133,6 +133,7 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gl :RestoreCurPos Silent 0Glog -n 20<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :RestoreCurPos Gedit<cr>
+nnoremap <leader>gE :RestoreCurPos Gtabedit<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gru :Git rebase @{u}<cr>
 nnoremap <leader>gri :Git rebase -i @{u}<cr>
