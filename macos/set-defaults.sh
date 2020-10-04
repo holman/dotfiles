@@ -23,8 +23,8 @@ chflags nohidden ~/Library
 # defaults write com.apple.finder AppleShowAllFiles YES
 
 # Set a really fast key repeat.
-defaults write -g InitialKeyRepeat -int 10
-defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
