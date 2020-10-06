@@ -310,7 +310,7 @@ nmap [h <Plug>(GitGutterPrevHunk)
 nmap ]h <Plug>(GitGutterNextHunk)
 
 " open tagbar (and focus) (or jump to if open)
-nnoremap <leader>t :TagbarOpen fj<cr>
+nnoremap <leader>o :TagbarOpen fj<cr>
 " show line numbers in tagbar
 let g:tagbar_show_linenumbers=-1
 
@@ -505,8 +505,23 @@ nmap gr :ALEFindReferences<CR>
 nmap gR :ALERename<CR>
 nmap K :ALEHover<CR>
 
-" TODO mapping
-imap <leader>t TODO(hoewelmk)
+" ------ TODOS mappings
+function! s:GetUser()
+  return trim(system('id -un'))
+endfunction
+
+function! s:SearchForToDo()
+  let user = <sid>GetUser()
+  execute ':Rg todo.'.user
+endfunction
+
+function! s:GenerateToDo()
+  let user = <sid>GetUser()
+  return "TODO(" . user . ")"
+endfunction
+
+inoremap <expr> <leader>t <sid>GenerateToDo()
+nnoremap <leader>t :call <sid>SearchForToDo()<cr>
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
