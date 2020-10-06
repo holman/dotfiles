@@ -9,7 +9,7 @@ fi
 
 profile_switch=${CROM_DEFAULT_PROFILE:+-pr $CROM_DEFAULT_PROFILE}
 
-conan install $update $profile_switch --build=outdated ..
+conan install $update $profile_switch -s build_type=Debug --build=outdated ..
 if [[ -f ../conanfile.py ]]; then
   CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
 else
