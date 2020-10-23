@@ -20,16 +20,16 @@ __git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "$(__colorize green $(git_prompt_info) )"
     else
-      echo "%{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo "$(__colorize red $(git_prompt_info))"
     fi
   fi
 }
 
 repo_name() {
   repo=$(basename `git rev-parse --show-toplevel`) || return
-  echo "%{$fg_bold[cyan]%}$repo%{$reset_color%}"
+  echo "$(__colorize cyan $repo) "
 }
 
 git_prompt_info () {
@@ -50,7 +50,7 @@ __need_push () {
     then
       echo " "
     else
-      echo " with %{$fg_bold[magenta]%}$number unpushed%{$reset_color%}"
+      echo " with $(__colorize magenta $number unpushed)"
     fi
   fi
 }
@@ -79,7 +79,9 @@ __beerTime()  {
   fi
 }
 __colorize() {
-  echo "%{$fg_bold[$1]%} $2 %{$reset_color%}"
+  color=$1
+  shift
+  echo "%{$fg_bold[$color]%} $@ %{$reset_color%}"
 }
 __kubeContext() {
   if ! type "kubectl" > /dev/null; then
@@ -88,16 +90,16 @@ __kubeContext() {
   kube=$(kubectl config current-context 2> /dev/null ) || return
   kubefile=$(readlink ~/.kube/config)
   kubeNS="$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)"
-  echo "\u2388 $(__colorize blue ${kube})  $(__colorize purple ${kubeNS}) "
+  echo "$(__colorize blue '\u2388' ${kube} ${kubeNS} ) "
   # iterm2_set_user_var kube_ctx "$kube"
   # iterm2_set_user_var kube_ns "$kubeNS"
 }
-export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime) \n$(__kubeContext) \n›'
+export PROMPT=$'\n$(__kubeContext)\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime) \n›'
 # export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime)\n'
 # PROMPT=$'$(PROMPT) $(kube) $(kubeNS)\n›'
 # export $PROMPT
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export RPROMPT=""
 }
 
 precmd() {
