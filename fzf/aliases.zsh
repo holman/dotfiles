@@ -31,7 +31,7 @@ fzf-key-gf() {
 
 fzf-key-gb() {
   is_in_git_repo || return
-  git branch -a --color=always | grep -v '/HEAD\s' | sort |
+  git branch -a --sort=committerdate --color=always | grep -v '/HEAD\s' |
   fzf-down --ansi --multi --tac --preview-window right:70% \
     --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
   sed 's/^..//' | cut -d' ' -f1 |
