@@ -84,5 +84,6 @@
 [user]
 	signingkey = 384B0557E881327F
 	email = pattonjp@gmail.com
+	name = pattonjp
 [commit]
 	gpgsign = true

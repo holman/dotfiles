@@ -82,25 +82,26 @@ __colorize() {
   echo "%{$fg_bold[$1]%} $2 %{$reset_color%}"
 }
 __kubeContext() {
-  ico='\u2388'
   if ! type "kubectl" > /dev/null; then
     return
   fi
   kube=$(kubectl config current-context 2> /dev/null ) || return
   kubefile=$(readlink ~/.kube/config)
   kubeNS="$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)"
-  # echo "$ico $(__colorize blue $kube ) $(__colorize purple $kubeNS ) from: $(__colorize yellow $kubefile ) \n"
-  iterm2_set_user_var kube_ctx "$kube"
-  iterm2_set_user_var kube_ns "$kubeNS"
+  echo "\u2388 $(__colorize blue ${kube})  $(__colorize purple ${kubeNS}) "
+  # iterm2_set_user_var kube_ctx "$kube"
+  # iterm2_set_user_var kube_ns "$kubeNS"
 }
-# export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime) \n $(__kubeContext) \n›'
-export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime)\n›'
+export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime) \n$(__kubeContext) \n›'
+# export PROMPT=$'\n$(__battery_status) $(__directory_name) $(__git_dirty)$(__need_push) $(__beerTime)\n'
+# PROMPT=$'$(PROMPT) $(kube) $(kubeNS)\n›'
+# export $PROMPT
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
 
 precmd() {
-  __kubeContext
+  # __kubeContext
   title "zsh" "%m" "%55<...<%~"
   set_prompt
   stt_both `pwd`

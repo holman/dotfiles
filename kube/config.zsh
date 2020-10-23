@@ -11,3 +11,9 @@ kubes-switch(){
 kubes-list(){
   ls -alh $HOME/.kube
 }
+
+kca(){
+  cmd=$1
+  shift
+  kubectl $cmd --all-namespaces $@
+}
