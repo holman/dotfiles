@@ -1,6 +1,3 @@
-# Use `hub` as our git wrapper:
-#   http://defunkt.github.com/hub/
-eval "$(hub alias -s)"
 
 # The rest of my fun git aliases
 alias gl='git pull --prune'
