@@ -82,7 +82,12 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [user]
-	signingkey = 384B0557E881327F
+	signingkey = 9E7E11E612A67CB4
 	email = pattonjp@gmail.com
 [commit]
 	gpgsign = true
+
+[credential]
+	helper = osxkeychain
+[pull]
+	rebase = true

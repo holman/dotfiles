@@ -1,4 +1,2 @@
-atom.symlink/*
-!atom.symlink/atom.coffee
 git/gitconfig.local.symlink
 work/
