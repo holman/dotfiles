@@ -43,3 +43,8 @@ defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.Web
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+
+screencapDir=$HOME/screencapture
+mkdir -p $screencapDir
+defaults write com.apple.screencapture location $screencapDir
+killall SystemUIServer

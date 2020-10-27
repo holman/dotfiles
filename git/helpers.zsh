@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-fetchall(){
+git-fetchall(){
   # store the current dir
   CUR_DIR=$(pwd)
 
@@ -28,7 +28,7 @@ fetchall(){
 }
 
 
-pullall(){
+git-pullall(){
   # store the current dir
   CUR_DIR=$(pwd)
 
