@@ -60,8 +60,9 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 eval "$(rbenv init -)"
 
 # Load node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[[ -r $NVM_DIR/bash_completion ]] && \. $NVM_DIR/bash_completion
 
 # automaticall switch to node version when entering a directory with a .nvmrc file
 autoload -U add-zsh-hook
