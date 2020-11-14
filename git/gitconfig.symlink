@@ -15,7 +15,7 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = ~/.gitignore
+	excludesfile = /Users/eritchey/.gitignore
         editor = vim
 [apply]
         whitespace = nowarn
@@ -31,3 +31,14 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[user]
+	name = Eric Ritchey
+	email = eritchey@tesla.com
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/eritchey/.stCommitMsg
