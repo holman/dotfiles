@@ -40,3 +40,6 @@ cask 'opera'
 cask 'microsoft-teams'
 cask 'slack'
 cask 'mattermost'
+
+cask 'spotify'
+cask 'docker'
