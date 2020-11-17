@@ -42,7 +42,7 @@ cask 'slack'
 
 cask 'spotify'
 
-# Specific for Tesla
+# Specific for work
 cask 'vault'
 cask 'docker'
 cask 'mattermost'
