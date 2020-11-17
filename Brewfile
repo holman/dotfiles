@@ -39,7 +39,9 @@ cask 'opera'
 
 cask 'microsoft-teams'
 cask 'slack'
-cask 'mattermost'
 
 cask 'spotify'
+# Specific for Tesla
+cask 'vault'
 cask 'docker'
+cask 'mattermost'
