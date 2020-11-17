@@ -41,6 +41,7 @@ cask 'microsoft-teams'
 cask 'slack'
 
 cask 'spotify'
+
 # Specific for Tesla
 cask 'vault'
 cask 'docker'
