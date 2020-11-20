@@ -291,5 +291,17 @@
         "key": "shift+cmd+\\",
         "command": "-editor.action.jumpToBracket",
         "when": "editorTextFocus"
-    }
+    },
+    { 
+        "key": "cmd+right", 
+        "command": "extension.multiCommand.execute" , 
+        "args": { "command": "multiCommand.gotoEndOfLine" },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+left",
+        "command": "extension.multiCommand.execute" ,
+        "args": { "command": "multiCommand.gotoBeginningOfLine" },
+        "when": "editorTextFocus"
+    },
 ]
