@@ -25,13 +25,13 @@ alias kcgx='kubectl get secret'
 alias kcsx='kubectl describe secret'
 alias kcdx='kubectl delete secret'
 
-# for the contacts app
-KC_SERVER=$(kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d " ")
-KC_SECRET_NAME=$(kubectl get secrets | grep ^default | cut -f1 -d ' ')
-KC_TOKEN=$(kubectl describe secret $KC_SECRET_NAME | grep -E '^token' | cut -f2 -d':' | tr -d " ")
-KC_TOKEN_CONTACTS_APP='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAaW5mb2Jsb3guY29tIiwiYXBpX3Rva2VuIjoiZWJiY2ZlMDI5MmRmOGE1YzhmZDEzMWU0NjM3ZGNiODQiLCJhY2NvdW50X2lkIjoiMSIsImdyb3VwcyI6WyJhZG1pbiIsImVuZ2luZWVyIl0sImV4cCI6MjM5ODM2NzU0MCwianRpIjoiVE9ETyIsImlhdCI6MTUzNDM2NzU0MCwiaXNzIjoiYXRoZW5hLWF1dGhuLXN2YyIsIm5iZiI6MTUzNDM2NzU0MH0.Fr6RVggMqbH6WXPwaJl9Q03lem2pDB_OHHyQ2yySack'
-alias kcc='curl --insecure --header "Authorization: Bearer ${KC_TOKEN_CONTACTS_APP}"'
-alias kcci='curl --insecure --header "Authorization: Bearer ${KC_TOKEN}" ${KC_SERVER}/api'
+# for the contacts app, FIXME: they do not work when connected to VPN
+# KC_SERVER=$(kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d " ")
+# KC_SECRET_NAME=$(kubectl get secrets | grep ^default | cut -f1 -d ' ')
+# KC_TOKEN=$(kubectl describe secret $KC_SECRET_NAME | grep -E '^token' | cut -f2 -d':' | tr -d " ")
+# KC_TOKEN_CONTACTS_APP='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAaW5mb2Jsb3guY29tIiwiYXBpX3Rva2VuIjoiZWJiY2ZlMDI5MmRmOGE1YzhmZDEzMWU0NjM3ZGNiODQiLCJhY2NvdW50X2lkIjoiMSIsImdyb3VwcyI6WyJhZG1pbiIsImVuZ2luZWVyIl0sImV4cCI6MjM5ODM2NzU0MCwianRpIjoiVE9ETyIsImlhdCI6MTUzNDM2NzU0MCwiaXNzIjoiYXRoZW5hLWF1dGhuLXN2YyIsIm5iZiI6MTUzNDM2NzU0MH0.Fr6RVggMqbH6WXPwaJl9Q03lem2pDB_OHHyQ2yySack'
+# alias kcc='curl --insecure --header "Authorization: Bearer ${KC_TOKEN_CONTACTS_APP}"'
+# alias kcci='curl --insecure --header "Authorization: Bearer ${KC_TOKEN}" ${KC_SERVER}/api'
 
 # for the saas-app-deployment https://github.com/Infoblox-CTO/saas-app-deployment/tree/master/deployment/ngp-onprem#33--setup-environment-variables
 # export USER=$(git config user.email | sed -e 's/\@.*//')
