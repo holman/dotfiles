@@ -153,6 +153,8 @@ nnoremap <leader>g3 :Gedit :3<cr>:Gdiff :1<cr>
 nnoremap <leader>gp :Disp git push<cr>
 nnoremap <leader>gf :Disp git fetch<cr>
 
+au FileType qf set nolist
+
 " Git mapping for finding conflict markers
 nnoremap <leader>c /\m\(<<<<<<< \\|=======\n\\|>>>>>>> \)<cr>
 
