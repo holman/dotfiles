@@ -56,6 +56,8 @@ Plug 'majutsushi/tagbar'
 Plug 'altercation/vim-colors-solarized'
 Plug 'jremmen/vim-ripgrep'
 
+Plug 'MarcWeber/vim-addon-local-vimrc'
+
 call plug#end()
 
 syntax enable
@@ -532,7 +534,7 @@ endfunction
 inoremap <expr> <leader>t <sid>GenerateToDo()
 nnoremap <leader>t :call <sid>SearchForToDo()<cr>
 
-set exrc            " enable per-directory .vimrc files
-set secure          " disable unsafe commands in local .vimrc files
+" Configure vim-addon-local-vimrc
+let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
 
 " vi: ft=vim :
