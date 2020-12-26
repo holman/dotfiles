@@ -114,3 +114,4 @@ CMakeLists.txt.user
 /v/
 .clangd/
 .nvimrc
+.root
