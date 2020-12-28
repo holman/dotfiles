@@ -151,9 +151,10 @@ nnoremap <leader>n dp]c
 nnoremap <leader>g2 :Gedit :2<cr>:Gdiff :1<cr>
 nnoremap <leader>g3 :Gedit :3<cr>:Gdiff :1<cr>
 
-" Dispatch mappings
-nnoremap <leader>gp :Disp git push<cr>
-nnoremap <leader>gf :Disp git fetch<cr>
+" Fugitive git push / fetch mappings
+nnoremap <leader>gp :Git push<cr>
+nnoremap <leader>gP :Git pub<cr>
+nnoremap <leader>gf :Git fetch<cr>
 
 au FileType qf set nolist
 
