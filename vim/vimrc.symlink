@@ -22,7 +22,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_css_checkers = ['prettycss']
 let g:syntastic_javascript_checkers = ['jslint']
-let g:syntastic_python_checkers = ['pylint'] "when pylint gives too many errors
+let g:syntastic_python_checkers = ['pyflakes'] "when pylint gives too many errors
 let g:syntastic_python_pep8_args='--ignore=E501'
 let g:syntastic_python_flake8_args='--ignore=E501'
 

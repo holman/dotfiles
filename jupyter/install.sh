@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e 
+
 echo "installing jupyter extensions"
 pip3 install --user jupyter
 pip3 install --user jupyter_contrib_nbextensions
@@ -17,3 +21,5 @@ cd $(jupyter --data-dir)/nbextensions
 
 echo "copying jupyter config"
 cp ~/.dotfiles/jupyter/jupyter_notebook_config.py ~/.jupyter/
+echo "symlink jupyter password setup"
+ln -s ~/jupyter_notebook_config.json ~/.jupyter/
