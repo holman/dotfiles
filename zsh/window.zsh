@@ -27,7 +27,7 @@ function get_host_from_ssh_config() {
 
 function title() {
   case $TERM in
-  screen|screen-256color)
+  screen|screen-256color|tmux|tmux-256color)
     precmd () {
       local prefix
       prefix=""
