@@ -48,5 +48,11 @@ bind c new-window -c "#{pane_current_path}"
 
 # Advice by nvim checkhealth
 set-option -sg escape-time 10
-set-option -sa terminal-overrides ',xterm-256color:Tc'
 set-option -g focus-events on
+
+# Enable true colors
+set-option -sa terminal-overrides ',xterm-256color:Tc'
+set -g default-terminal "tmux-256color"
+
+
+# vi: set ft=tmux :

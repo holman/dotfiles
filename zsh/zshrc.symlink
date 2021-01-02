@@ -6,11 +6,6 @@ else
 	export DOTS=$ALT_HOME/.dotfiles
 fi
 
-# Enable colors
-if [[ "$TERM" != *-256color ]]; then
-  export TERM=xterm-256color
-fi
-
 DISABLE_UPDATE_PROMPT="true"
 
 # Cache the brew prefix for other tools (like autojump) to pick up
