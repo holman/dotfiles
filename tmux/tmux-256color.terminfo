@@ -1,0 +1,4 @@
+tmux-256color|screen with 256 colors and italics,
+  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@,
+  khome=\E[1~, kend=\E[4~,
+  use=xterm-256color, use=screen-256color,

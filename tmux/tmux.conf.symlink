@@ -1,5 +1,3 @@
-set -g default-terminal "screen-256color"
-
 set -g base-index 1
 set -g pane-base-index 1
 
@@ -51,8 +49,8 @@ set-option -sg escape-time 10
 set-option -g focus-events on
 
 # Enable true colors
-set-option -sa terminal-overrides ',xterm-256color:Tc'
-set -g default-terminal "tmux-256color"
+set -g default-terminal 'tmux-256color'
+set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
 
 
 # vi: set ft=tmux :
