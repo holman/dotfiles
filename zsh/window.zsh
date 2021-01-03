@@ -49,8 +49,6 @@ function title() {
         formatted_title="$(get_host_from_ssh "$1")"
       fi
       print -Pn "\ek$formatted_title\e\\" # screen title (in ^A")
-      # TODO disentangle from the reset
-      _refresh_envvariable_from_tmux
     }
     ;;
   xterm*|rxvt)

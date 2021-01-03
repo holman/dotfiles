@@ -1,8 +1,6 @@
 set -g base-index 1
 set -g pane-base-index 1
 
-set -g update-environment COLORFGBG
-
 set-window-option -g mode-keys vi
 
 unbind-key j
