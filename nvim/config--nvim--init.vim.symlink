@@ -58,11 +58,25 @@ Plug 'jremmen/vim-ripgrep'
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+
 call plug#end()
 
 syntax enable
 
 " let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
+" configure tmuxline
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_preset = {
+    \'a'       : '#S',
+    \'y'       : ['%Y-%m-%d', '%H:%M'],
+    \'z'       : '#h',
+    \'win'     : ['#I', '#W'],
+    \'cwin'    : ['#I', '#{?window_zoomed_flag,(,} #W #{?window_zoomed_flag,),}'],
+    \'x'       : '%a',
+    \'options' : {'status-justify' : 'left'}}
 
 " Detect background color automatically from COLORFGBG (BROKEN IN NVIM)
 " Set default value as workaround
