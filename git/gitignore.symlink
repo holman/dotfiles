@@ -113,6 +113,7 @@ CMakeLists.txt.user
 .rgignore
 /v/
 .clangd/
+.cache/
 .nvimrc
 .root
 /build/
