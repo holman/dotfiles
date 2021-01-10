@@ -6,6 +6,10 @@ let g:loaded_python_provider = 0
 
 set lazyredraw
 
+if exists('+termguicolors')
+  set termguicolors
+endif
+
 let g:matchparen_timeout = 2
 let g:matchparen_insert_timeout = 2
 
@@ -58,6 +62,7 @@ Plug 'jremmen/vim-ripgrep'
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
+Plug 'sainnhe/edge'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
@@ -66,7 +71,8 @@ call plug#end()
 
 syntax enable
 
-" let g:pencil_higher_contrast_ui = 0 " Yes, 0 means enabled here...
+set background=dark
+
 " configure tmuxline
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
@@ -78,11 +84,13 @@ let g:tmuxline_preset = {
     \'x'       : '%a',
     \'options' : {'status-justify' : 'left'}}
 
-" Detect background color automatically from COLORFGBG (BROKEN IN NVIM)
-" Set default value as workaround
-set background=light
 
-colorscheme solarized
+" The configuration options should be placed before `colorscheme edge`.
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 0
+let g:edge_diagnostic_line_highlight = 1
+set cursorline
+colorscheme edge
 
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
@@ -495,8 +503,7 @@ endfunction
 
 " ------ Status line (source: https://shapeshed.com/vim-statuslines) ------
 set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%#LineNr#
+set statusline+=%#Search#
 set statusline+=\ %f
 set statusline+=%m
 set statusline+=%=
