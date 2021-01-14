@@ -3,6 +3,7 @@ export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
+export ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -48,3 +49,7 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+
+# spaceship theme must be installed as per https://github.com/denysdovhan/spaceship-prompt
+ZSH_THEME="spaceship"
+
