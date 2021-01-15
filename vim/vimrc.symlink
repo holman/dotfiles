@@ -23,11 +23,12 @@
 
   " set the runtime path to include Vundle and initialize
   set rtp+=~/.vim/bundle/Vundle.vim
-  "call vundle#begin()
-  call vundle#rc()
+  call vundle#begin()
+  "call vundle#rc()
 
   " let Vundle manage Vundle, required
   Plugin 'VundleVim/Vundle.vim'
+
   Plugin 'puppetlabs/puppet-syntax-vim'
   Plugin 'saltstack/salt-vim'
   Plugin 'Lokaltog/vim-powerline'
@@ -41,23 +42,47 @@
   Plugin 'godlygeek/tabular'
 
   Plugin 'scrooloose/nerdtree'
-  Plugin 'scrooloose/syntastic'
+  "Plugin 'scrooloose/syntastic'
 
   " Git wrapper plugin
   Plugin 'tpope/vim-fugitive'
 
   Plugin 'altercation/vim-colors-solarized'
-  Plugin 'hashivim/vim-terraform'
-  Plugin 'faith/vim-go'
+  Plugin 'fatih/vim-go'
+  Plugin 'fenetikm/falcon'
+  Plugin 'itchyny/lightline.vim'
+  Plugin 'leshill/vim-json'
 
-  set background=dark
-  colorscheme solarized
-  let g:solarized_termcolors = 256
+  " Typescript plugins
+  Plugin 'Quramy/tsuquyomi'
+  Plugin 'leafgarland/typescript-vim'
+  Plugin 'Quramy/vim-js-pretty-template'
+  Plugin 'jason0x43/vim-js-indent'
+  "Plugin 'Quramy/vim-dtsm'
+  "Plugin 'mharington/vim-typpings'
+
+  " Jenkinsfile plugins
+  Plugin 'tpope/vim-pathogen'
+  Plugin 'martinda/Jenkinsfile-vim-syntax'
+
+  " Language Server Plugin
+  " Plugin 'neoclide/coc.nvim', {'pinned': 1}
 
   " All of your Plugins must be added before the following line
   call vundle#end()
 
+  set background=dark
+  " colorscheme solarized
+  colorscheme falcon
+  let g:falcon_termcolors = 256
+  let g:solarized_termcolors = 256
+
   filetype plugin indent on
+
+  execute pathogen#infect()
+
+  " enable omnicompletion
+  set omnifunc=syntaxcomplete#Complete
 
 " FileTypes
 " =========
@@ -159,10 +184,6 @@
 " Plugin Settings
 " ===============
 
-  " HashiVim terraform
-  let g:terraform_align=1
-  let g:terraform_remap_spacebar=1
-
   " NERDTree
   nmap <leader>n :NERDTreeToggle<CR>
   let NERDTreeHighlightCursorline=1
@@ -177,6 +198,9 @@
   "let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
+
+  " Enable terraform plan to be include in filter
+  let g:syntastic_terraform_tffilter_plan = 1
 
   " Fugitive
   nnoremap <leader>ga :Git add %:p<CR><CR>
@@ -239,3 +263,26 @@
   endfunction
 
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+  if executable('terraform-lsp')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'terraform-lsp',
+        \ 'cmd': {server_info->['terraform-lsp']},
+        \ 'whitelist': ['terraform'],
+        \ })
+  endif
+
+  function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> <f2> <plug>(lsp-rename)
+    " refer to doc to add more commands
+  endfunction
+
+  augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+  augroup END

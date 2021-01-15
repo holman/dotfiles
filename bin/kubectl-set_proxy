@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # determine the current context
 CURRENT_CONTEXT=`kubectl config current-context`
 
@@ -18,10 +17,12 @@ PROXY=
 if [[ $PROFILE = "non-prod" || $ENVIRONMENT = "non-prod" ]]; then
   # set proxy for non-prod environment
   PROXY=http://squid-01a.nprod.dat.internal:3128
-else
+elif [[ $PROFILE = "prod" || $ENVIRONMENT = "prod" ]]; then
   # set proxy for prod environment
   echo "prod"
   PROXY=http://squid-01a.prod.dat.internal:3128
 fi
+
+echo connecting to proxy: $PROXY
 
 http_proxy=$PROXY kubectl "$@"

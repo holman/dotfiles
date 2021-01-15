@@ -9,6 +9,20 @@ else
   git="/usr/bin/git"
 fi
 
+ssh_connection() {
+  SESSION_TYPE=""
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    SESSION_TYPE=remote/ssh
+  # many other tests omitted
+  else
+    case $(ps -o comm= -p $PPID) in
+      sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+    esac
+  fi
+
+  echo $SESSION_TYPE
+}
+
 git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
@@ -68,7 +82,7 @@ rb_prompt() {
 }
 
 directory_name() {
-  echo " in %{$fg_bold[cyan]%}%~%\/%{$reset_color%}"
+  echo "%{$fg_bold[yellow]%}%~%\/%{$reset_color%}"
 }
 
 date_and_time() {
@@ -80,11 +94,13 @@ date_and_time() {
 hostname() {
   # if in TMUX window name will give hostname
   if [[ -z $TMUX ]]; then
-    echo " at %{$fg[yellow]%}%m%{$reset_color%}"
+    if [[ ! -z $SSH_CLIENT ]]; then
+      echo " at %{$fg[yellow]%}%m%{$reset_color%}"
+    fi
   fi
 }
 
-export PROMPT=$'\n%{$fg[magenta]%}%n%{$reset_color%}$(hostname)$(directory_name)$(vault_expired)$(okta_expired)$(git_dirty)$(need_push)$(date_and_time)\n› '
+export PROMPT=$'\n$(hostname)$(directory_name)$(git_dirty)$(need_push)$(date_and_time)\n› '
 
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"

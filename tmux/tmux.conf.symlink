@@ -4,7 +4,7 @@ set-option -g prefix C-a
 bind-key C-a send-prefix
 
 # split panes using | and -
-bind \ split-window -h
+bind \\ split-window -h
 bind - split-window -v
 unbind '"'
 unbind %
@@ -33,8 +33,8 @@ set-option -g renumber-windows on
 # ##################################
 
 # panes
-set -g pane-border-fg colour11
-set -g pane-active-border-fg colour75
+set -g pane-border-style colour11
+set -g pane-active-border-style colour75
 
 ### status bar design
 # status line
@@ -44,19 +44,19 @@ set -g status-bg colour237
 set -g status-fg colour15
 set -g status-interval 2
 set -g status-left ''
-set -g status-right '#[fg=colour250,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour15,bold] %H:%M:%S '
+set -g status-right '#(/bin/bash ~/.tmux/kube.tmux 250 233 233) #[fg=colour250,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour15,bold] %H:%M:%S '
 set -g status-right-length 50
 set -g status-left-length 20
 
 # messaging
-set -g message-fg black
-set -g message-bg yellow
-set -g message-command-fg blue
+set -g message-style black
+set -g message-style yellow
+set -g message-command-style blue
 set -g message-command-bg black
 
 # window mode
-setw -g mode-bg colour38
-setw -g mode-fg colour15
+setw -g mode-style colour38
+#setw -g mode-fg colour15
 
 # window status
 setw -g window-status-format "#[fg=colour15]#[bg=colour244] #I:#[bg=colour244]#[fg=colour15] #W "

@@ -1,0 +1,1 @@
+function sha256sum() { openssl sha256 "$@" | awk '{print $2}'; }

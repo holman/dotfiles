@@ -1,5 +1,6 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
+export ZSH_CACHE_DIR=$ZSH/cache
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/code
@@ -39,3 +40,16 @@ do
 done
 
 unset config_files
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/matthewce/tmp/bb-helper/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/matthewce/tmp/bb-helper/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/matthewce/tmp/bb-helper/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/matthewce/tmp/bb-helper/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/matthewce/tmp/bb-helper/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/matthewce/tmp/bb-helper/node_modules/tabtab/.completions/slss.zsh
