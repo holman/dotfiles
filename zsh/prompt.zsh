@@ -2,6 +2,13 @@ autoload colors && colors
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
+# for more colours see https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt/124409#124409
+
+col1="77" # dir
+col2="79" # git clean
+col3="214" # git dirty
+col4="81" # git stat
+
 if (( $+commands[git] ))
 then
   git="$commands[git]"
@@ -20,9 +27,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on \\033[38;5;${col1}m$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+	    echo "\\033[38;5;${col2}m$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -45,13 +52,13 @@ need_push () {
     then
       echo " "
     else
-      echo " with %{$fg_bold[magenta]%}$number unpushed%{$reset_color%}"
+      echo " with \\033[38;5;${col4}m$number unpushed%{$reset_color%}"
     fi
   fi
 }
 
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+  echo "\\033[38;5;${col1}m%1/%\/%{$reset_color%}"
 }
 
 battery_status() {

@@ -15,4 +15,4 @@
 # Millions of dollars later and `touch` wins.
 
 # Run our new web 2.0 todo list application and raise millions of VC dollars.
-touch ~/Desktop/"$*"
+touch ~/"$*"

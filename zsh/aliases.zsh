@@ -7,3 +7,6 @@ alias lla='ls -la --color=auto'
 
 # type ssh pw
 alias ssh-verif='eval `ssh-agent`; ssh-add'
+
+# rsub
+alias rsub='~/rsub'
