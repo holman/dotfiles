@@ -49,6 +49,16 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+;;; Code
 ;; Add company-org-roam from the tutorial here https://www.ianjones.us/own-your-second-brain
 (package! company-org-roam
    :recipe (:host github :repo "jethrokuan/company-org-roam"))
+
+(package! org-roam-bibtex
+  :recipe (:host github :repo "org-roam/org-roam-bibtex"))
+
+;;(package! org-ref
+;;  :recipe (:host github :repo "jkitchin/org-ref"))
+
+(package! ivy-bibtex
+  :recipe (:host github :repo "tmalsburg/helm-bibtex"))

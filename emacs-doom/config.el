@@ -22,7 +22,11 @@
       org-ellipsis " ▼ "
       org-adapt-indentation nil
       org-habit-show-habits-only-for-today t
-      ben/org-agenda-directory (file-truename (concat org-directory "gtd/")))
+      ben/org-agenda-directory (file-truename (concat org-directory "gtd/"))
+      zot-bib "~/Dropbox/zotero/references.bib"
+      deft-directory org-directory
+      zot-pdfs-directory "~/Dropbox/zotero/pdfs"
+      )
 
 (setq search-highlight t
       search-whitespace-regexp ".*?"
@@ -44,6 +48,21 @@
 ;;       :after org-roam
 ;;       :config
 ;;       (set-company-backend! 'org-mode '(company-org-roam company-yasnippet company-dabbrev)))
+
+
+;; https://www.ianjones.us/org-roam-bibtex
+;; set-up and install org-noter
+;; setup ivy-bibtex ivy-bibtex
+(use-package! ivy-bibtex
+   :config
+   ;; ivy-bibtex requires ivy's `ivy--regex-ignore-order` regex builder, which
+   ;; ignores the order of regexp tokens when searching for matching candidates.
+   ;; Add something like this to your init file:
+   (setq ivy-re-builders-alist
+      '((ivy-bibtex . ivy--regex-ignore-order)
+        (t . ivy--regex-plus))
+      )
+   )
 
 ;; Copied from the dotfiles of the original founder of org-roam
 ;; https://github.com/jethrokuan/dots/blob/master/.doom.d/config.el#L436
@@ -153,7 +172,58 @@
            :unnarrowed t)))
   (set-company-backend! 'org-mode '(company-capf)))
 
-(require 'org-roam-protocol)
+
+(use-package! org-roam-protocol
+  :after org-protocol)
+
+;; org-roam-bibtex (ORB)
+;; stitches everything together
+(use-package! org-roam-bibtex
+  :after (org-roam)
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :config
+  (setq org-roam-bibtex-preformat-keywords
+   '("=key=" "title" "url" "file" "author-or-editor" "keywords"))
+  (setq orb-templates
+        `(("r" "ref" plain (function org-roam-capture--get-point)
+           ""
+           :file-name "lit/${slug}"
+           :head ,(concat
+                   "#+setupfile: ./hugo_setup.org\n"
+                   "#+title: ${=key=}: ${title}\n"
+                   "#+roam_key: ${ref}\n\n"
+                   "* ${title}\n"
+                   "  :PROPERTIES:\n"
+                   "  :Custom_ID: ${=key=}\n"
+                   "  :URL: ${url}\n"
+                   "  :AUTHOR: ${author-or-editor}\n"
+                   "  :NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
+                   "  :NOTER_PAGE: \n"
+                   "  :END:\n")
+           :unnarrowed t))))
+
+
+(use-package! bibtex-completion
+  :config
+  (setq bibtex-completion-notes-path org-directory
+        bibtex-completion-bibliography zot-bib
+        bibtex-completion-pdf-field "file"
+        bibtex-completion-notes-template-multiple-files
+         (concat
+          "#+title: ${title}\n"
+          "#+roam_key: cite:${=key=}\n"
+          "* TODO Notes\n"
+          ":PROPERTIES:\n"
+          ":Custom_ID: ${=key=}\n"
+          ":NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
+          ":AUTHOR: ${author-abbrev}\n"
+          ":JOURNAL: ${journaltitle}\n"
+          ":DATE: ${date}\n"
+          ":YEAR: ${year}\n"
+          ":DOI: ${doi}\n"
+          ":URL: ${url}\n"
+          ":END:\n\n"
+          )))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
