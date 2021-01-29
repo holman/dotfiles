@@ -5,3 +5,6 @@
 
 # Python Virtual Env
 .venv/
+
+#NPM
+node_modules/
