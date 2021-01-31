@@ -5,6 +5,12 @@ if [ "$(uname)" == "Darwin" ]; then
   # Force it into PATH
   sudo ln -sf "$(brew list llvm | grep 'bin/clangd$' | head -n1)" /usr/local/bin
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo apt-get install -y clangd-9
-  sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
+  # install latest
+  clangd_version=11
+  codename=$(lsb_release -c | cut -f2)
+  wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+  sudo apt-add-repository "deb https://apt.llvm.org/${codename}/ llvm-toolchain-${codename}-${clangd_version} main"
+  sudo apt-get install -y clangd-${clangd_version}
+  sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-${clangd_version} 100
+  sudo update-alternatives --set clangd /usr/bin/clangd-${clangd_version}
 fi
