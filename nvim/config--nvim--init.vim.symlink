@@ -322,12 +322,6 @@ au FileType markdown setlocal spell
 " and for tex files
 au FileType tex setlocal spell
 au FileType tex syntax spell toplevel
-" and for vimwiki files
-au FileType vimwiki setlocal spell
-
-" vim-wiki options
-let g:vimwiki_folding='list'
-au FileType vimwiki setlocal textwidth=120 colorcolumn=""
 
 " Indent-sentence mapping
 " For paragraph, restore position using register T
