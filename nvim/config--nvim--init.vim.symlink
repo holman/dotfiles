@@ -67,6 +67,8 @@ Plug 'sainnhe/edge'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
+Plug 'jaxbot/semantic-highlight.vim'
+
 call plug#end()
 
 syntax enable
@@ -559,5 +561,8 @@ nnoremap <leader>t :call <sid>SearchForToDo()<cr>
 
 " Configure vim-addon-local-vimrc
 let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
+
+" Configure semantic highlight
+:nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 " vi: ft=vim :
