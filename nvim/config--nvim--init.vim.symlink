@@ -23,7 +23,7 @@ filetype off
 " Specify a directory for plugins
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
+Plug 'preservim/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTreeCWD'] }
 " Source: https://github.com/junegunn/vim-plug/issues/424#issuecomment-189343357
 augroup nerd_loader
   autocmd!
@@ -513,8 +513,11 @@ set statusline+=\
 " -----
 
 " Make nerdtree work like vim-vinegar
-let g:NERDTreeMapUpdir = '-'
-nmap - :NERDTreeFind<CR>
+let g:NERDTreeMapJumpParent = '-'
+" Root dir
+nmap - :NERDTreeCWD<cr>
+" Current file when buffer open
+autocmd BufRead * nmap - :NERDTreeFind<CR>
 
 " Configure ALE
 let g:ale_linters = {
