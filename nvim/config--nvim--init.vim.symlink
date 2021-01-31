@@ -94,7 +94,7 @@ let g:edge_diagnostic_line_highlight = 1
 set cursorline
 colorscheme edge
 
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
