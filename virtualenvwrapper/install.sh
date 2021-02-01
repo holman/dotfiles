@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-sudo pip3 install virtualenvwrapper
+sudo pip3 install --upgrade virtualenvwrapper

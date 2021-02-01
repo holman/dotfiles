@@ -10,7 +10,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo snap install --edge nvim --classic
   sudo snap refresh --edge nvim --classic
 fi
-sudo pip3 install pynvim
+sudo pip3 install --upgrade pynvim
 
 # update packages in Plug
 # install plug if not already installed
