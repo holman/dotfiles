@@ -4,9 +4,11 @@
 # Furthermore has('macunix') does not work in apple vim
 # That breaks latex-suite mac specifics
 if [ "$(uname -s)" = "Darwin" ]; then
-  brew reinstall neovim
+  # If this installed version crashes, install from source instead.
+  brew reinstall --HEAD neovim
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo snap install --beta nvim --classic
+  sudo snap install --edge nvim --classic
+  sudo snap refresh --edge nvim --classic
 fi
 sudo pip3 install pynvim
 
