@@ -35,6 +35,9 @@ augroup nerd_loader
         \| endif
 augroup END
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+
 Plug 'kaihowl/vim-indent-sentence'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
@@ -48,7 +51,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'dense-analysis/ale'
 Plug 'bronson/vim-trailing-whitespace'
 " Plug 'kaihowl/vim-latex'
 
@@ -519,25 +521,6 @@ nmap - :NERDTreeCWD<cr>
 " Current file when buffer open
 autocmd BufRead * nmap - :NERDTreeFind<CR>
 
-" Configure ALE
-let g:ale_linters = {
-      \'cpp': ['clangd'],
-      \'rust': ['analyzer', 'rls', 'cargo'],
-      \}
-let g:ale_fixers = {
-      \'cpp': ['clang-format'],
-      \'rust': ['rustfmt'],
-      \'python': ['autopep8'],
-      \}
-let g:ale_fix_on_save=1
-let g:ale_set_balloons=1
-let g:ale_completion_enabled=1
-set omnifunc=ale#completion#OmniFunc
-nmap gd :ALEGoToDefinition -tab<CR>
-nmap gr :ALEFindReferences<CR>
-nmap gR :ALERename<CR>
-nmap K :ALEHover<CR>
-
 " ------ TODOS mappings
 function! s:GetUser()
   return trim(system('id -un'))
@@ -558,6 +541,73 @@ nnoremap <leader>t :call <sid>SearchForToDo()<cr>
 
 " Configure vim-addon-local-vimrc
 let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
+
+set completeopt=menuone,noinsert
+" Don't mess with LSP ordering
+let g:completion_sorting = 'none'
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_matching_ignore_case = 1
+let g:completion_matching_smart_case = 1
+set shortmess+=c
+
+lua <<EOF
+require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.rls.setup{on_attach=require'completion'.on_attach}
+EOF
+
+autocmd Filetype cpp,python,rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
+" Auto-format files when possible prior to saving
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
+
+" Original source with modifications
+" https://www.reddit.com/r/neovim/comments/j2ny8b/is_there_a_way_to_open_a_new_tab_when_using_lua/g76ogzr?context=3
+"
+" Normal jump to location when current buffer is not modified, otherwise open
+" new tab.
+lua <<EOF
+local api = vim.api
+local util = vim.lsp.util
+local callbacks = vim.lsp.callbacks
+local log = vim.lsp.log
+
+local location_callback = function(_, method, result)
+  if result == nil or vim.tbl_isempty(result) then
+    local _ = log.info() and log.info(method, 'No location found')
+    return nil
+  end
+
+  if vim.bo.modified then
+    api.nvim_command('tabnew')
+  end
+
+  if vim.tbl_islist(result) then
+    util.jump_to_location(result[1])
+    if #result > 1 then
+      util.set_qflist(util.locations_to_items(result))
+      api.nvim_command("copen")
+    end
+  else
+    util.jump_to_location(result)
+  end
+end
+
+callbacks['textDocument/declaration']    = location_callback
+callbacks['textDocument/definition']     = location_callback
+callbacks['textDocument/typeDefinition'] = location_callback
+callbacks['textDocument/implementation'] = location_callback
+EOF
+
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 
 " Configure semantic highlight
 :nnoremap <Leader>s :SemanticHighlightToggle<cr>
