@@ -417,7 +417,7 @@ let g:dispatch_handlers = [
 
 function! s:get_default_branch()
   " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
-  let defaultbranch = systemlist('git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/@@"')[0]
+  let defaultbranch = systemlist("cd $(git rev-parse --show-toplevel '%:h:p')git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/@@'")[0]
   if v:shell_error || defaultbranch =~ 'fatal: .*'
     echoerr 'Could not detect default branch, using origin/master'
     echoerr 'Maybe .git/refs/remotes/origin/HEAD is missing as this repo has not been cloned?'
