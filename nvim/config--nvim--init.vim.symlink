@@ -415,21 +415,23 @@ let g:dispatch_handlers = [
       \ 'headless',
       \ ]
 
-function! s:get_default_branch()
+function! s:get_default_branch() abort
   " Source: https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
-  let defaultbranch = systemlist("cd $(git rev-parse --show-toplevel '%:h:p')git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/@@'")[0]
-  if v:shell_error || defaultbranch =~ 'fatal: .*'
-    echoerr 'Could not detect default branch, using origin/master'
-    echoerr 'Maybe .git/refs/remotes/origin/HEAD is missing as this repo has not been cloned?'
-    echoerr 'Set symbolic ref manually: git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/master'
-    let defaultbranch = 'origin/master'
+  " let defaultbranch = execute("Git symbolic-ref refs/remotes/origin/HEAD")
+  let defaultbranch = split(execute("Git rev-parse --abbrev-ref origin/HEAD"), "\n")[0]
+  if defaultbranch =~ 'fatal: .*'
+    echohl WarningMsg
+    echom "Using default origin/master, no symbolic-ref for refs/remotes/origin/HEAD found."
+    echohl None
   endif
+  let defaultbranch = 'origin/master'
   return defaultbranch
 endfunction
 
-function! s:get_diff_file_master_merge()
+function! s:get_diff_file_master_merge() abort
   let defaultbranch = s:get_default_branch()
-  return systemlist('git merge-base ' . defaultbranch . ' HEAD')[0]
+  let common_revision = split(execute('Git merge-base ' . defaultbranch . ' HEAD'), "\n")[0]
+  return common_revision
 endfunction
 
 command! -nargs=1 DiffRev call s:get_diff_files(<q-args>)
@@ -461,8 +463,8 @@ command! DiffHistory call s:view_merge_request()
 
 " Source / Inspiration
 " https://github.com/tpope/vim-fugitive/issues/132#issuecomment-649516204
-function! s:view_merge_request()
-  let revision = s:get_diff_file_master_merge()
+function! s:view_merge_request() abort
+  let revision = <sid>get_diff_file_master_merge()
   execute 'Git difftool ' . revision . '..HEAD --find-renames=50\%'
   call s:diff_current_quickfix_entry()
   " Bind <CR> for current quickfix window to properly set up diff split layout after selecting an item
