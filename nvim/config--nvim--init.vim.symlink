@@ -235,6 +235,7 @@ if filereadable('/proc/cpuinfo')
 endif
 nnoremap <leader>mm :Make<cr>
 nnoremap <leader>mc :Make clean<cr>
+nnoremap <leader>M :edit .VimMakefile<cr>
 " For latex file run latex instead of makefile
 au FileType tex nnoremap <buffer> <leader>mm :silent! call Tex_RunLaTeX()<CR>
 
