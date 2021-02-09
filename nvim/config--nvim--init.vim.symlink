@@ -35,6 +35,22 @@ augroup nerd_loader
         \| endif
 augroup END
 
+autocmd! User nerdtree call AddNerdTreeMapping()
+
+function! AddNerdTreeMapping()
+  call NERDTreeAddKeyMap({
+          \ 'key': 'yy',
+          \ 'callback': 'NERDTreeYankCurrentNode',
+          \ 'quickhelpText': 'put full path of current node into the default register' })
+endfunction
+
+function! NERDTreeYankCurrentNode()
+    let n = g:NERDTreeFileNode.GetSelected()
+    if n != {}
+        call setreg('"', n.path.str())
+    endif
+endfunction
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
