@@ -25,6 +25,9 @@ fi
 
 profile_switch=${CROM_DEFAULT_PROFILE:+-pr $CROM_DEFAULT_PROFILE}
 
+# Always force full regeneration
+rm -f CMakeCache.txt
+
 conan install $update ${sanitizer_flags} $profile_switch -s ${conan_package_name}:build_type=Debug --build=outdated ..
 
 if [[ -f ../conanfile.py ]]; then
