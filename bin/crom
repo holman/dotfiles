@@ -1,5 +1,7 @@
 #!/bin/bash -ex
 
+shopt -s nocasematch
+
 mkdir -p build
 cd build
 
@@ -25,10 +27,18 @@ fi
 
 profile_switch=${CROM_DEFAULT_PROFILE:+-pr $CROM_DEFAULT_PROFILE}
 
+additional_switches=""
+for var in "${!CROM_@}"; do
+  setting=$(echo "${var}" | cut -d'_' -f2)
+  if [[ "$@" =~ $setting ]]; then
+    additional_switches="${additional_switches} ${!var}"
+  fi
+done
+
 # Always force full regeneration
 rm -f CMakeCache.txt
 
-conan install $update ${sanitizer_flags} $profile_switch -s ${conan_package_name}:build_type=Debug --build=outdated ..
+conan install $update ${sanitizer_flags} ${additional_switches} $profile_switch -s ${conan_package_name}:build_type=Debug --build=outdated ..
 
 if [[ -f ../conanfile.py ]]; then
   CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
