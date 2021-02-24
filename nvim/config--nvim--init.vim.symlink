@@ -589,7 +589,7 @@ autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
 lua <<EOF
 local api = vim.api
 local util = vim.lsp.util
-local callbacks = vim.lsp.callbacks
+local callbacks = vim.lsp.handlers
 local log = vim.lsp.log
 
 local location_callback = function(_, method, result)
