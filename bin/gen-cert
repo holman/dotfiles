@@ -1,0 +1,63 @@
+#!/bin/bash
+
+DNS=${1:-"localhost"}
+OUT_DIR=${2:-"./certs"}
+mkdir -p $OUT_DIR
+
+function createRootCA {
+  openssl genrsa -des3 -passout pass:foobar -out "${OUT_DIR}/rootCA.key" 4096 
+  # echo $CSR_CONF > openssl.conf
+  openssl req -x509 -passin pass:foobar -new -nodes -key "${OUT_DIR}/rootCA.key" \
+    -sha256 -days 1024 -out "${OUT_DIR}/rootCA.pem" -subj $subj
+  # rm openssl.conf
+}
+
+subj="/C=US/ST=Denial/L=Springfield/O=Dis/CN=$DNS"
+read -r -d '' CSR_CONF << EOM
+[ ca ]
+default_ca = CA_default
+
+[ req ]
+countryName                     = US
+stateOrProvinceName             = Texas
+localityName                    = Austin
+0.organizationName              = dev
+organizationalUnitName          = dev
+commonName                      = mutter
+emailAddress                    = dev@mutter.io
+
+EOM
+read -r -d '' CSR_CONF << EOM
+
+[dn]
+C=US
+ST=RandomState
+L=RandomCity
+O=RandomOrganization
+OU=RandomOrganizationUnit
+emailAddress=dev@mutter.io
+CN = $DNS
+EOM
+
+read -r -d '' V3_EXT << EOM
+
+authorityKeyIdentifier=keyid,issuer
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = $DNS
+EOM
+
+function createSelfSignedCert {
+  echo "create cert"
+  openssl req -new -sha256 -nodes -out "${OUT_DIR}/${DNS}.csr" -newkey rsa:4096 \
+    -keyout "${OUT_DIR}/${DNS}.key" -subj $subj 
+  echo $V3_EXT > "${OUT_DIR}/v3.ext"
+  openssl x509 -req -in "${OUT_DIR}/${DNS}.csr" -CA rootCA.pem -CAkey rootCA.key \
+    -CAcreateserial -out "${OUT_DIR}/${DNS}.crt" -days 500 -sha256 -extfile $V3_EXT
+  rm ${OUT_DIR}/v3.ext
+}
+
+createRootCA
+createSelfSignedCert

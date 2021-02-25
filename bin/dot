@@ -7,9 +7,11 @@
 export ZSH=$HOME/dotfiles
 
 # Set defaults
+echo "› setting defaults...."
 $ZSH/bin/set-defaults
 
 # Install homebrew
+echo "› isntall homebrew...."
 $ZSH/homebrew/install.sh 2>&1
 
 # Upgrade homebrew
