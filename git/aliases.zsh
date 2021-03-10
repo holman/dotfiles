@@ -43,7 +43,7 @@ alias wow='git status'
 
 # Running the daily git commands
 alias dailytask="gco master && pull && git fetch --prune"
-alias deletelocal="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
+alias deletelocal="git branch --merged | egrep -v \"(^\*|main|master|dev)\" | xargs git branch -d"
 alias deleteremote="git push --delete origin"
 
 alias gac='git add -A && git commit -m'
