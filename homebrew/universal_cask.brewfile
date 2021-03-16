@@ -11,7 +11,7 @@ cask 'kitematic' # docker
 cask 'licecap' # Screenrecording software
 # cask 'postgres'
 cask 'pycharm' # Python IDE
-cask 'spectacle' # Window manager
+cask 'rectangle' # Window manager
 cask 'visual-studio-code' # Text Editor
 
 # Not in Application Folder
