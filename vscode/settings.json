@@ -45,5 +45,11 @@
   "sqltools.highlightQuery": false,
   "python.sortImports.path": "isort",
   "python.analysis.memory.keepLibraryAst": true,
-  "python.analysis.memory.keepLibraryLocalVariables": true
+  "python.analysis.memory.keepLibraryLocalVariables": true,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }

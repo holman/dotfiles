@@ -13,7 +13,11 @@ osascript -e 'tell application "System Preferences" to quit'
 sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 ###############################################################################
 # DNS Servers - Override default DNS Servers
@@ -48,7 +52,6 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
@@ -75,14 +78,14 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 #sudo defaults write /Library/Preferences/com.apple.loginwindow SHOWFULLNAME -bool true
 
 # Do not show password hints
-sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0;
+sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
 
 # Disable guest account login
-sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false;
+sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
 
 # Destroy FileVault key when going into standby mode, forcing a re-auth.
 # Source: https://web.archive.org/web/20160114141929/http://training.apple.com/pdf/WP_FileVault2.pdf
-sudo pmset destroyfvkeyonstandby 1;
+sudo pmset destroyfvkeyonstandby 1
 
 ###############################################################################
 # Finder                                                                      #
@@ -127,8 +130,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Show item info near icons on the desktop and in other icon views
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist;
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist;
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
 
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
@@ -190,33 +193,34 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 0 # was 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
-# Cusomize Dock Apps
-dockutil --no-restart --remove all;
-# dockutil --no-restart --add "/Applications/Finder.app"; # Added by default
-dockutil --no-restart --add "/Applications/Launchpad.app";
-dockutil --no-restart --add "/Applications/Safari.app";
-dockutil --no-restart --add "/Applications/Firefox.app";
-dockutil --no-restart --add "/Applications/Mail.app";
-dockutil --no-restart --add "/Applications/Contacts.app";
-dockutil --no-restart --add "/Applications/Calendar.app";
-dockutil --no-restart --add "/Applications/Notes.app";
-dockutil --no-restart --add "/Applications/Messages.app";
-dockutil --no-restart --add "/Applications/Facetime.app";
-dockutil --no-restart --add "/Applications/Maps.app";
-dockutil --no-restart --add "/Applications/Photos.app";
-dockutil --no-restart --add "/Applications/Itunes.app";
-dockutil --no-restart --add "/Applications/News.app";
-dockutil --no-restart --add "/Applications/Stocks.app";
-dockutil --no-restart --add "/Applications/Home.app";
-dockutil --no-restart --add "/Applications/App Store.app";
-dockutil --no-restart --add "/Applications/Utilities/Terminal.app";
-dockutil --no-restart --add "/Applications/System Preferences.app";
-dockutil --no-restart --add "/Applications/Utilities/Console.app";
-dockutil --no-restart --add "/Applications/Visual Studio Code.app";
+# this is broken now
+# # Cusomize Dock Apps
+# dockutil --no-restart --remove all;
+# # dockutil --no-restart --add "/Applications/Finder.app"; # Added by default
+# dockutil --no-restart --add "/Applications/Launchpad.app";
+# dockutil --no-restart --add "/Applications/Safari.app";
+# dockutil --no-restart --add "/Applications/Firefox.app";
+# dockutil --no-restart --add "/Applications/Mail.app";
+# dockutil --no-restart --add "/Applications/Contacts.app";
+# dockutil --no-restart --add "/Applications/Calendar.app";
+# dockutil --no-restart --add "/Applications/Notes.app";
+# dockutil --no-restart --add "/Applications/Messages.app";
+# dockutil --no-restart --add "/Applications/Facetime.app";
+# dockutil --no-restart --add "/Applications/Maps.app";
+# dockutil --no-restart --add "/Applications/Photos.app";
+# dockutil --no-restart --add "/Applications/Itunes.app";
+# dockutil --no-restart --add "/Applications/News.app";
+# dockutil --no-restart --add "/Applications/Stocks.app";
+# dockutil --no-restart --add "/Applications/Home.app";
+# dockutil --no-restart --add "/Applications/App Store.app";
+# dockutil --no-restart --add "/Applications/Utilities/Terminal.app";
+# dockutil --no-restart --add "/Applications/System Preferences.app";
+# dockutil --no-restart --add "/Applications/Utilities/Console.app";
+# dockutil --no-restart --add "/Applications/Visual Studio Code.app";
 
 # add a recent item stack
-defaults write com.apple.dock persistent-others -array-add '{"tile-data" = {"list-type" = 1;}; "tile-type" = "recents-tile";}';
-dockutil --add ~/Downloads/ --view grid --display stack;
+defaults write com.apple.dock persistent-others -array-add '{"tile-data" = {"list-type" = 1;}; "tile-type" = "recents-tile";}'
+dockutil --add ~/Downloads/ --view grid --display stack
 
 ###############################################################################
 # Date & Time                                                                 #
@@ -300,8 +304,8 @@ sleep 2
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "Dock" "Finder" "Firefox" "Mail" "Messages" \
-  "Photos" "Safari" "Spectacle" "SystemUIServer"\
+  "Photos" "Safari" "Spectacle" "SystemUIServer" \
   "iCal"; do
-  killall "${app}" &> /dev/null
+  killall "${app}" &>/dev/null
 done
 echo " finished defaults-macos."
