@@ -1,5 +1,5 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/Dropbox/Dev/dotfiles
+export ZSH=$HOME/Dev/dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Dev
@@ -46,3 +46,19 @@ do
 done
 
 unset config_files
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/bradley/.sdkman"
+[[ -s "/Users/bradley/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/bradley/.sdkman/bin/sdkman-init.sh"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/bradley/Dev/Clive/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/bradley/Dev/Clive/node_modules/tabtab/.completions/slss.zsh
