@@ -1,0 +1,1 @@
+puma-dev -uninstall -d local.host
