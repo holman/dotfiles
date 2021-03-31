@@ -8,6 +8,7 @@ alias hosts!="$EDITOR /etc/hosts"
 
 alias gst="gss"
 alias gbc="gcb"
+alias gup="g up"
 
 alias fw="pushd ~/Findaway"
 alias proj="pushd ~/Projects"

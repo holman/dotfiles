@@ -1,6 +1,6 @@
 [user]
-    name = Cameron Wardzala
-    email = cwardzala@fastmail.com
+	name = Cameron Wardzala
+	email = cwardzala@fastmail.com
     signingkey = 9ECF121CBDE191B1
 [credential]
     helper = osxkeychain
@@ -53,3 +53,5 @@
     showUntrackedFiles = all
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main

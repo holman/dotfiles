@@ -61,7 +61,6 @@ plugins=(
     python
     nvm
     node
-    npx
     osx
     vscode
     brew
