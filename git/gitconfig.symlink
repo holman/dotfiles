@@ -17,6 +17,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+	autocrlf = true
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -31,5 +32,3 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
-[credential]
-	helper = osxkeychain
