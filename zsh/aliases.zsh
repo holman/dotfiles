@@ -10,3 +10,11 @@ alias ssh-verif='eval `ssh-agent`; ssh-add'
 
 # rsub
 alias rsub='~/rsub'
+
+# windows
+export lime='/mnt/c/Users/caith/'
+
+# R
+alias R='cd $lime; R.exe --no-save'
+alias Rscript='cd $lime; Rscript.exe'
+
