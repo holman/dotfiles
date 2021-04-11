@@ -12,6 +12,16 @@ If you're interested in the philosophy behind why projects like these are
 awesome, you might want to [read my post on the
 subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
+## Bootstrap
+
+Bootstrap a fresh mac or linux installation:
+```
+curl https://raw.githubusercontent.com/ghasemnaddaf/dotfiles/bootstrap.sh -o bootstraps.sh
+./bootstrap.sh
+```
+This script clones this repo, along with `ghasemnaddaf/oh-my-zsh`, installs `~/.zshrc` and
+also installs most commonly-used packages via `brew` (mac) or `apt-get` (linux).
+
 ## topical
 
 Everything's built around topic areas. If you're adding a new area to your
