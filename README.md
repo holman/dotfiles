@@ -16,8 +16,7 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 Bootstrap a fresh mac or linux installation:
 ```
-curl https://raw.githubusercontent.com/ghasemnaddaf/dotfiles/bootstrap.sh -o bootstraps.sh
-./bootstrap.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/dotfiles/master/bootstrap.sh)"
 ```
 This script clones this repo, along with `ghasemnaddaf/oh-my-zsh`, installs `~/.zshrc` and
 also installs most commonly-used packages via `brew` (mac) or `apt-get` (linux).
