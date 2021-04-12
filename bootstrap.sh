@@ -8,7 +8,7 @@ function git_clone() {
 }
 
 PKG_LIST_COMMON="git zsh"
-PKG_LIST_MAC="iterm2"
+PKG_LIST_MAC=""
 PKG_LIST_CASK_MAC="iterm2"
 PKG_LIST_LINUX="build-essential"
 
