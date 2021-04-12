@@ -32,4 +32,5 @@ curl -X POST -H "Accept: application/vnd.github.v3+json" \
   -d "{\"key\": \"${KEY}\"}"
 
 git_clone ghasemnaddaf/dotfiles $HOME
-git_clone ghasemnaddaf/ohmyzsh $HOME
+/bin/bash -c "REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
+    $(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/ohmyzsh/my_changes/tools/install.sh)"
