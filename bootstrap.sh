@@ -7,15 +7,16 @@ function git_clone() {
   git clone git@github.com:$1.git
 }
 
-PKG_LIST_COMMON="build-essential git zsh"
-PKG_LIST_MAC=""
-PKG_LIST_LINUX=""
+PKG_LIST_COMMON="git zsh"
+PKG_LIST_MAC="iterm2"
+PKG_LIST_CASK_MAC="iterm2"
+PKG_LIST_LINUX="build-essential"
 
 if [ -d /Library ]; then
   echo "Bootstraping Mac ..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install ${PKG_LIST_COMMON} ${PKG_LIST_MAC}
-  git_clone ghasemnaddaf/dotfiles $HOME
+  brew install --cask ${PKG_LIST_CASK_MAC}
 else
   echo "Bootstraping Linux ..."
   DEBIAN_FRONTEND=noninteractive apt-get install ${PKG_LIST_COMMON} ${PKG_LIST_LINUX} 
