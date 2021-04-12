@@ -18,8 +18,8 @@ Bootstrap a fresh mac or linux installation:
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/dotfiles/master/bootstrap.sh)"
 ```
-This script clones this repo, along with `ghasemnaddaf/oh-my-zsh`, installs `~/.zshrc` and
-also installs most commonly-used packages via `brew` (mac) or `apt-get` (linux).
+This script sets up git (Asks for GITHUB_PAT and adds authorized ssh key), clones this repo, along with `ghasemnaddaf/ohmyzsh`, installs `~/.zshrc` and
+also installs most commonly-used packages via `brew` (mac) or `apt-get` (linux, Debian falvour).
 
 ## topical
 
