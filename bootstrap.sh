@@ -36,4 +36,4 @@ git_clone ghasemnaddaf/dotfiles $HOME
 /bin/bash -c "REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
     $(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/ohmyzsh/my_changes/tools/install.sh)"
 
-./scripts/bootstrap
+./script/bootstrap
