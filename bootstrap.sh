@@ -8,7 +8,7 @@ function git_clone() {
 }
 
 PKG_LIST_COMMON="git zsh"
-PKG_LIST_MAC=""
+PKG_LIST_MAC="jq"
 PKG_LIST_CASK_MAC="iterm2"
 PKG_LIST_LINUX="build-essential"
 
@@ -38,5 +38,5 @@ pushd $HOME/dotfiles && ./script/bootstrap && popd
 /bin/bash -c "REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
     $(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/ohmyzsh/my_changes/tools/install.sh)"
 
-PIP_INSTALL="yq jq"
+PIP_INSTALL="yq"
 pip3 install ${PIP_INSTALL}
