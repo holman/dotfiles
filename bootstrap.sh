@@ -12,7 +12,7 @@ PKG_LIST_MAC=""
 PKG_LIST_CASK_MAC="iterm2"
 PKG_LIST_LINUX="build-essential"
 
-if [ -d /Library ]; then
+if test "$(uname)" = "Darwin"; then
   echo "Bootstraping Mac ..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install ${PKG_LIST_COMMON} ${PKG_LIST_MAC}
