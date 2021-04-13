@@ -9,7 +9,7 @@ function git_clone() {
 
 PKG_LIST_COMMON="git zsh"
 PKG_LIST_MAC="jq"
-PKG_LIST_CASK_MAC="iterm2"
+PKG_LIST_CASK_MAC="iterm2 virtualbox"
 PKG_LIST_LINUX="build-essential"
 
 if test "$(uname)" = "Darwin"; then
@@ -32,11 +32,13 @@ curl -X POST -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token $GPAT" https://api.github.com/user/keys \
   -d "{\"key\": \"${KEY}\"}"
 
-git_clone ghasemnaddaf/dotfiles $HOME
-pushd $HOME/dotfiles && ./script/bootstrap && popd
+git_clone ghasemnaddaf/dotfiles $HOME/.dotfiles
+pushd $HOME/.dotfiles && ./script/bootstrap && popd
 
 /bin/bash -c "REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
     $(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/ohmyzsh/my_changes/tools/install.sh)"
 
 PIP_INSTALL="yq"
 pip3 install ${PIP_INSTALL}
+
+
