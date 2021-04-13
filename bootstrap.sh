@@ -37,3 +37,6 @@ pushd $HOME/dotfiles && ./script/bootstrap && popd
 
 /bin/bash -c "REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
     $(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/ohmyzsh/my_changes/tools/install.sh)"
+
+PIP_INSTALL="yq jq"
+pip3 install ${PIP_INSTALL}
