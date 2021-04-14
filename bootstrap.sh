@@ -3,8 +3,7 @@
 # set -x
 
 function git_clone() {
-  cd $2
-  git clone git@github.com:$1.git
+  git clone git@github.com:$1.git $2
 }
 
 PKG_LIST_COMMON="git zsh"
@@ -35,7 +34,7 @@ curl -X POST -H "Accept: application/vnd.github.v3+json" \
 git_clone ghasemnaddaf/dotfiles $HOME/.dotfiles
 pushd $HOME/.dotfiles && ./script/bootstrap && popd
 
-/bin/bash -c "REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
+/bin/bash -c "ZSH= REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
     $(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/ohmyzsh/my_changes/tools/install.sh)"
 
 PIP_INSTALL="yq"
