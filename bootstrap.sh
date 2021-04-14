@@ -6,10 +6,10 @@ function git_clone() {
   git clone git@github.com:$1.git $2
 }
 
-PKG_LIST_COMMON="git teleport zsh"
+PKG_LIST_COMMON="awscli git teleport vim zsh"
 PKG_LIST_MAC="jq"
-PKG_LIST_CASK_MAC="iterm2 virtualbox google-chrome"
-PKG_LIST_LINUX="build-essential"
+PKG_LIST_CASK_MAC="google-chrome iterm2 virtualbox"
+PKG_LIST_LINUX="build-essential curl"
 
 if test "$(uname)" = "Darwin"; then
   echo "Bootstraping Mac ..."
