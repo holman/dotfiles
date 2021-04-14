@@ -8,7 +8,7 @@ function git_clone() {
 
 PKG_LIST_COMMON="git zsh"
 PKG_LIST_MAC="jq"
-PKG_LIST_CASK_MAC="iterm2 virtualbox"
+PKG_LIST_CASK_MAC="iterm2 virtualbox google-chrome"
 PKG_LIST_LINUX="build-essential"
 
 if test "$(uname)" = "Darwin"; then
@@ -38,6 +38,6 @@ pushd $HOME/.dotfiles && ./script/bootstrap && popd
     $(curl -fsSL https://raw.githubusercontent.com/ghasemnaddaf/ohmyzsh/my_changes/tools/install.sh)"
 
 PIP_INSTALL="yq"
-pip3 install ${PIP_INSTALL}
+sudo pip3 install ${PIP_INSTALL}
 
 
