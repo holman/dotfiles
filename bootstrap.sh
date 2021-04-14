@@ -18,7 +18,7 @@ if test "$(uname)" = "Darwin"; then
   brew install --cask ${PKG_LIST_CASK_MAC}
 else
   echo "Bootstraping Linux ..."
-  DEBIAN_FRONTEND=noninteractive apt-get install ${PKG_LIST_COMMON} ${PKG_LIST_LINUX} 
+  DEBIAN_FRONTEND=noninteractive sudo apt-get install ${PKG_LIST_COMMON} ${PKG_LIST_LINUX} 
 fi
 
 cat /dev/zero | ssh-keygen -q -f $HOME/.ssh/id_rsa -N ""
