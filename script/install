@@ -7,4 +7,6 @@ set -e
 cd "$(dirname $0)"/..
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+# find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+
+WANT_INSTALL="aws k8s vbox"
