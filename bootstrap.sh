@@ -8,8 +8,8 @@ function git_clone() {
 
 PKG_LIST_COMMON="awscli git teleport vim zsh"
 PKG_LIST_MAC="jq"
-PKG_LIST_CASK_MAC="google-chrome iterm2 virtualbox"
-PKG_LIST_LINUX="build-essential curl"
+PKG_LIST_CASK_MAC="docker google-chrome iterm2 virtualbox"
+PKG_LIST_LINUX="build-essential curl docker.io"
 
 if test "$(uname)" = "Darwin"; then
   echo "Bootstraping Mac ..."
