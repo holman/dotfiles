@@ -152,11 +152,5 @@ then
   fi
 fi
 
-for df in "aws k8s"
-do
-  echo "installing $df ..."
-  ../$df/install.sh
-done
-
 echo ''
 echo '  All installed!'
