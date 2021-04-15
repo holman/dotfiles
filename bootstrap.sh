@@ -8,7 +8,7 @@ function git_clone() {
 
 PKG_LIST_COMMON="awscli git teleport vim zsh"
 PKG_LIST_MAC="jq"
-PKG_LIST_CASK_MAC="docker google-chrome iterm2 virtualbox"
+PKG_LIST_CASK_MAC="docker google-chrome iterm2 openssh virtualbox"
 PKG_LIST_LINUX="build-essential curl dmidecode docker.io python3 python3-pip"
 
 if test "$(uname)" = "Darwin"; then
