@@ -8,7 +8,7 @@ function git_clone() {
 
 PKG_LIST_COMMON="awscli git teleport vim zsh"
 PKG_LIST_MAC="jq"
-PKG_LIST_CASK_MAC="docker google-chrome iterm2 openssh virtualbox"
+PKG_LIST_CASK_MAC="docker google-chrome iterm2 virtualbox"
 PKG_LIST_LINUX="build-essential curl dmidecode docker.io python3 python3-pip"
 
 if test "$(uname)" = "Darwin"; then
@@ -16,6 +16,10 @@ if test "$(uname)" = "Darwin"; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install ${PKG_LIST_COMMON} ${PKG_LIST_MAC}
   brew install --cask ${PKG_LIST_CASK_MAC}
+
+  # enable sshd
+  sudo systemsetup -setremotelogin on
+  sudo systemsetup -getremotelogin
 else 
   echo "Bootstraping Linux ..."
   
@@ -30,7 +34,7 @@ fi
 # key and git
 cat /dev/zero | ssh-keygen -q -f $HOME/.ssh/id_rsa -N ""
 
-mkdir -p $HOME/.git
+mkdir -p $HOME/.git $HOME/git
 echo please enter your GITHUB_PAT && read -s GPAT && echo $GPAT | tee $HOME/.git/.pat && chmod 600 $HOME/.git/.pat 
 
 KEY=$(cat $HOME/.ssh/id_rsa.pub)
