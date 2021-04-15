@@ -40,7 +40,10 @@ curl -X POST -H "Accept: application/vnd.github.v3+json" \
 
 # dotfiles
 git_clone ghasemnaddaf/dotfiles $HOME/.dotfiles
-pushd $HOME/.dotfiles && ./script/bootstrap && popd
+pushd $HOME/.dotfiles
+./script/bootstrap
+./script/install
+popd
 
 # ohmyzsh
 /bin/bash -c "ZSH= REMOTE=git@github.com:ghasemnaddaf/ohmyzsh.git BRANCH=my_changes \
