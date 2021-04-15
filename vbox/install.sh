@@ -1,10 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 set -x
 
 manuf=$(sudo dmidecode -s system-manufacturer)
-[[ "$manuf" == "innotek GmbH" ]] || echo "not in vbox!" && exit 0
+if [[ "$manuf" != "innotek GmbH" ]]; then
+	echo "not in vbox!" && exit 0
+fi
 
 # run inside Linux VM when CD is added
 # installs guest additions
