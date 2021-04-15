@@ -145,8 +145,8 @@ install_dotfiles () {
   install_alacritty_config
   update_submodules
   run_vundle
-  install_emoji_font
   download_powerline_symbols
+  install_emoji_font
   # We need to generate to font cache so that we can use the patched fonts in the awesome widget
   generate_font_cache
   init_command_t
@@ -157,7 +157,7 @@ install_dotfiles () {
   install_virtualenv
   install_github_stuffs
   install_shodan
-  check_packages_are_installed
+  #check_packages_are_installed
 
   success 'laid down dotfiles'
 }
