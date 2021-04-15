@@ -10,3 +10,7 @@ cd "$(dirname $0)"/..
 # find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
 
 WANT_INSTALL="aws k8s vbox"
+for f in ${WANT_INSTALL}; do
+	echo "configuring dotfiles for $f ..."
+	./$f/install.sh
+done
