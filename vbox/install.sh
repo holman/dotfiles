@@ -15,4 +15,6 @@ VER=$(ls -l /media/$USER/ | grep VBox_GAs | awk -F_ '{print $3}' | sort -n | hea
 cd /media/$USER/VBox_GAs_$VER
 sudo sh VBoxLinuxAdditions.run
 
+sudo adduser $USER vboxsf
+
 exit 0
