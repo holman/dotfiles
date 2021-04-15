@@ -33,7 +33,7 @@ setup_gitconfig () {
     info 'setup gitconfig'
 
     git_credential='cache'
-    if [ "$(uname -s)" == "Darwin" ]
+    if test "$(uname -s)" = "Darwin"
     then
       git_credential='osxkeychain'
     fi
@@ -141,7 +141,7 @@ setup_gitconfig
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
+if test "$(uname -s)" = "Darwin"
 then
   info "installing dependencies"
   if source bin/dot | while read -r data; do info "$data"; done
@@ -151,6 +151,12 @@ then
     fail "error installing dependencies"
   fi
 fi
+
+for df in "aws k8s"
+do
+  echo "installing $df ..."
+  ../$df/install.sh
+done
 
 echo ''
 echo '  All installed!'
