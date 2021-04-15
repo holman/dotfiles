@@ -21,4 +21,3 @@ alias yolo='sudo'
 function set-title() {
   echo -ne "\033]0;$1\007"
 }
-

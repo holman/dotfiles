@@ -102,8 +102,6 @@ endif
 
 let g:clipbrdDefaultReg = '+'
 
-"Remove trailing whitespace
-autocmd FileType md,sh,python,ruby,coffee autocmd BufWritePre * :%s/\s\+$//e
 match Todo /\s\+$/
 
 " For syntastic
@@ -112,9 +110,21 @@ let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_python_checkers = ['pylint']
 
+" For ALE
+let g:ale_python_auto_pipenv = 1
+let g:ale_python_flake8_change_directory = 0
+let g:ale_fixers = {
+      \  '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'python': ['black', 'isort'],
+      \}
+
 " For nerdcommenter
 let g:NERDSpaceDelims=1
 
 let $GIT_SSL_NO_VERIFY = 'true'
 
 let g:multi_cursor_exit_from_insert_mode = 0
+
+" Doesn't seem to work for some reason...
+set title
+set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70

@@ -157,6 +157,7 @@ install_dotfiles () {
   install_virtualenv
   install_github_stuffs
   install_shodan
+  check_packages_are_installed
 
   success 'laid down dotfiles'
 }
@@ -346,6 +347,18 @@ os_name () {
   else
     echo 'Other'
   fi
+}
+
+local_npm_install () {
+  os=$(os_name)
+  if [[ $os = "OSX" ]]
+  then
+    echo "npm on osx not implemented"
+    exit 1
+  else
+    ~/.local/bin/pip install --user $1 --upgrade
+  fi
+
 }
 
 local_pip_install () {

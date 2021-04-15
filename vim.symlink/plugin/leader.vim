@@ -37,3 +37,5 @@ map <leader>gb :Gblame<cr>
 
 map <leader>n :lnext<cr>
 map <leader>p :lprev<cr>
+
+map <leader>f :ALEFix<cr>
