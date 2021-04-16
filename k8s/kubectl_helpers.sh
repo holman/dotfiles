@@ -25,6 +25,14 @@ alias kcgx='kubectl get secret'
 alias kcsx='kubectl describe secret'
 alias kcdx='kubectl delete secret'
 
+function kclogin() {
+  tsh --auth=github --proxy=auth-$1.test.infoblox.com:3080 login $1'
+}
+
+alias k2a='kclogin env-2a'
+alias k4='kclogin env-4'
+alias k5='kclogin env-5'
+
 # for the contacts app, FIXME: they do not work when connected to VPN
 # KC_SERVER=$(kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d " ")
 # KC_SECRET_NAME=$(kubectl get secrets | grep ^default | cut -f1 -d ' ')
