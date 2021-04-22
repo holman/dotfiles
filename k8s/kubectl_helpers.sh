@@ -51,10 +51,10 @@ export AWS_IAM_ROLE=ngp.k8.core
 export KUBERNETES_NAMESPACE=g # Namespace that you created in Section 2.1
 
 # helm
-AWS_ACCESS_KEY_ID     ?=`aws configure get aws_access_key_id`
-AWS_SECRET_ACCESS_KEY ?=`aws configure get aws_secret_access_key`
-AWS_REGION            ?=`aws configure get region`
-AWS_SESSION_TOKEN     ?=`aws configure get aws_session_token`
+export AWS_ACCESS_KEY_ID     =`aws configure get aws_access_key_id`
+export AWS_SECRET_ACCESS_KEY =`aws configure get aws_secret_access_key`
+export AWS_REGION            =`aws configure get region`
+export AWS_SESSION_TOKEN     =`aws configure get aws_session_token`
 
 alias helm='docker run --rm -v $PWD:/app -e AWS_REGION=${AWS_REGION} -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_SESSION_TOKEN=$(AWS_SESSION_TOKEN) infoblox/helm:3.2.4-5b243a2' 
 alias hl='helm list'
