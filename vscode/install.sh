@@ -3,6 +3,8 @@ if test "$(uname)" = "Darwin"; then
     unzip vscode.zip
     # cask it
     sudo mv ./Visual\ Studio\ Code.app  /Applications/
+    sudo xattr -r -d com.apple.quarantine /Applications/Visual\ Studio\ Code.app
+    sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
 else
     sudo snap install --classic code
 fi
