@@ -26,7 +26,7 @@ alias kcsx='kubectl describe secret'
 alias kcdx='kubectl delete secret'
 
 function kclogin() {
-  tsh --auth=github --proxy=auth-$1.test.infoblox.com:3080 login $1'
+  tsh --auth=github --proxy=auth-$1.test.infoblox.com:3080 login $1
 }
 
 alias k2a='kclogin env-2a'
