@@ -5,6 +5,7 @@ if test "$(uname)" = "Darwin"; then
     sudo mv ./Visual\ Studio\ Code.app  /Applications/
     sudo xattr -r -d com.apple.quarantine /Applications/Visual\ Studio\ Code.app
     sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
+    rm -rf ./vscode.zip ./Visual\ Studio\ Code.app
 else
     sudo snap install --classic code
 fi
