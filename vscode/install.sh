@@ -8,8 +8,10 @@ else
 fi
 
 # copy dotfiles
+mkdir ~/.vscode && cp settings.json ~/.vscode/
 
 # get extensions. url: https://marketplace.visualstudio.com/items?itemName=xyz
 code --install-extension alphabotsec.vscode-eclipse-keybindings
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-azuretools.vscode-docker
+code --install-extension waderyan.gitblame
