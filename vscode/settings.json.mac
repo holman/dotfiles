@@ -4,5 +4,18 @@
     "editor.quickSuggestionsDelay": 30,
     "editor.fontLigatures": true,
     "editor.fontFamily": "Inconsolata, Monaco, 'Courier New', monospace, Menlo",
-    "editor.fontSize": 14
+    "editor.fontSize": 14,
+    "workbench.editor.enablePreview": false,
+    "C_Cpp.updateChannel": "Insiders",
+    "terminal.integrated.shell.osx": "/bin/bash",
+    "go.coverOnSave": true,
+    "go.coverageDecorator": {
+        "_type": "highlight",
+        "type": "gutter",
+        "coveredHighlightColor": "rgba(32,64,32,0.25)",
+        "uncoveredHighlightColor": "rgba(64,32,32,0.5)",
+		"coveredGutterStyle": "verticalgreen",
+    	"uncoveredGutterStyle": "blockred"
+    },
+    "editor.renderWhitespace": "all"
 }

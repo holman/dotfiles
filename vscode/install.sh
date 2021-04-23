@@ -18,7 +18,6 @@ for ext in "alphabotsec.vscode-eclipse-keybindings
             ms-vscode.cpptools
             ms-python.python
             ms-azuretools.vscode-docker
-            ryuta46.multi-command
             waderyan.gitblame"; do
 
     code --install-extension $ext
