@@ -6,15 +6,19 @@ if test "$(uname)" = "Darwin"; then
     sudo xattr -r -d com.apple.quarantine /Applications/Visual\ Studio\ Code.app
     sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
     rm -rf ./vscode.zip ./Visual\ Studio\ Code.app
+    # settings.json
+    cp settings.json.mac ~/Library/Application\ Support/Code/User/settings.json
 else
     sudo snap install --classic code
 fi
 
-# copy dotfiles
-mkdir ~/.vscode && cp settings.json ~/.vscode/
-
 # get extensions. url: https://marketplace.visualstudio.com/items?itemName=xyz
-code --install-extension alphabotsec.vscode-eclipse-keybindings
-code --install-extension ms-vscode.cpptools
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension waderyan.gitblame
+for ext in "alphabotsec.vscode-eclipse-keybindings
+            jgclark.vscode-todo-highlight
+            ms-vscode.cpptools
+            ms-python.python
+            ms-azuretools.vscode-docker
+            waderyan.gitblame"; do
+
+    code --install-extension $ext
+done
