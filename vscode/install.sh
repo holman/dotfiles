@@ -1,3 +1,5 @@
+#!/bin/bash -x
+
 if test "$(uname)" = "Darwin"; then
     wget https://code.visualstudio.com/sha/download\?build\=stable\&os\=darwin-universal -O vscode.zip
     unzip vscode.zip
@@ -7,18 +9,12 @@ if test "$(uname)" = "Darwin"; then
     sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
     rm -rf ./vscode.zip ./Visual\ Studio\ Code.app
     # settings.json
-    cp settings.json.mac ~/Library/Application\ Support/Code/User/settings.json
+    cp ${DOTFILES}/vscode/settings.json.mac ~/Library/Application\ Support/Code/User/settings.json
+    # keep in dock
+    defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Visual Studio Code.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"; killall Dock
 else
     sudo snap install --classic code
 fi
 
-# get extensions. url: https://marketplace.visualstudio.com/items?itemName=xyz
-for ext in "alphabotsec.vscode-eclipse-keybindings
-            jgclark.vscode-todo-highlight
-            ms-vscode.cpptools
-            ms-python.python
-            ms-azuretools.vscode-docker
-            waderyan.gitblame"; do
+${DOTFILES}/vscode/install_extensions.sh
 
-    code --install-extension $ext
-done
