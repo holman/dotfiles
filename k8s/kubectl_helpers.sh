@@ -29,7 +29,7 @@ function kclogin() {
   tsh --auth=github --proxy=auth-$1.test.infoblox.com:3080 login $1
 }
 
-alias k2a='kclogin env-2a'
+alias k2='kclogin env-2'
 alias k4='kclogin env-4'
 alias k5='kclogin env-5'
 
