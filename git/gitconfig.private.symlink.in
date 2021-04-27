@@ -3,5 +3,5 @@
         email = AUTHOREMAIL
 [credential]
         helper = GIT_CREDENTIAL_HELPER
-[url "https://GITHUB_PAT:x-oauth-basic@github.com/"]
+[url "https://GITHUB_PAT:GITHUB_OAT@github.com/"]
 	insteadOf = https://github.com/

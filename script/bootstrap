@@ -44,10 +44,12 @@ setup_gitconfig () {
     read -e git_authoremail
 
     git_pat=$(cat ~/.git/.pat)
+    git_oat="x-oauth-basic"
     sed -e "s/AUTHORNAME/$git_authorname/g" \
 	    -e "s/AUTHOREMAIL/$git_authoremail/g" \
 	    -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" \
 	    -e "s/GITHUB_PAT/$git_pat/g" \
+	    -e "s/GITHUB_OAT/$git_oat/g" \
 	    git/gitconfig.private.symlink.in > git/gitconfig.private.symlink
 
     success 'gitconfig.private'
