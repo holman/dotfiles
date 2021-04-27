@@ -1,1 +1,3 @@
 git/gitconfig.local.symlink
+*.private
+*.private.symlink

@@ -28,9 +28,9 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.local.symlink ]
+  if ! [ -f git/gitconfig.private.symlink ]
   then
-    info 'setup gitconfig'
+    info 'setup gitconfig.private'
 
     git_credential='cache'
     if test "$(uname -s)" = "Darwin"
@@ -43,9 +43,14 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    git_pat=$(cat ~/.git/.pat)
+    sed -e "s/AUTHORNAME/$git_authorname/g" \
+	    -e "s/AUTHOREMAIL/$git_authoremail/g" \
+	    -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" \
+	    -e "s/GITHUB_PAT/$git_pat/g" \
+	    git/gitconfig.private.symlink.in > git/gitconfig.private.symlink
 
-    success 'gitconfig'
+    success 'gitconfig.private'
   fi
 }
 

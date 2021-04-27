@@ -1,3 +1,10 @@
 .DS_Store
 *~
 *.swp
+*.bin
+*.bundle
+*.private
+__pycache__
+*.pyc
+*.tar.*
+*.zip
