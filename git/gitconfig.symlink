@@ -1,8 +1,8 @@
 # Local/private config goes in the include
 [include]
         path = ~/.gitconfig.local
-[hub]
-        protocol = https
+[url "https://${GITHUB_PAT}:x-oauth-basic@github.com/"]
+	insteadOf = https://github.com/
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
