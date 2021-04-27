@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 set -x
 
 manuf=$(sudo dmidecode -s system-manufacturer)

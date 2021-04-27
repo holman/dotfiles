@@ -17,21 +17,5 @@
 		"coveredGutterStyle": "verticalgreen",
     	"uncoveredGutterStyle": "blockred"
     },
-    "editor.renderWhitespace": "all",
-    "multiCommand.commands": [
-        {
-          "command": "multiCommand.gotoEndOfLine",
-          "sequence": [
-            "workbench.action.acceptSelectedQuickOpenItem",
-            "cursorEnd",
-          ]
-        },
-        {
-            "command": "multiCommand.gotoBeginningOfLine",
-            "sequence": [
-              "workbench.action.acceptSelectedQuickOpenItem",
-              "cursorHome",
-            ]
-        }
-    ]
+    "editor.renderWhitespace": "all"
 }

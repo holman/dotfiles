@@ -25,6 +25,14 @@ alias kcgx='kubectl get secret'
 alias kcsx='kubectl describe secret'
 alias kcdx='kubectl delete secret'
 
+function kclogin() {
+  tsh --auth=github --proxy=auth-$1.test.infoblox.com:3080 login $1
+}
+
+alias k2='kclogin env-2'
+alias k4='kclogin env-4'
+alias k5='kclogin env-5'
+
 # for the contacts app, FIXME: they do not work when connected to VPN
 # KC_SERVER=$(kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d " ")
 # KC_SECRET_NAME=$(kubectl get secrets | grep ^default | cut -f1 -d ' ')
@@ -43,6 +51,12 @@ export AWS_IAM_ROLE=ngp.k8.core
 export KUBERNETES_NAMESPACE=g # Namespace that you created in Section 2.1
 
 # helm
+export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
+export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
+export AWS_REGION=$(aws configure get region)
+export AWS_SESSION_TOKEN=$(aws configure get aws_session_token)
+
+alias helm='docker run --rm -v $PWD:/app -e AWS_REGION=${AWS_REGION} -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} -e AWS_SESSION_TOKEN=$(AWS_SESSION_TOKEN) infoblox/helm:3.2.4-5b243a2' 
 alias hl='helm list'
 alias hls='helm list'
 alias hli='helm lint'

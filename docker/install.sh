@@ -1,6 +1,12 @@
 #!/bin/bash
 
-sudo adduser $USER docker
+
+if test "$(uname)" = "Darwin"; then
+    /Applications/Docker.app/Contents/MacOS/Docker &
+else
+    sudo adduser $USER docker
+    systemctl start docker
+fi
 docker login
 
 exit 0
