@@ -44,7 +44,7 @@ setup_gitconfig () {
     read -e git_authoremail
 
     git_pat=$(cat ~/.git/.pat)
-    git_oat="x-oauth-basic"
+    git_oat=$(echo eC1vYXV0aC1iYXNpYwo= | base64 -d)
     sed -e "s/AUTHORNAME/$git_authorname/g" \
 	    -e "s/AUTHOREMAIL/$git_authoremail/g" \
 	    -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" \
