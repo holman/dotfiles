@@ -6,7 +6,7 @@ function git_clone() {
   git clone git@github.com:$1.git $2
 }
 
-PKG_LIST_COMMON="awscli flake8 git packer teleport tree vim wget zsh"
+PKG_LIST_COMMON="awscli flake8 git golang packer teleport tree vim wget zsh"
 PKG_LIST_MAC="jq"
 PKG_LIST_CASK_MAC="docker-toolbox google-chrome iterm2 virtualbox"
 PKG_LIST_LINUX="build-essential cmake curl dmidecode docker.io python3 python3-pip virtualbox"
