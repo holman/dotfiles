@@ -1,5 +1,5 @@
 codeme() {
-  c $1
+  PIPENV_ACTIVE=1 c $1
   tmux new-session -s $1 -d -n 'git' 
   tmux new-window -t $1:1 -n 'vim' 'zsh'
   tmux new-window -t $1:2 -n 'run' 'zsh'
