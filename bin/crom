@@ -18,11 +18,21 @@ elif [[ "$@" =~ tsan ]]; then
   sanitizer="Thread"
 fi
 
+libcxx=""
+if [[ "$@" =~ "libc++" ]]; then
+  libcxx="libc++"
+fi
+
 conan_package_name=$(conan inspect .. | grep 'name:' | cut -d' ' -f2)
 
 sanitizer_flags=""
 if [[ ! -z "${sanitizer}" ]]; then
   sanitizer_flags="-s ${conan_package_name}:compiler.sanitizer=${sanitizer}"
+fi
+
+library_switch=""
+if [[ ! -z "${libcxx}" ]]; then
+  library_switch="-s compiler.libcxx=${libcxx}"
 fi
 
 profile_switch=${CROM_DEFAULT_PROFILE:+-pr $CROM_DEFAULT_PROFILE}
@@ -38,7 +48,7 @@ done
 # Always force full regeneration
 rm -f CMakeCache.txt
 
-conan install $update ${sanitizer_flags} ${additional_switches} $profile_switch -s ${conan_package_name}:build_type=Debug --build=outdated ..
+conan install $update ${sanitizer_flags} ${additional_switches} ${library_switch} $profile_switch -s ${conan_package_name}:build_type=Debug --build=outdated ..
 
 if [[ -f ../conanfile.py ]]; then
   CONAN_CMAKE_GENERATOR=Ninja conan build -c ..
