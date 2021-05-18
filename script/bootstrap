@@ -212,29 +212,8 @@ init_command_t () {
 
   start_dir=`pwd`
   cd ~/.vim/bundle/Command-T/ruby/command-t/ext/command-t
-  # Add rvm
-  if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
-
-    # First try to load from a user install
-    source "$HOME/.rvm/scripts/rvm"
-
-  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
-
-    # Then try to load from a root install
-    source "/usr/local/rvm/scripts/rvm"
-
-  else
-
-    printf "ERROR: An RVM installation was not found.\n"
-
-  fi
-  if type rvm 2>&1 > /dev/null
-  then
-    rvm use system
-  else
-    info 'rvm not found'
-  fi
-  ruby extconf.rb
+  make clean
+  /usr/bin/ruby extconf.rb
   make
   cd $start_dir
   success 'initialized command t'
