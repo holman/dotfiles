@@ -85,7 +85,15 @@ link_file () {
       else
 
         user "File already exists: $(basename "$src"), what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -n 1 action
+
+        os=$(os_name)
+        if [[ $os = "Codespaces" ]]
+        then
+          info "Overwriting all files since we're in codespaces."
+          action="O"
+        else
+          read -n 1 action
+        fi
 
         case "$action" in
           o )
