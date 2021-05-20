@@ -38,10 +38,17 @@ setup_gitconfig () {
       git_credential='osxkeychain'
     fi
 
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
+    os=$(os_name)
+    if [[ $os = "Codespaces" ]]
+    then
+      git_authorname='crimsonknave'
+      git_authoremail='crimsonknave@github.com'
+    else
+      user ' - What is your github author name?'
+      read -e git_authorname
+      user ' - What is your github author email?'
+      read -e git_authoremail
+    fi
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.symlink.example > git/gitconfig.symlink
 
@@ -316,6 +323,8 @@ os_name () {
   mac=$?
   uname -a |grep 'Debian' > /dev/null
   deb=$?
+  uname -a |grep 'codespaces' > /dev/null
+  codespaces=$?
   set -e
   if [[ $mac -eq 0 ]]
   then
@@ -323,6 +332,9 @@ os_name () {
   elif [[ $deb -eq 0 ]]
   then
     echo 'Debian'
+  elif [[ $codespaces -eq 0 ]]
+  then
+    echo 'Codespaces'
   else
     echo 'Other'
   fi
