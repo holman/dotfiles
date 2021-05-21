@@ -33,15 +33,9 @@ alias update='/Users/cwardzala/.dotfiles/bin/update.sh'
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-alias android-studio="open -a /Applications/Android\ Studio.app/"
-
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 alias server="npx http-server"
-
-alias homeserver="ssh cwardzala@192.168.68.144 -p 25705"
-alias homeserver-public="ssh cwardzala@23.28.174.57 -p 25705"
 
 alias dl-video="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1"
 alias dl-audio="youtube-dl -f 'bestaudio[ext=m4a]/best' $1"
