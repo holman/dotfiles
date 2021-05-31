@@ -87,11 +87,16 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'jaxbot/semantic-highlight.vim'
 
+Plug 'tommcdo/vim-fubitive'
+
 call plug#end()
 
 syntax enable
 
 set background=dark
+
+" configure vim-fubitive GBrowse handler for bitbucket
+let g:fubitive_domain_pattern = 'bitbucket\.tomtomgroup\.com'
 
 " configure tmuxline
 let g:tmuxline_powerline_separators = 0
