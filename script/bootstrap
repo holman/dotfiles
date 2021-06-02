@@ -170,8 +170,12 @@ install_dotfiles () {
   install_the_fuck
   install_aws_cli
   install_virtualenv
-  install_github_stuffs
-  install_shodan
+  os=$(os_name)
+  if [[ $os != "Codespaces" ]]
+  then
+    install_github_stuffs
+    install_shodan
+  fi
   #check_packages_are_installed
 
   success 'laid down dotfiles'
