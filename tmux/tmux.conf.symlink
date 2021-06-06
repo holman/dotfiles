@@ -66,13 +66,14 @@ set -g status-interval 2 # set update frequency (default 15 seconds)
 set -g status-justify centre
 set -g visual-activity on
 
-set -g status-left-length 100
-set -g status-left ''
-set -g status-right-length 100
-set -g status-right '#{tasks_status} | #{battery_icon} #{battery_percentage}#{?battery_remain, #{battery_remain},} | Online: #{online_status} | %H:%M'
 
-set-option -g status-bg default
-set-option -g status-fg white
+set -g status-left-length 100
+set -g status-left '%H:%M'
+set -g status-right-length 100
+set -g status-right '#{tasks_status} | #{battery_icon} #{battery_percentage}#{?battery_remain, #{battery_remain},} | Online: #{online_status}'
+
+set-option -g status-style bg=default
+set-option -g status-style fg=white
 
 
 # Plugins
