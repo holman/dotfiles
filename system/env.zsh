@@ -3,6 +3,7 @@ export GPG_TTY=$(tty)
 export WD_HOME="$HOME/.wd"
 export NVM_DIR="$HOME/.nvm"
 export TMUX_DIR="$HOME/.tmux"
+export TMUX_PLUGIN_MANAGER_PATH="$TMUX_DIR/plugins/tpm"
 export ELEANOR_DODO="$HOME/Nextcloud/Naissance/Dodo"
 export ANDROID_SDK_ROOT="/Users/he8us/Library/Android/sdk"
 export ANDROID_HOME=$ANDROID_SDK_ROOT

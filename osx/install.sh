@@ -5,3 +5,4 @@
 
 echo "› sudo softwareupdate -i -a"
 sudo softwareupdate -i -a
+sudo spctl --master-disable

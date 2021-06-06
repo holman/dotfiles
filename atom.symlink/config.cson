@@ -21,11 +21,10 @@
     telemetryConsent: "no"
     themes: [
       "atom-dark-ui"
-      "atom-dark-syntax"
+      "solarized-dark-syntax"
     ]
   editor:
-    fontFamily: "FuraCode Nerd Font"
-    fontSize: 12
+    fontFamily: "Fira Code"
     showIndentGuide: true
     tabLength: 4
   "exception-reporting":
