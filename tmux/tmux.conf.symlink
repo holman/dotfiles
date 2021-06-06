@@ -12,7 +12,7 @@ bind-key C-a send-prefix
 ## Reload tmux config with PREFIX r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
-## Tmux messages are displayed for 4 seconds
+## Tmux messages are displayed for 2 seconds
 set -g display-time 2000
 
 ## Be as large as you can be
@@ -65,6 +65,8 @@ set -g status-position top
 set -g status-interval 2 # set update frequency (default 15 seconds)
 set -g status-justify centre
 set -g visual-activity on
+set-option -g status-style bg=default,fg=white
+
 
 
 set -g status-left-length 100
@@ -72,8 +74,10 @@ set -g status-left '%H:%M'
 set -g status-right-length 100
 set -g status-right '#{tasks_status} | #{battery_icon} #{battery_percentage}#{?battery_remain, #{battery_remain},} | Online: #{online_status}'
 
-set-option -g status-style bg=default
-set-option -g status-style fg=white
+
+setw -g window-status-format '#[default] #I  #W'
+setw -g window-status-current-format '#[fg=colour40] #I  #W'
+
 
 
 # Plugins
@@ -100,7 +104,6 @@ set -g @batt_low_charge_icon "#[fg=red] #[fg=default]"
 set -g @online_icon "#[fg=green]#[fg=default]"
 set -g @offline_icon "#[fg=red]#[fg=default]"
 set -g @route_to_ping "he8us.be"
-
 
 
 ## Load Plugins
