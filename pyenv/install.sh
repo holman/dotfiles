@@ -3,12 +3,22 @@
 set -e
 
 # mac
+if test "$(uname)" = "Darwin"
+  then
+    brew install pyenv
+    cd ~/.dotfiles
+    exit 0
+fi
 #brew install openssl readline sqlite3 xz zlib
 #sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target / ???
 
+# ubuntu
 # pyenv deps
-sudo apt-get install git python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl -y
-sudo pip install virtualenvwrapper
+if test ! "$(uname)" = "Darwin"
+  then
+    sudo apt-get install git python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl -y
+    sudo pip install virtualenvwrapper
+fi
 
 if cd ~/.pyenv;
     then echo "~/.pyenv exists, skipping installation";

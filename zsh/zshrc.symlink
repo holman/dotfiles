@@ -81,3 +81,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 #pyenv virtualenvwrapper
+
+#no auto update homeberw
+export HOMEBREW_NO_AUTO_UPDATE=1
