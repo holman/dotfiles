@@ -28,3 +28,6 @@ atom.symlink/recovery
 
 system/env.local.zsh
 Brewfile.lock.json
+
+ssh.symlink/*
+!ssh.symlink/config.example

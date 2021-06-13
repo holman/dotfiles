@@ -1,0 +1,6 @@
+Host *
+    ServerAliveInterval 60
+
+Host example
+    User username
+    HostName 0.0.0.0
