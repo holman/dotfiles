@@ -157,7 +157,7 @@ nnoremap <leader><space> :noh<cr>
 
 " handle lines intelligently
 set wrap
-set textwidth=79
+" set textwidth=79
 set formatoptions+=qrn1
 set colorcolumn=81
 
