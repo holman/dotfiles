@@ -152,17 +152,16 @@ install_launchagents () {
 setup_gitconfig
 install_dotfiles
 
-# If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
-  info "installing dependencies"
+  info "setting osx defaults; installing homebrew and oh-my-zsh"
   if source bin/dot | while read -r data; do info "$data"; done
   then
     success "dependencies installed"
   else
     fail "error installing dependencies"
   fi
-  install_launchagents
+  #install_launchagents
 fi
 
 echo ''

@@ -8,6 +8,9 @@ filetype plugin on " needed for nerdcommenter
 " will use the stadard leader (\).
 let mapleader=","
 
+"" Pathogen load
+execute pathogen#infect()
+
 " Copied as recommended from https://github.com/scrooloose/syntastic
 "Only worked on hal after downloading pathogen and syntastic new
 "So don't include .vim/ in repo, only .vimrc
@@ -27,9 +30,6 @@ let g:syntastic_python_pep8_args='--ignore=E501'
 let g:syntastic_python_flake8_args='--ignore=E501'
 
 let g:SuperTabDefaultCompletionType = "context" "autocomplete path if '/' present
-
-"" Pathogen load
-execute pathogen#infect()
 
 syntax enable " enables syntax highlighting
 set number " line numbers

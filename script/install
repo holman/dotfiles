@@ -9,9 +9,6 @@ cd "$(dirname $0)"/..
 
 echo "Installing pyenv first"
 sh -c pyenv/install.sh
-version=`cat .python-version`
-echo "Installing python ${version} for setup for .dotfiles"
-pyenv install "${version}"
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do echo "${installer}"; sh -c "${installer}" ; done

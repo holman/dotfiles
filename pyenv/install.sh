@@ -2,31 +2,28 @@
 
 set -e
 
-# mac
 if test "$(uname)" = "Darwin"
+  # mac
   then
     brew install pyenv
-    cd ~/.dotfiles
-    exit 0
-fi
-#brew install openssl readline sqlite3 xz zlib
-#sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target / ???
-
-# ubuntu
-# pyenv deps
-if test ! "$(uname)" = "Darwin"
-  then
+  else
+  # ubuntu
     sudo apt-get install git python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl -y
     sudo pip install virtualenvwrapper
+    if cd ~/.pyenv;
+        then echo "~/.pyenv exists, skipping installation";
+        else curl https://pyenv.run | bash
+    fi
+  # python build deps
+  sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 fi
 
-if cd ~/.pyenv;
-    then echo "~/.pyenv exists, skipping installation";
-    else curl https://pyenv.run | bash
-fi
+# set global python version
+version=`cat .python-version`
+echo "Installing python ${version} as pyenv default"
+pyenv install -s "${version}"
+pyenv global "${version}"
 cd ~/.dotfiles
 
-# python build deps
-sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
 
