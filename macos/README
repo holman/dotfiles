@@ -1,5 +1,22 @@
 # Setup new machine from scratch
 
+## manual installations
+chrome
+
+## rsync files
+clean up old home directory, check for anything new to exclude, then:
+`./.dotfiles/macos/sync_new_cp.sh`
+
+## settings
+keyboard->modifer keys->caps-lock = ctrl
+
+## setup with dotfiles
+clone dotfiles repo
+`./.dotfiles/script/bootstrap`
+
+## brew install
+`brew bundle --file homebrew/Brewfile`  
+
 ## time machine
 
 ```
@@ -14,6 +31,7 @@ exclusion. Best to exclude repo `.git` and data folders, `Desktop`, `Downloads`
 files are not backed up.
 
 ## duplicati
+On old machine turn off duplicati on startup: Users & Groups -> Login Items
 copy `~/.config/Duplicati` to new machine and open duplicati.
 
 ## mail backup
@@ -21,19 +39,14 @@ link google account
 Download attachments: all
 
 ## keychain
-not much important was copied but you can:
+I didn't do this for new setup in June 2021 but you can:
 ```
-scp ~/Library/Keychains/login.keychain NEWCP:~/Library/Keychains/oldlogin.keychain
 scp ~/Library/Keychains/login.keychain-db NEWCP:~/Library/Keychains/oldlogin.keychain-db
 ```
 then in keychain app; `file->Add Keychain`; drag and drop anything you want to keep.
 
-## kmymoney
-config is in $HOME/Library/Preferences/kmymoney/kmymoneyrc. File is stored in
-private repo.
-
 ## Launch Agents
-are in ~/Library/LaunchAgents/
+.dotfiles/macos/install.sh sets these up for you
 `sudo launchctl load SOME_SERVICE.plist` to load service
 `sudo launchctl unload SOME_SERVICE.plist` to unload
 
