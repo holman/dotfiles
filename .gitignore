@@ -1,1 +1,9 @@
 git/gitconfig.local.symlink
+
+# vim
+*.swp
+*~
+.*.sw[po]
+
+#mac .DS_Store
+.DS_Store
