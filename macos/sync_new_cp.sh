@@ -9,6 +9,7 @@ rsync -avHEP -e "ssh -c aes256-ctr" \
     --exclude='.dotfiles/*' \
     --exclude='Library/*' \
     --exclude='.pyenv/*' \
+    --exclude='.oh-my-zsh' \
     --exclude='.oh-my-zsh/*' \
     --exclude='*.swp' \
     --exclude='.vim' \  # important, else .dotfiles/vim/install.sh won't reinstall
