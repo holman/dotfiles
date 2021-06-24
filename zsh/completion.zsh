@@ -7,7 +7,4 @@ zstyle ':completion:*' insert-tab pending
 # This comes from the brew 'zsh-completion' package
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
 fi
