@@ -1,6 +1,6 @@
 if test ! "$(uname)" = "Darwin"
   then
-  exit 0
+  return
 fi
 
 # The Brewfile handles Homebrew-based app and library installs, but there may
