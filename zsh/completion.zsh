@@ -3,3 +3,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
+
+# This comes from the brew 'zsh-completion' package
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
