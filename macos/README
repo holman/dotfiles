@@ -6,18 +6,51 @@ chrome
 ## rsync files
 clean up old home directory, check for anything new to exclude, then:
 `./.dotfiles/macos/sync_new_cp.sh`
+~/Library/Exodus
+~/Library/Duplicati
 
 ## settings
 keyboard->modifer keys->caps-lock = ctrl
+sound->play sound on startup off
 
 ## setup with dotfiles
 clone dotfiles repo
 `./.dotfiles/script/bootstrap`
 
 ## brew install
+Set up admin and standard user to be members of same group:
+https://medium.com/@leifhanack/homebrew-multi-user-setup-e10cb5849d59
+From admin account do:
 `brew bundle --file homebrew/Brewfile`  
+since I think homebrew needs sudo to write to /Applications/
 
-## time machine
+## mail backup
+In Mail App:
+link google account
+Download attachments: all
+
+## keychain
+I didn't do this for new setup in June 2021 but you can:
+```
+scp ~/Library/Keychains/login.keychain-db NEWCP:~/Library/Keychains/oldlogin.keychain-db
+```
+then in keychain app; `file->Add Keychain`; drag and drop anything you want to keep.
+
+## time machine (AFTER rsync)
+
+June 2020:
+Only excluded:
+    `~/Desktop` 
+    `~/Downloads` 
+    `~/temp`
+    `~/Library/Application Support/Steam`
+    `~/Documents/Encypted/prviate`
+    `~/Documents/Encypted/prviate.gpg`
+Included all system directories for easy restore. I held down Cmd-Shift when selecting 
+exclusions, which gave an option to see hidden directories, but /usr (Homebrew) was 
+grayed out so didn't exclude it.
+
+Earlier:
 
 ```
 sudo tmutil inheritbackup /Volumes/DISKNAME/Backups.backupdb/COMPUTERNAME
@@ -30,25 +63,9 @@ exclusion. Best to exclude repo `.git` and data folders, `Desktop`, `Downloads`
 `temp`; drag `/System` to exclude all system files; `/usr` to ensure homebrew
 files are not backed up.
 
-## duplicati
+## duplicati (AFTER rsync)
 On old machine turn off duplicati on startup: Users & Groups -> Login Items
 copy `~/.config/Duplicati` to new machine and open duplicati.
-
-## mail backup
-link google account
-Download attachments: all
-
-## keychain
-I didn't do this for new setup in June 2021 but you can:
-```
-scp ~/Library/Keychains/login.keychain-db NEWCP:~/Library/Keychains/oldlogin.keychain-db
-```
-then in keychain app; `file->Add Keychain`; drag and drop anything you want to keep.
-
-## Launch Agents
-.dotfiles/macos/install.sh sets these up for you
-`sudo launchctl load SOME_SERVICE.plist` to load service
-`sudo launchctl unload SOME_SERVICE.plist` to unload
 
 # Setup machine from time machine backup
 You don't back up system files so don't do system restore:  
