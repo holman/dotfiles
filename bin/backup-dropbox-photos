@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+INDEX=$(date +%Y-%m-%d.%H:%M)
+
+pushd ~/Dropbox/Camera\ Uploads
+
+zip ~/Desktop/photoBackup-$INDEX.zip ./* 
+
+aws s3 cp --profile personal --storage-class STANDARD_IA ~/Desktop/photoBackup-$INDEX.zip s3://patrick-private/backups/
+
+popd
