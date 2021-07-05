@@ -1,3 +1,5 @@
+source $VIMRUNTIME/defaults.vim
+
 syntax on
 
 " Wrap gitcommit file types at the appropriate length
