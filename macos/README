@@ -6,39 +6,36 @@ chrome
 ## rsync files
 clean up old home directory, check for anything new to exclude, then:
 `./.dotfiles/macos/sync_new_cp.sh`
-~/Library/Exodus
-~/Library/Duplicati
+~/Library/Application\ Support/Exodus
+~/Library/Application\ Support/Duplicati
 
 ## settings
 keyboard->modifer keys->caps-lock = ctrl
 sound->play sound on startup off
 
+## get home dir files
+`git clone git@gitlab.com:takezo/home.git`
+`mv home/.* ~/`
+`rm -r home/`
+
 ## setup with dotfiles
-clone dotfiles repo
+With my user as admin user (to ensure homebrew can be installed), clone dotfiles repo and:
 `./.dotfiles/script/bootstrap`
 
 ## brew install
-Set up admin and standard user to be members of same group:
-https://medium.com/@leifhanack/homebrew-multi-user-setup-e10cb5849d59
-From admin account do:
+Change my user to standard user. Now we only install homebrew packages as user admin.
+`chown -R admin:staff /usr/local/*`
+`su admin`
 `brew bundle --file homebrew/Brewfile`  
-since I think homebrew needs sudo to write to /Applications/
 
 ## mail backup
 In Mail App:
 link google account
 Download attachments: all
 
-## keychain
-I didn't do this for new setup in June 2021 but you can:
-```
-scp ~/Library/Keychains/login.keychain-db NEWCP:~/Library/Keychains/oldlogin.keychain-db
-```
-then in keychain app; `file->Add Keychain`; drag and drop anything you want to keep.
-
 ## time machine (AFTER rsync)
 
-June 2020:
+June 2021:
 Only excluded:
     `~/Desktop` 
     `~/Downloads` 
@@ -74,5 +71,14 @@ You don't back up system files so don't do system restore:
 - `brew bundle --file homebrew/Brewfile`  
 - git clone hwpl (since data/ and .git are not backed up)  
 - set iterm shell to ...
+
+## keychain
+I didn't do this for new setup in June 2021 but you can:
+```
+scp ~/Library/Keychains/login.keychain-db NEWCP:~/Library/Keychains/oldlogin.keychain-db
+```
+then in keychain app; `file->Add Keychain`; drag and drop anything you want to keep.
+
+
 
 
