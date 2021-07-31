@@ -255,6 +255,7 @@ if filereadable('/proc/cpuinfo')
   let &makeprg = &makeprg.' -j '.(system('grep -c ^processor /proc/cpuinfo')+1)
 endif
 nnoremap <leader>mm :Make<cr>
+nnoremap <leader>mM :Make!<cr>
 nnoremap <leader>mc :Make clean<cr>
 nnoremap <leader>M :edit .VimMakefile<cr>
 " For latex file run latex instead of makefile
