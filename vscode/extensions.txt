@@ -1,3 +1,4 @@
+bierner.markdown-mermaid
 christian-kohler.path-intellisense
 DavidAnson.vscode-markdownlint
 deerawan.vscode-dash
@@ -5,11 +6,14 @@ dustinsanders.an-old-hope-theme-vscode
 eamodio.gitlens
 esbenp.prettier-vscode
 foxundermoon.shell-format
+hashicorp.terraform
+johnpapa.vscode-peacock
 k--kato.intellij-idea-keybindings
 mikestead.dotenv
 ms-azuretools.vscode-docker
 ms-python.python
 ms-python.vscode-pylance
+ms-toolsai.jupyter
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit

@@ -11,9 +11,6 @@ set nowrap
 # enable soft wrap for easier viewing
 set softwrap
 
-# Smooth scrolling
-set smooth
-
 ## Soft tabs
 set tabstospaces
 ## Width 2

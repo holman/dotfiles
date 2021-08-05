@@ -2,7 +2,6 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "editor.multiCursorModifier": "alt",
   "editor.fontFamily": "'Hack Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
@@ -35,7 +34,7 @@
     "--select=B,C,E,F,W,T4,B9"
   ],
   "shellcheck.customArgs": ["-e SC1071"],
-  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "terminal.integrated.defaultProfile.osx": "/usr/local/bin/zsh",
   "workbench.colorTheme": "An Old Hope Classic",
   "workbench.iconTheme": "vscode-icons",
   "telemetry.enableCrashReporter": false,
@@ -46,10 +45,16 @@
   "python.sortImports.path": "isort",
   "python.analysis.memory.keepLibraryAst": true,
   "python.analysis.memory.keepLibraryLocalVariables": true,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ]
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "github.gitAuthentication": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "peacock.vslsShareColor": "#dd0531",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }
 }

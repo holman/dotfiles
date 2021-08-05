@@ -6,6 +6,7 @@ cask 'dash' # Documentation
 cask 'docker'
 # cask 'github-desktop' # GUI for github
 cask 'firefox'
+cask 'google-cloud-sdk' # google cli
 cask 'keycastr' # Key casting
 cask 'kitematic' # docker
 cask 'licecap' # Screenrecording software
