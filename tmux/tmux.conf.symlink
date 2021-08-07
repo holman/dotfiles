@@ -25,10 +25,6 @@ set -g set-titles on
 set -g set-titles-string "#h/#S"
 set -g allow-rename on
 
-# Enable copy paste in vim with system clipboard in OSX
-# Uses the safe-* version in order to run on *NIX as well.
-# Source: https://github.com/jimeh/dotfiles/commit/3838db8
-set-option -g default-command "safe-reattach-to-user-namespace -l $SHELL"
 
 set-option -g history-limit 10000
 
@@ -44,7 +40,7 @@ set-option -g focus-events on
 
 # Enable true colors
 set -g default-terminal 'tmux-256color'
-set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
+set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m,alacritty:RGB'
 
 
 # vi: set ft=tmux :
