@@ -21,7 +21,7 @@ fi
 brew update && brew upgrade `brew outdated`
 
 # Install homebrew packages
-brew install coreutils spark ctags
+brew install coreutils spark
 
 # Install reattach-to-user-namespace
 # This makes sure that tmux + vim is able to use the system clipboard
