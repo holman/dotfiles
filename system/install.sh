@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 if [ "$(uname -s)" = "Darwin" ]; then
   brew install ncdu

@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/zsh -e
 
 echo "Check if ripgrep is available"
 which rg

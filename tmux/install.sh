@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 if [ "$(uname)" == "Darwin" ]; then
   brew install tmux
   terminfofile="$(dirname "$0")/tmux-256color.terminfo"

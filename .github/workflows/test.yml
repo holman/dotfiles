@@ -1,0 +1,25 @@
+name: Test dotfiles
+
+on: [push]
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, macos-10.15]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: '.dotfiles'
+      - name: Install and test
+        shell: bash
+        run: |
+          export HOME=$(pwd)
+          cd .dotfiles/
+          ./script/bootstrap
+          ./script/install
+          ./script/test

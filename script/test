@@ -1,12 +1,13 @@
-#!/bin/zsh -e
+#!/bin/zsh -i
+setopt -e
 
 # Run all test scripts
 
 cd "$(dirname $0)"/..
 
 # find all test scripts and run them
-tests=$(find . -name test.sh)
-for test in ${tests}; do
-  echo -e "Running \e[32m${test}\e[0m"
-  zsh -i -c "env"
+tests=("${(@f)$(find . -name "test.sh")}")
+for t in $tests; do
+  echo -e "Running \e[32m${t}\e[0m"
+  zsh -c -i "${t}"
 done

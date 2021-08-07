@@ -38,9 +38,18 @@ setup_gitconfig () {
     fi
 
     user ' - What is your github author name?'
-    read -e git_authorname
+    if [[ "$CI" == "true" ]]; then
+       git_authorname='my_ci_user'
+    else
+      read -e git_authorname
+    fi
+    
     user ' - What is your github author email?'
-    read -e git_authoremail
+    if [[ "$CI" == "true" ]]; then
+      git_authoremail='ci@example.com'
+    else
+      read -e git_authoremail
+    fi
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig_credentials.example > ~/.gitconfig_credentials
 
@@ -78,7 +87,11 @@ install_dotfiles () {
       if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
       then
         user "File already exists: ${filename_with_dir}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -n 1 action
+	if [[ "$CI" == "true" ]]; then
+	  action="O"
+	else
+          read -n 1 action
+	fi
 
         case "$action" in
           o )

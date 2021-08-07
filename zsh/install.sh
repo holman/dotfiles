@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 set -e
 
 checkout_path=~/.oh-my-zsh
@@ -16,8 +16,17 @@ if [ -d "$checkout_path" ]; then
     # Older zsh templates did not export ZSH var
     export ZSH=$checkout_path
   fi
-  zsh -c "source ${checkout_path}/lib/functions.zsh && upgrade_oh_my_zsh"
+  zsh -i -c "source ${checkout_path}/lib/functions.zsh && upgrade_oh_my_zsh"
 else
   ../git/install.sh
   git clone git://github.com/robbyrussell/oh-my-zsh.git $checkout_path
 fi
+
+if (grep -q '/bin/zsh' /etc/shells) && [[ -x /bin/zsh ]]; then
+  if [[ "${CI}" == "true" ]]; then
+    echo "Running on CI, not changing log in shell"
+  else
+    chsh -s /bin/zsh
+  fi
+fi
+

@@ -1,8 +1,12 @@
-#!/bin/bash
+#!/bin/bash -e
 #
 # Run all dotfiles installers.
 
 cd "$(dirname $0)"/..
+
+if [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+  sudo apt-get update
+fi
 
 # find the installers and run them iteratively
 installers=$(find . -name install.sh)

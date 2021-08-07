@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 cd "$(dirname "$0")"
 
@@ -11,5 +11,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get install -y wget curl git
 fi
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+fi
 ~/.fzf/install --all

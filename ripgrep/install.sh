@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 if [ "$(uname)" == "Darwin" ]; then
   brew install ripgrep
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
