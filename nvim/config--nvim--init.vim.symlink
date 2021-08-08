@@ -576,9 +576,22 @@ let g:completion_matching_smart_case = 1
 set shortmess+=c
 
 lua <<EOF
-require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.pylsp.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.rls.setup{on_attach=require'completion'.on_attach}
+local configs = require('lspconfig')
+-- This is grabbing into internals of lspconfig. If this breaks, this is on me.
+local util = require 'lspconfig/util'
+local root_pattern = util.root_pattern('compile_commands.json')
+
+-- Get compile_commands.json based on current working directory in case there are multiple available, e.g., conan workspaces with the workspace vs the single package build
+-- Supply an invalid dir to clangd in case that no compile_commands.json can be found in the current working dir. This restores the original behavior.
+configs.clangd.setup{root_dir=function(fname)
+    return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
+  end,
+  cmd={'clangd', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
+  on_attach=require'completion'.on_attach}
+
+configs.pylsp.setup{on_attach=require'completion'.on_attach}
+
+configs.rls.setup{on_attach=require'completion'.on_attach}
 EOF
 
 autocmd Filetype cpp,python,rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
