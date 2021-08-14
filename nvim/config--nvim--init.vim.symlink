@@ -76,7 +76,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 " Plug 'reedes/vim-colors-pencil'
 Plug 'altercation/vim-colors-solarized'
-Plug 'jremmen/vim-ripgrep'
 
 Plug 'MarcWeber/vim-addon-local-vimrc'
 
@@ -231,7 +230,6 @@ let g:ctrlp_max_files = 0
 
 " If rg is available use it as filename list generator instead of 'find'
 if executable('rg')
-    set grepprg=rg\ --nocolor
     let g:ctrlp_user_command = 'rg %s --hidden --files --color=never --glob ""'
     let g:ctrlp_use_caching = 0
 endif
@@ -365,11 +363,28 @@ let g:tagbar_show_linenumbers=-1
 
 " Set smart case for rg
 if executable("rg")
-  let g:rg_command="rg --vimgrep" . " " . '--smart-case --hidden'
-  let g:rg_derive_root='true'
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
-noremap <leader>r :Rg<cr>
+augroup myvimrc
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
+
+fun! s:Grep(txt)
+  if empty(a:txt)
+    let needle = expand("<cword>")
+  else
+    let needle =  a:txt
+  endif
+  silent! execute "grep! " . needle
+endfun
+
+command! -nargs=* -complete=file Rg :call s:Grep(<q-args>)
+
+noremap <leader>rr :Rg<cr>
+noremap <leader>r<space> :Rg<space>
 
 " Add yaml file type for salt sls files
 au BufEnter *.sls set ft=yaml
