@@ -1,4 +1,4 @@
-alias reload!='. ~/.zshrc'
+alias reload!='exec $SHELL'
 
 # Inspired by https://xebia.com/blog/profiling-zsh-shell-scripts/
 function benchmark_reload! {
