@@ -4,7 +4,7 @@
 
 cd "$(dirname $0)"/..
 
-if [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get update
 fi
 

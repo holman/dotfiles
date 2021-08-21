@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-if [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
+if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get install -y --no-install-recommends python3-pip
 fi
 
