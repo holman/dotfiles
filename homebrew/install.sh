@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # Homebrew
 #
@@ -25,6 +25,6 @@ brew install coreutils spark
 
 # Install reattach-to-user-namespace
 # This makes sure that tmux + vim is able to use the system clipboard
-brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
+brew install reattach-to-user-namespace
 
 exit 0
