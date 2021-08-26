@@ -1,2 +1,4 @@
-export GOPATH=$PROJECTS/go
-export PATH="$GOPATH/bin:$PATH"
+#!/bin/sh
+
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
