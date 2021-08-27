@@ -8,6 +8,8 @@ clean up old home directory, check for anything new to exclude, then:
 `./.dotfiles/macos/sync_new_cp.sh`
 ~/Library/Application\ Support/Exodus
 ~/Library/Application\ Support/Duplicati
+~/Library/Application\ Support/iStat\ Menus
+~/.electrum/
 
 ## settings
 keyboard->modifer keys->caps-lock = ctrl
