@@ -21,3 +21,10 @@ then
 else
   printf '\033[0;31m%s\033[0m\n' 'There was an error updating. Try again later?'
 fi
+
+printf '\033[0;34m%s\033[0m\n' "Running cleanup tasks"
+cleanup_tasks=$(find . -name cleanup.sh)
+for cleanup in ${cleanup_tasks}; do
+  echo -e "Running \e[32m${cleanup}\e[0m"
+  sh -c "${cleanup}"
+done
