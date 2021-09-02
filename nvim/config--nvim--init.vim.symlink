@@ -248,7 +248,7 @@ au BufEnter *.py set sw=4 ts=4 sta et fo=croql
 " Make
 " We explicitly use a separate makefile to drive make to be able to switch make
 " commands by editing the makefile without having to reload vimrc
-let &makeprg = 'make -f .VimMakefile'
+let &makeprg = 'make -f .VimMakefile --no-builtin-variables'
 if filereadable('/proc/cpuinfo')
   let &makeprg = &makeprg.' -j '.(system('grep -c ^processor /proc/cpuinfo')+1)
 endif
