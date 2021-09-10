@@ -615,44 +615,6 @@ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 " Auto-format files when possible prior to saving
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
 
-" Original source with modifications
-" https://www.reddit.com/r/neovim/comments/j2ny8b/is_there_a_way_to_open_a_new_tab_when_using_lua/g76ogzr?context=3
-"
-" Normal jump to location when current buffer is not modified, otherwise open
-" new tab.
-lua <<EOF
-local api = vim.api
-local util = vim.lsp.util
-local callbacks = vim.lsp.handlers
-local log = vim.lsp.log
-
-local location_callback = function(_, method, result)
-  if result == nil or vim.tbl_isempty(result) then
-    local _ = log.info() and log.info(method, 'No location found')
-    return nil
-  end
-
-  if vim.bo.modified then
-    api.nvim_command('tabnew')
-  end
-
-  if vim.tbl_islist(result) then
-    util.jump_to_location(result[1])
-    if #result > 1 then
-      util.set_qflist(util.locations_to_items(result))
-      api.nvim_command("copen")
-    end
-  else
-    util.jump_to_location(result)
-  end
-end
-
-callbacks['textDocument/declaration']    = location_callback
-callbacks['textDocument/definition']     = location_callback
-callbacks['textDocument/typeDefinition'] = location_callback
-callbacks['textDocument/implementation'] = location_callback
-EOF
-
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
