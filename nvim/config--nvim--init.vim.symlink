@@ -178,7 +178,7 @@ command! -nargs=1 RestoreCurPos
 " Fugitive mappings
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gl :RestoreCurPos Silent 0Glog -n 20<cr>
+nnoremap <leader>gl :RestoreCurPos Silent Gclog -n 20<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>ge :RestoreCurPos Gedit<cr>
 nnoremap <leader>gE :RestoreCurPos Gtabedit<cr>
