@@ -24,7 +24,7 @@ alias gstaa="git stash --include-untracked"
 alias gstaaa="git stash --all"
 alias grm="git rm"
 alias grbu="git rebase @{u}"
-alias gru!="git reset --hard @{u}"
+alias gru!="git reset --hard @{u} && gsmu"
 alias gdt="git difftool"
 alias gmb="git merge-base"
 function delete_gone_local_branches() {
