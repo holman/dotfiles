@@ -194,6 +194,7 @@ run_vundle () {
   info 'running vundle'
 
   vim +PluginInstall +qall
+  vim +PluginUpdate +qall
 
   success 'vundle all set'
 }
