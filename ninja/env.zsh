@@ -1,0 +1,1 @@
+export CONAN_CMAKE_GENERATOR=Ninja
