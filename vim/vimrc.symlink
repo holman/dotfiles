@@ -32,6 +32,7 @@ Plug 'othree/html5.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'vimwiki/vimwiki'
 Plug 'arcticicestudio/nord-vim'
+Plug 'tpope/vim-vinegar'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -151,23 +152,33 @@ syntax on
 autocmd StdinReadPre * let s:std_in=1
 nmap <F8> :TagbarToggle<CR>
 
-function ToggleNetRW()
-    if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
-        exe "bd".g:netrw_buffer | unlet g:netrw_buffer
-    else
-        Vexplore | let g:netrw_buffer=bufnr("%")
-    endif
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
 endfunction
 
 "Set default width of explorer to make it appear like a sidebar. Also defaults to tree style.
+let g:netrw_banner = 0
 let g:netrw_liststyle=3
 let g:netrw_winsize=13
 let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_fastbrowse = 0
-autocmd FileType netrw setl bufhidden=wipe
-
-nnoremap <silent> <leader>nn :call ToggleNetRW()<cr>
+nnoremap <silent> <leader>nn :call ToggleVExplorer()<cr>
 
 " Always enable preview window on the right with 60% width
 let g:fzf_layout = { 'up': '~25%' }
