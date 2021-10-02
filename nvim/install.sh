@@ -7,8 +7,12 @@ if [ "$(uname -s)" = "Darwin" ]; then
   # If this installed version crashes, install from source instead.
   brew reinstall neovim
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo snap install --edge nvim --classic
-  sudo snap refresh --edge nvim --classic
+  # Remove old installs
+  sudo snap remove nvim
+  # Add install via ppa
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt-get update
+  sudo apt-get install neovim
   # Stable clipboard support
   sudo apt-get install -y --no-install-recommends xclip
 fi
