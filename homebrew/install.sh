@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 #
 # Homebrew
 #
@@ -18,7 +18,9 @@ then
 fi
 
 # Update all outdates packages
-brew update && brew upgrade `brew outdated`
+brew cleanup
+brew update
+brew upgrade
 
 # Install homebrew packages
 brew install coreutils spark
