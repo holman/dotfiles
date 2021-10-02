@@ -5,4 +5,4 @@ if [[ "$(uname)" == "Linux" && "$(lsb_release -i)" == *"Ubuntu"* ]]; then
 fi
 
 # Install autopep8 to activate optional source formatting in pyls
-sudo pip3 install --upgrade python-language-server autopep8
+sudo pip3 install --upgrade python-language-server[all] autopep8

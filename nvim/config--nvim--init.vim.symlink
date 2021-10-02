@@ -603,7 +603,7 @@ configs.clangd.setup{root_dir=function(fname)
   cmd={'clangd', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
   on_attach=require'completion'.on_attach}
 
-configs.pylsp.setup{on_attach=require'completion'.on_attach}
+configs.pylsp.setup{cmd={'pyls'}, on_attach=require'completion'.on_attach}
 
 configs.rls.setup{on_attach=require'completion'.on_attach}
 EOF
