@@ -8,6 +8,3 @@ export DOTS=$HOME/.dotfiles
 
 # Set OS X defaults
 $DOTS/osx/set-defaults.sh
-
-# Install homebrew packages
-$DOTS/homebrew/install.sh 2>&1

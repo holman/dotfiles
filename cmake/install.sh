@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 if [ "$(uname)" == "Darwin" ]; then
-  brew install cmake
+  source $DOTS/common/brew.sh
+  brew_install cmake
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # install latest
   wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null

@@ -6,7 +6,8 @@ checkout_path=~/.oh-my-zsh
 cd "$(dirname "$0")"
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  brew install zsh
+  source $DOTS/common/brew.sh
+  brew_install zsh
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get install -y zsh
 fi

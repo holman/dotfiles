@@ -1,6 +1,7 @@
 #!/bin/bash -e
 if [ "$(uname)" == "Darwin" ]; then
-  brew install ripgrep
+  source $DOTS/common/brew.sh
+  brew_install ripgrep
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get -y install curl
   tmpfile=$(mktemp)

@@ -6,7 +6,8 @@ cd "$(dirname "$0")"
 ../zsh/install.sh
 
 if [ "$(uname)" == "Darwin" ]; then
-  brew install curl wget
+  source $DOTS/common/brew.sh
+  brew_install curl wget
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo apt-get install -y wget curl git
 fi
