@@ -12,7 +12,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # Add install via ppa
   sudo add-apt-repository ppa:neovim-ppa/unstable
   sudo apt-get update
-  sudo apt-get install neovim
+  sudo apt-get install -y neovim
   # Stable clipboard support
   sudo apt-get install -y --no-install-recommends xclip
 fi

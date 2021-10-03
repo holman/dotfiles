@@ -9,7 +9,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   echo "deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
   sudo apt-get update
   sudo rm /usr/share/keyrings/kitware-archive-keyring.gpg
-  sudo apt-get install kitware-archive-keyring
-  sudo apt-get install cmake
+  sudo apt-get install -y kitware-archive-keyring
+  sudo apt-get install -y cmake
 fi
 
