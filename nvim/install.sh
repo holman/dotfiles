@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
-# Installing vim because the apple-supplied vim is outdated
-# Furthermore has('macunix') does not work in apple vim
-# That breaks latex-suite mac specifics
 if [ "$(uname -s)" = "Darwin" ]; then
   # If this installed version crashes, install from source instead.
   brew reinstall neovim
