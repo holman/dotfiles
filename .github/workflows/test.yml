@@ -22,6 +22,8 @@ jobs:
         shell: bash
         run: |
           export HOME=$(pwd)
+          env
+          export XDG_CONFIG_HOME=$(pwd)/.config
           cd .dotfiles/
           if [[ "${{ matrix.os }}" == macos* ]]; then
             # Remove a download bandwidth hog often installed on GitHub runners

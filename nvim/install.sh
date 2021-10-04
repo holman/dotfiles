@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 if [ "$(uname -s)" = "Darwin" ]; then
   # If this installed version crashes, install from source instead.
