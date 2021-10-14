@@ -12,7 +12,7 @@
 
 :au CompleteDonePre * call Check()
 
-:e test12.cpp
+:e test12.py
 
 :" Wait until the LSP server / client has established connection.
 :let lsp_init =  wait(10000, 'luaeval("#vim.lsp.buf_get_clients()") != 0')
@@ -21,8 +21,8 @@
 :" Broken up into two sequences so that clangd is 'ready' and we had time to
 :" receive publishDiagnostics.
 :" This is hackish but it avoids a 'sleep' with an arbitrary number.
-:" Get completion for 'inline' keyword
-:call feedkeys("iinl", 'tx')
+:" Get completion for 'import' keyword
+:call feedkeys("iimp", 'tx')
 :call feedkeys("i\<c-x>\<c-o>", 'tx')
 
 :if g:test_success == 1

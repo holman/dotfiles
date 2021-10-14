@@ -9,4 +9,5 @@ which vim
 echo "Check that plugins are installed"
 nvim --headless -s $DOTS/nvim/tagbar.test.vim
 nvim --headless -s $DOTS/nvim/lsp-clangd.test.vim
+nvim --headless -s $DOTS/nvim/lsp-pyls.test.vim
 
