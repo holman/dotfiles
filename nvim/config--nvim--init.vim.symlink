@@ -84,8 +84,6 @@ Plug 'sainnhe/edge'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
-Plug 'jaxbot/semantic-highlight.vim'
-
 Plug 'tommcdo/vim-fubitive'
 
 call plug#end()
@@ -622,8 +620,5 @@ nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-
-" Configure semantic highlight
-:nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 " vi: ft=vim :
