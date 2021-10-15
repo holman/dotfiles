@@ -18,6 +18,9 @@ set laststatus=2
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode
 
+" Allow switching to other buffer without saving
+set hidden
+
 filetype off
 
 " Specify a directory for plugins
