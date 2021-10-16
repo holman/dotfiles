@@ -11,3 +11,5 @@ nvim --headless -s $DOTS/nvim/tagbar.test.vim
 nvim --headless -s $DOTS/nvim/lsp-clangd.test.vim
 nvim --headless -s $DOTS/nvim/lsp-pyls.test.vim
 
+echo "Check if startup is sufficiently fast"
+measure-runtime.py --repeat=10 --expected-ms 250 nvim +qall
