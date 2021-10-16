@@ -55,7 +55,6 @@ function! NERDTreeYankCurrentNode()
 endfunction
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
 
 Plug 'kaihowl/vim-indent-sentence'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -583,11 +582,6 @@ nnoremap <leader>t :call <sid>SearchForToDo()<cr>
 let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
 
 set completeopt=menuone,noinsert
-" Don't mess with LSP ordering
-let g:completion_sorting = 'none'
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_matching_ignore_case = 1
-let g:completion_matching_smart_case = 1
 set shortmess+=c
 
 lua <<EOF
@@ -601,12 +595,12 @@ local root_pattern = util.root_pattern('compile_commands.json')
 configs.clangd.setup{root_dir=function(fname)
     return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
   end,
-  cmd={'clangd', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
-  on_attach=require'completion'.on_attach}
+  cmd={'clangd', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')}
+}
 
-configs.pylsp.setup{cmd={'pyls'}, on_attach=require'completion'.on_attach}
+configs.pylsp.setup{cmd={'pyls'}}
 
-configs.rls.setup{on_attach=require'completion'.on_attach}
+configs.rls.setup{}
 EOF
 
 autocmd Filetype cpp,python,rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
