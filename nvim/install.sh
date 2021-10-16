@@ -1,8 +1,10 @@
 #!/bin/bash -ex
 
+source $DOTS/common/brew.sh
+
 if [ "$(uname -s)" = "Darwin" ]; then
   # If this installed version crashes, install from source instead.
-  brew reinstall neovim
+  brew_head_install neovim
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # Remove old installs
   sudo snap remove nvim
