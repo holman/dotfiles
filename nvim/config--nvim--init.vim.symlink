@@ -56,6 +56,14 @@ endfunction
 
 Plug 'neovim/nvim-lspconfig'
 
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-vsnip'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
 Plug 'kaihowl/vim-indent-sentence'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
@@ -581,7 +589,7 @@ nnoremap <leader>t :call <sid>SearchForToDo()<cr>
 " Configure vim-addon-local-vimrc
 let g:local_vimrc = {'names':['.vimrc', '.nvimrc'],'hash_fun':'LVRHashOfFile'}
 
-set completeopt=menuone,noinsert
+set completeopt=menu,menuone,noselect
 set shortmess+=c
 
 lua <<EOF
@@ -622,19 +630,100 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Get compile_commands.json based on current working directory in case there are multiple available, e.g., conan workspaces with the workspace vs the single package build
 -- Supply an invalid dir to clangd in case that no compile_commands.json can be found in the current working dir. This restores the original behavior.
 configs.clangd.setup{root_dir=function(fname)
     return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
   end,
   cmd={'clangd', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
+  capabilities=capabilities,
   on_attach=on_attach
   }
 
-configs.pylsp.setup{cmd={'pyls'}, on_attach=on_attach}
+configs.pylsp.setup{cmd={'pyls'}, on_attach=on_attach, capabilities=capabilities}
 
-configs.rls.setup{on_attach=on_attach}
+configs.rls.setup{on_attach=on_attach, capabilities=capabilities}
+
+-- Sourced from https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
+-- Sourced from readme of cmp plugin
+local cmp = require'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+    -- For `vsnip` user.
+    vim.fn["vsnip#anonymous"](args.body)
+  end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    elseif vim.fn["vsnip#available"]() == 1 then
+      feedkey("<Plug>(vsnip-expand-or-jump)", "")
+    elseif has_words_before() then
+      cmp.complete()
+    else
+      fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+    end
+  end, { "i", "s" }),
+
+  ["<S-Tab>"] = cmp.mapping(function()
+  if cmp.visible() then
+    cmp.select_prev_item()
+  elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+    feedkey("<Plug>(vsnip-jump-prev)", "")
+  end
+      end, { "i", "s" }),
+      },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'buffer' }
+  }
+}
+
 EOF
+
+" NOTE: You can use other key to expand snippet.
+
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap        s   <Plug>(vsnip-select-text)
+xmap        s   <Plug>(vsnip-select-text)
+nmap        S   <Plug>(vsnip-cut-text)
+xmap        S   <Plug>(vsnip-cut-text)
 
 " Auto-format files when possible prior to saving
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
