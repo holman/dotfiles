@@ -639,7 +639,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 configs.clangd.setup{root_dir=function(fname)
     return root_pattern(vim.loop.cwd()) or util.path.dirname(fname)
   end,
-  cmd={'clangd', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
+  cmd={'clangd','--completion-style=detailed', '--background-index', '--compile-commands-dir='..(root_pattern(vim.loop.cwd()) or '')},
   capabilities=capabilities,
   on_attach=on_attach
   }
