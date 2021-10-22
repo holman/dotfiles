@@ -4,5 +4,6 @@ if [ "$(uname -s)" = "Darwin" ]; then
   source $DOTS/common/brew.sh
   brew_install ncdu
 elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
-  sudo apt-get install -y ncdu
+  source $DOTS/common/apt.sh
+  apt_install ncdu
 fi

@@ -10,10 +10,10 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   sudo snap remove nvim
   # Add install via ppa
   sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt-get update
-  sudo apt-get install -y neovim
+  source $DOTS/common/apt.sh
+  apt_install neovim
   # Stable clipboard support
-  sudo apt-get install -y --no-install-recommends xclip
+  apt_install --no-install-recommends xclip
 fi
 sudo pip3 install --upgrade pynvim
 

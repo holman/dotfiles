@@ -11,7 +11,8 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   codename=$(lsb_release -c | cut -f2)
   wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
   sudo apt-add-repository "deb https://apt.llvm.org/${codename}/ llvm-toolchain-${codename}-${clangd_version} main"
-  sudo apt-get install -y clangd-${clangd_version}
+  source $DOTS/common/apt.sh
+  apt_install clangd-${clangd_version}
   sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-${clangd_version} 100
   sudo update-alternatives --set clangd /usr/bin/clangd-${clangd_version}
 fi
