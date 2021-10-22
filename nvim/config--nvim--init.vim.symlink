@@ -96,6 +96,8 @@ Plug 'edkolev/tmuxline.vim'
 
 Plug 'tommcdo/vim-fubitive'
 
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 syntax enable
