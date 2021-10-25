@@ -1,1 +1,4 @@
 git/gitconfig.local.symlink
+
+# Intellij
+.idea
