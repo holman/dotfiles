@@ -9,7 +9,7 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   # Remove old installs
   sudo snap remove nvim
   # Add install via ppa
-  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo add-apt-repository --yes --update ppa:neovim-ppa/unstable
   source $DOTS/common/apt.sh
   apt_install neovim
   # Stable clipboard support
