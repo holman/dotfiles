@@ -15,4 +15,5 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   apt_install clangd-${clangd_version}
   sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-${clangd_version} 100
   sudo update-alternatives --set clangd /usr/bin/clangd-${clangd_version}
+  apt_install clang
 fi
