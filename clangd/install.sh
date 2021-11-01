@@ -15,5 +15,6 @@ elif [[ "$(lsb_release -i)" == *"Ubuntu"* ]]; then
   apt_install clangd-${clangd_version}
   sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-${clangd_version} 100
   sudo update-alternatives --set clangd /usr/bin/clangd-${clangd_version}
-  apt_install clang gdb
+  # TODO(kaihowl) this will break if it is a different version used for the standard library
+  apt_install clang gdb libstdc++6-10-dbg
 fi
