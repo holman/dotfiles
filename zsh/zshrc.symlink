@@ -47,5 +47,8 @@ unset config_files
 source /Users/mhoegh/Code/zendesk/zdi/dockmaster/zdi.sh
 # END DOCKER-IMAGES
 
-# Load oh-my-zsh (that we installed in the install process)
-source ~/.oh-my-zsh/templates/zshrc.zsh-template
+# Apply Oh My ZSH (which was git-pulled during installation):
+export ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+plugins=(git git-open)
+source $ZSH/oh-my-zsh.sh
