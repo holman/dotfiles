@@ -40,8 +40,8 @@ done
 
 unset config_files
 
-# Z-utilitypro
-. "/usr/local/etc/file.d/z.sh"
+# z command
+. "/usr/local/etc/profile.d/z.sh"
 
 # BEGIN DOCKER-IMAGES
 source /Users/mhoegh/Code/zendesk/zdi/dockmaster/zdi.sh
