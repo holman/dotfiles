@@ -13,6 +13,7 @@ brew 'wget'
 brew 'yarn'
 brew 'z'
 brew 'fnm'
+brew 'ctop'
 
 cask 'atom'
 cask 'firefox'
