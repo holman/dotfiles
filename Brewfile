@@ -15,7 +15,7 @@ brew 'z'
 brew 'fnm'
 brew 'ctop'
 
-cask 'atom'
+cask 'visual-studio-code'
 cask 'firefox'
 cask 'google-chrome'
 cask 'handbrake'
