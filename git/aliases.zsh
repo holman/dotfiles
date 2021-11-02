@@ -22,3 +22,15 @@ alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gac='git add -A && git commit -m'
 alias ge='git-edit-new'
+
+alias wip="git add . && git commit -nam 'WIP'"
+alias cleanbranches="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
+
+# Create git branch utility
+branch () {
+  if [ -z "$1" ]; then
+    echo "\033[0;31mPlease specificy branch name"
+  else
+    git co -b "Anifacted/$1"
+  fi
+}

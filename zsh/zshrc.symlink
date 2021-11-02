@@ -40,19 +40,12 @@ done
 
 unset config_files
 
-# Z-utility
-if command -v brew >/dev/null 2>&1; then
-	# Load rupa's z if installed
-	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
-fi
-# Better history
-# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+# Z-utilitypro
+. "/usr/local/etc/file.d/z.sh"
+
 # BEGIN DOCKER-IMAGES
-source /Users/mhoegh/Code/zendesk/docker-images/dockmaster/zdi.sh
+source /Users/mhoegh/Code/zendesk/zdi/dockmaster/zdi.sh
 # END DOCKER-IMAGES
+
+# Load oh-my-zsh (that we installed in the install process)
+source ~/.oh-my-zsh/templates/zshrc.zsh-template

@@ -8,3 +8,6 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+alias wttr="curl wttr.in/Copenhagen"
+alias onport='function onport(){  lsof -i ":$1"; };onport'
