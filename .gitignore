@@ -2,3 +2,6 @@ git/gitconfig.local.symlink
 
 # Intellij
 .idea
+
+# Homebrew
+**/Brewfile.lock.json
