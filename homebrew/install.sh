@@ -18,7 +18,11 @@ then
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
   fi
-
+else
+    # Install brew packages
+    echo "Installing Homebrew formulae"
+    brew bundle --file $ZSH/homebrew/Brewfile | indent
+    echo
 fi
 
 exit 0
