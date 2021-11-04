@@ -1,0 +1,16 @@
+clang missing, gdb missing. Default gcc compile has correct output already. debug stdlib missing.
+
+gdbinit:
+
+set environment LD_PRELOAD /usr/lib/x86_64-linux-gnu/debug/libstdc++.so.6
+python
+import sys
+sys.path.insert(0, '/usr/share/gcc/python')
+from libstdcxx.v6.printers import register_libstdcxx_printers
+register_libstdcxx_printers (None)
+end
+
+
+sudo apt-get install libstdc++6-10-dbg
+
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/debug/libstdc++.so.6
