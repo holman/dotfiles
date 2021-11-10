@@ -1,3 +1,4 @@
 # Formulae
 brew "helm"
 brew "gpg"
+brew "minikube"
