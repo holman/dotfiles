@@ -1,6 +1,9 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
+# add .sfdc-dotfiles to ZSH path
+export SFDC_ZSH=$HOME/.sfdc-dotfiles
+
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/projects
 
@@ -15,6 +18,12 @@ fi
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
+
+# if .sfdc-dotfiles exist, add to config_files array
+if [ -n "$(find $SFDC_ZSH/**/ -name '*.zsh' | head -1)" ]
+then
+  config_files=("${config_files[@]}" $SFDC_ZSH/**/*.zsh)
+fi
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
