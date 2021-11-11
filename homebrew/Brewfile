@@ -1,3 +1,6 @@
 # Formulae
 brew "helm"
 brew "gpg"
+brew "minikube"
+brew "kubeval"
+brew "aws-iam-authenticator"
