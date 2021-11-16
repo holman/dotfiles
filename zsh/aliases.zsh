@@ -37,5 +37,7 @@ alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 alias server="npx http-server"
 
-alias dl-video="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1"
-alias dl-audio="youtube-dl -f 'bestaudio[ext=m4a]/best' $1"
+alias dl-video="yt-dlp $1"
+alias dl-audio="yt-dlp $1"
+
+alias docker='podman'

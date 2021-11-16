@@ -61,7 +61,7 @@ plugins=(
     python
     nvm
     node
-    osx
+    macos
     vscode
     brew
     yarn
