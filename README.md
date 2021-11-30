@@ -1,6 +1,8 @@
-# holman does dotfiles
+# me finally does dotfiles
 
-Your dotfiles are how you personalize your system. These are mine.
+Your dotfiles are how you personalize your system.
+
+THESE ARE NOT MY DOTFILES. THESE ARE [Zach Holman's](https://github.com/holman/dotfiles) DOTFILES.
 
 I was a little tired of having long alias files and everything strewn about
 (which is extremely common on other dotfiles projects, too). That led to this
