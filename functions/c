@@ -13,4 +13,4 @@
 #
 # ...to quickly jump into holman/boom, for example.
 
-cd "$PROJECTS/$1"
+cd "$WORKSPACE/$1"
