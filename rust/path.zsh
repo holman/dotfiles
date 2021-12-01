@@ -1,4 +1,4 @@
-if (( $+commands[rustc] ))
+if (( ${+CARGO_HOME} ))
 then
-    source source /Users/mkuehl/devel/rust/cargo/env
+    source $CARGO_HOME/env
 fi
