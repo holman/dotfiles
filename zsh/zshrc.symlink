@@ -1,3 +1,6 @@
+#### FIG ENV VARIABLES ####
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -61,13 +64,13 @@ plugins=(
     python
     nvm
     node
-    macos
     vscode
     brew
     yarn
     jsontools
     colored-man-pages
     zsh-syntax-highlighting
+    macos
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -142,3 +145,13 @@ export NVM_DIR="$HOME/.nvm"
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+#### FIG ENV VARIABLES ####
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/cwardzala/Findaway/voices-slackbot/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/cwardzala/Findaway/voices-slackbot/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/cwardzala/Findaway/voices-slackbot/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/cwardzala/Findaway/voices-slackbot/node_modules/tabtab/.completions/sls.zsh

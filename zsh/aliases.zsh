@@ -39,5 +39,3 @@ alias server="npx http-server"
 
 alias dl-video="yt-dlp $1"
 alias dl-audio="yt-dlp $1"
-
-alias docker='podman'
