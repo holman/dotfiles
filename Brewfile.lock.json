@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "d4891ce7625a5330a8717904188031dbf2267759"
+        "revision": "e11704f58688da7e9d0192d08ff2b31c252a2f6b"
       }
     },
     "brew": {
@@ -491,7 +491,7 @@
         }
       },
       "firefox": {
-        "version": "94.0",
+        "version": "94.0.1",
         "options": {
           "full_name": "firefox",
           "args": {
@@ -518,7 +518,7 @@
         }
       },
       "slack": {
-        "version": "4.21.1",
+        "version": "4.22.0",
         "options": {
           "full_name": "slack",
           "args": {
@@ -554,7 +554,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.61.2",
+        "version": "1.62.0",
         "options": {
           "full_name": "visual-studio-code",
           "args": {
@@ -612,9 +612,9 @@
   "system": {
     "macos": {
       "big_sur": {
-        "HOMEBREW_VERSION": "3.3.2",
+        "HOMEBREW_VERSION": "3.3.3",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "ca6a4d8756b7a8ba08b486d3237eec92460509ff",
+        "Homebrew/homebrew-core": "d1e4069ea186b71727c51d02998ba128bba527ef",
         "CLT": "12.5.1.0.1.1623191612",
         "Xcode": "12.5.1",
         "macOS": "11.6"

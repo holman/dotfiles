@@ -1,2 +1,2 @@
 export EDITOR='code'
-export NODE_ENV='development'
+# export NODE_ENV='development'
