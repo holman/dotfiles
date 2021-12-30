@@ -1,35 +1,66 @@
 # Local/private config goes in the include
 [include]
-        path = ~/.gitconfig.local
-[hub]
-        protocol = https
+    path = ~/.gitconfig.local
+[init]
+    defaultBranch = main
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+    promote = !$ZSHDOT/bin/git-promote
+    wtf     = !$ZSHDOT/bin/git-wtf
+    rank-contributors = !$ZSHDOT/bin/git-rank-contributors
+    count   = !git shortlog -sn
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+    ui = auto
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
+	# Exclude everything this file. Used for general exclusions
+	excludesfile = ~/.gitignore
+	# Set attributes on files
+	attributesfile = ~/.gitattributes
+	# Don't prompt for commit messages for merge commits
+	mergeoptions = --no-edit
+	# Speed up some repositories
+	commitGraph = true
+	# Output unicode characters (e.g. emoji)
+	quotepath = on
+[gist]
+	# Open GitHub Gist in browser after submission
+	browse = true
 [apply]
-        whitespace = nowarn
+    # Cleanup whitespace by default when apply patches
+    whitespace = fix
+[tag]
+	# Sort tags by newest first
+	sort = -version:refname
 [mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
+    keepBackup = false
+[rebase]
+	# Run `git stash` if needed before a `git rebase`
+	autoStash = true
+[merge]
+    conflictstyle = diff3
+[fetch]
+	# Always prune when fetching (and pulling).
+	prune = true
+	# Write commit graph to speed up some repositories.
+	writeCommitGraph = true
+[gc]
+	# Write commit graph to speed up some repositories.
+	writeCommitGraph = true
 [help]
-        autocorrect = 1
+    # Autocorrect mistyped commands.
+	autocorrect = 1
+[diff]
+	# Use the slower but better patience diff algorithm
+	algorithm = patience
+	# Use new diff algorithm to make e.g. function diffs look better
+	compactionheuristic = true
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
-[credential]
-	helper = osxkeychain
+    default = simple
+[hub]
+	# Use HTTPS rather than SSH protocol in Hub
+	protocol = https
+# Settings for Git LFS
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process

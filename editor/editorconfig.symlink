@@ -1,0 +1,66 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{js,ts}]
+indent_style = space
+indent_size = 2
+block_comment_start = /**
+block_comment = *
+block_comment_end = */
+
+[**.min.js]
+indent_style = ignore
+insert_final_newline = ignore
+
+[*.rb]
+indent_style = space
+indent_size = 2
+
+[*.css]
+indent_style = space
+indent_size = 2
+
+[*.html]
+indent_style = space
+indent_size = 2
+
+[*.{diff,md}]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+[*.{java, kt}]
+indent_style = space
+indent_size = 4
+continuation_indent_size = 8
+
+[*.xml]
+indent_style = tab
+indent_size = 4
+continuation_indent_size = 8
+
+[*.gradle]
+indent_size = 4
+
+[*.json]
+indent_size = 2
+
+[*.gql]
+indent_style = space
+indent_size = 2
+
+[*.txt]
+indent_style = tab
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+[COMMIT_EDITMSG]
+max_line_length = 0

@@ -1,9 +1,9 @@
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-fpath=($ZSH/functions $fpath)
+fpath=($ZSHDOT/functions $fpath)
 
-autoload -U $ZSH/functions/*(:t)
+autoload -U $ZSHDOT/functions/*(:t)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -37,3 +37,13 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
+
+# enable autosuggestions
+ZSH_AUTOSUGGESTIONS="$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -f "$ZSH_AUTOSUGGESTIONS" ] && source "$ZSH_AUTOSUGGESTIONS"
+
+# enable direnv (if installed)
+which direnv &>/dev/null && eval "$(direnv hook zsh)"
+
+# to avoid non-zero exit code
+true

@@ -1,0 +1,122 @@
+# Default prefix is Ctrl-b, then foo: Swap Ctrl-b, for Ctrl-a
+# set -g prefix C-a
+# unbind C-b
+
+# Change the default window number from 0 to 1
+set -g base-index 1
+
+# Change the base index for panes from 0 to 1
+set -g pane-base-index 1
+
+# Split windows using Ctrl-b and - or |
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# Reloading
+bind-key r source-file ~/.tmux.conf \; display "Config reloaded..."
+
+# Switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# Set 256 colors
+set -g default-terminal "screen-256color"
+
+# Default key repeat is 500ms, lower to 125ms
+set -g repeat-time 125
+
+# History
+set -g history-limit 10000
+
+# Activity monitoring
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Don't rename windows automatically
+set-option -g allow-rename off
+
+# https://github.com/seebi/tmux-colors-solarized/blob/master/tmuxcolors-256.conf
+set-option -g status-bg colour235
+set-option -g status-fg red
+set-option -g status-attr default
+
+# Window information
+set -g window-status-current-format "#[fg=colour235]#[bg=colour4] #I* #[fg=colour235] #W #[fg=colour4]#[bg=colour235]"
+set -g window-status-format "#[fg=white]#[bg=colour8] #I#[fg=white]  #W "
+
+# Pane border
+set-option -g pane-border-fg colour235
+set-option -g pane-active-border-fg colour240
+
+# Message text
+set-option -g message-bg colour235
+set-option -g message-fg brightyellow
+
+# pane number display
+set-option -g display-panes-active-colour colour33 # blue
+set-option -g display-panes-colour colour166 # orange
+
+# Clock
+# set-window-option -g clock-mode-colour green
+setw -g clock-mode-colour colour250
+setw -g clock-mode-style 24
+
+# Change status refresh interval (default is 15)
+set -g status-interval 15
+
+# Center align window list
+set -g status-justify centre
+
+# Status bar displays
+set -g status-right-length 40
+set -g status-right '#{prefix_highlight} #[fg=green,bg=default,bright]Up #(uptime | cut -f 4-5 -d " " | cut -f 1 -d ",") #[fg=red,bg=default]| #[fg=white,bg=default]%a %R#[default] #[fg=blue]%Y-%m-%d'
+
+set -g status-left-length 30
+set -g status-left "#[fg=white]Online: #{online_status}#[fg=red]  |#{battery_status_fg} #{battery_icon} #{battery_percentage} "
+
+# #[fg=red,dim,bg=default]
+# set -g status-left "#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P #[fg=red]#W"
+# set -g status-left "#[fg=green]#S #[fg=yellow]#I #[fg=cyan]#P #[fg=red]#W"
+# set -g status-left '#[bg=colour7]#[fg=colour0]#{?client_prefix,#[bg=colour2],} ❐ #S #[bg=colour8]#[fg=colour7]#{?client_prefix,#[fg=colour2],}#{?window_zoomed_flag, 🔍 ,}#[fg=colour1]  ♥ #(~/dotfiles/tmux_scripts/battery.sh)  '
+# set -g status-right '#[fg=colour2]#(~/dotfiles/tmux_scripts/uptime.sh) #[fg=colour1]⮃ #[fg=colour4]#[bg=colour4]#[fg=colour0] #(~/dotfiles/tmux_scripts/music.sh) #[bg=colour4]#[fg=colour7]#[bg=colour7]#[fg=colour0] %b %d %H:%M '
+
+# Set the mouse on (since 2.1 various mouse-pane, mouse-select etc. not needed)
+set -g mouse on
+
+# List of plugins
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+set -g @plugin 'tmux-plugins/tpm'                    # https://github.com/tmux-plugins/tpm  Ctrl-b I/U
+set -g @plugin 'tmux-plugins/tmux-battery'           # https://github.com/tmux-plugins/tmux-battery
+set -g @plugin 'tmux-plugins/tmux-online-status'     # https://github.com/tmux-plugins/tmux-online-status
+set -g @plugin 'tmux-plugins/tmux-logging'           # https://github.com/tmux-plugins/tmux-logging  Ctrl-b alt/shift-p
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'  # https://github.com/tmux-plugins/tmux-prefix-highlight
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+# 🤔
+
+# Plugin config
+set -g @batt_charged_icon "😎 "
+set -g @batt_attached_icon "😐 "
+set -g @batt_full_charge_icon "🌕 "
+set -g @batt_high_charge_icon "🌖 "
+set -g @batt_medium_charge_icon "🌗 "
+set -g @batt_low_charge_icon "🌘 "
+set -g @online_icon "✔"
+set -g @offline_icon "✗"
+set -g @prefix_highlight_fg 'colour235'
+set -g @prefix_highlight_bg 'red'
+
+# Install plugins if needed
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

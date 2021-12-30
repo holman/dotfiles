@@ -1,5 +1,1 @@
-# init according to man page
-if (( $+commands[rbenv] ))
-then
-  eval "$(rbenv init -)"
-fi
+quiet_which rbenv && eval "$(rbenv init -)"
