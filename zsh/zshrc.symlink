@@ -3,7 +3,7 @@ export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Projects
-export PROJECTS_DI=~/Projects/di
+export PROJECTS_DI=~/DI
 
 fpath+=$HOME/.zsh/pure
 
