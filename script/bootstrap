@@ -120,16 +120,12 @@ install_dotfiles () {
 
 install_dotfiles
 
-# If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
+info "installing dependencies"
+if . bin/dot > /tmp/dotfiles-dot 2>&1
 then
-  info "installing dependencies"
-  if . bin/dot > /tmp/dotfiles-dot 2>&1
-  then
     success "dependencies installed"
-  else
+else
     fail "error installing dependencies"
-  fi
 fi
 
 echo ''
