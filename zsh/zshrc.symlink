@@ -6,7 +6,7 @@
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+export PATH="$HOME/.pyenv/shims:$PATH"
 
 source /usr/local/share/antigen/antigen.zsh
 
@@ -19,7 +19,6 @@ antigen bundles <<EOBUNDLES
     colored-man-pages
     command-not-found
     fasd
-    fig
     git
     git-extras
     jsontools
@@ -36,13 +35,10 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 
 # Load the theme.
-antigen theme spaceship-prompt/spaceship-prompt
+antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
-
-# your project folder that we can `c [tab]` to
-export PROJECTS='~/Projects'
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -56,13 +52,13 @@ typeset -U config_files
 config_files=($HOME/.dotfiles/**/*.zsh)
 
 # load the path files
-for file in ${(M)config_files:#*/path.zsh}
+for file in ${(M)config_files}
 do
+    # echo $file
     source $file
 done
 
-source $HOME/.dotfiles/zsh/config.zsh
-source $HOME/.dotfiles/zsh/aliases.zsh
+eval "$(starship init zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

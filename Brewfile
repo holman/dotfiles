@@ -24,12 +24,13 @@ brew 'ssh-copy-id'
 brew 'the_silver_searcher'
 brew 'tree'
 brew 'yarn', args: ['--without-node']
-brew 'youtube-dl'
+brew 'yt-dlp'
 brew "git-cal"
 brew "git-lfs"
 brew "git"
 brew "mas"
 brew "pinentry-mac"
+brew "starship"
 brew "z"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
@@ -38,7 +39,10 @@ brew "zsh"
 cask '1password'
 cask 'airbuddy'
 cask 'alfred'
+cask 'around'
+cask 'bartender'
 cask 'colorsnapper'
+cask 'deckset'
 cask 'devutils'
 cask 'docker'
 cask 'dropbox'
@@ -47,13 +51,16 @@ cask 'firefox'
 cask 'flux'
 cask 'font-fira-code-nerd-font'
 cask 'google-chrome'
+cask 'iinaa'
 cask 'iterm2'
 cask 'keka'
 cask 'keybase'
 cask 'logitech-options'
 cask 'microsoft-office'
+cask 'mjml'
 cask 'ngrok'
 cask 'notion'
+cask 'numi'
 cask 'postman'
 cask 'qlcolorcode'
 cask 'qlimagesize'
@@ -70,7 +77,6 @@ cask 'slack'
 cask 'spectacle'
 cask 'spotify'
 cask 'visual-studio-code'
-cask 'vlc'
 cask 'webpquicklook'
 
 mas "Disk Diag", id: 672206759

@@ -1,20 +1,12 @@
 # export LSCOLORS="exfxcxdxbxegedabagacad"
 # export CLICOLOR=1
+# your project folder that we can `c [tab]` to
+export PROJECTS='~/Projects'
 export EDITOR='code'
 
 export WORKON_HOME="$HOME/.virtualenvs"
-export PROJECT_HOME="$HOME/Findawayworld"
-
-export FLEX_HOME="$HOME/tools/flex-sdk"
-export RBENV_ROOT="$HOME/.rbenv"
+export PROJECT_HOME="$HOME/Findaway"
 
 export PYTHONDONTWRITEBYTECODE=1
-
-export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python2"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-# export CC=clang
-# export GPG_TTY=$(tty)
-
-## HOMEBREW_GITHUB_API_TOKEN moved to ~/.localrc
 
 export AWS_PROFILE="default"
