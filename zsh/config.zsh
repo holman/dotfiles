@@ -10,3 +10,4 @@ export PROJECT_HOME="$HOME/Findaway"
 export PYTHONDONTWRITEBYTECODE=1
 
 export AWS_PROFILE="default"
+export STARSHIP_CONFIG="$HOME/.starship"
