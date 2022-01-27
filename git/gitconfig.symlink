@@ -19,7 +19,6 @@
         l = log
         g = log --graph
         d = diff
-        st = status
         a = add
         rb = rebase
         continue = rebase --continue
