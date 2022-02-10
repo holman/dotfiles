@@ -4,7 +4,8 @@
 [hub]
         protocol = https
 [alias]
-        co = checkout
+	recent = "!r() { count=$1; git for-each-ref --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:=10} | column -ts'|'}; r"
+	co = checkout
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
@@ -42,3 +43,10 @@
 	trustExitCode = true
 [commit]
 	template = /Users/eritchey/.stCommitMsg
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[url "ssh://git@stash.teslamotors.com:7999/"]
+	insteadOf = https://stash.teslamotors.com/scm/
