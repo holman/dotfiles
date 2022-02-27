@@ -4,8 +4,7 @@ tap 'homebrew/bundle'
 
 brew 'yarn'
 cask 'visual-studio-code'
-# cask 'iterm2'
-brew cask install iterm2
+brew cask install 'iterm2'
 # Github Desktop
 # brew install --cask 'github'
 brew 'gh' # Github Command Line
