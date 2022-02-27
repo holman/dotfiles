@@ -6,7 +6,8 @@ brew 'yarn'
 cask 'visual-studio-code'
 # cask 'iterm2'
 brew cask install iterm2
-brew install --cask github # Github Desktop
+# Github Desktop
+# brew install --cask 'github'
 brew 'gh' # Github Command Line
 brew 'coreutils'
 cask 'docker'
