@@ -2,8 +2,6 @@
 #
 # Run all dotfiles installers.
 
-set -e
-
 cd "$(dirname $0)"/..
 
 # Run Homebrew through the Brewfile
