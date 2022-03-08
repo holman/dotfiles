@@ -4,6 +4,9 @@ export ZSH=$HOME/.dotfiles
 # add .sfdc-dotfiles to ZSH path
 export SFDC_ZSH=$HOME/.sfdc-dotfiles
 
+# shortcut to ZSH themes path
+export ZSH_THEMES=$HOME/.oh-my-zsh/themes
+
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/projects
 
