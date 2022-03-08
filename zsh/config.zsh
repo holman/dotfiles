@@ -1,9 +1,3 @@
-# Theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-export ZSH_THEME="powerlevel10k/powerlevel10k"
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
-[[ ! -f $ZSH/zsh/.p10k.zsh ]] || source $ZSH/zsh/.p10k.zsh
-
 #export LSCOLORS="exfxcxdxbxegedabagacad"
 #export CLICOLOR=true
 #
