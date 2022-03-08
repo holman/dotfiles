@@ -4,12 +4,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-  Plug 'sainnhe/vim-color-atlantis'
+  Plug 'sainnhe/everforest'
 call plug#end()
 set termguicolors
 
+"-----Everforest Config---"
+let g:everforest_transparent_background=1
+"-------------------------"
+
 "------Color Schemes------"
-colorscheme atlantis
+colorscheme everforest
 "-------------------------"
 
 "-----Hyrbrid Numbers-----"

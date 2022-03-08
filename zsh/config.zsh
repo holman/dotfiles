@@ -1,3 +1,4 @@
+export TERM=xterm-256color
 #export LSCOLORS="exfxcxdxbxegedabagacad"
 #export CLICOLOR=true
 #
