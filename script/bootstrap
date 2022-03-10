@@ -130,7 +130,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$arg1" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
@@ -138,7 +138,8 @@ install_dotfiles () {
 }
 
 setup_gitconfig
-install_dotfiles
+install_dotfiles $DOTFILES_ROOT
+install_dotfiles $SFDC_ZSH
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
