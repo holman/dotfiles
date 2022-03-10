@@ -133,7 +133,13 @@ install_dotfiles () {
   for src in $(find -H "$1" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
-    link_file "$src" "$dst"
+    # add special logic for ssh config. It's technically not a dotfile but lives within a dot directory
+    if [[ $src =~ (\/ssh\/) ]]
+    then
+      link_file "$src" "$HOME/.ssh/$(basename "${src%.*}")"
+    else
+      link_file "$src" "$dst"
+    fi
   done
 }
 
