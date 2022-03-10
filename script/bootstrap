@@ -145,7 +145,11 @@ install_dotfiles () {
 
 setup_gitconfig
 install_dotfiles $DOTFILES_ROOT
-install_dotfiles $SFDC_ZSH
+# Install .sfdc-dotfiles if it exists
+if [ -d "$SFDC_ZSH" ]
+then
+  install_dotfiles $SFDC_ZSH
+fi
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
