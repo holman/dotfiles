@@ -39,3 +39,5 @@ alias server="npx http-server"
 
 alias dl-video="yt-dlp $1"
 alias dl-audio="yt-dlp $1"
+
+alias md-pdf="pandoc $1 --pdf-engine=xelatex -f gfm -V mainfont="Helvetica" -V monofont="Fira Code" -o $2"

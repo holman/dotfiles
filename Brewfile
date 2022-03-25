@@ -11,6 +11,7 @@ cask_args appdir: '/Applications'
 
 brew 'ack'
 brew 'antigen'
+brew 'basictex'
 brew 'fasd'
 brew 'gnupg'
 brew 'grc'
@@ -31,6 +32,7 @@ brew "git"
 brew "mas"
 brew "pinentry-mac"
 brew "starship"
+brew "texlive"
 brew "z"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"

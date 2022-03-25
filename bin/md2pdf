@@ -1,0 +1,12 @@
+#!/bin/bash
+
+pandoc "$1" \
+    -f gfm \
+    --include-in-header "$HOME/.dotfiles/pandoc/chapter_break.tex" \
+    --include-in-header "$HOME/.dotfiles/pandoc/inline_code.tex" \
+    --highlight-style "$HOME/.dotfiles/pandoc/my.theme" \
+    -V geometry:margin=2cm \
+    -V mainfont="Helvetica" \
+    -V monofont="Fira Code" \
+    --pdf-engine=xelatex \
+    -o "$2"
