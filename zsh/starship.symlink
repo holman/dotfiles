@@ -1,15 +1,13 @@
-[aws]
-format = 'on [$symbol($profile )(\($region\) )]($style)'
-style = "bold blue"
-symbol = " "
-disabled=true
-[aws.region_aliases]
-ap-southeast-2 = "au"
-us-east-1 = "va"
-
 [character]
 success_symbol = "[ﮊ](green) "
 error_symbol = "[ﮊ](red) "
+
+[aws]
+symbol = "  "
+disabled=true
+
+[buf]
+symbol = " "
 
 [conda]
 symbol = " "
@@ -35,6 +33,9 @@ symbol = " "
 [golang]
 symbol = " "
 
+[haskell]
+symbol = " "
+
 [hg_branch]
 symbol = " "
 
@@ -53,11 +54,11 @@ symbol = " "
 [nix_shell]
 symbol = " "
 
+[nodejs]
+symbol = " "
+
 [package]
 symbol = " "
-
-[perl]
-symbol = " "
 
 [php]
 symbol = " "
@@ -70,15 +71,6 @@ symbol = " "
 
 [rust]
 symbol = " "
-
-[scala]
-symbol = " "
-
-[shlvl]
-symbol = " "
-
-[swift]
-symbol = "ﯣ "
 
 [custom.yarn]
 command = "yarn --version 2>/dev/null"
