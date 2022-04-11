@@ -1,7 +1,12 @@
 #!/bin/sh
 
-# install virtualenv for Python3
-pip install virtualenv
+# Check for Homebrew
+if test $(which asdf)
+then
+    echo "  Installing Python"
+    asdf install python latest:3
+    asdf global python $(asdf latest python 3)
+fi
 
-# install virtualenv for Python2
-pip2 install virtualenv
+
+exit 0

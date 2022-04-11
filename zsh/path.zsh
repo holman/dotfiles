@@ -14,6 +14,3 @@ export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-
-export DENO_INSTALL="/Users/cwardzala/.deno"s
-export PATH="$DENO_INSTALL/bin:$PATH"

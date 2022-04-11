@@ -9,6 +9,7 @@ tap "octavore/tools"
 
 cask_args appdir: '/Applications'
 
+brew 'asdf'
 brew 'ack'
 brew 'antigen'
 brew 'basictex'

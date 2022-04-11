@@ -1,12 +1,9 @@
-export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh"
-export ZSH_CACHE_DIR="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh/cache/"
 # Fig pre block. Keep at the top of this file.
 export PATH="${PATH}:${HOME}/.local/bin"
 eval "$(fig init zsh pre)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.pyenv/shims:$PATH"
+export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh"
+export ZSH_CACHE_DIR="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh/cache/"
 
 source /usr/local/share/antigen/antigen.zsh
 
@@ -15,6 +12,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundles <<EOBUNDLES
+    asdf
     brew
     colored-man-pages
     command-not-found
@@ -25,8 +23,6 @@ antigen bundles <<EOBUNDLES
     lein
     macos
     node
-    nvm
-    pyenv
     python
     vscode
     yarn
@@ -60,14 +56,16 @@ done
 eval "$(starship init zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 # Fig post block. Keep at the bottom of this file.
 eval "$(fig init zsh post)"
 
+
+. /usr/local/opt/asdf/libexec/asdf.sh
