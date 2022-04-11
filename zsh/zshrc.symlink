@@ -55,18 +55,8 @@ done
 
 eval "$(starship init zsh)"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
-# eval "$(pyenv virtualenv-init -)"
-
 # Fig post block. Keep at the bottom of this file.
 eval "$(fig init zsh post)"
-
 
 . /usr/local/opt/asdf/libexec/asdf.sh
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
