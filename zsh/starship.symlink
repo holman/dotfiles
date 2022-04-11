@@ -79,3 +79,9 @@ symbol = " "
 
 [swift]
 symbol = "ﯣ "
+
+[custom.yarn]
+command = "yarn --version 2>/dev/null"
+files = ["yarn.lock"]
+style = "blue"
+symbol = " v"
