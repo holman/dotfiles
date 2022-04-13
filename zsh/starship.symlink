@@ -1,3 +1,5 @@
+command_timeout=1000
+
 [character]
 success_symbol = "[ﮊ](green) "
 error_symbol = "[ﮊ](red) "
