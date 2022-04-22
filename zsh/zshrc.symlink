@@ -38,7 +38,8 @@ do
   source $file
 done
 
-export TERM=xterm-256color
+# export TERM=xterm-256color
+export TERM=xterm-kitty
 
 unset config_files
 if [[ -a ~/$HOME/.dircolors ]]
@@ -52,6 +53,8 @@ eval "$(rbenv init -)"
 export MINITEST_REPORTER=DefaultReporter
 export PATH="/usr/local/opt/imagemagick@6/bin:/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export EHOME=/Volumes/Development
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 source_env() {
   if [[ -f $ZSH_DOTENV_FILE ]]; then
@@ -78,3 +81,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv init -)"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"

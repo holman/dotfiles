@@ -7,7 +7,6 @@ brew 'coreutils'
 brew 'go'
 brew 'grc'
 brew 'jp2a'
-brew 'libcaca', args: ['with-imlib2']
 brew 'libgit2'
 brew 'openssl'
 brew 'ruby-build'
