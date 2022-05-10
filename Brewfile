@@ -9,7 +9,7 @@ brew 'zsh-completions'
 brew 'zsh-autosuggestions'
 brew 'zsh-syntax-highlighting'
 
-
+brew 'asdf'
 brew 'git'
 brew 'fzf'
 brew 'neovim'
