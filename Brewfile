@@ -17,13 +17,12 @@ brew 'tmux'
 brew 'wget'
 brew 'awscli'
 brew 'heroku'
+brew 'yarn'
+brew 'svn' # used for font-source-code-pro
 
 brew 'mysql@5.7'
 brew 'imagemagick@6'
 
 cask 'docker'
-cask 'neovim'
-
 cask 'font-source-code-pro-for-powerline'
-cask 'font-fira-code'
-cask 'font-firacode-nerd-font-mono'
+cask 'font-hack-nerd-font'
