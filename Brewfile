@@ -1,9 +1,8 @@
-cask_args appdir: '/Applications'
-
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
+tap 'heroku/brew'
 
 brew 'zsh'
 brew 'zsh-completions'
@@ -16,12 +15,14 @@ brew 'fzf'
 brew 'neovim'
 brew 'tmux'
 brew 'wget'
+brew 'awscli'
+brew 'heroku'
 
 brew 'mysql@5.7'
-brew 'imagemagick@6"
+brew 'imagemagick@6'
 
-cask "docker"
-cask "neovim"
+cask 'docker'
+cask 'neovim'
 
 cask 'font-source-code-pro-for-powerline'
 cask 'font-fira-code'
