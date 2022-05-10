@@ -4,6 +4,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 	autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
+
 :set number
 :set relativenumber
 :set autoindent
@@ -37,7 +38,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'othree/yajs.vim'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'othree/html5.vim'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'vimwiki/vimwiki'
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'tpope/vim-vinegar'
@@ -64,6 +65,13 @@ let mapleader = ','
 " reload the vim file 
 map <leader>rld :source ~/.config/nvim/init.vim<CR>
 
+" Movement around panes CTRL-<letter>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+# Nerd Tree
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <silent> <leader>nn :NERDTreeToggle<CR>
@@ -96,3 +104,49 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" Fugitive
+nnoremap <silent> <leader>gs :Git<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
+nnoremap <silent> <leader>gr :Gread<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>
+nnoremap <silent> <leader>ge :Gedit<CR>
+
+" Always enable preview window on the right with 60% width
+let g:fzf_layout = { 'up': '~25%' }
+nnoremap <silent> <leader>s :FZF<cr>
+nnoremap <silent> <leader>S :FZF ~<cr>
+nnoremap <silent> <Leader>ja :FZF app/assets<CR>
+nnoremap <silent> <Leader>jc :FZF app/controllers<CR>
+nnoremap <silent> <Leader>jC :FZF config<CR>
+nnoremap <silent> <Leader>jh :FZF app/helpers<CR>
+nnoremap <silent> <Leader>ji :FZF app/interactors<CR>
+nnoremap <silent> <Leader>jb :FZF app/jobs<CR>
+nnoremap <silent> <Leader>jm :FZF app/models<CR>
+nnoremap <silent> <Leader>jp :FZF app/policies<CR>
+nnoremap <silent> <Leader>jP :FZF app/presenters<CR>
+nnoremap <silent> <Leader>js :FZF app/services<CR>
+nnoremap <silent> <Leader>jt :FZF app/tasks<CR>
+nnoremap <silent> <Leader>jv :FZF app/views<CR>
+nnoremap <silent> <Leader>jD :FZF db<CR>
+nnoremap <silent> <Leader>jF :FZF test/factories<CR>
+nnoremap <silent> <Leader>jL :FZF lib<CR>
+nnoremap <silent> <Leader>jS :FZF spec<CR>
+nnoremap <silent> <Leader>jT :FZF test<CR>
+nnoremap <silent> <Leader>jV :FZF vendor<CR>
+
+" Easier rails movement
+nnoremap <leader>vv :Eview<cr>
+nnoremap <leader>cc :Econtroller<cr>
+nnoremap <leader>rA :AV<cr>
+nnoremap <leader>ra :A<cr>
+
+" exit to normal mode with jj
+inoremap jj <ESC>
+
+"Clear current search highlight by double tapping //
+nmap <silent> // :nohlsearch<CR>
