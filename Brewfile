@@ -1,23 +1,28 @@
 cask_args appdir: '/Applications'
 
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 
-brew 'ack'
-brew 'coreutils'
-brew 'go'
-brew 'grc'
-brew 'jp2a'
-brew 'libgit2'
-brew 'openssl'
-brew 'ruby-build'
-brew 'rbenv'
-brew 'roundup'
-brew 'spaceman-diff'
-brew 'spark'
-brew 'wget'
-brew 'ctags'
-brew 'xpdf'
-brew 'cmake'
-brew 'icu4c'
-brew 'libsodium'
+brew 'zsh'
+brew 'zsh-completions'
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
+
+
+brew 'git'
 brew 'fzf'
+brew 'neovim'
+brew 'tmux'
+brew 'wget'
+
+brew 'mysql@5.7'
+brew 'imagemagick@6"
+
+cask "docker"
+cask "neovim"
+
+cask 'font-source-code-pro-for-powerline'
+cask 'font-fira-code'
+cask 'font-firacode-nerd-font-mono'
