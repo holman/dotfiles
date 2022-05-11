@@ -8,3 +8,4 @@ alias dcd='docker-compose down'
 alias ssh="kitty +kitten ssh"
 
 alias vim='nvim'
+alias ctags='/usr/bin/ctags'

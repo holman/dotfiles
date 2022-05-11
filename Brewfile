@@ -19,9 +19,15 @@ brew 'awscli'
 brew 'heroku'
 brew 'yarn'
 brew 'svn' # used for font-source-code-pro
+brew 'pkg-config'
+
+brew 'icu4c'
+brew 'cmake'
+brew 'shared-mime-info'
 
 brew 'mysql@5.7'
 brew 'imagemagick@6'
+brew 'redis'
 
 cask 'docker'
 cask 'font-source-code-pro-for-powerline'

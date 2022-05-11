@@ -24,24 +24,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
-" Plug 'tomtom/tcomment_vim'            " Commentor
-" Plug 'godlygeek/tabular'
-" Plug 'mxw/vim-jsx'
-" Plug 'w0rp/ale'
-" Plug 'itchyny/lightline.vim'
-" Plug 'maximbaz/lightline-ale'
-" Plug 'mileszs/ack.vim'
-" Plug 'benmills/vimux'
-" Plug 'posva/vim-vue'
-" Plug 'rizzatti/dash.vim'
-" Plug 'othree/yajs.vim'
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'othree/html5.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'vimwiki/vimwiki'
-" Plug 'arcticicestudio/nord-vim'
-" Plug 'tpope/vim-vinegar'
+Plug 'jgdavey/tslime.vim'
+Plug 'preservim/vimux'
 
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'http://github.com/tpope/vim-bundler'
@@ -62,7 +47,7 @@ call plug#end()
 
 let mapleader = ','
 
-" reload the vim file 
+" reload the vim file
 map <leader>rld :source ~/.config/nvim/init.vim<CR>
 
 " Movement around panes CTRL-<letter>
@@ -71,7 +56,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-# Nerd Tree
+" easier window splits
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+" Nerd Tree
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <silent> <leader>nn :NERDTreeToggle<CR>
@@ -79,7 +68,6 @@ nnoremap <silent> <leader>nn :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
-
 
 :colorscheme jellybeans
 
@@ -150,3 +138,13 @@ inoremap jj <ESC>
 
 "Clear current search highlight by double tapping //
 nmap <silent> // :nohlsearch<CR>
+
+" TSlime
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+let g:tslime_autoset_pane = 1
+
+" Test runner
+map <Leader>rt :call VimuxRunCommand("clear; bundle exec rails test -f -c " . bufname("%"))<CR>
+map <Leader>dt :call VimuxRunCommand("clear; docker-compose exec test bin/rails test " . fnamemodify(expand("%"), ":~:."))<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
