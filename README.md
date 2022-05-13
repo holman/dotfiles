@@ -51,3 +51,8 @@ NOTE: Once completed open up vim and run :PlugInstall
 
 Thanks to @holman for his original dotfiles.
 
+
+FFI -
+```
+arch -arch x86_64 bundle install
+```

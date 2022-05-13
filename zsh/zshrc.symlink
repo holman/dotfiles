@@ -35,8 +35,7 @@ do
   source $file
 done
 
-# export TERM=xterm-256color
-export TERM=xterm-kitty
+export TERM=xterm-256color
 
 unset config_files
 if [[ -a ~/$HOME/.dircolors ]]
@@ -70,5 +69,4 @@ export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="/opt/homebrew/imagemagick@6/bin:$PATH"
 
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+eval "$(rbenv init - zsh)"
