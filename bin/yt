@@ -6,4 +6,4 @@
 #   https://github.com/yt-dlp/yt-dlp
 #
 
-cd ~/Desktop && yt-dlp "$1"
+cd ~/Desktop && yt-dlp -S "ext" "$1"
