@@ -1,6 +1,3 @@
-# export LSCOLORS="exfxcxdxbxegedabagacad"
-# export CLICOLOR=1
-# your project folder that we can `c [tab]` to
 export PROJECTS='~/Projects'
 export EDITOR='code'
 

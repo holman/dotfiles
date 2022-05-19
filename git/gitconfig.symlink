@@ -34,8 +34,9 @@
     cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [filter "lfs"]
     required = true
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 [color "diff"]
     old = red strike
     new = green italic
