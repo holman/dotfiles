@@ -1,8 +1,8 @@
 command_timeout=1000
 
 [character]
-success_symbol = "[*](bold green)"
-error_symbol = "[*](bold red)"
+success_symbol = "[ᐅ](bold green)"
+error_symbol = "[ᐅ](bold red)"
 vicmd_symbol = "[<](bold green)"
 
 [git_commit]
@@ -16,6 +16,7 @@ renamed = "r"
 deleted = "x"
 
 [aws]
+disabled=true
 symbol = "aws "
 
 [c]
@@ -55,7 +56,7 @@ symbol = "exs "
 symbol = "elm "
 
 [git_branch]
-symbol = "git "
+symbol = " "
 
 [golang]
 symbol = "go "
@@ -127,4 +128,4 @@ symbol = "swift "
 command = "yarn --version 2>/dev/null"
 files = ["yarn.lock"]
 style = "blue"
-symbol = "Y v"
+symbol = "yarn v"
