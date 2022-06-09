@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Default Light+"
+}

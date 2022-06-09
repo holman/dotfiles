@@ -1,0 +1,1 @@
+defaults domains | tr ',' '\n'
