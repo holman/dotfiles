@@ -40,4 +40,4 @@
 	clean = git-lfs clean -- %f
 [user]
 	name = Rebecca Miller-Webster
-	email = rebecca@miller-webster.com
+	email = rmw@github.com
