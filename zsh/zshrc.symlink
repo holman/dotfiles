@@ -1,13 +1,11 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh"
 export ZSH_CACHE_DIR="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh/cache/"
 
-source /Users/cwardzala/.asdf/installs/rust/1.60.0/env
-source /usr/local/opt/asdf/libexec/asdf.sh
+# . $HOME/.asdf/asdf.sh
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-source /usr/local/share/antigen/antigen.zsh
-
+source $(brew --prefix)/share/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -59,4 +57,4 @@ done
 eval "$(starship init zsh)"
 
 # Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
