@@ -48,8 +48,6 @@
     undo = reset --soft HEAD^
     stash-all = stash save --include-untracked
     leaderboard = shortlog -sn
-[gpg]
-    program = /usr/local/MacGPG2/bin/gpg
 [status]
     showUntrackedFiles = all
 [pull]
