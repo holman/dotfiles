@@ -27,6 +27,15 @@ fail () {
   exit
 }
 
+title() {
+  echo "${bold}==> $1${normal}"
+  echo
+}
+
+indent() {
+  sed 's/^/  /'
+}
+
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
   then
@@ -140,9 +149,11 @@ install_dotfiles () {
 #setup_gitconfig
 install_dotfiles
 
-# If we're on a Mac, let's install and setup homebrew.
+# If macOS
 if [ "$(uname -s)" == "Darwin" ]
 then
+
+  # Install and set up homebrew
   info "installing dependencies"
   if source bin/dot | while read -r data; do info "$data"; done
   then
@@ -150,6 +161,12 @@ then
   else
     fail "error installing dependencies"
   fi
+
+  # Install brew packages
+  #title "Installing software..."
+  #brew bundle | indent
+  #echo
+
 fi
 
 echo ''
