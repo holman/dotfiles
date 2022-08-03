@@ -1370,6 +1370,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Text</key>
+			<string></string>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -1453,6 +1455,8 @@
 			<string>EBD5EAA2-4F52-4348-A0CB-1B499097BBB7</string>
 			<key>Horizontal Spacing</key>
 			<real>0.90000000000000002</real>
+			<key>Icon</key>
+			<integer>0</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
