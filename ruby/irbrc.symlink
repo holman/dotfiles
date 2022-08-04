@@ -40,7 +40,7 @@ def cop
 end
 
 def me
-  User.find_by_login(ENV['USER'].strip)
+  User.find_by_email(`git config --get user.email`.chomp)
 end
 
 def r
