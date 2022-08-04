@@ -37,3 +37,5 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[diff "spaceman-diff"]
+  command = /opt/homebrew/bin/spaceman-diff
