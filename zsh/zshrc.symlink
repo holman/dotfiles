@@ -65,4 +65,4 @@ export PATH="$PATH:$HOME/Code/zendesk/setup-check-codeowners/bin"
 
 export PATH="$PATH:/usr/local/opt/python@3.9/libexec/bin"
 
-export NPM_TOKEN="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"
+export NPM_TOKEN=$(security find-generic-password -s 'NPM Auth Token (Equilibrate)' -w)
