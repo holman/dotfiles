@@ -28,7 +28,7 @@
         unstage = reset HEAD --
         wip = add . && git commit -nam \"WIP\"
         back = reset HEAD~1
-        pullm = pull --rebase origin master
+        pullm = pull --rebase origin main
 [color]
         diff = auto
         status = auto
