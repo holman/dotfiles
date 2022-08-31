@@ -12,7 +12,6 @@
     "*.brewfile": "pip-requirements"
   },
   "gitlens.blame.dateFormat": "YYYY-MM-DD",
-  "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.dateFormat": "YYYY-MM-DD",
   "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm:ss",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
@@ -56,5 +55,13 @@
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
+  },
+  "gitlens.codeLens.enabled": false,
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": true,
+    "markdown": false
   }
 }

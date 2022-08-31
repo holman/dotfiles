@@ -7,6 +7,7 @@ alias cls='clear' # Good 'ol Clear Screen command
 #########################
 
 ### General
+alias cat-old='/bin/cat '
 alias cat='bat '
 
 # Enable aliases to be sudo’ed
@@ -15,13 +16,18 @@ alias sudo='sudo '
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
+# Todo
+alias t='todo.sh'
+
+# Tree
+alias tree='tree -a -I .git'
+
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
 ### IP Stuff
 
 # IP addresses
-
 alias my_ip4_external="dig TXT +short -4 o-o.myaddr.l.google.com @ns1.google.com | awk -F'\"' '{ print \$2}'"
 alias my_ip6_external="dig TXT +short -6 o-o.myaddr.l.google.com @ns1.google.com | awk -F'\"' '{ print \$2}'"
 

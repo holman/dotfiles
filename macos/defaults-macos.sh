@@ -220,6 +220,7 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # add a recent item stack
 defaults write com.apple.dock persistent-others -array-add '{"tile-data" = {"list-type" = 1;}; "tile-type" = "recents-tile";}'
+dockutil --remove Downloads
 dockutil --add ~/Downloads/ --view grid --display stack
 
 ###############################################################################
