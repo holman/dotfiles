@@ -64,9 +64,21 @@ fi
 
 source_env
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="/opt/homebrew/imagemagick@6/bin:$PATH"
 
+export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
+
 eval "$(rbenv init - zsh)"
+export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export PATH="/opt/homebrew/opt/mysql-client@5.7/bin:$PATH"

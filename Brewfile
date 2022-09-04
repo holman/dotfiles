@@ -23,6 +23,8 @@ brew 'yarn'
 brew 'svn' # used for font-source-code-pro
 brew 'pkg-config'
 brew 'libffi'
+brew 'ripgrep'
+brew 'fd'
 
 brew 'icu4c'
 brew 'cmake'

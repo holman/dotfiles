@@ -33,6 +33,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'vimwiki/vimwiki'
 " Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-vinegar'
+Plug 'sheerun/vim-polyglot'
+Plug 'elixir-editors/vim-elixir'
 
 " Add local plugins that you don't really want
 " in your repo, here (maybe work stuff)
@@ -48,6 +50,7 @@ call plug#end()
 filetype indent plugin on
 
 set term=xterm-kitty
+set guifont=HackNerdFontMono
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >

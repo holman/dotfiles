@@ -35,7 +35,7 @@
         # Setting to git 2.0 default to suppress warning message
         default = simple
 [user]
-	email = andrew.holman@n2pub.com
+	email = 175725+zenom@users.noreply.github.com
 	name = Andy Holman
 [init]
 	templatedir = ~/.git_template

@@ -21,15 +21,16 @@ set -g default-terminal "tmux-256color"
 set -ga terminal-overrides ",*256col*:Tc"
 
 # List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'robhurring/tmux-spotify'
+# set -g @plugin 'tmux-plugins/tpm'
+# set -g @plugin 'tmux-plugins/tmux-sensible'
+# set -g @plugin 'robhurring/tmux-spotify'
 
-set -g status-right "♫ #{spotify_status} #{spotify_artist}: #{spotify_song}"
+# set -g status-right "♫ #{spotify_status} #{spotify_artist}: #{spotify_song}"
 
-
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run -b '~/.tmux/plugins/tpm/tpm'
+# set-environment -g PATH "/usr/local/bin:/bin:/usr/bin"
 
 # use mouse to resize panes
 set-option -g mouse on
+
+# # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+# run -b '~/.tmux/plugins/tpm/tpm'
