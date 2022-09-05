@@ -1,0 +1,21 @@
+#!/bin/zsh
+#
+# time-report [from] [to]
+#
+# A quick script to pull a report from `watson`
+# (https://github.com/TailorDev/Watson) and dump it out to my desktop.
+#
+# Example:
+#
+#   time-report 2022-08-15 2022-08-31
+
+set -e
+
+start=$1
+end=$2
+
+file=$HOME/Desktop/"$1 to $2.txt"
+log=$(watson log --from $1 --to $2)
+total=$(watson report --from $1 --to $2 | tail -1)
+
+(echo $total; echo ""; echo $log) > "${file}"
