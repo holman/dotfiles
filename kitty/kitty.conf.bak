@@ -11,6 +11,28 @@ bold_font        auto
 italic_font      auto
 bold_italic_font auto
 
+#:     symbol_map codepoints Font Family Name
+# symbol_map U+e4fa-U+e52e Hack Nerd Font # Seti-UI + Custom
+# symbol_map U+e600-U+e6c5 Source Code Pro for Powerline # Devicons
+# symbol_map U+e0a0-U+e0a2 Hack Nerd Font # Powerline Symbols
+# symbol_map U+e0b0-U+e0b3 Hack Nerd Font # Powerline Symbols
+# symbol_map U+e0a3-U+e0a3 Hack Nerd Font # Powerline Extra Symbols
+# symbol_map U+e0b4-U+e0c8 Hack Nerd Font # Powerline Extra Symbols
+# symbol_map U+e0ca-U+e0ca Hack Nerd Font # Powerline Extra Symbols
+# symbol_map U+e0cc-U+e0d4 Hack Nerd Font # Powerline Extra Symbols
+# symbol_map U+e000-U+e00a Hack Nerd Font # Pomicons
+# symbol_map U+f000-U+f2e0 Hack Nerd Font # Font Awesome
+# symbol_map U+e000-U+e0a9 Hack Nerd Font # Font Awesome Extension
+# symbol_map U+f100-U+f11c Hack Nerd Font # Font Logos (Font Linux)
+# symbol_map U+23fb-U+23fe Hack Nerd Font # Power Symbols
+# symbol_map U+2b58-U+2b58 Hack Nerd Font # Power Symbols
+# symbol_map U+f000-U+f105 Hack Nerd Font # Octicons
+# symbol_map U+2665-U+2665 Hack Nerd Font # Octicons
+# symbol_map U+26a1-U+26a1 Hack Nerd Font # Octicons
+# symbol_map U+f27c-U+f27c Hack Nerd Font # Octicons
+# symbol_map U+f001-U+f847 Hack Nerd Font # Material
+# symbol_map U+f000-U+f0eb Hack Nerd Font # Weather Icons
+
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
 #: +list-fonts` command. By default they are derived automatically, by
@@ -187,8 +209,7 @@ box_drawing_scale 0.001, 1, 1.5, 2
 #: }}}
 
 #: Cursor customization {{{
-
-cursor #cccccc
+# cursor #cccccc
 
 #: Default cursor color. If set to the special value none the cursor
 #: will be rendered with a "reverse video" effect. It's color will be
@@ -197,8 +218,7 @@ cursor #cccccc
 #: program running in the terminal sets a cursor color, this takes
 #: precedence. Also, the cursor colors are modified if the cell
 #: background and foreground colors have very low contrast.
-
-cursor_text_color #111111
+# cursor_text_color #111111
 
 #: The color of text under the cursor. If you want it rendered with
 #: the background color of the cell underneath instead, use the
@@ -316,8 +336,7 @@ mouse_hide_wait 3.0
 #: typing text. Disabled by default on macOS as getting it to work
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
-
-url_color #0087bd
+# url_color #0087bd
 url_style curly
 
 #: The color and style for highlighting URLs on mouse-over. url_style
@@ -615,7 +634,9 @@ sync_to_monitor yes
 
 #: Terminal bell {{{
 
-enable_audio_bell yes
+enable_audio_bell no
+
+hide_window_decorations yes
 
 #: The audio bell. Useful to disable it in environments that require
 #: silence.
@@ -624,8 +645,7 @@ visual_bell_duration 0.0
 
 #: The visual bell duration (in seconds). Flash the screen when a bell
 #: occurs for the specified number of seconds. Set to zero to disable.
-
-visual_bell_color none
+# visual_bell_color none
 
 #: The color used by visual bell. Set to none will fall back to
 #: selection background color. If you feel that the visual bell is too
@@ -736,17 +756,14 @@ placement_strategy center
 #: this option. Using a value of center means the cell area will be
 #: placed centrally. A value of top-left means the padding will be
 #: only at the bottom and right edges.
-
-active_border_color #00ff00
+# active_border_color #00ff00
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
-
-inactive_border_color #cccccc
+# inactive_border_color #cccccc
 
 #: The color for the border of inactive windows.
-
-bell_border_color #ff5a00
+# bell_border_color #ff5a00
 
 #: The color for the border of inactive windows in which a bell has
 #: occurred.
@@ -962,22 +979,19 @@ active_tab_title_template none
 
 #: Template to use for active tabs. If not specified falls back to
 #: tab_title_template.
-
-active_tab_foreground   #000
-active_tab_background   #eee
+# active_tab_foreground   #000
+# active_tab_background   #eee
 active_tab_font_style   bold-italic
-inactive_tab_foreground #444
-inactive_tab_background #999
+# inactive_tab_foreground #444
+# inactive_tab_background #999
 inactive_tab_font_style normal
 
 #: Tab bar colors and styles.
-
-tab_bar_background none
+# tab_bar_background none
 
 #: Background color for the tab bar. Defaults to using the terminal
 #: background color.
-
-tab_bar_margin_color none
+# tab_bar_margin_color none
 
 #: Color for the tab bar margin area. Defaults to using the terminal
 #: background color.
@@ -985,13 +999,12 @@ tab_bar_margin_color none
 #: }}}
 
 #: Color scheme {{{
-
-foreground #dddddd
-background #000000
+# foreground #dddddd
+# background #000000
 
 #: The foreground and background colors.
 
-background_opacity 0.8
+background_opacity 1.0
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1046,9 +1059,8 @@ dim_opacity 0.75
 
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
-
-selection_foreground #000000
-selection_background #fffacd
+# selection_foreground #000000
+# selection_background #fffacd
 
 #: The foreground and background colors for text selected with the
 #: mouse. Setting both of these to none will cause a "reverse video"
@@ -1063,68 +1075,54 @@ selection_background #fffacd
 #: The 256 terminal colors. There are 8 basic colors, each color has a
 #: dull and bright version, for the first 16 colors. You can set the
 #: remaining 240 colors as color16 to color255.
-
-color0 #000000
-color8 #767676
+# color0 #000000
+# color8 #767676
 
 #: black
-
-color1 #cc0403
-color9 #f2201f
+# color1 #cc0403
+# color9 #f2201f
 
 #: red
-
-color2  #19cb00
-color10 #23fd00
+# color2  #19cb00
+# color10 #23fd00
 
 #: green
-
-color3  #cecb00
-color11 #fffd00
+# color3  #cecb00
+# color11 #fffd00
 
 #: yellow
-
-color4  #0d73cc
-color12 #1a8fff
+# color4  #0d73cc
+# color12 #1a8fff
 
 #: blue
-
-color5  #cb1ed1
-color13 #fd28ff
+# color5  #cb1ed1
+# color13 #fd28ff
 
 #: magenta
-
-color6  #0dcdcd
-color14 #14ffff
+# color6  #0dcdcd
+# color14 #14ffff
 
 #: cyan
-
-color7  #dddddd
-color15 #ffffff
+# color7  #dddddd
+# color15 #ffffff
 
 #: white
-
-mark1_foreground black
+# mark1_foreground black
 
 #: Color for marks of type 1
-
-mark1_background #98d3cb
+# mark1_background #98d3cb
 
 #: Color for marks of type 1 (light steel blue)
-
-mark2_foreground black
+# mark2_foreground black
 
 #: Color for marks of type 2
-
-mark2_background #f2dcd3
+# mark2_background #f2dcd3
 
 #: Color for marks of type 1 (beige)
-
-mark3_foreground black
+# mark3_foreground black
 
 #: Color for marks of type 3
-
-mark3_background #f274bc
+# mark3_background #f274bc
 
 #: Color for marks of type 3 (violet)
 
@@ -1402,16 +1400,14 @@ term xterm-kitty
 #: }}}
 
 #: OS specific tweaks {{{
-
-wayland_titlebar_color system
+# wayland_titlebar_color system
 
 #: The color of the kitty window's titlebar on Wayland systems with
 #: client side window decorations such as GNOME. A value of system
 #: means to use the default system color, a value of background means
 #: to use the background color of the currently active window and
 #: finally you can use an arbitrary color, such as #12af59 or red.
-
-macos_titlebar_color system
+# macos_titlebar_color system
 
 #: The color of the kitty window's titlebar on macOS. A value of
 #: system means to use the default system color, light or dark can
@@ -2238,3 +2234,9 @@ map shift+cmd+/ open_url https://sw.kovidgoyal.net/kitty/
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
