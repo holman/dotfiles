@@ -25,7 +25,6 @@ Plug 'tpope/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'preservim/vimux'
-" Plug 'EdenEast/nightfox.nvim'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'nvim-lua/plenary.nvim'
@@ -44,6 +43,11 @@ Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plug 'https://github.com/sheerun/vim-polyglot'
+Plug 'https://github.com/vim-scripts/indentpython.vim'
+Plug 'https://github.com/vim-syntastic/syntastic'
+Plug 'https://github.com/nvie/vim-flake8'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 :set encoding=UTF-8
 
@@ -70,6 +74,8 @@ nnoremap <silent> ss <C-w>s
 nnoremap <C-f> :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <silent> <leader>nn :NERDTreeToggle<CR>
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -168,9 +174,34 @@ autocmd BufWritePre * :%s#\($\n\s*\)\+\%$##e
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-augroup filetype_stand_up.txt
-    autocmd!
-    autocmd BufNewFile stand_up.txt 0r ~/.config/nvim/stand_up.txt
-	autocmd BufNewFile article.txt 5$pu=strftime('%Y-%m-%d %H:%M:%S')
-    autocmd BufNewFile article.txt :normal ggA
-augroup END
+" Python tab settings
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" THIS IS FOR AUTO COMPLETION
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
