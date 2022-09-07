@@ -8,4 +8,5 @@ alias dcd='docker-compose down'
 
 alias vim='nvim'
 alias vi='nvim'
+alias python='python3'
 alias ctags='/usr/bin/ctags'

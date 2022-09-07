@@ -1,4 +1,6 @@
 " Install vim-plug if not installed.
+" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Might need to link the .vim to the .nvim director
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 	silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -175,14 +177,14 @@ autocmd BufWritePre * :%s#\($\n\s*\)\+\%$##e
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Python tab settings
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+"     \ set textwidth=79
+"     \ set expandtab
+"     \ set autoindent
+"     \ set fileformat=unix
 
 " THIS IS FOR AUTO COMPLETION
 " Use tab for trigger completion with characters ahead and navigate.

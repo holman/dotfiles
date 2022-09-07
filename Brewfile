@@ -27,6 +27,7 @@ brew 'ripgrep'
 brew 'fd'
 brew 'openssl@1.1'
 brew 'openssl@3'
+brew 'firefox'
 
 brew 'icu4c'
 brew 'cmake'
