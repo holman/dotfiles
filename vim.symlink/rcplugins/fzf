@@ -1,10 +1,11 @@
 " Add fzf for Vim
 
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
+Plug '/opt/homebrew/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 
 " let g:fzf_layout = { 'down': '~25%' }
 let g:fzf_launcher = "in_a_new_term_function_fzf %s"
 let $FZF_DEFAULT_COMMAND = 'ag -g "" --ignore .git'
+set rtp+=/opt/homebrew/opt/fzf
 
 " let g:fzf_files_options =
 "   \ '--reverse ' .
@@ -36,12 +37,12 @@ xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
 nnoremap <silent> <Leader>`        :Marks<CR>`
 
 " Augmenting GFiles to use preview options + reverse
-command! -bang -nargs=* GFilesC
-      \ call fzf#vim#gitfiles(<q-args>,{ 'options': g:fzf_files_options},<bang>0)
+" command! -bang -nargs=* GFilesC
+"       \ call fzf#vim#gitfiles(<q-args>,{ 'options': g:fzf_files_options},<bang>0)
 
 if isdirectory(".git")
     " if in a git project, use :GFiles
-    nmap <silent> <C-p> :GFilesC! -oc --exclude=atom.symlink/
+    nmap <silent> <C-p> :GFiles! -oc --exclude=atom.symlink/
           \ --exclude=vim.symlink/plugged/ <cr>
 else
     " otherwise, use :FZF

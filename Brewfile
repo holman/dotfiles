@@ -46,7 +46,7 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vim"
 brew "wget"
 brew "yarn", link: false
-brew "youtube-dl"
+brew "youtube-dlp"
 brew "z"
 brew "zsh-autosuggestions"
 brew "zsh-history-substring-search"

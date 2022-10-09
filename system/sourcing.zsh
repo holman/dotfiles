@@ -1,5 +1,6 @@
 # Z integration with FZF
-. /usr/local/etc/profile.d/z.sh
+# . /usr/local/etc/profile.d/z.sh
+. /opt/homebrew/etc/profile.d/z.sh
 
 unalias z 2> /dev/null
 z() {
