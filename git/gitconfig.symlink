@@ -18,7 +18,7 @@
         g = graph
         l = log
         g = log --graph
-        d = diff
+        d = difftool
         a = add
         rb = rebase
         continue = rebase --continue
@@ -48,3 +48,9 @@
         autocorrect = 1
 [push]
         default = current
+[diff]
+        tool = difftastic
+[difftool]
+        prompt = false
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
