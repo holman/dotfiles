@@ -60,8 +60,9 @@
   "C_Cpp.clang_format_fallbackStyle": "Google",
   "github.copilot.enable": {
     "*": true,
-    "yaml": false,
+    "yaml": true,
     "plaintext": true,
     "markdown": false
-  }
+  },
+  "terminal.explorerKind": "external"
 }
