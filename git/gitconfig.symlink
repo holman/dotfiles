@@ -18,7 +18,7 @@
         g = graph
         l = log
         g = log --graph
-        d = difftool
+        d = diff
         a = add
         rb = rebase
         continue = rebase --continue
