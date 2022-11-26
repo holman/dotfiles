@@ -16,6 +16,7 @@ brew "coreutils"
 brew "liquidprompt"
 
 # Development
+brew "erlang"
 brew "elixir"
 brew "npm"
 brew "java"
