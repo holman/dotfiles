@@ -21,6 +21,7 @@ brew 'nmap' # port tool
 brew 'npm'
 brew 'openjdk' # java
 brew 'python' # This is now python 3 :D
+brew 'pipx'
 brew 'ripgrep'
 brew 'shellcheck' # https://github.com/koalaman/shellcheck
 brew 'todo-txt'

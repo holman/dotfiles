@@ -6,12 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-black = "*"
-flake8 = "*"
-isort = "*"
 mypy = "*"
-pipenv = "*"
-pre-commit = "*"
+pydantic = "*"
 protobuf = "*"
 PyYAML = "*"
 setuptools = "*"
@@ -22,4 +18,4 @@ types-PyYAML = "*"
 types-requests = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"

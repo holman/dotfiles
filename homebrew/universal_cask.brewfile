@@ -9,16 +9,9 @@ cask 'rectangle' # Window manager
 cask 'visual-studio-code' # Text Editor
 
 # Not in Application Folder
-# cask 'qlcolorcode' # Colorize QL # this is abandoned
 cask 'qlmarkdown' # QL for .md
 cast 'syntax-highlight' # Syntax highlighting
-# cask 'qlstephen' # QL for plain text files
-# cask 'quicklook-csv' # QL for csv
 
 # Fonts
 tap 'homebrew/cask-fonts'
 cask 'font-hack-nerd-font', args: { fontdir: "/Library/Fonts" }
-
-#Dupes
-#tap 'homebrew/dupes'
-#brew 'homebrew/dupes/nano' # depreciated but left syntax guide
