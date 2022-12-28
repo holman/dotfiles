@@ -21,6 +21,7 @@ brew "elixir"
 brew "npm"
 brew "java"
 brew "leiningen"
+brew "neovim"
 
 # Utilities
 brew "tmux"
