@@ -83,7 +83,7 @@ link_file () {
 }
 
 # Should be updated from https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lua
-if ! [ -f ~/.config ]
+if [ ! -d ~/.config ]
 then
   mkdir ~/.config
 fi
