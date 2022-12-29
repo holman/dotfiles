@@ -88,4 +88,4 @@ then
   mkdir ~/.config
 fi
 
-link_file "$DOTFILES_ROOT/neovim/config/nvim" ~/.config/
+link_file "$DOTFILES_ROOT/neovim/config.nvim" ~/.config/nvim
