@@ -14,7 +14,10 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
+-- nvim-tree navigation
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+
+-- Window navigation
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
