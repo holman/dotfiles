@@ -29,8 +29,11 @@ return require('packer').startup(function(use)
   use 'theprimeagen/harpoon'
   use 'tpope/vim-fugitive'
   use 'akinsho/toggleterm.nvim'
+  use 'terrortylor/nvim-comment'
+  -- use 'numToStr/Comment.nvim'
   -- use 'tpope/vim-endwise'
   -- use 'elixir-editors/vim-elixir'
+  -- use 'folke/which-key.nvim'
 
   use {
     'nvim-telescope/telescope.nvim',

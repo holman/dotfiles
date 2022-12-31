@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/src
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -31,6 +31,9 @@ done
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
+
+# enable vi mode by default
+bindkey -v
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
