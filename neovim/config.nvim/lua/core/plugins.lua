@@ -1,3 +1,4 @@
+
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -27,11 +28,18 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   use 'theprimeagen/harpoon'
   use 'tpope/vim-fugitive'
+  use 'akinsho/toggleterm.nvim'
+  -- use 'tpope/vim-endwise'
+  -- use 'elixir-editors/vim-elixir'
 
   use {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'BurntSushi/ripgrep'},
+      {'nvim-telescope/telescope-fzf-native.nvim'},
+    }
   }
 
   use {
