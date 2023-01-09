@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+#
+# Set of common functions for use in various scripts
+set -o errexit -o nounset -o pipefail
+
+export DEBUG="${DEBUG:-false}"
+
+# Enable debug output
+if [[ "${DEBUG}" = true ]]; then
+  set -x
+fi
+
+info () {
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+user () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
+function git_clone_or_update() {
+  local git_source=$1
+  local path_to_install=$2
+
+  if [[ -e ${path_to_install} ]] ; then
+    ( cd "${path_to_install}" && git pull )
+  else
+    git clone --depth=1 "${git_source}" "${path_to_install}"
+  fi
+}
+
+# detect what type of system we are running
+ENVIRONMENT=unknown
+SUDO_ALLOWED=true
+if [[ -e ${HOME}/clouddrive ]]
+then
+    ENVIRONMENT=ACS
+    SUDO_ALLOWED=false
+fi
+
+if [[ $(grep WSL2 /proc/version) ]] ; then
+  ENVIRONMENT=WSL
+fi
+
+export ENVIRONMENT
+export SUDO_ALLOWED

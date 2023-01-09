@@ -5,9 +5,9 @@
         protocol = https
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
+        promote = !$DOTFILES/bin/git-promote
+        wtf     = !$DOTFILES/bin/git-wtf
+        rank-contributors = !$DOTFILES/bin/git-rank-contributors
         count   = !git shortlog -sn
 [color]
         diff = auto
@@ -31,10 +31,3 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
-[credential]
-	helper = osxkeychain
-[diff "spaceman-diff"]
-  command = /opt/homebrew/bin/spaceman-diff
-
-[init]
-	defaultBranch = main

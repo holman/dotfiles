@@ -1,0 +1,39 @@
+# http://editorconfig.org
+# https://confluence.idirect.net/x/7nt_Dw
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+continuation_indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.sh]
+indent_size = 2
+
+# Tab indentation
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+[*.py]
+indent_size = 4
+continuation_indent_size = 8
+
+[*.{gradle,groovy,java}]
+indent_size = 4
+continuation_indent_size = 8
+
+[Jenkinsfile]
+indent_size = 4
+continuation_indent_size = 8
+
+# Configs
+[*.{json,yml,yaml}]
+indent_size = 2
+
+[*.{js,ts}]
+indent_size = 2

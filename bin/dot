@@ -1,55 +1,71 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
-# dot
-#
-# `dot` handles installation, updates, things like that. Run it periodically
-# to make sure you're on the latest and greatest.
+# bootstrap installs things
 
-set -e
+set -o errexit -o nounset -o pipefail
 
-parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
-dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
+# get the basic definitions
+source ${DOTFILES}/functions/core
 
-displayUsageAndExit() {
-	echo "dot -- dotfiles management"
+# Function when script exits
+function terminate() {
+  fail "Installation has been terminated"
+}
+trap terminate INT
+
+# Trap when ERR was detected in a script
+function err_handler() {
+  fail "Caught unhandled error on line $(caller): \"$1\" returned $2 ==" 1
+}
+trap 'err_handler "${BASH_COMMAND}" "${?}"' ERR
+
+
+function displayUsageAndExit() {
+	echo "dot -- dotfiles topic install"
 	echo ""
-	echo "Usage: dot [options]"
+	echo "Usage: dot topic"
 	echo ""
 	echo "Options:"
-	echo "  -e, --edit    Open dotfiles directory for editing"
 	echo "  -h, --help    Show this help message and exit"
 	exit
 }
+
+function install_topic() {
+  local topic=$1
+
+  if [[ ! -e ${DOTFILES}/${topic} ]]
+  then
+      fail "There is no such topic ${topic}"
+  fi
+
+  if [[ ! -e ${DOTFILES}/${topic}/install.sh ]]
+  then
+      fail "There is no install.sh in the ${topic} topic"
+  fi
+
+  info "Installing ${topic} ..."
+
+  if [[ "${SUDO_ALLOWED}" == true ]]; then
+    sudo apt-get update
+  fi
+
+  sh -c "${DOTFILES}/${topic}/install.sh"
+
+  success 'Everything is installed!'
+
+}
+
+if [[ $# == 0 ]] ; then displayUsageAndExit ; fi
 
 while test $# -gt 0; do
 	case "$1" in
 		"-h"|"--help")
 			displayUsageAndExit
 			;;
-		"-e"|"--edit")
-			exec "$EDITOR" "$dotfilesDirectory"
-			exit
-			;;
 		*)
-			echo "Invalid option: $1"
-			displayUsageAndExit
+		  install_topic $1
+
 			;;
 	esac
 	shift
 done
-
-export ZSH=$HOME/.dotfiles
-
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
-
-# Install homebrew
-$ZSH/homebrew/install.sh 2>&1
-
-# Upgrade homebrew
-echo "› brew update"
-brew update
-
-# Install software
-echo "› $ZSH/script/install"
-$ZSH/script/install
