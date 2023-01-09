@@ -10,7 +10,7 @@
 # http://gist.github.com/249223
 #
 # Stolen from Ryan Tomayko
-# http://github.com/rtomayko/dotfiles/blob/rtomayko/bin/git-up
+# http://github.com/rtomayko//blob/rtomayko/bin/git-up
 
 set -e
 

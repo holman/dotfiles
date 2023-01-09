@@ -1,0 +1,207 @@
+#!/bin/sh
+set -e
+
+usage () {
+    echo "usage: git cleanup [-lr] [-nsvh]" >&2
+    echo >&2
+    echo "Deletes all branches that have already been merged into the main branch." >&2
+    echo "Removes those branches both locally and in the origin remote.  Will be " >&2
+    echo "most conservative with deletions." >&2
+    echo >&2
+    echo "Options:" >&2
+    echo "-l    Remove local branches" >&2
+    echo "-r    Remove remote branches (in \`origin\`)" >&2
+    echo "-n    Dry-run" >&2
+    echo "-s    Also consider squash merges (implies -l)" >&2
+    echo "-v    Be verbose (show what's skipped)" >&2
+    echo "-h    Show this help" >&2
+}
+
+dryrun=0
+locals=0
+remotes=0
+squashed=0
+verbose=0
+while getopts nlrsvh flag; do
+    case "$flag" in
+        n) dryrun=1;;
+        l) locals=1;;
+        r) remotes=1;;
+        s) squashed=1; locals=1;;
+        v) verbose=1;;
+        h) usage; exit 2;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+if [ $remotes -eq 0 -a $locals -eq 0 ]; then
+    usage
+    exit 1
+fi
+
+#
+# This will clean up any branch (both locally and remotely) that has been
+# merged into any of the known "trunks".  Trunks are any of:
+#
+#   - main (local) + origin/main
+#   - master (local) + origin/master
+#
+
+safegit () {
+    if [ "$dryrun" -eq 1 ]; then
+        echo git "$@"
+    else
+        git "$@"
+    fi
+}
+
+#
+# The Algorithm[tm]:
+# - Find the smallest set of common ancestors for those trunks.  (There can
+#   actually be multiple, although unlikely.)
+# - For each local branch, check if any of the common ancestors contains it,
+#   but not vice-versa (prevents newly-created branches from being deleted)
+# - Idem for each remote branch
+#
+
+find_common_base () {
+    if [ $# -eq 1 ]; then
+        git sha "$1"
+    else
+        git merge-base "$1" "$2"
+    fi
+}
+
+find_branch_base () {
+    branch="$1"
+    base_point=""
+
+    if git local-branch-exists "$branch"; then
+        base_point=$(find_common_base "$branch" $base_point)
+    fi
+
+    if git remote-branch-exists origin "$branch"; then
+        base_point=$(find_common_base "origin/$branch" $base_point)
+    fi
+
+    if [ -n "$base_point" ]; then
+        echo "$base_point"
+    fi
+}
+
+main="$(git main-branch)"
+
+find_bases () {
+    find_branch_base "$main"
+}
+
+bases=$(find_bases)
+
+#
+# The Clean Squashed Algorithm[tm]
+# - Create a temporary dangling squashed commit with git commit-tree
+# - Then use git cherry to check if the squashed commit has already been
+#   applied to the main branch
+# - If it has, then delete the branch
+#
+
+clean_squashed () {
+    branch="$1"
+
+    # Find the merge base for this branch
+    merge_base=$(git merge-base "$main" "$branch")
+
+    # Get the tree object of the branch
+    branch_tree="$(git rev-parse "$branch^{tree}")"
+
+    # Create a squashed commit object of the branch tree with parent
+    # of $base with a commit message of "_"
+    dangling_squashed_commit="$(git commit-tree "$branch_tree" -p "$merge_base" -m _)"
+
+    # Show a summary of what has yet to be applied
+    cherry_commit="$(git cherry "$main" "$dangling_squashed_commit")"
+
+    if [ "$cherry_commit" = "- $dangling_squashed_commit" ]; then
+        # If "- <commit-sha>", (ex. - "- 851cb44727") this means the
+        # commit is in main and can be dropped if you rebased
+        # against main
+        safegit branch -D "$branch"
+    elif [ $verbose -eq 1 ]; then
+        # If "+ <commit-sha>", (ex. - "+ 851cb44727") this means the
+        # commit still needs to be kept so that it will be applied to
+        # main
+        echo "Skipped $branch (no similar squash found)"
+    fi
+}
+
+if [ $locals -eq 1 ]; then
+    for branch in $(git local-branches \
+                    | grep -vxF "$main"); do
+        for base in $bases; do
+            if git contains "$base" "$branch"; then
+                if ! git contains "$branch" "$base"; then
+                    # Actually delete
+                    if ! safegit branch -D "$branch"; then
+                        echo "Errors deleting local branch $branch" >&2
+                    fi
+                    break
+                fi
+            else
+                # This is the case where the branches are in fact legit
+                # local WIP branches or they are squashed merges, and we
+                # need to check if they have been squashed-merged into
+                # main. NOTE - this assumes main is up-to-date locally
+                if [ "$squashed" -eq 1 ]; then
+                    clean_squashed "$branch"
+                fi
+            fi
+        done
+    done
+fi
+
+# Pruning first will remove any remote tracking branches that don't exist in
+# the remote anymore anyway.
+if [ $remotes -eq 1 ]; then
+    remote=origin
+    safegit remote prune "$remote" >/dev/null 2>/dev/null
+
+    if [ $remotes -eq 1 ]; then
+        branches_to_remove=""
+        for branch in $(git remote-branches "$remote" | grep -vEe "/($main)\$"); do
+            for base in $bases; do
+                if git contains "$base" "$branch"; then
+                    if ! git contains "$branch" "$base"; then
+                        branchname=$(echo "$branch" | cut -d/ -f2-)
+                        branches_to_remove="$branches_to_remove $branchname"
+                        break
+                    fi
+                fi
+            done
+        done
+
+        if [ -n "$branches_to_remove" ]; then
+            if ! safegit push "$remote" --delete $branches_to_remove; then
+                echo "Errors deleting branches $branches_to_remove from remote '$remote'" >&2
+            fi
+        fi
+    fi
+fi
+
+# Delete any remaining local remote-tracking branches of remotes that are gone.
+if [ $locals -eq 1 ]; then
+    branches_to_remove=""
+    for branch in $(git remote-branches); do
+        for base in $bases; do
+            if git contains "$base" "$branch"; then
+                if ! git contains "$branch" "$base"; then
+                    branches_to_remove="$branches_to_remove $branch"
+                    break
+                fi
+            fi
+        done
+    done
+
+    if [ -n "$branches_to_remove" ]; then
+        safegit branch -dr $branches_to_remove
+    fi
+fi
