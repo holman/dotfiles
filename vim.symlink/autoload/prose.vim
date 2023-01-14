@@ -1,6 +1,5 @@
 function! prose#Focus() abort
   Goyo
-  Limelight
   if has('gui_running')
     set fullscreen
     set background=light
@@ -12,6 +11,7 @@ function! prose#Focus() abort
    call system("tmux resize-pane -Z")
   endif
   wincmd =
+  Limelight
 endfunction
 
 

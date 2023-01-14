@@ -44,6 +44,7 @@ brew "tldr"
 brew "tmux"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vim"
+brew "neovim"
 brew "wget"
 brew "yarn", link: false
 brew "youtube-dlp"

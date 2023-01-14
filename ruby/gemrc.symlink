@@ -4,3 +4,6 @@
 :backtrace: false
 :benchmark: false
 gem: --no-document
+:sources:
+- https://rubygems.org/
+- https://chaadow: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@rubygems.pkg.github.com/lounna-team/

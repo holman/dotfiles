@@ -66,7 +66,7 @@ let undodir = expand('~/.undo-vim')
 if !isdirectory(undodir)
   call mkdir(undodir)
 endif
-set undodir=~/.undo-vim//
+set undodir=~/.undo-vim/
 set undofile " Create FILE.un~ files for persistent undo
 
 if has('mksession')

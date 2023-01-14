@@ -2,6 +2,8 @@
 
 Plug 'tommcdo/vim-exchange'
 
-nmap cX <Plug>(ExchangeLine)
+" This should be defined by the plugin
+" but for some reason it doesn't work
+nmap cxx <Plug>(ExchangeLine)
 
 " vim:ft=vim

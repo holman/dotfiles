@@ -1,21 +1,23 @@
 " Add fzf for Vim
 
-Plug '/opt/homebrew/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-" let g:fzf_layout = { 'down': '~25%' }
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-p90%,90%' }
+else
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+endif
+
 let g:fzf_launcher = "in_a_new_term_function_fzf %s"
 let $FZF_DEFAULT_COMMAND = 'ag -g "" --ignore .git'
-set rtp+=/opt/homebrew/opt/fzf
+let $FZF_DEFAULT_OPTS = '--reverse --multi'
+
 
 " let g:fzf_files_options =
 "   \ '--reverse ' .
-"   \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+"   \ '--preview "(highlight -O ansi {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 
-let g:fzf_files_options =
-  \ '--reverse ' .
-  \ '--preview "(highlight -O ansi {} || cat {}) 2> /dev/null | head -'.&lines.'"'
-
-" nnoremap <C-p> :Files<cr>
 
 " Enable per-command history.
 " CTRL-N and CTRL-P will be automatically bound to next-history and
@@ -37,16 +39,15 @@ xnoremap <silent> <Leader>ag       y:Ag <C-R>"<CR>
 nnoremap <silent> <Leader>`        :Marks<CR>`
 
 " Augmenting GFiles to use preview options + reverse
-" command! -bang -nargs=* GFilesC
-"       \ call fzf#vim#gitfiles(<q-args>,{ 'options': g:fzf_files_options},<bang>0)
+command! -bang -nargs=* GFilesC
+      \ call fzf#run(fzf#vim#with_preview(fzf#wrap('gfilesc', { 'options': '--multi --reverse'}, <bang>0)))
 
 if isdirectory(".git")
     " if in a git project, use :GFiles
-    nmap <silent> <C-p> :GFiles! -oc --exclude=atom.symlink/
-          \ --exclude=vim.symlink/plugged/ <cr>
+    nmap <silent> <Leader>p :GFilesC -oc <cr>
 else
     " otherwise, use :FZF
-    nmap <silent> <C-p>  :Files<cr>
+    nmap <silent> <Leader>p :Files<cr>
 endif
 
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -67,6 +68,13 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
+" Path completion with custom source command
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
+
+" Word completion with custom spec with popup layout option
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
+
 " Use Agu to not ignore vcs files
 command! -bang -nargs=* Agu call fzf#vim#ag(<q-args>, '--skip-vcs-ignores', {'down': '~40%'}, <bang>0)
 
@@ -77,11 +85,11 @@ command! -bang -nargs=* Agu call fzf#vim#ag(<q-args>, '--skip-vcs-ignores', {'do
 "
 "   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
 "   :Ag! - Start fzf in fullscreen and display the preview window above
-autocmd VimEnter * command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
+" autocmd VimEnter * command! -bang -nargs=* Ag
+"   \ call fzf#vim#ag(<q-args>,
+"   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+"   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+"   \                 <bang>0)
 
 command! Plugs call fzf#run({
   \ 'source':  map(sort(keys(g:plugs)), 'g:plug_home."/".v:val'),

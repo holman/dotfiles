@@ -51,13 +51,16 @@ unset config_files
 [ -f /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh ] && source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20  # ( Recommended 20)Useful when pasting large texts due to the slowdown caused by autosuggestions after every char
 
-      bindkey '^[[A' history-substring-search-up
-      bindkey '^[[B' history-substring-search-down
-       # bindkey -M emacs '^P' history-substring-search-up
-       # bindkey -M emacs '^N' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+# bindkey -M emacs '^P' history-substring-search-up
+# bindkey -M emacs '^N' history-substring-search-down
 #       bindkey -M vicmd 'k' history-substring-search-up
 # bindkey -M vicmd 'j' history-substring-search-down
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
-
+# export TERM=tmux-256color
 . /opt/homebrew/etc/profile.d/z.sh
+
+
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"

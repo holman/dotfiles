@@ -2,8 +2,4 @@
 
 Plug 'tpope/vim-commentary'
 
-nmap cm  <Plug>Commentary
-" `cml` works with the above, but I mistype it often
-nmap mcl <Plug>CommentaryLine
-
 " vim:ft=vim

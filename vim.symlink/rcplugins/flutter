@@ -1,8 +1,8 @@
 " Ruby Block - Provide a custom text object for ruby blocks
 
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-flutter'}
+" Plug 'dart-lang/dart-vim-plugin'
+" Plug 'thosakwe/vim-flutter'
+" Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-flutter'}
 
 
 " vim:ft=vim

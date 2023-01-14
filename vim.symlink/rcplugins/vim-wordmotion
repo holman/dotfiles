@@ -1,0 +1,4 @@
+" Adds the ability to navigate through camelCase/under_score words with `w`
+Plug 'chaoren/vim-wordmotion'
+
+" vim:ft=vim

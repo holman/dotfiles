@@ -2,3 +2,4 @@
 #
 # alias vim='mvim -v'
 alias vim='/opt/homebrew/Cellar/macvim/9.0.472_1/MacVim.app/Contents/MacOS/Vim'
+# alias vim=nvim

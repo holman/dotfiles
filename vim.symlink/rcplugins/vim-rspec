@@ -2,7 +2,7 @@
 
 Plug 'thoughtbot/vim-rspec'
 
-let g:rspec_command = "call VtrSendCommand('rails test {spec}')"
+let g:rspec_command = "call VtrSendCommand('bin/rspec {spec}')"
 
 " map <Leader>t :call RunNearestSpec()<CR>
 
