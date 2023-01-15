@@ -21,54 +21,76 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+
+  -- Git command integration
+  use 'tpope/vim-fugitive'
+
+  -- Smooth code commenting
+  use 'terrortylor/nvim-comment'
+
+  -- Vim buffer management
+  use 'theprimeagen/harpoon'
+
+  -- Color theme
   use 'ellisonleao/gruvbox.nvim'
+
+  -- Replacement for Nerdtree + icons
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
+
+  -- Beautiful status line
   use 'nvim-lualine/lualine.nvim'
+
+  -- Treesitter for syntax highlighting and auto indentation
   use 'nvim-treesitter/nvim-treesitter'
-  use 'theprimeagen/harpoon'
-  use 'tpope/vim-fugitive'
-  use 'akinsho/toggleterm.nvim'
-  use 'terrortylor/nvim-comment'
-  -- use 'numToStr/Comment.nvim'
   -- use 'tpope/vim-endwise'
   -- use 'elixir-editors/vim-elixir'
   -- use 'folke/which-key.nvim'
+
+  -- LSP CONFIGURATION --
+  use {
+    -- Main LSP plugin allowing easy config of LSP servers
+    'neovim/nvim-lspconfig',
+
+    requires = {
+      -- LSP package manager for LSP servers
+      'williamboman/mason.nvim',
+      -- Bridges mason with nvim-lspconfig
+      'williamboman/mason-lspconfig',
+      -- Additional lua configuration, makes nvim stuff amazing
+      -- 'folke/neodev.nvim',
+    }
+  }
+
+  -- Completion framework
+  use {
+    'hrsh7th/nvim-cmp',
+
+    requires = {
+      'hrsh7th/cmp-nvim-lsp', -- Completion source for nvims builtin language server client
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      -- 'hrsh7th/cmp-buffer',
+      -- 'hrsh7th/cmp-path'
+      -- 'hrsh7th/cmp-cmdline'
+    }
+  }
+
+  -- Get this debug adapter (DAP) setup for Elixir since nvim-lspconfig doesn't support Elixir DAP
+  -- use 'mfussenegger/nvim-dap'
 
   use {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'BurntSushi/ripgrep'},
-      {'nvim-telescope/telescope-fzf-native.nvim'},
+      { 'nvim-lua/plenary.nvim' },
+      { 'BurntSushi/ripgrep' },
+      { 'nvim-telescope/telescope-fzf-native.nvim'},
+      { 'sharkdp/fd' },
     }
   }
 
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
-
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
-
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
-  }
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+  -- Automatically set up configs after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
   end
