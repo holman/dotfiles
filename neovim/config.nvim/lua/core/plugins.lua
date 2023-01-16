@@ -41,10 +41,10 @@ return require('packer').startup(function(use)
   -- Beautiful status line
   use 'nvim-lualine/lualine.nvim'
 
-  -- Treesitter for syntax highlighting and auto indentation
-  use 'nvim-treesitter/nvim-treesitter'
+  -- Treesitter for syntax highlighting and vim-elixir for autoindenting
+  use 'elixir-editors/vim-elixir' -- Use vim-elixir for autoindenting but not syntax highlighting
+  use 'nvim-treesitter/nvim-treesitter' -- Use treesitter for syntax highlighting but not autoindenting
   -- use 'tpope/vim-endwise'
-  -- use 'elixir-editors/vim-elixir'
   -- use 'folke/which-key.nvim'
 
   -- LSP CONFIGURATION --
@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'BurntSushi/ripgrep' },
-      { 'nvim-telescope/telescope-fzf-native.nvim'},
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'sharkdp/fd' },
     }
   }

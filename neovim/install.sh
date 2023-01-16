@@ -2,6 +2,9 @@
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
+overwrite_all=false
+backup_all=false
+skip_all=false
 
 success () {
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
@@ -88,4 +91,4 @@ then
   mkdir ~/.config
 fi
 
-link_file ~/.config/nvim "$DOTFILES_ROOT/neovim/config.nvim" 
+link_file "$DOTFILES_ROOT/neovim/config.nvim" ~/.config/nvim 
