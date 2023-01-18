@@ -17,8 +17,8 @@ vim.opt.expandtab = true
 -- window settings
 vim.wo.number = true
 
--- nvim-tree navigation
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+-- LazyGit
+vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
 
 -- Window navigation
 vim.keymap.set('n', '<c-j>', '<c-w>j')
@@ -29,4 +29,4 @@ vim.keymap.set('n', '<c-h>', '<c-w>h')
 -- Tab navigation
 vim.keymap.set('n', '<c-t>h', ':tabr<cr>')
 vim.keymap.set('n', '<c-t>l', ':tabl<cr>')
-vim.keymap.set('n', '<c-t>l', ':tabl<cr>')
+
