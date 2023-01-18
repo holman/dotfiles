@@ -24,12 +24,16 @@ return require('packer').startup(function(use)
 
   -- Git command integration
   use 'tpope/vim-fugitive'
+  use 'kdheepak/lazygit.nvim' -- Lazygit :/
 
   -- Smooth code commenting
   use 'terrortylor/nvim-comment'
 
   -- Vim buffer management
   use 'theprimeagen/harpoon'
+
+  -- vim-tmux-navigator
+  use 'christoomey/vim-tmux-navigator'
 
   -- Color theme
   use 'ellisonleao/gruvbox.nvim'
@@ -46,6 +50,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter' -- Use treesitter for syntax highlighting but not autoindenting
   -- use 'tpope/vim-endwise'
   -- use 'folke/which-key.nvim'
+  -- require('which-key').setup({})
 
   -- LSP CONFIGURATION --
   use {

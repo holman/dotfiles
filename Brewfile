@@ -14,6 +14,7 @@ brew "coreutils"
 
 # Shell
 brew "liquidprompt"
+brew "zoxide"
 
 # Development
 brew "erlang"
@@ -24,6 +25,7 @@ brew "leiningen"
 brew "neovim"
 brew "ripgrep"
 brew "fd"
+brew "lazygit"
 
 # Utilities
 brew "tmux"
