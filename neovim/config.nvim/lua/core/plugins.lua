@@ -37,6 +37,9 @@ return require('packer').startup(function(use)
 
   -- Color theme
   use 'ellisonleao/gruvbox.nvim'
+  use 'tomasr/molokai'
+  use 'tanvirtin/monokai.nvim'
+  use 'sainnhe/everforest'
 
   -- Replacement for Nerdtree + icons
   use 'nvim-tree/nvim-tree.lua'

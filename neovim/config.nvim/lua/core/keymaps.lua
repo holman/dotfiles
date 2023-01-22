@@ -30,3 +30,6 @@ vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-t>h', ':tabr<cr>')
 vim.keymap.set('n', '<c-t>l', ':tabl<cr>')
 
+-- HTML
+vim.keymap.set('n', 'gho', '^lct>') -- create open tag from copied tag
+vim.keymap.set('n', 'ghc', 'yyp^a/<esc>Eldt>') -- create closing tag from current tag
