@@ -1,0 +1,9 @@
+[user]
+	name = Jasper
+	email = jaspertax@gmail.com
+[credential]
+    helper = GIT_CREDENTIAL_HELPER
+[core]
+    excludesfile = ~/.gitignore
+[push]
+	autoSetupRemote = true
