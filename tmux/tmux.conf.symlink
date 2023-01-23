@@ -1,0 +1,15 @@
+# set shell
+set -g default-shell /bin/zsh
+
+# force tmux to use utf-8
+setw -gq utf8 on
+
+# Set the control character to Ctrl+Spacebar (instead of Ctrl+B)
+set -g prefix C-space
+unbind-key C-b
+bind-key C-space send-prefix
+
+# Set new panes to open in current directory
+bind c new-window -c "#{pane_current_path}"
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
