@@ -8,3 +8,8 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+# network
+alias wol_asl="wakeonlan 00:0f:fe:f0:aa:92"
+alias wol_psl="wakeonlan f8:0f:41:18:b1:21"
+
