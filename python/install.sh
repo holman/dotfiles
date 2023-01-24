@@ -1,2 +1,2 @@
-pyenv update && pyenv install 3.11:latest
-pyenv global 3.11:latest
+pyenv install 3.11
+pyenv global 3.11
