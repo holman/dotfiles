@@ -1,1 +1,2 @@
-export CONDA_HOME=$HOME/anaconda3/bin/conda
+export CONDA_HOME=$HOME/anaconda3
+export CONDA=$CONDA_HOME/bin/conda
