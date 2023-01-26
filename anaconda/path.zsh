@@ -1,1 +1,0 @@
-export CONDA_HOME=$HOME/anaconda3/bin/conda
