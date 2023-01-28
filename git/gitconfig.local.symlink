@@ -2,7 +2,7 @@
 	name = Jasper
 	email = jaspertax@gmail.com
 [credential]
-    helper = GIT_CREDENTIAL_HELPER
+    helper = osxkeychain
 [core]
     excludesfile = ~/.gitignore
 [push]
