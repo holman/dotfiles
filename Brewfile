@@ -1,29 +1,27 @@
 # taps
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
-tap "pyenv/pyenv-update"
-
+#tap "pyenv/pyenv-update"
 
 # set arguments for all 'brew install --cask' commands
-cask_args appdir: "~/Applications", require_sha: true
+cask_args appdir: "/Applications", require_sha: true
 
 # mac app store
 brew "mas"
-mas "1Password", id: 443987910
+#mas "1Password 7", id: 133354219 
 mas "Magnet", id: 441258766
 
-# brew
-brew "logi-options-plus"
-
 # productivity applications
-cask "google-chrome"
-cask "microsoft-office"
+cask "google-chrome", args: { require_sha: false }
+cask "brave-browser"
+#cask "microsoft-office" # my license only applies to the 2016 version
 
 # network
 cask "openvpn-connect"
+cask "little-snitch"
 
 # media and socials
-cask "spotify"
+cask "spotify", args: { require_sha: false}
 cask "discord"
 cask "obs"
 cask "vlc"
@@ -35,20 +33,18 @@ cask "visual-studio-code"
 cask "virtualbox"
 cask "docker"
 brew "vim"
-brew "postman"
+cask "postman"
 brew "pyenv"
-brew "pyenv-update"
+#brew "pyenv-update"
+brew "grc"
 
 # other
-cask "balenaetcher"
-cask "wine" # used for MikroTik's Winbox For Mac
+cask "balenaetcher", args: { require_sha: false }
+#cask "wine" # used for MikroTik's Winbox For Mac
 
 # useful tools
-cask "oversight"
-cask "fanny"
-
-# mac app store
-brew "mas"
-mas "1Password", id: 443987910
-mas "Magnet", id: 441258766
+cask "karabiner-elements"
+cask "logi-options-plus", args: { require_sha: false }
+#cask "oversight"
+cask "fanny", args: { require_sha: false }
 
