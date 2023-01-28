@@ -22,10 +22,12 @@ bind-key -T copy-mode-vi 'C-k' select-pane -U
 bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-
-
 # Resizing panes
 bind-key 'C-k' resize-pane -U 20
 bind-key 'C-j' resize-pane -D 20
 bind-key 'C-h' resize-pane -L 20
 bind-key 'C-l' resize-pane -R 20
+
+# Sending a pane to a new window is <leader>! and keybinding to bring it back below
+bind-key j command-prompt -p "join pane from: "  "join-pane -vs '%%'"
+bind-key ! break-pane -d # overriding the default (C-b)! to detach and send pane to a background window instead of fg

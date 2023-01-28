@@ -25,6 +25,8 @@ vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 vim.keymap.set('n', '<c-h>', '<c-w>h')
+vim.keymap.set('n', '<c-m>', '<c-w>=')
+vim.keymap.set('n', '<CR>', '<c-w>_<c-w>|')
 
 -- Tab navigation
 vim.keymap.set('n', '<c-t>h', ':tabr<cr>')

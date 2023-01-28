@@ -37,6 +37,7 @@ require('lspconfig').sumneko_lua.setup({
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require 'lspkind'
 
 cmp.setup {
   snippet = {
@@ -45,11 +46,11 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(), -- Close cmp window
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<C-y>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
@@ -73,8 +74,28 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    -- { name = 'buffer' },
+    { name = 'buffer', keyword_length = 5, max_item_count = 3 },
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[nvim]",
+        path = "[path]",
+        luasnip = "[snip]",
+        cmdline = "[cmd]",
+      },
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters 
+      ellipsis_char = '...', -- when popup menu exceed maxwidth
+    })
+  },
+  experimental = {
+    ghost_text = true,
   },
 }
