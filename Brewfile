@@ -1,6 +1,7 @@
 # taps
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
 #tap "pyenv/pyenv-update"
 
 # set arguments for all 'brew install --cask' commands
@@ -37,6 +38,7 @@ cask "postman"
 brew "pyenv"
 #brew "pyenv-update"
 brew "grc"
+brew "tree"
 
 # other
 cask "balenaetcher", args: { require_sha: false }
@@ -48,3 +50,5 @@ cask "logi-options-plus", args: { require_sha: false }
 #cask "oversight"
 cask "fanny", args: { require_sha: false }
 
+# font for oh-my-zsh
+cask "font-meslo-for-powerline"
