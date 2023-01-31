@@ -4,3 +4,4 @@
 .vscode
 .env
 /env*/
+Brewfile.lock.json
