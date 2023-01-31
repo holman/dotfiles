@@ -104,4 +104,4 @@ set backspace=indent,eol,start
 :augroup END
 
 " copy to system clipboard
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
