@@ -37,6 +37,7 @@ brew "vim"
 cask "postman"
 brew "pyenv"
 #brew "pyenv-update"
+brwe "tmux"
 brew "grc"
 brew "tree"
 
