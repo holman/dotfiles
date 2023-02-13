@@ -2,6 +2,7 @@ vim.opt.signcolumn = 'yes' -- Reserve space for diagnostic icons
 
 -- Broadcast nvim-cmp additional completion capabilities to all lsp servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 require('mason').setup()
@@ -10,6 +11,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'sumneko_lua',
     'elixirls',
+    'emmet_ls',
   }
 })
 
@@ -34,6 +36,19 @@ require('lspconfig').sumneko_lua.setup({
   },
 })
 
+require('lspconfig').emmet_ls.setup({
+  capabilities = capabilities,
+  filetypes = { 'html', 'heex', 'leex', 'css', 'sass', 'scss', 'less'},
+  init_options = {
+    html = {
+      options = {
+        -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+        ["bem.enabled"] = true,
+      }
+    }
+  }
+})
+
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -51,7 +66,7 @@ cmp.setup {
     ['<C-Space>'] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(), -- Close cmp window
     ['<C-y>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
+      -- behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
     ['<Tab>'] = cmp.mapping(function(fallback)
@@ -74,9 +89,9 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = 'luasnip' },
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },
     { name = 'buffer', keyword_length = 5, max_item_count = 3 },
   },
   formatting = {
@@ -99,3 +114,9 @@ cmp.setup {
     ghost_text = true,
   },
 }
+
+luasnip.filetype_extend("elixir", {"elixir"})
+luasnip.filetype_extend("heex", {"eelixir"})
+luasnip.filetype_extend("leex", {"eelixir"})
+
+require("luasnip.loaders.from_vscode").lazy_load()

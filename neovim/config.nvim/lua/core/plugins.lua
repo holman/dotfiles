@@ -82,7 +82,11 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      'onsails/lspkind.nvim'
+      'onsails/lspkind.nvim',
+      'aca/emmet-ls', -- HTML Snippets - https://docs.emmet.io/cheat-sheet/
+      -- https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/elixir.json
+      -- https://github.com/rafamadriz/friendly-snippets/blob/main/snippets/eelixir.json
+      'rafamadriz/friendly-snippets',
     }
   }
 
