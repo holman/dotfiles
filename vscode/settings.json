@@ -35,7 +35,7 @@
   "shellcheck.customArgs": ["-e SC1071"],
   "terminal.integrated.defaultProfile.osx": "/usr/local/bin/zsh",
   "workbench.colorTheme": "An Old Hope Classic",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "editor.suggestSelection": "first",
@@ -64,5 +64,8 @@
     "plaintext": true,
     "markdown": false
   },
-  "terminal.explorerKind": "external"
+  "terminal.explorerKind": "external",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
