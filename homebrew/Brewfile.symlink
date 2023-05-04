@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 
 # Install packages
+brew "fnm"
 
 # Install casks (for macOS users)
 cask "visual-studio-code"
