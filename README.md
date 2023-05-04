@@ -1,6 +1,10 @@
-# holman does dotfiles
+# Maribel does dotfiles
 
-Your dotfiles are how you personalize your system. These are mine.
+Your dotfiles are how you personalize your system. These are generic ones, based on holman/dotfiles.
+
+The comments below are from the original repo, reflecting the author's opnions which we're adopting as our standard with some customizations.
+
+## History
 
 I was a little tired of having long alias files and everything strewn about
 (which is extremely common on other dotfiles projects, too). That led to this
@@ -50,7 +54,7 @@ There's a few special files in the hierarchy.
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/YOURUSER/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
