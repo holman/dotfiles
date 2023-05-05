@@ -8,6 +8,7 @@ brew "pyenv"
 brew "xz" #required by pyenv to install python
 brew "pnpm"
 brew "poetry"
+brew "pipx"
 
 # Install casks (for macOS users)
 cask "visual-studio-code"
