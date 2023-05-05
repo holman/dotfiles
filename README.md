@@ -76,6 +76,7 @@ this script in `bin/`.
 1. [optional] Add your personal SSH to your personal GitHub account.
 2. Add your corporate SSH to your corporate GitHub account.
 3. Open the docker(-on-mac) app and finish the installation.
+4. Open vscode and login
 
 ## bugs
 
