@@ -13,3 +13,4 @@ brew "pipx"
 # Install casks (for macOS users)
 cask "visual-studio-code"
 cask "ngrok"
+cask "docker" #use the cask to install the docker-on-mac app
