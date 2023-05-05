@@ -12,3 +12,10 @@ else
         pyenv global $PYTHON_VERSION 1>/dev/null 2>&1
     fi    
 fi
+
+# https://python-poetry.org/docs/managing-environments/
+if command -v poetry 1>/dev/null 2>&1
+then
+    poetry config virtualenvs.prefer-active-python true
+fi
+
