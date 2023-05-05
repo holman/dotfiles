@@ -12,3 +12,4 @@ brew "pipx"
 
 # Install casks (for macOS users)
 cask "visual-studio-code"
+cask "ngrok"
