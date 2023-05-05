@@ -57,6 +57,7 @@ Run this:
 git clone https://github.com/YOURUSER/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
+source ~/.zshrc
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.

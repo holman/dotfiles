@@ -4,6 +4,8 @@ tap "homebrew/core"
 
 # Install packages
 brew "fnm"
+brew "pyenv"
+brew "xz" #required by pyenv to install python
 
 # Install casks (for macOS users)
 cask "visual-studio-code"
