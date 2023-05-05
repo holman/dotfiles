@@ -9,4 +9,11 @@ fi
 # yeah, let's do that.
 
 #echo "› sudo softwareupdate -i -a"
-#sudo softwareupdate -i -a
+
+# Install Rosetta if not already installed
+if ! /usr/bin/pgrep oahd >/dev/null 2>&1; then
+  echo "Installing Rosetta"
+	/usr/sbin/softwareupdate --install-rosetta --agree-to-license 1>/dev/null 2>&1
+ else
+  echo "Rosetta already installed" 
+fi

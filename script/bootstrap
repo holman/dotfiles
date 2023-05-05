@@ -9,12 +9,21 @@ set -e
 
 echo ''
 
+msg () {
+  printf "\r  [ \033[0;33m$1\033[0m ] $2\n"
+}
+
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
+user_same_line () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1"
+}
+
 user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+  user_same_line "$1"
+  printf '\n'
 }
 
 success () {
@@ -137,6 +146,24 @@ install_dotfiles () {
   done
 }
 
+# Function to prompt and read personal and corporate emails, then save them to a file
+prompt_and_save_emails() {
+  local email_file="$HOME/.email_addresses"
+
+  if [ ! -f "$email_file" ]; then
+    user_same_line '🏠 What is your personal email? '
+    read -e personal_email
+    user_same_line '💼 What is your corporate email? '
+    read -e corporate_email
+
+    echo "personal=${personal_email}" > "$email_file"
+    echo "corporate=${corporate_email}" >> "$email_file"
+  fi
+  msg "📧" "Email info stored in \033[0;33m'$email_file\033[0m.'"
+
+}
+
+prompt_and_save_emails
 setup_gitconfig
 install_dotfiles
 

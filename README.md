@@ -57,6 +57,7 @@ Run this:
 git clone https://github.com/YOURUSER/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
+source ~/.zshrc
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
@@ -69,6 +70,11 @@ which sets up a few paths that'll be different on your particular machine.
 defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
+
+## Post installation
+
+1. [optional] Add your personal SSH to your personal GitHub account.
+2. Add your corporate SSH to your corporate GitHub account.
 
 ## bugs
 
