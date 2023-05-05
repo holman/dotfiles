@@ -10,13 +10,17 @@ set -e
 parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
 dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
 
+msg () {
+  printf "\r  [ \033[0;33m$1\033[0m ] $2\n"
+}
+
 info() {
 	# print with blue color, right side arrow and no new line
-	printf "\r  [ \033[00;35m››\033[0m ] $1\n"
+	msg "››" "$1"
 }
 
 warning() {
-	printf "\r  [ \033[0;33m!!\033[0m ] › $1\n"
+	msg "!!" "$1"
 }
 
 displayUsageAndExit() {
@@ -56,19 +60,19 @@ $ZSH/macos/set-defaults.sh
 $ZSH/homebrew/install.sh 2>&1
 
 # Upgrade homebrew
-info "brew update"
+msg "🍺" "Brew update."
 brew update
 
 # Install homebrew bundle
-info "brew install bundle from Brewfile" 
+msg "🍺" "Brew install bundle from Brewfile." 
 brew tap "homebrew/core" 2>&1
 brew bundle --file="$HOME/.Brewfile" 2>&1
 
 if [ -f "$HOME/Brewfile.local" ]; then
-  info "brew install bundle from Brewfile.local" 
+  msg "🍺" "Brew install bundle from Brewfile.local." 
   brew bundle --file="$HOME/Brewfile.local" 2>&1
 else
-  warning "brew install bundle from Brewfile.local not found"
+  warning "brew install bundle from Brewfile.local not found."
 fi
 
 
