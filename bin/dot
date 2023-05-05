@@ -59,6 +59,7 @@ $ZSH/homebrew/install.sh 2>&1
 info "brew update"
 brew update
 
+# Install homebrew bundle
 info "brew install bundle from Brewfile" 
 brew tap "homebrew/core" 2>&1
 brew bundle --file="$HOME/.Brewfile" 2>&1

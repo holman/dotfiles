@@ -71,6 +71,11 @@ defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
+## Post installation
+
+1. [optional] Add your personal SSH to your personal GitHub account.
+2. Add your corporate SSH to your corporate GitHub account.
+
 ## bugs
 
 I want this to work for everyone; that means when you clone it down it should
