@@ -41,7 +41,7 @@ echo "Adding $HOME/.ssh/id_rsa.pub to your github keys."
 
 KEY=$(cat $HOME/.ssh/id_rsa.pub)
 KEY_DATA=$(echo "$KEY" | awk '{print $1}')
-KEY_FOUND=false
+KEY_FOUND=
 RET=$(curl -w "\n%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token $GPAT" https://api.github.com/user/keys)
 HTTP_CODE=$(echo "$RET" | tail -n 1)
@@ -61,7 +61,7 @@ for xkey in ${EXISTING_KEYS}; do
   fi
 done
 
-if [ "${KEY_FOUND}" = "false"]; then
+if [ -z "${KEY_FOUND}" ]; then
   RET=$(curl -X POST -w "\n%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
     -H "Authorization: token $GPAT" https://api.github.com/user/keys \
     -d "{\"key\": \"${KEY}\"}")
