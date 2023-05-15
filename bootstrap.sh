@@ -46,8 +46,8 @@ RET=$(curl -X POST -w "%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json"
 HTTP_CODE=$(echo $RET | tail -n 1)
 if [ "${HTTP_CODE}" != "200" ]; then
   echo "error adding pubkey: $RET"
-  echo "This can appen if your GITHUB_PAT is not assigned admin:public_key:write scope."
-  echo "In this case, you would need to manually add the key."
+  echo "This can appen if your GITHUB_PAT is not assigned admin:public_key:read|write scope."
+  echo "In this case, you would need to manually add the key and comment out above step."
   exit 1
 fi
 
