@@ -40,7 +40,7 @@ echo please enter your GITHUB_PAT && read -s GPAT && echo $GPAT | tee $HOME/.git
 echo "Adding $HOME/.ssh/id_rsa.pub to your github keys."
 
 KEY=$(cat $HOME/.ssh/id_rsa.pub)
-KEY_DATA=$(echo "$KEY" | awk '{print \"$1 " " $2\"}')
+KEY_DATA=$(echo "$KEY" | awk '{print "\"" $1 " " $2 "\"" }')
 KEY_FOUND=
 RET=$(curl -w "%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token $GPAT" https://api.github.com/user/keys)
