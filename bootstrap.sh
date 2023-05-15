@@ -40,9 +40,9 @@ echo please enter your GITHUB_PAT && read -s GPAT && echo $GPAT | tee $HOME/.git
 echo "Adding $HOME/.ssh/id_rsa.pub to your github keys."
 
 KEY=$(cat $HOME/.ssh/id_rsa.pub)
-KEY_DATA=$(echo "$KEY" | awk '{print $1}')
+KEY_DATA=$(echo "$KEY" | awk '{print \"$1 " " $2\"}')
 KEY_FOUND=
-RET=$(curl -w "\n%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
+RET=$(curl -w "%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token $GPAT" https://api.github.com/user/keys)
 HTTP_CODE=$(echo "$RET" | tail -n 1)
 if [ "${HTTP_CODE}" != "200" ]; then
@@ -52,17 +52,17 @@ if [ "${HTTP_CODE}" != "200" ]; then
   exit 1
 fi
 LINES=$(echo "$RET" | wc -l)
-EXISTING_KEYS=$(echo "$RET" | head -n $((LINES-1)) | jq ".[].key")
-for xkey in ${EXISTING_KEYS}; do
+# EXISTING_KEYS=$(echo "$RET" | head -n $((LINES-1)) | jq ".[].key")
+while read xkey; do
   if [ "$xkey" = "${KEY_DATA}" ]; then
     echo "key is alreay added"
     KEY_FOUND=true
     break
   fi
-done
+done < <(echo "$RET" | head -n $((LINES-1)) | jq ".[].key")
 
 if [ -z "${KEY_FOUND}" ]; then
-  RET=$(curl -X POST -w "\n%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
+  RET=$(curl -X POST -w "%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
     -H "Authorization: token $GPAT" https://api.github.com/user/keys \
     -d "{\"key\": \"${KEY}\"}")
   HTTP_CODE=$(echo "$RET" | tail -n 1)
