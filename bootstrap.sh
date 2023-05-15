@@ -40,17 +40,39 @@ echo please enter your GITHUB_PAT && read -s GPAT && echo $GPAT | tee $HOME/.git
 echo "Adding $HOME/.ssh/id_rsa.pub to your github keys."
 
 KEY=$(cat $HOME/.ssh/id_rsa.pub)
-RET=$(curl -X POST -w "%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
-  -H "Authorization: token $GPAT" https://api.github.com/user/keys \
-  -d "{\"key\": \"${KEY}\"}")
+KEY_DATA=$(echo $KEY | awk '{print $1}')
+KEY_FOUND=false
+RET=$(curl -w "%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
+  -H "Authorization: token $GPAT" https://api.github.com/user/keys)
 HTTP_CODE=$(echo $RET | tail -n 1)
-if [ "${HTTP_CODE}" != "201" ] && [ "${HTTP_CODE}" != "304" ]; then
-  echo "error adding pubkey: $RET"
-  echo "This can appen if your GITHUB_PAT is not assigned admin:public_key:read|write scope."
+if [ "${HTTP_CODE}" != "200" ]; then
+  echo "error reading pubkey from github: $RET"
+  echo "This can appen if your GITHUB_PAT is not assigned admin:public_key:read scope."
   echo "In this case, you would need to manually add the key and comment out above step."
   exit 1
 fi
+LINES=$(echo $RET | wc -l)
+EXISTING_KEYS=$(echo $RET | head -n $((LINES-1)) | jq ".[].key")
+for xkey in ${EXISTING_KEYS}; do
+  if [ "$xkey" = "${KEY_DATA} ]; then
+    echo "key is alreay added"
+    KEY_FOUND=true
+    break
+  fi
+done
 
+if [ "${KEY_FOUND}" = "false"]; then
+  RET=$(curl -X POST -w "%{HTTP_CODE}" -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token $GPAT" https://api.github.com/user/keys \
+    -d "{\"key\": \"${KEY}\"}")
+  HTTP_CODE=$(echo $RET | tail -n 1)
+  if [ "${HTTP_CODE}" != "201" ] && [ "${HTTP_CODE}" != "304" ]; then
+    echo "error adding pubkey: $RET"
+    echo "This can appen if your GITHUB_PAT is not assigned admin:public_key:write scope."
+    echo "In this case, you would need to manually add the key and comment out above step."
+    exit 1
+  fi
+fi
 
 # dotfiles
 git_clone ghasemnaddaf/dotfiles $HOME/.dotfiles
