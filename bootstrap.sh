@@ -54,7 +54,7 @@ fi
 LINES=$(echo "$RET" | wc -l)
 EXISTING_KEYS=$(echo "$RET" | head -n $((LINES-1)) | jq ".[].key")
 for xkey in ${EXISTING_KEYS}; do
-  if [ "$xkey" = "${KEY_DATA} ]; then
+  if [ "$xkey" = "${KEY_DATA}" ]; then
     echo "key is alreay added"
     KEY_FOUND=true
     break
