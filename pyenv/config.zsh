@@ -1,3 +1,3 @@
 eval "$(/usr/local/bin/pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(/usr/local/bin/pyenv-virtualenv-init -)"
 
