@@ -9,7 +9,7 @@ require('mason').setup()
 
 require('mason-lspconfig').setup({
   ensure_installed = {
-    'sumneko_lua',
+    'lua_ls',
     'elixirls',
     'emmet_ls',
   }
@@ -25,7 +25,7 @@ require('lspconfig').elixirls.setup({
   capabilities = capabilities,
 })
 
-require('lspconfig').sumneko_lua.setup({
+require('lspconfig').lua_ls.setup({
   capabilities = capabilities,
   settings = {
     Lua = {

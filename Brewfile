@@ -5,6 +5,7 @@ tap "homebrew/cask-fonts"
 # Core
 brew "openssl"
 brew "git"
+brew "gh"
 brew "gnupg"
 brew "wget"
 brew "curl"
