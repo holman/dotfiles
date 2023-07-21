@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup({
-  ensure_installed = { "elixir", "heex", "eex", "vim", "lua" },
+  ensure_installed = { "elixir", "heex", "eex", "vim", "lua", "html" },
 
   sync_install = false,
   auto_install = true,
