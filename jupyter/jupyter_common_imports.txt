@@ -2,26 +2,28 @@ IMPORTS
 
 import pandas as pd
 #pd.set_option("display.notebook_repr_html", False)
+pd.options.display.max_columns = None  # show all columns in head
 import numpy as np
 np.random.seed(1)
 import matplotlib.pyplot as plt
 %matplotlib inline
+plt.rcParams['figure.facecolor'] = 'white'
+import logging
+logging.basicConfig(
+    format="%(asctime)s "
+        '%(levelname)s: '
+        '%(funcName)s(): '
+        '%(lineno)d:\t'
+        '%(message)s',
+    level=logging.INFO,
+)
 
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:100% !important; }</style>"))
-
-from notebook.services.config import ConfigManager
-c = ConfigManager()
-c.update('notebook', {"CodeCell": {"cm_config": {"autoCloseBrackets": False}}})
-
-import geopandas as gpd
-import pickle
 
 %load_ext autoreload
 %autoreload 2
 
 
-LOGGING
+# LOGGING
 
 import sys
 import logging
@@ -43,4 +45,16 @@ PRINT LONG STRINGS
 with pd.option_context('display.max_colwidth', 1000):
 
 TURN OFF SCIENTIFIC NOTATION ON AXES
-plt.ticklabel_format(useOffset=False)
+ax.ticklabel_format(style='plain')
+
+LEGEND OUTSIDE AXIS
+ax.legend(bbox_to_anchor=[1., 1.]).set_title('average latency')
+
+PRINT WHOLE DF
+with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+    display(df)
+
+ROTATE XLABELS
+ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
+
+HIST WITH LINE: histtype=u'step'
