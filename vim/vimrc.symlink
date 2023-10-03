@@ -3,4 +3,6 @@ syntax on
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
-:set number
+set number
+set foldmethod=syntax
+set nofoldenable

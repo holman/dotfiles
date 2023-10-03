@@ -9,6 +9,8 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
+        review = !vim -p $(git files) +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
 [color]
         diff = auto
         status = auto
@@ -31,3 +33,15 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[safe]
+	directory = /git
+	directory = /workspaces/turbineflow
