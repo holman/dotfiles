@@ -1,0 +1,35 @@
+{
+    "id": "csharp",
+    "name": "csharp",
+    "description": "Csharp dictionary for cspell.",
+    "dictionaryDefinitions": [
+        {
+            "name": "csharp",
+            "file": "./csharp.txt.gz",
+            "description": "Csharp dictionary for cspell."
+        }
+    ],
+    "dictionaries": [],
+    "languageSettings": [
+        {
+            "languageId": "csharp",
+            "local": "*",
+            "includeRegExpList": [],
+            "ignoreRegExpList": [],
+            "patterns": [
+                {
+                    "name": "string",
+                    "pattern": "/(?:@\"[\\s\\S]*?(?<![^\"]\"(\"\")*)\"(?!\"))|(?:(?<![@\\\\])\".*?(?<![^\\\\]\\\\(\\\\\\\\)*)\")/g",
+                    "description": "C# String Literal"
+                },
+                {
+                    "name": "string.verbatim",
+                    "pattern": "/@\"[\\s\\S]*?(?<![^\"]\"(\"\")*)\"(?!\")/g",
+                    "description": "C# Verbatim String"
+                }
+            ],
+            "dictionaries": ["csharp"],
+            "dictionaryDefinitions": []
+        }
+    ]
+}

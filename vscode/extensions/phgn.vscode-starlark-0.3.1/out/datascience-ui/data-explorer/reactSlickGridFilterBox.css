@@ -1,0 +1,17 @@
+.filter-box {
+    border-color: var(--vscode-editor-inactiveSelectionBackground);
+    border-style: solid;
+    border-width: 1px;
+    display: block;
+    position: relative;
+    left: -2px;
+    top: -3px;
+    width: 98%;
+    padding: 1px;
+    margin: 0px;
+}
+
+.filter-box:focus {
+    border-color: var(--vscode-editor-selectionBackground);
+    outline: none;
+}

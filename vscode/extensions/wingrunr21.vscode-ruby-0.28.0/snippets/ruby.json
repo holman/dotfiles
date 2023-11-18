@@ -1,0 +1,212 @@
+{
+	"Exception block": {
+		"prefix": "begin",
+		"body": [
+			"begin",
+			"\t$1",
+			"rescue => exception",
+			"\t",
+			"end"
+		]
+	},
+	"Exception block with ensure": {
+		"prefix": "begin ensure",
+		"body": [
+			"begin",
+			"\t$1",
+			"rescue => exception",
+			"\t",
+			"ensure",
+			"\t",
+			"end"
+		]
+	},
+	"Exception block with else": {
+		"prefix": "begin else",
+		"body": [
+			"begin",
+			"\t$1",
+			"rescue => exception",
+			"\t",
+			"else",
+			"\t",
+			"end"
+		]
+	},
+	"Exception block with else and ensure": {
+		"prefix": "begin else ensure",
+		"body": [
+			"begin",
+			"\t$1",
+			"rescue => exception",
+			"\t",
+			"else",
+			"\t",
+			"ensure",
+			"\t",
+			"end"
+		]
+	},
+	"Class definition with initialize": {
+		"prefix": "class init",
+		"body": [
+			"class ${1:ClassName}",
+			"\tdef initialize",
+			"\t\t$0",
+			"\tend",
+			"end"
+		]
+	},
+	"Class definition": {
+		"prefix": "class",
+		"body": [
+			"class ${1:ClassName}",
+			"\t$0",
+			"end"
+		]
+	},
+	"for loop": {
+		"prefix": "for",
+		"body": [
+			"for ${1:value} in ${2:enumerable} do",
+			"\t$0",
+			"end"
+		]
+	},
+	"if": {
+		"prefix": "if",
+		"body": [
+			"if ${1:test}",
+			"\t$0",
+			"end"
+		]
+	},
+	"if else": {
+		"prefix": "if else",
+		"body": [
+			"if ${1:test}",
+			"\t$0",
+			"else",
+			"\t",
+			"end"
+		]
+	},
+	"if elsif": {
+		"prefix": "if elsif",
+		"body": [
+			"if ${1:test}",
+			"\t$0",
+			"elsif ",
+			"\t",
+			"end"
+		]
+	},
+	"if elsif else": {
+		"prefix": "if elsif else",
+		"body": [
+			"if ${1:test}",
+			"\t$0",
+			"elsif ",
+			"\t",
+			"else",
+			"\t",
+			"end"
+		]
+	},
+	"case": {
+		"prefix": "case",
+		"body": [
+			"case ${1:test}",
+			"when $2",
+			"\t$3",
+			"when $4",
+			"\t$5",
+			"else",
+			"\t$6",
+			"end"
+		]
+	},
+	"forever loop": {
+		"prefix": "loop",
+		"body": [
+			"loop do",
+			"\t$0",
+			"end"
+		]
+	},
+	"Module definition": {
+		"prefix": "module",
+		"body": [
+			"module ${1:ModuleName}",
+			"\t$0",
+			"end"
+		]
+	},
+	"unless": {
+		"prefix": "unless",
+		"body": [
+			"unless ${1:test}",
+			"\t$0",
+			"end"
+		]
+	},
+	"until loop": {
+		"prefix": "until",
+		"body": [
+			"until ${1:test}",
+			"\t$0",
+			"end"
+		]
+	},
+	"while loop": {
+		"prefix": "while",
+		"body": [
+			"while ${1:test}",
+			"\t$0",
+			"end"
+		]
+	},
+	"method definition": {
+		"prefix": "def",
+		"body": [
+			"def ${1:method_name}",
+			"\t$0",
+			"end"
+		]
+	},
+	"Rake Task": {
+		"prefix": "rake",
+		"description": "Create a Rake Task",
+		"body": [
+			"namespace :${1} do",
+			"\tdesc \"${2}\"",
+			"\ttask ${3}: :environment do",
+			"\t\t${4}",
+			"\tend",
+			"end"
+		]
+	},
+	"Insert do … end block": {
+		"prefix": "do",
+		"body": [
+			"do",
+			"\t$0",
+			"end"
+		]
+	},
+	"Insert do |variable| … end block": {
+		"prefix": "dop",
+		"body": [
+			"do |${1:variable}|",
+			"\t$0",
+			"end"
+		]
+	},
+	"Insert curly braces block": {
+		"prefix": [
+			"{p",
+			"{P"
+		],
+		"body": "{ ${1:|${2:variable}| }$0 "
+	}
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package v3;
+
+message MsgHex {
+  int32 f1 = 1234;
+  int32 f2 = 0x5678;
+  int32 f3 = 0x90ab;
+  int32 f4 = 0xCDEF;
+}
+
+enum EnumHex {
+  ZERO = 0;
+  ONE = 0x0001;
+  TWO = 0x0002;
+  THREE = 0x0003;
+}

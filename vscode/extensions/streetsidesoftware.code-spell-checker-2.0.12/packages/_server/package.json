@@ -1,0 +1,74 @@
+{
+  "name": "server",
+  "private": true,
+  "description": "Spell Checker Server",
+  "version": "2.0.0-alpha.1",
+  "author": "Jason Dent",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/streetsidesoftware/vscode-spell-checker"
+  },
+  "main": "dist/main.js",
+  "typings": "dist/main.d.ts",
+  "exports": {
+    ".": "./dist/main.js",
+    "./api": "./dist/api.js"
+  },
+  "typesVersions": {
+    ">=4.0": {
+      "*": [
+        "dist/*",
+        "*"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@cspell/cspell-types": "^5.12.3",
+    "@types/fs-extra": "^9.0.13",
+    "@types/jest": "^27.0.2",
+    "@types/micromatch": "^4.0.2",
+    "@types/node": "^16.11.6",
+    "common-utils": "1.0.0",
+    "cspell-glob": "^5.12.3",
+    "cspell-lib": "^5.12.3",
+    "fs-extra": "^10.0.0",
+    "gensequence": "^3.1.1",
+    "iconv-lite": "^0.6.3",
+    "jest": "^27.3.1",
+    "jest-diff": "^27.3.1",
+    "lorem-ipsum": "^2.0.4",
+    "micromatch": "^4.0.4",
+    "minimatch": "^3.0.4",
+    "node-watch": "^0.7.2",
+    "rxjs": "^7.4.0",
+    "ts-jest": "^27.0.7",
+    "ts-json-schema-generator": "^0.96.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "vscode-languageserver": "^7.0.0",
+    "vscode-languageserver-textdocument": "^1.0.2",
+    "vscode-uri": "^3.0.2",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "@cspell/cspell-bundled-dicts": "^5.12.3",
+    "cspell-gitignore": "^5.12.3"
+  },
+  "scripts": {
+    "clean": "rimraf dist temp out coverage",
+    "lint": "eslint \"src/**/*.ts\"",
+    "build": "yarn run compile && yarn run build-schema",
+    "build-schema": "ts-json-schema-generator --no-top-ref --expose none --path src/config/cspellConfig.ts --type SpellCheckerSettingsVSCode --validation-keywords markdownDescription  --validation-keywords scope --validation-keywords patternErrorMessage --validation-keywords deprecationMessage --validation-keywords enumDescriptions --validation-keywords deprecated -o spell-checker-config.schema.json",
+    "clean-build": "yarn run clean && yarn run build",
+    "clean-build-production": "yarn run clean && yarn run compile",
+    "build-production": "yarn run clean-build-production",
+    "compile": "yarn run webpack",
+    "watch": "yarn run compile --watch",
+    "webpack": "webpack -c webpack.prod.js",
+    "webpack-dev": "webpack -c webpack.dev.js",
+    "test-watch": "jest --watch",
+    "test": "jest"
+  }
+}

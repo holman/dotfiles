@@ -1,0 +1,159 @@
+{
+	"name": "vscode-ruby",
+	"displayName": "VSCode Ruby",
+	"publisher": "wingrunr21",
+	"version": "0.28.0",
+	"description": "Syntax highlighing, snippet, and language configuration support for Ruby",
+	"repository": "https://github.com/rubyide/vscode-ruby",
+	"author": "Stafford Brunk <stafford.brunk@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"extensionKind": [
+		"ui",
+		"workspace"
+	],
+	"icon": "images/logo.png",
+	"galleryBanner": {
+		"color": "#f05336",
+		"theme": "light"
+	},
+	"engines": {
+		"vscode": "*"
+	},
+	"scripts": {
+		"package": "vsce package --yarn && mv ./*.vsix ../../build/",
+		"test": "yarn test:ruby && yarn test:erb && yarn test:gemfile",
+		"test:ruby": "vscode-tmgrammar-test -s source.ruby -g syntaxes/ruby.cson.json -t \"test/**/*.rb\"",
+		"test:erb": "vscode-tmgrammar-test -s text.html.erb -g syntaxes/erb.cson.json -t \"test/**/*.erb\"",
+		"test:gemfile": "vscode-tmgrammar-test -s source.ruby.gemfile -g syntaxes/gemfile.cson.json -t \"test/Gemfile\""
+	},
+	"contributes": {
+		"snippets": [
+			{
+				"language": "ruby",
+				"path": "./snippets/ruby.json"
+			},
+			{
+				"language": "erb",
+				"path": "./snippets/erb.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "ruby",
+				"scopeName": "source.ruby",
+				"path": "./syntaxes/ruby.cson.json"
+			},
+			{
+				"language": "erb",
+				"scopeName": "text.html.erb",
+				"path": "./syntaxes/erb.cson.json",
+				"embeddedLanguages": {
+					"source.css": "css",
+					"source.js": "javascript",
+					"source.ruby": "ruby"
+				}
+			},
+			{
+				"language": "gemfile",
+				"scopeName": "source.ruby.gemfile",
+				"path": "./syntaxes/gemfile.cson.json"
+			}
+		],
+		"languages": [
+			{
+				"id": "ruby",
+				"aliases": [
+					"Ruby",
+					"ruby"
+				],
+				"firstLine": "^#!\\s*/.*(?:ruby|rbx|rake)\\b",
+				"extensions": [
+					".arb",
+					".builder",
+					".cgi",
+					".fcgi",
+					".gemspec",
+					".god",
+					".irbrc",
+					".jbuilder",
+					".mspec",
+					".pluginspec",
+					".podspec",
+					".prawn",
+					".pryrc",
+					".rabl",
+					".rake",
+					".rb",
+					".rbuild",
+					".rbw",
+					".rbx",
+					".rjs",
+					".ru",
+					".ruby",
+					".spec",
+					".thor",
+					".watchr"
+				],
+				"filenames": [
+					"appfile",
+					"appraisals",
+					"berksfile",
+					"brewfile",
+					"capfile",
+					"deliverfile",
+					"fastfile",
+					"guardfile",
+					"podfile",
+					"puppetfile",
+					"rakefile",
+					"snapfile",
+					"thorfile",
+					"vagrantfile",
+					"dangerfile"
+				],
+				"configuration": "./language-configuration-ruby.json"
+			},
+			{
+				"id": "erb",
+				"aliases": [
+					"erb",
+					"Encapsulated Ruby"
+				],
+				"extensions": [
+					".erb",
+					".rhtml",
+					".rhtm"
+				],
+				"configuration": "./language-configuration-erb.json"
+			},
+			{
+				"id": "gemfile",
+				"aliases": [
+					"Gemfile",
+					"Bundler",
+					"bundler"
+				],
+				"filenames": [
+					"Gemfile"
+				],
+				"configuration": "./language-configuration-ruby.json"
+			},
+			{
+				"id": "ignore",
+				"filenames": [
+					".chefignore"
+				]
+			}
+		]
+	},
+	"devDependencies": {
+		"vscode-tmgrammar-test": "^0.0.6"
+	},
+	"__metadata": {
+		"id": "708cfcd8-e0c6-49ca-9af6-b27a342d247b",
+		"publisherId": "ca1db232-c363-4e89-9428-9de26fde1f6a",
+		"publisherDisplayName": "Stafford Brunk",
+		"installedTimestamp": 1635789880999
+	}
+}

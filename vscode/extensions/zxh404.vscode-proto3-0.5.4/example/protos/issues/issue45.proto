@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package issues;
+ 
+// import "google/api/annotations.proto";
+
+message MyRequest {}
+message MyResponse {}
+
+service MyService {
+
+  rpc m1 (MyRequest) returns (MyResponse) {
+    option (my_option) = {
+      field1: {
+        field2: {
+          key: "key"; // comment
+          val: {};    // comment
+        };            // comment
+        field3: 456;  // comment
+      };              // comment
+      field4: 789;    // comment
+    };                // comment
+  }
+ 
+  rpc m2 (MyRequest) returns (MyResponse) {
+    // empty
+  }
+  rpc m3 (MyRequest) returns (MyResponse) {
+    // empty
+  }
+
+ }

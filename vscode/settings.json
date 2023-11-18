@@ -1,0 +1,42 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.tabSize": 2,
+    "window.title": "${rootName}${separator}${activeEditorMedium}",
+    "editor.detectIndentation": false,
+    "files.trimTrailingWhitespace": true,
+    "typescript.check.tscVersion": false,
+    "files.insertFinalNewline": true,
+    "eslint.options": {
+        "configFile": ".eslintrc.js"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "cSpell.enableFiletypes": [
+        "ruby"
+    ],
+    "ruby.format": "rubocop",
+    "ruby.intellisense": "rubyLocate",
+    "ruby.lint": {
+        "rubocop": {
+            "useBundler": true
+        }
+    },
+    "ruby.useBundler": true,
+    "ruby.useLanguageServer": true,
+    "go.useLanguageServer": true,
+    "files.associations": {
+      "*.tmpl": "gohtml",
+      "Tiltfile": "starlark"
+    },
+    "window.zoomLevel": 2,
+    "editor.minimap.enabled": false,
+    "cSpell.userWords": [
+      "Adwords",
+      "blocklist",
+      "blocklists"
+    ]
+}

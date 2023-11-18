@@ -1,0 +1,12 @@
+casualjim.gotemplate
+eamodio.gitlens
+golang.go
+kaiwood.endwise
+karunamurti.haml
+ms-vsliveshare.vsliveshare
+pavlitsky.yard
+phgn.vscode-starlark
+rebornix.ruby
+streetsidesoftware.code-spell-checker
+wingrunr21.vscode-ruby
+zxh404.vscode-proto3

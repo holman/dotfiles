@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/AArnott/Nerdbank.GitVersioning/master/src/NerdBank.GitVersioning/version.schema.json",
+
+  // Specifies the Major and Minor product version. The build number is automatically appended
+  // to this as the 3rd part of the product version. Increment the Major product version for
+  // major product milestones. Optionally increment the Minor product version for minor milestones.
+  "version": "0.3",
+  
+  // Specifies the Major and Minor protocol version. The protocol version is used to ensure
+  // communicating peers are using compatible software versions. Increment the protocol version
+  // when a client or agent change requires a peer's client or agent versions to be in sync.
+  "protocolVersion": "2.2",
+
+  // The service API version consists of the Major product version combined with the Major protocol
+  // version. Increment either of those when a client or agent change requires an updated service,
+  // or when a service change requires an updated client. Also update [ApiVersion] attributes in
+  // the service controllers as needed to to enforce minimum and maximum API versions, or check
+  // HttpContext.RequestedApiVersion() controller methods to enable multi-version functionality.
+
+  "publicReleaseRefSpec": [
+    "^refs/heads/master$", // we release out of master
+    "^refs/heads/v\\d+(?:.\\d+)?$", // we also release out of vNN branches
+    "^refs/heads/releases/.+$" // weekly release branches
+  ],
+  "cloudBuild": {
+    "buildNumber": {
+      "enabled": true
+    }
+  }
+}

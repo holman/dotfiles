@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+// Generated according to https://cloud.google.com/apis/design/standard_methods
+service BookService {
+    rpc ListBooks(ListBooksRequest) returns (ListBooksResponse) {
+      option (google.api.http) = {
+        get: "/v1beta1/books"
+      };
+    }
+  
+    rpc GetBook(GetBookRequest) returns (Book) {
+      option (google.api.http) = {
+        get: "/v1beta1/{name=books/*}"
+      };
+    }
+  
+    rpc CreateBook(CreateBookRequest) returns (Book) {
+      option (google.api.http) = {
+        post: "/v1beta1/books"
+        body: "book"
+      };
+    }
+  
+    rpc UpdateBook(UpdateBookRequest) returns (Book) {
+      option (google.api.http) = {
+        patch: "/v1beta1/{book.name=books/*}"
+        body: "book"
+      };
+    }
+  
+    rpc DeleteBook(DeleteBookRequest) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        delete: "/v1beta1/{name=books/*}"
+      };
+    }
+  }
+  
+  // message Book {
+  // ! This should be defined elsewere
+  // }
+  
+  message ListBooksRequest {
+    // The parent resource name, for example, "shelves/shelf1"
+    string parent = 1;
+  
+    // The maximum number of items to return.
+    int32 page_size = 2;
+  
+    // The next_page_token value returned from a previous List request, if any.
+    string page_token = 3;
+  }
+  
+  message ListBooksResponse {
+    // The field name should match the noun "book" in the method name.
+    // There will be a maximum number of items returned based on the page_size field in the request.
+    repeated Book books = 1;
+  
+    // Token to retrieve the next page of results, or empty if there are no more results in the list.
+    string next_page_token = 2;
+  }
+  
+  message GetBookRequest {
+    // The field will contain name of the resource requested.
+    string name = 1;
+  }
+  
+  message CreateBookRequest {
+    // The parent resource name where the book is to be created.
+    string parent = 1;
+  
+    // The book id to use for this book.
+    string book_id = 2;
+  
+    // The book resource to create.
+    // The field name should match the Noun in the method name.
+    Book book = 3;
+  }
+  
+  message UpdateBookRequest {
+    // The book resource which replaces the resource on the server.
+    Book book = 1;
+  
+    // The update mask applies to the resource. For the `FieldMask` definition,
+    // see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+    FieldMask update_mask = 2;
+  }
+  
+  message DeleteBookRequest {
+    // The resource name of the book to be deleted.
+    string name = 1;
+  }
+  

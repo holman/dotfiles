@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package v3;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FileOptions      { optional string my_file_option     = 10000; }
+extend google.protobuf.MessageOptions   { optional string my_message_option  = 10001; }
+extend google.protobuf.FieldOptions     { optional string my_field_option    = 10002; }
+extend google.protobuf.OneofOptions     { optional string my_oneof_option    = 10003; }
+extend google.protobuf.EnumOptions      { optional string my_enum_option     = 10004; }
+extend google.protobuf.EnumValueOptions { optional string my_enum_val_option = 10005; }
+extend google.protobuf.ServiceOptions   { optional string my_service_option  = 10006; }
+extend google.protobuf.MethodOptions    { optional string my_method_option   = 10007; }
+
+message MsgOption {
+    int32 f1 = 1;
+    string f2 = 2;
+    MsgOption f3 = 3;
+}
+extend google.protobuf.FileOptions      { optional MsgOption my_file_option2     = 20000; }
+extend google.protobuf.MessageOptions   { optional MsgOption my_message_option2  = 20001; }
+extend google.protobuf.FieldOptions     { optional MsgOption my_field_option2    = 20002; }
+extend google.protobuf.OneofOptions     { optional MsgOption my_oneof_option2    = 20003; }
+extend google.protobuf.EnumOptions      { optional MsgOption my_enum_option2     = 20004; }
+extend google.protobuf.EnumValueOptions { optional MsgOption my_enum_val_option2 = 20005; }
+extend google.protobuf.ServiceOptions   { optional MsgOption my_service_option2  = 20006; }
+extend google.protobuf.MethodOptions    { optional MsgOption my_method_option2   = 20007; }
+
+option (my_file_option) = "field option";
+option (my_file_option2) = {
+  f1: 123;     // comment
+  f2: "foo";   // comment
+  f3: {        // comment
+    f1: 456;   // comment
+    f2: "bar"; // comment
+    f3: {      // comment
+      f3: {};  // comment
+    };         // comment
+  };           // comment
+};             // comment
+
+enum MyEnum {
+  option (my_enum_option) = "enum option";
+//   option (my_enum_option2).f1 = 123;
+//   option (my_enum_option2).f2 = "foo";
+  option (my_enum_option2) = {f1: 123; f2: "foo"; f3: {};};
+  ZERO = 0 [(my_enum_val_option) = "enum val option"];
+  ONE = 1 [(my_enum_val_option2) = {f1: 123; f2: "foo"; f3: {};}];
+}
+
+message MyMessage {
+  option (my_message_option) = "message option";
+  option (my_message_option2) = {f1: 123; f2: "foo"; f3: {};};
+  int32 f1 = 1 [(my_field_option) = "foo"];
+  int32 f2 = 2 [(my_field_option2) = {f1: 123; f2: "foo"; f3: {};}];
+  oneof f3 {
+    option (my_oneof_option) = "oneof option";
+    option (my_oneof_option2) = {f1: 123; f2: "foo"; f3: {};};
+    string a = 3;
+    int32 b = 4;
+  }
+}
+
+service MyService {
+  option (my_service_option) = "service option";
+  option (my_service_option2) = {f1: 123; f2: "foo"; f3: {};};
+  rpc m1 (MyMessage) returns (MyMessage) {
+    option (my_method_option) = "method option";
+    option (my_method_option2) = {f1: 123; f2: "foo"; f3: {};};
+  }
+  rpc m2 (MyMessage) returns (MyMessage) {};
+}
+
+service MyService2 {
+}

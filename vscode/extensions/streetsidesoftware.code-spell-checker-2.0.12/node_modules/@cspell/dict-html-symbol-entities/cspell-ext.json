@@ -1,0 +1,18 @@
+// cSpell Settings
+{
+    "id": "html-symbol-entities",
+    "name": "HTML Symbol Entities",
+    "description": "HTML Symbol Entities Dictionary",
+    // List of dictionary files to add to the global list of dictionaries
+    "dictionaryDefinitions": [
+        {
+            "name": "html-symbol-entities",
+            "file": "./entities.txt.gz",
+            "description": "HTML Symbol Entities Dictionary"
+        }
+    ],
+    "languageSettings": [
+        { "languageId": "html", "dictionaries": ["html-symbol-entities"] },
+        { "languageId": "markdown", "dictionaries": ["html-symbol-entities"] }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+	"information_for_contributors": [
+		"This file has been converted from https://github.com/atom/language-ruby/blob/master/grammars/gemfile.cson",
+		"If you want to provide a fix or improvement, please create a pull request against the original repository.",
+		"Once accepted there, we are happy to receive an update request."
+	],
+	"version": "https://github.com/atom/language-ruby/commit/3cb25d88e1173a29027eb52259415a3f851b8662",
+	"name": "Gemfile",
+	"scopeName": "source.ruby.gemfile",
+	"fileTypes": ["Gemfile"],
+	"patterns": [
+		{
+			"include": "source.ruby"
+		},
+		{
+			"begin": "\\b(?<!\\.|::)(gem|git|group|platforms|ruby|source)\\b(?![?!])",
+			"captures": {
+				"1": {
+					"name": "keyword.other.special-method.ruby.gemfile"
+				}
+			},
+			"end": "$|(?=#|})",
+			"name": "meta.declaration.ruby.gemfile",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		}
+	]
+}

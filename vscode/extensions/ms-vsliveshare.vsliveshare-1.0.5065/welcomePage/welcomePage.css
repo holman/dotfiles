@@ -1,0 +1,478 @@
+
+@font-face {
+    font-family: 'FabricMDL2Icons';
+    src: url('data:application/octet-stream;base64,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') format('truetype');
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.ms-Icon {
+-moz-osx-font-smoothing: grayscale;
+-webkit-font-smoothing: antialiased;
+font-family: 'FabricMDL2Icons';
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+left:36px;
+top: 6px;
+speak: none;
+}
+
+.ms-Icon--People:before { content: "\E716"; }
+.ms-Icon--Share:before { content: "\E72D"; }
+.ms-Icon--ChatInviteFriend:before { content: "\ECFE"; }
+.ms-Icon--Edit:before { content: "\E70F"; }
+.ms-Icon--Bug:before { content: "\EBE8"; }
+
+body {
+    line-height: 2em;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 95%;
+}
+
+header {
+    display: flex;
+    margin-bottom: 1.5em;
+    padding-bottom: 0em;
+    border-bottom: 1px solid #474747;
+}
+
+h1 {
+    margin-top: 5px;
+    margin-bottom: 1px;
+    height: 35px;
+    left: 93px;
+    right: 0;
+    line-height: normal;
+    font-size: 1.625rem;
+}
+
+header img {
+    margin-right: 1.5em;
+    width: 75px;
+    height: 75px;
+    left: 0;
+    top: 0;
+}
+
+h2 {
+    margin-top: 0;
+    height: 26px;
+    left: 93px;
+    right: 0;
+    line-height: normal;
+    font-size: 1.25rem;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.8125rem;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:focus {
+    outline-color: #006ab1;
+}
+
+.vsliveshare-welcome-page-main {
+    max-width: 65em;
+    min-width: 40em;
+    margin: 0 auto;
+    padding: 0 2em;
+    left: 23px;
+    right: 27px;
+    margin-top: 20px;
+}
+
+.box {
+    padding: 1em;
+    border: 1px solid var(--vscode-foreground);
+    display: inline-block;
+    margin: 0;
+}
+
+blockquote {
+    border-left: 5px solid #14517A;
+    padding: 6px 10px;
+    margin: 1em 0 0 0;
+    left: 0;
+    position: relative;
+    line-height: 2em;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8125rem;
+}
+
+button {
+    display: block;
+    width: auto;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 9px;
+    text-decoration: none;
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    outline: none;
+    cursor: pointer;
+    font-size: small;
+}
+
+button:hover {
+    background-color: var(--vscode-button-hoverBackground);
+}
+
+button:focus {
+    border:solid #006ab1 2px;
+    background-color: var(--vscode-button-hoverBackground);
+    color: var(--vscode-button-foreground);
+}
+
+.button-prominent {
+    color: var(--vscode-extensionButton-prominentForeground);
+    background-color: var(--vscode-extensionButton-prominentBackground);
+}
+
+.button-prominent:hover {
+    background-color: var(--vscode-extensionButton-prominentHoverBackground);
+}
+
+.vsls-icon {
+    border: none;
+    height: 75px;
+}
+
+.section-table {
+    left: 36px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.spacer-section-table {
+    left: 72px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.section-table-icon-column {
+    vertical-align: top; 
+    text-align: left; 
+    padding: 0 15px 0 15px;
+}
+
+.section-heads {
+    height: 26px;
+    left: 78px;
+    right: 0;
+    top: 0;
+    line-height: normal;
+    font-size: 1.25rem;
+}
+
+.why-details {
+    padding-top: 4px;
+    margin-left: 20px;
+    font-size: 0.8125rem;
+}
+
+.sign-in-button {
+    margin-right: 15px;
+}
+
+.sign-in-button,
+.copy-invite-button,
+.try-joinin-yourself-button {
+    float: left;
+}
+
+details > summary {
+    outline: none;
+    margin-top: 20px;
+}
+
+details p {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    clear: both;
+    font-size: 0.8125rem;
+}
+
+details > summary::-webkit-details-marker {
+    color: #3794ff;
+}
+
+.separator {
+    margin-top: 21px;
+    padding-top: 12px;
+    border-top: 1px solid #474747;
+    clear: both;
+    height: 1px;
+    left: 0;
+    right: 0;
+
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.spacer {
+    height: 35px;
+    width: 688px;
+}
+
+p {
+    font-size: 0.8125rem;
+    line-height: 26px;
+}
+
+.features-section {
+    margin-bottom: 30px;
+}
+
+.features-section__icon {
+    float: left;
+    width: 60px;
+}
+
+.features-section__icon .ms-Icon {
+    text-align: right;
+    display: inline-block;
+    width: 100%;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.features-section__body {
+    margin-left: 60px;
+    font-size: 0.8125rem;
+}
+
+.bottom-text {
+    margin-bottom: 20px;
+}
+
+.step-heading-Collaborate_details {
+    display: flex;
+}
+
+.step-heading-Collaborate_details > img {
+    align-self: flex-start;
+    width: 250px;
+}
+
+.step-heading-Collaborate_details > div {
+    margin-right: 20px;
+    width: 500px;
+}
+
+.js-liveshare-simple-share-full {
+    text-align: center;
+}
+
+#simple-page-text {
+    padding-top: 5%;
+    font-size: 1.25rem;
+    text-align: center !important;
+}
+
+#simple-page-icon {
+    border: none;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.js-share-now-button {
+    font-size: 1.8rem;
+    text-align: center;
+    border-radius: 8px;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.simple-page-bottom-button {
+    display: inline-block;
+    width: 23%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.simple-page-bottom-button:hover {
+    background-color: var(--vscode-button-hoverBackground);
+    color: var(--vscode-button-foreground);
+}
+
+#simple-page-bottom-buttons {
+    margin-top: 10%;
+}
+
+#vsliveshare-dynamic-welcome-page {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+#dynamic-welcome-page-header {
+    width: 100%;
+    padding: 20px;
+    margin: 0px;
+}
+
+#dynamic-welcome-page-title {
+    padding: 20px;
+    margin: 0px;
+    font-size: 1.0rem;
+    text-align: center;
+}
+
+.dynamic-welcome-page-icon {
+    border: none;
+    display: block;
+    height: 150px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dynamic-welcome-page-content > div {
+    display: inline-block;
+    height: 100%;
+    margin: 0px;
+}
+
+.dynamic-welcome-page-button {
+    display: inline-block;
+    border: none;
+    background-color: var(--vscode-button-background);
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    height: 60px;
+    text-decoration: none;
+    color: var(--vscode-button-foreground);
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: normal;
+    width: 85%;
+    text-align: center;
+    margin-left: 9%;
+}
+
+.dynamic-welcome-page-button:hover {
+    background-color: var(--vscode-button-hoverBackground);
+    color: var(--vscode-button-foreground);
+}
+
+.dynamic-welcome-page-button-outline {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    line-height: 40px;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--vscode-button-foreground);
+    outline: none;
+    font-size: 1rem;
+    font-weight: normal;
+    width: 80%;
+    text-align: center;
+    margin-left: 9%;
+}
+
+.dynamic-welcome-page-content-element-text {
+    width: 80%;
+    margin-left: 9%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--vscode-button-background);
+}
+
+#dynamic-welcome-page-start-session, #dynamic-welcome-page-authenticate {
+    width: 24%;
+    margin: 0px;
+    vertical-align: top;
+}
+
+#dynamic-welcome-page-share-session {
+    width: 49%;
+    vertical-align: top;
+}
+
+#dynamic-welcome-page-invite-others, #dynamic-welcome-page-invite-join-yourself {
+    display: inline-block;
+    margin: 0px;
+    width: 49%;
+}
+
+#vsliveshare-dynamic-welcome-page-main {
+    padding: 0px;
+}
+
+#dynamic-welcome-page-content {
+    margin: 0px;
+}
+
+#share-session-content-element-text {
+    width: 88%;
+    margin-left: 4.5%;
+}
+
+#collaboration-header {
+    border-bottom: 0px;
+    border-top: 1px solid #474747;
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.vsliveshare-dynamic-welcome-page p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#liveshare-collaboration-details table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#liveshare-collaboration-details td {
+    width: 50%;
+}
+
+.bold-text {
+    font-weight: bold;
+    color: var(--vscode-button-background);
+}

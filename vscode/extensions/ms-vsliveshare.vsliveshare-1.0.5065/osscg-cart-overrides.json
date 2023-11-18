@@ -1,0 +1,567 @@
+{
+  "components": [
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "agent-base"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "semver"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "applicationinsights"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "arch"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "buffer-crc32"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "clipboardy"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "execa"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "color-name"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "color-string"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "cross-spawn"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "lru-cache"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "dateformat"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "debug"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "extend"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "fd-slicer"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "fs-extra"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "jsonfile"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "get-stream"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "graceful-fs"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false,
+      "ms.usageDetails": "Required by fs-extra, one of our dependencies"
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "http-proxy-agent"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "https-proxy-agent"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "is-arrayish"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "is-stream"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "is-wsl"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "isexe"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "jsonc-parser"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "lodash.debounce"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "minimist"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "mkdirp"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "ms"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "npm-run-path"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "open"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "opn"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "os-tmpdir"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "p-finally"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "path-key"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "pend"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "pseudomap"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "request-light"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "safe-buffer"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "shebang-command"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "shebang-regex"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "signal-exit"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "simple-swizzle"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "strip-eof"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "tmp"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "typescript"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false,
+      "ms.modified": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "ultron"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "universalify"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "uuid"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "vscode-extension-telemetry"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "vscode-jsonrpc"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "vscode-nls"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "which"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "winreg"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "ws"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "yallist"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "yauzl"
+        }
+      },
+      "ms.transmitted": true,
+      "ms.internal": false
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "@vsliveshare/vscode-launcher-osx"
+        }
+      },
+      "ms.transmitted": false,
+      "ms.internal": true,
+      "ms.license": "MSFTEULA"
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "@vsliveshare/vscode-launcher-win"
+        }
+      },
+      "ms.transmitted": false,
+      "ms.internal": true,
+      "ms.license": "MSFTEULA"
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "jsonify"
+        }
+      },
+      "ms.transmitted": false,
+      "ms.internal": true,
+      "ms.license": "PublicDomain"
+    },
+    {
+      "component": {
+        "npmjs.org": {
+          "name": "yazl"
+        }
+      },
+      "ms.transmitted": false,
+      "ms.internal": true
+    }
+  ]
+}

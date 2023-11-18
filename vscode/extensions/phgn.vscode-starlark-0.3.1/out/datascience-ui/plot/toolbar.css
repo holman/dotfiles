@@ -1,0 +1,7 @@
+#plot-toolbar-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--vscode-editor-background);
+    border: 1px solid black;
+}

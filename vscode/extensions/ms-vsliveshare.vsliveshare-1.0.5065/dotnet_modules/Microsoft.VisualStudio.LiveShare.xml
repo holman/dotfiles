@@ -1,0 +1,1282 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.LiveShare</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.VisualStudio.LiveShare.CollaborationSession">
+            <summary>
+            Enables other VS extensions to interact with a Live Share session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.SessionId">
+            <summary>
+            Globally unique identifier for the current session, or null if there is no current session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.ConversationId">
+            <summary>
+            Globally unique identifier for the current conversation within a session, or null if there is no current session.
+            Regular sessions will only have one conversation. Persistent sessions may have multiple.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.IsSessionConnected">
+            <summary>
+            Gets a value indicating whether collaboration session is connected.
+            Only implemented for CollaborationSession within VS.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.SessionDisconnection">
+            <summary>
+            Gets a task that is completed when the session is disconnected.
+            Only implemented for CollaborationSession within VS.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.Peers">
+            <summary>
+            List of participants connected to the current sharing session, NOT including oneself.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.LiveShare.CollaborationSession.PeersChanged">
+            <summary>
+            Event that notifies listeners when peers join or leave the session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.OnPeersChanged(Microsoft.VisualStudio.LiveShare.PeersChangedEventArgs)">
+            <summary>
+            Raises a <see cref="E:Microsoft.VisualStudio.LiveShare.CollaborationSession.PeersChanged" /> event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.GetService(System.Type)">
+            <summary>
+            Gets a local service that is available in the context of the Live Share session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.RemoteServiceNames">
+            <summary>
+            Gets a collection of service names that are shared by the remote Host,
+            when this session is connected as a Guest.
+            </summary>
+            <remarks>
+            This collection is empty when the current session is in the Host role,
+            so it does not include services shared by the current Host.
+            </remarks>
+        </member>
+        <member name="E:Microsoft.VisualStudio.LiveShare.CollaborationSession.RemoteServicesChanged">
+            <summary>
+            Notifies listeners when remote services become available or unavailable.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.OnRemoteServicesChanged(Microsoft.VisualStudio.LiveShare.RemoteServicesChangedEventArgs)">
+            <summary>
+            Raises a <see cref="E:Microsoft.VisualStudio.LiveShare.CollaborationSession.RemoteServicesChanged" /> event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.GetRemoteServiceAsync``1(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets a proxy for a named service provided by a remote Host. The service is
+            available only while a Live Share session is active in the Guest role.
+            </summary>
+            <remarks>
+            NOTE: Access to remote services may be restricted. If the caller is not
+            permitted, this method returns null.
+            
+            Otherwise, a service proxy instance is returned even if the service is not currently
+            available (either because there is no active sharing session or because the
+            host has not provided the service). Check the <see cref="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.RemoteServiceNames" />
+            collection to see if the service is currently available, and listen to the
+            <see cref="E:Microsoft.VisualStudio.LiveShare.CollaborationSession.RemoteServicesChanged" /> event to be notified when the service
+            becomes available or unavailable. Attempting to call a method on an
+            unavailable service will throw a <see cref="T:Microsoft.VisualStudio.LiveShare.RemoteServiceProxyException" />.
+            </remarks>
+            <typeparam name="TService">Service interface type</typeparam>
+            <param name="name">Name that identifies the remote service, corresponding to the
+            <see cref="P:Microsoft.VisualStudio.LiveShare.ExportCollaborationServiceAttribute.Name" /> property.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Proxy for the named service, or null if the extension does not have
+            permission to access remote services.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.ConvertLocalPathToSharedUri(System.String)">
+            <summary>
+            Converts a local path to a shared URI with the `vsls:` scheme.
+            </summary>
+            <param name="localPath">Local file or directory path</param>
+            <returns>Converted URI suitable for sharing between hosts and guests,
+            or null if the path could not be converted, possibly because the path
+            is outside one of the shared roots.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.ConvertSharedUriToLocalPath(System.Uri)">
+            <summary>
+            Converts a shared `vsls:` URI to a local path.
+            </summary>
+            <param name="uri">Shared URI with the `vsls:` scheme.</param>
+            <returns>Local file or directory path.</returns>
+            <remarks>
+            Note the file or directory may not exist if the file has not been downloaded.
+            Use the <see cref="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.DownloadFileAsync(System.Uri,System.Threading.CancellationToken)" /> method to
+            ensure a file has been downloaded.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.ListRootsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Lists the `vsls:` URIs that make up the roots of the shared workspace.
+            </summary>
+            <returns>Array of one or more workspace root `vsls:` URIs.</returns>
+            <remarks>
+            Most commonly a shared workspace has only a single root, which corresponds to
+            the directory of the solution or opened folder, but multiple roots are also possible.
+            
+            The returned root URI(s) may be converted to local paths using
+            <see cref="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.ConvertSharedUriToLocalPath(System.Uri)" />.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.ListDirectoryAsync(System.Uri,Microsoft.VisualStudio.LiveShare.ListDirectoryOptions,System.Threading.CancellationToken)">
+             <summary>
+             Lists the files and directories under a specified shared directory.
+             </summary>
+             <param name="uri">`vsls:` URI of a shared directory (or shared root).</param>
+             <param name="options">Options to filter the listing.</param>
+             <returns>Array of `vsls:` URIs of children of the shared directory.</returns>
+             <exception cref="T:System.IO.DirectoryNotFoundException">If the shared directory
+             does not exist.</exception>
+             <remarks>
+             Returned child directory URIs end with a `/` character; in this way they may be
+             distinguished from file URIs.
+            
+             A shared workspace can potentially contain a very large number of files,
+             so for best performance when using the recursive option also specify pattern(s)
+             to filter the set of results. 
+             </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.DownloadFileAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Downloads a shared file, if it has not already been downloaded.
+            </summary>
+            <param name="uri">Shared file URI with the `vsls:` scheme.</param>
+            <returns>Local file path, or null if the file could not be downloaded, possibly because
+            the file does not exist on the host or is not available to the guest.</returns>
+            <remarks>
+            If the file is being co-edited then the file contents do not include unsaved changes,
+            but saving the changes will update the downloaded file.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ListDirectoryOptions">
+            <summary>
+            Options for <see cref="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.ListDirectoryAsync(System.Uri,Microsoft.VisualStudio.LiveShare.ListDirectoryOptions,System.Threading.CancellationToken)" />.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ListDirectoryOptions.Recursive">
+            <summary>
+            Specifies whether all matching recursive descendants should be included in the results.
+            If false, only immediate children are returned.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ListDirectoryOptions.IncludeHidden">
+            <summary>
+            If true, include hidden files in the listing.
+            </summary>
+            <remarks>
+            Hidden files are not shown in guests' file explorer, but they may still be
+            accessed by guests in other ways. Files are hidden if they have a hidden
+            filesystem attribute or they are matched by the `hideFiles` globs in `.vsls.json`.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ListDirectoryOptions.ExcludePatterns">
+            <summary>
+            List of glob (.gitignore style) patterns to exclude from results.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ListDirectoryOptions.IncludePatterns">
+            <summary>
+            List of glob (.gitignore style) patterns to include in results.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ExceptionDataKey">
+            <summary>
+            Exception.Data keys recognized by Live Share
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ExceptionDataKey.CriticalFactoryFailure">
+            <summary>
+            If there is data with this key (regardless of the value) in an exception thrown from guest CollaborationServiceFactory,
+            the join will fail on the guest and LS may display the exception message.
+            You can provide <see cref="T:Microsoft.VisualStudio.LiveShare.IJoinFailureResponseProvider"/> MEF export to control how LS responds to join failures.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ExportCollaborationServiceAttribute">
+            <summary>
+            Combines MEF export attribute with export metadata for a collaboration service factory.
+            Declares a type of collaboration service the factory is able to create.
+            The factory class needs to implement <see cref="T:Microsoft.VisualStudio.LiveShare.ICollaborationServiceFactory"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IFileServiceRootConfigurationProvider">
+            <summary>
+            Optional file service root configuration provider MEF export.
+            If an export is present, LS will use it to query for file service root configuration before it starts sharing.
+            If multiple providers are present, Live Share will ignore them and trace an error.
+            If the result of <see cref="M:Microsoft.VisualStudio.LiveShare.IFileServiceRootConfigurationProvider.GetFileServiceRootConfiguationAsync(System.Threading.CancellationToken)"/> is not persistent, it'll be ignored.
+            Sharing will fail if root configuration is present and it is not compatible with what is being shared.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IFileServiceRootConfigurationProvider.GetFileServiceRootConfiguationAsync(System.Threading.CancellationToken)">
+            <summary>
+            Try get file service root configuration or null if it's not applicable.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.FileServiceRootDirectoryConfiguration">
+            <summary>
+            File service root directory configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.FileServiceRootDirectoryConfiguration.#ctor(System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Microsoft.VisualStudio.LiveShare.FileServiceRootDirectoryConfiguration"/> class.
+            </summary>
+            <param name="localFullPath">Local full path to the directory or drive, e.g. c:\ or d:\foo or d:\foo\bar\. Must be rooted</param>
+            <param name="remoteUriRelativePath">Uri relative path, e.g. /c$/</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.FileServiceRootDirectoryConfiguration.LocalFullPath">
+            <summary>
+            Local full path to the directory or drive, e.g. c:\ or d:\foo\ or d:\foo\bar\.
+            It is normalized to use <c>Path.DirectorySeparator</c> and ends with it.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.FileServiceRootDirectoryConfiguration.RemoteUriRelativePath">
+            <summary>
+            Uri relative path, e.g. /c$/.
+            It is normalized to start and end with '/'.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration">
+            <summary>
+            File service root configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.Directories">
+            <summary>
+            Mounted directories if the configuration is for a list of mounted directories.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration"/> class for deserialization.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.#ctor(Microsoft.VisualStudio.LiveShare.FileServiceRootDirectoryConfiguration[])">
+            <summary>
+            Creates a new instance of <see cref="T:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration"/> class for given subdirectories.
+            The configuration is persistan, with full access for owner
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.TryGetDirectoryByFullPath(System.String,System.Func{System.String,System.StringComparison})">
+            <summary>
+            Tries to find a directory configuration by the local full path.
+            </summary>
+            <param name="localFullPath">Local full path. Must be rooted and not null.</param>
+            <param name="localPathComparison">Optional function to get the path comparison for the given path. If null, Ordinal is used.</param>
+            <returns>Directory configuration if there is a match; Otherwise, null.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.TryGetDirectoryByRemoteUriPath(System.String,System.Int32)">
+            <summary>
+            Tries to find a directory configuration by the remote URI path.
+            </summary>
+            <param name="remoteUriPath">Remote URI path. Must be not null. If is normalized to start with '/'.</param>
+            <param name="offset">Offset into <paramref name="remoteUriPath"/>, 0-based.</param>
+            <returns>
+            Directory configuration if there is a match; Otherwise, null.
+            Also null if <paramref name="offset"/> is greater than <paramref name="remoteUriPath"/> length.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.TryGetLocalPathByRemotePath(System.String,System.Int32,System.Func{System.String,System.StringComparison})">
+            <summary>
+            Try to get local path from <see cref="P:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.Directories"/> that match <paramref name="remoteUriPath"/> at <paramref name="offset"/>.
+            </summary>
+            <param name="remoteUriPath">Unescaped remote path, ot null.</param>
+            <param name="offset">Offset in <paramref name="remoteUriPath"/> to look for a directory prefix.</param>
+            <param name="localPathComparison">Optional function to get the path comparison for the given path. If null, Ordinal is used.</param>
+            <returns>Local full path if the directory entry is found, null otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration.IsSubsetOf(Microsoft.VisualStudio.LiveShare.FileServiceRootConfiguration)">
+            <summary>
+            Check if this configuration is a subset of <paramref name="configuration"/>.
+            This means all directories in this configuration are also present in <paramref name="configuration"/> with the same
+            local paths and remote URI paths.
+            </summary>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IClientCollaborationServiceFactory">
+             <summary>
+             VS collaboration service factory that can produce different collaboration services for different guests.
+             If result of <see cref="M:Microsoft.VisualStudio.LiveShare.ICollaborationServiceFactory.CreateServiceAsync(Microsoft.VisualStudio.LiveShare.CollaborationSession,System.Threading.CancellationToken)"/> is a task
+             that returns <see cref="T:Microsoft.VisualStudio.LiveShare.IClientCollaborationServiceFactory"/>, Live Share will use this client collaboration service factory
+             to create guest-specific instances of the remote service whenever guests join.
+             
+             This is only supported on host VS remote service factory attributed with [<see cref="T:Microsoft.VisualStudio.LiveShare.ExportCollaborationServiceAttribute"/>]
+             that has <see cref="F:Microsoft.VisualStudio.LiveShare.SessionScope.Host"/> scope and <see cref="F:Microsoft.VisualStudio.LiveShare.ServiceRole.RemoteService"/> role.
+            
+             Client collaboration service factories may optionally implement IDisposable or IAsyncDisposable.
+             If they do, they will be disposed when the collaboration session ends.
+             </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IClientCollaborationServiceFactory.CreateServiceAsync(Microsoft.VisualStudio.LiveShare.IClientContext,System.Threading.CancellationToken)">
+            <summary>
+            Create a new collaboration service for guest when he or she joins the session.
+            The guest is described by <paramref name="cancellationToken"/>.
+            </summary>
+            <param name="clientContext">Guest that just joined the session.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Service instance or null. The service instance must implement the service interface declared in
+            <see cref="T:Microsoft.VisualStudio.LiveShare.ExportCollaborationServiceAttribute"/> exporting <see cref="T:Microsoft.VisualStudio.LiveShare.ICollaborationServiceFactory"/> that
+            created this instance of <see cref="T:Microsoft.VisualStudio.LiveShare.IClientCollaborationServiceFactory"/>.
+            </returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IClientContext">
+            <summary>
+            Client context that describes a guest in collaboration session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IClientContext.PeerNumber">
+            <summary>
+            Peer number that corresponds to <see cref="P:Microsoft.VisualStudio.LiveShare.Peer.PeerNumber"/> in the
+            <see cref="P:Microsoft.VisualStudio.LiveShare.CollaborationSession.Peers"/> collection of current collaboration session.
+            Peer numbers are unique for each new guest, even if the same user joins multiple times,
+            or joins, leaves, and joins again.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IClientContext.IsOwner">
+            <summary>
+            A value indicating whether this owner guest, the guest that uses the same account as the host user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IClientContext.IsOnlineUser">
+            <summary>
+            A value indicating whther this online user guest.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ICollaborationService">
+             <summary>
+             Declares collaboration service attributes and capabilities.
+             </summary>
+             <remarks>
+             Currently it is a placeholder for future metadata. This will help us to keep factory
+             interface unchanged.
+            
+             Collaboration services may optionally implement IDisposable or IAsyncDisposable.
+             If they do, they will be disposed when the collaboration session ends.
+            
+             If the collaboration service instance was created by <see cref="T:Microsoft.VisualStudio.LiveShare.IClientCollaborationServiceFactory"/>
+             in response to a guest joining, it'll be disposed when that guest leaves the session.
+             </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ICollaborationServiceFactory">
+            <summary>
+            A factory interface as exported by a LiveShare extension component.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICollaborationServiceFactory.CreateServiceAsync(Microsoft.VisualStudio.LiveShare.CollaborationSession,System.Threading.CancellationToken)">
+            <summary>
+            Get an instance of the exported service type for the session context or a task with null result.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata">
+            <summary>
+            Metadata associated with a MEF export attribute.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata.Name">
+            <summary>
+            The name of the service as registered in a RPC session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata.ServiceType">
+            <summary>
+            Collaboration service type the factory creates.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata.Scope">
+            <summary>
+            Collaboration session scope the factory should be activated for.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata.Role">
+            <summary>
+            A role the service fulfills. Can be one of the following:
+            remote service, service proxy or local service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata.Features">
+            <summary>
+            List of features the collaboration service contributes to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata.CreationPriority">
+            <summary>
+            Priority value that will affect how this collaboration service will be created compared to others being defined
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata.TargetVersion">
+            <summary>
+            Range version to consider for this liveshare service
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ICustomLiveShareServiceEndpointCofiguration">
+            <summary>
+            MEF export for controlling Live Share service endpoint.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICustomLiveShareServiceEndpointCofiguration.GetServiceEndpointAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get custom Live Share service endpoint.
+            URI result should be https sub-domain of liveshare.vsengsaas.visualstudio.com. If not, Live Sharew will use the default endpoint.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IHostChannelFactory">
+            <summary>
+            A host service in Live Share session that allows guests to connect streams to the host.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IHostChannelFactory.CreateChannel(System.String)">
+            <summary>
+            Create a channel with the given name on the host in the active collaboration session.
+            The client needs to configure channel's <see cref="E:Microsoft.VisualStudio.LiveShare.IHostChannel.GuestConnected"/> event and call <see cref="M:Microsoft.VisualStudio.LiveShare.IHostChannel.Listen"/> to start listening.
+            </summary>
+            <param name="channelName">The name of the channel, not null or empty. Channel names must be unique within a collaboration session.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IHostChannel">
+            <summary>
+            Host channel interface.
+            Disposing of it will stop listening on the channel, open streams will also disconnect.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IHostChannel.ChannelName">
+            <summary>
+            The channel name used in <see cref="M:Microsoft.VisualStudio.LiveShare.IHostChannelFactory.CreateChannel(System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IHostChannel.Listen">
+            <summary>
+            Start listening on the channel.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if no event handler has been added to the <see cref="E:Microsoft.VisualStudio.LiveShare.IHostChannel.GuestConnected"/> event.</exception>
+        </member>
+        <member name="E:Microsoft.VisualStudio.LiveShare.IHostChannel.GuestConnected">
+            <summary>
+            Event handler to call when a guest connects a stream to the channel.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.GuestConnectedToHostChannelEventArgs">
+            <summary>
+            Event args for <see cref="E:Microsoft.VisualStudio.LiveShare.IHostChannel.GuestConnected"/> event on <see cref="T:Microsoft.VisualStudio.LiveShare.IHostChannel"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.GuestConnectedToHostChannelEventArgs.Stream">
+            <summary>
+            Connected stream, not null. The stream is binary, bidirectional, and sequential.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.GuestConnectedToHostChannelEventArgs.PeerNumber">
+            <summary>
+            Connected guest peer number.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.GuestConnectedToHostChannelEventArgs.IsOwner">
+            <summary>
+            A value indicating whether connecting guest is the owner.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.GuestConnectedToHostChannelEventArgs.IsOnlineUser">
+            <summary>
+            A value indicating whether connecting guest is online user.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IGuestChannelService">
+            <summary>
+            A guest service that allows to connect to the channels on the host in a collaboration session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IGuestChannelService.ConnectToChannelAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Connects to a channel on the host. If the channel is not active, waits for the host to start listening on it.
+            </summary>
+            <param name="channelName">Channel name</param>
+            <returns>Connected stream. The stream is binary, bidirectional, and sequential.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IJoinFailureResponseProvider">
+            <summary>
+            Optional MEF export to provide response to join failures that may happen if a guest collaboration service factory
+            throws an exception with <see cref="F:Microsoft.VisualStudio.LiveShare.ExceptionDataKey.CriticalFactoryFailure"/> data set.
+            If joining a session fails like this, LS will iterate over these MEF exports passing the exception until a handler returns non-null task result.
+            If there is a non-null task result, LS will set VS command result to it and may show error dialog or gold bar.
+            If there are no <see cref="T:Microsoft.VisualStudio.LiveShare.IJoinFailureResponseProvider"/> exports, or none returns a task with non-null result,
+            LS will display the exception message in a gold bar similar to other join errors.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IJoinFailureResponseProvider.TryGetFailureResponseAsync(System.Exception,System.Threading.CancellationToken)">
+            <summary>
+            If join flow failed with an exception from collaboration service factory, check if the exception can be
+            handled, and return non-null object to set LS OLE JoinWorkspace command result and show error dialog.
+            </summary>
+            <remarks>This code runs on the guest</remarks>
+            <param name="exception">Exception thrown by a guest collaboration service factory, not null.</param>
+            <param name="cancellationToken">Cancellation token that may be set, e.g. when VS is shutting down.</param>
+            <returns>Task that returns non-null to set as the variant result of the join command and, maybe, show an error dialog.
+            Task that returns null to indicate it doesn't know how to response to this exception.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.CommandFailureReporting">
+            <summary>
+            How command failure should be reported to the user
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.CommandFailureReporting.Default">
+            <summary>
+            Default reporting with a gold bar.
+            The error message comes from the message of collaboration factory exception which has <see cref="F:Microsoft.VisualStudio.LiveShare.ExceptionDataKey.CriticalFactoryFailure"/> Data.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.CommandFailureReporting.None">
+            <summary>
+            No reporting.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.CommandFailureReporting.CloseSessionWithErrorDialog">
+            <summary>
+            Close collaboration session with an error dialog.
+            The error message comes from the message of collaboration factory exception which has <see cref="F:Microsoft.VisualStudio.LiveShare.ExceptionDataKey.CriticalFactoryFailure"/> data.
+            In case of online client, VS will restart after user dismisses the dialog.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.CommandFailureResponse">
+            <summary>
+            How Live Share should handle join command failures
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CommandFailureResponse.OleCommandResult">
+            <summary>
+            What result to return from join workspace OLE command. This must be convertible to variant with Marshal.GetNativeVariantForObject().
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.CommandFailureResponse.HowToReport">
+            <summary>
+            A value indicating how Live Share should report the failure.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IServerSharing">
+            <summary>
+            Interface for sharing local servers.
+            Query it off collaboration session on the host or owner guest side.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IServerSharing.StartSharingAsync(System.Int32,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Start forwarding from localhost:<paramref name="port"/> tcp socket.
+            </summary>
+            <param name="port">Local tcp port to connect to. Not 0 or negative.</param>
+            <param name="sessionName">Port forwarding session name. Not null or empty.</param>
+            <param name="browseUrl">Browser URL if the server is a browser session. If not null, the guests will be asked if they want to open it in browser.</param>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IServerSharing.StopSharingAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Stops sharing of the local tcp <paramref name="port"/>.
+            </summary>
+            <param name="port">Port to stop sharing. Not 0 or negative.</param>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IServerSharing2">
+            <summary>
+            Interface for sharing local servers which also lets the caller know what local tcp port is forwarded to.
+            Query it off collaboration session on the host or owner guest side or cast <see cref="T:Microsoft.VisualStudio.LiveShare.IServerSharing"/> to it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IServerSharing2.StartSharingAndGetLocalPortNumberAsync(System.Int32,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Start forwarding from localhost:<paramref name="port"/> tcp socket and get the local tcp port number (which may be different from <paramref name="port"/>).
+            </summary>
+            <param name="port">Local tcp port to connect to. Not 0 or negative.</param>
+            <param name="sessionName">Port forwarding session name. Not null or empty.</param>
+            <param name="browseUrl">Browser URL if the server is a browser session. If not null, the guests will be asked if they want to open it in browser.</param>
+            <returns>A task which result is the local tcp port number where port forwarding is set up</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ISettingsService">
+            <summary>
+            Service that can provide Live Share configuration.
+            Live Share extensions can query for this service from <see cref="M:Microsoft.VisualStudio.LiveShare.CollaborationSession.GetService(System.Type)"/>.
+            Importing this service from MEF is allowed, please consider that it'd make VS load several Live Share assemblies.
+            This service is not supported for agent extensions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ISettingsService.GetSettingAsync``1(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Load Live Share settings and get the setting or throw <see cref="T:System.ArgumentOutOfRangeException"/> if the setting is not found.
+            </summary>
+            <typeparam name="T">Type of the setting. See <see cref="T:Microsoft.VisualStudio.LiveShare.SettingName"/> for each setting type.</typeparam>
+            <param name="settingName">Setting name. Not null or empty. One of string constants from <see cref="T:Microsoft.VisualStudio.LiveShare.SettingName"/>.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Setting value.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.SettingName">
+            <summary>
+            Live Share setting names for use in <see cref="M:Microsoft.VisualStudio.LiveShare.ISettingsService.GetSettingAsync``1(System.String,System.Threading.CancellationToken)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.SettingName.FeatureSet">
+            <summary>
+            Live Share Feature Set. A string that can be one of constants on <see cref="T:Microsoft.VisualStudio.LiveShare.FeatureSetSetting"/> or null if it is something else.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.SettingName.AllowGuestDebugControl">
+            <summary>
+            Allow guest control of the debugger
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.FeatureSetSetting">
+            <summary>
+            Live Share setting value for <see cref="F:Microsoft.VisualStudio.LiveShare.SettingName.FeatureSet"/> setting.
+            What feature set Live Share operates with.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.FeatureSetSetting.Stable">
+            <summary>
+            Stable feature set.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.FeatureSetSetting.Insiders">
+            <summary>
+            Insiders feature set.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IStandaloneDebuggerService">
+            <summary>
+            A debugger service that can run ouside of a Live Share session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IStandaloneDebuggerService.GetStandaloneDebugSessionsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Returns the set of active debug sessions.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A task that represets the set of active debug sessions.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IStandaloneDebuggerService.DisposeAsync">
+            <summary>
+            Disposes unmanaged resources held by this object.
+            </summary>
+            <returns>A task that represents the asynchronous dispose operation.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IStandaloneDebuggerServiceFactory">
+            <summary>
+            A factory for debugger services that can run ouside of a Live Share session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IStandaloneDebuggerServiceFactory.CreateServiceAsync(System.Threading.CancellationToken)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.VisualStudio.LiveShare.IStandaloneDebuggerService"/>.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A task that represets the newly created service.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IStandaloneDebugSessionService">
+            <summary>
+            A debug session service that can run outside a Live Share session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IStandaloneDebugSessionService.HandleProtocolRequestAsync(System.String,System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Handles a debug adapter protocol request.
+            </summary>
+            <param name="requestType">Type of the request.</param>
+            <param name="requestArgs">Arguments for the request. Typically a JObject.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A task that represets the result. Typically extends Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages.ResponseBody.</returns>
+        </member>
+        <member name="E:Microsoft.VisualStudio.LiveShare.IStandaloneDebugSessionService.StandaloneDebugEvent">
+            <summary>
+            An event that fires when the debug server sends an event to the client.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ITextSearchPreemptService.PreemptFindReplace(System.UInt32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Preempts the Find All click in legacy find in files.
+            </summary>
+            <param name="options">__VSFINDOPTIONS state of the find operation being performed.</param>
+            <param name="find">The find pattern for which the find operation is being performed</param>
+            <param name="replace">The replace pattern for which the replace operation is being performed. Not Supported in LiveShare. </param>
+            <param name="filters">Not supported in LiveShare.</param>
+            <param name="query">The location or file types where the find operation is performed.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IVsSharedTerminalLaunchService">
+            <summary>
+            Interface used by the debugger (and potentially other parts of Visual Studio in the future) to launch a shared terminal. Must be called on
+            the host.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IVsSharedTerminalLaunchService.StartTerminalAsync(Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions,System.Threading.CancellationToken)">
+            <summary>
+            Start a terminal and open local pipe that connects to it
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions">
+            <summary>
+            Options that control how terminal is started
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions.Name">
+            <summary>
+            Terminal name to be shown on client UI. This must be set.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions.App">
+            <summary>
+            Path to terminal application on the host machine. This must be set.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions.ReadOnlyForGuests">
+            <summary>
+            A value indicating whether the terminal is read-only for guests. This must be set.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions.Cwd">
+            <summary>
+            Working directory on the host machine where terminal starts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions.Args">
+            <summary>
+            Terminal command line arguments
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions.Environment">
+            <summary>
+            Terminal environment variables.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.SharedTerminalStartOptions.IsDebugTerminal">
+            <summary>
+            A value indicating whether the terminal is a debug terminal.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.Peer">
+            <summary>
+            Information about a participant (host or guest) in a Live Share collaboration session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.Peer.PeerNumber">
+            <summary>
+            Integer that uniquely identifies a peer within the scope of a session.
+            Peer numbers are unique each time a peer joins the session, even if the same user joins multiple times,
+            or joins, leaves, and joins again.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.Peer.Identity">
+            <summary>
+            Authenticated Live Share user identity information.
+            </summary>
+            <remarks>
+            NOTE: Access to user identity information may be restricted.
+            If the caller is not permitted, this property returns 'null'.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.Peer.Role">
+            <summary>
+            Role within the session. Each session has exactly one host; the rest of
+            the peers are guests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.Peer.Access">
+            <summary>
+            Access level within the session. The host has full "owner" access to the
+            session. Guests may have their access limited by the host.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.LiveShare.Peer.PropertyChanged">
+            <summary>
+            Event that notifies listeners when a property on this object changed.
+            </summary>
+            <remarks>
+            The identity may change when an anonymous user signs in.
+            The access may change when the host changes a guest's access level.
+            The other properties may change when a sharing session starts or ends.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.Peer.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Raises a <see cref="E:Microsoft.VisualStudio.LiveShare.Peer.PropertyChanged" /> event.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.PeerAccess">
+            <summary>
+            Access level of a peer within a Live Share session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.PeerIdentity.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new peer identity object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.PeerIdentity.DisplayName">
+            <summary>
+            User display name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.PeerIdentity.EmailAddress">
+            <summary>
+            Validated email address, if known.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.PeerIdentity.Id">
+            <summary>
+            User id. This is persistent ID that stays the same for the same user
+            if the user re-joins the session and even between sessions for some time.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.PeerRole">
+            <summary>
+            Role of a peer within a Live Share session.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.PeersChangedEventArgs">
+            <summary>
+            Arguments for an event raised when peers join or leave a Live Share session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.PeersChangedEventArgs.#ctor(System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.LiveShare.Peer})">
+            <summary>
+            Constructs a new event args structure with information about changed peers.
+            </summary>
+            <param name="action">Type of change action, add or remove</param>
+            <param name="peers">List of peers that were added or removed</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.PeersChangedEventArgs.Action">
+            <summary>
+            Gets the type of change action. (Only add or remove change events are raised.)
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.PeersChangedEventArgs.Peers">
+            <summary>
+            Gets the list of peers that were added or removed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute">
+            <summary>
+            Combines MEF export attribute with export metadata for a <c>ProtectedOperation</c> backed by Live Share access service.
+            Attribute metadata declares when the <c>ProtectedOperation</c> is enabled.
+            The export part needs to implement <see cref="T:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation"/> or may be null.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute.#ctor(System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute"/> for the given <paramref name="operationMoniker"/>.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker, not null.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute.OperationMoniker">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute.RequiredTrustLevel">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute.RequiredTrustLevelHasValue">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute.EnableInReadOnlySession">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute.RequiresPersistentRootSupport">
+            <inheritdoc/>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute.AllowedPeers">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation">
+            <summary>
+            Protected operation that Live Share access control service can handle.
+            Implementations of this interface must be exported with <see cref="T:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute"/>.
+            Live Share may use it both on the guest and on the host.
+            </summary>
+            <remarks>
+            We cannot use <c>Microsoft.ServiceHub.Framework.Services.ProtectedOperation</c> directly because it's not available in 15.9 and 16.0 VS.
+            So Live Share will pass operation moniker and required trust level. Also this is only what data on protected operation is passed between peers.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation.GetInsufficientAccessMessage(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Gets a message for the guest telling that they have no access to protected operation.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker, not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level.</param>
+            <returns>Not null if the guest can display insufficient access message. Otherwise, null.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation.GetPermissionGrantedMessage(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Gets a message for the guest telling that the host has granted access to perform a protected operation.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker, not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level.</param>
+            <returns>Not null if the guest can display permission granted message. Otherwise, null.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation.GetPermissionDeniedMessage(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Gets a message for the guest telling that the host has rejected access to perform a protected operation.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker, not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level.</param>
+            <returns>Not null if the guest can display permission denied message. Otherwise, null.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation.IsOperationAllowed(System.String,System.Nullable{System.Int32},Microsoft.VisualStudio.LiveShare.IExtendedClientContext)">
+            <summary>
+            Get a value indicating if the protected operation is allowed.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker, not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level.</param>
+            <param name="clientContext">Client context.</param>
+            <returns>True if the operation is allowed. Otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation.GetPermissionRequestMessage(System.String,System.Nullable{System.Int32},Microsoft.VisualStudio.LiveShare.IExtendedClientContext)">
+            <summary>
+            Get permission request message for the protected operation or null if permission request is not allowed.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker, not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level.</param>
+            <param name="clientContext">Client context.</param>
+            <returns>Not null if the user can request permission on the host. Otherwise, null.</returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation.GrantPermanentAccessAsync(System.String,System.Nullable{System.Int32},Microsoft.VisualStudio.LiveShare.IExtendedClientContext)">
+            <summary>
+            Grant permission for the protected operation.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker, not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level.</param>
+            <param name="clientContext">Client context.</param>
+            <returns>Task that completes when the permission is granted. Not null.</returns>
+        </member>
+        <member name="E:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperation.PermissionsChanged">
+            <summary>
+            Event that fires when protected operation permission changes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ProtectedOperationMessage">
+            <summary>
+            Protected operation message details
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ProtectedOperationMessage.#ctor(System.String,System.Boolean)">
+            <summary>
+            Create a new instance of <see cref="T:Microsoft.VisualStudio.LiveShare.ProtectedOperationMessage"/>.
+            </summary>
+            <param name="message">Message contents, not null.</param>
+            <param name="isVerbose">A value indicating if the message is verbose (verbose messaged can be turned off in Live Share settings in Tools -> Options).</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ProtectedOperationMessage.Message">
+            <summary>
+            Get the message, not null.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ProtectedOperationMessage.IsVerbose">
+            <summary>
+            Get a value indicating if the message is verbose (verbose messaged can be turned off in Live Share settings in Tools -> Options).
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ProtectedOperationPermissionChangedEventArgs">
+            <summary>
+            Event args that describe what protected operation changed and how
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.ProtectedOperationPermissionChangedEventArgs.#ctor(System.String,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Create a new instance of <see cref="T:Microsoft.VisualStudio.LiveShare.ProtectedOperationPermissionChangedEventArgs"/>.
+            </summary>
+            <param name="operationMoniker">Protected operation moniker. Not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level.</param>
+            <param name="isEnabled">A value indicating if this protected operation has been enabled or disabled.</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ProtectedOperationPermissionChangedEventArgs.OperationMoniker">
+            <summary>
+            Protected operation moniker. Not null.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ProtectedOperationPermissionChangedEventArgs.RequiredTrustLevel">
+            <summary>
+            Protected operation required trust level.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ProtectedOperationPermissionChangedEventArgs.IsEnabled">
+            <summary>
+            A value indicating if this protected operation has been enabled or disabled.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ProtectedOperationPeerRole">
+            <summary>
+            Live Share peer role
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ProtectedOperationPeerRole.AnyUser">
+            <summary>
+            Any Live Share peer - host, guest, or anynomous guest
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ProtectedOperationPeerRole.HostOrGuestOwner">
+            <summary>
+            Host or owner guest user, that is, the guest that is the same user as host, like in Codespaces client.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ProtectedOperationPeerRole.Host">
+            <summary>
+            Host user only.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata">
+            <summary>
+            Metadata for <see cref="T:Microsoft.VisualStudio.LiveShare.ExportCollaborationProtectedOperationAttribute"/>
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.OperationMoniker">
+            <summary>
+            Protected operation moniker
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.RequiredTrustLevel">
+            <summary>
+            Required trust level.
+            Set <see cref="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.RequiredTrustLevelHasValue"/> to <c>true</c> if you set this property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.RequiredTrustLevelHasValue">
+            <summary>
+            A value indicatingh whether the required trust level has value.
+            If <c>true</c>, <see cref="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.RequiredTrustLevel"/> has the required trust level value.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.EnableInReadOnlySession">
+            <summary>
+            A value indicating that this protected operation is enabled for read-only peers.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.RequiresPersistentRootSupport">
+            <summary>
+            A value indicating that this protected operation is disabled if the file root is not persistent (e.g. remote URIs not like /~~/c$/....)
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ICollaborationProtectedOperationMetadata.AllowedPeers">
+            <summary>
+            Peers that allowed to run the operation.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IExtendedClientContext">
+            <summary>
+            Client context that describes a guest in collaboration session that invokes a protected operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IExtendedClientContext.IsReadOnly">
+            <summary>
+            Get a value indicating if the user is read-only .
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IExtendedClientContext.IsFileRootPersistent">
+            <summary>
+            Get a value indicating if the file root is persistent (normally Codespaces only)
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IExtendedClientContext.UserDisplayName">
+            <summary>
+            Get user display name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.RemoteServiceProxyException">
+            <summary>
+            Exception thrown by a proxy when a request to a shared service cannot be made
+            because the service is not available or cannot be reached.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.RemoteServiceProxyException.#ctor">
+            <summary>
+            Creates an exception with the default message.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.RemoteServiceProxyException.#ctor(System.String)">
+            <summary>
+            Creates an exception with an exception message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.RemoteServiceResponseException">
+            <summary>
+            An exception thrown from a remote method that was propagated back to the
+            caller and rethrown.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.RemoteServiceResponseException.#ctor">
+            <summary>
+            Creates an exception with the default message and no remote stack trace.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.RemoteServiceResponseException.#ctor(System.String)">
+            <summary>
+            Creates an exception with an exception message and no remote stack trace.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.RemoteServiceResponseException.#ctor(System.String,System.String)">
+            <summary>
+            Creates an exception with an exception message and a remote stack trace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.RemoteServiceResponseException.RemoteStack">
+            <summary>
+            Gets the stack trace of the exception that was thrown on the remote side of the
+            RPC call.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.RemoteServicesChangedEventArgs">
+            <summary>
+            Arguments for an event raised when availability of remote services changed
+            within a Live Share session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.RemoteServicesChangedEventArgs.#ctor(System.Collections.Specialized.NotifyCollectionChangedAction,System.Collections.Generic.IReadOnlyCollection{System.String})">
+            <summary>
+            Constructs a new event args structure with information about changed services.
+            </summary>
+            <param name="action">Type of change action, add or remove</param>
+            <param name="remoteServiceNames">List of services that were added or removed</param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.RemoteServicesChangedEventArgs.Action">
+            <summary>
+            Gets the type of change action. (Only add or remove change events are raised.)
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.RemoteServicesChangedEventArgs.RemoteServiceNames">
+            <summary>
+            Gets the list of services that were added or removed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.LiveShareClientCredentials">
+            <summary>
+            Client Credentials in Brokered Service Activation Options
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.LiveShareClientCredentials.PeerNumber">
+            <summary>
+            Culture-neutral string representation of peer number of the client
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.LiveShareClientCredentials.SessionId">
+            <summary>
+            Live Share Session Id of the client
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.LiveShareClientCredentials.ConversationId">
+            <summary>
+            Conversation Id of the client
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.LiveShareServiceMonikers">
+            <summary>
+            Brokered service monikers
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ServiceRole">
+            <summary>
+            Characterizes a role a collaboration service fulfills.
+            The Live Share extensibility framework refers to the role value when activating the
+            service in a session context.
+            </summary>
+            <remarks>
+            The numeric value corresponds to a creation priority used by the extensibility framework
+            when instantiating services in particular order.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ServiceRole.RemoteClient">
+            <summary>
+            Client for a remote RPC service. Activatable in guest sessions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ServiceRole.CoreLocalService">
+            <summary>
+            Local service (non-RPC) available within current session that other local services
+            and Remote Workspace can use during their initialization. Activatable in both host
+            and guest sessions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ServiceRole.LocalService">
+            <summary>
+            Local service (non-RPC). Activatable in both host and guest sessions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ServiceRole.RemoteService">
+            <summary>
+            RPC service that may be called by remote guests. Activatable in host sessions.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ServiceRole.RemoteWorkspaceExtension">
+            <summary>
+            The remote workspace extension (AnyCode workspace provider(s))
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.ServiceRole.RemoteOwnerGuestService">
+            <summary>
+            The remote service exposed by the owner guest client.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.SessionScope">
+            <summary>
+            Collaboration session scope used to declare collaboration service affinity.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.SessionScope.None">
+            <summary>
+            The service does not have collaboration session affinity.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.SessionScope.Host">
+            <summary>
+            Collaboration session created on a host for sharing a workspace.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.SessionScope.Guest">
+            <summary>
+            Collaboration session created on a guest client for joining a workspace.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.SessionScope.All">
+            <summary>
+            Indicates collaboration service should be activated for both
+            host and guest collaboration sessions.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.StandaloneDebugEventArgs">
+            <summary>
+            Event arguments for a debugger event outside a Live Share context.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.StandaloneDebugEventArgs.Body">
+            <summary>
+            Gets information about the event. Extends Microsoft.VisualStudio.Shared.VSCodeDebugProtocol.Messages.DebugEvent.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.StandaloneDebugEventArgs.#ctor(System.Object)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.VisualStudio.LiveShare.StandaloneDebugEventArgs"/>.
+            </summary>
+            <param name="body">Information about the event.</param>
+        </member>
+        <member name="T:Microsoft_VisualStudio_LiveShare">
+            <summary>
+            Assembly version information for Microsoft.VisualStudio.LiveShare.dll assembly
+            </summary>
+        </member>
+        <member name="F:Microsoft_VisualStudio_LiveShare.AssemblyVersion">
+            <summary>
+            Assembly version.
+            </summary>
+        </member>
+        <member name="F:Microsoft_VisualStudio_LiveShare.AssemblyName">
+            <summary>
+            Assembly name (without .dll extension)
+            </summary>
+        </member>
+        <member name="F:Microsoft_VisualStudio_LiveShare.FileName">
+            <summary>
+            File name (with .dll extension)
+            </summary>
+        </member>
+    </members>
+</doc>

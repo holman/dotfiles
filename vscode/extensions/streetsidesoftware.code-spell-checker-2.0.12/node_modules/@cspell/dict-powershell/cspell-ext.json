@@ -1,0 +1,58 @@
+// cSpell Settings
+{
+    "id": "powershell",
+    "name": "PowerShell Dictionary",
+    "description": "PowerShell Keyword Dictionary",
+    // List of dictionary files to add to the global list of dictionaries
+    "dictionaryDefinitions": [
+        {
+            "name": "powershell",
+            "file": "./powershell.txt.gz",
+            "description": "PowerShell Keyword Dictionary"
+        }
+    ],
+    // Dictionaries to always be used.
+    // Generally left empty
+    "dictionaries": [],
+    // Language Rules to apply to matching files.
+    // Files are matched on `languageId` and `local`
+    "languageSettings": [
+        {
+            // VSCode languageId. i.e. typescript, java, go, cpp, javascript, markdown, latex
+            // * will match against any file type.
+            "languageId": "powershell",
+            // Language local. i.e. en-US, de-AT, or ru. * will match all locals.
+            // Multiple locals can be specified like: "en, en-US" to match both English and English US.
+            "local": "*",
+            // By default the whole text of a file is included for spell checking
+            // Adding patterns to the "includeRegExpList" to only include matching patterns
+            "includeRegExpList": [],
+            // To exclude patterns, add them to "ignoreRegExpList"
+            "ignoreRegExpList": [],
+            // regex patterns than can be used with ignoreRegExpList or includeRegExpList
+            // Example: "pattern": [{ "name": "mdash", "pattern": "&mdash;" }]
+            // This could be included in "ignoreRegExpList": ["mdash"]
+            "patterns": [
+                {
+                    "name": "variables",
+                    "description": "Powershell variables",
+                    "pattern": "/[$@]\\w+(?:\\.\\w+)*/g"
+                },
+                {
+                    "name": "comments",
+                    "description": "Powershell comments",
+                    "pattern": "/(?:<#[\\s\\S]*?#>)|(?:#.*)/g"
+                },
+                {
+                    "name": "strings",
+                    "description": "Powershell strings",
+                    "pattern": "/(?:@\"[\\s\\S]*?\"@)|(?:(['\"]).*?(?<!`)\\1)/g"
+                }
+            ],
+            // List of dictionaries to enable by name in `dictionaryDefinitions`
+            "dictionaries": ["powershell"],
+            // Dictionary definitions can also be supplied here. They are only used iff "languageId" and "local" match.
+            "dictionaryDefinitions": []
+        }
+    ]
+}

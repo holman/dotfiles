@@ -1,0 +1,46 @@
+:root {
+    --button-size: 18px;
+}
+
+.image-button {
+    border-width: 0px;
+    border-style: solid;
+    text-align: center;
+    line-height: 16px;
+    overflow: hidden;
+    width: var(--button-size);
+    height: var(--button-size);
+    margin-left: 2px;
+    padding: 1px;
+    background-color: transparent;
+    cursor: hand;
+}
+
+.image-button-inner-disabled-filter {
+    opacity: 0.5;
+}
+
+.image-button-child {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image-button-child img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image-button-image svg{
+    pointer-events: none;
+}
+
+.image-button-vscode-light:disabled {
+    border-color: gray;
+    filter: grayscale(100%);
+}
+
+.image-button-vscode-dark:disabled {
+    border-color: gray;
+    filter: grayscale(100%);
+}
+

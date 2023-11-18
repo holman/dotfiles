@@ -1,0 +1,37 @@
+# SYNTAX TEST "source.ruby.gemfile"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+# <------ keyword.other.special-method.ruby.gemfile
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
+  "https://github.com/#{repo_name}.git"
+end
+
+ruby '2.5.1'
+# <---- keyword.other.special-method.ruby.gemfile
+
+# Core
+gem 'rails', '~> 4.2.8'
+# <--- keyword.other.special-method.ruby.gemfile
+gem 'foo', github: 'https://github.com/foo/bar'
+#          ^^^^^^ meta.declaration.ruby.gemfile
+
+git 'https://github.com/rails/rails.git' do
+# <--- keyword.other.special-method.ruby.gemfile
+  gem 'railties'
+  gem 'actionpack'
+  gem 'activemodel'
+end
+
+group :development do
+# <----- keyword.other.special-method.ruby.gemfile
+  gem 'pry'
+end
+
+platforms :ruby do
+# <--------- keyword.other.special-method.ruby.gemfile
+  gem "ruby-debug"
+  gem "sqlite3"
+end

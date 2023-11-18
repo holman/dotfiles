@@ -1,0 +1,1640 @@
+{
+    "if": {
+        "prefix": "if",
+        "body": [
+            "- if ${1:condition}",
+            "  $2"
+        ],
+        "description": "if"
+    },
+    "else": {
+        "prefix": "else",
+        "body": [
+            "- else",
+            "  $1"
+        ],
+        "description": "else"
+    },
+    "elsif": {
+        "prefix": "elsif",
+        "body": [
+            "- elsif ${1:condition}",
+            "  $2"
+        ],
+        "description": "elsif"
+    },
+    "unless": {
+        "prefix": "unless",
+        "body": [
+            "- unless ${1:condition}",
+            "  $2"
+        ],
+        "description": "unless"
+    },
+    "each": {
+        "prefix": "each",
+        "body": [
+            "- $1.each do |$2|",
+            "  $3"
+        ],
+        "description": "each"
+    },
+    "html_safe": {
+        "prefix": "html_safe",
+        "body": [
+            "= $1.html_safe"
+        ],
+        "description": "html_safe"
+    },
+    "surround": {
+        "prefix": "surround",
+        "body": [
+            "= surround '${1:(}', '${2:)}' do",
+            "  $3"
+        ],
+        "description": "surround"
+    },
+    "precede": {
+        "prefix": "precede",
+        "body": [
+            "= precede '${1:precede}' do",
+            "  $2"
+        ],
+        "description": "precede"
+    },
+    "succeed": {
+        "prefix": "succeed",
+        "body": [
+            "= succeed '${1:succeed}' do",
+            "  $2"
+        ],
+        "description": "succeed"
+    },
+    "url_for": {
+        "prefix": "url_for",
+        "body": [
+            "= url_for '${1:url}'"
+        ],
+        "description": "url_for"
+    },
+    "yield": {
+        "prefix": "yield",
+        "body": [
+            "= yield $1"
+        ],
+        "description": "yield"
+    },
+    "audio_tag": {
+        "prefix": "audio_tag",
+        "body": [
+            "= audio_tag $1"
+        ],
+        "description": "audio_tag"
+    },
+    "auto_discovery_link_tag": {
+        "prefix": "auto_discovery_link_tag",
+        "body": [
+            "= auto_discovery_link_tag"
+        ],
+        "description": "auto_discovery_link_tag"
+    },
+    "favicon_link_tag": {
+        "prefix": "favicon_link_tag",
+        "body": [
+            "= favicon_link_tag '${1:src}'${2:, rel: '$3'}${4:, type: '$5'}"
+        ],
+        "description": "favicon_link_tag"
+    },
+    "image_alt": {
+        "prefix": "image_alt",
+        "body": [
+            "image_alt('$1')"
+        ],
+        "description": "image_alt"
+    },
+    "image_tag": {
+        "prefix": "image_tag",
+        "body": [
+            "= image_tag '${1:src}'${2:, alt: '$3', height: '$4', width: '$5', class: '$6'}"
+        ],
+        "description": "image_tag"
+    },
+    "javascript_include_tag": {
+        "prefix": "javascript_include_tag",
+        "body": [
+            "= javascript_include_tag '${1:src}'"
+        ],
+        "description": "javascript_include_tag"
+    },
+    "stylesheet_link_tag": {
+        "prefix": "stylesheet_link_tag",
+        "body": [
+            "= stylesheet_link_tag '${1:src}' ${2:media: '$3'}"
+        ],
+        "description": "stylesheet_link_tag"
+    },
+    "video_tag": {
+        "prefix": "video_tag",
+        "body": [
+            "= video_tag '${1:src}'${2:, controls: '$3', autobuf.fer: $4, size: '$5', poster: '$6'}"
+        ],
+        "description": "video_tag"
+    },
+    "asset_path": {
+        "prefix": "asset_path",
+        "body": [
+            "= asset_path '${1:src}'${2:, type: '$3'}"
+        ],
+        "description": "asset_path"
+    },
+    "asset_url": {
+        "prefix": "asset_url",
+        "body": [
+            "= asset_url '${1:src}'${2:, type: '$3'}"
+        ],
+        "description": "asset_url"
+    },
+    "audio_path": {
+        "prefix": "audio_path",
+        "body": [
+            "= audio_path '${1:src}'"
+        ],
+        "description": "audio_path"
+    },
+    "audio_url": {
+        "prefix": "audio_url",
+        "body": [
+            "= audio_url '${1:src}'"
+        ],
+        "description": "audio_url"
+    },
+    "compute_asset_extname": {
+        "prefix": "compute_asset_extname",
+        "body": [
+            "compute_asset_extname('${1:src}')"
+        ],
+        "description": "compute_asset_extname"
+    },
+    "compute_asset_host": {
+        "prefix": "compute_asset_host",
+        "body": [
+            "compute_asset_host('${1:src}')"
+        ],
+        "description": "compute_asset_host"
+    },
+    "compute_asset_path": {
+        "prefix": "compute_asset_path",
+        "body": [
+            "compute_asset_path('${1:src}')"
+        ],
+        "description": "compute_asset_path"
+    },
+    "font_path": {
+        "prefix": "font_path",
+        "body": [
+            "= font_path '${1:src}'"
+        ],
+        "description": "font_path"
+    },
+    "font_url": {
+        "prefix": "font_url",
+        "body": [
+            "= font_url '${1:src}'"
+        ],
+        "description": "font_url"
+    },
+    "image_path": {
+        "prefix": "image_path",
+        "body": [
+            "= image_path '${1:src}'"
+        ],
+        "description": "image_path"
+    },
+    "image_url": {
+        "prefix": "image_url",
+        "body": [
+            "= image_url '${1:src}'"
+        ],
+        "description": "image_url"
+    },
+    "javascript_path": {
+        "prefix": "javascript_path",
+        "body": [
+            "= javascript_path '${1:src}'"
+        ],
+        "description": "javascript_path"
+    },
+    "javascript_url": {
+        "prefix": "javascript_url",
+        "body": [
+            "= javascript_url '${1:src}'"
+        ],
+        "description": "javascript_url"
+    },
+    "stylesheet_path": {
+        "prefix": "stylesheet_path",
+        "body": [
+            "= stylesheet_path '${1:src}'"
+        ],
+        "description": "stylesheet_path"
+    },
+    "stylesheet_url": {
+        "prefix": "stylesheet_url",
+        "body": [
+            "= stylesheet_url '${1:src}'"
+        ],
+        "description": "stylesheet_url"
+    },
+    "video_path": {
+        "prefix": "video_path",
+        "body": [
+            "= video_path '${1:src}'"
+        ],
+        "description": "video_path"
+    },
+    "video_url": {
+        "prefix": "video_url",
+        "body": [
+            "= video_url '${1:src}'"
+        ],
+        "description": "video_url"
+    },
+    "cache": {
+        "prefix": "cache",
+        "body": [
+            "- cache ${1:name} do",
+            "  $2"
+        ],
+        "description": "cache"
+    },
+    "cache_if": {
+        "prefix": "cache_if",
+        "body": [
+            "- cache_if ${1:condition}, ${2:name} do",
+            "  $3"
+        ],
+        "description": "cache_if"
+    },
+    "cache_unless": {
+        "prefix": "cache_unless",
+        "body": [
+            "- cache_unless ${1:condition}, ${2:name} do",
+            "  $3"
+        ],
+        "description": "cache_unless"
+    },
+    "capture": {
+        "prefix": "capture",
+        "body": [
+            "- @$1 = capture do",
+            "  $2"
+        ],
+        "description": "capture"
+    },
+    "content_for": {
+        "prefix": "content_for",
+        "body": [
+            "- content_for $1 do",
+            "  $2"
+        ],
+        "description": "content_for"
+    },
+    "content_for?": {
+        "prefix": "content_for?",
+        "body": [
+            "- content_for?($1)"
+        ],
+        "description": "content_for?"
+    },
+    "provide": {
+        "prefix": "provide",
+        "body": [
+            "- provide $1 do",
+            "  $2"
+        ],
+        "description": "provide"
+    },
+    "csrf_meta_tag": {
+        "prefix": "csrf_meta_tag",
+        "body": [
+            "= csrf_meta_tag"
+        ],
+        "description": "csrf_meta_tag"
+    },
+    "csrf_meta_tags": {
+        "prefix": "csrf_meta_tags",
+        "body": [
+            "= csrf_meta_tags"
+        ],
+        "description": "csrf_meta_tags"
+    },
+    "date_select_helper": {
+        "prefix": "date_select",
+        "body": [
+            "= date_select(${1:object_name}, ${2:method}${3:, $4})"
+        ],
+        "description": "date_select"
+    },
+    "datetime_select_helper": {
+        "prefix": "datetime_select",
+        "body": [
+            "= datetime_select(${1:object_name}, ${2:method}${3:, $4})"
+        ],
+        "description": "datetime_select"
+    },
+    "distance_of_time_in_words": {
+        "prefix": "distance_of_time_in_words",
+        "body": [
+            "= distance_of_time_in_words(${1:from_time}${2:, ${3:to_time}}${4:, {\\}})"
+        ],
+        "description": "distance_of_time_in_words"
+    },
+    "distance_of_time_in_words_to_now": {
+        "prefix": "distance_of_time_in_words_to_now",
+        "body": [
+            "= distance_of_time_in_words_to_now(${1:from_time}${2:, {\\}})"
+        ],
+        "description": "distance_of_time_in_words_to_now"
+    },
+    "select_date": {
+        "prefix": "select_date",
+        "body": [
+            "= select_date(${1:date}${2:, {\\}})"
+        ],
+        "description": "select_date"
+    },
+    "select_datetime": {
+        "prefix": "select_datetime",
+        "body": [
+            "= select_datetime(${1:date}${2:, {\\}})"
+        ],
+        "description": "select_datetime"
+    },
+    "select_day": {
+        "prefix": "select_day",
+        "body": [
+            "= select_day(${1:date}${2:, {\\}})"
+        ],
+        "description": "select_day"
+    },
+    "select_hour": {
+        "prefix": "select_hour",
+        "body": [
+            "= select_hour(${1:datetime}${2:, {\\}})"
+        ],
+        "description": "select_hour"
+    },
+    "select_minute": {
+        "prefix": "select_minute",
+        "body": [
+            "= select_minute(${1:datetime}${2:, {\\}})"
+        ],
+        "description": "select_minute"
+    },
+    "select_month": {
+        "prefix": "select_month",
+        "body": [
+            "= select_month(${1:date}${2:, {\\}})"
+        ],
+        "description": "select_month"
+    },
+    "select_second": {
+        "prefix": "select_second",
+        "body": [
+            "= select_second(${1:datetime}${2:, {\\}})"
+        ],
+        "description": "select_second"
+    },
+    "select_time": {
+        "prefix": "select_time",
+        "body": [
+            "= select_time(${1:datetime}${2:, {\\}})"
+        ],
+        "description": "select_time"
+    },
+    "select_year": {
+        "prefix": "select_year",
+        "body": [
+            "= select_year(${1:date}${2:, {\\}})"
+        ],
+        "description": "select_year"
+    },
+    "time_ago_in_words": {
+        "prefix": "time_ago_in_words",
+        "body": [
+            "= time_ago_in_words(${1:from_time}${2:, {\\}})"
+        ],
+        "description": "time_ago_in_words"
+    },
+    "time_select": {
+        "prefix": "time_select",
+        "body": [
+            "= time_select(${1:object_name}, ${2:method}${3:, {\\}})"
+        ],
+        "description": "time_select"
+    },
+    "time_tag": {
+        "prefix": "time_tag",
+        "body": [
+            "= time_tag(${1:date_or_time}${2:, {\\}})"
+        ],
+        "description": "time_tag"
+    },
+    "time_tag_block": {
+        "prefix": "time_tag_block",
+        "body": [
+            "= time_tag(${1:date_or_time}${2:, {\\}}) do",
+            "  $4"
+        ],
+        "description": "time_tag block"
+    },
+    "debug": {
+        "prefix": "debug",
+        "body": [
+            "= debug $1"
+        ],
+        "description": "debug"
+    },
+    "button": {
+        "prefix": "button",
+        "body": [
+            "= button ${1:name}${2:, {\\}}"
+        ],
+        "description": "button"
+    },
+    "button_block": {
+        "prefix": "button_block",
+        "body": [
+            "= button ${1:, {\\}} do",
+            "  $3"
+        ],
+        "description": "button block"
+    },
+    "f.button": {
+        "prefix": "f.button",
+        "body": [
+            "= f.button ${1:name}${2:, {\\}}"
+        ],
+        "description": "form.button"
+    },
+    "f.button_block": {
+        "prefix": "f.button_block",
+        "body": [
+            "= f.button ${1:, {\\}} do",
+            "  $3"
+        ],
+        "description": "form.button block"
+    },
+    "button_tag": {
+        "prefix": "button_tag",
+        "body": [
+            "= button_tag $1"
+        ],
+        "description": "button_tag"
+    },
+    "button_tag_block": {
+        "prefix": "button_tag_block",
+        "body": [
+            "= button_tag $1 do",
+            "  $2"
+        ],
+        "description": "button_tag block"
+    },
+    "check_box": {
+        "prefix": "check_box",
+        "body": [
+            "= check_box ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "check_box"
+    },
+    "f.check_box": {
+        "prefix": "f.check_box",
+        "body": [
+            "= f.check_box ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.check_box"
+    },
+    "check_box_tag": {
+        "prefix": "check_box_tag",
+        "body": [
+            "= check_box_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "check_box_tag"
+    },
+
+    "date_select": {
+        "prefix": "f.date_select",
+        "body": [
+            "= f.date_select ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.date_select"
+    },
+    "datetime_select": {
+        "prefix": "f.datetime_select",
+        "body": [
+            "= f.datetime_select ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.datetime_select"
+    },
+    "fields_for": {
+        "prefix": "fields_for",
+        "body": [
+            "= fields_for ${1:record_name}, ${:record_object}${3:, {\\}} do |$4|",
+            "  $5"
+        ],
+        "description": "fields_for"
+    },
+    "f.fields_for": {
+        "prefix": "f.fields_for",
+        "body": [
+            "= f.fields_for ${1:record_object}${2:, {\\}} do |$3|",
+            "  $4"
+        ],
+        "description": "form.fields_for"
+    },
+    "file_field": {
+        "prefix": "file_field",
+        "body": [
+            "= file_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "file_field"
+    },
+    "f.file_field": {
+        "prefix": "f.file_field",
+        "body": [
+            "= f.file_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.file_field"
+    },
+    "file_field_tag": {
+        "prefix": "file_field_tag",
+        "body": [
+            "= file_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "file_field_tag"
+    },
+    "f.grouped_collection_select": {
+        "prefix": "f.grouped_collection_select",
+        "body": [
+            "= f.grouped_collection_select ${1:method}, ${2:collection}, ${3:group_method}, ${4:group_label_method}, ${5:option_key_method}, ${6:option_value_method}${7:, {\\}}"
+        ],
+        "description": "form.grouped_collection_select"
+    },
+    "hidden_field": {
+        "prefix": "hidden_field",
+        "body": [
+            "= hidden_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "hidden_field"
+    },
+    "f.hidden_field": {
+        "prefix": "f.hidden_field",
+        "body": [
+            "= f.hidden_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.hidden_field"
+    },
+    "hidden_field_tag": {
+        "prefix": "hidden_field_tag",
+        "body": [
+            "= hidden_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "hidden_field_tag"
+    },
+    "label": {
+        "prefix": "label",
+        "body": [
+            "= label ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "label"
+    },
+    "f.label": {
+        "prefix": "f.label",
+        "body": [
+            "= f.label ${1:method}, ${2:text}${3:, {\\}}"
+        ],
+        "description": "form.label"
+    },
+    "label_block": {
+        "prefix": "label_block",
+        "body": [
+            "= label ${1:method}${2:, {\\}} do",
+            "  $3"
+        ],
+        "description": "label block"
+    },
+    "f.label_block": {
+        "prefix": "f.label_block",
+        "body": [
+            "= f.label ${1:method}${2:, {\\}} do",
+            "  $3"
+        ],
+        "description": "form.label block"
+    },
+    "label_tag": {
+        "prefix": "label_tag",
+        "body": [
+            "= label_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "label_tag"
+    },
+    "radio_button": {
+        "prefix": "radio_button",
+        "body": [
+            "= radio_button ${1:object_name}, ${2:method}, ${3:tag_value}${4:, {\\}}"
+        ],
+        "description": "radio_button"
+    },
+    "f.radio_button": {
+        "prefix": "f.radio_button",
+        "body": [
+            "= f.radio_button ${1:method}, ${2:tag_value}${3:, {\\}}"
+        ],
+        "description": "form.radio_button"
+    },
+    "radio_button_tag": {
+        "prefix": "radio_button_tag",
+        "body": [
+            "= radio_button_tag ${1:name}, ${2:value}${3:, {\\}}"
+        ],
+        "description": "radio_button_tag"
+    },
+    "select": {
+        "prefix": "select",
+        "body": [
+            "= select ${1:object}, ${2:method}, ${3:, {\\}}"
+        ],
+        "description": "select"
+    },
+    "select_block": {
+        "prefix": "select_block",
+        "body": [
+            "= select ${1:object}, ${2:method}${3:, {\\}} do",
+            "  $4"
+        ],
+        "description": "select block"
+    },
+    "f.select": {
+        "prefix": "f.select",
+        "body": [
+            "= f.select ${1:method}, ${2:choices}${3:, {\\}}"
+        ],
+        "description": "form.select"
+    },
+    "f.select_block": {
+        "prefix": "f.select_block",
+        "body": [
+            "= f.select ${1:method}, ${2:choices}${3:, {\\}} do",
+            "  $4"
+        ],
+        "description": "form.select block"
+    },
+    "select_tag": {
+        "prefix": "select_tag",
+        "body": [
+            "= select_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "select_tag"
+    },
+    "submit": {
+        "prefix": "submit",
+        "body": [
+            "= submit${1: ${2:value}${3:, {\\}}}"
+        ],
+        "description": "submit"
+    },
+    "f.submit": {
+        "prefix": "f.submit",
+        "body": [
+            "= f.submit${1: ${2:value}${3:, {\\}}}"
+        ],
+        "description": "form.submit"
+    },
+    "submit_tag": {
+        "prefix": "submit_tag",
+        "body": [
+            "= submit_tag ${1:value}${2:, {\\}}"
+        ],
+        "description": "submit_tag"
+    },
+    "f.time_select": {
+        "prefix": "f.time_select",
+        "body": [
+            "= f.time_select ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.time_select"
+    },
+    "f.time_zone_select": {
+        "prefix": "f.time_zone_select",
+        "body": [
+            "= f.time_zone_select ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.time_zone_select"
+    },
+    "color_field": {
+        "prefix": "color_field",
+        "body": [
+            "= color_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "color_field"
+    },
+    "f.color_field": {
+        "prefix": "f.color_field",
+        "body": [
+            "= f.color_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.color_field"
+    },
+    "color_field_tag": {
+        "prefix": "color_field_tag",
+        "body": [
+            "= color_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "color_field_tag"
+    },
+    "date_field": {
+        "prefix": "date_field",
+        "body": [
+            "= date_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "date_field"
+    },
+    "f.date_field": {
+        "prefix": "f.date_field",
+        "body": [
+            "= f.date_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.date_field"
+    },
+    "date_field_tag": {
+        "prefix": "date_field_tag",
+        "body": [
+            "= date_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "date_field_tag"
+    },
+    "datetime_field": {
+        "prefix": "datetime_field",
+        "body": [
+            "= datetime_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "datetime_field"
+    },
+    "f.datetime_field": {
+        "prefix": "f.datetime_field",
+        "body": [
+            "= f.datetime_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.datetime_field"
+    },
+    "datetime_field_tag": {
+        "prefix": "datetime_field_tag",
+        "body": [
+            "= datetime_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "datetime_field_tag"
+    },
+    "datetime_local_field": {
+        "prefix": "datetime_local_field",
+        "body": [
+            "= datetime_local_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "datetime_local_field"
+    },
+    "datetime_local_field_tag": {
+        "prefix": "datetime_local_field_tag",
+        "body": [
+            "= datetime_local_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "datetime_local_field_tag"
+    },
+    "f.datetime_local_field": {
+        "prefix": "f.datetime_local_field",
+        "body": [
+            "= f.datetime_local_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.datetime_local_field"
+    },
+    "email_field": {
+        "prefix": "email_field",
+        "body": [
+            "= email_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "email_field"
+    },
+    "f.email_field": {
+        "prefix": "f.email_field",
+        "body": [
+            "= f.email_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.email_field"
+    },
+    "email_field_tag": {
+        "prefix": "email_field_tag",
+        "body": [
+            "= email_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "email_field_tag"
+    },
+    "form_for": {
+        "prefix": "form_for",
+        "body": [
+            "= form_for $1 do |$2|",
+            "  $3"
+        ],
+        "description": "form_for"
+    },
+    "form_tag": {
+        "prefix": "form_tag",
+        "body": [
+            "= form_tag $1 do",
+            "  $2"
+        ],
+        "description": "form_tag"
+    },
+    "month_field": {
+        "prefix": "month_field",
+        "body": [
+            "= month_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "month_field"
+    },
+    "f.month_field": {
+        "prefix": "f.month_field",
+        "body": [
+            "= f.month_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.month_field"
+    },
+    "month_field_tag": {
+        "prefix": "month_field_tag",
+        "body": [
+            "= month_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "month_field_tag"
+    },
+    "number_field": {
+        "prefix": "number_field",
+        "body": [
+            "= number_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "number_field"
+    },
+    "f.number_field": {
+        "prefix": "f.number_field",
+        "body": [
+            "= f.number_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.number_field"
+    },
+    "number_field_tag": {
+        "prefix": "number_field_tag",
+        "body": [
+            "= number_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "number_field_tag"
+    },
+    "password_field": {
+        "prefix": "password_field",
+        "body": [
+            "= password_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "password_field"
+    },
+    "f.password_field": {
+        "prefix": "f.password_field",
+        "body": [
+            "= f.password_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.password_field"
+    },
+    "password_field_tag": {
+        "prefix": "password_field_tag",
+        "body": [
+            "= password_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "password_field_tag"
+    },
+    "phone_field": {
+        "prefix": "phone_field",
+        "body": [
+            "= phone_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "phone_field"
+    },
+    "f.phone_field": {
+        "prefix": "f.phone_field",
+        "body": [
+            "= f.phone_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.phone_field"
+    },
+    "phone_field_tag": {
+        "prefix": "phone_field_tag",
+        "body": [
+            "= phone_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "phone_field_tag"
+    },
+    "range_field": {
+        "prefix": "range_field",
+        "body": [
+            "= range_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "range_field"
+    },
+    "f.range_field": {
+        "prefix": "f.range_field",
+        "body": [
+            "= f.range_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.range_field"
+    },
+    "range_field_tag": {
+        "prefix": "range_field_tag",
+        "body": [
+            "= range_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "range_field_tag"
+    },
+    "search_field": {
+        "prefix": "search_field",
+        "body": [
+            "= search_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "search_field"
+    },
+    "f.search_field": {
+        "prefix": "f.search_field",
+        "body": [
+            "= f.search_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.search_field"
+    },
+    "search_field_tag": {
+        "prefix": "search_field_tag",
+        "body": [
+            "= search_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "search_field_tag"
+    },
+    "telephone_field": {
+        "prefix": "telephone_field",
+        "body": [
+            "= telephone_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "telephone_field"
+    },
+    "f.telephone_field": {
+        "prefix": "f.telephone_field",
+        "body": [
+            "= f.telephone_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.telephone_field"
+    },
+    "telephone_field_tag": {
+        "prefix": "telephone_field_tag",
+        "body": [
+            "= telephone_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "telephone_field_tag"
+    },
+    "text_area": {
+        "prefix": "text_area",
+        "body": [
+            "= text_area ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "text_area"
+    },
+    "f.text_area": {
+        "prefix": "f.text_area",
+        "body": [
+            "= f.text_area ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.text_area"
+    },
+    "text_area_tag": {
+        "prefix": "text_area_tag",
+        "body": [
+            "= text_area_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "text_area_tag"
+    },
+    "text_field": {
+        "prefix": "text_field",
+        "body": [
+            "= text_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "text_field"
+    },
+    "f.text_field": {
+        "prefix": "f.text_field",
+        "body": [
+            "= f.text_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.text_field"
+    },
+    "text_field_tag": {
+        "prefix": "text_field_tag",
+        "body": [
+            "= text_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "text_field_tag"
+    },
+    "time_field": {
+        "prefix": "time_field",
+        "body": [
+            "= time_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "time_field"
+    },
+    "f.time_field": {
+        "prefix": "f.time_field",
+        "body": [
+            "= f.time_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.time_field"
+    },
+    "time_field_tag": {
+        "prefix": "time_field_tag",
+        "body": [
+            "= time_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "time_field_tag"
+    },
+    "url_field": {
+        "prefix": "url_field",
+        "body": [
+            "= url_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "url_field"
+    },
+    "f.url_field": {
+        "prefix": "f.url_field",
+        "body": [
+            "= f.url_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.url_field"
+    },
+    "url_field_tag": {
+        "prefix": "url_field_tag",
+        "body": [
+            "= url_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "url_field_tag"
+    },
+    "week_field": {
+        "prefix": "week_field",
+        "body": [
+            "= week_field ${1:object_name}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "week_field"
+    },
+    "f.week_field": {
+        "prefix": "f.week_field",
+        "body": [
+            "= f.week_field ${1:method}${2:, {\\}}"
+        ],
+        "description": "form.week_field"
+    },
+    "week_field_tag": {
+        "prefix": "week_field_tag",
+        "body": [
+            "= week_field_tag ${1:name}${2:, {\\}}"
+        ],
+        "description": "week_field_tag"
+    },
+    "field_set_tag": {
+        "prefix": "field_set_tag",
+
+        "body": [
+            "= field_set_tag $1 do",
+            "  $2"
+        ],
+        "description": "field_set_tag"
+    },
+    "image_submit_tag": {
+        "prefix": "image_submit_tag",
+        "body": [
+            "= image_submit_tag ${1:source}${2:, {\\}}"
+        ],
+        "description": "image_submit_tag"
+    },
+    "utf8_enforcer_tag": {
+        "prefix": "utf8_enforcer_tag",
+        "body": [
+            "= utf8_enforcer_tag"
+        ],
+        "description": "utf8_enforcer_tag"
+    },
+    "collection_check_boxes": {
+        "prefix": "collection_check_boxes",
+        "body": [
+            "= collection_check_boxes ${1:object}, ${2:method}, ${3:collection}, ${4:value_method}, ${5:text_method}${6:, {\\}}"
+        ],
+        "description": "collection_check_boxes"
+    },
+    "f.collection_check_boxes": {
+        "prefix": "f.collection_check_boxes",
+        "body": [
+            "= f.collection_check_boxes ${1:method}, ${2:collection}, ${3:value_method}, ${4:text_method}${5:, {\\}}"
+        ],
+        "description": "form.collection_check_boxes"
+    },
+    "collection_check_boxes_block": {
+        "prefix": "collection_check_boxes_block",
+        "body": [
+            "= collection_check_boxes ${1:object}, ${2:method}, ${3:collection}, ${4:value_method}, ${5:text_method}${6:, {\\}} do",
+            "  $7"
+        ],
+        "description": "collection_check_boxes block"
+    },
+    "collection_radio_buttons": {
+        "prefix": "collection_radio_buttons",
+        "body": [
+            "= collection_radio_buttons ${1:object}, ${2:method}, ${3:collection}, ${4:value_method}, ${5:text_method}${6:, {\\}}"
+        ],
+        "description": "form.collection_radio_buttons"
+    },
+    "f.collection_radio_buttons": {
+        "prefix": "f.collection_radio_buttons",
+        "body": [
+            "= f.collection_radio_buttons ${1:method}, ${2:collection}, ${3:value_method}, ${4:text_method}${5:, {\\}}"
+        ],
+        "description": "form.collection_radio_buttons"
+    },
+    "collection_radio_buttons_block": {
+        "prefix": "collection_radio_buttons_block",
+        "body": [
+            "= collection_radio_buttons ${1:object}, ${2:method}, ${3:collection}, ${4:value_method}, ${5:text_method}${6:, {\\}} do",
+            "  $7"
+        ],
+        "description": "form.collection_radio_buttons"
+    },
+    "f.collection_select": {
+        "prefix": "f.collection_select",
+        "body": [
+            "= f.collection_select ${1:method}, ${2:collection}, ${3:value_method}, ${4:text_method}${5:, {\\}}"
+        ],
+        "description": "form.collection_select"
+    },
+
+    "collection_select": {
+        "prefix": "collection_select",
+        "body": [
+            "= collection_select ${1:object}, ${2:method}, ${3:collection}, ${4:value_method}, ${6:text_method}${7:, {\\}}"
+        ],
+        "description": "collection_select"
+    },
+    "grouped_collection_select": {
+        "prefix": "grouped_collection_select",
+        "body": [
+            "= grouped_collection_select ${1:object}, ${2:method}, ${3:collection}, ${4:group_method}, ${5:group_label_method}, ${6:option_key_method}, ${7:option_value_method}${8:, {\\}}"
+        ],
+        "description": "grouped_collection_select"
+    },
+    "grouped_options_for_select": {
+        "prefix": "grouped_options_for_select",
+        "body": [
+            "= grouped_options_for_select ${1:grouped_options}${2:, {\\}}"
+        ],
+        "description": "grouped_options_for_select"
+    },
+    "option_groups_from_collection_for_select": {
+        "prefix": "option_groups_from_collection_for_select",
+        "body": [
+            "= option_groups_from_collection_for_select ${1:collection}, ${2:group_method}, ${3:group_label_method}, ${4:option_key_method}, ${5:option_value_method}${6:, {\\}}"
+        ],
+        "description": "option_groups_from_collection_for_select"
+    },
+    "options_for_select": {
+        "prefix": "options_for_select",
+        "body": [
+            "= options_for_select ${1:container}${2:, {\\}}"
+        ],
+        "description": "options_for_select"
+    },
+    "options_from_collection_for_select": {
+        "prefix": "options_from_collection_for_select",
+        "body": [
+            "= options_from_collection_for_select ${1:collection}, ${2:value_method}, ${3:text_method}${4:, {\\}}"
+        ],
+        "description": "options_from_collection_for_select"
+    },
+    "time_zone_options_for_select": {
+        "prefix": "time_zone_options_for_select",
+        "body": [
+            "= time_zone_options_for_select $1"
+        ],
+        "description": "time_zone_options_for_select"
+    },
+    "time_zone_select": {
+        "prefix": "time_zone_select",
+        "body": [
+            "= time_zone_select ${1:object}, ${2:method}${3:, {\\}}"
+        ],
+        "description": "time_zone_select"
+    },
+    "escape_javascript": {
+        "prefix": "escape_javascript",
+        "body": [
+            "= escape_javascript $1"
+        ],
+        "description": "escape_javascript"
+    },
+    "escape_javascript_alias": {
+        "prefix": "j",
+        "body": [
+            "= j $1"
+        ],
+        "description": "j"
+    },
+    "javascript_tag": {
+        "prefix": "javascript_tag",
+        "body": [
+            "= javascript_tag $1"
+        ],
+        "description": "javascript_tag"
+    },
+    "javascript_tag_block": {
+        "prefix": "javascript_tag_block",
+        "body": [
+            "= javascript_tag do",
+            "  $1"
+        ],
+        "description": "javascript_tag block"
+    },
+    "number_to_currency": {
+        "prefix": "number_to_currency",
+        "body": [
+            "= number_to_currency(${1:number}${2:, {\\}})"
+        ],
+        "description": "number_to_currency"
+    },
+    "number_to_human": {
+        "prefix": "number_to_human",
+        "body": [
+            "= number_to_human(${1:number}${2:, {\\}})"
+        ],
+        "description": "number_to_human"
+    },
+    "number_to_human_size": {
+        "prefix": "number_to_human_size",
+        "body": [
+            "= number_to_human_size(${1:number}${2:, {\\}})"
+        ],
+        "description": "number_to_human_size"
+    },
+    "number_to_percentage": {
+        "prefix": "number_to_percentage",
+        "body": [
+            "= number_to_percentage(${1:number}${2:, {\\}})"
+        ],
+        "description": "number_to_percentage"
+    },
+    "number_to_phone": {
+        "prefix": "number_to_phone",
+        "body": [
+            "= number_to_phone(${1:number}${2:, {\\}})"
+        ],
+        "description": "number_to_phone"
+    },
+    "number_with_delimiter": {
+        "prefix": "number_with_delimiter",
+        "body": [
+            "= number_with_delimiter(${1:number}${2:, {\\}})"
+        ],
+        "description": "number_with_delimiter"
+    },
+    "number_with_precision": {
+        "prefix": "number_with_precision",
+        "body": [
+            "= number_with_precision(${1:number}${2:, {\\}})"
+        ],
+        "description": "number_with_precision"
+    },
+    "raw": {
+        "prefix": "raw",
+        "body": [
+            "= raw $1"
+        ],
+        "description": "raw"
+    },
+    "safe_join": {
+        "prefix": "safe_join",
+        "body": [
+            "= safe_join $1"
+        ],
+        "description": "safe_join"
+    },
+    "to_sentence": {
+        "prefix": "to_sentence",
+        "body": [
+            "= to_sentence $1"
+        ],
+        "description": "to_sentence"
+    },
+    "content_tag_for": {
+        "prefix": "content_tag_for",
+        "body": [
+            "= content_tag_for($1) do",
+            "  $2"
+        ],
+        "description": "content_tag_for"
+    },
+    "div_for": {
+        "prefix": "div_for",
+        "body": [
+            "= div_for($1) do",
+            "  $2"
+        ],
+        "description": "div_for"
+    },
+    "render_partial_local": {
+        "prefix": "render_partial_local",
+        "body": [
+            "= render partial: '${1:src}', locals: { ${2:key}: ${3:as} }${4:, layout: $5}"
+        ],
+        "description": "render partial with locals"
+    },
+    "render_partial_collection": {
+        "prefix": "render_partial_collection",
+        "body": [
+            "= render partial: '${1:src}', collection: ${2:collection}${3:, as: ${4:as}}${5:, spacer_template: $6}${7, layout: $8}"
+        ],
+        "description": "render partial with collection"
+    },
+    "render_partial_only": {
+        "prefix": "render_partial_only",
+        "body": [
+            "= render partial: '${1:partial}'"
+        ],
+        "description": "render partial only"
+    },
+    "render_only": {
+        "prefix": "render",
+        "body": [
+            "= render '${1:object}'"
+        ],
+        "description": "render only"
+    },
+    "sanitize": {
+        "prefix": "sanitize",
+        "body": [
+            "= sanitize ${1:object}${2:, tags: %w($3)}${4:, attributes: %w($5)}${6:, scrubber: $7}"
+        ],
+        "description": "sanitize"
+    },
+    "strip_links": {
+        "prefix": "strip_links",
+        "body": [
+            "strip_links(${1:object})"
+        ],
+        "description": "strip_links"
+    },
+    "strip_tags": {
+        "prefix": "strip_tags",
+        "body": [
+            "strip_tags(${1:object})"
+        ],
+        "description": "strip_tags"
+    },
+    "cdata_section": {
+        "prefix": "cdata_section",
+        "body": [
+            "cdata_section(${1:object})"
+        ],
+        "description": "cdata_section"
+    },
+    "content_tag": {
+        "prefix": "content_tag",
+        "body": [
+            "= content_tag(${1:tag}, ${2:body}${3:, class: $4})"
+        ],
+        "description": "content_tag"
+    },
+    "content_tag_block": {
+        "prefix": "content_tag_block",
+        "body": [
+            "= content_tag ${1:tag}${2:, class: $3} do",
+            "  $4"
+        ],
+        "description": "content_tag block"
+    },
+    "escape_once": {
+        "prefix": "escape_once",
+        "body": [
+            "= escape_once('${1:body}')"
+        ],
+        "description": "escape_once"
+    },
+    "tag": {
+        "prefix": "tag",
+        "body": [
+            "= tag($1)"
+        ],
+        "description": "tag"
+    },
+    "concat": {
+        "prefix": "concat",
+        "body": [
+            "= concat($1)"
+        ],
+        "description": "concat"
+    },
+    "cycle": {
+        "prefix": "cycle",
+        "body": [
+            "= cycle(${1:first}${2:, name: $3})"
+        ],
+        "description": "cycle"
+    },
+    "current_cycle": {
+        "prefix": "current_cycle",
+        "body": [
+            "= current_cycle${1:('$2')}"
+        ],
+        "description": "current_cycle"
+    },
+    "excerpt": {
+        "prefix": "excerpt",
+        "body": [
+            "= excerpt('${1:text}', '${2:phrase}'${3:, {\\}})"
+        ],
+        "description": "excerpt"
+    },
+    "highlight": {
+        "prefix": "highlight",
+        "body": [
+            "= highlight('${1:text}', '${2:phrase}'${3:, {\\}})"
+        ],
+        "description": "highlight"
+    },
+    "pluralize": {
+        "prefix": "pluralize",
+        "body": [
+            "= pluralize(${1:number}, '${2:phrase}'${3:, {\\}})"
+        ],
+        "description": "pluralize"
+    },
+    "reset_cycle": {
+        "prefix": "reset_cycle",
+        "body": [
+            "- reset_cycle${1:('$2')}"
+        ],
+        "description": "reset_cycle"
+    },
+    "safe_concat": {
+        "prefix": "safe_concat",
+        "body": [
+            "= safe_concat($1)"
+        ],
+        "description": "safe_concat"
+    },
+    "simple_format": {
+        "prefix": "simple_format",
+        "body": [
+            "= simple_format('${1:text}'${2:, {\\}})"
+        ],
+        "description": "simple_format"
+    },
+    "truncate": {
+        "prefix": "truncate",
+        "body": [
+            "= truncate('${1:text}'${2:, {\\}})"
+        ],
+        "description": "truncate"
+    },
+    "word_wrap": {
+        "prefix": "word_wrap",
+        "body": [
+            "= word_wrap('${1:text}'${2:, line_width: $3}${4:, break_sequence: $5})"
+        ],
+        "description": "word_wrap"
+    },
+    "l": {
+        "prefix": "l",
+        "body": [
+            "= l('${1:text}'${2:, {\\}})"
+        ],
+        "description": "l"
+    },
+    "localize": {
+        "prefix": "localize",
+        "body": [
+            "= localize('${1:text}'${2:, {\\}})"
+        ],
+        "description": "localize"
+    },
+    "t": {
+        "prefix": "t",
+        "body": [
+            "= t('${1:text}'${2:, {\\}})"
+        ],
+        "description": "t"
+    },
+    "translate": {
+        "prefix": "translate",
+        "body": [
+            "= translate('${1:text}'${2:, {\\}})"
+        ],
+        "description": "translate"
+    },
+    "button_to": {
+        "prefix": "button_to",
+        "body": [
+            "= button_to('${1:name}'${2:, {\\}})"
+        ],
+        "description": "button_to"
+    },
+    "button_to_block": {
+        "prefix": "button_to_block",
+        "body": [
+            "= button_to $1 do",
+            "  $2"
+        ],
+        "description": "button_to block"
+    },
+    "current_page?": {
+        "prefix": "current_page?",
+        "body": [
+            "current_page?($1)"
+        ],
+        "description": "current_page?"
+    },
+    "link_to": {
+        "prefix": "link_to",
+        "body": [
+            "= link_to('${1:name}'${2:, {\\}})"
+        ],
+        "description": "link_to"
+    },
+    "link_to_block": {
+        "prefix": "link_to_block",
+        "body": [
+            "= link_to $1 do",
+            "  $2"
+        ],
+        "description": "link_to block"
+    },
+    "link_to_if": {
+        "prefix": "link_to_if",
+        "body": [
+            "= link_to_if(${1:condition}, '${2:name}'${3:, {\\}})"
+        ],
+        "description": "link_to_if"
+    },
+    "link_to_if_block": {
+        "prefix": "link_to_if_block",
+        "body": [
+            "= link_to_if(${1:condition}, '${2:name}'${3:, {\\}}) do",
+            "  $4"
+        ],
+        "description": "link_to_if block"
+    },
+    "link_to_unless": {
+        "prefix": "link_to_unless",
+        "body": [
+            "= link_to_unless(${1:condition}, '${2:name}'${3:, {\\}})"
+        ],
+        "description": "link_to_unless"
+    },
+    "link_to_unless_block": {
+        "prefix": "link_to_unless_block",
+        "body": [
+            "= link_to_unless(${1:condition}, '${2:name}'${3:, {\\}}) do",
+            "  $4"
+        ],
+        "description": "link_to_unless block"
+    },
+    "link_to_unless_current": {
+        "prefix": "link_to_unless_current",
+        "body": [
+            "= link_to_unless_current(${1:name}${2:, {\\}})"
+        ],
+        "description": "link_to_unless_current"
+    },
+    "link_to_unless_current_block": {
+        "prefix": "link_to_unless_current_block",
+        "body": [
+            "= link_to_unless_current(${1:name}${2:, {\\}}) do",
+            "  $3"
+        ],
+        "description": "link_to_unless_current block"
+    },
+    "mail_to": {
+        "prefix": "mail_to",
+        "body": [
+            "= mail_to('${1:address}'${2:, {\\}})"
+        ],
+        "description": "mail_to"
+    },
+    "mail_to_block": {
+        "prefix": "mail_to_block",
+        "body": [
+            "= mail_to('${1:address}'${2:, {\\}}) do",
+            "  $3"
+        ],
+        "description": "link_to_unless_current block"
+    }
+}

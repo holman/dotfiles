@@ -1,0 +1,13 @@
+
+.main-panel {
+    position: absolute;
+    bottom: 0;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    font-size: var(--code-font-size);
+    font-family: var(--code-font-family);
+    background-color: var(--vscode-editor-background);
+    overflow: hidden;
+}
+

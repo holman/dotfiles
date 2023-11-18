@@ -1,0 +1,164 @@
+{
+  ".source.go": {
+    "syntax proto3": {
+      "prefix": "sp3",
+      "description": "proto3 syntax",
+      "body": "syntax = \"proto3\";"
+    },
+    "syntax proto2": {
+      "prefix": "sp2",
+      "description": "proto2 syntax",
+      "body": "syntax = \"proto2\";"
+    },
+    "package": {
+      "prefix": "pkg",
+      "description": "package specifier",
+      "body": "package ${1:package.name};"
+    },
+    "import": {
+      "prefix": "imp",
+      "description": "import statement",
+      "body": "import \"${1:path/to/other/protos}.proto\";"
+    },
+    "option java_package": {
+      "prefix": "ojp",
+      "description": "option java_package",
+      "body": "option java_package = \"${1:java.package.name}\";"
+    },
+    "option java_outer_classname": {
+      "prefix": "ojoc",
+      "description": "option java_outer_classname",
+      "body": "option java_outer_classname = \"${1:ClassName}\";"
+    },
+    "option optimize_for SPEED": {
+      "prefix": "o4s",
+      "description": "option optimize_for SPEED",
+      "body": "option optimize_for = SPEED;"
+    },
+    "option optimize_for CODE_SIZE": {
+      "prefix": "o4cs",
+      "description": "option optimize_for CODE_SIZE",
+      "body": "option optimize_for = CODE_SIZE;"
+    },
+    "option optimize_for LITE_RUNTIME": {
+      "prefix": "o4lr",
+      "description": "option optimize_for LITE_RUNTIME",
+      "body": "option optimize_for = LITE_RUNTIME;"
+    },
+    "option deprecated": {
+      "prefix": "odep",
+      "description": "option deprecated",
+      "body": "option deprecated = true;"
+    },
+    "option allow_alias": {
+      "prefix": "oaa",
+      "description": "option allow_alias",
+      "body": "option allow_alias = true;"
+    },
+    "message": {
+      "prefix": "msg",
+      "description": "message",
+      "body": "message ${1:MessageName} {\n\t$0\n}"
+    },
+    "bool field": {
+      "prefix": "fbo",
+      "description": "bool field",
+      "body": "bool ${1:field_name} = ${2:tag};"
+    },
+    "int32 field": {
+      "prefix": "fi32",
+      "description": "int32 field",
+      "body": "int32 ${1:field_name} = ${2:tag};"
+    },
+    "int64 field": {
+      "prefix": "fi64",
+      "description": "int64 field",
+      "body": "int64 ${1:field_name} = ${2:tag};"
+    },
+    "uint32 field": {
+      "prefix": "fu32",
+      "description": "uint32 field",
+      "body": "uint32 ${1:field_name} = ${2:tag};"
+    },
+    "uint64 field": {
+      "prefix": "fu64",
+      "description": "uint64 field",
+      "body": "uint64 ${1:field_name} = ${2:tag};"
+    },
+    "sint32 field": {
+      "prefix": "fs32",
+      "description": "sint32 field",
+      "body": "sint32 ${1:field_name} = ${2:tag};"
+    },
+    "sint64 field": {
+      "prefix": "fs64",
+      "description": "sint64 field",
+      "body": "sint64 ${1:field_name} = ${2:tag};"
+    },
+    "fixed32 field": {
+      "prefix": "ff32",
+      "description": "fixed32 field",
+      "body": "fixed32 ${1:field_name} = ${2:tag};"
+    },
+    "fixed64 field": {
+      "prefix": "ff64",
+      "description": "fixed64 field",
+      "body": "fixed64 ${1:field_name} = ${2:tag};"
+    },
+    "sfixed32 field": {
+      "prefix": "fsf32",
+      "description": "sfixed32 field",
+      "body": "sfixed32 ${1:field_name} = ${2:tag};"
+    },
+    "sfixed64 field": {
+      "prefix": "fsf64",
+      "description": "sfixed64 field",
+      "body": "sfixed64 ${1:field_name} = ${2:tag};"
+    },
+    "float field": {
+      "prefix": "ffl",
+      "description": "float field",
+      "body": "float ${1:field_name} = ${2:tag};"
+    },
+    "double field": {
+      "prefix": "fdo",
+      "description": "double field",
+      "body": "double ${1:field_name} = ${2:tag};"
+    },
+    "string field": {
+      "prefix": "fst",
+      "description": "string field",
+      "body": "string ${1:field_name} = ${2:tag};"
+    },
+    "bytes field": {
+      "prefix": "fby",
+      "description": "bytes field",
+      "body": "bytes ${1:field_name} = ${2:tag};"
+    },
+    "map field": {
+      "prefix": "fm",
+      "description": "map field",
+      "body": "map<${1:key}, ${2:val}> ${3:field_name} = ${4:tag};"
+    },
+    "oneof field": {
+      "prefix": "foo",
+      "description": "oneof field",
+      "body": "oneof ${3:name} {\n\t$0\n}"
+    },
+    "enum": {
+      "prefix": "en",
+      "description": "enum",
+      "body": "enum ${3:EnumName} {\n\t$0\n}"
+    },
+    "service": {
+      "prefix": "sv",
+      "description": "service",
+      "body": "service ${1:ServiceName} {\n\t$0\n}"
+    },
+    "method": {
+      "prefix": "rpc",
+      "description": "service method",
+      "body": "rpc ${1:MethodName} (${2:Request}) returns (${3:Response});"
+    }
+  }
+}

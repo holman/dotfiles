@@ -1,0 +1,6 @@
+syntax = "proto2";
+package example;
+
+message Msg42a {
+  optional bytes test = 1 [default="aaaa \" dddd"];
+}

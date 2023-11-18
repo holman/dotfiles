@@ -1,0 +1,25 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "strictNullChecks": true
+    },
+    "include": [
+        "src/*config.ts",
+        "src/*tracker.ts",
+        "src/coediting/**/*.ts",
+        "src/constants.ts",
+        "src/contracts/*.ts",
+        "src/extensionUtil.ts",
+        "src/loggingUtil.ts",
+        "src/textSearchService.ts",
+        "src/tracing/logFileTraceListener.ts",
+        "src/tracing/outputTraceListener.ts",
+        "src/tracing/traceSource.ts",
+        "src/telemetry/*.ts",
+        "src/utils/*.ts",
+        "src/auth/*.ts",
+        "src/workspace/searchProvider.ts",
+        "typings/*.d.ts"
+    ]
+}

@@ -1,0 +1,25 @@
+dist: xenial
+language: python
+python:
+  - 2.7
+  - 3.4
+  - 3.5
+  - 3.6
+  - 3.7
+  - 3.8-dev
+  - pypy2.7-6.0
+  - pypy3.5-6.0
+matrix:
+  include:
+    - python: 3.5
+      env: TOXENV=py35-coverage
+install:
+    - pip install --quiet tox-travis
+script:
+    - tox
+after_script:
+    - |
+      if [ "${TOXENV%-coverage}" == "$TOXENV" ]; then
+        pip install --quiet coveralls;
+        coveralls;
+      fi

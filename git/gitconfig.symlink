@@ -14,6 +14,10 @@
         status = auto
         branch = auto
         ui = true
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
 [core]
         excludesfile = ~/.gitignore
         editor = vim
@@ -38,3 +42,4 @@
 
 [init]
 	defaultBranch = main
+

@@ -1,0 +1,47 @@
+/* #1 */
+syntax = "proto3";
+
+package some.project;
+
+// This is simply a white line with no markup. The front slashes break the syntax highlighting of the string literal.
+//option go_package = "some/pb/project";
+
+// The double slash is parsed as the start of a line comment.
+option go_package = "some//pb/project";
+
+/* #2 */
+import "google/protobuf/empty.proto";
+
+message SomeMsg {}
+
+service Testsvc {
+    // Using imported messages will cause a white line
+    rpc Foo(google.protobuf.Empty) returns (SomeMsg) {}
+
+    // all following rpc definitions will also be white
+    rpc Bar(SomeMsg) returns (SomeMsg) {}
+    rpc Bar2(SomeMsg) returns (SomeMsg) {}
+}
+
+/* #3 */
+import "discovery-v2.proto";
+/* #4 */
+import public "other.proto";
+
+/* #4 */
+message GetBookRequest{}
+message Book{}
+message CreateBookRequest{}
+service LibraryService {
+    rpc GetBook(GetBookRequest) returns (Book) {
+        option (google.api.http) = {
+            get: "/v1/{name=shelves//books/}"
+        };
+    };
+    rpc CreateBook(CreateBookRequest) returns (Book) {
+        option (google.api.http) = {
+            post: "/v1/{parent=shelves/*}/books"
+            body: "book"
+        };
+    };
+}

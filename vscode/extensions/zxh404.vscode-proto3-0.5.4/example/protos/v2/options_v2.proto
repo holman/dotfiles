@@ -1,0 +1,43 @@
+syntax = "proto2";
+
+package v2;
+
+option java_package = "v2.com.example.foo";
+option java_outer_classname = "Ponycopter";
+option java_multiple_files = false;
+option java_generate_equals_and_hash = false;
+option java_string_check_utf8 = false;
+option optimize_for = CODE_SIZE;
+option deprecated = true;
+
+message TestOptions {
+  option message_set_wire_format = false;
+  option no_standard_descriptor_accessor = false;
+  option deprecated = false;
+
+  optional int32 old_field = 6 [deprecated=true];
+  repeated int32 x = 7 [ packed = true ];
+  optional int64 y = 8 [ jstype=JS_STRING ];
+  optional int64 z = 9 [lazy=false];
+
+  optional string s1 = 200 [default="abc'def\"g"];
+  optional string s2 = 201 [default='abc"def\'g'];
+  optional string str_escapes = 202 [default="abc\xa1\xB2\123\a\b\f\n\r\t\v"];
+}
+
+enum TestEnum {
+  option allow_alias = true;
+
+  X = 0;
+  Y = 1;
+  Z = 1 [deprecated=true];
+}
+
+service TestService {
+  option deprecated = false;
+
+  rpc decr (TestOptions) returns (TestOptions);
+  rpc incr (TestOptions) returns (TestOptions) {
+    option deprecated = true;
+  }
+}

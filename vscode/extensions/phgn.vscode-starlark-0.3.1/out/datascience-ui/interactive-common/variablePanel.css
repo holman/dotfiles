@@ -1,0 +1,6 @@
+#variable-divider {
+    width: 100%;
+    border-top-color: var(--override-badge-background, var(--vscode-badge-background));
+    border-top-style: solid;
+    border-top-width: 2px;
+}

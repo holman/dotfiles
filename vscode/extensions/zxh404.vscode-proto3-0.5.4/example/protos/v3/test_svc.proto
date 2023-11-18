@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package v3;
+
+import "google/protobuf/empty.proto";
+
+message SomeMsg {}
+
+service TestSvc {
+    // Using imported messages will cause a white line
+    rpc Foo(google.protobuf.Empty) returns (SomeMsg) {}
+
+    // all following rpc definitions will also be white
+    rpc Bar(SomeMsg) returns (SomeMsg) {}
+    rpc Bar2(SomeMsg) returns (SomeMsg) {}
+}

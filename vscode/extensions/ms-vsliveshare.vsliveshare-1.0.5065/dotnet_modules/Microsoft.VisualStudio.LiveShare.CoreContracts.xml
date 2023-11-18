@@ -1,0 +1,2283 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.LiveShare.CoreContracts</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Cascade.Contracts.CoreErrorCodes">
+            <summary>
+            VS core Live Share error codes
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ILanguageMappingProvider">
+            <summary>
+            Provides language debugger information for a registered language.
+            This information is consumed when launching the VS code adapter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILanguageMappingProvider.LanguageId">
+            <summary>
+            A unique guid string that contains the debugger's language ID
+            Should match the AbstractLanguageService's DebuggerLanguageId
+            ex: "8D07D1C6-5DE2-45CE-AEBF-7E21E03F9B10"
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILanguageMappingProvider.LanguageName">
+            <summary>
+            The name of the language
+            Should match the AbstractLanguageService's LanguageName
+            ex: "C#_LSP"
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILanguageMappingProvider.Extensions">
+            <summary>
+            An array of extensions associated with this language name
+            ex: new string[] { ".cs" }
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILanguageMappingProvider.Priority">
+            <summary>
+            An integer representing the priority of the language mapping provider.
+            If two languge mapping providers register the same extension the one with
+            the higher priority will be used.
+            ex: 1
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IClientAccess">
+            <summary>
+            In-proc (not serialized across RPC boundary) interface for notifying when session or user access control changed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.IClientAccess.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the current RPC session client is read-only.
+            Returns true for handlers of RPC request that comes from a client and the client is read-only,
+            otherwise, returns false.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IClientAccess.AccessControlChanged">
+            <summary>
+            Event raised when session or user access control has changed.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IClientAccess.OperationAccessChanged">
+            <summary>
+            Event raised when restricted operation access has changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IClientAccessCheck">
+            <summary>
+            In-proc (not serialized across RPC boundary) interface for checking current client permissions
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.IsClientReadOnly(System.Int32)">
+            <summary>
+            Gets a value indicating whether the specific RPC session client is read-only.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.GetOperationAccess(Microsoft.Cascade.Contracts.RestrictedOperation,System.Boolean)">
+            <summary>
+            Get access level of the <paramref name="operation"/>.
+            Does not log rejected operation.
+            </summary>
+            <param name="operation">Restricted operation the get access for. May be null</param>
+            <param name="askForAccessIfNeeded">A value indicating whether elevation may be requested if the access is not granted.</param>
+            <returns>Access level of the operation.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.GetOperationAccess(Microsoft.Cascade.Contracts.RestrictedOperation,System.Int32,System.Boolean)">
+            <summary>
+            Get access level of the <paramref name="operation"/> for <paramref name="clientId"/>.
+            Does not log rejected operation.
+            </summary>
+            <param name="operation">Restricted operation the get access for. May be null</param>
+            <param name="clientId">Client id</param>
+            <param name="askForAccessIfNeeded">A value indicating whether elevation may be requested if the access is not granted.</param>
+            <returns>Access level of the operation.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.CanPerformOperation(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Checks if the current RPC session client can perform the specified operation.
+            Returns true if <paramref name="operation"/> is null.
+            Logs rejected operation and may start elevation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.CanPerformOperation(Microsoft.Cascade.Contracts.RestrictedOperation,System.Int32)">
+            <summary>
+            Checks if the given client can perform the specified operation.
+            Returns true if <paramref name="operation"/> is null.
+            Logs rejected operation and may start elevation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.VerifyCanPerformOperation(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Checks if the current RPC session client can perform the specified operation and throws <c>InsufficientAccessException</c> if not.
+            Does nothing if <paramref name="operation"/> is null.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.LogRejectedOperation(Microsoft.Cascade.Contracts.RestrictedOperation,Microsoft.Cascade.Contracts.RestrictedOperationAccess)">
+            <summary>
+            Logs rejected operation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.GetGuestSessionId">
+            <summary>
+            Get guest session id or null if it is not known.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.IClientAccessCheck.IsGuestOwner">
+            <summary>
+            Get a value indicating whether the guest is the owner.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.IsSessionHostOrGuestOwner(System.Int32)">
+            <summary>
+            Get a value indicating whether the specified session is the owner or guest owner.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.IClientAccessCheck.IsDefaultAccessControlReadOnly">
+            <summary>
+            Checks if session is readonly.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IClientAccessCheck.IsUserExplicitlyReadWrite(System.Int32)">
+            <summary>
+            Checks if particular user is explicitely in read-write mode.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ICollaborationServiceHost">
+            <summary>
+            Provides for enumerating and instantiating Live Share extensions
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICollaborationServiceHost.CreateServicesAsync``1(System.Collections.Generic.IEnumerable{System.Lazy{Microsoft.VisualStudio.LiveShare.ICollaborationServiceFactory,Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata}},Microsoft.VisualStudio.LiveShare.SessionScope,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.LiveShare.ServiceRole},System.Action{``0,Microsoft.VisualStudio.LiveShare.ICollaborationServiceMetadata,Microsoft.VisualStudio.LiveShare.CollaborationSession},System.Threading.CancellationToken)">
+            <summary>
+            Create collaboration services.
+            </summary>
+            <typeparam name="TService">Type of the service to call <paramref name="createServiceCallback"/> for.</typeparam>
+            <param name="serviceFactories">Extension service factories</param>
+            <param name="sessionScope">Session scope. Only services that match it will be created.</param>
+            <param name="serviceRoles">Service roles. Only services that match any of these service roles will be created.</param>
+            <param name="createServiceCallback">Optional callback to call for each created service that is <typeparamref name="TService"/>.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>A task that completes when all extension services are creeated.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICollaborationServiceHost.CreateServiceProxy``1(System.String)">
+            <summary>
+            Create and add runtime service proxy for <typeparamref name="TService"/>.
+            This method doesn't check if the service is actually registered.
+            </summary>
+            <param name="traceName">Optional name of the trace source for the service proxy. If not specified, "Client.{service_name}" will be used</param>
+            <typeparam name="TService">Type of the service to create the proxy for.</typeparam>
+            <returns>Created service proxy, not null.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICollaborationServiceHost.RegisterHostRpcService``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Register host RPC <paramref name="service"/> on client RPC session and add it the list of workspace services.
+            </summary>
+            <typeparam name="TService">Service <c>IRpcService</c>.</typeparam>
+            <param name="service">Service instance, not null.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task that completes when the service is unregistered.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="service"/> is null.</exception>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICollaborationServiceHost.UregisterHostRpcService``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Unregister host RPC <paramref name="service"/> from client RPC session and remove it from the list of workspace services.
+            </summary>
+            <typeparam name="TService">Service <c>IRpcService</c>.</typeparam>
+            <param name="service">Service instance, not null.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task that completes when the service is unregistered.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="service"/> is null.</exception>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ICollaborationServiceHost.RegisteredServices">
+            <summary>
+            Get registered services in the active Live Share session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ICollaborationServiceHost.RuntimeServices">
+            <summary>
+            Get existing runtime services.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ICollaborationServiceHost.ClientVersion">
+            <summary>
+            Get client version
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ILiveShareSessionManager">
+            <summary>
+            Provides an API for manipulating owner/joiner paths and checking current session status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.IsRemoteSession">
+            <summary>
+            Gets a value indicating that this is a guest joined to an active session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.IsRemoteWorkspaceSelfJoinMode">
+            <summary>
+            Gets a value indicating if current remote session is Nexus client session
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.IsHostSession">
+            <summary>
+            Gets a value indicating that this is a host of active session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.IsServerSession">
+            <summary>
+            Gets a value indicating if the current remote session is Nexus server session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.RemoteRootPath">
+            <summary>
+            Gets the absolute path to the local directory that stores the files downloaded from the remote.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.RemoteRootDirectories">
+            <summary>
+            Gets the absolute paths to the local root directores.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.BaseDirectory">
+            <summary>
+            Base directory (local), or null if there is no session.
+            <see cref="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.RemoteRootPath"/> will be a sub-directory in base directory.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.JoinInfo">
+            <summary>
+            Join information, usually an instance of <c>WorkspaceJoinInfo</c> or null if there is no session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.WorkspaceFileService">
+            <summary>
+            Get remote workspace file service.
+            Returns null if VS is not in session, or it's a host, or remote anycode workspace has not initialized yet.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ILiveShareSessionManager.SessionServices">
+            <summary>
+            Service provider from the active session or null if there is no session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ILiveShareSessionManager.GetHostFileServiceRootConfigurationAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get file service persistent root configuration if it is set and this is the host.
+            </summary>
+            <remarks>
+            In VS this may instantiate and call MEF export of <see cref="T:Microsoft.VisualStudio.LiveShare.IFileServiceRootConfigurationProvider"/>
+            if this is not a guest (this is a host or not in session).
+            It will only call <see cref="M:Microsoft.VisualStudio.LiveShare.IFileServiceRootConfigurationProvider.GetFileServiceRootConfiguationAsync(System.Threading.CancellationToken)"/>
+            once and will cache the result.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ILiveShareSessionManager.GetUserInfoAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get user info from authentication service.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task which result is <c>UserInfo</c> from <c>IAuthenticationService.GetCurrentUserAsync()</c></returns>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ILiveShareSessionManager.SessionAttached">
+            <summary>
+            Event fired when a session is attached and collaboration services are configured.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ISharedWorkspaceService">
+            <summary>
+            Interface for a shared workspace to be used inside or outsde the agent process to register rpc services
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISharedWorkspaceService.RegisterServiceAsync(System.Object,System.String,System.Type,System.Diagnostics.TraceSource,System.Threading.CancellationToken)">
+            <summary>
+            Register a service to be available on joined session
+            </summary>
+            <param name="serviceInstance">The service runtime instance</param>
+            <param name="serviceName">Name of the service to be shared</param>
+            <param name="serviceType">Type contract of the service to be offered</param>
+            <param name="traceSource">Optional trace source</param>
+            <param name="cancellationToken"></param>
+            <returns>A service token that can be used later when unregister the service</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISharedWorkspaceService.UnregisterServiceAsync(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Unregister a service
+            </summary>
+            <param name="serviceToken">The service token</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ITraceSourceFactory">
+            <summary>
+            MEF export interface for trace source factory
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITraceSourceFactory.CreateTraceSource(System.String,System.Boolean)">
+            <summary>
+            Create new trace source that logs to a file with <paramref name="name"/> in %TEMP%\VSFeedbackVSRTCLogs folder.
+            </summary>
+            <param name="name">Trace file name.</param>
+            <param name="disableTruncation">A value indicating whether log truncation should be disabled.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IWorkspaceFileService">
+            <summary>
+            AnyCode cascade workspace being created when a joining a cascade shared workspace
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceFileService.EnsureFileExistsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Check if a shared file exists on the guest and downloads it from the host if not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceFileService.EnsureFileExistsAsync(System.String,System.IProgress{Microsoft.Cascade.Client.DownloadInfo},System.Threading.CancellationToken)">
+            <summary>
+            Check if a shared file exists on the guest and downloads it from the host if not.
+            Reports progress back to the caller if <paramref name="progress"/> is not null.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceFileService.EnsureOwnerFileExistsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Check if a shared file exists on the host and uploads it from the guest if not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.CoreFileConst">
+            <summary>
+            File Service constants
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.SystemUriScheme">
+            <summary>
+            vsls, the scheme for URIs that reference shared folders and files within a shared directory.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.SystemUriSchemePrefix">
+            <summary>
+            vsls:, the scheme for URIs that reference shared folders and files within a shared directory with the ':'.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.SystemUriSchemeExternal">
+            <summary>
+            Scheme for URIs that reference on-off shared files.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.ReadPathSuffix">
+            <summary>
+            Relative path suffix for opening a read-only stream for a file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.WritePathSuffix">
+            <summary>
+            Relative path suffix for opening a write-only stream for a file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.OverwritePathSuffix">
+            <summary>
+            Relative path suffix for opening a write-only stream for a file overwriting existing file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.MaxFileSizeForRpc">
+            <summary>
+            Maximum file size when file can be sent in one RPC call
+            20Mb (max RPC message size) - 2K (overhead and safety margin)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.DefaultBufferSize">
+            <summary>
+            Default buffer size for file operations. Matches default buffer size for Stream.CopyToAsync.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.MaxFilePath">
+            <summary>
+            Maximum file or directory path length. 260 on Windows, <see cref="F:System.Int32.MaxValue"/> on OSX and Linux.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix">
+            <summary>
+            Prefix for remote path in vsls: URIs and FullPath properties in <see cref="T:Microsoft.Cascade.Contracts.IFileService"/> results.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.SpecialFolderPrefixChar">
+            <summary>
+            ~, prefix for first folder that mean speacil kind of path, e.g.
+            /~1 - second root, or /~external - external file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.SpecialFolderPrefix">
+            <summary>
+            ~, prefix for first folder that mean speacil kind of path, e.g.
+            /~1 - second root, or /~external - external file.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.RootIndexPrefix">
+            <summary>
+            /~, root index prefix.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.PrimaryRootMoniker">
+            <summary>
+            0, root moniker for the first, default root.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.PrimaryRootPrefix">
+            <summary>
+            /~0, primary root prefix
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.AltPrimaryRootPrefix">
+            <summary>
+            \~0, alternative primary root prefix
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.ExternalRootMoniker">
+            <summary>
+            external, remote root moniker for external files, registered with <see cref="M:Microsoft.Cascade.Contracts.IFileService.RegisterExternalFilesAsync(System.String[],System.Threading.CancellationToken)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.External">
+            <summary>
+            /~external, remote path prefix for external files registered with <see cref="M:Microsoft.Cascade.Contracts.IFileService.RegisterExternalFilesAsync(System.String[],System.Threading.CancellationToken)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.ExternalPrefix">
+            <summary>
+             /~external/, remote path prefix with trailing slash for external files registered with <see cref="M:Microsoft.Cascade.Contracts.IFileService.RegisterExternalFilesAsync(System.String[],System.Threading.CancellationToken)"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.Untitled">
+            <summary>
+            /~untitled, remote path prefix for untitled documents.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.Git">
+            <summary>
+            /~git, remote path prefix for git documents and resources.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.NotebookCell">
+            <summary>
+            /~notebook, remote path prefix for VS Code notebook cell documents.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.PersistentRootMoniker">
+            <summary>
+            ~, remote root moniker when persistent root is configured.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.PersistentRoot">
+            <summary>
+            /~~, remote path prefix when persistent root is configured.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreFileConst.RemotePathPrefix.PersistentRootPrefix">
+            <summary>
+            /~~/, remote path prefix with trailing slash when persistent root is configured.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations">
+            <summary>
+            Names of restricted operations
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations.FileWriteAccess">
+            <summary>
+            File write access operation for Nexus.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations.GetRestrictedOperationName(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Get restricted operation name from protected operation's <paramref name="protectedOperationMoniker"/> and <paramref name="requiredTrustLevel"/>.
+            </summary>
+            <param name="protectedOperationMoniker">Protected operation moniker, not null.</param>
+            <param name="requiredTrustLevel">Protected operation required trust level. Can be any value or null.</param>
+            <returns>Restricted operation name that starts with <see cref="F:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations.ProtectedOperationMonikerPrefix"/> prefix.</returns>
+            <remarks>
+            If <paramref name="requiredTrustLevel"/> is not null, it will be appended to the result string after "~~" as invariant culture string.
+            All '\' chars in <paramref name="protectedOperationMoniker"/> are escaped as "\\".
+            All '~' chars in <paramref name="protectedOperationMoniker"/> are escaped as "\~".
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations.GetProtectedOperationMoniker(System.String)">
+            <summary>
+            Get protected operation moniker from <paramref name="restrictedOperatioName"/>.
+            </summary>
+            <param name="restrictedOperatioName">Restricted operation name that was created by <see cref="M:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations.GetRestrictedOperationName(System.String,System.Nullable{System.Int32})"/>.</param>
+            <returns>Protected operation moniker.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations.GetProtectedOperationRequiredTrustLevel(System.String)">
+            <summary>
+            Get protected operation required trust level from <paramref name="restrictedOperatioName"/>.
+            </summary>
+            <param name="restrictedOperatioName">Restricted operation name that was created by <see cref="M:Microsoft.Cascade.Contracts.CoreWellKnownRestrictedOperations.GetRestrictedOperationName(System.String,System.Nullable{System.Int32})"/>.</param>
+            <returns>Protected operation required trust level.</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IAccessControlService">
+            <summary>
+            Access control for the current collaboration session for the current guest.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAccessControlService.GetAccessControlAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get current access control.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IAccessControlService.AccessControlChanged">
+            <summary>
+            Event that fires when access control has changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.AccessControl">
+            <summary>
+            Access control
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AccessControl.IsReadOnly">
+            <summary>
+            A value indicating whether the user can only read.
+            False, the default, means full access.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.AccessControlEventArgs">
+            <summary>
+            Event args for an event when access control changes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AccessControlEventArgs.AccessControl">
+            <summary>
+            Current access control.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.MaybeImmutable`1">
+            <summary>
+            Object that can be cloned and can become immutable.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RestrictedOperationAccess">
+            <summary>
+            Access for a restricted operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RestrictedOperationAccess.Allowed">
+            <summary>
+            The operation is allowed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RestrictedOperationAccess.RejectedInReadOnlySession">
+            <summary>
+            The operation is not allowed in a read-only session. E.g. editing files.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RestrictedOperationAccess.RejectedForNotOwner">
+            <summary>
+            The operation is not allowed for a participant who is not the host. E.g. writing to a read-only terminal.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RestrictedOperationAccess.DisabledByHostConfiguration">
+            <summary>
+            The operation is disabled in the host configuration. E.g. starting debug session by guests or kicking off tasks.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RestrictedOperationAccess.ExplicitlyRejectedByHost">
+            <summary>
+            The operation has been explicitly rejected by the host after a guest asked to allow it.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RestrictedOperationAccess.RejectedPersistentRootNotSupported">
+            <summary>
+            The operation is not allowed for a participant that doesn't support persistent root in file service.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RestrictedOperation">
+            <summary>
+            A class that describes a restricted operation which is controlled by access control.
+            By default, the operation is disabled in read-only session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperation.Name">
+            <summary>
+            Operation name for telemetry, not null or empty.
+            New names should be registered in WellKnownRestrictedOperations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperation.SessionId">
+            <summary>
+            Session id of the session that initiated the operation.
+            0 for static operations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperation.EnabledInReadOnlySession">
+            <summary>
+            A value indicating whether operation is enabled in read-only collaboration session for the guest.
+            Default is false.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperation.OwnerOnly">
+            <summary>
+            A value indicating that only owner can perform this operation.
+            Default is false.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperation.HostOrGuestOwnerOnly">
+            <summary>
+            A value indicating that only owner or guest owner can perform this operation.
+            <see cref="P:Microsoft.Cascade.Contracts.RestrictedOperation.OwnerOnly"/> has higher priority if it is true.
+            Default is false.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperation.RequiresPersistentRootSupport">
+            <summary>
+            A value indicating that only host or guest that supports persistent root can perform this operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperation.AccessDeniedExceptionFactory">
+            <summary>
+            Optional delegate to throw exception if operation access is denied.
+            If not set, InsufficientAccessException would be thrown.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RestrictedOperationAccessEventArgs">
+            <summary>
+            Event args for an event when a restricted operation has failed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperationAccessEventArgs.Operation">
+            <summary>
+            Restricted operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperationAccessEventArgs.Access">
+            <summary>
+            Restricted operation access.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.CoreWellKnownStreams">
+            <summary>
+            Names of streams that one can get from <see cref="M:Microsoft.Cascade.Contracts.IStreamManagerService.GetStreamAsync(System.String,System.String,System.Threading.CancellationToken)"/>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IFileService">
+            <summary>
+            Provides remote access to the file system of the current workspace.
+            </summary>
+            <remarks>
+            All paths are relative to one or more workspace root directories.
+            If the workspace has multiple roots, the root name comes before
+            the first slash in the path. (The root name is NOT prefixed with a slash.)
+                /                 Unnamed (single) root directory
+                /file.txt         File in the unnamed root directory
+                /dir/file.txt     File in a subdirectory under the unnamed root
+                root2             Named root directory
+                root2/file.txt    File in a named root directory
+                ~~/d1/file.txt    If persistent root is configured, this points to FileServiceRootDirectoryConfiguration with RemoteUriRelativePath == d1 
+                
+            Most APIs have optional options. When an options argument is
+            unspecified/null, it is equivalent to options with all default values.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IFileService.RegisterExternalFilesAsync(System.String[],System.Threading.CancellationToken)">
+            <summary>
+            Adds a set of external files to the collaboration session.
+            The vsls path is generated by the client-side path converter, and is simply cached here.
+            This method can be called only by the host client.
+            Dictionary maps local paths to vsls paths: e.g., {"C:/Users/Caitlin/webapp/banana" : "/~external/a1b2c3/banana"}
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IFileService.IsExcludedAsync(System.String,Microsoft.Cascade.Contracts.FileListOptions,System.Threading.CancellationToken)">
+            <summary>
+            Get a value indicating whether the file is excluded following these rules:
+            1. If the file is not in any shared root, or there are no roots, the file is considered not excluded.
+            2. If the file is inside any shared root, then it's excluded if any of the following is true:
+            2.1. The file name matches <paramref name="options"/>.ExcludePatterns.
+            2.2. The file doesn't exist (or it's a directory).
+            2.3. The file matches any exclude pattern in some .vsls.json file in its directory or any parent directory in the shared folder.
+            </summary>
+            <param name="path">Remote unescaped path to the file, not null.</param>
+            <param name="options">Optional file list options, only ExcludePatterns is used from it.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task which result indicates whether the file is excluded.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IFileService.FindFilesAsync(System.String,Microsoft.Cascade.Contracts.FileListOptions,System.Threading.CancellationToken)">
+            <summary>
+            Find files in active roots. Doesn't do anything if there is no active roots.
+            </summary>
+            <param name="query"></param>
+            <param name="options"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IFileService.AddRootAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Add a new root to the workspace.
+            </summary>
+            <param name="rootDir">Optional root dir. May be null.</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IFileService.ReplaceRootAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Replaces the root of the workspace.
+            </summary>
+            <param name="rootDir">Root directory.</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IFileService.RootsChanged">
+            <summary>
+            Event fired when a workspace root is added or removed
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IFileService.ExternalFilesChanged">
+            <summary>
+            Event fired when external files are added or removed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileListOptions.EnableMultipleRoots">
+            <summary>
+            If true, multi-root style (indexed) paths are returned when listing roots.
+            If false/unspecified, single-root style paths are returned when listing roots.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileListOptions.IncludeDetails">
+            <summary>
+            If true, last-modified times and file sizes are included in results.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileListOptions.IncludeHidden">
+            <summary>
+            If true, include hidden files in the listing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileListOptions.IncludeExcluded">
+            <summary>
+            If true, include excluded files in the listing.
+            Only host can specify this option.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileListOptions.RecurseMode">
+            <summary>
+            Specifies how descendants of listed items should be included in the results.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileListOptions.ExcludePatterns">
+            <summary>
+            List of (.gitignore style) patterns to exclude from results.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileListOptions.IncludePatterns">
+            <summary>
+            List of (.gitignore style) patterns to include in results.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.FileRecurseMode">
+            <summary>
+            Specifies what descendents should be included when listing or watching a path.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileRecurseMode.None">
+            <summary>
+            Do not recurse; just return info about the requested items.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileRecurseMode.Children">
+            <summary>
+            Return info about the requsted items and their immediate children.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileRecurseMode.SingleChildDescendants">
+            <summary>
+            Return info about the requested items and their immediate children,
+            but if a requested item has only one child then include info about the
+            only child's children as well. (This optimization is used by VS Code.)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileRecurseMode.AllDescendants">
+            <summary>
+            Return info about the requested items and all their direct
+            and indirect descendents.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileAttributes.Hidden">
+            <summary>
+            The file should not be included by default in a directory listing / folder view.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileAttributes.ReadOnly">
+            <summary>
+            The file cannot be modified (at least not by the user that made the request).
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileAttributes.Excluded">
+            <summary>
+            The file is excluded per .vsls.json settings.
+            Only host can see such files.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FileAttributes.External">
+            <summary>
+            The file is external, i.e. not under any known root in collaboration session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileInfo.HasExcludedChildren">
+            <summary>
+            When the Children property is null, this property indicates whether
+            children were present but not included in the result.
+            When the Children property is non-null, this property may be null.
+            </summary>
+            <remarks>
+            This allows the JSON serialization to avoid some redundancy.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileRootInfo.FullPath">
+            <summary>
+            Optional remote full path of the root.
+            Normalized to have / slashes and no trailing /.
+            If file service runs in persistent root configuration, this may be a persistent remote path,
+            e.g. /~~/c$/workspace/folder
+            Null if there is no persistent root configuration,
+            or the guest doesn't support it or is not allowed to use it,
+            or the root cannot be expressed in the persistent root configuration.
+            </summary>
+            <example>
+            For persistent root configuration that has one directory mapping c:\ to vsls:/c$/,
+            if the root's <see cref="P:Microsoft.Cascade.Contracts.FileInfo.Path"/> is c:\foo\bar, <see cref="P:Microsoft.Cascade.Contracts.FileRootInfo.FullPath"/> will be "c$/foo/bar"
+            </example>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileTextInfo.IsBase64">
+            <summary>
+            The text represent base64 format
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileTextInfo.IsDeflateCompression">
+            <summary>
+            the raw data represent a deflated buffer
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileReadOptions.DiffBase">
+            <summary>
+            TODO: remove this once we confirm Rich Reviews does not use it anymore 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileReadOptions.UseBase64">
+            <summary>
+            if we always want a base64 binary
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileReadOptions.AutoCompress">
+            <summary>
+            Indicate if the host would compress the file in case it support it
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileReadOptions.AutoEncode">
+            <summary>
+            Indicate if we want to auto encode when a valid BOM marker is found 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileReadOptions.SupportDeflateCompression">
+            <summary>
+            If the caller support deflate compression
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileChange.Path">
+            <summary>
+            Path to the file or folder, relative to the root where the file change happened.
+            Normalized to have / slashes and no trailing /.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileChange.FullPath">
+            <summary>
+            Full vsls: URI path to the file, including the root prefix, starting with /.
+            E.g. /~1/foo.cs or /~2.
+            Normalized to have / slashes and not training /.
+            If the owner guest supports persistent root, this may be a persistent vsls path, e.g. /~~/c$/workspace/foo
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileChange.ChangeType">
+            <summary>
+            The type of the change
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FileChange.LocalFullPath">
+            <summary>
+            On the host agent - full path to the file or folder.
+            It's not transmitted to the guests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ExternalFilesChangedEventArgs.LocalPaths">
+            <summary>
+            List of local paths on the host client or host agent.
+            It is the same length as <see cref="P:Microsoft.Cascade.Contracts.ExternalFilesChangedEventArgs.VslsPaths"/>.
+            Null on the guest
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ExternalFilesChangedEventArgs.VslsPaths">
+            <summary>
+            List of remote paths either /~externa/... or /~~/c$/workspace/...
+            The format depends on whether persistent root configuration is set and if the guest is allowed to use it.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RootsChangedEventArgs">
+            <summary>
+            File service root changed event args.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RootsChangedEventArgs.Root">
+            <summary>
+            Full path to the root directory on the host agent and host client.
+            Name of the root directory on the guest agent or guest client.
+            The value may be null for empty workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RootsChangedEventArgs.ChangeType">
+            <summary>
+            Change type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RootsChangedEventArgs.FullPath">
+            <summary>
+            Remote root path, e.g. /~0 or /~~/c$/workspace.
+            The form of the path depends on whether persistent root configuration is set and guest is allowed to use it.
+            /~0 - regular format, when the persistent root configuration is not set.
+            /~~/c$/workspace - the persistent root configuration is set and the guest can use it.
+            Normalized to have / slashes and not training /.
+            null if the root is not set for empty workspace.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ISolutionViewService">
+            <summary>
+            Service to provide nodes in solution view hierarchy
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISolutionViewService.GetSolutionModeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get current view mode: solution, folder, or empty
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISolutionViewService.GetSolutionCaptionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get the caption for solution name in solution explorer
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISolutionViewService.GetChildrenNodesAsync(Microsoft.Cascade.Contracts.SolutionWorkspaceNode,System.Threading.CancellationToken)">
+            <summary>
+            Query children nodes for a given solution view node
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISolutionViewService.GetRootNodesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Query top level nodes in a solution
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISolutionViewService.DeleteItemAsync(Microsoft.Cascade.Contracts.SolutionWorkspaceNode,System.Threading.CancellationToken)">
+            <summary>
+            Delete file from a solution
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ISolutionViewService.SolutionChanged">
+            <summary>
+            Listen to changes in the solution
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ISolutionViewService.WorkspaceRootChanged">
+            <summary>
+            Workspace root changed
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.NodeType">
+            <summary>
+            Types of nodes present in a solution view
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SolutionWorkspaceNode">
+            <summary>
+            Represents a node in solution view
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SolutionChangedEventArgs">
+            <summary>
+            Hierarchy change event data
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceRootChangedEventArgs">
+            <summary>
+            Workspace root changed: solution || folder opened || closed
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SolutionChangeType">
+            <summary>
+            Types of hierarchy node operations
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceMode">
+            <summary>
+            The type of workspace being shared
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceEventArgs.CoauthoringMessage">
+            <summary>
+            Co-authoring message decoded from <see cref="P:Microsoft.Cascade.Contracts.SourceEventArgs.JsonContent"/> if the source is
+            <c>WellKnownSourceEvents.Coauthoring</c>.
+            This is only available on the host agent after <see cref="M:Microsoft.Cascade.Contracts.ISourceEventService.FireEventAsync(System.String,System.String,System.Threading.CancellationToken)"/>
+            recieves the message and before it is filtered out by <c>IRpcFilter</c> result of
+            <c>SourceEventService.CreateGuestRpcFilter()</c> or <c>SourceEventService.HostRpcFilter</c>.
+            This data is not sent out to guests or host client.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IStreamManagerService">
+            <summary>
+            Provides access to an opaque stream that can be remoted. This service is useful when providing
+            a service that needs to communicate using its own protocol.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamManagerService.GetStreamAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Given a stream name (for eg from <c>WellKnownStreams</c>), get the id of the stream
+            </summary>
+            <param name="streamName">Name of the stream</param>
+            <param name="condition">If there are multiple streams created for a given name, get a stream for this condition</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>Id of the stream</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IStreamService">
+            <summary>
+            Provides read\write capabilities on a stream remoted via <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamService.GetStreamTraitsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get stream traits.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamService.GetLengthAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets stream length in bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamService.SetLengthAsync(System.String,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Sets stream length in bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamService.SeekAsync(System.String,System.Int64,System.IO.SeekOrigin,System.Threading.CancellationToken)">
+            <summary>
+            Moves the current stream position and returns current position.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamService.ReadBytesAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Reads <paramref name="count"/> bytes from the stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamService.WriteBytesAsync(System.String,System.ArraySegment{System.Byte},System.Threading.CancellationToken)">
+            <summary>
+            Writes bytes to the stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IStreamService.DisposeStreamAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Disposes the stream. Does nothing if there is no such stream or if it has been disposed of already.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskKind">
+            <summary>
+            Well-known categories of tasks.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskScope">
+            <summary>
+            The scope a task is associated with
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.TaskScope.Global">
+            <summary>
+            Everthing, irrspective of the workspace or workspace folder (or neither)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.TaskScope.Workspace">
+            <summary>
+            Associated with the workspace (E.g. requires one to be open)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.TaskScope.WorkspaceFolder">
+            <summary>
+            Associated with a specific workspace folder (provided separately)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceTask">
+            <summary>
+            Represents a task declared in a collaboration workspace.
+            Examples: build, publish, pack, lint, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceTask.UniqueId">
+            <summary>
+            Unique ID of the workspace task
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceTask.Name">
+            <summary>
+            User-friendly unique name of the task
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceTask.Kind">
+            <summary>
+            Indicates a category the task belongs to, such as 'build', 'clean', 'test', 'publish', etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceTask.Source">
+            <summary>
+            User-friendly name of the task source, e.g. 'npm', 'cmake', etc. (Optional)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceTask.Scope">
+            <summary>
+            The area of impact for this task -- global, workspace, or a specific folder
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceTask.OwningWorkspace">
+            <summary>
+            An identifier to connect this task to a specific workspace. Tasks
+            are not arbitary, and are associated with a workspace. The guests
+            need to be able to provide that information for correct display
+            to the customer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskExecutionMoniker">
+            <summary>
+            Represents a task execution. Any single task may be executed multiple times.
+            Each execution will receive a new moniker with unique ID.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskExecutionMoniker.Id">
+            <summary>
+            Unique ID of the task execution instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskExecutionMoniker.TaskUid">
+            <summary>
+            Unique ID of the corresponding task.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskExecutionStatusChange">
+            <summary>
+            Event occured to a task that may lead to a task state change.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.TaskExecutionStatusChange.Started">
+            <summary>
+            Task execution has transitioned to started state
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.TaskExecutionStatusChange.Terminated">
+            <summary>
+            Task execution has terminated
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskExecutionStatusEventArgs">
+            <summary>
+            Message sent by a remote task to signal change in the status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskExecutionStatusEventArgs.TaskExecution">
+            <summary>
+            Unique ID of the corresponding task
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskExecutionStatusEventArgs.Change">
+            <summary>
+            Event triggered change in the task state
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskExecutionStatusEventArgs.Task">
+            <summary>
+            The corresponding workspace task.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RunTaskStatus">
+            <summary>
+            List of statuses produced by <see cref="T:Microsoft.Cascade.Contracts.IWorkspaceTaskService"/> in response to
+            start a task execution.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RunTaskStatus.Started">
+            <summary>
+            The requested task execution has started.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RunTaskStatus.AlreadyRunning">
+            <summary>
+            Another execution of the same task is currently running.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RunTaskStatus.RetryLater">
+            <summary>
+            The host is currently busy. Retry the request later.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RunTaskStatus.TaskNotFound">
+            <summary>
+            The workspace task is not found.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.RunTaskStatus.RejectedByHost">
+            <summary>
+            The requested task execution was rejected by host e.g. because the collaboratin session is read-only.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RunTaskResult">
+            <summary>
+            Represents a result of a run task operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RunTaskResult.Status">
+            <summary>
+            Gets the result status of the run task operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RunTaskResult.TaskExecution">
+            <summary>
+            Gets the task execution corresponding to the request.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IWorkspaceTaskService">
+            <summary>
+            Represents an API for managing workspace tasks. It allows running a task on a host machine, as well as
+            managing running task status.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceTaskService.GetSupportedTasksAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a list of all tasks supported by the host.
+            </summary>
+            <returns>Collection of remote tasks</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceTaskService.GetTaskExecutionsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a list of all tasks currently running on the host.
+            </summary>
+            <returns>Collection of remote task IDs</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceTaskService.RunTaskAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sends request to a host to start given task by its IDs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceTaskService.RunProjectTaskAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sends request to a host to start given task by its IDs and name of the project.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceTaskService.RunDefaultBuildTaskAsync(System.Threading.CancellationToken)">
+            <summary>
+            Requests default build task.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceTaskService.TerminateTaskAsync(Microsoft.Cascade.Contracts.TaskExecutionMoniker,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to terminate a running task given its unique ID.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceTaskService.TaskStarted">
+            <summary>
+            Raised when task task has been started.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceTaskService.TaskTerminated">
+            <summary>
+            Raised after the task has been terminated.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RemoteStreamMoniker">
+            <summary>
+            Represents a data object containing attributes needed to access a remote stream.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RemoteStreamMoniker.Name">
+            <summary>
+            Gets or sets the name of the remote stream.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RemoteStreamMoniker.Condition">
+            <summary>
+            Gets or sets the condition/filter needed to access a remote stream of a concrete category.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ServiceContractAttribute">
+            <summary>
+            Apply to an interface to mark it as an RPC service contract, and optionally
+            indicate the default (well-known) name of the service.
+            </summary> 
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ServiceContractAttribute.ServiceName">
+            <summary>
+            Well-known name of the service, or null if the service typically has a
+            dynamically-registered name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownCoreServices">
+            <summary>
+            Well-known core services defined on the vsls-agent
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownSourceEvents">
+            <summary>
+            Name of supported source events names
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SessionEventArgs">
+            <summary>
+            Event args for <see cref="E:Microsoft.Cascade.Contracts.ILiveShareSessionManager.SessionAttached"/> events.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ICoreSettingsProvider">
+            <summary>
+            MEF interface to get feature flags, settings, set settings, and get notifications when settings have changed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICoreSettingsProvider.GetFeatureFlagAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get feature flag from <paramref name="featureFlagName"/>.
+            The flag name should come from a constant in <see cref="T:Microsoft.VisualStudio.Cascade.CoreSettingsSchema.FeatureFlag"/> or its descendant.
+            </summary>
+            <param name="featureFlagName">Feature flag name, not null.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>A task which result is the value of the feature flag.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICoreSettingsProvider.GetSettingOrDefaultAsync``1(System.String,``0,System.Threading.CancellationToken)">
+            <summary>
+            Get setting with <paramref name="settingName"/> name or <paramref name="defaultValue"/> if it is not set, or throw
+            <see cref="T:System.ArgumentOutOfRangeException"/> if this is not supported.
+            </summary>
+            <typeparam name="T">Type of the setting.</typeparam>
+            <param name="settingName">Setting name to get, not null.
+            The setting name should come from a constant in <see cref="T:Microsoft.VisualStudio.Cascade.CoreSettingsSchema"/> or its descendant.
+            </param>
+            <param name="defaultValue">The setting default value.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A task which result is the value of the setting.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="settingName"/> is null</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">If <paramref name="settingName"/> is not recognized or the <typeparamref name="T"/> is incorrect.</exception>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICoreSettingsProvider.GetSettingOrDefaultAsync``1(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get setting with <paramref name="settingName"/> name or <c>default(T)</c> if it is not set, or throw
+            <see cref="T:System.ArgumentOutOfRangeException"/> if this is not supported.
+            </summary>
+            <typeparam name="T">Type of the setting.</typeparam>
+            <param name="settingName">Setting name to get, not null.
+            The setting name should come from a constant in <see cref="T:Microsoft.VisualStudio.Cascade.CoreSettingsSchema"/> or its descendant.
+            </param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A task which result is the value of the setting.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="settingName"/> is null</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">If <paramref name="settingName"/> is not recognized or the <typeparamref name="T"/> is incorrect.</exception>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICoreSettingsProvider.SetSettingAsync``1(System.String,``0,System.Threading.CancellationToken)">
+            <summary>
+            Set setting with <paramref name="settingName"/> to <paramref name="value"/> or throw
+            <see cref="T:System.ArgumentOutOfRangeException"/> if this is not supported.
+            </summary>
+            <typeparam name="T">Type of the setting.</typeparam>
+            <param name="settingName">Setting name to set, not null.
+            The setting name should come from a constant in <see cref="T:Microsoft.VisualStudio.Cascade.CoreSettingsSchema"/>.
+            </param>
+            <param name="value">The setting value.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>A task that finishes when the setting is set.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="settingName"/> is null</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">If <paramref name="settingName"/> is not recognized or immutable.</exception>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.DataFormatterConst.Debug">
+            <summary>
+            Format string suitable for use with DebuggerDisplayAttribute, for example:
+                [DebuggerDisplay(DataFormatter.Debug)]
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownFeatures">
+            <summary>
+            List of well-known LiveShare collaboration session capabilities
+            as contributed by external providers.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceTaskRestrictedOperation">
+            <summary>
+            Restricted operation for a control action performed for a specific task, including run and terminate
+            actions.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceTaskRestrictedOperation.TaskUid">
+            <summary>
+            Optional ID of the task corresponding to the operation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.ConverterUtils.NormalizePath(System.String)">
+            <summary>
+            Normalize a path to always use the forward '/' directory separator when mixing path generated in Windows
+            amd Mac/Linux clients
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.ConverterUtils.NormalizePathIf(System.String)">
+            <summary>
+            Normalize a path if not null or empty
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.ProtocolConverter.ProtocolConverterUtils">
+            <summary>
+            Class to use the IProtocolConverter interface by converting values from/to generic protocol objects
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase">
+            <summary>
+            URI protocol converter base.
+            This class calculates and keeps up to date base directory for URI protocol converters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean,Microsoft.Cascade.Contracts.IFileService,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase"/>.
+            </summary>
+            <remarks>
+            This constructor doesn't subscrbe to <paramref name="fileService"/> events just yet. To do so,
+            call <see cref="M:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase.SubscribeToFileServiceEvents"/> in descendant class constructors after initialization of the descendant instance. 
+            </remarks>
+            <param name="rootFolders">Optional root folders enumeration</param>
+            <param name="isHost">A value indicating whether this converter serves the host (true) or the guest (false).</param>
+            <param name="fileService">Optional file service to subscribe to root and file change events.</param>
+            <param name="baseDirectory">Optional base directory.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase.SubscribeToFileServiceEvents">
+            <summary>
+            Subscribe to file service events if it was provided.
+            </summary>
+            <remarks>Subsequent invocations of this method after the first one are ignored.</remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase.UnsubscribeFromFileServiceEvents">
+            <summary>
+            Unsubscribe from file service events if subscribed before.
+            </summary>
+            <remarks>Subsequent invocations of this method after the first one are ignored.</remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase.ToProtocol(System.Uri@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase.FromProtocol(System.Uri@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.ProtocolConverter.UriProtocolConverterBase.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.EventHandlerExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.EventHandler`1"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.EventHandlerExtensions.SafeInvoke``1(System.EventHandler{``0},System.Object,``0,System.Diagnostics.TraceSource)">
+            <summary>
+            Invoke all multicast delegates of the event handler
+            and trace their exceptions in <paramref name="traceSource"/>.
+            </summary>
+            <typeparam name="T">Event args type.</typeparam>
+            <param name="eventHandler">Event handler</param>
+            <param name="sender">Sender, may be null</param>
+            <param name="args">Event args.</param>
+            <param name="traceSource">Trace source to trace exceptions.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.EventHandlerExtensions.SafeInvoke``1(System.EventHandler{``0},System.Object,``0,System.Action{System.Exception,System.Delegate})">
+            <summary>
+            Invoke all multicast delegates of the event handler and handle their exceptions.
+            </summary>
+            <typeparam name="T">Event args type.</typeparam>
+            <param name="eventHandler">Event handler</param>
+            <param name="sender">Sender, may be null</param>
+            <param name="args">Event args.</param>
+            <param name="exceptionHandler">Exception handler to call on exceptions from the multicast delegates.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.EventHandlerExtensions.TraceDelegateException(System.Diagnostics.TraceSource,System.Exception,System.Delegate)">
+            <summary>
+            Writes error event to trace source about <paramref name="exception"/> happened in <paramref name="handler"/>.
+            </summary>
+            <param name="traceSource">Trace source to trace the exception.</param>
+            <param name="exception">Exception to trace.</param>
+            <param name="handler">Delegate that thrown the exception.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.TaskExtensions.Yield(System.Threading.CancellationToken)">
+            <summary>
+            Check for cancellation, yield, and check for cancellation again.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.TaskExtensions.Ignore(System.Threading.Tasks.Task)">
+            <summary>
+            Helper method for firing and forgetting Task's, and with a continuation
+            that will log an error if the original task throws an exception.
+            </summary>
+            <param name="task"></param>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathUtility.CombineAndNormalizeSlashes(System.String,System.String)">
+            <summary>
+            Combine paths and ensure that they have the same slashes (forward\backslash).
+            </summary>
+            <param name="absolutePath">Absolute path so that we can determine the type</param>
+            <param name="path">relative path to combine</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathUtility.GetUriFromFileSystemPath(System.String,System.Boolean)">
+            <summary>
+            Create file: URI from the given local file or directory path
+            </summary>
+            <param name="fileSystemPath">Local file or directory path.</param>
+            <returns>file: URI that corresponds to <paramref name="fileSystemPath"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathUtility.NormalizePath(System.String)">
+            <summary>
+            Normalize path: convert to forward slashes ('/') and remove trailing slash.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.PathUtility.IsFileSystemCaseSensitive">
+            <summary>
+            Get an educated guess whether the file system is case-sensitive based on OS platform.
+            Always returns <c>false</c> in .NET desktop build, and on netstandard on Windows or OSX.
+            The result may be incorrect if OSX file system is configured to be case-sensitive (by default it is not) or
+            if a case-insensitive file system (e.g. FAT32 flash drive) is mounted on OS that is usually case-sensitive, like Linux.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.PathUtility.FileSystemPathComparer">
+            <summary>
+            Get file system path comparer based on educated guess whether the file system is case-sensitive based on OS platform.
+            Always returns <c>StringComparer.OrdinalIgnoreCase</c> in .NET desktop, and on netstandard on Windows or OSX.
+            The result may be incorrect if OSX file system is configured to be case-sensitive (by default it is not) or
+            if a case-insensitive file system (e.g. FAT32 flash drive) is mounted on OS that is usually case-sensitive, like Linux.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.PathUtility.FileSystemPathComparison">
+            <summary>
+            Get file system path comparison based on educated guess whether the file system is case-sensitive based on OS platform.
+            Always returns <c>StringComparison.OrdinalIgnoreCase</c> in .NET desktop, and on netstandard on Windows or OSX.
+            The result may be incorrect if OSX file system is configured to be case-sensitive (by default it is not) or
+            if a case-insensitive file system (e.g. FAT32 flash drive) is mounted on OS that is usually case-sensitive, like Linux.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathUtility.GetFilePathComparison(System.String)">
+            <summary>
+            Get file system path comparison based on educated guess whether the file system is case-sensitive based on OS platform.
+            Always returns <c>StringComparison.OrdinalIgnoreCase</c> in .NET desktop, and on netstandard on Windows or OSX.
+            The result may be incorrect if OSX file system is configured to be case-sensitive (by default it is not) or
+            if a case-insensitive file system (e.g. FAT32 flash drive) is mounted on OS that is usually case-sensitive, like Linux.
+            </summary>
+            <param name="localFilePath">File path to get the comparison for. Currently ignored.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathUtility.CreateUri(System.String,System.String,System.String)">
+            <summary>
+            Create URI with only given scheme and path, optional query, without host, port, or other URI parts.
+            If <paramref name="scheme"/> is file:, '\' chars in <paramref name="path"/> are replaced with '/' in the result URI.
+            </summary>
+            <param name="scheme">Scheme for the URI.</param>
+            <param name="path">URI path. Unescaped</param>
+            <param name="query">Optional query if not null. Does not need to start with '?'.</param>.
+            <returns>Uri with given scheme and path, without host, port, query or other URI parts.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.IPathConverter.ToRelativePath(System.String)">
+            <summary>
+            Try to convert <paramref name="path"/> to remote path.
+            </summary>
+            <param name="path">Local file path to convert to remove path. Not null.</param>
+            <returns>
+            Unchanged <paramref name="path"/> if it is not rooted.
+            Local file path from file: URI from <paramref name="path"/> if it cannot be converted to protocol (vsls) URI.
+            Otherwise, unescaped path of the protcol (vsls) URI that was converted from file: URI with <paramref name="path"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.IPathConverter.IsKnownWorkspaceFile(System.Uri)">
+            <summary>
+             For "file:" URIs, checks whether the file belongs to a root in the workspace
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.IPathConverter.IsExternalLocalUri(System.Uri)">
+            <summary>
+            Checks whether this file is the local version of an external file added by the host.
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.IPathConverter.TryGetLocalPathFromProtocolPath(System.String)">
+            <summary>
+            Get local file path from protocol (vsls) URI with <paramref name="protocolPath"/>, and no host.
+            Returns null if it cannot convert the uri or if <paramref name="protocolPath"/> is null.
+            </summary>
+            <param name="protocolPath">Protocol (vsls) URI path, unescaped.</param>
+            <returns>Local file full path with Path.DirectorySeparator separators or null.</returns>
+        </member>
+        <member name="E:Microsoft.Cascade.Common.IPathConverter.FilesChanged">
+            <summary>
+            Propagates file service event to classes that can't use IFileService
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Common.IPathConverter.RootsChanged">
+            <summary>
+            Propagates file service event to classes that can't use IFileService
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.Ref`1">
+            <summary>
+            Class to support passing ref style parameters to Task return methods
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.BrowserAutoLaunch">
+            <summary>
+            Should participants launch a browser when a server is shared for a web project being debugged.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.BrowserAutoLaunch.Never">
+            <summary>
+            Never launch a browser on debug.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.BrowserAutoLaunch.IfSpecifiedInProject">
+            <summary>
+            Launch a browser on debug if it is specified in owner's project properties when the server is shared.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.BrowserAutoLaunch.Always">
+            <summary>
+            Always launch a browser on debug when the server is shared.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.JoinDebugSessionOption.Automatic">
+            <summary>
+            Debug session will be automatically launched
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.JoinDebugSessionOption.Manual">
+            <summary>
+            Participant will manually join the debug session
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.JoinDebugSessionOption.Prompt">
+            <summary>
+            IDE will prompt for each session
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.IDebuggerConfigurationSettings">
+            <summary>
+            Debugger configuration settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IDebuggerConfigurationSettings.AutoShareServerOnDebug">
+            <summary>
+            A value indicating whether server sharing should start automatically when debugging web application projects.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IDebuggerConfigurationSettings.AllowGuestDebugControl">
+            <summary>
+            If a shared workspace allow remote debug launch
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IDebuggerConfigurationSettings.JoinDebugSessionOption">
+            <summary>
+            Option to control how the participant will join debug session
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.PathHelper">
+            <summary>
+            A collection of file system path analysis and manipulation functions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.MakeRooted(System.String,System.String)">
+            <summary>
+            Generates an absolute path from a base path and another path.
+            </summary>
+            <param name="basePath">
+            An absolute path to use as the root if <paramref name="path"/> is relative.
+            IMPORTANT: if basePath is a directory, it must end with a directory separator character or else
+            it will be treated like a filename and discarded.
+            </param>
+            <param name="path">A relative or absolute path, that needs to be absolute.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the <paramref name="basePath"/> argument is not an absolute path.</exception>
+            <returns>
+            A normalized, absolute path.  A path with relative parents (i.e. c:\temp\tmp\..\a.txt) will never be returned.
+            Not necessarily canonical, in that the file casing of the path is not guaranteed to be consistent.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.MakeRelative(System.String,System.String)">
+            <summary>
+            given the absolute location of a file, and a disc location, returns relative file path to that disk location.
+            </summary>
+            <param name="basePath">
+            The base path we want to relativize to. Must be absolute.
+            Should <i>not</i> include a filename as the last segment will be interpreted as a directory.
+            </param>
+            <param name="path">
+            The path we need to make relative to basePath.  The path can be either absolute path or a relative path in which case it is relative to the base path
+            </param>
+            <returns>
+            The relative path (can be the full path when no relationship exists).
+            If <paramref name="basePath"/> and <paramref name="path"/> are equivalent, the empty string is returned.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.EnsureNoTrailingSlash(System.String)">
+            <summary>
+            Make sure there is no [unnecessary] trailing directory separator.
+            </summary>
+            <param name="path">directory path</param>
+            <returns>directory path without trailing slash</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.EnsureTrailingSlash(System.String,System.Char)">
+            <summary>
+            Make sure there is a trailing directory separator.
+            </summary>
+            <param name="path">directory path</param>
+            <param name="directorySeparatorChar">Directory separator char</param>
+            <returns>directory path with trailing slash</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.IsInDirectoryCone(System.String,System.String)">
+            <summary>
+            Detects whether a given file falls within a given directory.
+            </summary>
+            <param name="directory">The absolute, normalized path to the directory.</param>
+            <param name="file">The absolute, normalized path to the file.</param>
+            <returns><c>true</c> if the given file falls within the given directory.</returns>
+            <remarks>
+            The current implementation of this method does NOT normalize the paths before the check.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.IsRooted(System.String)">
+            <summary>
+            Tests a path to see if it is absolute or not.  More reliable that Path.IsPathRooted.
+            </summary>
+            <param name="path">The path to check.</param>
+            <returns><c>true</c> if the path is rooted; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.IsFolder(System.String)">
+            <summary>
+            Check if path is a directory
+            </summary>
+            <param name="fullPath">The path to check</param>
+            <returns>true if the path is a directory</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.GetCorrectCapitalization(System.IO.DirectoryInfo)">
+            <summary>
+            Gets the correctly cased path for a given directory.
+            </summary>
+            <param name="di">Directory to find the correct casing for.</param>
+            <returns>New directory with correctly cased path.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.IsPathValid(System.String)">
+            <summary>
+            Verify a valid path
+            </summary>
+            <param name="path">The path to verify</param>
+            <returns>True if a valid path</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.PathNeedsNormalization(System.String)">
+            <summary>
+            A few fast checks that determine whether normalization of a path is warranted.
+            </summary>
+            <param name="path">A non-empty path.</param>
+            <returns><c>true</c> if normalization is likely needed; <c>false</c> if normalization doesn't appear to be needed.</returns>
+            <remarks>
+            In the interest of executing very fast (since this method is used in fast-or-slow-path checks)
+            this method by no means is comprehensive, but it should catch the common causes for needing normalization.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.CreateUriFromPath(System.String)">
+            <summary>
+            Helper function to create Uri object form path.
+            </summary>
+            <param name="path">path string</param>
+            <returns>uri object</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.PathHelper.CleanupLocalFilePath(System.String)">
+            <summary>
+            Fixes common problems with local paths like double-backslash.
+            </summary>
+            <param name="path">The path to fix up.</param>
+            <returns>The cleaned up path.</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Client.IAgentProcess">
+            <summary>
+            Represents an agent process running out-of-proc
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Client.IAgentProcess.AgentUri">
+            <summary>
+            URI to connect to the agent
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Client.IAgentProcess.HasStarted">
+            <summary>
+            Gets a value indicating whether the associated process has been started.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Client.IAgentProcess.IsRunning">
+            <summary>
+            Verifies the agent process has started and is ready to process RPC requests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Client.IAgentProcess.HasExited">
+            <summary>
+            Gets a value indicating whether the associated process has been terminated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Client.IAgentProcess.ExitCode">
+            <summary>
+            Gets process exist code if it has exited.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Client.IAgentProcess.ProcessCompletion">
+            <summary>
+            A task that completes when the agent process exits with the exit code.
+            It doesn't complete if the process exits after IAgentProcess has been disposed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Client.IAgentProcess.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Spawns new agent process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Client.IAgentProcess.Stop">
+            <summary>
+            Immediately stops the associated process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Client.IAgentProcess.SetProcessPriority(System.Diagnostics.ProcessPriorityClass)">
+            <summary>
+            Sets the process priority for the associated process.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Client.IAgentProcess.AcquireAgentLockAsync(System.Threading.CancellationToken)">
+            <summary>
+            Acquires a file lock to ensure only one vsls-agent process can be started for the agent URI.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Disposable that releases the lock when it's disposed</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Client.IStreamManagerServiceClient">
+            <summary>
+            Represents a stream manager client capable of creating remote streams.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Client.IStreamManagerServiceClient.GetStreamAsync(Microsoft.Cascade.Contracts.RemoteStreamMoniker,System.Threading.CancellationToken)">
+            <summary>
+            Gets the remote stream given its moniker.
+            </summary>
+            <param name="streamMoniker">The stream moniker.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>New remote stream if successful, or <code>null</code> otherwise</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Tracing.CoreTraceEventIds">
+            <summary>
+            Trace event IDs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Tracing.CoreTraceEventIds.RpcListeningOnPipe">
+            <summary>
+            RPC is listening on a named pipe.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Tracing.CoreTraceSources">
+            <summary>
+            Collection of well-known trace sources, one per component.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cascade.CoreGuidList">
+            <summary>
+            VS core Live Share GUIDs
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cascade.CoreGuidList.InCollaborationUIContextGuid">
+            <summary>
+            UI context that is set when Live Share starts sharing, joining, or codespaces client or server.
+            The context is not reset when the session ends.
+            It's purpose is to indicate when Live Share assemblies are already loaded in VS process
+            and a collaboration session is about to start.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.Cascade.CoreGuidList.InCollaborationUIContextGuidString">
+            <summary>
+            UI context that is set when Live Share starts sharing, joining, or codespaces client or server.
+            The context is not reset when the session ends.
+            It's purpose is to indicate when Live Share assemblies are already loaded in VS process
+            and a collaboration session is about to start.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cascade.ServiceProviderExtensions">
+            <summary>
+            Helper methods to acquire services via <see cref="T:System.IServiceProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cascade.ServiceProviderExtensions.GetService``1(System.IServiceProvider,System.Boolean)">
+            <summary>
+            Get service <typeparamref name="TService"/> from the service provider
+            or null if the service is not supported and <paramref name="throwIfNull"/> is false.
+            Throw <see cref="T:System.Exception"/> if the service is not supported and <paramref name="throwIfNull"/> is true. 
+            </summary>
+            <typeparam name="TService">Type of the service to get from the service provider.</typeparam>
+            <param name="serviceProvider">Service provider, not null.</param>
+            <param name="throwIfNull">A value indicating whether this method should throw if the service is not supported.</param>
+            <returns>Service instance or null.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="serviceProvider"/> is null.</exception>
+            <exception cref="T:System.Exception">If the service is not supported and <paramref name="throwIfNull"/> is true.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cascade.ServiceProviderExtensions.GetService``2(System.IServiceProvider)">
+            <summary>
+            Get <typeparamref name="TInterface"/> service from <paramref name="serviceProvider"/>
+            or null if the service is not supported.
+            </summary>
+            <typeparam name="TService">Type of the service to get from the <paramref name="serviceProvider"/>.</typeparam>
+            <typeparam name="TInterface">Type of the interface to cast the service to.</typeparam>
+            <param name="serviceProvider">Service provider to get the service from. Not null.</param>
+            <returns>Service instance or null if it's not supported or cannot be cast to <typeparamref name="TInterface"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="serviceProvider"/> is null.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cascade.ServiceProviderExtensions.GetService``2(System.IServiceProvider,System.Boolean)">
+            <summary>
+            Get <typeparamref name="TInterface"/> service from <paramref name="serviceProvider"/>
+            or null if the service is not supported and <paramref name="throwIfNull"/> is false.
+            Throw <see cref="T:System.Exception"/> if the service is not supported and <paramref name="throwIfNull"/> is true. 
+            </summary>
+            <typeparam name="TService">Type of the service to get from the <paramref name="serviceProvider"/>.</typeparam>
+            <typeparam name="TInterface">Type of the interface to cast the service to.</typeparam>
+            <param name="serviceProvider">Service provider to get the service from. Not null.</param>
+            <param name="throwIfNull">A value indicating whether this method should throw if the service is not supported.</param>
+            <returns>Service instance or null if it's not supported or cannot be cast to <typeparamref name="TInterface"/>
+            and <paramref name="throwIfNull"/> is false.</returns>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="serviceProvider"/> is null.</exception>
+            <exception cref="T:System.Exception">If the service is not supported and <paramref name="throwIfNull"/> is true.</exception>
+        </member>
+        <member name="T:Microsoft.VisualStudio.Cascade.Contracts.IHostRootUpdateObserver">
+            <summary>
+            Host workspace root update observer
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.Cascade.Contracts.IHostRootUpdateObserver.BeginHostRootUpdate">
+            <summary>
+            Notify the observer about host root update
+            </summary>
+            <returns>Disposable the object to notify that host root update is done.</returns>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IOperationAccessClient">
+            <summary>
+            Guest service helping with operation access elevation.
+            If a restricted operation is rejected due to insufficient access, VsAccessControlService on that guest will query
+            the appropriate <see cref="T:Microsoft.VisualStudio.LiveShare.IOperationAccessClient"/> on the operation name.
+            VsAccessControlService will use IOperationAccessClient to get the message,
+            and will display the message to the user asking if they want to query the host for elevation.
+            If the guest user agrees to request elevation, VsAccessControlService will follow the request to the host,
+            and when the host user either agrees or denies the request, will display the appropriate message to the guest.
+            </summary>
+            <remarks>
+            Implementation must be attributed with <see cref="T:Microsoft.VisualStudio.LiveShare.ExportOperationAccessClientAttribute"/>.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessClient.GetInsufficientAccessMessage(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Gets a message for the guest telling that they have no access to <paramref name="operation"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessClient.IsInsufficientAccessMessageVerbose(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Gets a value indicating whether the message about insufficient access is verbose or not.
+            Verbose messages may be suppressed via Tools -> Options -> Live Share setting.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessClient.GetPermissionGrantedMessage(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Gets a message for the guest telling that the host has granted access to perform <paramref name="operation"/>.
+            May be null. If null, no message will be displayed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessClient.GetPermissionDeniedMessage(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Gets a message for the guest telling that the host has rejected access to perform <paramref name="operation"/>.
+            May be null. If null, no message will be displayed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IOperationAccessManager">
+            <summary>
+            Host service helping with operation access elevation.
+            If a guest requested access to a restricted operation, VsWorkspaceAccessControlService on the host will query
+            the appropriated <see cref="T:Microsoft.VisualStudio.LiveShare.IOperationAccessManager"/> based on the operation name.
+            It'll use it to check if the access to operation is already granted, and if not, what is the message to
+            dispaly to the host user. The message will have "Allow", "Allow All" and "Dismiss" action with it.
+            If the host choses "Allow All", VsWorkspaceAccessControlService will call
+            <see cref="M:Microsoft.VisualStudio.LiveShare.IOperationAccessManager.GrantPermanentAccessAsync(Microsoft.Cascade.Contracts.RestrictedOperation,System.Threading.CancellationToken)"/>
+            to permanently grant the permission.
+            If the host choses  "Allow" or "Dismiss", VsWorkspaceAccessControlService will honor the choice till the end
+            of the current collaboration session.
+            </summary>
+            <remarks>
+            Implementation must be attributed with <see cref="T:Microsoft.VisualStudio.LiveShare.ExportOperationAccessManagerAttribute"/>.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessManager.CanOperationAccessBeGranted(Microsoft.Cascade.Contracts.RestrictedOperation,Microsoft.Cascade.Contracts.RestrictedOperationAccess)">
+            <summary>
+            Gets a value indicating whether operation access can be granted, given the current (disallowed) access.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessManager.IsOperationAccessGranted(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Gets a value indicating whether access to <paramref name="operation"/> is already granted.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessManager.GetPermissionRequestMessage(Microsoft.Cascade.Contracts.RestrictedOperation,System.Int32,System.String)">
+            <summary>
+            Gets a message to display to the host when a guest user with <paramref name="sessionId"/> session
+            and <paramref name="userDisplayName"/> name requests access to <paramref name="operation"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessManager.IsPermissionRequestMessageVerbose(Microsoft.Cascade.Contracts.RestrictedOperation)">
+            <summary>
+            Gets a value indicating whether a message to request permission to <paramref name="operation"/> is verbose.
+            Verbose messages may be suppressed via Tools -> Options -> Live Share setting.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.IOperationAccessManager.GrantPermanentAccessAsync(Microsoft.Cascade.Contracts.RestrictedOperation,System.Threading.CancellationToken)">
+            <summary>
+            Sets permissions for <paramref name="operation"/> permanently.
+            </summary>
+        </member>
+        <member name="E:Microsoft.VisualStudio.LiveShare.IOperationAccessManager.PermissionsChanged">
+            <summary>
+            Operation permission changed event.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IOperationAccessService">
+            <summary>
+            Operation access elevation helper that combines both guest and host parts.
+            </summary>
+            <remarks>
+            Implementation must be attributed with <see cref="T:Microsoft.VisualStudio.LiveShare.ExportOperationAccessServiceAttribute"/>.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.IOperationAccessServiceMetadata">
+            <summary>
+            Metadata associated with a MEF export attribute operation access elevation helper.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IOperationAccessServiceMetadata.OperationNames">
+            <summary>
+            Names of supported operations. Must match <see cref="!:WellKnownRestrictedOperations"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.IOperationAccessServiceMetadata.Priority">
+            <summary>
+            Priority of the helper.
+            The lowest wins if more than one exists for the same operation name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ExportOperationAccessServiceAttribute">
+            <summary>
+            MEF export attribute for <see cref="T:Microsoft.VisualStudio.LiveShare.IOperationAccessService"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportOperationAccessServiceAttribute.OperationNames">
+            <summary>
+            Restricted operation names this export is applicable for.
+            The names must match <see cref="!:WellKnownRestrictedOperations"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.ExportOperationAccessServiceAttribute.Priority">
+            <summary>
+            The priority of the service. The lowest priority wins.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ExportOperationAccessManagerAttribute">
+            <summary>
+            Combines MEF export attribute with export metadata for a operation access manager.
+            Declares a name of operation the service is able to handle.
+            The export needs to implement <see cref="T:Microsoft.VisualStudio.LiveShare.IOperationAccessManager" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.ExportOperationAccessClientAttribute">
+            <summary>
+            Combines MEF export attribute with export metadata for a operation access manager.
+            Declares a name of operation the service is able to handle.
+            The export needs to implement <see cref="T:Microsoft.VisualStudio.LiveShare.IOperationAccessClient" />.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.DataFormat">
+            <summary>
+            Describes the kind of data to be formatted.
+            </summary>
+            <remarks>
+            Other flags are only for use with <see cref="T:Microsoft.VisualStudio.LiveShare.DataFormatAttribute" /> when
+            applied to properties.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Default">
+            <summary>
+            Data is formatted (with no privacy) using the type's standard or overridden
+            `ToString()` method.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Text">
+            <summary>
+            Text is hashed when privacy is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Path">
+            <summary>
+            File name or file path is partially hashed when privacy is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Email">
+            <summary>
+            Email address is partially hashed when privacy is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Uri">
+            <summary>
+            URI is partially hashed when privacy is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Token">
+            <summary>
+            Tokens are never formatted, regardless of whether privacy is enabled.
+            Instead they are replaced by a placeholder.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Omit">
+            <summary>
+            Indicates a property should always be omitted from a formatted object,
+            regardless of whether privacy is enabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.OmitDefault">
+            <summary>
+            Indicates a property should be omitted from a formatted object if the value
+            is null or the default value for the type, rather than included as "Name=null".
+            Can be combined with other format flags.
+            </summary>
+            <remarks>
+            This may be inferred from [DataMember(EmitDefaultValue=false)].
+            </remarks>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.Hide">
+            <summary>
+            Indicates a property should be omitted from a formatted object when
+            privacy is enabled. Can be combined with other format flags.
+            </summary>
+        </member>
+        <member name="F:Microsoft.VisualStudio.LiveShare.DataFormat.SingleMember">
+            <summary>
+            An object that normally has a single non-null member value is formatted
+            in a more-compact form.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.DataFormatAttribute">
+            <summary>
+            Indicates that a class or property should be formatted in a specific way
+            by a live share format provider instance.
+            </summary>
+            <remarks>
+            Use when `DataContract` and `DataMember` attributes are not used or
+            do not provide sufficient formatting hints.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.VisualStudio.LiveShare.DataFormatAttribute.Format">
+            <summary>
+            Gets or sets the kind of data represented by the property, for purposes
+            of data formatting and hashing.
+            </summary>
+            <remarks>
+            Not valid for use on a class attribute.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.Tracing.IAsyncTraceSource">
+            <summary>
+            Async trace source interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.Tracing.IAsyncTraceSource.CloneWithName(System.String)">
+            <summary>
+            Clone this trace source with a new <paramref name="name"/>.
+            </summary>
+            <param name="name">Name for the new trace source, not null.</param>
+            <returns>
+            A new instance of <see cref="T:System.Diagnostics.TraceSource"/> with the same listeners and new <paramref name="name"/>
+            If all listeners are thread safe, the result will implement <see cref="T:Microsoft.VisualStudio.LiveShare.Tracing.IAsyncTraceSource"/> too.
+            The result will have the same <see cref="P:System.Diagnostics.TraceSource.Switch"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.Tracing.IAsyncTraceSource.AsyncTraceEvent(System.Diagnostics.TraceEventType,System.Int32,System.String,System.Object[])">
+            <summary>
+            Capture trace context synchronosuly (time and, maybe, callstack) and
+            start tracing the event asynchronously in background if possible.
+            If async tracing is not possible, this method may trace synchronously
+            </summary>
+            <exception cref="T:System.InvalidOperationException">If the async trace source is not yet configured.</exception>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.Tracing.IAsyncTraceSource.ListensFor(System.Diagnostics.TraceEventType)">
+            <summary>
+            Check if there is any listener that listens for <paramref name="eventType"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.Tracing.TraceSourceExtensions">
+            <summary>
+            Convenience methods for TraceSource.TraceEvent().
+            </summary>
+            <remarks>
+            Methods that take format arguments or (dollar-prefixed) interpolated strings
+            delay the formatting of arguments until the trace event is actually consumed
+            by a trace listener (assuming it's not ignored by a trace filter).
+            </remarks>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.Tracing.TraceSourceExtensions.WithName(System.Diagnostics.TraceSource,System.String)">
+            <summary>
+            Creates a new TraceSource with listeners and switch copied from the
+            existing TraceSource.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.Tracing.TraceSourceExtensions.WithAppendName(System.Diagnostics.TraceSource,System.String)">
+            <summary>
+            Return a new TraceSource by appending a name 
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.LiveShare.Tracing.TraceSourceExtensions.ListensFor(System.Diagnostics.TraceSource,System.Diagnostics.TraceEventType)">
+            <summary>
+            Returns true if there is at least one listener that will consume this
+            trace event type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.VisualStudio.LiveShare.Tracing.TraceSourceExtensions.NonFormattableString">
+             <summary>
+             Work around an overload resolution problem with `FormattableString`, enabling
+             interpolated string to be used with tracing efficiently while also supporting
+             plain strings.
+             </summary>
+             <remarks>
+             See <a href="https://stackoverflow.com/questions/35770713/overloaded-string-methods-with-string-interpolation">
+             Overloaded string methods with string interpolation</a>.
+            
+             An extra implicit conversion causes the compiler to prefer the overloads that take
+             `FormattableString` when interpolated strings are used with the tracing methods. While
+             plain `string` parameters get converted to/from this struct, the conversions should
+             basically evaporate in inlining.
+             </remarks>
+        </member>
+        <member name="T:Microsoft_VisualStudio_LiveShare_CoreContracts">
+            <summary>
+            Assembly version information for Microsoft.VisualStudio.LiveShare.CoreContracts.dll assembly
+            </summary>
+        </member>
+        <member name="F:Microsoft_VisualStudio_LiveShare_CoreContracts.AssemblyVersion">
+            <summary>
+            Assembly version.
+            </summary>
+        </member>
+        <member name="F:Microsoft_VisualStudio_LiveShare_CoreContracts.AssemblyName">
+            <summary>
+            Assembly name (without .dll extension)
+            </summary>
+        </member>
+        <member name="F:Microsoft_VisualStudio_LiveShare_CoreContracts.FileName">
+            <summary>
+            File name (with .dll extension)
+            </summary>
+        </member>
+    </members>
+</doc>

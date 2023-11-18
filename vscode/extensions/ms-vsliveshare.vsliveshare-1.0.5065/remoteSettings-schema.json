@@ -1,0 +1,77 @@
+{
+    "title": "VSLS Remote Settings",
+    "type": "object",
+    "patternProperties": {
+        "^[^$].*$": {
+            "anyOf": [
+                { "$ref": "#/definitions/settings" },
+                { "$ref": "#/definitions/setting" }
+            ]
+        }
+    },
+    "definitions": {
+        "settings": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/setting" }
+        },
+        "setting": {
+            "type": "object",
+            "properties": {
+                "conditions": {
+                    "description": "Conditions under which the setting should be applied",
+                    "$ref": "#/definitions/conditions"
+                },
+                "priority": {
+                    "description": "Priority order in which the setting should be applied",
+                    "$ref": "#/definitions/priority"
+                },
+                "value": {
+                    "description": "Value of the setting to be applied"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "additionalProperties": false
+        },
+        "priority": {
+            "type": "string",
+            "enum": [
+                "default",
+                "override"
+            ]
+        },
+        "conditions": {
+            "type": "object",
+            "properties": {
+                "os": {
+                    "description": "Applicable operating system(s)",
+                    "$ref": "#/definitions/oses"
+                },
+                "extensionVersion": {
+                    "description": "Applicable extension version(s): semver range expression <https://github.com/npm/node-semver#ranges>",
+                    "$ref": "#/definitions/semver"
+                },
+                "ideVersion": {
+                    "description": "Applicable IDE (VS or VS Code) version(s): semver range expression <https://github.com/npm/node-semver#ranges>",
+                    "$ref": "#/definitions/semver"
+                }
+            },
+            "additionalProperties": false
+        },
+        "os": {
+            "type": "string",
+            "enum": [ "win", "mac", "linux" ]
+        },
+        "oses": {
+            "anyOf": [
+                { "$ref": "#/definitions/os" },
+                { "type": "array", "items": { "$ref": "#/definitions/os" }}
+            ]
+        },
+        "semver": {
+            "type": "string",
+            "pattern": "^(( \\|\\| )?(<|>|<=|>=|=)?(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(-(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(\\.(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\\+[0-9a-zA-Z-]+(\\.[0-9a-zA-Z-]+)*)?)?)?)+$"
+        }
+    }
+}

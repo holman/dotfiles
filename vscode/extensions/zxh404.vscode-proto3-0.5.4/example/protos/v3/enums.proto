@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package v3;
+
+enum Corpus {
+  UNIVERSAL=0;
+  WEB = 1 ;
+  IMAGES = 2;
+  LOCAL = 3;
+  NEWS = 4;
+  PRODUCTS = 5;
+  VIDEO = 6;
+}

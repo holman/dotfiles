@@ -1,0 +1,13 @@
+*~
+*.sw?
+*.pyc
+.tox
+.coveralls.yml
+.coverage
+/build/
+/docs/_build/
+/dist/
+parso.egg-info/
+/.cache/
+/.pytest_cache
+test/fuzz-redo.pickle

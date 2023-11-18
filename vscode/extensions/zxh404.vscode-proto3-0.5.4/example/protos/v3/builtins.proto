@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package v3;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+message MessageName {
+    google.protobuf.Any any = 1;
+    google.protobuf.Empty enpty = 2;
+    google.protobuf.Timestamp ts = 3;
+    google.protobuf.Duration d = 4;
+}

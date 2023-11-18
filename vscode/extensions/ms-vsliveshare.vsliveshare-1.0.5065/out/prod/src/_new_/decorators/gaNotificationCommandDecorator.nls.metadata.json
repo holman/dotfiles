@@ -1,0 +1,13 @@
+{
+	"messages": [
+		"Live Share is now GA and we'd like to thank you for helping us get there! As an insider, you'll continue to receive new features first.",
+		"More info",
+		"Switch to stable features"
+	],
+	"keys": [
+		"gaNotification",
+		"gaNotification.moreInfo",
+		"gaNotification.switchToStable"
+	],
+	"filePath": "src\\_new_\\decorators\\gaNotificationCommandDecorator"
+}

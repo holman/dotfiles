@@ -1,0 +1,22 @@
+# SYNTAX TEST "text.html.erb"
+<html>
+  <head>
+    <title><%= title %></title>
+#          ^^^^^^^^^^^^ meta.embedded.line.erb
+#          ^^^ punctuation.section.embedded.begin.erb
+#              ^^^^^ source.ruby.embedded.erb
+#                    ^^ punctuation.section.embedded.end.erb
+  </head>
+  <body>
+    <div>
+      <%# comment %>
+#     ^^^ punctuation.definition.comment.begin.erb
+#         ^^^^^^^ comment.block.erb
+#                 ^^ punctuation.definition.comment.end.erb
+      <% if @foo -%>
+#     ^^^^^^ text.html.erb
+      <% else %>
+      <% end %>
+    </div>
+  </body>
+</html>

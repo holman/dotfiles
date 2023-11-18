@@ -1,0 +1,86 @@
+{
+	"if": {
+		"prefix": "if",
+		"body": [
+			"<% if ${1:truevalue} %>",
+			"  $2",
+			"<% end %>"
+		],
+		"description": "if .. end"
+	},
+	"else": {
+		"prefix": "else",
+		"body": [
+			"<% else %>"
+		],
+		"description": "else"
+	},
+	"elsif": {
+		"prefix": "elsif",
+		"body": [
+			"<% elsif ${1:truevalue} %>"
+		],
+		"description": "elsif"
+	},
+	"end": {
+		"prefix": "end",
+		"body": [
+			"<% end %>"
+		],
+		"description": "end"
+	},
+	"ife": {
+		"prefix": "ife",
+		"body": [
+			"<% if ${1:truevalue} %>",
+			"  $2",
+			"<% else %>",
+			"  $3",
+			"<% end %>"
+		],
+		"description": "if .. else .. end"
+	},
+	"unless": {
+		"prefix": "unless",
+		"body": [
+			"<% unless ${1:falsevalue} %>",
+			"  $2",
+			"<% end %>"
+		],
+		"description": "unless .. end"
+	},
+	"unlesse": {
+		"prefix": "unlesse",
+		"body": [
+			"<% unless ${1:falsevalue} %>",
+			"  $2",
+			"<% else %>",
+			"  $3",
+			"<% end %>"
+		],
+		"description": "unless .. end"
+	},
+	"each": {
+		"prefix": "each",
+		"body": [
+			"<% ${1:items}.each do |${2:item}| %>",
+			"  $2",
+			"<% end %>"
+		],
+		"description": "each do"
+	},
+	"render": {
+		"prefix": "pe",
+		"body": [
+			"<%= $1 %>"
+		],
+		"description": "render block pe"
+	},
+	"exec": {
+		"prefix": "er",
+		"body": [
+			"<% $1 %>"
+		],
+		"description": "erb exec block"
+	}
+}

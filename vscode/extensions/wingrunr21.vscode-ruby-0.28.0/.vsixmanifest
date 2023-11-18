@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="vscode-ruby" Version="0.28.0" Publisher="wingrunr21"/>
+    <DisplayName>VSCode Ruby</DisplayName>
+    <Description xml:space="preserve">Syntax highlighing, snippet, and language configuration support for Ruby</Description>
+    <Tags>snippet,ruby,Ruby,__ext_arb,__ext_builder,__ext_cgi,__ext_fcgi,__ext_gemspec,__ext_god,__ext_irbrc,__ext_jbuilder,__ext_mspec,__ext_pluginspec,__ext_podspec,__ext_prawn,__ext_pryrc,__ext_rabl,__ext_rake,__ext_rb,__ext_rbuild,__ext_rbw,__ext_rbx,__ext_rjs,__ext_ru,__ext_ruby,__ext_spec,__ext_thor,__ext_watchr,erb,Encapsulated Ruby,__ext_erb,__ext_rhtml,__ext_rhtm,gemfile,Gemfile,Bundler,bundler,ignore</Tags>
+    <Categories></Categories>
+    <GalleryFlags>Public</GalleryFlags>
+    <Badges></Badges>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Code.Engine" Value="*" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+      
+        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/rubyide/vscode-ruby" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/rubyide/vscode-ruby" />
+        
+          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/rubyide/vscode-ruby" />
+        
+      
+      
+      
+      <Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#f05336" />
+      <Property Id="Microsoft.VisualStudio.Services.Branding.Theme" Value="light" />
+      <Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+      
+      
+    </Properties>
+    
+    <Icon>extension/images/logo.png</Icon>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+  </Installation>
+  <Dependencies/>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/images/logo.png" Addressable="true" />
+  </Assets>
+</PackageManifest>

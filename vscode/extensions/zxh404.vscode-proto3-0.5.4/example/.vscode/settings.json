@@ -1,0 +1,10 @@
+{
+    "protoc": {
+        "path": "/usr/local/bin/protoc",
+        "options": [
+            "--proto_path=protos/v3",
+            "--proto_path=protos/v2",
+            "--java_out=gen/java"
+        ]
+    }
+}

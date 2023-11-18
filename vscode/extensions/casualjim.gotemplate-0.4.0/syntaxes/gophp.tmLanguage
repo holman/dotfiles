@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>gophp</string>
+	</array>
+	<key>name</key>
+	<string>GoTPL: PHP</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>include</key>
+			<string>source.php</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>source.gotemplate</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.gophp</string>
+	<key>uuid</key>
+	<string>c32da336-466c-47a1-be08-facf21f2cb96</string>
+</dict>
+</plist>

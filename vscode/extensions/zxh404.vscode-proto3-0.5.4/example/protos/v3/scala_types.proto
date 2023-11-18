@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package v3;
+
+message ScalaTypes {
+  bool f1 = 1;
+  int32 f2 = 2;
+  int64 f3 = 3;
+  sint32 f4 = 4;
+  sint64 f5 = 5;
+  uint32 f6 = 6;
+  uint64 f7 = 7;
+  fixed32 f8 = 8;
+  fixed64 f9 = 9;
+  sfixed32 f10 = 10;
+  sfixed64 f11 = 11;
+  float f12 = 12;
+  double f13 = 13;
+  string f14 = 14;
+  bytes f15 = 15;
+}

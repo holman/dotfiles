@@ -1,0 +1,3646 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.VisualStudio.LiveShare.Contracts</name>
+    </assembly>
+    <members>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.Api">
+            <summary>
+            VS Code Only. Extensibility API
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.LocalRedo">
+            <summary>
+            VS Code Only. Enables local redo
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.MultiRootWorkspaceVSIDE">
+            <summary>
+            Enable VS IDE support for multiroot workspaces (e.g. when
+            a guest joining a VS Code instance w/ multiroot enabled)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.PropagateFolderEvents">
+            <summary>
+            Support opening a folder during a collaboration session
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.AgentExtension">
+            <summary>
+            Enable agent extension support
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.Audio">
+            <summary>
+            Enable user audio viewlet support
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.Chat">
+            <summary>
+            Enable user chat viewlet support
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.Comments">
+            <summary>
+            Enable comments.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.AttemptReconnection">
+            <summary>
+            Adds support to try reconnecting to the same session on network disruptions.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.LocalUndo">
+            <summary>
+            Adds Support for supporting undoing only locally made changes when
+            invoking the undo command in VS.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.ScreenShare">
+            <summary>
+            Enable screen share support
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.ScreenShareControl">
+            <summary>
+            Enable screen share control support
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.IsDevToolsEnabled">
+            <summary>
+            Enable Dev Tools
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.DisableLiveShareAutoLoad">
+            <summary>
+            Disable Live Share package auto load after share or join.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.WaitForHost">
+            <summary>
+            Enable wait for host during join
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.AllowProjectFilesCoediting">
+            <summary>
+            Enable project files editing
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.LSInNexus">
+            <summary>
+            Enable Live Share in Nexus
+            Should be unused now, keeping it to leave contracts the same
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.IsSignalRConnectionEnabled">
+            <summary>
+            If signalR is enabled when joining a session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FeatureFlagStore.CheckForCancelBeforeReturningResponse">
+            <summary>
+            If the RpcSession should check if the request has been cancelled
+            before returning a response.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.FileConst">
+            <summary>
+            Non-vscore file service constants
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IAgentHubConnectionService">
+            <summary>
+            Expose hub connection capabilities to be used inside the agent by collab extensions
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AgentSessionRequest.ReconnectId">
+            <summary>
+            Optional reconnection identifier
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AgentSessionRequest.KeepAliveOnDisconnect">
+            <summary>
+            Number of milliseconds to keep the agent alive when the session is disconnected
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AgentSessionResponse.ReconnectSuccess">
+            <summary>
+            If reconnect succeeded during Initialize
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AgentSessionResponse.HostSessionNumber">
+            <summary>
+            The rpc session number associated
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AgentSessionResponse.AgentProcessId">
+            <summary>
+            The agent process id
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IAgentSessionService">
+            <summary>
+            Represent an RPC Agent Session that has capabilities to reconnect to an existing RPC session
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAgentSessionService.InitializeSessionAsync(Microsoft.Cascade.Contracts.AgentSessionRequest,System.Threading.CancellationToken)">
+            <summary>
+            Initialize this rpc session by adding services or reconnecting to an existing session
+            </summary>
+            <param name="initializeRequest">The initialize request options</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAgentSessionService.EnableReconnectAsync(System.Threading.CancellationToken)">
+            <summary>
+            Enable this rpc session to be later reconnected
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAgentSessionService.KeepAliveAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Keep the agent alive for some milliseconds to avoid the agent process to exit when rpc session are disconnected
+            and the AutoStop is enable
+            </summary>
+            <param name="delay"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAgentSessionService.ForceKillAsync(System.Threading.CancellationToken)">
+            <summary>
+            Force kills the agent
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IAuthenticationCoreService.AuthenticationChanged">
+            <summary>
+            Indicate a change in the status of the current authenticate user
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationCoreService.GetCurrentAuthenticatedUserAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get info of current user info and the access token
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationCoreService.GetCurrentUserAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets info about the currently authenticated user, if any.
+            </summary>
+            <returns>User info, or null if the session is not authenticated.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationCoreService.RemoveRecentCollaborator(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Removes a recent collaborator from the current profile.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationCoreService.RemoveAllRecentCollaborators(System.Threading.CancellationToken)">
+            <summary>
+            Removes all recent collaborators from the current profile.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.GetLoginUriAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets a URI that can be used for interactive web login for the current environment.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.FindLoginCodeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Scans browser window titles for a Cascade login code.
+            </summary>
+            <remarks>
+            The scan is continuous until the login code is found or until cancelled via
+            the cancellation token.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.LoginAsync(Microsoft.Cascade.Contracts.AuthenticationToken,Microsoft.Cascade.Contracts.AuthenticationOptions,Microsoft.Cascade.Contracts.UserInfo,System.Threading.CancellationToken)">
+            <summary>
+            Sets the authentication token for the RPC session(s).
+            </summary>
+            <param name="loginTokenOrCode">Token acquired from the Cascade authentication service,
+            or a short code that can be used to acquire a token.</param>
+            <param name="options">Login options.</param>
+            <param name="userInfo">User info.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>Information about the logged-in user, or null if the token is invalid
+            or expired.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.LoginAsAnonymousAsync(Microsoft.Cascade.Contracts.AuthenticationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Sets the anonymnous authentication token for the RPC session(s).
+            </summary>
+            <returns>Information about the logged-in user, or null if the token is invalid
+            or expired.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.LoginWithCachedTokenAsync(Microsoft.Cascade.Contracts.UserAccountInfo,Microsoft.Cascade.Contracts.AuthenticationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Looks for a cached auth token matching the provided account info, and attempts to
+            sets the authentication token for the RPC session(s) with that cached token,
+            if the token is still valid.
+            </summary>
+            <param name="accountInfo">Details about the account used to find a
+            matching cached auth token.</param>
+            <param name="options">Login options.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>Information about the logged-in user, or null if a matching token
+            was not found or the token is invalid or expired.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.LoginWithExternalTokenAsync(Microsoft.Cascade.Contracts.UserAccountInfo,Microsoft.Cascade.Contracts.AuthenticationToken,Microsoft.Cascade.Contracts.AuthenticationOptions,Microsoft.Cascade.Contracts.UserInfo,System.Threading.CancellationToken)">
+            <summary>
+            Using the supplied credential, conduct and attempts to sets the authentication
+            token for the RPC session(s) with that cached token, if the token is still valid.
+            </summary>
+            <param name="externalAccountInfo">Details about the account used to find a
+            matching cached auth token.</param>
+            <param name="options">Login options.</param>
+            <param name="userInfo">User info.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>Information about the logged-in user, or null if a matching token
+            was not found or the token is invalid or expired.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.LogoutAsync(Microsoft.Cascade.Contracts.AuthenticationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Clears the authentication token for the RPC session(s).
+            </summary>
+            <param name="options">Logout options.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IAuthenticationService.GetCachedToken(System.Threading.CancellationToken)">
+            <summary>
+            Gets current cached token.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.AuthenticationToken.Equals(System.Object)">
+            <summary>
+            An equality operator for two AuthenticationToken objects is
+            implemented in order to allow for tests to mock operations
+            that receive parameters of this type, and be able to compare
+            them during unit test execution.
+            For an example of this see test SignInAsync_WhenLoginFails_ThenThrows
+            in class VsCascadeClientServiceTests.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.AuthenticationToken.GetHashCode">
+            <summary>
+            Implemented given that we also provide our own Equals()
+            method.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.UserAccountInfo">
+            <summary>
+            UserAccountInfo represents the minimum information we require in order to
+            retrieve cached credentials in a machine. It purposefully doesn't include
+            the User's Id, as that is unknown at the time of retrieval.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserAccountInfo.ProviderName">
+            <summary>
+            Name of the identity provider used to sign in, e.g. "GitHub" or "AAD" or "anonymous".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserAccountInfo.AccountId">
+            <summary>
+            Username (or email address) for the identity provider account.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.Id">
+            <summary>
+            The Cascade user ID (provider-independent opaque identifier string).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.DisplayName">
+            <summary>
+            User's full name.
+            </summary>
+            <remarks>
+            Clients should handle cases where a user has not provided any name.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.EmailAddress">
+            <summary>
+            Primary email address for the user. (May or may not be the same as the account ID.)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.UserName">
+            <summary>
+            The username received from the provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.AccountStatus">
+            <summary>
+            Status of the user's account / registration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.IsGlobalLogin">
+            <summary>
+            True if this user is logged in as the default user for the agent instance.
+            False if the user is logged in only in the current session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.AvatarUri">
+            <summary>
+            Uri for the Avatar image of the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.IsAnonymous">
+            <summary>
+            Whether user is anonymous.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.RecentCollaborators">
+            <summary>
+            The collection of collaborators recently interacted with.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.Programs">
+            <summary>
+            Programs that the user is a part of.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserInfo.TelemetryId">
+            <summary>
+            Telemetry id for user profile
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.UserAccountStatus.Transient">
+            <summary>
+            User has not registered for Cascade.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.UserAccountStatus.Pending">
+            <summary>
+            User has registered for Cascade but the registration has not been accepted.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.UserAccountStatus.Accepted">
+            <summary>
+            User registration has been accepted by an admin.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.UserAccountStatus.Deleted">
+            <summary>
+            User was removed by an admin.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AuthenticationOptions.ForceRefresh">
+            <summary>
+            True to force a refresh of the cached token with the external token.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AuthenticationOptions.Cache">
+            <summary>
+            True to set or clear the token in the auth token cache.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AuthenticationOptions.CacheDefault">
+            <summary>
+            True to set or clear this account as the default account
+            in the auth token cache.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AuthenticationOptions.Global">
+            <summary>
+            True to set or clear the auth token for all future RPC sessions
+            (for the lifetime of the agent process); false to only set or clear
+            the auth token for the current RPC session. The default is false.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.AuthenticationOptions.WithoutProfile">
+            <summary>
+            True to skip fetching the profile when logging in, so that the user will
+            be logged in with only a token and no profile. This optimization may be
+            used by a noninteractive tool that is ONLY JOINING a session. Other operations
+            (like sharing) will throw exceptions if the profile is missing.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IBrokerAuthorizationService">
+            <summary>
+            Agent RPC service designed to authorize a broker process to access workspace services.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IBrokerAuthorizationService.AuthorizeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Authorizes the broker process and configures the RPC session with permitted services.
+            </summary>
+            <param name="brokerToken">A broker token issued by the <see cref="T:Microsoft.Cascade.Contracts.IBrokerManagerService"/>.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <exception cref="T:System.UnauthorizedAccessException">When the token is not found or revoked.</exception>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.BrokerManifest">
+            <summary>
+            A data object containing charasteristics necessary to establish and configure
+            a broker RPC session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.BrokerManifest.HostServices">
+            <summary>
+            List of names of permitted host RPC services.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.BrokerManifest.GuestServices">
+            <summary>
+            List of names of permitted guest RPC services.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.BrokerEventArgs">
+            <summary>
+            Represents event data associated with certain broker events.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IBrokerManagerService">
+            <summary>
+            A workspace service providing an API to control brokers' access.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IBrokerManagerService.RegisterAsync(Microsoft.Cascade.Contracts.BrokerManifest,System.Threading.CancellationToken)">
+            <summary>
+            Registers a broker entry for the current workspace. 
+            </summary>
+            <param name="brokerManifest">Configuration object of the broker</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>
+            A broker token is a unique string used by a broker process to authorize itself when establishing
+            an RPC session with the agent.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IBrokerManagerService.TryRevokeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Attempts to revoke a broker token issued earlier.
+            </summary>
+            <param name="brokerToken">Issued broker token</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>True if succeeded, false if given token cannot be found.</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.Coauthoring.ProjectFileOpenedMessage">
+            <summary>
+            Message sent by a guest or Nexus client when he or she opens the first editor window for a project file.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.Coauthoring.ProjectFileClosedMessage">
+            <summary>
+            Message sent by a guest or Nexus client when he or she closes the last editor window for a project file.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Position.Line">
+            <summary>
+            The zero-based id of the line number.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Position.Offset">
+            <summary>
+            The zero-based id of the character in the line.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Position.StartOffset">
+            <summary>
+            The zero-based index of the character in the buffer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CommentThreadStatus.Active">
+            <summary>
+            The comment thread is active.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.CommentThreadStatus.Closed">
+            <summary>
+            The comment thread is closed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadContext.FilePath">
+            <summary>
+            This serves as the identify for the file comparison.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadContext.LeftFileStart">
+            <summary>
+            The position of the comment on the left side of the diff.
+            This is the start position of the selected text.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadContext.LeftFileEnd">
+            <summary>
+            The position of the comment on the left side of the diff.
+            This is the end position of the selected text.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadContext.RightFileStart">
+            <summary>
+            The position of the comment on the right side of the diff.
+            This is the start position of the selected text.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadContext.RightFileEnd">
+            <summary>
+            The position of the comment on the right side of the diff.
+            This is the end position of the selected text.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadContext.DocumentVersion">
+            <summary>
+            Refers to the coediting version of the document, to help with initial comment placement.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.CommentId">
+            <summary>
+            Comment identifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.ParentId">
+            <summary>
+            The id of the parent comment.
+            ParentId is 0 for root comment.
+            -1 for adding comment at the end of the comment thread.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.ParticipantId">
+            <summary>
+            The unique participant id matching <c>PeerIdentity.Id</c> or <c>WorkspaceUserProfile.Id</c>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.ParticipantLabel">
+            <summary>
+            The participant label to display in UI. Usually just the user name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.LastUpdatedSessionId">
+            <summary>
+            The user session id that has updated the comment, this is the unique session id.
+            Same user joined in different sessions, will have different session id for each session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.ThreadId">
+            <summary>
+            The thread to which the comment belongs to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.Text">
+            <summary>
+            Comment text, cannot be null or empty.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.Likers">
+            <summary>
+            The list of participant Ids that have liked this comment.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.IsDeleted">
+            <summary>
+            Specifies if the comment has been deleted.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.PublishedDate">
+            <summary>
+            When the comment was published to the service. This is set by the service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.Comment.LastUpdatedDate">
+            <summary>
+            When the service last updated the comment, this is set by the service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.ThreadId">
+            <summary>
+            The thread identifier.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.LastUpdatedSessionId">
+            <summary>
+            The user session id that has updated the comment, this is the unique session id.
+            Same user joined in different sessions, will have different session id for each session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.LeftSnapshotIndex">
+            <summary>
+            When there are different baselines, this refers to the zero-based index of the left side file snapshot for a given comparison.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.RightSnapshotIndex">
+            <summary>
+            When there are different baselines, this refers to the zero-based index of the right side file snapshot for a given comparison.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.Comments">
+            <summary>
+            The comments in the current thread. Comments[0] is the root comment.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.ThreadContext">
+            <summary>
+            The position of the comment thread.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.IsDeleted">
+            <summary>
+            Specifies if this thread got deleted.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.Status">
+            <summary>
+            The thread status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.PublishedDate">
+            <summary>
+            When the comment thread was published to the service. This is set by the service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThread.LastUpdatedDate">
+            <summary>
+            When the service last updated the comment thread, this is set by the service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadChangedEventArgs.NewThread">
+            <summary>
+            The new thread that was added.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadChangedEventArgs.ChangedComment">
+            <summary>
+            The comment that was added, deleted or updated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadLocation.ThreadId">
+            <summary>
+            The id of the thread. Thread id can be 0.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.CommentThreadLocation.ThreadContext">
+            <summary>
+            The thread context.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ICommentService">
+            <summary>
+            Service that exposes the ability to add comments in a liveshare session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICommentService.CreateCommentThreadAsync(Microsoft.Cascade.Contracts.CommentThread,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new comment thread.
+            </summary>
+            <param name="commentThread">The comment thread. The comment thread should contain the root comment.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>The new comment thread.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICommentService.CreateCommentAsync(Microsoft.Cascade.Contracts.Comment,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new comment.
+            </summary>
+            <param name="comment">The comment.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>The new comment.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICommentService.UpdateCommentAsync(System.Int32,System.Int32,System.Int32,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Updates the specified comment.
+            </summary>
+            <param name="threadId">Thread id of the comment.</param>
+            <param name="commentId">The comment id.</param>
+            <param name="sessionId">The user session that is updating the comment.</param>
+            <param name="newText">The new text of the comment.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>The updated comment.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICommentService.DeleteCommentAsync(System.Int32,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the specified comment.
+            </summary>
+            <param name="threadId">Thread id of the comment.</param>
+            <param name="commentId">The comment id.</param>
+            <param name="sessionId">The user session that is deleting the comment.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>The updated comment.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICommentService.GetAllCommentThreadsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all comments from the service.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>List of comments.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICommentService.GetCommentThreadPositionsAsync(System.Int32[],System.Threading.CancellationToken)">
+            <summary>
+            Updates the positions of the commentThreads to the latest document version on the host.
+            </summary>
+            <returns>List of comment threads with updated positions.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ICommentService.UpdateLikeAsync(System.Int32,System.Int32,System.Int32,System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Updates the likers on the comment.
+            </summary>
+            <param name="threadId">The thread id of the comment.</param>
+            <param name="commentId">The comment id.</param>
+            <param name="sessionId">The session that's updating the comment.</param>
+            <param name="participantId">The participant that's liking/disliking the comment.</param>
+            <param name="isLike">If it was a like or a dislike.</param>
+            <param name="cancellationToken">Cancellation Token.</param>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ICommentService.CommentThreadChanged">
+            <summary>
+            This event is fired whenever there is a change to any comment thread.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IConfigurationService.ExchangeVersionsAsync(Microsoft.Cascade.Contracts.AgentVersionInfo,Microsoft.Cascade.Contracts.ClientVersionInfo,System.Threading.CancellationToken)">
+            <summary>
+            Gives an agent some metadata about the version of the caller,
+            and returns version information about the callee.
+            </summary>
+            <param name="agentVersion">Information about the agent that is calling,
+            or null if this call is made directly from a client.</param>
+            <param name="clientVersion">Information about the client tool that initiated
+            the request (possibly indirectly via another agent), or null if an agent is
+            calling not on behalf of any client.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+            <returns>Information about the agent that is called.</returns>
+            <remakrs>
+            After this call, either end may choose to terminate the connection if they
+            determine that the versions are incompatible.
+            </remakrs>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IConfigurationService.ExchangeSettingsAsync(Microsoft.Cascade.Contracts.UserSettings,System.Threading.CancellationToken)">
+            <summary>
+            Gives an agent user settings from the caller,
+            including feature flags.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IConfigurationService.GetSubnetMasksAsync(System.Byte[],System.Threading.CancellationToken)">
+            <summary>
+            Finds the network interface that contains the given IP address
+            and returns all subnet masks for all IP addreses belonging to this interface.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IDispatcherService">
+            <summary>
+            A service to retrieve an object dispatcher by a name
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IExcludedFileChecker">
+            <summary>
+            An interfaces that can check if a given file is exluded from a workspace
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IExcludedFileChecker.IsExcluded(Microsoft.Cascade.Contracts.WorkspaceFileId)">
+            <summary>
+            Get a value indicating whether the <paramref name="workspaceFile"/> is excluded.
+            </summary>
+            <param name="workspaceFile">Workspace file.</param>
+            <returns>True if the file is excluded.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IExcludedFileChecker.CanGuestSupportPersistentRoot(System.Int32)">
+            <summary>
+            Get a value indicating whether guest with <paramref name="sessionNumber"/> can support persistent root
+            and the persistent root is configured.
+            </summary>
+            <param name="sessionNumber">Guest's session number.</param>
+            <returns>
+            True if the persistent root is configured and the guest can use it;
+            Otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IExcludedFileChecker.CanClientSupportPersistentRoot">
+            <summary>
+            Get a value indicating whether the client can support persistent root and the persistent root is configured.
+            </summary>
+            <returns>
+            True if the persistent root is configured and the client can use it;
+            Otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IExcludedFileChecker.TryGetPersistentRemotePath(System.String,System.Boolean)">
+            <summary>
+            Check if <paramref name="localFullPath"/> can be expressed as persistent vsls path.
+            Check if the current RPC client may use persistent paths if <paramref name="checkPermissions"/> is true.
+            </summary>
+            <returns>
+            Null if <paramref name="localFullPath"/> is null,
+            or there is no persistent root configuration, or the path cannot be expressed with it,
+            or if <paramref name="checkPermissions"/> is true and the caller cannot use persisten roots.
+            Otherwise, normalized persistent vsls path with / slashes and without trailing /, e.g. /~~/c$/workspace/foo/bar.cs
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IExcludedFileChecker.TryConvertWorkspaceFileId(Microsoft.Cascade.Contracts.WorkspaceFileId,System.Boolean,System.Boolean)">
+            <summary>
+            Try converting <paramref name="workspaceFile"/> to/from persistent form.
+            </summary>
+            <param name="workspaceFile">Workspace file id to convert. May be null.</param>
+            <param name="usePersistentRootIfPossible">
+            A value indicating whether persistent root form should be used if it's possible and allowed.
+            </param>
+            <param name="checkPermissions">Whether to check caller permissions if <paramref name="usePersistentRootIfPossible"/> is true.</param>
+            <returns>
+            The argument <paramref name="workspaceFile"/> if it's already in the right format and that format is allowed.
+            New converted workspace file id if <paramref name="workspaceFile"/> is not null and can be converted.
+            If <paramref name="usePersistentRootIfPossible"/> is true, and <paramref name="workspaceFile"/> cannot be expressed in persistent
+            root form, it's returned as non-persistent form.
+            Otherwise, null.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IFirewallService.GetFirewallStatusAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets info about vsls-agent firewall rules.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FirewallStatus.None">
+            <summary>
+            Firewall does not have any rules for the process.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FirewallStatus.Allow">
+            <summary>
+            Firewall has a rule for the process with Allow action.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.FirewallStatus.Block">
+            <summary>
+            Firewall has a rule for the process with Block action.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IHubConnectionService">
+            <summary>
+            Expose hub connection capabilities to be used from a process outside the agent (rpc)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.InviteContactStatus">
+            <summary>
+            Possible states on an Invited Contact status
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.InviteStatusNotify">
+            <summary>
+            Define a notification entity when an invite status changed for an Invite contact
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IOnlineEnvironmentGuestService">
+            <summary>
+            This service replicates host notifications for scenarios like
+            accept-reject approval and guest leaving the session.
+            This service is initialized only for online environment owner guest.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IOnlineEnvironmentSessionService">
+            <summary>
+            Service provided by Online Environment Server to know information
+            about Live Share session shared by Online environment client.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IOnlineEnvironmentSessionService.GetSessionStateAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get the current state of Live Share session in online environment
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IOnlineEnvironmentSessionService.UpdateSessionStateAsync(Microsoft.Cascade.Contracts.LiveShareSessionState,System.Threading.CancellationToken)">
+            <summary>
+            Update the state of Live Share session in online environment
+            </summary>
+            <param name="newState"> Update session state to newState</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <remarks>Only online environment owner client can update the state.</remarks>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.LiveShareSessionState">
+            <summary>
+            Represents state of Live Share session at online environment client.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IPortForwardingService">
+            <summary>
+            Interface for enumerating shared servers and pipes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IPortForwardingService.GetSharedServersAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all shared servers.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>An array of all active shared servers.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IPortForwardingService.GetSharedPipesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all shared pipes.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>An array of all active shared pipes.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IPortForwardingService.GetLastAccessTimeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get the last timestamp when PFA was accessed
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Last accessed time in ticks</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IPortForwardingService.SetDestinationPortAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Update local port of forwarded server or set the mapping for the future forwarded server.
+            </summary>
+            <param name="sourcePort">Source port of the shared server. Must be > 0.</param>
+            <param name="destinationPort">
+            New local destination port. Must be >= 0. Use 0 to pick the first free port.
+            If not 0, and the port is already used, 0 assumed.
+            </param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Updated <see cref="T:Microsoft.Cascade.Contracts.SharedServer"/> with the new destination port or null if there is no such shared server.</returns>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IPortForwardingService.SharingStarted">
+            <summary>
+            An event to fire when a new server is shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IPortForwardingService.PipeSharingStarted">
+            <summary>
+            An event to fire when a new pipe is shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IPortForwardingService.BrowseSharingStarted">
+            <summary>
+            An event to fire when browse sharing is started.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IPortForwardingService.SharingStopped">
+            <summary>
+            An event to fire when server is no longer shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IPortForwardingService.PipeSharingStopped">
+            <summary>
+            An event to fire when pipe is no longer shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IPortForwardingService.SharingChanged">
+            <summary>
+            An event to fire when shared server has changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IRuntimeServiceProvider">
+            <summary>
+            Interface to expose a service provide that can dynamically register a service instance
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IRuntimeServiceProvider.UpdateRuntimeService``1(``0)">
+            <summary>
+            Replace a registered service with another instance
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="serviceInstance"></param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IRuntimeServiceProvider.AddRuntimeService``1(``0)">
+            <summary>
+            Register a service instance type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="serviceInstance"></param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IRuntimeServiceProvider.HasService(System.Type)">
+            <summary>
+            If a service is available
+            </summary>
+            <param name="serviceType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IServerSharingService">
+            <summary>
+            Interface for sharing local servers and named pipes.
+            It controls what local tcp ports and pipes can be forwarded to,
+            and configures <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/> appropriately.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.StartSharingAsync(System.Int32,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Configures a forwarding stream provider in <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/>
+            to start forwarding to localhost:<paramref name="port"/> tcp socket.
+            Use the result's <see cref="P:Microsoft.Cascade.Contracts.SharedServer.StreamName"/> and
+            <see cref="P:Microsoft.Cascade.Contracts.SharedServer.StreamCondition"/> to get a stream from
+            <see cref="M:Microsoft.Cascade.Contracts.IStreamManagerService.GetStreamAsync(System.String,System.String,System.Threading.CancellationToken)"/>
+            which would wrap the network stream to the socket.
+            If the port is already forwarded, <paramref name="sessionName"/> is ignored.
+            </summary>
+            <param name="port">Local tcp port to connect to. Not 0 or negative.</param>
+            <param name="sessionName">Port forwarding session name. Not null or empty.</param>
+            <param name="browseUrl">Browser URL if the server is a browser session or null.</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Shared local server info, not null.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.StartSharingPipeAsync(System.String,System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Configures a forwarding stream provider in <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/>
+            to start forwarding to local pipe <paramref name="pipeName"/>.
+            Use the result's <see cref="P:Microsoft.Cascade.Contracts.SharedPipe.StreamName"/> and
+            <see cref="P:Microsoft.Cascade.Contracts.SharedPipe.StreamCondition"/> to get a stream from
+            <see cref="M:Microsoft.Cascade.Contracts.IStreamManagerService.GetStreamAsync(System.String,System.String,System.Threading.CancellationToken)"/>
+            which would wrap the network stream to the pipe.
+            If the pipe is already forwarded, <paramref name="sessionName"/> is ignored.
+            </summary>
+            <param name="pipeName">Local pipe name to connect to 0. Not null or empty.</param>
+            <param name="sessionName">Pipe forwarding session name. Not null or empty.</param>
+            <param name="sendClientAccessInfoOnConnection">
+            A value indicating whether Server Sharing Service will send a ClientAccessInfo off the RPC context to the pipe when a guest connects to it.
+            </param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Shared local pipe info, not null.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.StopSharingAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Stops sharing of the local tcp <paramref name="port"/>.
+            </summary>
+            <param name="port">Port to stop sharing. Not 0 or negative.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.StopSharingPipeAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Stops sharing of the local pipe <paramref name="pipeName"/>.
+            </summary>
+            <param name="pipeName">Pipe to stop sharing. Not null or empty string.</param>
+            <param name="cancellationToken">A cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.StopSharingBrowseSessionsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Stops sharing all previousely shared browse sessions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.GetSharedServersAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all shared local servers.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>An array of all active shared local servers.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.GetSharedPipesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all shared local pipes.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>An array of all active shared local pipes.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.UpdateSessionNameAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Updates the session name of the shared server
+            </summary>
+            <param name="port">Port of the shared server to update. Not 0 or negative</param>
+            <param name="newSessionName">New session name.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.UpdateSharedServerVisibilityAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            DEPRECATED! Use UpdateSharedServerPrivacyAsync instead.
+            Updates the port visibility.
+            </summary>
+            <param name="port">Port of the shared server to update. Not 0 or negative</param>
+            <param name="isPublic">Port visibility. True when port is public.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.UpdateSharedServerProtocolAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Updates the port protocol.
+            </summary>
+            <param name="port">Port of the shared server to update. Not 0 or negative</param>
+            <param name="isHttps">Port protocol. True when port is https and False with it is http.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IServerSharingService.UpdateSharedServerPrivacyAsync(System.Int32,Microsoft.Cascade.Contracts.PrivacyEnum,System.Threading.CancellationToken)">
+            <summary>
+            Updates the port privacy setting.
+            </summary>
+            <param name="port">Port of the shared server to update. Not 0 or negative</param>
+            <param name="privacy">Port privacy setting.</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IServerSharingService.SharingStarted">
+            <summary>
+            An event to fire when a new server is shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IServerSharingService.PipeSharingStarted">
+            <summary>
+            An event to fire when a new pipe is shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IServerSharingService.BrowseSharingStarted">
+            <summary>
+            An event to fire when browse sharing is shared.
+            It is fired any time when <see cref="M:Microsoft.Cascade.Contracts.IServerSharingService.StartSharingAsync(System.Int32,System.String,System.String,System.Threading.CancellationToken)"/>
+            is called with <c>isBrowseSession</c> = true, even if the port is already shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IServerSharingService.SharingStopped">
+            <summary>
+            An event to fire when server is no longer shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IServerSharingService.PipeSharingStopped">
+            <summary>
+            An event to fire when pipe is no longer shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IServerSharingService.SharingChanged">
+            <summary>
+            An event to fire when shared server has changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SharedServer">
+            <summary>
+            Shared server info.
+            StreamName and Condition can be used to get the streams
+            from <see cref="M:Microsoft.Cascade.Contracts.IStreamManagerService.GetStreamAsync(System.String,System.String,System.Threading.CancellationToken)"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.SourcePort">
+            <summary>
+            Local tcp port being shared.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.DestinationPort">
+            <summary>
+            Remote tcp port that forwards to the local port.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.SessionName">
+            <summary>
+            Session name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.StreamName">
+            <summary>
+            Stream name to use with <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/> to get the forwarded stream.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.StreamCondition">
+            <summary>
+            Condition to use with <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/> to get the forwarded stream.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.BrowseUrl">
+            <summary>
+            Browse url for shared browser session or null.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.IsPublic">
+            <summary>
+            DEPRECATED
+            TODO: Remove when we start using Privacy property (should be done as part of https://github.com/microsoft/vssaas-planning/issues/5117)
+            True when we should share the port through online port forwarding service without authentication.
+            </summary>
+            Note: Can be removed in future as we start using Privacy property (should be done as part of https://github.com/microsoft/vssaas-planning/issues/5117)
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.Privacy">
+            <summary>
+            Privacy setting for the source port.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.IsTCPServerConnectionEstablished">
+            <summary>
+            True when we were able to establish connection with forwarded TCP server.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedServer.HasTLSHandshakePassed">
+            <summary>
+            True when we were able to perform TLS handshake with forwarded TCP server.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SharedPipe">
+            <summary>
+            Shared pipe info.
+            StreamName and Condition can be used to get the streams
+            from <see cref="M:Microsoft.Cascade.Contracts.IStreamManagerService.GetStreamAsync(System.String,System.String,System.Threading.CancellationToken)"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedPipe.SourcePipeName">
+            <summary>
+            Local pipe being shared.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedPipe.DestinationPipeName">
+            <summary>
+            Remote pipe that forwards to the local pipe.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedPipe.SendClientIdOnConnection">
+            <summary>
+            A value indicating whether Server Sharing Service should
+            send a client id (32bit little endian encoded) first to the source pipe
+            when a new client connects to it.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedPipe.SessionName">
+            <summary>
+            Session name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedPipe.StreamName">
+            <summary>
+            Stream name to use with <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/> to get the forwarded stream.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedPipe.StreamCondition">
+            <summary>
+            Condition to use with <see cref="T:Microsoft.Cascade.Contracts.IStreamManagerService"/> to get the forwarded stream.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ServerSharingStartedEventArgs">
+            <summary>
+            Event args for an event when a new server is shared.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.PipeSharingStartedEventArgs">
+            <summary>
+            Event args for an event when a new pipe is shared.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ServerSharingStoppedEventArgs">
+            <summary>
+            Event args for an event when a server is no longer shared.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.PipeSharingStoppedEventArgs">
+            <summary>
+            Event args for an event when a pipe is no longer shared.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ServerSharingChangedEventArgs">
+            <summary>
+            Event args for an event when a server is updated.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ISessionContextService.SessionStateUpdate">
+            <summary>
+            Event raised when agent sends a notification of a session state update
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ISessionContextService.SessionStatusUpdate">
+            <summary>
+            Event raised when agent sends a notification of a session status update
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SessionUpdateEventArgs.Value">
+            <summary>
+            Name of telemetry event
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ISharedWorkspace">
+            <summary>
+            Interface to define a shared workspace being shared by the agent
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ISharedWorkspaceSession.SharedInfo">
+            <summary>
+            Joined info Information
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ISourceControlService">
+            <summary>
+            Source control service.
+            This service should be proffered by the host client.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetAllSourceControlsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get all source controls in the collaboration session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetSourceControlsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get specific source controls in the collaboration session for the given source control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetSourceControlAsync(Microsoft.Cascade.Contracts.SourceControlIdentifier,System.Threading.CancellationToken)">
+            <summary>
+            Get specific source control in the collaboration session for the given source control and instance.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetRecentVersionsAsync(Microsoft.Cascade.Contracts.SourceControlIdentifier,System.Threading.CancellationToken)">
+            <summary>
+            Get recent versions from the source control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetRecentVersionsTillMergeVersionAsync(System.String,Microsoft.Cascade.Contracts.SourceControlIdentifier,System.Threading.CancellationToken)">
+            <summary>
+            Get recent versions upto a given merge base from the source control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetDiffsForVersionAsync(Microsoft.Cascade.Contracts.SourceControlIdentifier,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get list of diffs between working directory and sepecific version.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetDiffForResourceAsync(Microsoft.Cascade.Contracts.SourceControlResourceIdentifier,System.Threading.CancellationToken)">
+            <summary>
+            Get diff data for the given source control resource, or null if not found.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetResourceAsync(Microsoft.Cascade.Contracts.SourceControlResourceIdentifier,System.Threading.CancellationToken)">
+            <summary>
+            Get content of resource from source control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.CleanResourcesAsync(Microsoft.Cascade.Contracts.SourceControlResourceIdentifier[],System.Threading.CancellationToken)">
+            <summary>
+            Clean (discard changes) the specified resources it source control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetMergeVersionAsync(Microsoft.Cascade.Contracts.SourceControlIdentifier,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the merge base - the common ancestor of the local branch and the remote branch.
+            </summary>
+            <param name="sourceControlIdentifier">Id of the source control.</param>
+            <param name="remoteVersionName">The remote branch.</param>
+            <param name="cancellationToken">CancellationToken</param>
+            <returns>The merge base as commit id.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetRemoteVersionsNamesAsync(Microsoft.Cascade.Contracts.SourceControlIdentifier,System.Threading.CancellationToken)">
+            <summary>
+            Gets the list of all remote branches for the given source control.
+            </summary>
+            <param name="sourceControlIdentifier">Id of the source control.</param>
+            <param name="cancellationToken">CancellationToken</param>
+            <returns>List of remote branches in the format remoteName/branchName</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISourceControlService.GetCurrentVersionNameAsync(Microsoft.Cascade.Contracts.SourceControlIdentifier,System.Threading.CancellationToken)">
+            <summary>
+            Gets the current branch name the host is on.
+            </summary>
+            <param name="sourceControlIdentifier">Id of the source control.</param>
+            <param name="cancellationToken">CancellationToken</param>
+            <returns>The local branch name</returns>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ISourceControlService.SourceControlChanged">
+            <summary>
+            An event that fires when some source control changed.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ISourceControlService.ResourceChanged">
+            <summary>
+            And event that fires when some source control resource changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlIdentifier">
+            <summary>
+            Source control identity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlIdentifier.SourceControlId">
+            <summary>
+            Id of the source control. E.g. for Git it is "git".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlIdentifier.InstanceId">
+            <summary>
+            ID of the source control instance. E.g. for Git it is repo's root URI.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlVersion">
+            <summary>
+            Version within source control.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlVersion.Version">
+            <summary>
+            Version within the source control. This data is source-control specific.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlVersion.Label">
+            <summary>
+            Short description of the version in host UI language.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlVersion.Description">
+            <summary>
+            Verbose description of the version in host UI language.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlResourceType">
+            <summary>
+            Type of source control resource.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlResourceType.Workspace">
+            <summary>
+            The resource path points to a file or folder within the collaboration workspace working directory. Corresponds to vsls: scheme.
+            The resource version is not set, and should be ignored if set.
+            The resource is editable.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlResourceType.External">
+            <summary>
+            The resource path points to a file or folder outside the collaboration workspace. Corresponds to vsls-external: scheme
+            The resource version is not set, and should be ignored if set.
+            The resource is read-only.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlResourceType.SpecificVerision">
+            <summary>
+            The resource path and version specify a source-controlled resource that may only exists in source control,
+            e.g. some file or folder at specific revision.
+            The resource can be fetched via ISourceControlService.GetSourceControlResource().
+            The resource is read-only.
+            The path is source-control specific and does not necessarily translates to a file path.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlResourceType.WorkspaceWithSpecificVersion">
+            <summary>
+            The resource path points to a file or folder within the collaboration workspace. It corresponds to vsls: scheme.
+            The difference from <c>Workspace</c> is that this resource also specifies version.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlChangeType">
+            <summary>
+            Type of source control resource change or diff.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.Add">
+            <summary>
+            Corresponds to INDEX_ADDED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.Edit">
+            <summary>
+            Corresponds to MODIFIED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.Delete">
+            <summary>
+            Corresponds to DELETED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.Rename">
+            <summary>
+            Corresponds to INDEX_RENAMED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.Conflict">
+            <summary>
+            Corresponds to BOTH_MODIFIED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.IndexEdit">
+            <summary>
+            Corresponds to INDEX_MODIFIED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.IndexDelete">
+            <summary>
+            Corresponds to INDEX_DELETED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.IndexCopy">
+            <summary>
+            Corresponds to INDEX_COPIED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.Untracked">
+            <summary>
+            Corresponds to UNTRACKED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.Ignored">
+            <summary>
+            Corresponds to IGNORED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.AddByUs">
+            <summary>
+            Corresponds to ADDED_BY_US in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.AddByThem">
+            <summary>
+            Corresponds to ADDED_BY_THEM in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.DeleteByUs">
+            <summary>
+            Corresponds to DELETED_BY_US in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.DeleteByThem">
+            <summary>
+            Corresponds to DELETED_BY_THEM in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.AddBoth">
+            <summary>
+            Corresponds to BOTH_ADDED in Git.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChangeType.DeleteBoth">
+            <summary>
+            Corresponds to BOTH_DELETED in Git.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlResource">
+            <summary>
+            Resource under source control.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResource.Type">
+            <summary>
+            Type of the resource.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResource.Path">
+            <summary>
+            Path to the resource. The path depends on the resource type:
+            For Workspace or WorkspaceWithSpecificVersion it is the same as path for 'vsls:/....' URI.
+            For External it is the same as path for 'vslsexternal:/...' URI.
+            For SpecificVerision it is some opaque string that source control service understands and guest should treat as just an id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResource.Version">
+            <summary>
+            Optionally, the version of the resource if its type is SpecificVersion or WorkspaceWithSpecificVersion.
+            Empty string means "baseline" if the resource type is WorkspaceWithSpecificVersion.
+            Otherwise, it is specific to source control
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlResourceState">
+            <summary>
+            Individual file state under source control.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceState.Current">
+            <summary>
+            Source control resource.
+            It is displayed on the source control viewlet in VSCode.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceState.ChangeType">
+            <summary>
+            Type of the change the resource state is about.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceState.Original">
+            <summary>
+            If set, the original resource for quick diff and decorations.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlResourceIdentifier">
+            <summary>
+            Identifier of the source control resource.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceIdentifier.GroupId">
+            <summary>
+            Optional group id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceIdentifier.SourceControlId">
+            <summary>
+            Optional source control id. E.g. for Git it is "git"
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceIdentifier.InstanceId">
+            <summary>
+            Optional source control instance id. E.g. for Git is root URI of the Git repo.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlResourceGroup">
+            <summary>
+            Group of source-controlled states, e.g. "Changes", "Index", or "Merge" in git.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceGroup.GroupId">
+            <summary>
+            Group id. Language-agnostic.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceGroup.Label">
+            <summary>
+            Group label in host UI language.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceGroup.HideWhenEmpty">
+            <summary>
+            A value indicating whether to hide the group if it is empty.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceGroup.SupportsClean">
+            <summary>
+            A value indicating whether the resource states in the group can be cleaned.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceGroup.SupportsOpenFile">
+            <summary>
+            A value indicating whether the resource states in the group can be opened.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceGroup.SupportsOpenChanges">
+            <summary>
+            A value indicating whether the changes for resource states in the group can be opened.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceGroup.ResourceStates">
+            <summary>
+            Resource states within the group.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlInstance">
+            <summary>
+            Source control data.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlInstance.Label">
+            <summary>
+            Source control label in host UI language. E.g. "Git"
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlInstance.Name">
+            <summary>
+            Optional Source control instance name, usually the folder name of the source control root folder.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlInstance.ResourceGroups">
+            <summary>
+            Groups of source-controlled files within this source control.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlResourceDiff">
+            <summary>
+            Source control resource diff info.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceDiff.Right">
+            <summary>
+            The right resource of the diff.
+            Can be null if there is no right resource for diffing (e.g. the file was deleted)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceDiff.ChangeType">
+            <summary>
+            Type of the diff.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceDiff.Left">
+            <summary>
+            The left resource of the diff.
+            Can be null if there is no left resource for diffing (e.g. the file was added)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceDiff.Title">
+            <summary>
+            The title of the diff.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlChange">
+            <summary>
+            Source control change type.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChange.Updated">
+            <summary>
+            Existing source control instance updated.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChange.Added">
+            <summary>
+            New source control instance added.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.SourceControlChange.Removed">
+            <summary>
+            Existing source control instance removed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlChangedEventArgs">
+            <summary>
+            Event args for event when source control changed on the host.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlChangedEventArgs.SourceControl">
+            <summary>
+            Source control instance that changed, or null if all of them did.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlChangedEventArgs.Change">
+            <summary>
+            What kind of change happened.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SourceControlResourceChangedEventArgs">
+            <summary>
+            Event args for event when source control resources changed on the host.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceChangedEventArgs.SourceControl">
+            <summary>
+            Source control instance where the change happened.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SourceControlResourceChangedEventArgs.Resources">
+            <summary>
+            Resources that changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ISyncService">
+            <summary>
+            Service for detecting if a guest's document is in sync with the host's
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISyncService.CheckSync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Checks if documents are in sync.
+            </summary>
+            <param name="filePath">File to check sync status of.</param>
+            <param name="fileHash">Hash code of file on guest.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>If the document is in sync.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISyncService.CheckSyncForVersion(System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Checks if documents are in sync.
+            </summary>
+            <param name="filePath">File to check sync status of.</param>
+            <param name="serverVersionNumber">The server version that the hash corresponds to.</param>
+            <param name="fileHash">Hash code of file on guest.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>If the document is in sync.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ISyncService.CheckSyncForVersion2(System.String,System.Int32,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Checks if documents are in sync.
+            </summary>
+            <param name="filePath">File to check sync status of.</param>
+            <param name="fileVersion">Version of the file, which increments each time it's reset.</param>
+            <param name="serverVersionNumber">The server version that the hash corresponds to.</param>
+            <param name="fileHash">Hash code of file on guest.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>If the document is in sync.</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ITaskOutputService">
+            <summary>
+            Represents a service providing CRUD operations over task outputs produced by the host.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITaskOutputService.GetTaskOutputsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a collection of task outputs shared by the host.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITaskOutputService.ShareTaskOutputAsync(System.String,Microsoft.Cascade.Contracts.TaskOutputOptions,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new instance of a shared task output.
+            </summary>
+            <param name="name">The name of the task output.</param>
+            <param name="options">Options .</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A data object representing the new instance of the task output.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITaskOutputService.UpdateTaskOutputFeedAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Updates the task output by replacing its current feed with the new one.
+            </summary>
+            <param name="id">The ID of the task output.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The task output with the new feed.</returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException">When a task output with the given ID cannot be found.</exception>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITaskOutputService.CloseTaskOutputAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Closes the shared task output.
+            </summary>
+            <param name="id">The ID of the task output.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITaskOutputService.TaskOutputShared">
+            <summary>
+            Occurs when new task output shared.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITaskOutputService.TaskOutputFeedUpdated">
+            <summary>
+            Occurs when a task output feed updated.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITaskOutputService.TaskOutputClosed">
+            <summary>
+            Occurs when a task output closed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskOutputContentType">
+            <summary>
+            A content type of a task output or feed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.TaskOutputContentType.PlainText">
+            <summary>
+            Plain text content.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.TaskOutputContentType.TextWithAnsiEscapeCodes">
+            <summary>
+            Text with ANSI escape codes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskOutputFeedInfo">
+            <summary>
+            Single task execution feed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputFeedInfo.Id">
+            <summary>
+            The identifier of the feed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputFeedInfo.StreamMoniker">
+            <summary>
+            The stream moniker of corresponding remote stream.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskOutputOptions">
+            <summary>
+            Options pertaining to a task output
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputOptions.ContentType">
+            <summary>
+            The type of the content.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputOptions.TaskKinds">
+            <summary>
+            Collection of task kinds associated with the task output.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputOptions.Encoding">
+            <summary>
+            Text encoding of the content.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskOutputInfo">
+            <summary>
+            Represents a task output, typically associated with a output or terminal window in IDE.
+            It can be used to send ouput from task execution feeds.
+            Only one feed can be active.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputInfo.Id">
+            <summary>
+            The identifier of the task output.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputInfo.Name">
+            <summary>
+            Display name of the task output.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputInfo.Feed">
+            <summary>
+            Active feed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TaskOutputInfo.Options">
+            <summary>
+            Task output options.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TaskOutputEventArgs">
+            <summary>
+            Represents an event data sent with a task output event.
+            </summary>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITelemetryService.InitializeAsync(Microsoft.Cascade.Contracts.TelemetrySettings,System.Threading.CancellationToken)">
+            <summary>
+            Enables client and agent to exchange telemetry settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITelemetryService.GetServiceUriAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the service uri
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITelemetryService.GenericOperation">
+            <summary>
+            Event raised when agent sends a notification of a operation occuring
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITelemetryService.Fault">
+            <summary>
+            Event raised when agent sends a notification of a fault
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.GenericOperationEventArgs.EventName">
+            <summary>
+            Name of telemetry event
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.GenericOperationEventArgs.Result">
+            <summary>
+            Result of the operation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.GenericOperationEventArgs.Payload">
+            <summary>
+            The payload of the operation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FaultTelemetryEventArgs.EventName">
+            <summary>
+            Name of fault telemetry event
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FaultTelemetryEventArgs.Description">
+            <summary>
+            Description of the fault event
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.FaultTelemetryEventArgs.Payload">
+            <summary>
+            The payload of the event
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ITerminalEndpoint">
+            <summary>
+            Terminal endpoint - connection to terminal stdio streams.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalEndpoint.ReadBytesAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Reads <paramref name="count"/> bytes from the stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalEndpoint.WriteBytesAsync(System.ArraySegment{System.Byte},System.Threading.CancellationToken)">
+            <summary>
+            Writes bytes to the stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalEndpoint.ReadStringAsync(System.Threading.CancellationToken)">
+            <summary>
+            Reads bytes as UTF-8 string from the terminal stream.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalEndpoint.WriteStringAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Writes UTF-8 string to the terminal stream.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ITerminalService">
+            <summary>
+            Terminal service interface
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalService.StartTerminalAsync(Microsoft.Cascade.Contracts.TerminalOptions,System.Threading.CancellationToken)">
+            <summary>
+            Start a terminal and open local pipe that connects to it
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalService.GetRunningTerminalsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Query terminals that are running.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalService.ResizeTerminalAsync(System.Int32,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Resize a terminal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalService.StopTerminalAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Stop running terminal
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalService.ClearTerminalBufferAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Clear the buffer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.ITerminalService.SetTerminalReadOnlyForGuestsAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Set read-only for guests flag for a terminal.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITerminalService.TerminalStarted">
+            <summary>
+            Event that fires when a terminal has started.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITerminalService.TerminalResized">
+            <summary>
+            Event that fires when a terminal has resized.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITerminalService.TerminalStopped">
+            <summary>
+            Event that fires when a terminal has stopped.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.ITerminalService.TerminalReadOnlyChanged">
+            <summary>
+            Event that fires when terminal read-only status has changed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TerminalOptions">
+            <summary>
+            Options that control how terminal is started
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.Name">
+            <summary>
+            Terminal name to be shown on client UI
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.Rows">
+            <summary>
+            Rows count, greater than 0
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.Cols">
+            <summary>
+            Columns count, greater than 0
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.Cwd">
+            <summary>
+            Working directory on the host machine where terminal starts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.App">
+            <summary>
+            Path to terminal application on the host machine.
+            Mandatory if a data pipe name is not provided.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.CommandLine">
+            <summary>
+            Terminal command line
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.VerbatimCommandLine">
+            <summary>
+            A value indicating whether command line arguments must be quoted.
+            <c>false</c>, the default, means that the arguments must be quoted and quotes inside escaped then concatenated with spaces.
+            <c>true</c> means that the arguments must not be quoted and just concatenated with spaces.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.Environment">
+            <summary>
+            Terminal environment variables.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.ReadOnlyForGuests">
+            <summary>
+            A value indicating whether the terminal is read-only for guests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.IsSharedDebugTerminal">
+            <summary>
+            A value indicating whether the terminal is a shared debug terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.DataPipeName">
+            <summary>
+            Name of a duplex pipe of an integrated terminal.
+            Mandatory if a terminal application path is not specified.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalOptions.BufferSize">
+            <summary>
+            Size of the backing circular buffer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TerminalInfo">
+            <summary>
+            Info on running terminal
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalInfo.Id">
+            <summary>
+            Identity to distinguish from other terminals
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalInfo.Options">
+            <summary>
+            Options used to create the terminal.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalInfo.StreamName">
+            <summary>
+            Stream name for the <c>StreamManagerService</c>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalInfo.StreamCondition">
+            <summary>
+            Stream condition for the <c>StreamManagerService</c>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalInfo.LocalPipeName">
+            <summary>
+            Local named pipe name to connect to the terminal
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalInfo.AppProcessId">
+            <summary>
+            ProcessId of the created <see cref="P:Microsoft.Cascade.Contracts.TerminalOptions.App"/> process. Null if the integrated shell is used.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.TerminalEventArgs">
+            <summary>
+            Event args for notification for a terminal
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.TerminalEventArgs.Terminal">
+            <summary>
+            The terminal this event is about.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.SharedTerminalRestrictedOperation">
+            <summary>
+            Restricted operation for a specific terminal
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedTerminalRestrictedOperation.TerminalId">
+            <summary>
+            Terminal Id
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.SharedTerminalRestrictedOperation.IsEscapeSequence">
+            <summary>
+            Whether the operation is writing of an escape sequence.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService">
+            <summary>
+            Service that manages access control for collaboration session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.GetAccessControlAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets access control for the collaboration session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.SetAccessControlAsync(Microsoft.Cascade.Contracts.WorkspaceAccessControl,System.Threading.CancellationToken)">
+            <summary>
+            Sets access control for the collaboration session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.RequestOperationAccessAsync(Microsoft.Cascade.Contracts.RestrictedOperation,System.Threading.CancellationToken)">
+            <summary>
+            Requests host to allow access to a specific <paramref name="operation"/> in the collaboration session.
+            If this this the first time, a notification will pop up for the host asking that a guest wants to
+            allow a restricted operation. If the host make any decision, <see cref="E:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.OperationAccessChanged"/>
+            event will fire and this method returns the host's decision on the access.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.SetOperationAccessAsync(Microsoft.Cascade.Contracts.RestrictedOperation,Microsoft.Cascade.Contracts.RestrictedOperationAccess,System.Threading.CancellationToken)">
+            <summary>
+            Sets explicit <paramref name="access"/> on a given <paramref name="operation"/>.
+            Only host can invoke this method.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.RejectOperationAsync(Microsoft.Cascade.Contracts.RestrictedOperation,Microsoft.Cascade.Contracts.RestrictedOperationAccess,System.Threading.CancellationToken)">
+            <summary>
+            Calls <see cref="E:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.OperationRejected"/> event.
+            Only host can invoke this method.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.AccessControlChanged">
+            <summary>
+            Event that fires when session or user access control has changed.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.OperationRejected">
+            <summary>
+            Event that fires when host a restricted opreation is rejected.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.OperationAccessChanged">
+            <summary>
+            Event that fires when the host changes access for an operation.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceAccessControlService.OpeationAccessRequested">
+            <summary>
+            Event that fires when somebody requested access to a restricted operation for the first time in the session.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceAccessControl">
+            <summary>
+            Event args for an event when user access control changes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceAccessControl.Default">
+            <summary>
+            Default workspace access control, allows full access
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceAccessControl.DefaultAccessControl">
+            <summary>
+            Session default access control.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceAccessControl.UserAccessControl">
+            <summary>
+            User session access control. It takes precedence over the default access control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.WorkspaceAccessControl.GetUserAccessControl(System.Int32)">
+            <summary>
+            Get user-specific access control or default one.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.WorkspaceAccessControl.SetUserReadonly(System.Int32)">
+            <summary>
+            Get user-specific access control or default one.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceAccessControlEventArgs">
+            <summary>
+            Event args for an event when user access control changes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceAccessControlEventArgs.AccessControl">
+            <summary>
+            Session access control.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.RestrictedOperationAccessRequestedEventArgs">
+            <summary>
+            Event args for an event when a guest requests access to a restricted operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperationAccessRequestedEventArgs.Operation">
+            <summary>
+            Restricted operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.RestrictedOperationAccessRequestedEventArgs.SessionId">
+            <summary>
+            Session id of the participant that requests access.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.IWorkspaceDiagnosticsService">
+            <summary>
+            A service providing a list of diagnostic entries, including warnings, errors, and problems,
+            emitted by a workspace task.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceDiagnosticsService.GetDiagnosticsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a list of diagnostic entries for the current workspace.
+            </summary>
+            <returns>
+            A collection of diagnostic entries. Will return an empty array or null when no errors are
+            present.
+            </returns>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceDiagnosticsService.DiagnosticDataChanged">
+            <summary>
+            Raised when diagnostic data has changed. The event will contain full list (a snapshot)
+            of the active entries present at the moment the event is raised.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ErrorSeverity">
+            <summary>
+            Represents severity of an error reported by a workspace task.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.DiagnosticEntry">
+            <summary>
+            An entry representing error, warning or message generated by a workspace task
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.DiagnosticEntry.Severity">
+            <summary>
+            Severity of the error. See <see cref="T:Microsoft.Cascade.Contracts.ErrorSeverity"/>
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.DiagnosticEntry.FileId">
+            <summary>
+            Canonical ID of an associated file in the collaboration workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.DiagnosticEntry.LineNumber">
+            <summary>
+            0-based line number where the error is detected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.DiagnosticEntry.Column">
+            <summary>
+            0-based columnt number where the error is detected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.DiagnosticEntry.ErrorCode">
+            <summary>
+            Error code.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.DiagnosticEntry.Message">
+            <summary>
+            User-friendly error message.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.DiagnosticEntry.Properties">
+            <summary>
+            Collection of additional properties associated with the error.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.DiagnosticDataChangedEventArgs">
+            <summary>
+            Describes a diagnostic data event containing a collection of diagnostic entries emitted by
+            a workspace task.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.GetWorkspaceAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets information about a single workspace by ID. Queries the cloud service
+            if the ID does not refer to a local workspace.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.ListWorkspacesAsync(Microsoft.Cascade.Contracts.WorkspaceListOptions,System.Threading.CancellationToken)">
+            <summary>
+            Lists local workspaces, and optionally queries the cloud service to find a
+            list of all workspaces owned by or shared with the current user.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.CreatePersistentWorkspaceAsync(System.String,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Create a persistent workspace with optional label parameter
+            </summary>
+            <remarks>
+            Planned sessions require label for persistent workspaces.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.DeleteWorkspaceAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Delete a Planned Session
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.RenameWorkspaceAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Rename Planned Session
+            </summary>
+            <remarks>
+            Planned sessions require id and name to rename persistent workspaces.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.ShareWorkspaceAsync(Microsoft.Cascade.Contracts.WorkspaceShareInfo,System.Threading.CancellationToken)">
+            <summary>
+            Starts sharing a local workspace, and sets the current workspace context
+            for the RPC session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.CreateInvitationLinkAsync(Microsoft.Cascade.Contracts.InvitationLinkInfo,System.Threading.CancellationToken)">
+            <summary>
+            Create invitation link for a workspace based on link conditions
+            from InvitationLinkInfo
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.GetInvitationLinksAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Get invitation links for a workspace
+            </summary>
+            <param name="workspaceId"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+            <remarks>Only owner of the workspace can query for invitation link</remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.UnshareWorkspaceAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Stops sharing a local workspace, and clears the current workspace context
+            for the RPC session.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.BeginJoinWorkspaceAsync(Microsoft.Cascade.Contracts.WorkspaceJoinInfo,System.Threading.CancellationToken)">
+            <summary>
+            Hints to the service that a join is about to take place and requests the workspace.
+            </summary>
+            <remarks>
+            This itself does not perform a join, you must still call <see cref="M:Microsoft.Cascade.Contracts.IWorkspaceService.JoinWorkspaceAsync(Microsoft.Cascade.Contracts.WorkspaceJoinInfo,System.Threading.CancellationToken)"/>.
+            It is also not required but acts as a hint to the service that we're about to perform
+            a join so close-together web operations can be cached if possible.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.JoinWorkspaceAsync(Microsoft.Cascade.Contracts.WorkspaceJoinInfo,System.Threading.CancellationToken)">
+            <summary>
+            Establishes a connection to a workspace, and sets the current workspace
+            context for the RPC session.
+            </summary>
+            <remarks>
+            It is possible to join a local workspace (that was already shared by /
+            owned by the current user); in that case no remote connection is made,
+            but the current-workspace context is of the RPC session is still set.
+            </remarks>
+            <seealso cref="M:Microsoft.Cascade.Contracts.IWorkspaceService.BeginJoinWorkspaceAsync(Microsoft.Cascade.Contracts.WorkspaceJoinInfo,System.Threading.CancellationToken)"/>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.UnjoinWorkspaceAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Disconnects from a workspace, and clears the current workspace context
+            for the RPC session.
+            </summary>
+            <remarks>
+            Unjoining a local workspace does not stop sharing, it merely clears
+            the current workspace context of the RPC session.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.RegisterServicesAsync(System.String[],Microsoft.Cascade.Contracts.CollectionChangeType,System.Threading.CancellationToken)">
+             <summary>
+             Registers or unregisters service proxies that enable the client to provide
+             RPC services to other clients in the workspace.
+             </summary>
+             <remarks>
+             Other clients can make RPC requests to the registered services by name without
+             knowing details about exactly who is providing each service. (Services can still
+             be provided by the agent also.) Services registered by clients can also raise
+             events, which then get broadcast as RPC notification messages to any other
+             clients that are listening for events from the service. (Where broadcast
+             functionality is not needed, consider using a request instead of events;
+             requests and responses are never broadcast.)
+             
+             If there are multiple instances of the same service, RPC requests to that
+             service may result in an error when a single service provider cannot be
+             identified. (But when are 2 providers of a service and the caller is one of
+             them, then the request is delivered to the non-caller provider, because there
+             are no loopback requests so there is no ambiguity.) However, multiple instances
+             of a service may all broadcast notifications without limitations.
+            
+             The client must separately register the service implementation(s) on its
+             RPC session. Also before invoking this method, a current workspace must have
+             been already set via a share or join request. The registrations only last as
+             long as the current workspace sesssion.
+             </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.CanUserShareWorkspaceAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Returns true if current user can be the sharer for the workspace. A user can
+            be a sharer if there is no sharer in the workspace (verified by IsHostConnected)
+            and user is either the owner or in the list of host users for the workspace
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.CanUserHostWorkspaceAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Returns true if current user can host using the workspace id
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.CreatePublicInviteLinkAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Create public invite link for shared workspace.
+            </summary>
+            <param name="workspaceId"> Id for the workspace</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.DisconnectGuestAsync(System.Int32,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Disconnect guest from the active session
+            </summary>
+            <param name="guestId"> Guest id</param>
+            <param name="workspaceId">Workspace id</param>
+            <param name="cancellationToken"></param>
+            <returns>True if successfully disconnected</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.UnjoinOnlineEnvironmentsGuestsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Unjoin Online environment guests within a Live share session
+            where host is online environment
+            </summary>
+            <param name="workspaceId">Id for the workspace</param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.SetWorkspaceReadyForConnectionAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Set shared workspace as ready for connection.
+            </summary>
+            <param name="workspaceId">Id for the workspace</param>
+            <param name="cancellationToken">Cancellation token</param>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.IWorkspaceService.UpdateWorkspaceOwnerAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Updates the owner of the workspace from the user specified by <paramref name="currentOwnerToken"/>
+            to the user specified by <paramref name="newOwnerToken"/>.
+            </summary>
+            <remarks><paramref name="workspaceId"/> must be a workspace id, it cannot be an invitation link.</remarks>
+            <param name="workspaceId">The workspace to update</param>
+            <param name="currentOwnerToken">The token of the current owner</param>
+            <param name="newOwnerToken">The token of the new owner</param>
+            <param name="cancellationToken">The cancellation token</param>
+            <returns>A <see cref="T:Microsoft.Cascade.Contracts.UserInfo"/> for the new owner</returns>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceService.ServicesChanged">
+            <summary>
+            Notifies clients when available services on a workspace have changed,
+            possibly because other clients have registered/unregistered services
+            or connected/disconnected.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceService.ConnectionStatusChanged">
+            <summary>
+            Event raised when the connection status of the current workspace changes.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceService.ProgressUpdated">
+            <summary>
+            Workspace progress updates sent from agent to client
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceService.UserRemoved">
+            <summary>
+            Raised when host removes guest from collaboration session
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceService.UserBlocked">
+            <summary>
+            Raised when host blocks guest from collaboration session
+            </summary>
+        </member>
+        <member name="E:Microsoft.Cascade.Contracts.IWorkspaceService.WorkspaceReadyForConnection">
+            <summary>
+            Raised when workspace gets ready for connection
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.InvitationLinkInfo">
+            <summary>
+            Invitation link info provided to the agent to create an access control link
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.Id">
+            <summary>
+            Identity of the workspace - used by clients to join a workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.Name">
+            <summary>
+            Friendly name of the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.JoinUri">
+            <summary>
+            URI to the web page for joining the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.OwnerId">
+            <summary>
+            UserId of the user that owns this workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.ConnectionStatus">
+            <summary>
+            Connection status of the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.IsHostConnected">
+            <summary>
+            Whether host is connected to persistent session
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.ExpiresAt">
+            <summary>
+            In case of persistent workspace, time at which it will expire.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.Label">
+            <summary>
+            The label of a managed workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceInfo.IsReadyForConnection">
+            <summary>
+            Set to true when the share operation is successfully completed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceConnectionStatus.Unknown">
+            <summary>
+            Unknown/uninitialized connection status.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceConnectionStatus.Available">
+            <summary>
+            The workspace is shared and the host is currently listening for
+            connections.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceConnectionStatus.Unavailable">
+            <summary>
+            The workspace was previously shared. It is currently not available
+            because the host is no longer listening for connections. But it
+            has not been unshared/deleted.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceConnectionStatus.Connected">
+            <summary>
+            The workspace is shared, and the local agent is currently connected
+            (joined).
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceConnectionStatus.Disconnected">
+            <summary>
+            The workspace was previously connected, but has become disconnected.
+            It may or may not be available to reconnect.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.None">
+            <summary>
+            Unknown/uninitialized reason.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.Requested">
+            <summary>
+            The client intentionally disconnected from the workspace.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.UserRemoved">
+            <summary>
+            The client was removed from (kicked out of) the collaboration session
+            by the owner.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.UserBlocked">
+            <summary>
+            The client was removed and blocked from the collaboration session
+            by the owner.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.SessionEnded">
+            <summary>
+            The collaboration session was ended by the sharer.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.ConnectionLost">
+            <summary>
+            The connection to the remote shared workspace was unexpectedly lost.
+            It may be possible to reconnect.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.InternalError">
+            <summary>
+            An unrecoverable application error has occurred.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.SessionExpired">
+            <summary>
+            The collaboration session expired.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.NetworkDisconnected">
+            <summary>
+            The collaboration session has ended due to network connectivity issues.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.ListenerWentOffline">
+            <summary>
+            The collaboration session has ended due to the tcplistener or relaylistener going offline.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WorkspaceDisconnectedReason.CollaborationServiceFactoryCriticalFailure">
+            <summary>
+            Critical failure of callaboration service factory
+            as indicated by "Microsoft.VisualStudio.LiveShare.CriticalFactoryFailure" data key on
+            exception thrown by the factory.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceConnectionStatusChangedEventArgs.ConnectionStatus">
+            <summary>
+            New connection status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceConnectionStatusChangedEventArgs.DisconnectedReason">
+            <summary>
+            Reason for a disconnection. Required only when the
+            ConnectionStatus value is Disconnected.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceReadyForConnectionEventArgs">
+            <summary>
+            Event that is fired by <see cref="T:Microsoft.Cascade.Contracts.IWorkspaceService"/> when shared workspace become ready for connections
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceReadyForConnectionEventArgs.Workspace">
+            <summary>
+            Workspace that become ready for connection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceProgressEventArgs.Duration">
+            <summary>
+            Duration in ms of how long this event took to complete
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.ConnectionMode">
+            <summary>
+            Specifies whether direct connections and/or relay connections
+            will be enabled for connecting to the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.AreAnonymousGuestsAllowed">
+            <summary>
+            Specifies anonymous guests allowed for the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.KeepAlive">
+            <summary>
+            Indicates whether the workspace should remain shared even after the
+            client that shared the workspace disconnects. If false, the workspace
+            will be automatically unshared when the host client disconnects.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.HostUsers">
+            <summary>
+            List of users (other than the owner) that can share the workspace
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.IsPersistent">
+            <summary>
+            If set to true, then create workspace with an expiration date
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.MinimalFileServices">
+            <summary>
+            If true, then only basic file services (list, read, write) are available.
+            File indexing, file watching (change notification), and text searching capabilities
+            are disabled for the session.
+            </summary>
+            <remarks>
+            This option reduces CPU and memory load for a large workspace when these services
+            are not needed.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.PersistentRootConfiguration">
+            <summary>
+            Persistent root configuration if enabled
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.WatchTcpListeners">
+            <summary>
+            If true, host agent will watch Tcp Listeners on the server and try
+            to determine whether the service runs on Http(s).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceShareInfo.ClientServices">
+            <summary>
+            List of services provided by the client. The agent will not
+            register its implementation of the services in this list.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.ClientCapabilities.PersistentRootSupport">
+            <summary>
+            A value indicating whether guest supports peristent root on the host
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.Id">
+            <summary>
+            ID of a local workspace, or a remote workspace for which connection info is
+            to be obtained from the service.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.CorrelationId">
+            <summary>
+            Id to correlate the join event with a visit to the join page
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.ServiceUri">
+            <summary>
+            URI of the Live Share service to connect to (if different from config).
+            </summary>
+            <remarks>
+            Note when included as part of a vsls: URI, this value must be URL-encoded.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.DirectAddress">
+            <summary>
+            DEPRECATED - Do not use. Temporarily maintained for backward-compatibility.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.RelayAddress">
+            <summary>
+            URI of a websocket relay for connection to a remote workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.RelaySharedAccessSignature">
+            <summary>
+            SAS to be used for authentication when connecting to the relay.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.JoiningUserSessionToken">
+            <summary>
+            The joiner's user session token
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.ConnectionMode">
+            <summary>
+            Specifies whether a direct connection or relay connection
+            will be used to connect to the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.ClientCapabilities">
+            <summary>
+            Client capabilities.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.AnonymousUserName">
+             <summary>
+            Anonymous user name specified on join.
+             </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.IsRemoteSelfJoin">
+             <summary>
+            True if user is in remote workspace self join mode
+             </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.CodespaceId">
+             <summary>
+            The Codespace ID if joining a remote workspace
+             </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.CodespaceName">
+             <summary>
+            The Codespace name if joining a remote workspace
+             </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.Share">
+             <summary>
+            True if user wants to share using the given workspace id
+             </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.UserTenantId">
+            <summary>
+            Tenant for the user id used for signing in the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.UserIdentity">
+            <summary>
+            User identity used for join workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.InitialViewName">
+            <summary>
+            Indicates the initial view name; null means to use the default.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.KeepAlive">
+            <summary>
+            Indicates whether the workspace should remain joined even after the
+            client that joined the workspace disconnects. If false, the workspace
+            will be automatically unjoined when the guest client disconnects.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.AllowPortForwardingExternalConnections">
+            <summary>
+            A value indicating whether the connection is from Codespaces PortForwarding service which needs IPAddress.Any for forwarding ports.
+            Any other connection should only have IPAddress.LoopBack.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceJoinInfo.TargetPath">
+            <summary>
+            The absolute path to the target folder or sln file to open as an initial workspace
+            Only used by Codespaces client to pass data to the Codespace IVSServerHostService
+            </summary>
+            <seealso cref="T:Microsoft.Cascade.Contracts.IVSServerHostService"/>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.ConnectionMode">
+            <summary>
+            Defines the ways that an RPC caller can connect to a workspace when joining.
+            </summary>
+            <remarks>
+            Changes to this enum may require corresponding updates to the available values
+            offered for users to select in client settings.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.ConnectionMode.Auto">
+            <summary>
+            Try connecting directly, if that fails then try connecting via a relay.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.ConnectionMode.Direct">
+            <summary>
+            Direct (peer-to-peer) TCP connection; may be on the same local network,
+            through VPN, or through NAT traversal.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.ConnectionMode.Relay">
+            <summary>
+            Connection through a cloud relay server.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.ConnectionMode.Local">
+            <summary>
+            Indicates the workspace to be joined is one that is hosted locally by the
+            agent being called; the callee must not forward the join request to another
+            remote agent.
+            </summary>
+            <remarks>
+            This mode is not to be specified by a user, therefore it should be hidden
+            from user settings. It is used internally based on application or agent logic
+            when the target workspace is known to be hosted by the agent being called.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.ConnectionMode.SignalR">
+            <summary>
+            Connection through a signalR service.
+            Note: this is considered an 'internal' type that will be attempted when
+            the 'Relay/Auto' mode is selected
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceListOptions.IncludeRemoteWorkspaces">
+            <summary>
+            Optionally include remote workspaces.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceListOptions.OnlyManagedWorkspaces">
+            <summary>
+            Get only the managed workspaces.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceListOptions.Owner">
+            <summary>
+            Optionally include only workspaces with a specific owner.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.SessionNumber">
+            <summary>
+            Integer that identifies the session with the workspace, guaranteed
+            to be unique across all other sessions connected to the same
+            workspace at the same time.
+            </summary>
+            <remarks>
+            Session numbers are assigned by the workspace hosting agent. They
+            are valid for the duration of a collaboration session, not for the
+            extended lifetime a workspace. That means if a workspace owner stops
+            sharing and then later re-shares the same workspace, the session
+            numbers may be different (and numbers may be re-used from past
+            sharing sessions).
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.ConversationId">
+            <summary>
+            String that identifies the collective shared workspace conversation
+            that's happening across all participants.
+            </summary>
+            <remarks>
+            Conversation ID is set by the cloud services whenever the owner shares
+            a workspace or re-joins a workspace that they previously shared.
+            The conversation ID is then shared across all parties that connect to
+            the workspace (both owner and participants) in order to correlate the
+            telemetry events emitted.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.ConnectionMode">
+            <summary>
+            Indicates the mode that was actually used to connect to the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.RelayConnected">
+            <summary>
+            Indicates if relay connection was successful.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.CreatedAt">
+            <summary>
+            Time that the workspace was created.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.UpdatedAt">
+            <summary>
+            Time that the workspace was last updated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.Sessions">
+            <summary>
+            Currently connected sessions
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.AccessControl">
+            <summary>
+            Session access control
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.IsReadOnly">
+            <summary>
+            A value indicating whether this session is read-only.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.IsPresentation">
+            <summary>
+            A value indicating whether the session has Presentation Mode features enabled.
+            This value will be stored as the workspace is shared and read during co-editing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.AllowPortForwardingExternalConnections">
+            <summary>
+            A value indicating whether the connection is from Codespaces PortForwarding service which needs IPAddress.Any for forwarding ports.
+            Any other connection should only have IPAddress.LoopBack.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.WorkspaceSessionInfo.RootFullPaths">
+            <summary>
+            Full remote paths to the shared workspace roots.
+            Persistent root paths /~~/... are preferred to regular root paths /~0/..
+            if persistent root configuration is set, 
+            shared workspace path can be expressed with it,
+            and the client can use it.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserSettings.SyncRpcTelemetryTresholdMs">
+            <summary>
+            If RPC service method synchronous part takes longer,
+            Live Share will emit a telemetry fault event
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserSettings.CloseAgentAfterClientDisconnected">
+            <summary>
+            Should the agent process terminate immediately after this client has disconnected
+            if there are no other shared workspaces or connected clients on the agent.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Contracts.UserSettings.PersistentRootConfigurationOverride">
+            <summary>
+            Persistent root configuration override.
+            If it is set LS will use it and ignore IFileServiceRootConfigurationProvider.
+            Format: LocalPath=RemoteUriPrefix;...
+            E.g. @"C:\=c$;D:\=d$"
+            Use empty string to suppress persistent root configuration.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownClients">
+            <summary>
+            Names of clients for WorkspaceSessionChangedEventArgs.ApplicationName
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownMessageContexts">
+            <summary>
+            RPC message contexts - keys to RPC Message.Context dictionary
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownRestrictedOperations">
+            <summary>
+            Names of restricted operations
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Contracts.WellKnownRestrictedOperations.OperationTypeByName">
+            <summary>
+            Map of specialized types of restricted operations by operation name.
+            It is used by RestrictedOperationJsonConverter to instantiate the right type
+            when it deserializes a restricted operation from JSON.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownServices">
+            <summary>
+            Services defined on the vsls-agent
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WellKnownStreams">
+            <summary>
+            Names of streams that one can get from <see cref="M:Microsoft.Cascade.Contracts.IStreamManagerService.GetStreamAsync(System.String,System.String,System.Threading.CancellationToken)"/>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceFileId">
+            <summary>
+            Type-safe representation of a canonical file ID used for sharing workspace file
+            paths among collaboration session participants.
+            </summary>
+            <remarks>
+            Canonical format of a file id requires the id to start with '/' and to comprise
+            legal file path characters only.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.WorkspaceFileId.ToLocalPath(Microsoft.Cascade.Common.IProtocolConverter{System.Uri})">
+            <summary>
+            Converts canonical id to a full local path within a given workspace directory.
+            </summary>
+            <param name="converter">Converter to resolve this path against</param>
+            <returns>Full path to a local file.</returns>
+        </member>
+        <member name="M:Microsoft.Cascade.Contracts.WorkspaceFileId.FromLocalPath(System.String,Microsoft.Cascade.Common.IProtocolConverter{System.Uri})">
+            <summary>
+            Creates canonical file ID by extracting the relative path to the workspace directory.
+            </summary>
+            <param name="localPath">Full path to a file (Windows compatible)</param>
+            <param name="converter">Converter to resolve this path against</param>
+            <returns><code>null</code> if file is not located under a workspace directory</returns>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceUri">
+            <summary>
+            A workspace Uri from vscode
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Contracts.WorkspaceFolder">
+            <summary>
+            Definition of a workspace folder
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.AnonymousGuestsRequests">
+            <summary>
+            Defines how to respond to anonymous guests join requests.
+            </summary>
+            <remarks>
+            Changes to this enum may require corresponding updates to the available values
+            offered for users to select in client settings.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.AnonymousGuestsRequests.Prompt">
+            <summary>
+            Prompt for approval.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.AnonymousGuestsRequests.Accept">
+            <summary>
+            Auto accept in read-only mode.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.AnonymousGuestsRequests.Reject">
+            <summary>
+            Auto reject all anonymous users.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.FlagBehavior">
+            <summary>
+            When is the user identity flag is shown.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.FlagBehavior.OnHoverOnly">
+            <summary>
+            Shown only when the local user hovers over the selection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.FlagBehavior.OnHoverOrActivity">
+            <summary>
+            Shown when the local user hovers or when the remote user makes an edit or changes their selection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.FlagBehavior.Always">
+            <summary>
+            Always displayed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.ReadOnlyUserVisibility">
+            <summary>
+            When read-only user is shown.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.ReadOnlyUserVisibility.WhileFollowing">
+            <summary>
+            Show read-only users in editor only if following them.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.ReadOnlyUserVisibility.Always">
+            <summary>
+            Always show read-only users in editor.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.FocusBehavior">
+            <summary>
+            Specifies how to respond to focus requests from other participants.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.FocusBehavior.Accept">
+            <summary>
+            Follows automatically.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.FocusBehavior.Prompt">
+            <summary>
+            Prompts user to choose to follow or ignore.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ICoauthoringConfigurationSettings.RemoteUserFlagBehavior">
+            <summary>
+            A value indicating when the flag is shown for remote users.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ICoauthoringConfigurationSettings.ReadOnlyUserVisibility">
+            <summary>
+            How read-only users are shown.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ICoauthoringConfigurationSettings.FocusRequestBehavior">
+            <summary>
+            A value indicating what the behavior on receiving a focus request should be.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.ILanguageServicesConfigurationSettings">
+            <summary>
+            Set of configuration settings for language services.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ILanguageServicesConfigurationSettings.AllowGuestCommandControl">
+            <summary>
+            Allow guests to run arbitrary commands via Code Actions (“Quick Fixes”) and CodeLens
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.SharedTerminalWindow">
+            <summary>
+            Whether shared terminal start as external process or integrated into IDE
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.SharedTerminalPermissions">
+            <summary>
+            Permissions for the shared terminals.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.SharedTerminalPermissions.ReadOnly">
+            <summary>
+            Host has full access, guests can only read
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Common.SharedTerminalPermissions.ReadWrite">
+            <summary>
+            Host has full access, guests can read or write, but cannot start new terminals
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ISharedTerminalSettings.Window">
+            <summary>
+            Controls whether shared terminal start as external process or integrated into IDE.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ISharedTerminalSettings.TerminalWidth">
+            <summary>
+            Width of shared terminal window, characters.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ISharedTerminalSettings.TerminalHeight">
+            <summary>
+            Height of shared terminal window, characters.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ISharedTerminalSettings.Path">
+            <summary>
+            Path to the terminal application. If null, the default is "%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\powershell.exe"
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.ISharedTerminalSettings.Arguments">
+            <summary>
+            Arguments for the terminal application.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AutoStartAgent">
+            <summary>
+            Indicates whether the client service should spawn an agent process
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AgentUri">
+            <summary>
+            Agent URI to connect when using an external agent.
+            Two schemes are currently supported:
+            <code>net.pipe://localhost/NamedPipe</code> - for named pipes,
+            <code>net.tcp://localhost:5555/</code> - for TCP connections.
+            If null, the agent will automatically start using a unique pipe name,
+            and will automatically shutdown when VS exits.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AgentReuseId">
+            <summary>
+            An id to use when reconnecting to the agent to restore a session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.ServiceEndpointUri">
+            <summary>
+            Live Share backend service endpoint
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AuthServiceEndpoint">
+            <summary>
+            Live Share authentication token service endpoint
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AuthServiceAudience">
+            <summary>
+            Live Share authentication token audience
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.SignalRServiceEndpointUri">
+            <summary>
+            SignalR service endpoint
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.RegistrationUri">
+            <summary>
+            Uri of the registration page for new users
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.TraceVerbosity">
+            <summary>
+            Verbosity level of the log messages
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.FlagBehavior">
+            <summary>
+            Name flag visibility
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.ReadOnlyUserVisibility">
+            <summary>
+            Name flag visibility
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.ConnectionMode">
+            <summary>
+            Specifies whether a direct connection or relay connection
+            will be used to connect to the workspace.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AnonymousGuestsRequests">
+            <summary>
+            Specifies how to respond to anonymous guests join requests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.FocusBehavior">
+            <summary>
+            Focus behavior.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.DebuggerSettings">
+            <summary>
+            Debugger configuration settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.CoauthoringSettings">
+            <summary>
+            Coauthoring configuration settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.UserAccount">
+            <summary>
+            Preferred user account for Live Share user authentication.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.DiagnosticLogging">
+            <summary>
+            Specifies whether Diagnostic Logging is active
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.GuestApprovalRequired">
+            <summary>
+            Require host to approve all guests attempting to join the collaboration session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.ShareExternalFiles">
+            <summary>
+            Automatically share external files opened by host during collaboration session
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.TextSearchLimit">
+            <summary>
+            Maximum number of text search results to be returned by host
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.TeamStatus">
+            <summary>
+            Team status - E.g. Dev, PM, Outside.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsInternal">
+            <summary>
+            To override VS Telemetry's categorization for reporting purposes
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.WhatsNewUri">
+            <summary>
+            Uri for what's new notification
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsChatWindowDisplayed">
+            <summary>
+            Indicates if the Chat view has ever been displayed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsWelcomePageDisplayed">
+            <summary>
+            Indicates if the Welcome Page has ever been displayed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsReadyForFirstJoin">
+            <summary>
+            Indicates if the next join will be the first join of a user after activation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsReadyForFirstShare">
+            <summary>
+            Indicates if the next share will be the first share of a user after activation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsVSViewletDisplayed">
+            <summary>
+            Indicates if the VS Viewlet has ever been displayed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsSwitchToStableNotificationDisplayed">
+            <summary>
+            Indicates if notification for switching to stable has ever been displayed
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AnonymousUserName">
+            <summary>
+            User name of anonymous.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IsAnonymousUserToastDisplayed">
+            <summary>
+            Indicates if the we showed anonymous user join toast.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.FirstActivationVersion">
+            <summary>
+            Stores the extension version of the first activation
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.WhatsNewText">
+            <summary>
+            Text for what's new notification
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.UserSettings">
+            <summary>
+            User specified settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.EnabledFeatures">
+            <summary>
+            Extensibility: List of enabled LiveShare features
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.FeatureFlags">
+            <summary>
+            Feature flags from user settings file
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.SharedTerminalSettings">
+            <summary>
+            Shared terminal settings
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.KeepAliveInterval">
+            <summary>
+            Time in seconds to wait before sending keep alive messages in an idle session.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.WorkspaceTaskSettings">
+            <summary>
+            Gets the workspace task configuration settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.LanguageServicesSettings">
+            <summary>
+            Language services configuration settings
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.Feature">
+            <summary>
+            Specifies User FeatureSet selection (Insiders, Stable)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.IncreasedGuestLimit">
+            <summary>
+            Increases the guest limit from 5 to 30.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.ShowVerboseNotifications">
+            <summary>
+            Controls whether to show passive notifications
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.OpenSharedServers">
+            <summary>
+            Controls whether to automatically open shared servers in user's default browser.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.ExtensionPermissions">
+            <summary>
+            Mapping from extension IDs to permission lists.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.Presence">
+            <summary>
+            Specifies whether presence info should be published
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.ActivityTimeout">
+            <summary>
+            Amount of millisecs before liveshare consider the app 'idle'
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.IVsConfigurationSettings.IsCriticalFaultAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Waits for the settings to initialize and checks if the fault is critical
+            In "CriticalFaults" remote setting.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.AutoAcceptCall">
+            <summary>
+            Controls auto accept call behavior.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IVsConfigurationSettings.PersistentRootConfigurationOverride">
+            <summary>
+            Persistent root configuration override.
+            If it is set LS will use it and ignore IFileServiceRootConfigurationProvider.
+            Format: LocalPath=RemoteUriPrefix;...
+            E.g. @"C:\=c$;D:\=d$"
+            Use empty string to suppress persistent root configuration.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.IVsConfigurationSettingsProvider">
+            <summary>
+            Async provider of VS configuration settings.
+            To get VS settings we need to get to the main thread to query for ISettingsManager service.
+            Do not wait synchronously for VS settings in importing constructors, or else VS may dead lock on startup
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cascade.Common.IVsConfigurationSettingsProvider.GetSettingsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Get VS configuration settings.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.IWorkspaceTaskConfigurationSettings">
+            <summary>
+            Set of configuration settings for shared workspace tasks capability.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cascade.Common.IWorkspaceTaskConfigurationSettings.AllowGuestTaskControl">
+            <summary>
+            Gets or sets a value indicating whether a guest is allowed to execute workspace tasks on the host.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.UserAccountType">
+            <summary>
+            Determines account provider to be used when authenticating a Live Share user.
+            </summary>
+            <remarks>Do NOT sort or rename values needed for persisting account data.</remarks>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.UserIdentitySource">
+            <summary>
+            Represents the source of a <see cref="T:Microsoft.Cascade.Common.LiveShareUserIdentity"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Common.LiveShareUserIdentity">
+            <summary>
+            Represents user identity needed for authentication to Live Share services
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Property.IsReadOnlySession">
+            <summary>
+            Value indicating whether the cascade session is read-only.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Property.IsReadOnlyUserSession">
+            <summary>
+            Value indicating whether the cascade session is read-only for the user.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Property.OperationName">
+            <summary>
+            Restricted operation name.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Property.OperationAccess">
+            <summary>
+            Access level of the operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.UserTask.UpdateDefaultAccessControl">
+            <summary>
+            Default access control updated on host
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Operation.RejectRestrictedOperation">
+            <summary>
+            Host rejects restricted operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Operation.RequestRestrictedOperationAccess">
+            <summary>
+            A guest requests a host to get access to a restricted operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Operation.SetRestrictedOperationAccess">
+            <summary>
+            Host sets access on a restricted operation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.AccessControlTelemetryConsts.Fault.UpdateDefaultAccessControlException">
+            <summary>
+            Exception updating default access control on host
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.SourceEventServiceTelemetryConsts.Property.BlockReason">
+            <summary>
+            Property to indicate the reason a coediting message was blocked.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Telemetry.SourceEventServiceTelemetryConsts.Operation.BlockCoeditAttempt">
+            <summary>
+            Event to indicate that we dropped a coediting message due to access control.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Tracing.TraceEventIds">
+            <summary>
+            Defines event IDs for VSLS tracing events.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Tracing.TraceEventIds.AgentOutput">
+            <summary>
+            Identifies agent output when it is piped into clients.
+            It should be excluded from client logs to avoid duplication.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Cascade.Tracing.TraceEventIds.CallingOutput">
+            <summary>
+            Identifies calling output when it is piped into clients.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Cascade.Tracing.TraceSources">
+            <summary>
+            Collection of well-known trace sources, one per component.
+            </summary>
+        </member>
+    </members>
+</doc>

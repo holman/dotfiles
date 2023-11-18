@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package issues;
+
+message Key {
+    reserved 2;
+    enum Action {
+        reserved 2;
+
+        Accept = 0;
+        Delete = 1;
+        Reject = 3;
+    }
+    Action action = 1;
+}
+
+enum Foo {
+    reserved 2, 15, 9 to 11, 40 to max;
+    reserved "FOO", "BAR";
+
+    Bar = 0; // The first enum value must be zero in proto3
+}

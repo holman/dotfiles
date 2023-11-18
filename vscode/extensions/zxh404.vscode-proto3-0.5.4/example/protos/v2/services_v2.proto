@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package v2;
+
+message SearchRequest {
+  optional int32 x = 1;
+}
+message SearchResponse {
+  optional int32 y = 2;
+}
+
+service SearchService {
+  rpc Search (SearchRequest) returns (SearchResponse);
+  rpc Search2 (stream SearchRequest) returns (stream SearchResponse);
+}

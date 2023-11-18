@@ -1,0 +1,51 @@
+{
+  "name": "@cspell/dict-en-gb",
+  "version": "1.1.33",
+  "description": "British English dictionary for cspell.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./cspell-ext.json",
+    "./cspell": "./cspell-ext.json",
+    "./cspell-ext.json": "./cspell-ext.json"
+  },
+  "scripts": {
+    "build": "yarn run compile",
+    "checksum": "shasum -c checksum.txt",
+    "compile": "cat source-files.txt | xargs cspell-tools compile-trie --merge en_GB -o . && yarn run gen-checksum",
+    "conditional-build": "yarn run --silent checksum || yarn run build",
+    "gen-checksum": "cat source-files.txt source-dependencies.txt | sort -u | xargs shasum > checksum.txt",
+    "prepublishOnly": "yarn test",
+    "test-dict": "head -n 1000 \"./src/wordsEnGb.txt\" | cspell -v -c ./cspell-ext.json --local=en_gb --languageId=* stdin",
+    "test-text": "cspell -v -c ./cspell-ext.json --local=en_gb --languageId=* \"tests/*.txt\"",
+    "test": "yarn run test-dict && yarn run test-text",
+    "cspell-link": "node install.js",
+    "cspell-unlink": "node uninstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/streetsidesoftware/cspell-dicts.git"
+  },
+  "keywords": [
+    "cspell",
+    "en_GB",
+    "dictionary",
+    "spelling"
+  ],
+  "author": "Jason Dent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/streetsidesoftware/cspell-dicts/issues"
+  },
+  "homepage": "https://github.com/streetsidesoftware/cspell-dicts/blob/main/dictionaries/en_GB#readme",
+  "files": [
+    "en_GB.trie.gz",
+    "cspell-ext.json",
+    "/src/hunspell/README_en_GB.txt"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "gitHead": "f491b8dc3c0c11a647a71568fcb6f283e68d1f54"
+}

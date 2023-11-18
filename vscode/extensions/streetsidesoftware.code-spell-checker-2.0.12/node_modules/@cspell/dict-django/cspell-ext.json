@@ -1,0 +1,18 @@
+// cSpell Settings
+{
+    "id": "django",
+    "name": "Django Keywords",
+    "description": "List of Python Django Framework keywords.",
+    // List of dictionary files to add to the global list of dictionaries
+    "dictionaryDefinitions": [
+        {
+            "name": "django",
+            "file": "./django.txt.gz",
+            "description": "List of Python Django Framework keywords."
+        }
+    ],
+    "languageSettings": [
+        { "languageId": "html", "dictionaries": ["django"] },
+        { "languageId": "python", "dictionaries": ["django"] }
+    ]
+}

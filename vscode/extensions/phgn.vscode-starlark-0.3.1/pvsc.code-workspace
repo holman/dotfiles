@@ -1,0 +1,21 @@
+{
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "uitests"
+        }
+    ],
+    "settings": {
+        "typescript.tsdk": "./node_modules/typescript/lib",
+        "search.exclude": {
+            "**/node_modules/**": true,
+            "**/.vscode test/insider/**": true,
+            "**/.vscode test/stable/**": true,
+            "**/.vscode-test/insider/**": true,
+            "**/.vscode-test/stable/**": true,
+            "**/out/**": true
+        }
+    }
+}

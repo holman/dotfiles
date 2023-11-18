@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package v2.test.proto3;
+
+import "google/protobuf/any.proto";
+import "foo/bar/msg_v2.proto";
+
+message ErrorStatus {
+  optional string message = 1;
+  repeated google.protobuf.Any details = 2;
+  required v2.bar.foo.FooBar foo_bar = 3;
+}

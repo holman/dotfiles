@@ -1,0 +1,20 @@
+
+.flyout-container {
+    position: relative;
+    height: 16px;
+    width: auto;
+}
+
+.flyout-inner-disabled-filter {
+    opacity: 0.5;
+}
+
+.flyout-button-hidden {
+    visibility: hidden;
+}
+
+.flyout-children-hidden {
+    visibility: hidden;
+    width: 0px;
+}
+
