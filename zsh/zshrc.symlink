@@ -1,79 +1,66 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/benji.russelburg/.oh-my-zsh"
+# your project folder that we can `c [tab]` to
+export PROJECTS=~/dev
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
 
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# all of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
 
-source $ZSH/oh-my-zsh.sh
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
 
-# User configuration
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+unset config_files
 
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Better history
+# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+
+
+# From original dotfiles
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/dev/dotfiles_v2/zsh/p10k.zsh
 
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Repo things
-export GITHUB_USER="brrusselburg"
-export GITHUB_TOKEN="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"
-export GITHUB_PACKAGE_PULL_TOKEN="${GITHUB_TOKEN}"
-
-source $HOME/dev/dotfiles_v2/zshenv
-
-export PATH=/opt/homebrew/bin:$PATH
-
-# rbenv
-eval "$(rbenv init - zsh)"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-# nodenv
-#eval "$(nodenv init - )"
-eval "$(nodenv init - zsh)"
-
-# pyenv
-#export PYENV_ROOT="$HOME/.pyenv"
-export PATH=$(pyenv root)/shims:$PATH
-eval "$(pyenv init -)"
-
-# Kitty terminal setup
+# Kitty setup
 autoload -Uz compinit
 compinit
-# Completion for kitty
 source <(kitty + complete setup zsh)
-
-# The important thing above is to make sure the call to kitty to load the zsh completions happens after the call to compinit.
 
 # git duet settings
 export GIT_DUET_CO_AUTHORED_BY=1
@@ -89,5 +76,4 @@ function editzsh() {
   reprofile
 }
 
-source /Users/benji.russelburg/.docker/init-zsh.sh || true # Added by Docker Desktop
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme

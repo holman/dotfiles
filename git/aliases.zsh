@@ -24,4 +24,5 @@ alias gac='git add -A && git commit -m'
 alias ge='git-edit-new'
 
 # My additions
-alias wip='git for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads'
+#TODO fix command quotes below
+#alias wip='git for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads'
