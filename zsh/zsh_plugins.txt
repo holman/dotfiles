@@ -1,0 +1,8 @@
+# powerline10k theme
+romkatv/powerlevel10k
+
+# ael-code/zsh-colored-man-pages
+# jeffreytse/zsh-vi-mode
+
+# oh my zsh plugins
+# ohmyzsh/ohmyzsh path:plugins/git
