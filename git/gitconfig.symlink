@@ -16,7 +16,7 @@
         s = status
         submod = "!f() { git submodule deinit -f . && git submodule update --init  && git submodule foreach --recursive git reset --hard  > /dev/null; }; f"
         undo = reset HEAD~1 --mixed
-
+        up = !git pull --rebase --prune
 [color]
         diff = auto
         status = auto
