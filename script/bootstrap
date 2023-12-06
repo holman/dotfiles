@@ -143,7 +143,7 @@ install_dotfiles
 if [ "$(uname -s)" == "Darwin" ]
 then
     echo 'setting macos defaults'
-    $DOTFILES_ROOT/set-defaults.sh
+    $DOTFILES_ROOT/macos/set-defaults.sh
 fi
 
 echo ''
