@@ -13,8 +13,14 @@
         editor = vim
 [help]
         autocorrect = 1
-[push]
+[pull]
         default = current
+	autoSetupRemote = true
+[push]
+	default = current
+	autoSetupRemote = true
+[remote]
+	pushDefault = origin
 [credential]
 	helper = osxkeychain
 [init]
