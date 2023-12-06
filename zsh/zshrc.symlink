@@ -1,55 +1,64 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+################################
+# powerlevel10k theme
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
-
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
+# configuration for loading powerlevel10k
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
+################################
+# zsh
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-unset config_files
+zstyle ':omz:update' mode auto
+zstyle ':omz:update' frequency 13
 
-# Better history
-# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+plugins=(
+    git
+    common-aliases
+    alias-finder
+    history
+)
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+source $ZSH/oh-my-zsh.sh
+
+################################
+# .dotfiles
+
+# Add shared bin files to path
+export PATH="$HOME/.dotfiles/bin:$PATH"
+
+export DOTFILES="$HOME/.dotfiles"
+
+# Load exports
+source $DOTFILES/zsh/exports.zsh
+
+# Configure oh-my-zsh plugins
+source $DOTFILES/zsh/omz_plugin_configs.zsh
+
+# Load aliases
+source $DOTFILES/zsh/aliases.zsh
+
+################################
+
+# Init rbenv
+if (( $+commands[rbenv] ))
+then
+  eval "$(rbenv init -)"
+fi
+
+# Add ssh-agent for 
+eval "$(ssh-agent -s)" > /dev/null 2>&1

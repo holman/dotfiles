@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Downloads the embedded video on any web page straight to the desktop.
-#
-# youtube-dlp, which is awesome:
-#   https://github.com/yt-dlp/yt-dlp
-#
-
-cd ~/Desktop && yt-dlp -S "ext" "$1"
