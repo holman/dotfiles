@@ -3,6 +3,20 @@
         path = ~/.gitconfig.local
 [hub]
         protocol = ssh
+[alias]
+        bclean = "!f() { DEFAULT=$(git default); git branch --merged ${1-$DEFAULT} | grep -v \" ${1-$DEFAULT}$\" | xargs git branch -d; }; f"
+        bdone = "!f() { DEFAULT=$(git default); git checkout ${1-$DEFAULT} && git up && git bclean ${1-$DEFAULT}; }; f"
+        cdev = "!f() { DEFAULT=$(git default); git checkout ${1-$DEFAULT} && git fetch; }; f"
+        cdevpull = "!f() { DEFAULT=$(git default); git checkout ${1-$DEFAULT} && git up; }; f"
+        cob = checkout -b
+        co = checkout
+        default = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+        identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
+        save = !git add -A && git commit -m "SAVEPOINT"
+        s = status
+        submod = "!f() { git submodule deinit -f . && git submodule update --init  && git submodule foreach --recursive git reset --hard  > /dev/null; }; f"
+        undo = reset HEAD~1 --mixed
+
 [color]
         diff = auto
         status = auto
