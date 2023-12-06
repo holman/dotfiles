@@ -4,6 +4,7 @@ alias reload!='. ~/.zshrc'
 alias ..='cd ..'
 alias ~='cd ~'
 alias cdp="cd $PROJECTS"
+alias cdd="cd $HOME/.dotfiles"
 
 # Better default commands
 alias ll='ls -lh' # List all files in long format

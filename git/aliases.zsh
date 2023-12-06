@@ -1,1 +1,0 @@
-# not used since I use oh-my-zsh plugins for git aliases
