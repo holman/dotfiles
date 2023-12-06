@@ -1,4 +1,14 @@
+" Enable syntax highlighting
 syntax on
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+" Show line numbers
+set number
+
+call plug#begin()
+
+Plug 'ghifarit53/tokyonight-vim'
+
+call plug#end()
