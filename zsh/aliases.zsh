@@ -1,4 +1,6 @@
-alias reload!='. ~/.zshrc'
+# editor
+alias c='code'
+alias v='vim'
 
 # basic navigation
 alias ..='cd ..'
@@ -13,3 +15,6 @@ alias rm='rm -i' # Remove with confirmation
 alias mkdir='mkdir -p' # Create parent directories on the fly
 alias cls='clear' # Clear the terminal
 alias df='df -h' # Disk free in human readable format
+
+# git
+alias glogo="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
