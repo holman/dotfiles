@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Install essentials
+
+# Install brew
+if [ "$(uname -s)" == "Darwin" ]
+then
+    echo "Installing brew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+
+# install rbenv
+
+if [ "$(uname -s)" == "Darwin" ]
+then
+    echo "Installing rbenv..."
+    brew install rbenv ruby-build
+fi
+
+# install oh-my-zsh
+echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# install powerlevel10k theme for zsh
+echo "Installing powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
