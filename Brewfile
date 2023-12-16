@@ -10,6 +10,7 @@ brew "gnupg"
 brew "wget"
 brew "curl"
 brew "coreutils"
+brew "jq"
 # brew "git-lfs"
 # brew "fish"
 
