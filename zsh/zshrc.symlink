@@ -30,7 +30,17 @@ plugins=(
     git
     common-aliases
     alias-finder
+    aliases
     history
+    genpass
+    extract
+    vi-mode
+    autojump
+    pj
+    pip
+    brew
+    pod
+    bundler
 )
 
 source $ZSH/oh-my-zsh.sh
