@@ -29,6 +29,7 @@ zstyle ':omz:update' frequency 13
 plugins=(
     git
     common-aliases
+    colored-man-pages
     alias-finder
     aliases
     history
