@@ -42,6 +42,7 @@ plugins=(
     brew
     pod
     bundler
+    fzf
 )
 
 source $ZSH/oh-my-zsh.sh

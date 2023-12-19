@@ -18,3 +18,9 @@ alias df='df -h' # Disk free in human readable format
 
 # git
 alias glogo="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# fzf
+alias fzfp="fzf --preview 'bat --color=always --style=numbers,changes,header,grid --line-range :500 {}'"
+alias hfzf="h | fzf"
+alias vfzf='vim -o `fzfp`'
+alias cfzf='code -o `fzfp`'
