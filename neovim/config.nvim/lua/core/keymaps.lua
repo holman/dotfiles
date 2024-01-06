@@ -29,6 +29,7 @@ vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-m>', '<c-w>=')
+vim.keymap.set('n', '<c-CR>', '<c-w>=')
 vim.keymap.set('n', '<CR>', '<c-w>_<c-w>|')
 
 -- Tab navigation
