@@ -1,6 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 vim.opt.backspace = '2'
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
@@ -24,10 +21,13 @@ vim.wo.number = true
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
 
 -- Window navigation
-vim.keymap.set('n', '<c-j>', '<c-w>j')
-vim.keymap.set('n', '<c-k>', '<c-w>k')
-vim.keymap.set('n', '<c-l>', '<c-w>l')
-vim.keymap.set('n', '<c-h>', '<c-w>h')
+-- THESE GET OVERRIDDEN BY THE vim-tmux-navigator PLUGIN
+-- vim.keymap.set('n', '<c-j>', '<c-w>j')
+-- vim.keymap.set('n', '<c-k>', '<c-w>k')
+-- vim.keymap.set('n', '<c-l>', '<c-w>l')
+-- vim.keymap.set('n', '<c-h>', '<c-w>h')
+
+-- Window resizing
 vim.keymap.set('n', '<c-m>', '<c-w>=')
 vim.keymap.set('n', '<c-CR>', '<c-w>=')
 vim.keymap.set('n', '<CR>', '<c-w>_<c-w>|')
