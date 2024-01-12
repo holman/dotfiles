@@ -9,4 +9,5 @@ brew 'wget'
 brew 'yt-dlp'
 
 cask 'handbrake'
+cask 'raycast'
 cask 'vlc'
