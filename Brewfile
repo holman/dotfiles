@@ -8,6 +8,5 @@ brew 'spark'
 brew 'wget'
 brew 'yt-dlp'
 
-cask '1password'
 cask 'handbrake'
 cask 'vlc'
