@@ -5,6 +5,7 @@ tap 'homebrew/bundle'
 brew 'imagemagick'
 brew 'spaceman-diff'
 brew 'spark'
+brew 'stripe/stripe-cli/stripe'
 brew 'wget'
 brew 'yt-dlp'
 
