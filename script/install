@@ -1,13 +1,13 @@
-#!/usr/bin/env bash
-#
-# Run all dotfiles installers.
+# #!/usr/bin/env bash
+# #
+# # Run all dotfiles installers.
 
-set -e
+# set -e
 
-cd "$(dirname $0)"/..
+# cd "$(dirname $0)"/..
 
-echo "› brew bundle"
-brew bundle
+# echo "› brew bundle"
+# brew bundle
 
-# find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+# # find the installers and run them iteratively
+# find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
