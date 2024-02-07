@@ -38,16 +38,16 @@ while test $# -gt 0; do
 	shift
 done
 
-export ZSH=$HOME/.dotfiles
+export DOTZSH=$HOME/.dotfiles
 
 # Set macOS defaults
-$ZSH/macos/set-defaults.sh
+$DOTZSH/macos/set-defaults.sh
 
 # Set macOS hostname
-$ZSH/macos/set-hostname.sh
+$DOTZSH/macos/set-hostname.sh
 
 # Install homebrew
-$ZSH/homebrew/install.sh 2>&1
+$DOTZSH/homebrew/install.sh 2>&1
 
 # Upgrade homebrew
 echo "› brew update"
@@ -55,4 +55,4 @@ brew update
 
 # Install software
 echo "› script/install"
-$ZSH/script/install
+$DOTZSH/script/install
