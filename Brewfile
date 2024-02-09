@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 
+brew 'cloudflared'
 brew 'imagemagick'
 brew 'spaceman-diff'
 brew 'spark'
