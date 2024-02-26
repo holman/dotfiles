@@ -29,7 +29,6 @@ zstyle ':omz:update' frequency 13
 plugins=(
     git
     git-flow
-    git-flow-completion
     common-aliases
     colored-man-pages
     alias-finder
