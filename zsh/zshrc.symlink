@@ -76,8 +76,3 @@ fi
 
 # Add ssh-agent for 
 eval "$(ssh-agent -s)" > /dev/null 2>&1
-<<<<<<< Updated upstream
-=======
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
->>>>>>> Stashed changes
