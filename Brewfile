@@ -15,6 +15,7 @@ brew 'yt-dlp'
 
 cask 'airtable'
 cask 'arq'
+cask 'diffusionbee'
 cask 'handbrake'
 cask 'messenger'
 cask 'notion-calendar'
