@@ -1,8 +1,8 @@
 #!/bin/sh
 #
-# dot
+# dotfiles
 #
-# `dot` handles installation, updates, things like that. Run it periodically
+# `dotfiles` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 
 set -e
@@ -11,9 +11,9 @@ parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
 dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
 
 displayUsageAndExit() {
-	echo "dot -- dotfiles management"
+	echo "dotfiles -- dotfiles management"
 	echo ""
-	echo "Usage: dot [options]"
+	echo "Usage: dotfiles [options]"
 	echo ""
 	echo "Options:"
 	echo "  -e, --edit    Open dotfiles directory for editing"
@@ -38,13 +38,7 @@ while test $# -gt 0; do
 	shift
 done
 
-export ZSH=$HOME/.dotfiles
-
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
-
-# Set macOS hostname
-$ZSH/macos/set-hostname.sh
+export ZSH=$dotfilesDirectory
 
 # Install homebrew
 $ZSH/homebrew/install.sh 2>&1
