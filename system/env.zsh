@@ -1,1 +1,1 @@
-export EDITOR='code'
+export EDITOR='nvim'
