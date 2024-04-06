@@ -13,6 +13,7 @@ brew 'stripe/stripe-cli/stripe'
 brew 'wget'
 brew 'yt-dlp'
 
+cask '1password'
 cask 'airtable'
 cask 'arq'
 cask 'diffusionbee'
