@@ -95,5 +95,4 @@ return {
       { 'sharkdp/fd' },
     }
   },
-
 }

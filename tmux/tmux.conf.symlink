@@ -31,3 +31,6 @@ bind-key 'C-l' resize-pane -R 20
 # Sending a pane to a new window is <leader>! and keybinding to bring it back below
 bind-key j command-prompt -p "join pane from: "  "join-pane -vs '%%'"
 bind-key ! break-pane -d # overriding the default (C-b)! to detach and send pane to a background window instead of fg
+
+# Reload config file shortcut key
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
