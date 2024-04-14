@@ -1,4 +1,5 @@
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+# Old profile from iTerm
 
 font_family      Cascadia Code
 font_size 16.0
