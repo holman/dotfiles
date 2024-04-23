@@ -1,7 +1,6 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
-tap 'oven-sh/bun'
 
 brew 'aria2'
 brew 'bat'
@@ -26,7 +25,6 @@ brew 'zsh'
 brew 'zsh-autosuggestions'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
-brew 'oven-sh/bun/bun'
 
 cask '1password'
 cask 'anki'
