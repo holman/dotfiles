@@ -1,0 +1,94 @@
+#
+# Starter muttrc file, with just a few suggestions and settings.
+#
+# This file purposely doesn't include hooks, keybinding, macros, colors, etc.
+# Read the manual, explore, and have fun!
+#
+
+###############
+# Identity
+#
+set realname = "Steve Cavender"
+set from = "steve@cavender.io"
+
+alternates "@cavender\.io$"
+set reverse_name
+
+###############
+# IMAP/SMTP
+#
+set imap_user = "steve@cavender.io"
+
+# To avoid storing your password in the .muttrc:
+# echo -n 'mypassword' | gpg --encrypt -r 0x1234567890ABCDEF > ~/.mutt/account.gpg
+set imap_pass = "`gpg --batch -q --decrypt ~/.mutt/account.gpg`"
+
+set folder = imaps://imap.fastmail.com/INBOX/
+set spoolfile = imaps://imap.fastmail.com
+set record="!Sent"
+set postponed = "!Drafts"
+
+set mail_check = 60
+
+set ssl_force_tls
+
+set smtp_authenticators = 'gssapi:login'
+set smtp_url="smtps://$imap_user:$imap_pass@smtp.fastmail.com:465"
+# set smtp_url="smtp://$user:$pass@mail.messagingengine.com"
+
+###############
+# Pager settings
+#
+ignore *
+unignore From Message-ID Date To Cc Bcc Subject
+
+set pager_stop
+unset markers
+
+# Prefer plain text to html.
+# However, for brain dead clients that bundle attachments inside a
+# multipart/alternative, prefer that alternative.
+alternative_order multipart/mixed multipart/related text/plain
+
+# Consult mime.types for determining types of these attachments
+mime_lookup application/octet-stream
+
+# This requires a ~/.mailcap entry with the copiousoutput flag, such as:
+# text/html; lynx -dump -width ${COLUMNS:-80} %s; nametemplate=%s.html; copiousoutput
+auto_view text/html
+
+###############
+# Index settings
+#
+set quit = ask-yes
+set sort = threads
+
+# Remember to `mkdir -p ~/.mutt/hcache` first:
+set header_cache= "~/.mutt/hcache"
+
+###############
+# Message composition settings
+#
+set edit_headers
+
+# set editor = "emacsclient -a emacs -t"
+set editor = "vim"
+
+set mime_type_query_command = "xdg-mime query filetype"
+
+# msmtp is a solid SMTP client.
+# mutt also has built-in SMTP, or you can use an MTA like exim4 or postfix.
+set sendmail = "/usr/bin/msmtp"
+
+# lbdb is a versatile contact query tool.
+# Invoke via ctrl-t in an address prompt
+set query_command = "/usr/bin/lbdbq"
+
+###############
+# GnuPG
+#
+unset crypt_use_gpgme
+source /usr/local/share/doc/mutt/samples/gpg.rc
+set pgp_default_key = "0x1234567890ABCDEF"
+set crypt_opportunistic_encrypt
+set postpone_encrypt
