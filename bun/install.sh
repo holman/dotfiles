@@ -1,0 +1,1 @@
+curl -fsSL https://bun.sh/install | zsh
