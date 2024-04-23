@@ -33,8 +33,5 @@
         default = simple
 [credential]
 	helper = osxkeychain
-[diff "spaceman-diff"]
-  command = /opt/homebrew/bin/spaceman-diff
-
 [init]
-	defaultBranch = main
+	defaultBranch = master
