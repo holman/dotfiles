@@ -13,7 +13,6 @@ brew 'jless'
 brew 'imagemagick'
 brew 'mutt'
 brew 'newsboat'
-brew '1password-cli'
 brew 'pure'
 brew 'ripgrep'
 brew 'tree'
@@ -28,10 +27,11 @@ brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
 cask '1password'
+cask '1password-cli'
 cask 'anki'
-cask 'chromium'
+cask 'chromium', args: { no_quarantine: true }
 cask 'inkscape'
-cask 'alacritty'
+cask 'alacritty', args: { no_quarantine: true }
 cask 'keka'
 cask 'librewolf'
 cask 'licecap'
@@ -45,3 +45,6 @@ cask 'qlstephen'
 cask 'quicklook-json'
 cask 'webpquicklook'
 cask 'qlvideo'
+
+mas "Bear", id: 1091189122
+mas "Numbers", id: 409203825
