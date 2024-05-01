@@ -15,6 +15,7 @@ brew 'yt-dlp'
 
 cask '1password'
 cask 'airtable'
+cask 'android-platform-tools'
 cask 'arq'
 cask 'diffusionbee'
 cask 'handbrake'
