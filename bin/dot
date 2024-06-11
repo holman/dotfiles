@@ -57,6 +57,3 @@ brew update
 echo "› script/install"
 $ZSH/script/install
 
-# copy newsboat files
-echo "› copy newsboat files"
-cp $ZSH/newsboat/* $HOME/.newsboat
