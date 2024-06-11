@@ -4,8 +4,10 @@ https://cprss.s3.amazonaws.com/nodeweekly.com.xml dev
 https://feeds2.feedburner.com/TheArtOfManliness life
 https://cprss.s3.amazonaws.com/javascriptweekly.com.xml dev
 https://medium.com/feed/@_ericelliott dev
-https://dev.to/feed/tag/top7 dev
 https://cprss.s3.amazonaws.com/frontendfoc.us.xml dev
 https://feeds.bear.app/all dev
+https://www.wagslane.dev/index.xml
+https://jrsinclair.com/index.rss
+https://www.dailywire.com/feeds/rss.xml news
 "query:dev Articles:tags # \"dev\""
 "query:Unread Articles:unread = \"yes\""
