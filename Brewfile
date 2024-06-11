@@ -25,6 +25,7 @@ brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 brew 'tmux'
 brew 'spotifyd'
+brew 'pandoc'
 
 cask '1password'
 cask '1password-cli'
