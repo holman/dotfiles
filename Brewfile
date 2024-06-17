@@ -10,6 +10,7 @@ brew 'ruby-build'
 brew 'spaceman-diff'
 brew 'spark'
 brew 'stripe/stripe-cli/stripe'
+brew 'stripe/stripe-mock/stripe-mock'
 brew 'wget'
 brew 'yt-dlp'
 
