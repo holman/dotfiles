@@ -9,6 +9,10 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+		pushd   = push -u origin HEAD
+		open    = "!f(){ open https://github.$(git config remote.origin.url | cut -f2 -d. | tr ':' /); }; f"
+		# Switch to a branch, creating it if necessary
+		go      = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 [color]
         diff = auto
         status = auto
@@ -38,3 +42,6 @@
 
 [init]
 	defaultBranch = main
+
+[url "ssh://git@github.com/sendgrid"]
+	insteadOf = https://github.com/sendgrid
