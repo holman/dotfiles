@@ -1,0 +1,75 @@
+#
+# Go to a <repo> in ~/dev
+#
+
+goto() {
+  GO_DEFAULT=sendgrid
+
+  #
+  # The brains behind goto
+  #
+
+  nav() {
+    cd ~/dev/src/github.com/$1 &> /dev/null ||
+    clone $1 2> /dev/null ||
+    echo "repo @ $1 does not exist"
+  }
+
+  #
+  # Bash completion for goto()
+  #
+
+  _goto()
+  {
+    cur=${COMP_WORDS[COMP_CWORD]}
+    if [[ "$cur" =~ ^([^/]+)/(.+)$ ]]; then
+      use=`tree -f -L 1 ~/dev/src/github.com/ccnixon/ | grep ${BASH_REMATCH[2]} | tr / '\t' | awk '{print $(NF-1),$NF}' | tr ' ' /`
+    else
+      use=`ls ~/dev/src/github.com/$GO_DEFAULT/ | grep $cur`
+    fi
+    COMPREPLY=(`compgen -W "$use" -- $cur`)
+  }
+
+  if hash complete 2>/dev/null; then
+    complete -o default -o nospace -F _goto goto
+  fi
+
+  if hash shopt 2>/dev/null; then
+    shopt -s cdspell
+  fi
+
+  case $1 in
+
+    */*)
+      nav $1
+    ;;
+
+    *)
+      nav $GO_DEFAULT/$1
+    ;;
+
+  esac
+
+  if hash shopt 2>/dev/null; then
+    shopt -s cdspell
+  fi
+
+}
+
+#
+# Clone a <repo ...> by "owner/name" into ~/dev
+#
+
+clone() {
+  for repo in $@; do
+		if [[ "$repo" == */* ]]; then
+		  local dir=$GOPATH/src/github.com/$repo
+		  git clone ssh://git@github.com/$repo.git $dir
+		  cd $dir
+	  else
+		  local dir=$GOPATH/src/github.com/$USER_DEFAULT/$repo
+		  git clone ssh://git@github.com/$USER_DEFAULT/$repo.git $dir
+		  cd $dir
+	  fi
+  done
+}
