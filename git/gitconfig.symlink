@@ -5,19 +5,26 @@
         protocol = https
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
+        promote = !$ZSHDOT/bin/git-promote
+        wtf     = !$ZSHDOT/bin/git-wtf
+        rank-contributors = !$ZSHDOT/bin/git-rank-contributors
         count   = !git shortlog -sn
 		pushd   = push -u origin HEAD
 		open    = "!f(){ open https://github.$(git config remote.origin.url | cut -f2 -d. | tr ':' /); }; f"
 		# Switch to a branch, creating it if necessary
 		go      = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+[color "diff"]
+
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
+[color "status"]
+
+	added = yellow
+	changed = green
+	untracked = cyan
 [core]
         excludesfile = ~/.gitignore
         editor = vim
