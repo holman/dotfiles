@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'blendle/blendle'
 
 brew 'cloudflared'
 brew 'imagemagick'
@@ -13,6 +14,8 @@ brew 'stripe/stripe-cli/stripe'
 brew 'stripe/stripe-mock/stripe-mock'
 brew 'wget'
 brew 'yt-dlp'
+brew 'awscli'
+brew 'kns'
 
 cask '1password'
 cask 'airtable'
@@ -22,3 +25,6 @@ cask 'handbrake'
 cask 'notion-calendar'
 cask 'visual-studio-code'
 cask 'zed'
+
+# work stuff
+tap 'sendgrid-ops/workstation'
