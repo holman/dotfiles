@@ -1,40 +1,54 @@
 # Local/private config goes in the include
 [include]
-        path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 [hub]
-        protocol = https
+	protocol = https
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+	co = checkout
+	promote = !$ZSHDOT/bin/git-promote
+	wtf     = !$ZSHDOT/bin/git-wtf
+	rank-contributors = !$ZSHDOT/bin/git-rank-contributors
+	count   = !git shortlog -sn
+	pushd   = push -u origin HEAD
+	open    = "!f(){ open https://github.$(git config remote.origin.url | cut -f2 -d. | tr ':' /); }; f"
+	# Switch to a branch, creating it if necessary
+	go      = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
+	excludesfile = ~/.gitignore
+	editor = vim
+	pager = delta --line-numbers
+[delta]
+	side-by-side = true
 [apply]
-        whitespace = nowarn
+    whitespace = nowarn
 [mergetool]
-        keepBackup = false
+    keepBackup = false
 [difftool]
-        prompt = false
+    prompt = false
 [help]
-        autocorrect = 1
+    autocorrect = 1
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+	# See `git help config` (search for push.default)
+	# for more information on different options of the below setting.
+	#
+	# Setting to git 2.0 default to suppress warning message
+	default = simple
 [credential]
 	helper = osxkeychain
 [diff "spaceman-diff"]
   command = /opt/homebrew/bin/spaceman-diff
-
 [init]
 	defaultBranch = main
+[url "ssh://git@github.com/sendgrid"]
+	insteadOf = https://github.com/sendgrid
+[url "git@github.com:"]
+	insteadOf = https://github.com/
