@@ -1,0 +1,1 @@
+export BOOTSTRAP_SCRIPT_DIR=/Users/cnixon/Code/src/github.com/sendgrid/sg-workstation/scripts
