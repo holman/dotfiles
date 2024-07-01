@@ -1,0 +1,4 @@
+#!/bin/sh
+# Open notes directory in VS Code
+
+code $GOPATH/src/github.com/ccnixon/notes
