@@ -1,5 +1,6 @@
 # Use `hub` as our git wrapper:
 #   http://defunkt.github.com/hub/
+# TODO: pretty sure this is this now: https://github.com/mislav/hub
 hub_path=$(which hub)
 if (( $+commands[hub] ))
 then
@@ -25,4 +26,4 @@ alias ge='git-edit-new'
 
 # My additions
 #TODO fix command quotes below
-#alias wip='git for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads'
+# alias wip='git for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads'
