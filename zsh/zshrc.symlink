@@ -55,9 +55,6 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
-# jrnl settings
-setopt HIST_IGNORE_SPACE
-
 # p10k customization
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/dev/dotfiles_v2/zsh/p10k.zsh
@@ -82,3 +79,14 @@ function editzsh() {
 }
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
+
+export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
+
+# load rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin" --> not sure this is needed anymore, potential to cut

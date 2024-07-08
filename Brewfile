@@ -5,12 +5,10 @@ tap 'homebrew/bundle'
 # https://jonas.github.io/tig/doc/manual.html
 brew 'tig'
 
-cask '1password'
+brew install '1password'
+brew install 'bazecor'
+brew install 'visual-studio-code'
+brew install 'spotify'
 # cask 'airtable'
-# cask 'banana-cake-pop'
-# cask 'baritone'
-# cask 'bazecor'
-# cask 'visual-studio-code'
-# cask 'spotify'
 
 # https://formulae.brew.sh/cask/
