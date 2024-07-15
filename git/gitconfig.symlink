@@ -2,7 +2,7 @@
 [include]
         path = ~/.gitconfig.local
 [hub]
-        protocol = https
+        protocol = ssh 
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
