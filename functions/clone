@@ -1,0 +1,18 @@
+#!/bin/zsh
+#
+# Clone a <repo ...> by "owner/name" into ~/Code
+#
+
+clone() {
+  for repo in $@; do
+		if [[ "$repo" == */* ]]; then
+		  local dir=$GOPATH/src/github.com/$repo
+		  git clone ssh://git@github.com/$repo.git $dir
+		  cd $dir
+	  else
+		  local dir=$GOPATH/src/github.com/$USER_DEFAULT/$repo
+		  git clone ssh://git@github.com/$USER_DEFAULT/$repo.git $dir
+		  cd $dir
+	  fi
+  done
+}

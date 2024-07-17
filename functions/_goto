@@ -1,0 +1,6 @@
+#compdef goto
+#
+# Zsh completion for goto()
+#
+
+_files -W $GOPATH/src/github.com/ -/
