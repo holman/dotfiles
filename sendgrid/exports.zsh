@@ -20,3 +20,9 @@ s3mime () {
 			fi
 	fi
 }
+
+# Need for cgo bindings in mxd
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export CGO_LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CGO_CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
