@@ -1,19 +1,18 @@
-# From http://dotfiles.org/~_why/.zshrc
-# Sets the window title nicely no matter where you are
-function title() {
-  # escape '%' chars in $1, make nonprintables visible
-  a=${(V)1//\%/\%\%}
+DISABLE_AUTO_TITLE="true"
 
-  # Truncate command, and join lines.
-  a=$(print -Pn "%40>...>$a" | tr -d "\n")
-
-  case $TERM in
-  screen)
-    print -Pn "\ek$a:$3\e\\" # screen title (in ^A")
-    ;;
-  xterm*|rxvt)
-    print -Pn "\e]2;$2\a" # plain xterm title ($3 for pwd)
-    ;;
-  esac
+is_git() {
+  [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]
 }
 
+tab_title() {
+  local "BETTER_PWD"
+  if is_git; then
+   BETTER_PWD=$(git rev-parse --show-toplevel)
+  else
+    BETTER_PWD=$(PWD)
+  fi
+  
+  echo -ne "\e]1;${BETTER_PWD##*/}\a"
+}
+
+add-zsh-hook precmd tab_title
