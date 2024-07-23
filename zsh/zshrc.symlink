@@ -75,3 +75,9 @@ fi
 
 # Add ssh-agent for 
 eval "$(ssh-agent -s)" > /dev/null 2>&1
+
+# open developer directory if it exists on current machine
+if [ -d "$HOME/Developer" ]; then
+  # If it exists, change to that directory
+  cd "$HOME/Developer"
+fi
