@@ -10,6 +10,7 @@ alias cddots="cd $HOME/.dotfiles"
 
 # Better default commands
 alias ll='ls -lh' # List all files in long format
+alias llt='ls -ltu' # List all files sorted by recent access
 alias mv='mv -i' # Move with confirmation
 alias rm='rm -i' # Remove with confirmation
 alias mkdir='mkdir -p' # Create parent directories on the fly
