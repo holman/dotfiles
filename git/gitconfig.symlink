@@ -34,6 +34,7 @@
 	helper = osxkeychain
 [init]
 	defaultBranch = master
+
 # Enforce SSH
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
@@ -41,3 +42,10 @@
   insteadOf = https://gitlab.com/
 [url "ssh://git@bitbucket.org/"]
   insteadOf = https://bitbucket.org/
+
+[user]
+	signingkey = /Users/steve/.ssh/id_ed25519.pub
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
