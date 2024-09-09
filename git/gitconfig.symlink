@@ -2,7 +2,7 @@
 [include]
         path = ~/.gitconfig.local
 [hub]
-        protocol = ssh 
+        protocol = ssh
 [alias]
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
