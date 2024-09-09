@@ -28,6 +28,7 @@ brew 'pandoc'
 brew 'fzf'
 brew 'thefuck'
 brew 'zoxide'
+brew 'jq'
 
 cask '1password'
 cask 'eloston-chromium'
