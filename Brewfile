@@ -29,6 +29,7 @@ brew 'fzf'
 brew 'thefuck'
 brew 'zoxide'
 brew 'jq'
+brew 'fastfetch'
 
 cask '1password'
 cask 'eloston-chromium'
