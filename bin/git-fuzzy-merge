@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Merges the current branch with the branch that matches the given string.
+#
+# $1 - The string to match the branch name against.
+#
+# Examples
+#
+#   git fm asdf
+
+git merge "$(git branch --format='%(refname:short)' | grep $1)"

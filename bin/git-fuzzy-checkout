@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# checks out the branch that matches the given string.
+#
+# $1 - The string to match the branch name against.
+#
+# Examples
+#
+#   git fc asdf
+
+git checkout "$(git branch --format='%(refname:short)' | grep $1)"

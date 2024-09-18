@@ -20,6 +20,8 @@ alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gac='git add -A && git commit -m'
 alias ge='git-edit-new'
+alias gfc='git-fuzzy-checkout'
+alias gfm='git-fuzzy-merge'
 
 # omz git aliases
 alias g='git'
