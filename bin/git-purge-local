@@ -1,8 +1,6 @@
-
-
 #!/bin/sh
 #
-# Delete all local branches that do not exist on remote. Stolen from 
+# Delete all local branches that do not exist on remote. Stolen from
 # https://stackoverflow.com/a/17029936
 
-g fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
+git fetch -p ; git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D
