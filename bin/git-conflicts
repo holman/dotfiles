@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# List files with conflicts
+
+git diff --name-only --diff-filter=U --relative
