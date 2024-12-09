@@ -15,7 +15,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 alias tmux="TERM=screen-256color-bce tmux"
 
 
-alias dotfiles="atom ~/.dotfiles"
+alias dotfiles="phpstorm ~/.dotfiles"
 alias reload!='. ~/.zshrc'
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 alias hosts="sudo nano /etc/hosts"
@@ -73,3 +73,5 @@ alias dclean='docker system prune -a --volumes'
 
 # Delete all containers, all images and all volumes
 alias dcleanall='dkill || true && drm || true && drmia || true && drmva'
+
+alias blender='/Applications/Blender.app/Contents/MacOS/blender'

@@ -72,7 +72,7 @@ set-option -g status-style bg=default,fg=white
 set -g status-left-length 100
 set -g status-left '%H:%M'
 set -g status-right-length 100
-set -g status-right '#{tasks_status} | #{battery_icon} #{battery_percentage}#{?battery_remain, #{battery_remain},} | Online: #{online_status}'
+set -g status-right '#{battery_icon} #{battery_percentage}#{?battery_remain, #{battery_remain},} | Online: #{online_status}'
 
 
 setw -g window-status-format '#[default] #I  #W'
@@ -81,13 +81,6 @@ setw -g window-status-current-format '#[fg=colour40] #I  #W'
 
 
 # Plugins
-
-## Task manager
-set -g @tasks_manager 'taskwarrior'
-set -g @tasks_format_begin "#[]"
-set -g @tasks_format_end "#[fg=default]"
-set -g @tasks_icon_urgent "#[fg=red] "
-set -g @tasks_icon_outstanding "#[fg=white]+ "
 
 ## Battery plugin
 set -g @batt_remain_short true
@@ -108,7 +101,6 @@ set -g @route_to_ping "he8us.be"
 
 ## Load Plugins
 set -g @plugin tmux-plugins/tpm
-set -g @plugin chriszarate/tmux-tasks
 set -g @plugin tmux-plugins/tmux-battery
 set -g @plugin tmux-plugins/tmux-resurrect
 set -g @plugin tmux-plugins/tmux-online-status

@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+yt-dlp -f 'ba' --cookies-from-browser chrome --referer "URL" --add-header "Accept:*/*" -x --audio-format mp3 $*

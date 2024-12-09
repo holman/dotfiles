@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=$HOME/Development
+export PROJECTS=$HOME/Jobs
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -40,3 +40,7 @@ do
 done
 
 unset config_files
+
+
+
+autoload -U +X bashcompinit && bashcompinit

@@ -31,3 +31,4 @@ Brewfile.lock.json
 
 ssh.symlink/*
 !ssh.symlink/config.example
+*/secrets.zsh
