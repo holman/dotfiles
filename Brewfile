@@ -46,6 +46,7 @@ cask 'licecap'
 cask 'raycast'
 cask 'thinkorswim'
 cask 'font-fira-code-nerd-font'
+cask 'ghostty'
 
 mas "Bear", id: 1091189122
 mas "Numbers", id: 409203825
