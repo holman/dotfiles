@@ -1,7 +1,0 @@
-syntax = "proto2";
-
-package v2.bar.foo;
-
-message FooBar {
-    optional int32 field_name = 1;
-}

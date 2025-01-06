@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package v3.bar.foo;
-
-message FooBar {
-    int32 field_name = 1;
-}

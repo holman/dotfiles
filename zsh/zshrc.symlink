@@ -89,8 +89,5 @@ export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 # load rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
-<<<<<<< Updated upstream
 
 export PATH="/opt/homebrew/bin:$PATH"
-=======
->>>>>>> Stashed changes

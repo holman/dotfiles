@@ -1,2 +1,0 @@
-in_with_stub_both_folder: str
-in_with_stub_stub_folder: float

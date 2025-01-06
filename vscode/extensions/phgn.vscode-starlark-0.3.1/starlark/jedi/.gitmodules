@@ -1,6 +1,0 @@
-[submodule "jedi/third_party/typeshed"]
-	path = jedi/third_party/typeshed
-	url = https://github.com/davidhalter/typeshed.git
-[submodule "submodules/parso"]
-	path = submodules/parso
-	url = git@github.com:phgn0/parso.git

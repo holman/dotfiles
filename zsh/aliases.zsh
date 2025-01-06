@@ -1,11 +1,8 @@
-<<<<<<< Updated upstream
-alias reload=". ~/.zshrc"
 
-alias cls='clear' # Good 'ol Clear Screen command
-=======
+#alias reload=". ~/.zshrc"
 alias reload!=". ~/.zshrc"
 alias py="python3"
->>>>>>> Stashed changes
+
 
 # Navigation
 alias dev="cd /Users/benjirusselburg/dev"
