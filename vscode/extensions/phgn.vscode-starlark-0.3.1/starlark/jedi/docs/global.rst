@@ -1,3 +1,0 @@
-:orphan:
-
-.. |jedi| replace:: *Jedi*

@@ -46,6 +46,8 @@ done
 
 unset config_files
 
+GITSTATUS_LOG_LEVEL=DEBUG
+
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
 autoload -U up-line-or-beginning-search
@@ -79,14 +81,13 @@ function editzsh() {
 }
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source <(fzf --zsh)
 
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
-
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
 # load rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin" --> not sure this is needed anymore, potential to cut
+export PATH="/opt/homebrew/bin:$PATH"
