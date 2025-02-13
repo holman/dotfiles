@@ -25,7 +25,7 @@ then
 fi
 
 # all of our zsh files
-typeset -U config_files
+# Removed: typeset -U (not needed in Bash) config_files
 config_files=($ZSHDOT/**/*.zsh)
 
 # load the path files
@@ -46,8 +46,8 @@ zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -U # Removed: compinit (not applicable to Bash)
+# Removed: compinit (not applicable to Bash)
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
