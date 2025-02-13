@@ -1,26 +1,24 @@
 IMPORTS
 
 import pandas as pd
-#pd.set_option("display.notebook_repr_html", False)
 pd.options.display.max_columns = None  # show all columns in head
 import numpy as np
 np.random.seed(1)
 import matplotlib.pyplot as plt
 %matplotlib inline
 plt.rcParams['figure.facecolor'] = 'white'
-import logging
-logging.basicConfig(
-    format="%(asctime)s "
-        '%(levelname)s: '
-        '%(funcName)s(): '
-        '%(lineno)d:\t'
-        '%(message)s',
-    level=logging.INFO,
-)
 
+import logging
+logger = logging.getLogger()
+logFormatter = logging.Formatter("%(asctime)s [%(name)40.40s] [%(funcName)10.10s] [%(levelname)-5.5s]  %(message)s")
+logger.setLevel(logging.INFO)
+logging.debug("test")
 
 %load_ext autoreload
 %autoreload 2
+
+from dnautil import util as dnautil
+from dnautil import plot
 
 
 # LOGGING
@@ -30,7 +28,8 @@ import logging
 logger = logging.getLogger()
 logFormatter = logging.Formatter("%(asctime)s [%(name)40.40s] [%(funcName)10.10s] [%(levelname)-5.5s]  %(message)s")
 logger.setLevel(logging.INFO)
-                                                                                 
+                      
+# to see console output? But doubles up logging in notebooks                                                           
 consoleHandler = logging.StreamHandler(sys.stdout)
 consoleHandler.setFormatter(logFormatter)
 logger.addHandler(consoleHandler)
@@ -54,7 +53,31 @@ PRINT WHOLE DF
 with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     display(df)
 
-ROTATE XLABELS
+ROTATE/CHANGE XLABELS
 ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
 
 HIST WITH LINE: histtype=u'step'
+
+MONTH BEGIN: df['purchase_date'].dt.floor('d') + 
+                           pd.offsets.MonthEnd(0) - pd.offsets.MonthBegin(1)
+
+NORMALIZE HIST: 
+weights = np.ones_like(myarray) / len(myarray)
+plt.hist(myarray, weights=weights)
+
+
+AGGREGATE SYNTAX
+df.groupby('contract_id').agg(
+    first_charge=('charge_time', 'first'),
+)
+
+IGNORE WARNING
+import warnings
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+
+SHARE Y AXIS
+fig, axs = plt.subplots(nrows=1, ncols=3, sharey=True, figsize=(18,4))
+...
+for ax in axs.ravel():
+    ax.yaxis.set_tick_params(labelbottom=True)

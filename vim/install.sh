@@ -17,12 +17,13 @@ fi
 pip3 install pylint
 pip3 install pyflakes
 
-echo "installing vim supertab"
-cd ~/.vim/bundle
-if cd ~/.vim/bundle/supertab; 
-  then git pull; 
-  else git clone --depth=1 git@github.com:ervandew/supertab.git;
-fi
+# Try using default ctrl-N since tab hangs sometimes
+#echo "installing vim supertab"
+#cd ~/.vim/bundle
+#if cd ~/.vim/bundle/supertab; 
+  #then git pull; 
+  #else git clone --depth=1 git@github.com:ervandew/supertab.git;
+#fi
 
 #echo "installing vim black plugin"
 #mkdir -p ~/.vim/bundle/black/plugin

@@ -1,6 +1,10 @@
-"turn on spell check and auto wrap for md files
+"turn on spell check and auto wrap for txt files
+autocmd BufRead,BufNewFile *.txt setlocal spell
+au BufRead,BufNewFile *.txt setlocal textwidth=88
+
+"turn on spell check and auto wrap for txt files
 autocmd BufRead,BufNewFile *.md setlocal spell
-au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.md setlocal textwidth=88
 
 filetype plugin on " needed for nerdcommenter
 
@@ -29,10 +33,12 @@ let g:syntastic_python_checkers = ['pyflakes'] "when pylint gives too many error
 let g:syntastic_python_pep8_args='--ignore=E501'
 let g:syntastic_python_flake8_args='--ignore=E501'
 
-let g:SuperTabDefaultCompletionType = "context" "autocomplete path if '/' present
+"" Super tab
+"au FileType python set omnifunc=pythoncomplete#Complete  "enable omni code completion
+"let g:SuperTabDefaultCompletionType = "context" "autocomplete path if '/' present
 
 syntax enable " enables syntax highlighting
-set number " line numbers
+"set number " line numbers
 set ruler " status bar
 set wildmenu
 set splitright
@@ -40,7 +46,7 @@ set statusline+=%F "show full path of file
 set laststatus=2 " always show status line
 set nocompatible " disable old vi stuff
 set complete-=i " turn off search of included files for autocomplete
-set colorcolumn=88 "limit the line length
+set colorcolumn=88 "limit the line length (88 if for black formatting)
 set vb t_vb= " turn off bell
 set backspace=indent,eol,start
                     " allow backspacing over everything in insert mode
@@ -61,14 +67,16 @@ nnoremap <leader>ln :lnext<Esc>
 nnoremap <leader>lp :lprevious<Esc>
 nmap t o<Esc>k
 nmap T O<Esc>j
-nmap <leader>ev :vsp ~/.dotfiles/vim/vimrc.symlink<CR> " open vimrc
+nmap <leader>ev :e ~/.dotfiles/vim/vimrc.symlink<CR> " open vimrc
+"" nnoremap <Leader>vv :execute "vimgrep /" . expand("<cword>") . "/j ./**/*.py" <Bar> cw<CR>
+nnoremap <Leader>vv :execute "vimgrep /" . expand("<cword>") . "/j `git ls-files`" <Bar> cw<CR>
+nmap <leader>jc :e ~/.dotfiles/jupyter/jupyter_common_imports.txt<CR>
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 map yc :w !pbcopy<Return> " after higlighting yank to clipboard
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> "Remove all trailing whitespace by pressing F5
-nnoremap <Leader>vv :execute "vimgrep /" . expand("<cword>") . "/j ./**/*.py" <Bar> cw<CR>
 set wildignore+=**/notebooks/**,*venv/**
 
 " let vim do indentation
