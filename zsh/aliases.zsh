@@ -1,8 +1,6 @@
 
-#alias reload=". ~/.zshrc"
-alias reload!=". ~/.zshrc"
+alias reload=". ~/.zshrc"
 alias py="python3"
-
 
 # Navigation
 alias dev="cd /Users/benjirusselburg/dev"
@@ -23,3 +21,5 @@ alias dinstall="bundle;pnpm install;rake db:migrate"
 alias dmigratetest="LOAD_PLUGINS=1 RAILS_ENV=test bin/rake db:migrate"
 alias drefresh="cd ~/dev/discourse/discourse;gl;dInstall;dMigrateTest;dStart"
 alias dreload="cd ~/dev/discourse/discourse;bin/ember-cli -u"
+
+alias remakedb-test="LOAD_PLUGINS=1 bin/rails db:drop db:create db:migrate RAILS_ENV=test"

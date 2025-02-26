@@ -15,6 +15,11 @@ then
   source ~/.localrc
 fi
 
+if [[ /Users/benjirusselburg/dev/dotfiles_v2/zsh/aliases.zsh ]]
+then
+  source /Users/benjirusselburg/dev/dotfiles_v2/zsh/aliases.zsh
+fi
+
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
@@ -47,6 +52,9 @@ done
 unset config_files
 
 GITSTATUS_LOG_LEVEL=DEBUG
+
+# load direnv
+eval "$(direnv hook zsh)"
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
