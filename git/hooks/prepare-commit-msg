@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Get the current branch name
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+# Extract ticket number using regex
+TICKET=$(echo "$BRANCH_NAME" | grep -o '^[a-zA-Z]\+-[0-9]\+')
+
+# If we found a ticket number
+if [ -n "$TICKET" ]; then
+    # Get the commit message file path
+    COMMIT_MSG_FILE="$1"
+    
+    # Read existing commit message
+    COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+    
+    # Check if the message already starts with the ticket number in brackets
+    if ! grep -q "^\[$TICKET\]" "$COMMIT_MSG_FILE"; then
+        # Save the original message to a temporary file
+        echo "$COMMIT_MSG" > /tmp/original_commit_msg.txt
+        # Write the new message format: [ticket-number] original message
+        echo "[$TICKET] $(cat /tmp/original_commit_msg.txt)" > "$COMMIT_MSG_FILE"
+        # Clean up
+        rm /tmp/original_commit_msg.txt
+    fi
+fi
+
+exit 0

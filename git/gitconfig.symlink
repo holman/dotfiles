@@ -26,6 +26,7 @@
 	excludesfile = ~/.gitignore
 	editor = vim
 	pager = delta --line-numbers
+	hooksPath = $HOME/Code/src/github.com/ccnixon/dotfiles/git/hooks
 [delta]
 	side-by-side = true
 [apply]
