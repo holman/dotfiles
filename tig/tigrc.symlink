@@ -1,0 +1,22 @@
+# generic
+bind generic g move-first-line
+bind generic G move-last-line
+bind generic M !git difftool --tool=vimdiff --no-prompt --trust-exit-code %(commit)^!
+bind generic E view-grep
+
+# main
+bind main ! ?git revert %(commit)
+bind main G move-last-line
+bind main <Esc>g :toggle commit-title-graph
+bind main H !git reset --hard %(commit)
+bind main B !git rebase -i %(commit)
+bind main P !zsh -c '{ git log %(commit)..HEAD --format=format:'%H' --reverse; echo } | while read -r; do git show --pretty=format:'%H%n%s%n%b' -s "$REPLY" | { read -r; echo -n "- $REPLY: "; read -r; echo "$REPLY"; declare body="$(while read -r; do echo "$REPLY"; done)"; [[ -n "$body" ]] && echo "  - $body"; }; done | pbcopy'
+bind main a !sh -c 'git diff --name-only %(commit) | fzf --preview="git diff --color=always %(commit) -- '{}'" --bind="enter:execute(git diff --color=always %(commit) -- '{}' | less -R)"'
+
+# status
+bind status a !?git commit --amend
+bind status D ?@rm %(file)
+
+# diff
+bind diff R !git rebase -i %(commit)
+

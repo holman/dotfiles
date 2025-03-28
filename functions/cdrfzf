@@ -1,0 +1,15 @@
+#!/bin/zsh
+#
+# Usage: cdrfzf
+# Description: fzfを使用して最近訪れたディレクトリに素早く移動する
+#
+# cdrコマンドの履歴からfzfでプレビューしながら選択し、移動します
+# zle -N cdrfzf と bindkey を併用することでキー操作での呼び出しが可能です
+function cdrfzf() {
+  local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf --preview 'f() { sh -c "exa -l $1" }; f {}')
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}

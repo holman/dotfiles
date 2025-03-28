@@ -1,0 +1,92 @@
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+build = ''' git checkout release
+'''
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app && npm install"'
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+  let g:ale_disable_lsp = 1
+  let g:ale_lint_on_text_changed = 1
+  let g:ale_sign_error = ''
+  let g:ale_sign_warning = ''
+'''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+  let g:airline_theme = 'wombat'
+  set laststatus=2
+  let g:airline#extensions#tabline#enabled = 1
+  let g:ariline#extensions#tabline#formatter = 'default'
+  let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#wordcount#enabled = 1
+  let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+  let g:airline_section_c = '%t'
+  let g:airline_section_x = '%{&filetype}'
+  let g:airline_section_z = '%3l:%2v %{airline#extensions#ale#get_warning()} %{airline#extensions#ale#get_error()}'
+  let g:airline#extensions#ale#error_symbol = ''
+  let g:airline#extensions#ale#warning_symbol = ''
+  let g:airline#extensions#default#section_truncate_width = {}
+  let g:airline#extensions#whitespace#enabled = 1
+'''
+
+[[plugins]]
+repo = 'mzlogin/vim-markdown-toc'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+  let g:gitgutter_sign_removed = '-'
+  highlight GitGutterAdd guifg=#009900 ctermfg=2
+  highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+  highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+'''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+  set rtp+=/opt/homebrew/opt/fzf
+'''

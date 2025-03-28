@@ -1,0 +1,10 @@
+#!/bin/zsh
+#
+# Usage: gbdm
+# Description: マージ済みのgitブランチを一括削除する
+#
+# マージ済みのブランチを取得し、master/developmentブランチを除外して一括削除します
+function gbdm() {
+  git fetch --prune
+  git branch --merged | egrep -v "\*|master|development" | xargs git branch -d
+}

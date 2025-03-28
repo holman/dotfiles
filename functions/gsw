@@ -1,0 +1,12 @@
+#!/bin/zsh
+#
+# Usage: gsw
+# Description: fzfを使用してブランチをインタラクティブに切り替える
+#
+# ローカルブランチをfzfで選択してgit switchを実行します
+function gsw() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git switch $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}

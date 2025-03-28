@@ -1,0 +1,15 @@
+#!/bin/zsh
+#
+# Usage: cdrepo
+# Description: fzfとghqを使用してリポジトリに素早く移動する
+#
+# ghqで管理されているリポジトリをfzfでプレビューしながら選択し、移動します
+# zle -N cdrepo と bindkey を併用することでキー操作での呼び出しが可能です
+function cdrepo() {
+  local selected_dir=$(ghq list -p | fzf -q "$LBUFER" --preview='exa -l {}')
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}

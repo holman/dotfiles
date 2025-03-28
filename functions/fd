@@ -1,0 +1,13 @@
+#!/bin/zsh
+#
+# Usage: fd [directory]
+# Description: fzfを使用してディレクトリ内を探索し、選択したディレクトリに移動する
+#
+# 指定したディレクトリ（デフォルトはカレントディレクトリ）内のすべてのディレクトリを一覧表示し、
+# fzfで選択したディレクトリに移動します
+function fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m --preview 'exa -l {}') &&
+  cd "$dir"
+}

@@ -1,0 +1,13 @@
+#!/bin/zsh
+#
+# Usage: gswr
+# Description: fzfを使用してリモートブランチを含むすべてのブランチからインタラクティブに切り替える
+#
+# ローカルとリモートのブランチをfzfで選択してgit switchを実行します
+function gswr() {
+    local branches branch
+    branches=$(git branch --all | grep -v HEAD) &&
+    branch=$(echo "$branches" |
+             fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+    git switch $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}

@@ -22,3 +22,10 @@ alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gac='git add -A && git commit -m'
 alias ge='git-edit-new'
+
+alias gbd='git branch -d'
+alias gr='git restore'
+alias gf='git fetch'
+alias gswc='git switch --create'
+alias gpsc='git push origin $(echo $(git rev-parse --abbrev-ref HEAD))'
+alias gpsuc='git push -u origin $(echo $(git rev-parse --abbrev-ref HEAD))'

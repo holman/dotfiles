@@ -1,0 +1,10 @@
+#!/bin/zsh
+#
+# Usage: fdc
+# Description: fzfを使用してカレントディレクトリの直下のディレクトリに移動する
+#
+# カレントディレクトリの直下のディレクトリのみをfzfで選択し、移動します
+function fdc() {
+  DIR=`find * -maxdepth 1 -type d -print 2> /dev/null | fzf-tmux --preview 'exa -l {}'` \
+  && cd "$DIR"
+}

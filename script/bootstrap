@@ -130,9 +130,29 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  # 通常のシンボリックリンクファイル（.symlink拡張子）
+  # 例: git/gitconfig.symlink -> ~/.gitconfig
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name "*.symlink" -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
+    link_file "$src" "$dst"
+  done
+
+  # ドットディレクトリ内のファイルをサポート
+  # 例1: vim/.vim/dein.toml -> ~/.vim/dein.toml
+  # 例2: starship/.config/starship.toml -> ~/.config/starship.toml
+  for src in $(find -H "$DOTFILES_ROOT" -path "*/.*/*" -not -path '*.git*' -type f)
+  do
+    # トップレベルディレクトリを除いたパスを取得
+    rel_path=$(echo "$src" | sed -E "s|$DOTFILES_ROOT/[^/]+/(.*)|\1|")
+    
+    # ホームディレクトリ下の対応するパスを作成
+    dst="$HOME/$rel_path"
+    
+    # 必要なディレクトリを作成
+    mkdir -p "$(dirname "$dst")"
+    
+    # リンクを作成
     link_file "$src" "$dst"
   done
 }
