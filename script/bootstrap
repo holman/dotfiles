@@ -153,7 +153,7 @@ install_dotfiles () {
     mkdir -p "$(dirname "$dst")"
     
     # リンクを作成
-    link_file "$src" "$dst"
+    ln -s "$src" "$dst"
   done
 }
 
