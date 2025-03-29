@@ -18,10 +18,8 @@ then
 fi
 
 # Install node using mise
-if command -v mise >/dev/null 2>&1; then
-  echo "  Installing node using mise."
-  ~/.local/bin/mise use --global node@latest
-fi
+echo "  Installing node using mise."
+~/.local/bin/mise use --global node@latest
 
 # Install npm packages from npmfile
 if [ -f "npmfile" ]; then
