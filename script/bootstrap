@@ -130,30 +130,27 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  # 通常のシンボリックリンクファイル（.symlink拡張子）
-  # 例: git/gitconfig.symlink -> ~/.gitconfig
+  # normal symlinks 
+  # ex: git/gitconfig.symlink -> ~/.gitconfig
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name "*.symlink" -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
 
-  # ドットディレクトリ内のファイルをサポート
-  # 例1: vim/.vim/dein.toml -> ~/.vim/dein.toml
-  # 例2: starship/.config/starship.toml -> ~/.config/starship.toml
-  for src in $(find -H "$DOTFILES_ROOT" -path "*/.*/*" -not -path '*.git*' -type f)
+  # nested dot directories
+  # ex1: vim/.vim/* -> ~/.vim/*
+  # ex2: starship/.config/* -> ~/.config/*
+  for nested in $(find -H "$DOTFILES_ROOT" -mindepth 2 -maxdepth 2 -path "*/.*" -type d -not -path '*.git*')
   do
-    # トップレベルディレクトリを除いたパスを取得
-    rel_path=$(echo "$src" | sed -E "s|$DOTFILES_ROOT/[^/]+/(.*)|\1|")
-    
-    # ホームディレクトリ下の対応するパスを作成
-    dst="$HOME/$rel_path"
-    
-    # 必要なディレクトリを作成
-    mkdir -p "$(dirname "$dst")"
-    
-    # リンクを作成
-    ln -s "$src" "$dst"
+    nested_dirname=$(basename "$nested")
+    dst="$HOME/${nested_dirname}"
+    mkdir -p "$dst"
+    for item in "$nested"/*; do
+      [ -e "$item" ] || continue
+      base_item=$(basename "$item")
+      link_file "$item" "$dst/$base_item"
+    done
   done
 }
 
