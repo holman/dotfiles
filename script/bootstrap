@@ -1,133 +1,105 @@
 #!/usr/bin/env bash
 #
-# bootstrap installs things.
+# Bootstrap script for dotfiles installation
+# This script handles the initial setup of your dotfiles
 
-DOTFILES_ROOT="`pwd`"
+set -euo pipefail
+IFS=$'\n\t'
 
-set -e
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-echo ''
+# Pretty output functions
+info() { printf "\r\033[2K  [\033[00;34mINFO\033[0m] %s\n" "$1"; }
+user() { printf "\r\033[2K  [\033[0;33m???\033[0m] %s " "$1"; }
+success() { printf "\r\033[2K  [\033[00;32m OK \033[0m] %s\n" "$1"; }
+fail() { printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"; exit 1; }
 
-info () {
-    printf "  [ \033[00;34m..\033[0m ] $1"
-}
+setup_gitconfig() {
+    if [[ ! -f git/gitconfig.symlink ]]; then
+        info "Setting up gitconfig"
 
-user () {
-    printf "\r  [ \033[0;33m?\033[0m ] $1 "
-}
-
-success () {
-    printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
-}
-
-fail () {
-    printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-    echo ''
-    exit
-}
-
-setup_gitconfig () {
-    if ! [ -f git/gitconfig.symlink ]
-    then
-        info 'setup gitconfig'
-
+        # Use keychain on macOS, cache otherwise
         git_credential='cache'
+        [[ "$(uname -s)" == "Darwin" ]] && git_credential='osxkeychain'
 
-        if [ "$(uname -s)" == "Darwin" ]
-        then
-            git_credential='osxkeychain'
-        fi
+        # Get git user info
+        user "What is your github author name?"
+        read -r git_authorname
+        user "What is your github author email?"
+        read -r git_authoremail
 
-        user ' - What is your github author name?'
-        read -e git_authorname
-        user ' - What is your github author email?'
-        read -e git_authoremail
+        # Create gitconfig from template
+        sed -e "s/AUTHORNAME/$git_authorname/g" \
+            -e "s/AUTHOREMAIL/$git_authoremail/g" \
+            -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" \
+            git/gitconfig.template > git/gitconfig.symlink
 
-        success 'gitconfig'
+        success "Created gitconfig"
     fi
 }
 
-link_files () {
-    ln -s $1 $2
-    success "linked $1 to $2"
+link_file() {
+    local src=$1 dst=$2
+    local action=
+
+    if [[ -f "$dst" ]] || [[ -d "$dst" ]] || [[ -L "$dst" ]]; then
+        if [[ "$(readlink "$dst")" == "$src" ]]; then
+            action="skipped"
+        else
+            user "File already exists: $(basename "$src"), [s]kip, [o]verwrite, [b]ackup?"
+            read -n 1 action </dev/tty
+
+            case "$action" in
+                o) rm -rf "$dst"; action="overwritten";;
+                b) mv "$dst" "${dst}.backup"; action="backed up";;
+                s) action="skipped";;
+                *) action="skipped";;
+            esac
+        fi
+    else
+        action="linked"
+    fi
+
+    if [[ "$action" != "skipped" ]]; then
+        ln -s "$src" "$dst"
+    fi
+    success "$(printf "%12s" "$action") $src → $dst"
 }
 
-install_dotfiles () {
-    info 'installing dotfiles'
+install_dotfiles() {
+    info "Installing dotfiles"
 
-    overwrite_all=false
-    backup_all=false
-    skip_all=false
+    # First, add a check for Homebrew
+    if ! command -v brew >/dev/null 2>&1; then
+        info "Installing Homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
 
-    for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
-    do
-        dest="$HOME/.`basename \"${source%.*}\"`"
+    # Create all necessary parent directories
+    find "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -exec dirname {} \; | while read -r dir; do
+        mkdir -p "$HOME/.$(basename "$dir")"
+    done
 
-        if [ -f $dest ] || [ -d $dest ]
-        then
-
-            overwrite=false
-            backup=false
-            skip=false
-
-            if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
-            then
-                user "File already exists: `basename $source`, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-                read -n 1 action
-
-                case "$action" in
-                    o )
-                        overwrite=true;;
-                    O )
-                        overwrite_all=true;;
-                    b )
-                        backup=true;;
-                    B )
-                        backup_all=true;;
-                    s )
-                        skip=true;;
-                    S )
-                        skip_all=true;;
-                    * )
-                        ;;
-                esac
-            fi
-
-            if [ "$overwrite" == "true" ] || [ "$overwrite_all" == "true" ]
-            then
-                rm -rf $dest
-                success "removed $dest"
-            fi
-
-            if [ "$backup" == "true" ] || [ "$backup_all" == "true" ]
-            then
-                mv $dest $dest\.backup
-                success "moved $dest to $dest.backup"
-            fi
-
-            if [ "$skip" == "false" ] && [ "$skip_all" == "false" ]
-            then
-                link_files $source $dest
-            else
-                success "skipped $source"
-            fi
-
-        else
-            link_files $source $dest
-        fi
-
+    # Symlink all .symlink files
+    find "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' | while read -r src; do
+        dst="$HOME/.$(basename "${src%.*}")"
+        link_file "$src" "$dst"
     done
 }
 
-install_dotfiles
+main() {
+    setup_gitconfig
+    install_dotfiles
 
-info "installing dependencies"
-if . bin/dot > /tmp/dotfiles-dot 2>&1
-then
-    success "dependencies installed"
-else
-    fail "error installing dependencies"
-fi
+    info "Installing dependencies"
+    if ! "$DOTFILES_ROOT/bin/dot" > /tmp/dotfiles-dot 2>&1; then
+        fail "Error installing dependencies"
+    fi
+    success "Dependencies installed"
 
-echo ''
-echo '  All installed!'
+    echo ""
+    success "All done! Your dotfiles are installed."
+    info "You may need to restart your shell for all changes to take effect."
+}
+
+main "$@"

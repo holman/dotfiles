@@ -1,0 +1,63 @@
+#!/bin/sh
+
+## AWS SSO Authentication
+
+# This script checks with AWS if you're authenticated. If not,
+# it'll start the authentication process. It'll add or update
+# the profile fields in the ~/.aws/credentials file
+
+# This function takes one parameter for the aws profile.
+# If you've followed the instructions to set up AWS SSO, this would be:
+# $ aws-sso default
+
+# Add this directory your ~/.bashrc or ~/.zshrc. Tested on MacOS
+# PATH_TO_DIRECTORY is your local filesystem path to the scripts directory
+# $ export PATH=${PATH_TO_DIRECTORY}:$PATH
+# e.g. $ export PATH=${$HOME/Anchor/dev/scripts}
+
+if [[ -z "$1" ]]; then
+  echo "Must provide valid profile name. See ~/.aws/config"
+  echo "e.g. aws-sso admin"
+  exit 1
+fi
+
+export AWS_PAGER=""
+aws sts get-caller-identity --profile $1 || (aws sso login --profile $1 && aws sts get-caller-identity --profile $1)
+
+FILE=$(ls -d "${HOME}/.aws/cli/cache"/* | head -n 1)
+
+AWS_ACCESS_KEY_ID="$(jq -r '.Credentials.AccessKeyId' $FILE)"
+AWS_SECRET_ACCESS_KEY="$(jq -r '.Credentials.SecretAccessKey' $FILE)"
+AWS_SESSION_TOKEN="$(jq -r '.Credentials.SessionToken' $FILE)"
+AWS_CREDENTIAL_EXPIRATION="$(jq -r '.Credentials.Expiration' $FILE)"
+
+ESCAPED_ACCESS_KEY=$(printf '%s\n' "${AWS_SECRET_ACCESS_KEY}" | sed -e 's/[\/&]/\\&/g')
+ESCAPED_TOKEN=$(printf '%s\n' "${AWS_SESSION_TOKEN}" | sed -e 's/[\/&]/\\&/g')
+
+CREDS_FILE=${HOME}/.aws/credentials
+
+touch -a ${CREDS_FILE}
+if grep -qF "[$1]" ${CREDS_FILE};
+then
+  # the sed commands below search for match and then replace the N(1,2,3) lines after the match.
+  # when using aws configure, the third line aws_session_token isn't added. If this is to overwrite that line
+  # we must first add 2 newlines to the end of the file to be safe
+  printf "\n\n" >> ${CREDS_FILE}
+  sed -i '' -e "/\[${1}\]/{n;s/.*/aws_access_key_id = ${AWS_ACCESS_KEY_ID}/;}" ${CREDS_FILE}
+  sed -i '' -e "/\[${1}\]/{n;n;s/.*/aws_secret_access_key = ${ESCAPED_ACCESS_KEY}/;}" ${CREDS_FILE}
+  sed -i '' -e "/\[${1}\]/{n;n;n;s/.*/aws_session_token = ${ESCAPED_TOKEN}/;}" ${CREDS_FILE}
+  sed -i '' -e "/\[${1}\]/{n;n;n;n;s/.*/aws_credential_expiration = ${AWS_CREDENTIAL_EXPIRATION}/;}" ${CREDS_FILE}
+
+  echo "Updated profile: ${1} in ~/.aws/credentials"
+else
+  echo "" >> ${CREDS_FILE}
+  echo "[$1]" >> ${CREDS_FILE}
+  echo "aws_access_key_id = ${AWS_ACCESS_KEY_ID}" >> ${CREDS_FILE}
+  echo "aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" >> ${CREDS_FILE}
+  echo "aws_session_token = ${AWS_SESSION_TOKEN}" >> ${CREDS_FILE}
+  echo "aws_credential_expiration = ${AWS_CREDENTIAL_EXPIRATION}" >> ${CREDS_FILE}
+
+  echo "Created profile: ${1} in ~/.aws/credentials"
+fi
+
+export AWS_PROFILE=$1

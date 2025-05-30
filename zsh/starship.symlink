@@ -1,8 +1,8 @@
 command_timeout=1000
 
 [character]
-success_symbol = "[ᐅ](bold green)"
-error_symbol = "[ᐅ](bold red)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[×](bold red)"
 vicmd_symbol = "[<](bold green)"
 
 [git_commit]
@@ -17,7 +17,7 @@ deleted = "x"
 
 [aws]
 disabled=true
-symbol = "aws "
+symbol = 'aws '
 
 [c]
 symbol = "C "
@@ -47,6 +47,7 @@ symbol = ".NET "
 read_only = " ro"
 
 [docker_context]
+disabled=true
 symbol = "docker "
 
 [elixir]
@@ -54,6 +55,9 @@ symbol = "exs "
 
 [elm]
 symbol = "elm "
+
+[gcloud]
+disabled=true
 
 [git_branch]
 symbol = " "
@@ -123,9 +127,3 @@ symbol = "sudo "
 
 [swift]
 symbol = "swift "
-
-[custom.yarn]
-command = "yarn --version 2>/dev/null"
-files = ["yarn.lock"]
-style = "blue"
-symbol = "yarn v"

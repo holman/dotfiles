@@ -2,13 +2,29 @@
 #
 # Run all dotfiles installers.
 
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
-cd "$(dirname $0)"/..
+# Change to the dotfiles directory
+cd "$(dirname "$0")/.."
 
-# Run Homebrew through the Brewfile
-echo "› brew bundle"
-brew bundle
+# Output helpers
+info() { printf "\r\033[2K  [\033[00;34mINFO\033[0m] %s\n" "$1"; }
+success() { printf "\r\033[2K  [\033[00;32m OK \033[0m] %s\n" "$1"; }
 
-# find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+# Install Homebrew packages
+if command -v brew >/dev/null 2>&1; then
+    info "Installing Homebrew packages"
+    brew bundle
+    success "Homebrew packages installed"
+fi
+
+# Find and run all topic-specific installers
+info "Running topic installers"
+find . -name install.sh | while read -r installer; do
+    info "Running installer: $installer"
+    sh -c "$installer"
+    success "Completed: $installer"
+done
+
+success "All installations complete!"

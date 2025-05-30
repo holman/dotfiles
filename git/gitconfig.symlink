@@ -1,7 +1,7 @@
 [user]
 	name = Cameron Wardzala
-	email = cwardzala@fastmail.com
-    signingkey = 9ECF121CBDE191B1
+	email = camw@spotify.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAD+z94J4duXqHib6emGvpCQ1lXWQHE0kZ6P8QnefUB+
 [credential]
     helper = osxkeychain
 [color]
@@ -23,6 +23,7 @@
 [push]
     default = simple
     followTags = true
+	autoSetupRemote = true
 [filter "media"]
     clean = git-media-clean %f
     smudge = git-media-smudge %f
@@ -41,7 +42,7 @@
     old = red strike
     new = green italic
 [commit]
-	gpgsign = true
+	gpgsign = false
 [alias]
     up = pull --rebase --autostash
     prune = fetch --prune
@@ -54,3 +55,10 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[hub]
+	protocol = ssh
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	allowedSignersFile = /Users/camw/.ssh/allowed_signers

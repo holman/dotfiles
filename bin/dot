@@ -1,64 +1,131 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 #
-# dot
-#
-# `dot` handles installation, updates, things like that. Run it periodically
-# to make sure you're on the latest and greatest.
+# dot - dotfiles maintenance script
+# Handles updates and maintenance of your dotfiles installation
 
+set -euo pipefail
+IFS=$'\n\t'
 
-set -e
+# Get the dotfiles directory
+DOTFILES_ROOT="$HOME/.dotfiles"
 
+# Output helpers
+info() { printf "\r\033[2K  [\033[00;34mINFO\033[0m] %s\n" "$1"; }
+success() { printf "\r\033[2K  [\033[00;32m OK \033[0m] %s\n" "$1"; }
+fail() { printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"; exit 1; }
 
-parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
-dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
+usage() {
+    cat << EOF
+Usage: dot [options] [command]
 
+Options:
+    -h, --help     Show this help message
+    -e, --edit     Open dotfiles directory for editing
 
-displayUsageAndExit() {
-    echo "dot -- dotfiles management"
-    echo ""
-    echo "Usage: dot [options]"
-    echo ""
-    echo "Options:"
-    echo "  -e, --edit    Open dotfiles directory for editing"
-    echo "  -h, --help    Show this help message and exit"
-    exit
+Commands:
+    update         Update packages and dotfiles
+    macos          Apply macOS system defaults
+    vscode         Dump current VS Code extensions to extensions.txt
+EOF
+    exit 0
 }
 
+cmd_update() {
+    # Update dotfiles repo
+    info "Updating dotfiles repository"
+    cd "$DOTFILES_ROOT" || exit 1
+    git pull origin master
 
-while test $# -gt 0; do
-    case "$1" in
-        "-h"|"--help")
-            displayUsageAndExit
-            ;;
-        "-e"|"--edit")
-            exec "$EDITOR" "$dotfilesDirectory"
-            exit
-            ;;
-        *)
-            echo "Invalid option: $1"
-            displayUsageAndExit
-            ;;
+    # Update Homebrew and packages
+    if command -v brew >/dev/null 2>&1; then
+        info "Updating Homebrew packages"
+        brew update
+        brew upgrade
+        brew cleanup
+        brew bundle --file="$DOTFILES_ROOT/Brewfile"
+    fi
+
+    # Run all topic-specific installers
+    info "Running topic installers"
+    find "$DOTFILES_ROOT" -name install.sh | while read -r installer; do
+        sh -c "$installer"
+    done
+
+    success "Update complete!"
+}
+
+cmd_macos() {
+    info "Applying macOS defaults"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        "$DOTFILES_ROOT/macos/set-defaults.sh"
+        success "macOS defaults applied"
+    else
+        fail "This command only works on macOS"
+    fi
+}
+
+cmd_vscode() {
+    info "Dumping VS Code extensions"
+
+    # Ensure the vscode directory exists
+    mkdir -p "$DOTFILES_ROOT/vscode"
+
+    # Create a temporary file for the new content
+    temp_file=$(mktemp)
+
+    # Add header categories
+    cat > "$temp_file" << 'EOF'
+# JavaScript/TypeScript Development
+EOF
+    code --list-extensions | grep -i "typescript\|javascript\|react\|vue\|angular\|eslint\|prettier\|node" | sort >> "$temp_file"
+
+    echo -e "\n# Python Development" >> "$temp_file"
+    code --list-extensions | grep -i "python\|jupyter\|pylance" | sort >> "$temp_file"
+
+    echo -e "\n# Java Development" >> "$temp_file"
+    code --list-extensions | grep -i "java\|spring\|maven\|gradle" | sort >> "$temp_file"
+
+    echo -e "\n# Web Development" >> "$temp_file"
+    code --list-extensions | grep -i "html\|css\|sass\|less\|php\|nunjucks\|mjml" | sort >> "$temp_file"
+
+    echo -e "\n# Cloud & DevOps" >> "$temp_file"
+    code --list-extensions | grep -i "docker\|kubernetes\|aws\|azure\|terraform\|ansible\|nginx\|caddy" | sort >> "$temp_file"
+
+    echo -e "\n# Database" >> "$temp_file"
+    code --list-extensions | grep -i "sql\|mongo\|redis\|prisma" | sort >> "$temp_file"
+
+    echo -e "\n# Git & GitHub" >> "$temp_file"
+    code --list-extensions | grep -i "git\|github" | sort >> "$temp_file"
+
+    echo -e "\n# Markdown & Documentation" >> "$temp_file"
+    code --list-extensions | grep -i "markdown\|asciidoc\|restructuredtext" | sort >> "$temp_file"
+
+    echo -e "\n# Utility & Enhancement" >> "$temp_file"
+    # Add remaining extensions that don't fit in other categories
+    code --list-extensions | grep -vi "typescript\|javascript\|react\|vue\|angular\|eslint\|prettier\|node\|python\|jupyter\|pylance\|java\|spring\|maven\|gradle\|html\|css\|sass\|less\|php\|nunjucks\|mjml\|docker\|kubernetes\|aws\|azure\|terraform\|ansible\|nginx\|caddy\|sql\|mongo\|redis\|prisma\|git\|github\|markdown\|asciidoc\|restructuredtext\|theme\|color" | sort >> "$temp_file"
+
+    echo -e "\n# Theme & UI" >> "$temp_file"
+    code --list-extensions | grep -i "theme\|color\|icon" | sort >> "$temp_file"
+
+    echo -e "\n# Install all extensions with:" >> "$temp_file"
+    echo "# cat extensions.txt | grep -v '^#' | xargs -L 1 code --install-extension" >> "$temp_file"
+
+    # Move the temporary file to the final location
+    mv "$temp_file" "$DOTFILES_ROOT/vscode/extensions.txt"
+
+    success "VS Code extensions dumped to vscode/extensions.txt"
+}
+
+main() {
+    case "${1:-}" in
+        "" ) cmd_update ;;
+        "-h"|"--help" ) usage ;;
+        "-e"|"--edit" ) exec "${EDITOR:-vim}" "$DOTFILES_ROOT" ;;
+        "update" ) cmd_update ;;
+        "macos" ) cmd_macos ;;
+        "vscode" ) cmd_vscode ;;
+        * ) usage ;;
     esac
-    shift
-done
+}
 
-
-export ZSH=$HOME/.dotfiles
-
-
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
-
-
-# Install homebrew
-$ZSH/homebrew/install.sh 2>&1
-
-
-# Upgrade homebrew
-echo "› brew update"
-brew update
-
-
-# Install software
-echo "› $ZSH/script/install"
-$ZSH/script/install
+main "$@"

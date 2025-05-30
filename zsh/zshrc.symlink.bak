@@ -62,4 +62,3 @@ eval "$(starship init zsh)"
 
 # 1Password plugin
 source "$HOME/.config/op/plugins.sh"
-export PATH=/opt/spotify-devex/bin:$PATH

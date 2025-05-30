@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+echo 'start updating ...'
+
+echo 'updating homebrew'
+brew update
+brew outdated
+brew upgrade
+brew cleanup
+
