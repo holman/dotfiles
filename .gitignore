@@ -1,4 +1,1 @@
 git/gitconfig.local.symlink
-
-# local-only secrets, do NOT commit
-system/secrets.zsh
