@@ -5,7 +5,7 @@ Personal macOS development environment configuration based on [Holman's dotfiles
 ## Quick Setup (New Machine)
 
 ```sh
-git clone https://github.com/mikeywills/dotfiles.git ~/.dotfiles
+git clone https://github.com/mukealicious/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap  # Sets up symlinks and git config
 script/install    # Runs all installers (Homebrew, etc.)
@@ -39,8 +39,8 @@ Topic-centric organization - each directory represents a specific area (git, zsh
 ### Key Commands
 
 ```sh
-bin/dot        # Update macOS defaults, Homebrew, and run installers
-bin/dot -e     # Open dotfiles in VS Code
+dot            # Update macOS defaults, Homebrew, and run installers
+dot -e         # Open dotfiles in your default editor
 ```
 
 ### Secrets Management
