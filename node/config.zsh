@@ -34,3 +34,25 @@ alias node-list='fnm list'
 alias node-use='fnm use'
 alias node-install='fnm install'
 alias node-default='fnm default'
+
+# Modern web development shortcuts
+alias create-app='npm create'
+alias create-vite='npm create vite@latest'
+alias create-remix='npx create-remix@latest'
+
+# Package management workflow helpers
+alias fresh='rm -rf node_modules package-lock.json && npm install'
+alias fresh-yarn='rm -rf node_modules yarn.lock && yarn install'
+
+# Quick project setup
+init-project() {
+  if [ -z "$1" ]; then
+    echo "Usage: init-project <project-name>"
+    return 1
+  fi
+  
+  mkdir "$1"
+  cd "$1"
+  npm init -y
+  echo "Project $1 initialized!"
+}

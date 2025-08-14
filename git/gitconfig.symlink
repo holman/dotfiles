@@ -49,6 +49,15 @@
   command = /opt/homebrew/bin/spaceman-diff
 [init]
 	defaultBranch = main
+[commit]
+	# GPG signing (will be overridden by local config if SSH signing is preferred)
+	gpgSign = true
+[tag]
+	# Sign tags by default
+	gpgSign = true
+[gpg]
+	# Use GPG from Homebrew if available
+	program = /opt/homebrew/bin/gpg
 [url "ssh://git@github.com/sendgrid"]
 	insteadOf = https://github.com/sendgrid
 [url "git@github.com:"]

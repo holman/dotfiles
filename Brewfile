@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 # Taps
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
+tap 'planetscale/tap'
 
 # Shell and Terminal
 brew 'starship'
@@ -78,6 +79,13 @@ brew 'docker'
 brew 'docker-compose'
 brew 'dive'  # explore docker images
 brew 'hadolint'  # Dockerfile linter
+
+# Web Development Tools
+brew 'vercel-cli'  # Vercel deployment
+brew 'turbo'  # Turborepo monorepo tool
+
+# Database Tools
+brew 'planetscale/tap/pscale'  # PlanetScale CLI
 
 # Security Tools
 brew '1password-cli'

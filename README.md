@@ -39,6 +39,13 @@ The bootstrap script will:
 - **Python**: uv for modern package management and virtual environments
 - **Rust**: rustup for when you need it
 
+### Web Development & Frontend
+- **Next.js**: Complete development workflow with optimization helpers
+- **Turborepo**: Monorepo management with workspace shortcuts
+- **Vercel**: Deployment and preview management
+- **PlanetScale**: Database branch management and connection helpers
+- **Modern tooling**: Vite, Remix, Astro, Tailwind CSS
+
 ### DevOps & Cloud Tools
 - **Kubernetes**: kubectl, kubectx/kubens, k9s, helm, stern, kustomize
 - **Terraform**: Full IaC stack with terragrunt, tflint, tfsec, infracost
@@ -75,9 +82,14 @@ This setup follows a **topic-centric** approach where each development area has 
 - **`git/`**: Git configuration and custom commands
 - **`go/`**: Go development environment
 - **`kubernetes/`**: k8s tools and shortcuts
+- **`nextjs/`**: Next.js development shortcuts and helpers
 - **`node/`**: Node.js and TypeScript setup  
+- **`planetscale/`**: Database management and branching
 - **`python/`**: Python and uv configuration
 - **`terraform/`**: Infrastructure as Code tools
+- **`turborepo/`**: Monorepo management and workspace tools
+- **`vercel/`**: Deployment and hosting shortcuts
+- **`webdev/`**: Modern web development utilities
 - **`zsh/`**: Modern shell configuration
 
 ## 🔧 Customization
@@ -153,6 +165,12 @@ k9          # k9s (cluster browser)
 # Terraform  
 tf plan     # terraform plan
 tg apply    # terragrunt apply
+
+# Web Development
+ndev        # npm run dev (Next.js)
+vdeploy     # vercel --prod with git commit
+tbuild      # turbo build
+psconnect   # pscale connect with defaults
 ```
 
 ## 🐛 Troubleshooting
