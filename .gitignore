@@ -1,3 +1,59 @@
 git/gitconfig.local.symlink
 Brewfile.lock.json
 secrets/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor temporary files
+*~
+.#*
+\#*#
+.*.swp
+.*.swo
+
+# Local environment files
+.localrc
+.env
+.env.local
+
+# SendGrid/work-specific configurations - keep these but ignore local overrides
+sendgrid/local.zsh
+*sendgrid*.local
+
+# Ruby/Rails legacy files
+.bundle/
+vendor/bundle/
+.rbenv-version
+.rvmrc
+
+# Python
+*.pyc
+__pycache__/
+.venv/
+venv/
+
+# Node.js
+node_modules/
+.npm
+.yarn-integrity
+
+# Build artifacts
+dist/
+build/
+target/
+
+# IDE files
+.vscode/settings.json
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+logs/

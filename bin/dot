@@ -38,28 +38,34 @@ while test $# -gt 0; do
 	shift
 done
 
-export ZSH=$HOME/.dotfiles
+export ZSHDOT=$HOME/.dotfiles
 
 # Update dotfiles themselves
 echo "› git pull"
-git -C $ZSHDOT pull
+git -C "$ZSHDOT" pull
 
-# Set macOS defaults
-$ZSHDOT/macos/set-defaults.sh
+# Set macOS defaults (optional, user can skip)
+read -p "Set macOS defaults? (y/n): " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    "$ZSHDOT/macos/set-defaults.sh"
+fi
 
-# Set macOS hostname
-$ZSHDOT/macos/set-hostname.sh
+# Install/update homebrew
+"$ZSHDOT/homebrew/install.sh" 2>&1
 
-# Install homebrew
-$ZSHDOT/homebrew/install.sh 2>&1
-
-# Upgrade homebrew
+# Update homebrew and packages
 echo "› brew update"
 brew update
 
-echo "› brew upgrade"
+echo "› brew upgrade"  
 brew upgrade
 
-# Install software
+echo "› brew bundle"
+brew bundle --file="$ZSHDOT/Brewfile"
+
+# Install software and run setup scripts
 echo "› script/install"
-$ZSHDOT/script/install
+"$ZSHDOT/script/install"
+
+echo "› dotfiles update complete!"

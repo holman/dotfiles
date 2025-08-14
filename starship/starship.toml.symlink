@@ -1,0 +1,145 @@
+# Starship prompt configuration
+# https://starship.rs/config/
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Format
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$golang\
+$nodejs\
+$python\
+$terraform\
+$kubernetes\
+$aws\
+$gcloud\
+$azure\
+$docker_context\
+$line_break\
+$character"""
+
+# Timeout for commands
+command_timeout = 1000
+
+[username]
+style_user = "bright-white bold"
+style_root = "bright-red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "on [$hostname](bold yellow) "
+disabled = false
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "~"
+read_only = " 🔒"
+style = "bold cyan"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = " "
+format = "on [$symbol$branch]($style) "
+style = "bold purple"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold red"
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+[golang]
+symbol = " "
+format = "via [$symbol($version )]($style)"
+style = "bold cyan"
+
+[nodejs]
+symbol = " "
+format = "via [$symbol($version )]($style)"
+style = "bold green"
+
+[python]
+symbol = " "
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+
+[terraform]
+symbol = "󱁢 "
+format = "via [$symbol$version]($style) "
+style = "bold 105"
+
+[kubernetes]
+symbol = "☸ "
+format = 'on [$symbol$context( \($namespace\))]($style) '
+style = "bold blue"
+disabled = false
+
+[aws]
+symbol = "  "
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = "bold orange"
+
+[gcloud]
+symbol = "☁️ "
+format = 'on [$symbol$account(@$domain)(\($region\))]($style) '
+style = "bold blue"
+
+[azure]
+symbol = "󰠅 "
+format = 'on [$symbol($subscription)]($style) '
+style = "bold blue"
+
+[docker_context]
+symbol = " "
+format = "via [$symbol$context]($style) "
+style = "bold blue"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold green)"
+
+[time]
+disabled = false
+format = '[$time]($style) '
+style = "bold white"
+use_12hr = false
+
+[cmd_duration]
+min_time = 2_000
+format = "took [$duration](bold yellow) "
+show_milliseconds = false
+
+[memory_usage]
+disabled = false
+threshold = 75
+format = "via $symbol [${ram_pct}]($style) "
+style = "bold dimmed white"
+symbol = "🐏"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"

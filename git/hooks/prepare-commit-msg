@@ -6,6 +6,9 @@ BRANCH_NAME=$(git symbolic-ref --short HEAD)
 # Extract ticket number using regex
 TICKET=$(echo "$BRANCH_NAME" | grep -o '^[a-zA-Z]\+-[0-9]\+')
 
+# Convert ticket number to uppercase
+TICKET=$(echo "$TICKET" | tr '[:lower:]' '[:upper:]')
+
 # If we found a ticket number
 if [ -n "$TICKET" ]; then
     # Get the commit message file path

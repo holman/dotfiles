@@ -1,59 +1,125 @@
-# shortcut to this dotfiles path is $ZSHDOT
+# Dotfiles path
 export ZSHDOT=$HOME/.dotfiles
-export ZSH="/Users/cnixon/.oh-my-zsh"
 
-# your project folder that we can `c [tab]` to
+# Project folder for quick navigation
 export PROJECTS=~/Code/src/github.com/
 
-ZSH_THEME="robbyrussell"
-
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
-
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
-then
+# Load environment variables from ~/.localrc
+# This keeps sensitive data out of the main dotfiles repository
+if [[ -a ~/.localrc ]]; then
   source ~/.localrc
 fi
 
-# all of our zsh files
+# Enhanced Zsh options
+setopt AUTO_CD              # Auto cd into directory by typing its name
+setopt AUTO_PUSHD           # Push directories onto stack
+setopt PUSHD_IGNORE_DUPS    # Don't push duplicates
+setopt PUSHD_SILENT         # Don't print directory stack
+setopt CORRECT              # Spelling correction for commands
+setopt CDABLE_VARS          # Change directory to a path stored in a variable
+setopt EXTENDED_GLOB        # Extended globbing
+setopt NO_CASE_GLOB         # Case insensitive globbing
+setopt NUMERIC_GLOB_SORT    # Sort globs numerically
+setopt SHARE_HISTORY        # Share history between sessions
+setopt HIST_IGNORE_DUPS     # Don't record duplicates
+setopt HIST_REDUCE_BLANKS   # Remove blanks from history
+setopt HIST_VERIFY          # Show command before executing from history
+
+# History configuration
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Load all zsh configuration files
 typeset -U config_files
 config_files=($ZSHDOT/**/*.zsh)
 
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
+# Load path files first
+for file in ${(M)config_files:#*/path.zsh}; do
   source $file
 done
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
+# Load everything except path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
   source $file
 done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# Initialize completions
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
+# Load completion files
+for file in ${(M)config_files:#*/completion.zsh}; do
   source $file
 done
 
 unset config_files
 
-# Better history
-# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+# Modern shell enhancements
+# Load zsh-autosuggestions if installed
+if [[ -f $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# Load zsh-syntax-highlighting if installed
+if [[ -f $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Initialize modern tools
+# FZF - Fuzzy finder
+if [[ -f ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+elif command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+fi
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS='
+  --height 40%
+  --layout=reverse
+  --border
+  --inline-info
+  --color=dark
+  --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+  --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+'
+
+# Zoxide - Smarter cd
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+# Atuin - Better shell history
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init zsh)"
+fi
+
+# fnm - Fast Node Manager
+if command -v fnm &> /dev/null; then
+  eval "$(fnm env --use-on-cd)"
+fi
+
+# Better history navigation with arrow keys
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
-source <(fzf --zsh)
-export FZF_DEFAULT_OPTS='--height=40%'
+# Useful key bindings
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^W' backward-kill-word
+
+# Initialize Starship prompt
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
