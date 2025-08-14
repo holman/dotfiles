@@ -23,6 +23,9 @@ Thumbs.db
 .env
 .env.local
 
+# Claude Code configuration with API keys
+claude_desktop_config.local.json
+
 # SendGrid/work-specific configurations - keep these but ignore local overrides
 sendgrid/local.zsh
 *sendgrid*.local
