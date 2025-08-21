@@ -1,6 +1,12 @@
+# Reload configuration
 unbind r
 bind r source-file ~/.tmux.conf
 
+# Use Vi mode
+set -g mode-keys vi
+set -g status-keys vi
+
+# vim pane switching directions
 bind-key h select-pane -L
 bind-key j select-pane -D
 bind-key k select-pane -U
