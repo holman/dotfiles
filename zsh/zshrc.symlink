@@ -56,6 +56,3 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 eval $(thefuck --alias)
-
-# bun completions
-[ -s "/Users/steve/.bun/_bun" ] && source "/Users/steve/.bun/_bun"
