@@ -15,6 +15,11 @@ then
   source ~/.localrc
 fi
 
+if [[ /Users/benjirusselburg/dev/dotfiles_v2/zsh/aliases.zsh ]]
+then
+  source /Users/benjirusselburg/dev/dotfiles_v2/zsh/aliases.zsh
+fi
+
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
@@ -47,6 +52,9 @@ done
 unset config_files
 
 GITSTATUS_LOG_LEVEL=DEBUG
+
+# load direnv
+eval "$(direnv hook zsh)"
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
@@ -83,11 +91,13 @@ function editzsh() {
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source <(fzf --zsh)
 
-export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
-export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:/bin:/usr/bin:/usr/local/bin:${PATH}"
 
 # load rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
+
+export PATH="$PATH:$HOME/dev/discourse/discourse-customer-setup-cli"
+export DISCOURSE_PATH="$HOME/dev/discourse/discourse"
 
 export PATH="/opt/homebrew/bin:$PATH"
