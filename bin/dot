@@ -40,6 +40,10 @@ done
 
 export ZSH=$HOME/.dotfiles
 
+# Update dotfiles themselves
+echo "› git pull origin $(git -C $ZSH branch --show-current)"
+git -C $ZSH pull origin $(git -C $ZSH branch --show-current)
+
 # Set macOS defaults
 $ZSH/macos/set-defaults.sh
 
@@ -50,6 +54,9 @@ $ZSH/homebrew/install.sh 2>&1
 echo "› brew update"
 brew update
 
+echo "› brew upgrade"
+brew upgrade
+
 # Install software
-echo "› $ZSH/script/install"
+echo "› script/install"
 $ZSH/script/install

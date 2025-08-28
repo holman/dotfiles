@@ -1,19 +1,19 @@
-cask_args appdir: "/Applications"
+cask_args appdir: '/Applications'
 
-tap "homebrew/bundle"
+tap 'homebrew/bundle'
 
 # https://jonas.github.io/tig/doc/manual.html
-brew "tig"
+brew 'tig'
 
-brew install "1password"
-brew install "bazecor"
-brew install "visual-studio-code"
-brew install "spotify"
+cask '1password'
+cask 'bazecor'
+cask 'visual-studio-code'
+cask 'spotify'
 # cask 'airtable'
 
-brew install "fzf"
-brew install "rg"
-brew install "direnv"
-brew install "tmate"
+brew 'fzf'
+brew 'rg'
+brew 'direnv'
+brew 'tmate'
 
 # https://formulae.brew.sh/cask/
