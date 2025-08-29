@@ -33,6 +33,11 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 # Hide Safari's bookmark bar.
 defaults write com.apple.Safari.plist ShowFavoritesBar -bool false
 
+# Always show Safari's "URL display" tab in the lower left on mouseover. Strangely
+# like, everyone and their LLMs on the internet thinks this is ShowStatusBar, but
+# it's not.
+defaults write com.apple.Safari ShowOverlayStatusBar -bool true
+
 # Set up Safari for development.
 defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
 defaults write com.apple.Safari.plist IncludeDevelopMenu -bool true
