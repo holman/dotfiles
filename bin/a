@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Quick shortcut to ~*-~*AI*~-*~
+#
+# Load up a current $HotThing AI client with preferable settings (which is
+# usually yolo-lfg style anyway; computers wouldn't do anything to us).
+#
+# USAGE:
+#
+#   $ a
+#   # => opens the AI client. yeah, easy peasy.
+claude --dangerously-skip-permissions
