@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 
+brew 'atuin'
 brew 'cloudflared'
 brew 'imagemagick'
 brew 'postgresql@14'
@@ -16,7 +17,6 @@ brew 'yt-dlp'
 
 cask '1password'
 cask 'airtable'
-cask 'android-platform-tools'
 cask 'arq'
 cask 'diffusionbee'
 cask 'handbrake-app'
