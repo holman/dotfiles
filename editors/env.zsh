@@ -1,1 +1,1 @@
-export EDITOR='windsurf'
+export EDITOR='zed'
