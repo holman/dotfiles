@@ -60,3 +60,15 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # Add JBang to environment
 alias j!=jbang
 export PATH="$HOME/.jbang/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/mkuehl/.codeium/windsurf/bin:$PATH"
+
+# Task Master aliases added on 8/8/2025
+alias tm='task-master'
+alias taskmaster='task-master'
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Firecrawl API Key
+export FIRECRAWL_API_KEY='fc-6a9d9e87cfdf43f9927b4081cf74b5ce'
