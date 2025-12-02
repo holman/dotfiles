@@ -1,5 +1,7 @@
 syntax on
 
+set rtp+=/usr/local/opt/fzf
+
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
@@ -113,3 +115,5 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
   \ 'source': 'rg -n ^ --color always',
   \ 'options': '--ansi --delimiter : --nth 3..',
   \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
+
+set clipboard=unnamed

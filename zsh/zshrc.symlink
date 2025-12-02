@@ -80,8 +80,26 @@ PROMPT=$'%{\e]0;%d\a%}\n%F{green}%D{%y.%m.%f} %D{%L:%M:%S}%f %F{242}:%f %F{green
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fdfind -t d"
+export FZF_ALT_C_COMMAND="fd -t d"
 export FZF_PREVIEW_COMMAND="bat --style=numbers,changes --wrap never --color always --line-range :500 {}"
 export FZF_CTRL_T_OPTS="--min-height 30 --preview-window down:60% --preview-window noborder --preview '($FZF_PREVIEW_COMMAND) 2> /dev/null'"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="/Users/benjamin.hillmann/.pixi/bin:$PATH"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/Users/benjamin.hillmann/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/Users/benjamin.hillmann/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
