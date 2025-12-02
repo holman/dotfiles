@@ -31,15 +31,25 @@
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to suppress warning message
+        default = simple
+[credential]
+	helper = osxkeychain
+[diff "spaceman-diff"]
+  command = /opt/homebrew/bin/spaceman-diff
+
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
 	default = simple
-[filter "nbstrip_full"] 
+[filter "nbstrip_full"]
 	clean = "jq --indent 1 \
 		'(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
 		| (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
 		| .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
 		| .cells[].metadata = {} \
 		'"
-	smudge = cat 
+	smudge = cat
 	required = true
 [user]
 	email = hillmannben@gmail.com

@@ -1,0 +1,1 @@
+export PATH="/Users/holman/.codeium/windsurf/bin:$PATH"

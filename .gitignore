@@ -1,5 +1,3 @@
 git/gitconfig.local.symlink
+Brewfile.lock.json
 todo/completion.zsh
-
-pure/async
-pure/prompt_pure_setup
