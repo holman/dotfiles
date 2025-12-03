@@ -1,16 +1,33 @@
-#!/bin/sh
-#
-# Quick shortcut to an editor.
-#
-# This means that as I travel back and forth between editors, hey, I don't have
-# to re-learn any arcane commands. Neat.
-#
-# USAGE:
-#
-#   $ e
-#   # => opens the current directory in your editor
-#
-#   $ e .
-#   $ e /usr/local
-#   # => opens the specified directory in your editor
-exec "$EDITOR" "${1:-.}"
+#!/bin/bash -eux
+exec vim "$@"
+# # Wrapper script to invoke interactive emacs commands in a daemon instance.
+
+# # These days many people don't suspect it,
+# # but Emacs got server ('emacs' binary) and client ('emacsclient') parts.
+# # Launching server (i.e. default 'emacs' command) evaluates the config
+# # and could potentially take seconds if it's very heavy
+# # Launching the client however is lightning fast. It's just a matter of creating a window.
+
+
+# ARGS=(
+#  # This trick gives you best of two worlds: if there is an Emacs daemon running,
+#  # it just connects to it. Otherwise, it spawns a daemon first and then connects to it.
+#  # Without this setting if you didn't have a daemon running, the command would fail.
+#  -a ''
+
+#  # open a new fram on the current terminal  
+# #  -nw
+#  # spawn new GUI window, otherwise it tries to launch client in terminal
+#  --create-frame 
+#  --frame-parameters="'(fullscreen . maximized)"
+
+# #   # process rest of arguments as elisp code
+# #  --eval
+# #   # bring focus to the window
+# #  '(select-frame-set-input-focus (selected-frame))'
+# )
+
+# # without any extra args it just invokes the daemon instance, otherwise executes the args
+# exec emacsclient "${ARGS[@]}" \
+#                  "$@"          # pass through whatever else you are trying to run
+

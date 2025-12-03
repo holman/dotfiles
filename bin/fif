@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# alternative using ripgrep-all (rga) combined with fzf-tmux preview
+# implementation below makes use of "open" on macOS, which can be replaced by other commands if needed.
+# allows to search in PDFs, E-Books, Office documents, zip, tar.gz, etc. (see https://github.com/phiresky/ripgrep-all)
+# find-in-file - usage: fif <searchTerm> or fif "string with spaces" or fif "regex"
+#fif() {
+#    if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+#    read -r file line column <<< "$(rg --column --line-number --no-messages --hidden --ignore-case --no-heading --files-with-matches "$1" | fzf --preview "echo {} | cut -d ":" -f1" -0 -1 | awk -F: '{print $1, $2, $3}')"
+#    echo $column
+#    if [[ -n $file ]]
+#    then
+#        e +$line:$column $file
+#    fi
+#}
+
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+fif() {
+    if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+    file=$(rg --column --line-number --ignore-case --no-messages --hidden --files-with-matches "$1" | fzf --preview "bat --style=changes --wrap never --color always {} | rg --ignore-case --pretty --context 10 '$1' {}" -0 -1)
+    if [[ -n $file ]]
+    then
+        e $file
+    fi
+}
+
+#fif() {
+#    if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+#    local file
+#    echo "$@"
+#    file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$@" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$@"' {}")" && open "$file"
+#}
+
+fif "$@"
+#echo "$line"
+#echo $file
+#echo $line
+#[[ -n $selected ]] && e $selected

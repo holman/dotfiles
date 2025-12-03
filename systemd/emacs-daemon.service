@@ -1,0 +1,13 @@
+[Unit]
+Description=Emacs daemon
+
+[Service]
+Type=forking
+# running via zsh -l makes it pick up .profile, which sets up PATH etc
+ExecStart=/bin/zsh -l -c '/usr/bin/emacs --daemon'
+ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
+Environment=SSH_AUTH_SOCK=%t/keyring/ssh
+Restart=always
+
+[Install]
+WantedBy=default.target

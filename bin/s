@@ -1,0 +1,2 @@
+#!/bin/bash -eux
+exec e "(spacemacs/defer-until-after-user-config #'my/search)"
