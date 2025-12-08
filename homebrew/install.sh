@@ -21,4 +21,7 @@ then
 
 fi
 
+# Link keg-only formulas that we want in PATH
+brew list | grep 'postgresql@' | xargs -I {} brew link {} --force 2>/dev/null
+
 exit 0
