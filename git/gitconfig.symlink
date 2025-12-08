@@ -52,3 +52,5 @@
 	gpgsign = true
 [gpg]
 	format = ssh
+[pull]
+	rebase = false
