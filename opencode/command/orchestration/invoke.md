@@ -1,6 +1,6 @@
 ---
 description: Custom multi-agent workflow with explicit agent chain
-agent: master-architect
+agent: workflow-orchestrator
 model: anthropic/claude-3-5-sonnet-20241022
 ---
 

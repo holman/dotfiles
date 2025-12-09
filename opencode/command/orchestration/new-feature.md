@@ -1,6 +1,6 @@
 ---
 description: Complete feature development workflow with all quality gates
-agent: master-architect
+agent: workflow-orchestrator
 model: anthropic/claude-3-5-sonnet-20241022
 ---
 
