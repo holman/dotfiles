@@ -4,7 +4,7 @@
 
 ## Inspiration
 
-This setup draws inspiration from comprehensive macOS development environments like [Kainoa-h/MacSetup](https://github.com/Kainoa-h/MacSetup), which showcases modern tooling configurations for enhanced productivity.
+- [Kainoa-h/MacSetup](https://github.com/Kainoa-h/MacSetup)
 
 ## Features
 

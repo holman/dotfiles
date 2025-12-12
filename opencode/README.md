@@ -60,3 +60,9 @@ Agents are highly specialized with deep domain knowledge:
 - Performance analysts optimize for speed, efficiency, and resource usage
 
 This specialization ensures that every task is handled by an expert with the right context and expertise.
+
+## Inspiration
+
+- [Contains Studio AI Agents](https://github.com/contains-studio/agents)
+- [Seth Hobsons agents](https://github.com/wshobson/agents)
+- [Richard Hightower's subagents](https://github.com/RichardHightower/subagents)
