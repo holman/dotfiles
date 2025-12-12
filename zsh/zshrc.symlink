@@ -56,3 +56,6 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 eval $(thefuck --alias)
+
+# opencode
+export PATH=/Users/steve/.opencode/bin:$PATH
