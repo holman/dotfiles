@@ -1,7 +1,7 @@
 # TODO list for Steve's dotfiles repo
 
 ## Dotfiles Tasks
-- [] Run /init to generate an AGENTS.md
+- [x] Run /init to generate an AGENTS.md
 - [x] Update the README.md
   - [x] Mention getting inspiration from:
     - https://github.com/Kainoa-h/MacSetup
