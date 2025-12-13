@@ -1,0 +1,56 @@
+# Sketchybar configuration for use with Aerospace
+# This config provides a minimal status bar that works well with the Aerospace tiling window manager
+
+# General configuration
+sketchybar --bar height=30 position=top margin=0 y_offset=0 \
+           corner_radius=0 \
+           blur_radius=0 \
+           color=0xff000000 \
+           font="Hack Nerd Font:Regular:12.0" \
+           padding_left=10 padding_right=10
+
+# Global defaults
+sketchybar --default updates=when_shown \
+           drawing=on \
+           icon.font="Hack Nerd Font:Regular:12.0" \
+           label.font="Hack Nerd Font:Regular:12.0" \
+           icon.color=0xffffffff \
+           label.color=0xffffffff \
+           background.padding_left=5 \
+           background.padding_right=5
+
+# Aerospace workspace indicator
+sketchybar --add item aerospace left \
+           --set aerospace script="$CONFIG_DIR/plugins/aerospace.sh" \
+           --set aerospace update_freq=5 \
+           --set aerospace icon.drawing=off
+
+# Space indicators for Aerospace
+for i in {1..10}; do
+    sketchybar --add space space.$i left \
+               --set space.$i script="$CONFIG_DIR/plugins/space.sh" \
+               --set space.$i icon="$i" \
+               --set space.$i label.drawing=off \
+               --set space.$i click_script="aerospace workspace $i"
+done
+
+# Clock
+sketchybar --add item clock right \
+           --set clock update_freq=10 \
+           --set clock script="$CONFIG_DIR/plugins/clock.sh" \
+           --set clock icon=""
+
+# Battery
+sketchybar --add item battery right \
+           --set battery update_freq=30 \
+           --set battery script="$CONFIG_DIR/plugins/battery.sh" \
+           --set battery icon=""
+
+# WiFi
+sketchybar --add item wifi right \
+           --set wifi update_freq=30 \
+           --set wifi script="$CONFIG_DIR/plugins/wifi.sh" \
+           --set wifi icon=""
+
+# Final configuration
+sketchybar --update

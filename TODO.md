@@ -17,11 +17,13 @@
 - [x] Add any missing but necessary README.md files in opencode subdirectories
 - [x] Add any missing but necessary agent instructions or overviews in opencode subdirectories
 
-- [ ] Add sketchybar to the Brewfile
-- [ ] Configure sketchybar to work with aerospace
-- [ ] hide the macos top bar
-- [ ] add neovim to the brewfile
-- [ ] configure neovim with lazyvim and dracula theme
-- [ ] replace mutt with neomutt in the Brewfile
+- [x] Add sketchybar to the Brewfile
+- [x] Configure sketchybar to work with aerospace
+- [x] Configure borders to work with aerospace
+- [x] configure aerospace, sketchybar, and borders to launch on startup
+- [x] hide the macos top bar
+- [x] add neovim to the brewfile
+- [x] configure neovim with lazyvim and dracula theme
+- [x] replace mutt with neomutt in the Brewfile
 - [ ] Analyze the install script and report on optimizations that can be made. Save it in a md file at the root.
 - [ ] Think through the symlink configuration and how we can better use it to avoid copying files to other directories. I'd like to simply fetch the latest for this dotfiles repo and have all of my apps get the latest rather than needing to run the install again. Save this in another md report file, not making any changes yet.

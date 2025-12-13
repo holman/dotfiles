@@ -33,6 +33,9 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 # Hide Safari's bookmark bar.
 defaults write com.apple.Safari.plist ShowFavoritesBar -bool false
 
+# Hide the macOS menu bar (requires restart or logout/login)
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
 # Set up Safari for development.
 defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
 defaults write com.apple.Safari.plist IncludeDevelopMenu -bool true
