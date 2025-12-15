@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+#
+# Helper script for dotfiles backup and rollback operations
+#
+
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Source utilities
+source "$DOTFILES_ROOT/lib/logging.sh"
+source "$DOTFILES_ROOT/lib/state.sh"
+source "$DOTFILES_ROOT/lib/backup.sh"
+source "$DOTFILES_ROOT/lib/error_handling.sh"
+
+# Initialize systems
+init_logging
+init_state
+init_backup
+
+# Help function
+show_help() {
+    cat << EOF
+Dotfiles Backup and Rollback Utility
+
+Usage: $0 [command] [options]
+
+Commands:
+  backup [name]    Create a backup with optional name
+  restore [backup] Restore from a specific backup
+  rollback         Interactive rollback to latest backup
+  list             List available backups
+  cleanup [count]  Clean up old backups (keep latest N, default: 5)
+  verify [backup]  Verify backup integrity
+  help             Show this help message
+
+Examples:
+  $0 backup                     # Create timestamped backup
+  $0 backup "before_changes"     # Create named backup
+  $0 restore backup_20231201_120000  # Restore specific backup
+  $0 rollback                    # Interactive rollback
+  $0 list                       # Show all backups
+  $0 cleanup 3                   # Keep only 3 latest backups
+
+EOF
+}
+
+# Main command handling
+case "${1:-help}" in
+    backup)
+        local backup_name="${2:-manual_$(date +%Y%m%d_%H%M%S)}"
+        log_info "Creating backup: $backup_name"
+        if backup_dotfiles "$backup_name"; then
+            log_success "Backup created successfully"
+        else
+            log_error "Backup failed"
+            exit $ERROR_BACKUP
+        fi
+        ;;
+    restore)
+        if [[ -z "$2" ]]; then
+            log_error "Please specify a backup to restore"
+            show_help
+            exit 1
+        fi
+        local backup_path="$BACKUP_DIR/$2"
+        if restore_backup "$backup_path"; then
+            log_success "Restore completed successfully"
+        else
+            log_error "Restore failed"
+            exit 1
+        fi
+        ;;
+    rollback)
+        interactive_rollback
+        ;;
+    list)
+        list_backups
+        ;;
+    cleanup)
+        local keep_count="${2:-5}"
+        cleanup_backups "$keep_count"
+        ;;
+    verify)
+        local backup_path="${2:-$(get_latest_backup)}"
+        if [[ -n "$backup_path" ]]; then
+            verify_backup "$backup_path"
+        else
+            log_error "No backup found to verify"
+            exit 1
+        fi
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    *)
+        log_error "Unknown command: $1"
+        show_help
+        exit 1
+        ;;
+esac

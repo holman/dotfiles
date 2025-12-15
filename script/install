@@ -4,10 +4,88 @@
 
 set -e
 
-cd "$(dirname $0)"/..
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
 
-echo "› brew bundle"
-brew bundle
+# Source utilities
+source "$DOTFILES_ROOT/lib/logging.sh"
+source "$DOTFILES_ROOT/lib/state.sh"
+source "$DOTFILES_ROOT/lib/backup.sh"
+source "$DOTFILES_ROOT/lib/error_handling.sh"
 
-# find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+# Initialize systems
+init_logging
+init_state
+init_backup
+
+# Pre-flight checks
+log_info "Running pre-flight checks..."
+
+if ! check_network; then
+    handle_error $ERROR_NETWORK "pre-flight checks" "Network connectivity required for installation"
+    exit $ERROR_NETWORK
+fi
+
+if ! check_permissions "$HOME" "write"; then
+    handle_error $ERROR_PERMISSIONS "pre-flight checks" "Write permissions required in home directory"
+    exit $ERROR_PERMISSIONS
+fi
+
+if ! check_dependencies "git" "brew"; then
+    handle_error $ERROR_DEPENDENCY "pre-flight checks" "Git and Homebrew are required dependencies"
+    exit $ERROR_DEPENDENCY
+fi
+
+log_info "Starting dotfiles installation"
+
+# Create backup before making changes
+backup_dotfiles "install"
+
+# Check if brew packages are already installed
+if is_installed "brew_packages" && ! needs_update "brew_packages" "current"; then
+    log_info "Brew packages already installed and up to date, skipping..."
+else
+    # Update Homebrew and install packages
+    mark_install_start "brew_packages"
+    log_info "Updating Homebrew and installing packages"
+    if execute_with_logging "brew bundle" "Homebrew bundle install"; then
+        mark_install_success "brew_packages" "current"
+        log_success "Homebrew packages installed successfully"
+    else
+        mark_install_failure "brew_packages" "brew bundle failed"
+        log_error "Homebrew bundle failed"
+        exit 1
+    fi
+fi
+
+# Find and run installers
+log_info "Running individual installers"
+find "$DOTFILES_ROOT" -name install.sh | while read -r installer; do
+    if [[ "$installer" != *"script/install"* ]]; then  # Skip self
+        installer_name=$(basename "$(dirname "$installer")")
+        
+        # Check if already installed
+        if is_installed "$installer_name" && ! needs_update "$installer_name" "current"; then
+            log_info "Installer $installer_name already completed, skipping..."
+            continue
+        fi
+        
+        mark_install_start "$installer_name"
+        log_info "Running installer: $installer_name"
+        
+        if execute_with_logging "sh -c '$installer'" "Install $installer_name"; then
+            mark_install_success "$installer_name" "current"
+            log_success "Installer $installer_name completed successfully"
+        else
+            mark_install_failure "$installer_name" "Installation script failed"
+            log_warning "Installer $installer_name failed (continuing)"
+        fi
+    fi
+done
+
+log_success "Dotfiles installation completed"
+echo ""
+show_installation_summary
+echo ""
+log_info "View detailed logs with: cat $LOG_FILE"
+log_info "View installation state with: cat $STATE_FILE"

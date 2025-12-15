@@ -7,10 +7,31 @@ DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
+# Source logging utilities
+source "$DOTFILES_ROOT/lib/logging.sh"
+
+# Initialize logging
+init_logging
+
 echo ''
 
 info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+  log_info "$1"
+}
+
+user () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+  log_info "User prompt: $1"
+}
+
+success () {
+  log_success "$1"
+}
+
+fail () {
+  log_error "$1"
+  echo ''
+  exit 1
 }
 
 user () {

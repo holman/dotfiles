@@ -1,0 +1,148 @@
+#!/usr/bin/env bash
+#
+# Helper script to view installation state and logs
+#
+
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Source utilities
+source "$DOTFILES_ROOT/lib/logging.sh"
+source "$DOTFILES_ROOT/lib/state.sh"
+source "$DOTFILES_ROOT/lib/backup.sh"
+
+# Initialize systems
+init_logging
+init_state
+init_backup
+
+# Help function
+show_help() {
+    cat << EOF
+Dotfiles Status Utility
+
+Usage: $0 [command] [options]
+
+Commands:
+  logs [lines]     Show recent installation logs (default: 20 lines)
+  state            Show installation state
+  summary          Show installation summary
+  component <name> Show status of specific component
+  backups          Show backup status
+  help             Show this help message
+
+Examples:
+  $0 logs 50                    # Show last 50 log lines
+  $0 state                      # Show current installation state
+  $0 component brew_packages     # Show brew packages status
+  $0 backups                    # Show backup information
+
+EOF
+}
+
+# Show logs
+show_logs() {
+    local lines="${1:-20}"
+    log_info "Recent installation logs (last $lines lines):"
+    echo ""
+    tail -n "$lines" "$LOG_FILE"
+}
+
+# Show state
+show_state() {
+    log_info "Current installation state:"
+    echo ""
+    
+    if command -v jq >/dev/null 2>&1 && [[ -f "$STATE_FILE" ]]; then
+        jq '.' "$STATE_FILE"
+    else
+        log_warning "Detailed state requires jq. Basic state:"
+        if [[ -f "$STATE_DIR/state.log" ]]; then
+            cat "$STATE_DIR/state.log"
+        else
+            log_info "No state information available"
+        fi
+    fi
+}
+
+# Show component status
+show_component() {
+    local component="$1"
+    
+    if [[ -z "$component" ]]; then
+        log_error "Please specify a component name"
+        return 1
+    fi
+    
+    local status=$(get_state "$component" "status")
+    local details=$(get_state "$component" "details")
+    local timestamp=$(get_state "$component" "timestamp")
+    
+    log_info "Component: $component"
+    echo "  Status: $status"
+    echo "  Details: $details"
+    echo "  Timestamp: $timestamp"
+    
+    if [[ "$status" == "completed" ]]; then
+        log_success "Component $component is installed successfully"
+    elif [[ "$status" == "failed" ]]; then
+        log_error "Component $component failed to install"
+    elif [[ "$status" == "installing" ]]; then
+        log_info "Component $component is currently being installed"
+    else
+        log_warning "Component $component status unknown"
+    fi
+}
+
+# Show backup status
+show_backups() {
+    log_info "Backup status:"
+    echo ""
+    
+    if [[ -d "$BACKUP_DIR" ]]; then
+        local backup_count=$(find "$BACKUP_DIR" -maxdepth 1 -type d -name "backup_*" | wc -l)
+        echo "  Backup directory: $BACKUP_DIR"
+        echo "  Total backups: $backup_count"
+        
+        local latest_backup=$(get_latest_backup)
+        if [[ -n "$latest_backup" ]]; then
+            echo "  Latest backup: $(basename "$latest_backup")"
+        else
+            echo "  Latest backup: None"
+        fi
+        
+        # Show disk usage
+        if command -v du >/dev/null 2>&1; then
+            local backup_size=$(du -sh "$BACKUP_DIR" 2>/dev/null | cut -f1)
+            echo "  Total size: $backup_size"
+        fi
+    else
+        log_warning "No backup directory found"
+    fi
+}
+
+# Main command handling
+case "${1:-help}" in
+    logs)
+        show_logs "$2"
+        ;;
+    state)
+        show_state
+        ;;
+    summary)
+        show_installation_summary
+        ;;
+    component)
+        show_component "$2"
+        ;;
+    backups)
+        show_backups
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    *)
+        log_error "Unknown command: $1"
+        show_help
+        exit 1
+        ;;
+esac
