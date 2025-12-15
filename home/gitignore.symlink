@@ -1,0 +1,8 @@
+.DS_Store
+*~
+*.swp
+.env
+.env.*
+!.env.example
+!.env.template
+*.log

@@ -1,0 +1,28 @@
+browser "open %u"
+
+# Dark theme based on Dracula color scheme for newsboat.
+#
+# In order to use this color scheme, you must first configure
+# your terminal emulator to use the Dracula palette.
+# See <https://draculatheme.com/> for more information.
+
+color background default default
+color listnormal color255 default
+color listfocus color238 color255 standout
+color listnormal_unread color47 default
+color listfocus_unread color238 color47 standout
+color info color141 color236
+
+# highlights
+highlight all "---.*---" yellow
+highlight feedlist ".*(0/0))" black
+highlight article "(^Feed:|^Title:|^Date:|^Link:|^Author:)" cyan default bold
+highlight article "https?://[^ ]+" yellow default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
+highlight article ":.*\\(link\\)$" cyan default
+highlight article ":.*\\(image\\)$" blue default
+highlight article ":.*\\(embedded flash\\)$" magenta default
+
+

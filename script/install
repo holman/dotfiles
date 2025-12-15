@@ -41,6 +41,9 @@ log_info "Starting dotfiles installation"
 # Create backup before making changes
 backup_dotfiles "install"
 
+# Ensure config directory exists
+mkdir -p "$HOME/.config"
+
 # Check if brew packages are already installed
 if is_installed "brew_packages" && ! needs_update "brew_packages" "current"; then
     log_info "Brew packages already installed and up to date, skipping..."

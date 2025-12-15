@@ -1,0 +1,5 @@
+[user]
+        name = Steve
+        email = github@cavender.io
+[credential]
+        helper = osxkeychain

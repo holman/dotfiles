@@ -1,0 +1,21 @@
+# Aerospace configuration
+
+# Gaps between windows
+gaps.outer.top = 10
+gaps.outer.bottom = 10
+gaps.outer.left = 10
+gaps.outer.right = 10
+
+# Default workspace layout
+workspace-main Monitor-1
+
+# App-specific settings
+[app="System Settings"]
+fullscreen = true
+
+[app="Activity Monitor"]
+fullscreen = true
+
+# Key bindings
+# Note: These should be configured via system preferences
+# This file mainly contains window management rules

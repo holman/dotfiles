@@ -146,16 +146,55 @@ link_file () {
   fi
 }
 
-install_dotfiles () {
-  info 'installing dotfiles'
+install_home_dotfiles () {
+  info 'installing home directory dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  # Install from unified home/ directory
+  for src in $(find -H "$DOTFILES_ROOT/home" -name '*.symlink' -not -path '*.git*')
+  do
+    filename=$(basename "$src")
+    dst="$HOME/.$(basename "${src%.*}")"
+    link_file "$src" "$dst"
+  done
+  
+  # Legacy support for old .symlink files (not in home/ or config/)
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -not -path '*/home/*' -not -path '*/config/*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+}
+
+install_config_dotfiles () {
+  info 'installing config directory dotfiles'
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  # Install from unified config/ directory
+  for src in $(find -H "$DOTFILES_ROOT/config" -name '*.symlink' -not -path '*.git*')
+  do
+    filename=$(basename "$src" .symlink)
+    
+    # Special handling for newsboat_urls
+    if [[ "$filename" == "newsboat_urls" ]]; then
+      dst="$HOME/.config/newsboat/urls"
+      mkdir -p "$(dirname "$dst")"
+    else
+      dst="$HOME/.config/$filename"
+      mkdir -p "$(dirname "$dst")"
+    fi
+    
+    link_file "$src" "$dst"
+  done
+}
+
+install_dotfiles () {
+  info 'installing dotfiles'
+  
+  install_config_dotfiles
+  install_home_dotfiles
 }
 
 setup_gitconfig

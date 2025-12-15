@@ -1,0 +1,96 @@
+# Yazi configuration
+[manager]
+ratio = [ 1, 4, 3 ]
+sort_by = "alphabetical"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+sort_translit = false
+linemode = "none"
+show_hidden = false
+show_symlink = true
+
+[preview]
+tab_size = 2
+max_width = None
+max_height = None
+cache_dir = ""
+image_filter = "normal"
+image_quality = 75
+sixel_fraction = 15
+
+[opener]
+edit = [
+	{ run = '$EDITOR "$1"', desc = "$EDITOR", block = true, for = "unix" }
+]
+open = [
+	{ run = 'open "$1"', desc = "Open", for = "macos" },
+	{ run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+]
+reveal = [
+	{ run = 'open -R "$1"', desc = "Reveal", for = "macos" },
+	{ run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+]
+extract = [
+	{ run = 'unar "$1"', desc = "Extract here", for = "unix" },
+]
+play = [
+	{ run = 'mpv -- "$1"', desc = "Play", for = "unix" },
+	{ run = 'mediainfo "$1"; echo "Press enter to exit"; read', desc = "Show media info", for = "unix" },
+]
+
+[open]
+prepend_rules = [
+	{ name = "*.*/", use = [
+		"edit",
+		"open",
+		"reveal",
+	] },
+	{ mime = "text/*", use = [
+		"edit",
+		"reveal",
+	] },
+	{ mime = "image/*", use = [
+		"open",
+		"reveal",
+	] },
+	{ mime = "video/*", use = [
+		"play",
+		"reveal",
+	] },
+	{ mime = "audio/*", use = [
+		"play",
+		"reveal",
+	] },
+	{ mime = "inode/x-empty", use = [
+		"edit",
+		"reveal",
+	] },
+]
+
+[tasks]
+micro_workers = 10
+macro_workers = 25
+image_alloc = 536870912  # 512MB
+image_bound = [ 0, 0 ]
+suppress_preload = false
+
+[plugin]
+prepend_previewers = [
+	{ name = "*.md", run = "glow -s dark -n -w 80 -" },
+	{ name = "*.json", run = "jq -C" },
+	{ name = "*.toml", run = "bat -pp --theme=Dracula" },
+]
+
+[input]
+cd_offset = true
+cd_title = true
+cd_origin = "top-left"
+
+[select]
+open_title = true
+open_origin = "hovered"
+
+[log]
+enabled = true
+timestamp = true

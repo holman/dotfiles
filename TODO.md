@@ -37,11 +37,11 @@
 - [x] Add error handling with recovery instructions
 
 ### Phase 2: Unified Symlink Structure
-- [ ] Create standardized config/ and home/ directory structure
-- [ ] Convert existing .symlink files to new structure
-- [ ] Move newsboat and thefuck configs to symlink structure
-- [ ] Create default configurations for aerospace, fzf, yazi, bat, eza, ripgrep, zoxide
-- [ ] Update script/bootstrap to handle unified symlink structure
+- [x] Create standardized config/ and home/ directory structure
+- [x] Convert existing .symlink files to new structure
+- [x] Move newsboat and thefuck configs to symlink structure
+- [x] Create default configurations for aerospace, fzf, yazi, bat, eza, ripgrep, zoxide
+- [x] Update script/bootstrap to handle unified symlink structure
 
 ### Phase 3: App Configuration Integration
 - [ ] Convert ghostty install.sh to symlink-based configuration

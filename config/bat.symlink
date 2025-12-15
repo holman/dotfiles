@@ -1,0 +1,9 @@
+# Bat configuration
+
+--theme=Dracula
+--style=header,grid,rule,numbers
+--line-range=500
+--decorations=always
+--paging=auto
+--wrap=never
+--tabs=4

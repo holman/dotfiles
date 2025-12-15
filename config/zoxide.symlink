@@ -1,0 +1,17 @@
+# Zoxide configuration
+
+# Export for fish/zsh compatibility
+export _ZO_DATA_DIR="$HOME/.local/share/zoxide"
+export _ZO_FZF_OPTS="
+--height 40%
+--layout=reverse
+--border
+--inline-info
+--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+--color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
+"
+
+# Initialize zoxide (will be handled by shell integration)
+eval "$(zoxide init --cmd cd zsh)"

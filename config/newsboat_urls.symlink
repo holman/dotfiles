@@ -1,0 +1,9 @@
+https://lazybear.io/index.xml dev
+https://garrit.xyz/rss.xml dev
+https://feeds2.feedburner.com/TheArtOfManliness life
+https://medium.com/feed/@_ericelliott dev
+https://jrsinclair.com/index.rss dev
+https://registerspill.thorstenball.com/feed dev
+https://thorstenball.com/atom.xml dev
+"query:dev Articles:tags # \"dev\""
+"query:Unread Articles:unread = \"yes\""

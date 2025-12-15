@@ -1,0 +1,24 @@
+# Ripgrep configuration
+
+# Search patterns
+--type-add 'config:*.{json,yaml,yml,toml,conf,ini}'
+--type-add 'docs:*.{md,txt,rst}'
+
+# Exclude patterns
+--glob='!.git'
+--glob='!node_modules'
+--glob='!target'
+--glob='!dist'
+--glob='!.venv'
+--glob='!__pycache__'
+
+# Search options
+--smart-case
+--hidden
+--follow
+--line-number
+
+# File type specifications
+--type-add 'web:*.{html,css,js,ts,jsx,tsx,vue,svelte}'
+--type-add 'data:*.{csv,json,xml,yaml,yml}'
+--type-add 'dev:*.{py,rs,go,java,cpp,c,h,swift,kt}'
