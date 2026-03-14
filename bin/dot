@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # dot
 #
@@ -44,11 +44,11 @@ export ZSH=$HOME/.dotfiles
 echo "› git pull"
 git -C $ZSH pull
 
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
-
-# Set macOS hostname
-$ZSH/macos/set-hostname.sh
+# Set macOS defaults and hostname
+if [ "$(uname -s)" = "Darwin" ]; then
+  $ZSH/macos/set-defaults.sh
+  $ZSH/macos/set-hostname.sh
+fi
 
 # Install homebrew
 $ZSH/homebrew/install.sh 2>&1
