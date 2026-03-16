@@ -44,6 +44,11 @@ There's a few special files in the hierarchy.
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
+- **topic/\*.configsymlink**: Any file ending in `*.configsymlink` gets
+  symlinked into your `$HOME/.config/`. Follows the same convention as
+  `*.symlink` but targets the XDG config directory for tools that store their
+  config there (e.g. `ghostty/config.ghostty.configsymlink` →
+  `~/.config/config.ghostty`).
 
 ## install
 
