@@ -7,6 +7,7 @@ startup_mode = "Maximized"
 decorations = "buttonless"
 dynamic_padding = false
 opacity = 0.9
+option_as_alt = 'Both'
 
 [window.padding]
 x = 25

@@ -54,3 +54,6 @@ ulimit -n 10000
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/raul/Developer/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/raul/Developer/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Added by Antigravity
+export PATH="/Users/raul/.antigravity/antigravity/bin:$PATH"

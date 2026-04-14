@@ -1,0 +1,70 @@
+# Set NVM_DIR. This is still needed for the loader to find NVM.
+export NVM_DIR="$HOME/.nvm" # Or your custom NVM_DIR path
+
+# Lazy-loading function for NVM
+load_nvm() {
+  # Check if NVM_DIR is set and nvm.sh exists
+  if [ -z "$NVM_DIR" ] || [ ! -s "$NVM_DIR/nvm.sh" ]; then
+    echo "NVM_DIR is not set or nvm.sh not found." >&2
+    echo "Please ensure NVM is installed correctly and NVM_DIR is set." >&2
+    return 1
+  fi
+
+  # Unset the placeholder functions to avoid recursion
+  # and ensure the real commands are used next time.
+  unset -f nvm node npm npx load_nvm
+
+  # Source nvm.sh with --no-use.
+  # The --no-use flag prevents nvm from automatically running `nvm use`
+  # upon loading, which can significantly speed up the initial load.
+  # If you rely on .nvmrc being automatically picked up on first load,
+  # you might remove --no-use, but it will be slower.
+  # Alternatively, you can explicitly run `nvm use` or `nvm_auto` after sourcing.
+  \. "$NVM_DIR/nvm.sh" --no-use
+
+  # Source bash_completion if it exists
+  if [ -s "$NVM_DIR/bash_completion" ]; then
+    \. "$NVM_DIR/bash_completion"
+  fi
+
+  # (Optional) If you still want nvm_auto behavior after first load:
+  # You might need to re-enable nvm_auto or manually call it if you use it.
+  # For Zsh, nvm often adds to chpwd_functions. Sourcing nvm.sh should set this up.
+  # If you find .nvmrc isn't picked up automatically after the first `cd` post-load,
+  # you might need to call `nvm_auto` or a similar function here,
+  # or simply cd out and back into the directory.
+  # Example:
+  # if type nvm_auto > /dev/null 2>&1; then
+  #   nvm_auto
+  # fi
+}
+
+# Define placeholder functions for NVM-related commands
+# These will call load_nvm and then execute the intended command.
+nvm() {
+  load_nvm && nvm "$@"
+}
+node() {
+  load_nvm && node "$@"
+}
+npm() {
+  load_nvm && npm "$@"
+}
+npx() {
+  load_nvm && npx "$@"
+}
+# Add yarn if you manage it via NVM/npm global packages
+# yarn() {
+#   load_nvm && yarn "$@"
+# }
+
+# (Optional) For `nvm_auto` behavior on `cd`:
+# If you use nvm_auto (which automatically switches Node versions when you `cd`
+# into a directory with an .nvmrc file), NVM usually adds `nvm_auto`
+# to `chpwd_functions`. Sourcing `nvm.sh` (even lazily) should set this up.
+# The `--no-use` flag primarily affects the *initial* sourcing, not subsequent `cd` events
+# once NVM is fully loaded.
+# If you want to ensure .nvmrc is respected immediately after lazy loading
+# and you are in a directory with .nvmrc, you might need to call `nvm use` or `nvm_auto`
+# explicitly within `load_nvm` or run `cd .` after the first time a command triggers the load.
+# Most users find that `--no-use` is fine, and subsequent `cd`s work as expected.

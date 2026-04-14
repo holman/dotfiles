@@ -3,7 +3,7 @@
 export OMZ="$HOME/.oh-my-zsh"
 
 # Use a theme
-ZSH_THEME="agnoster"  # or any other theme you prefer
+ZSH_THEME="robbyrussell"  # or any other theme you prefer
 
 # Enable plugins (add the ones you need)
 plugins=(

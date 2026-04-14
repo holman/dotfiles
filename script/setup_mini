@@ -1,0 +1,39 @@
+#!/bin/bash
+# Configuración de la Mac Mini (Cliente)
+
+ETH_IF="en7" # Según tu último dump es la activa
+MY_IP="192.168.2.2"
+GATEWAY="192.168.2.1"
+
+echo "--- 1. Eliminando conflictos de IP (Limpieza Profunda) ---"
+# Buscamos todas las interfaces con nuestra IP y las limpiamos
+CONFLICTS=$(ifconfig | grep -B 10 "$MY_IP" | grep "flags" | cut -d ":" -f 1)
+for iface in $CONFLICTS; do
+    echo "Limpiando IP de $iface..."
+    sudo ifconfig $iface delete $MY_IP 2>/dev/null
+done
+
+# Matamos al fantasma del .3 que vimos hoy
+sudo ifconfig $ETH_IF delete 192.168.2.3 2>/dev/null
+
+echo "--- 2. Configurando Interfaz y ARP ---"
+sudo ifconfig $ETH_IF $MY_IP netmask 255.255.255.0 up
+sudo arp -d $GATEWAY 2>/dev/null
+
+echo "--- 3. Re-estableciendo Brújula (Rutas) ---"
+sudo route -n flush
+sudo route add default $GATEWAY
+sudo route add -net 192.168.2.0/24 $GATEWAY
+
+echo "--- 4. Forzando DNS ---"
+# Esto sobrevive mejor en macOS que editar /etc/resolv.conf
+sudo networksetup -setdnsservers "Ethernet" 8.8.8.8 8.8.4.4 2>/dev/null || \
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+
+echo "✅ Mac Mini configurada. IP: $MY_IP via $GATEWAY"
+ping -c 3 $GATEWAY
+
+echo "--- Si alguna vez pierdes la conexión, solo corre este comando en la Mini: ---"
+echo "--- arp -a | grep 192.168.2.1 ---"
+echo "--- Si sale una MAC, el cable está bien. ---"
+echo "--- Si sale incomplete, reinicia el script de la Laptop. ---"
