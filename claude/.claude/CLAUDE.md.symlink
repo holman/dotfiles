@@ -1,0 +1,39 @@
+# Writing Style
+
+When writing commit messages, PR descriptions, or Jira ticket descriptions on my behalf, match these patterns derived from my actual writing.
+
+## Commit Messages
+
+### Subject line format
+- Use `[SCOPE] imperative verb phrase` — never conventional commits (`feat:`, `fix:`, etc.)
+- Scope is a Jira ticket number for work commits: `[PROJ-123] Fix dropdown not closing on outside click`
+- No colon after the closing bracket
+- No period at the end
+- Keep under 75 characters
+- Quick fixes without a ticket still use sentence case: `Fix sidebar layout breaking on narrow viewports`
+
+### Capitalization
+- Sentence case after the bracket prefix: `[PROJ-456] Add tooltip support for disabled buttons`
+
+### Verb tense
+- Imperative mood: `Fix`, `Add`, `Upgrade`, `Support`, `Remove`, `Move`, `Use`, `Generate`
+
+### Commit body
+- Include a body when the change needs explanation beyond the subject — don't skip it for non-trivial changes
+- Explain "why" and "what next", not "what" (the diff shows what)
+- Keep it brief and practical — a few sentences, not paragraphs
+- Mention follow-up work or things intentionally left out
+- Example tone: "This unblocks Product teams for the current clients. In the long run, we may consider going with a different generator."
+
+## PR Descriptions and Jira Tickets
+
+- Start with context or the problem statement before describing the solution
+- Explain "why" before "what"
+- Use bullet points for multi-part changes
+- Use contractions naturally (doesn't, can't, won't, we don't)
+- Use "we" for team decisions, "I" for personal actions
+- Reference related issues, PRs, or external resources (Figma, docs, upstream issues) when relevant
+- Acknowledge scope for big changes: "This is a big PR, so here are a few key changes:"
+- Mention follow-up work if punting something
+- Tone: technical but approachable, direct, no fluff — not overly formal but not sloppy
+- For visual changes, include before/after screenshots
