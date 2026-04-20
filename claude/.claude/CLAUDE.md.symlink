@@ -26,6 +26,10 @@ When writing commit messages, PR descriptions, or Jira ticket descriptions on my
 - Example tone: "This unblocks Product teams for the current clients. In the long run, we may consider going with a different generator."
 - **Never add a `Co-Authored-By` trailer** — not for Claude, not for any tool
 
+## Node Version Management
+
+I use **mise** to manage Node (and other runtimes), so the correct Node version is already active in my shell before any command runs. When a project's CLAUDE.md instructs you to run `nvm use` before Node commands, **skip that step** — it doesn't apply to my environment and `nvm` is not installed.
+
 ## PR Descriptions and Jira Tickets
 
 - Start with context or the problem statement before describing the solution
