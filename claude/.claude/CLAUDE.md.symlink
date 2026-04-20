@@ -24,6 +24,7 @@ When writing commit messages, PR descriptions, or Jira ticket descriptions on my
 - Keep it brief and practical — a few sentences, not paragraphs
 - Mention follow-up work or things intentionally left out
 - Example tone: "This unblocks Product teams for the current clients. In the long run, we may consider going with a different generator."
+- **Never add a `Co-Authored-By` trailer** — not for Claude, not for any tool
 
 ## PR Descriptions and Jira Tickets
 
