@@ -26,10 +26,6 @@ When writing commit messages, PR descriptions, or Jira ticket descriptions on my
 - Example tone: "This unblocks Product teams for the current clients. In the long run, we may consider going with a different generator."
 - **Never add a `Co-Authored-By` trailer** — not for Claude, not for any tool
 
-## Node Version Management
-
-I use **mise** to manage Node (and other runtimes), so the correct Node version is already active in my shell before any command runs. When a project's CLAUDE.md instructs you to run `nvm use` before Node commands, **skip that step** — it doesn't apply to my environment and `nvm` is not installed.
-
 ## PR Descriptions and Jira Tickets
 
 - Start with context or the problem statement before describing the solution
@@ -42,3 +38,112 @@ I use **mise** to manage Node (and other runtimes), so the correct Node version 
 - Mention follow-up work if punting something
 - Tone: technical but approachable, direct, no fluff — not overly formal but not sloppy
 - For visual changes, include before/after screenshots
+- If the repo has a PR template (`.github/pull_request_template.md`, `PULL_REQUEST_TEMPLATE.md`, or `docs/pull_request_template.md`), fill it in as faithfully as possible. These style rules apply to the prose inside each section, not to the template's headings or checklists.
+
+# Environment
+
+## Node Version Management
+
+I use **mise** to manage Node (and other runtimes), so the correct Node version is already active in my shell before any command runs. When a project's CLAUDE.md instructs you to run `nvm use` before Node commands, **skip that step** — it doesn't apply to my environment and `nvm` is not installed.
+
+# Git Workflow
+
+## Directory Layout and `goto`
+
+I use a `goto` ZSH function to navigate to development projects. It's loaded in your shell (assume it's available — if it isn't, surface that as an environment problem, don't work around it).
+
+- `goto <repo>` → `~/Dev/src/github.com/dangmai/<repo>` (default org is `dangmai`)
+- `goto <user>/<repo>` → `~/Dev/src/github.com/<user>/<repo>`
+- `goto <host>/<user>/<repo>` → `~/Dev/src/<host>/<user>/<repo>` (e.g. `gitlab.com/...`, `code.hq.twilio.com/...`)
+- If the directory already exists, `goto` just `cd`s into it. If not, it clones the repo to that path first.
+
+When you need to enter a repo by name, use `goto <repo>` — don't manually `git clone`. `goto` is the source of truth for my directory layout. For paths you already know (e.g. a worktree directory), use `cd <absolute path>` directly.
+
+## Worktrees (Feature Work)
+
+Create a worktree when I ask you to **work on / implement / add / build** a feature. Stay in the main checkout for fixes, tweaks, renames, questions, or any single-edit request. If in doubt, ask. Never nest worktrees — if you're already in a worktree, stay there.
+
+Worktree path: `~/Dev/src/<host>/<org>/<repo>.worktrees/<branch-with-slashes-as-dashes>/`
+
+Example: branch `PROJ-123/add-feature` in repo `dangmai/foo` → `~/Dev/src/github.com/dangmai/foo.worktrees/PROJ-123-add-feature/`
+
+Worktrees are agent-only territory — I work manually in the main checkout, so don't edit the main checkout during feature work.
+
+Base new branches off the repo's **default branch** (`gh repo view --json defaultBranchRef -q .defaultBranchRef.name`), not HEAD. This avoids accidentally branching off a dirty or unrelated feature branch.
+
+## Branch Naming
+
+Detect the repo category from `git remote get-url origin` (fall back to `pwd` if no origin):
+
+- **Work repos** — origin matches any of:
+  - `github.com/twilio-internal/*`
+  - `github.com/twilio/*`
+  - `github.com/segmentio/*`
+  - `github.com/segmentio-integrations/*`
+  - Any `code.hq.twilio.com/*` host
+
+  Prompt me for a JIRA ticket. If I don't have one but want one, invoke the JIRA-creation skill to create it. If I decline a ticket entirely, use `dmai/<slug>`. Otherwise: `<TICKET>/<slug>` — e.g. `PROJ-123/add-feature`.
+
+- **Personal repos** — origin under `github.com/dangmai/*`. Use the bare slug: `add-feature`.
+
+- **Unrecognized repos** — anything else (OSS, etc.). See *OSS Fork Flow* below.
+
+Slug: 2–4 kebab-case words derived from the request. Confirm with me if the request is ambiguous.
+
+Never fork a work repo to my personal account. Work branches live in the original work org.
+
+## Autonomous Mode
+
+Autonomous mode means I'm not watching — you need to leave a durable handoff artifact (a draft PR) so I can pick up when I return.
+
+Triggers — any of:
+- Explicit phrase: "autonomously", "async", "in the background", "while I'm away", "keep going"
+- Background / scheduled / remote-trigger invocation (not live chat)
+
+Mode can flip mid-session. If I say "I'm heading out, keep going" partway through interactive feature work, transition: push what you have, open the draft PR, and keep committing per the rules below.
+
+## Draft PRs
+
+In autonomous mode, for work repos and personal repos:
+
+- Create the PR at the **first commit** — not before (no empty-commit awkwardness), not later (no work stranded on the session host).
+- Open the PR as **draft**. Never mark it ready-for-review — that's my call.
+- Target: the repo's default branch. Source: the worktree branch on `origin`.
+- Title follows the commit message style. Body follows the PR description style, filling in the repo template if present.
+- Update the PR description only when scope changes meaningfully. Don't rewrite it on every push.
+- Don't post self-comments on the PR. The description carries the context.
+
+For unrecognized repos, see *OSS Fork Flow*.
+
+## Commits
+
+- Commit by **logical unit** — each commit reviewable on its own (tests, then implementation, then docs, etc.). Not arbitrary checkpoints.
+- Follow the commit message style above.
+- In autonomous mode, **push after every commit** so the remote is never more than one commit behind.
+- WIP commits are allowed before risky operations (long test runs, big refactors) if a session loss would strand meaningful work. Squash them before handoff.
+
+## Handoff
+
+When autonomous work finishes:
+
+- Last push is the handoff — branch is on `origin`, PR is draft, description is current.
+- Do **not** mark the PR ready-for-review.
+- When I return, give a chat summary: what was done, tests run and their results, what's incomplete or punted, any surprises.
+- If work failed or got blocked: still push what exists, update the PR description to note the blocker and point at the last commit. A visible blocked state beats an invisible one.
+
+## Cleanup
+
+Cleanup is explicit only. Never auto-clean on "I think this is done" — wait for one of the phrases below. Before any destructive op, verify no uncommitted or unpushed changes; if there are, surface them and ask. Don't silently `--force`.
+
+- **"clean up" / "done" / "feature complete" / "ship it"** — assumes PR was merged (or is about to be). Verify merge status (or ask). Then: `git worktree remove <path>`, delete local branch, `git push origin --delete <branch>` (belt-and-suspenders even if GitHub auto-deletes). Leave the merged PR alone.
+- **"abandon" / "throw it out" / "scrap this"** — close the draft PR with a brief comment explaining the abandonment, `git worktree remove --force <path>`, delete local and remote branches.
+
+## OSS Fork Flow
+
+For unrecognized repos in autonomous mode:
+
+1. Fork to `github.com/dangmai/<repo>` with `gh repo fork` (renames `origin` → your fork, adds `upstream` = original). Use `--remote` so the rename happens in the existing clone.
+2. Push branches to `origin` (the fork). Open draft PRs **against the fork** — never against `upstream` in autonomous mode.
+3. On my final go-ahead, draft the upstream PR (title, body, any referenced issues) and **show it to me for review before publishing**. Only open the upstream PR after my explicit approval.
+4. Branch naming: bare slug, same as personal repos.
+5. Forks stay in place after cleanup unless I explicitly ask you to delete them.
