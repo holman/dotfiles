@@ -43,8 +43,6 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 export DOT=`cd "${DIR}"/.. && pwd`
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/dev
 export GH_ORG_DEFAULT=dangmai
 
 # source every .zsh file in this rep
