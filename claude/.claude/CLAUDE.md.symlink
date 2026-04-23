@@ -59,9 +59,18 @@ I use a `goto` ZSH function to navigate to development projects. It's loaded in 
 
 When you need to enter a repo by name, use `goto <repo>` — don't manually `git clone`. `goto` is the source of truth for my directory layout. For paths you already know (e.g. a worktree directory), use `cd <absolute path>` directly.
 
+## Before Starting Feature Work
+
+When I ask you to **work on / implement / add / build** something, invoke the `grill-me` skill **before** writing code or creating a worktree. Use it to resolve scope, ambiguity, and approach with me up front — don't guess and don't proceed until we've walked the decision tree.
+
+Exceptions (skip grilling, just do the thing):
+- The request is obviously a single-edit fix, rename, or question — those don't trigger worktrees anyway.
+- I explicitly say "no need to grill" / "just do it" / "go ahead".
+- We just finished grilling on this same task in the current session.
+
 ## Worktrees (Feature Work)
 
-Create a worktree when I ask you to **work on / implement / add / build** a feature. Stay in the main checkout for fixes, tweaks, renames, questions, or any single-edit request. If in doubt, ask. Never nest worktrees — if you're already in a worktree, stay there.
+Create a worktree when I ask you to **work on / implement / add / build** a feature (after grilling per the section above). Stay in the main checkout for fixes, tweaks, renames, questions, or any single-edit request. If in doubt, ask. Never nest worktrees — if you're already in a worktree, stay there.
 
 Worktree path: `~/Dev/src/<host>/<org>/<repo>.worktrees/<branch-with-slashes-as-dashes>/`
 
