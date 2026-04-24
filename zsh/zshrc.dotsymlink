@@ -2,7 +2,11 @@ unsetopt nomatch  # to make sure that zsh doesn't stop running when there's no m
 umask 0022  # This is the default for many Linux distros; however WSL defaults to 000, which gets caught by compaudit
 # Oh-my-zsh first, so we can override its functionalities by using our dotfiles
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+if [[ -d /run/current-system/sw/share/oh-my-zsh ]]; then
+  ZSH=/run/current-system/sw/share/oh-my-zsh
+else
+  ZSH=$HOME/.oh-my-zsh
+fi
 ZSH_THEME="pygmalion"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
