@@ -61,12 +61,13 @@ When you need to enter a repo by name, use `goto <repo>` — don't manually `git
 
 ## Before Starting Feature Work
 
-When I ask you to **work on / implement / add / build** something, invoke the `grill-me` skill **before** writing code or creating a worktree. Use it to resolve scope, ambiguity, and approach with me up front — don't guess and don't proceed until we've walked the decision tree.
+When I ask you to **work on / implement / add / build / assist with** something interactively, invoke the `grill-me` skill **before** writing code or creating a worktree. Use it to resolve scope, ambiguity, and approach with me up front — don't guess and don't proceed until we've walked the decision tree.
 
 Exceptions (skip grilling, just do the thing):
 - The request is obviously a single-edit fix, rename, or question — those don't trigger worktrees anyway.
 - I explicitly say "no need to grill" / "just do it" / "go ahead".
 - We just finished grilling on this same task in the current session.
+- The request is in autonomous mode (see *Autonomous Mode* below) — proceed without grilling.
 
 ## Worktrees (Feature Work)
 
@@ -103,7 +104,7 @@ Never fork a work repo to my personal account. Work branches live in the origina
 
 ## Autonomous Mode
 
-Autonomous mode means I'm not watching — you need to leave a durable handoff artifact (a draft PR) so I can pick up when I return.
+Autonomous mode means I'm not watching — you need to leave a durable handoff artifact (a draft PR) so I can pick up when I return. **Skip grilling in this mode** — I'm not available to answer questions, so make reasonable decisions and document them in the PR description.
 
 Triggers — any of:
 - Explicit phrase: "autonomously", "async", "in the background", "while I'm away", "keep going"
@@ -146,6 +147,16 @@ Cleanup is explicit only. Never auto-clean on "I think this is done" — wait fo
 
 - **"clean up" / "done" / "feature complete" / "ship it"** — assumes PR was merged (or is about to be). Verify merge status (or ask). Then: `git worktree remove <path>`, delete local branch, `git push origin --delete <branch>` (belt-and-suspenders even if GitHub auto-deletes). Leave the merged PR alone.
 - **"abandon" / "throw it out" / "scrap this"** — close the draft PR with a brief comment explaining the abandonment, `git worktree remove --force <path>`, delete local and remote branches.
+
+## Session Retrospective
+
+When I signal that work is done (any cleanup trigger above, or explicit "that's it" / "we're done"), reflect on the session before wrapping up:
+
+1. **Identify manual interventions** — places where I stepped in to correct, redirect, undo, or clarify something Claude did. These are signals that the instructions were ambiguous or wrong.
+2. **Suggest concrete CLAUDE.md edits** — for each intervention, propose a specific addition, removal, or rewording to either `~/.claude/CLAUDE.md` (global behavior) or the project's `CLAUDE.md` (project-specific). Quote the proposed text, don't just describe it.
+3. **Be selective** — only surface interventions that suggest a durable rule. Skip one-off judgment calls or things that were already handled by existing rules.
+
+Don't perform this review mid-session or speculatively — only when I explicitly signal completion.
 
 ## OSS Fork Flow
 
