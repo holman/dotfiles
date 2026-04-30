@@ -1,0 +1,20 @@
+{
+  "model": "opus",
+  "agentPushNotifEnabled": true,
+  "permissions": {
+    "allow": [
+      "Bash(sed *)",
+      "Bash(jq *)",
+      "Bash(awk *)",
+      "Bash(echo *)",
+      "Bash(pnpm install*)",
+      "Bash(pnpm test*)",
+      "Bash(terraform plan *)",
+      "Bash(kubectl * get *)",
+      "Bash(kubectl * describe *)"
+    ],
+    "ask": [
+      "Bash(git push *)"
+    ]
+  }
+}
