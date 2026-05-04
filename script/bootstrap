@@ -6,8 +6,6 @@ DOTFILES_ROOT="`pwd`"
 
 set -e
 
-echo ''
-
 info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
 }
@@ -26,6 +24,23 @@ fail () {
   exit
 }
 
+default_action=''
+
+for arg in "$@"; do
+  case "$arg" in
+    --skip-all)      action_flag='skip_all';;
+    --backup-all)    action_flag='backup_all';;
+    --overwrite-all) action_flag='overwrite_all';;
+    *) fail "Unknown argument: $arg";;
+  esac
+  if [ -n "$default_action" ] && [ "$default_action" != "$action_flag" ]; then
+    fail "--skip-all, --backup-all, and --overwrite-all are mutually exclusive"
+  fi
+  default_action="$action_flag"
+done
+
+echo ''
+
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
@@ -37,6 +52,10 @@ install_dotfiles () {
   overwrite_all=false
   backup_all=false
   skip_all=false
+
+  [ "$default_action" = 'overwrite_all' ] && overwrite_all=true
+  [ "$default_action" = 'backup_all' ]    && backup_all=true
+  [ "$default_action" = 'skip_all' ]      && skip_all=true
 
   for source in `find $DOTFILES_ROOT -name \*.\*symlink`
   do
