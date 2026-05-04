@@ -8,3 +8,4 @@ python_env
 .envrc
 mise.local.toml
 mise.*.local.toml
+.claude/worktrees
