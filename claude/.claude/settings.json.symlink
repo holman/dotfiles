@@ -1,6 +1,4 @@
 {
-  "model": "opus",
-  "agentPushNotifEnabled": true,
   "permissions": {
     "allow": [
       "Bash(sed *)",
@@ -16,5 +14,8 @@
     "ask": [
       "Bash(git push *)"
     ]
-  }
+  },
+  "model": "opus",
+  "theme": "auto",
+  "agentPushNotifEnabled": true
 }
