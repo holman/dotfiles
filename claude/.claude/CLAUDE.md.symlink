@@ -79,6 +79,8 @@ Example: branch `PROJ-123/add-feature` in repo `dangmai/foo` → `~/Dev/src/gith
 
 Worktrees are agent-only territory — I work manually in the main checkout, so don't edit the main checkout during feature work.
 
+After creating or locating a worktree, **always use the `EnterWorktree` tool** to switch into it. This ensures file permissions are scoped to the worktree directory and avoids permission prompts for files in the main checkout.
+
 Base new branches off the repo's **default branch** (`gh repo view --json defaultBranchRef -q .defaultBranchRef.name`), not HEAD. This avoids accidentally branching off a dirty or unrelated feature branch.
 
 ## Branch Naming
