@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 
 brew 'atuin'
 brew 'cloudflared'
+brew 'holman/tap/deckk'
 brew 'imagemagick'
 brew 'postgresql@17'
 brew 'redis'
