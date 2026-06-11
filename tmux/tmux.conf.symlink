@@ -1,0 +1,52 @@
+# ~/.tmux.conf — symlinked from dotfiles/tmux/tmux.conf.symlink by script/bootstrap.
+
+# --- General -----------------------------------------------------------------
+
+# Mouse support: click to select panes/windows, drag borders, scroll.
+set -g mouse on
+
+# Start windows and panes at 1, and renumber when one closes.
+set -g base-index 1
+setw -g pane-base-index 1
+set -g renumber-windows on
+
+# Bigger scrollback buffer.
+set -g history-limit 100000
+
+# Don't wait after an escape key (snappier vim).
+set -sg escape-time 10
+
+# True color / 256 color, matching modern terminals (iTerm2, Ghostty).
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+
+# --- Splits ------------------------------------------------------------------
+
+# Split with | (vertical) and - (horizontal), keeping the current path.
+# These are more intuitive than the default " and %.
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+unbind '"'
+unbind %
+
+# New windows open in the current path too.
+bind c new-window -c "#{pane_current_path}"
+
+# --- Pane navigation ---------------------------------------------------------
+
+# vim-style movement between panes.
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Resize panes with prefix + Shift-hjkl (repeatable).
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# --- Misc --------------------------------------------------------------------
+
+# Reload config with prefix + r.
+bind r source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"

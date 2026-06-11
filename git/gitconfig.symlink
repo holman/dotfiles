@@ -16,7 +16,10 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+        editor = code --wait
+[pager]
+        branch = false
+        diff = false
 [apply]
         whitespace = nowarn
 [mergetool]

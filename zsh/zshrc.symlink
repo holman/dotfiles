@@ -1,18 +1,87 @@
-# shortcut to this dotfiles path is $ZSH
+# ============================================================================
+#  ~/.zshrc   (symlinked from dotfiles/zsh/zshrc.symlink by install.sh)
+#
+#  This repo uses the holman *topic loader*: every  <topic>/*.zsh  file is
+#  sourced automatically by the loop at the bottom of this file. So most config
+#  does NOT live here — it lives in topic folders. The banners below map each
+#  concern to where it actually lives, and set up the few things that must run
+#  here, in order (instant prompt, then Oh My Zsh, then the loader).
+# ============================================================================
+
+# === Powerlevel10k instant prompt =========================================
+# Must stay near the top. Anything that prints to the console (e.g. a password
+# prompt) has to run BEFORE this block or p10k will complain. The theme itself
+# is loaded by Oh My Zsh via $ZSH_THEME below (with a fallback in zsh/prompt.zsh).
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# === PATH ==================================================================
+# PATH is assembled by the  <topic>/path.zsh  files, which the loader sources
+# first (system/_path.zsh, homebrew/path.zsh, editors/path.zsh, yarn/path.zsh).
+# $ZSH is the framework root and is referenced throughout the repo (topic files,
+# ~/.gitconfig). Keep it pointed at ~/.dotfiles whenever the loader/aliases run.
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
-# Stash your environment variables in ~/.localrc. This means they'll stay out
-# of your main dotfiles repository (which may be public, like this one), but
-# you'll have access to them in your scripts.
+# Stash machine-local secrets/vars in ~/.localrc (gitignored, never committed).
 if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
 
-# all of our zsh files
+# === Oh My Zsh =============================================================
+# Oh My Zsh hardcodes $ZSH as *its* install dir. The holman framework also uses
+# $ZSH (= ~/.dotfiles), so we borrow $ZSH for the duration of the OMZ source and
+# restore it immediately afterwards for the topic loader below.
+#   - ZSH_THEME wires up Powerlevel10k (cloned into OMZ's custom themes dir).
+#   - The `git` plugin adds its own git aliases; note that git/aliases.zsh is
+#     loaded AFTER this by the topic loader and therefore OVERRIDES any that
+#     collide (e.g. gco, gp, glog). See the README troubleshooting section.
+ZSH_OMZ="$HOME/.oh-my-zsh"
+if [[ -d "$ZSH_OMZ" ]]; then
+  ZSH="$ZSH_OMZ"
+  ZSH_THEME="powerlevel10k/powerlevel10k"   # === Theme ===
+  plugins=(git)
+  source "$ZSH/oh-my-zsh.sh"
+  ZSH="$HOME/.dotfiles"                      # restore framework root
+fi
+unset ZSH_OMZ
+
+# === Aliases ===============================================================
+#   Defined per topic in  <topic>/aliases.zsh , loaded by the loop below:
+#     git/aliases.zsh      gl gp gd gc gca gco gcb gb gs gst gac ge glog
+#     system/aliases.zsh   reload! cls  (+ gls ls/ll fallback when eza absent)
+#     eza/aliases.zsh      ls ll la lt
+#     bat/aliases.zsh      cat
+#     ripgrep/aliases.zsh  grep
+#     lazygit/aliases.zsh  lg
+#     docker/aliases.zsh   d d-c
+#     ruby/aliases.zsh     sc sg sd
+#     xcode/aliases.zsh    ios
+#     system/keys.zsh      pubkey
+
+# === Functions =============================================================
+#   Autoloaded from $ZSH/functions/* (wired in zsh/config.zsh):
+#     gchk   fzf branch picker     gf   checkout & track a remote branch
+#     c      jump to a project     extract  unpack any archive / mount a .dmg
+#   Scripts in $ZSH/bin/ are also on PATH (incl. the git-* subcommands:
+#   `git amend`, `git nuke`, `git up`, `git wtf`, `git undo`, ...).
+
+# === Tools =================================================================
+#   Initialized by their topic env.zsh / path.zsh files (loaded below):
+#     fzf/env.zsh      CTRL-R / CTRL-T / ALT-C + ripgrep-backed file search
+#     zoxide/env.zsh   z / zi  smart directory jumping
+#     atuin/env.zsh    shell history
+#     ruby/rbenv.zsh   rbenv shims
+#     editors/*.zsh    $EDITOR + VS Code `code` on PATH
+
+# ---------------------------------------------------------------------------
+#  holman topic loader — sources every <topic>/*.zsh
+#  (path.zsh first, then everything else, compinit, then completion.zsh last).
+# ---------------------------------------------------------------------------
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 

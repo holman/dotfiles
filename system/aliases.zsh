@@ -1,7 +1,10 @@
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
-if $(gls &>/dev/null)
+#
+# Only used as a fallback: when `eza` is installed it owns ls/ll/la
+# (see eza/aliases.zsh). This guard makes load order between the two irrelevant.
+if ! command -v eza &>/dev/null && $(gls &>/dev/null)
 then
   alias ls="gls -F --color"
   alias l="gls -lAh --color"

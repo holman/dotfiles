@@ -1,0 +1,22 @@
+gchk() {
+  # Fuzzy-pick a git branch (local or remote) with fzf and check it out.
+  # Branches are listed most-recently-committed first; the preview pane shows
+  # the branch's recent log.
+  command -v fzf >/dev/null 2>&1 || { echo "gchk: fzf is not installed" >&2; return 1; }
+
+  local branch
+  branch=$(git branch --all --sort=-committerdate \
+            --format='%(refname:short)' 2>/dev/null \
+            | grep -v '^origin/HEAD' \
+            | fzf --no-multi \
+                  --preview 'git log --oneline --graph --color=always -n 30 {}') || return
+
+  [[ -z "$branch" ]] && return
+
+  # `origin/foo` -> check out a tracking branch `foo`; local names check out as-is.
+  if [[ "$branch" == origin/* ]]; then
+    git checkout "${branch#origin/}"
+  else
+    git checkout "$branch"
+  fi
+}
