@@ -130,6 +130,9 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
+# If code is added later that relies on the current value of IFS, be sure to save it
+# and then restore it after this loop.
+  local IFS=$'\n'
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
