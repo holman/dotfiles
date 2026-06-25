@@ -58,7 +58,7 @@ echo "› brew update"
 brew update
 
 echo "› brew upgrade"
-brew upgrade
+brew upgrade --no-ask
 
 # Install software
 echo "› script/install"
