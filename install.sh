@@ -39,11 +39,14 @@ brew bundle --file="$DOTFILES_ROOT/Brewfile"
 success "Brewfile complete"
 
 # 3. Oh My Zsh ---------------------------------------------------------------
-# RUNZSH=no  -> don't drop us into a new shell mid-install.
-# KEEP_ZSHRC=yes -> don't overwrite the .zshrc we're about to symlink.
+# RUNZSH=no       -> don't drop us into a new shell mid-install.
+# KEEP_ZSHRC=yes  -> don't overwrite the .zshrc we're about to symlink.
+# ZSH=            -> the holman framework exports ZSH=~/.dotfiles, which the
+#                    OMZ installer would interpret as its install dir and bail.
+#                    Clear it for this one command so OMZ defaults to ~/.oh-my-zsh.
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
   info "Installing Oh My Zsh"
-  RUNZSH=no KEEP_ZSHRC=yes \
+  ZSH= RUNZSH=no KEEP_ZSHRC=yes \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
   success "Oh My Zsh already installed"

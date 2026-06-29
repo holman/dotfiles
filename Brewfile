@@ -38,7 +38,7 @@ cask 'ghostty'
 cask 'iterm2'
 cask 'handbrake-app'
 cask 'iina'
-cask 'messenger'
+# cask 'messenger'  # 404 from Meta's download URL — standalone Mac app appears discontinued
 cask 'notion-calendar'
 cask 'plex'
 cask 'quicklook-video'

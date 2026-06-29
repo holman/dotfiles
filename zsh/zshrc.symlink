@@ -45,6 +45,10 @@ if [[ -d "$ZSH_OMZ" ]]; then
   ZSH="$ZSH_OMZ"
   ZSH_THEME="powerlevel10k/powerlevel10k"   # === Theme ===
   plugins=(git)
+  # Homebrew leaves /opt/homebrew/share group-writable; compinit then flags every
+  # completion dir under it as "insecure" on each shell start. Single-user macOS
+  # laptop, brew-owned by us — the audit catches nothing real. Skip it.
+  ZSH_DISABLE_COMPFIX=true
   source "$ZSH/oh-my-zsh.sh"
   ZSH="$HOME/.dotfiles"                      # restore framework root
 fi
