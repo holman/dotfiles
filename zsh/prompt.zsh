@@ -28,7 +28,7 @@ git_dirty() {
 }
 
 git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
+ ref=$($git symbolic-ref HEAD 2>/dev/null) || (echo "detached HEAD" && return)
 # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
@@ -39,7 +39,7 @@ git_prompt_info () {
 need_push () {
   if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
   then
-    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
+    number=$($git cherry -v origin/$(git symbolic-ref --short HEAD 2>/dev/null) 2>/dev/null | wc -l | bc)
 
     if [[ $number == 0 ]]
     then
