@@ -63,23 +63,65 @@ Everything is configured and tweaked within `~/.dotfiles`.
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
 
+That file now reads `DOTFILES` and `ZSH` from your environment if they are
+already set, so the repo is easier to move between machines without editing the
+file itself.
+
 `dot` is a simple script that installs some dependencies, sets sane macOS
 defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
+## update flow
+
+Use `dot` as the high-level refresh command when you want to reconcile your
+machine with the repo:
+
+```bash
+dot
+```
+
+That will apply macOS defaults, make sure Homebrew exists, update Homebrew,
+and run the Homebrew bundle plus the topic installers.
+
+For day-to-day maintenance, the split is usually:
+
+```bash
+brew update
+brew bundle install --file=~/.dotfiles/Brewfile
+brew upgrade
+brew upgrade --cask
+mas upgrade
+sudo softwareupdate -ia
+```
+
+Use `brew upgrade --cask` for GUI apps you want Homebrew to keep aligned,
+and let self-updating apps such as Firefox or Teams update themselves when
+they ship their own updater. In that case Homebrew is still useful to install
+and recover the app, but it is not always the source of truth for the exact
+runtime version.
+
 ## Brewfile
-To install or upgrade apps and utilites from Brewfile
+To install or upgrade apps and utilities from the Brewfile:
 ```bash
 brew bundle install --file=~/.dotfiles/Brewfile
 ```
 
-Upgrade all apps
+Upgrade everything managed by Homebrew:
 ```bash
 brew cu
 ```
 
-You can search for a font or use [mas](https://github.com/mas-cli/mas) as well
+You can also use [mas](https://github.com/mas-cli/mas) for App Store apps.
+
+Homebrew formulae and casks are maintained upstream continuously. In practice,
+that means you should expect new versions to appear regularly, but only after
+your local Homebrew metadata has been refreshed with `brew update` or through
+Homebrew's automatic update mechanism.
+
+For self-updating casks, Homebrew may intentionally skip or defer the upgrade
+if the app already updated itself. That is normal and avoids accidental
+downgrades.
 
 Some more tips on this [link](https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f)
 

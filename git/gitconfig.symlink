@@ -51,3 +51,11 @@
         added = green bold
         changed = yellow bold
         untracked = red bold
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Bart Arribe
+	email = bart.arribe@previa-medical.com
